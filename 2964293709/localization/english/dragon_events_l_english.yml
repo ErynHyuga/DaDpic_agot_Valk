@@ -1,0 +1,99 @@
+﻿l_english:
+ find_dragon_decision:0 "A Voyage to Valyria"
+ find_dragon_decision_title:0 "Search for a Dragon"
+ find_dragon_decision_desc:0 "I've heard rumors that if one sails close enough to Valyria, within the Smoking Seas; one has a high chance of encountering a Dragon! This voyage would cost a tremendous amount of money, but it could be worth the risk; with the power of a dragon there will be none that could stand in my way!"
+ find_dragon_decision_confirm:0 "Set sail!"
+ find_dragon_selection_tooltip:0 "Journey to Valyria and attempt to find a dragon..."
+ 
+ dragon_sieged_me:0 "Razed my lands with a Dragon"
+ dragon_sieged_family:0 "Razed my family's lands with a Dragon"
+ dragon_sieged_family_custom:0 "This vile act will be remembered by their family.."
+ 
+ dragon_event.1001.t:0 "To the Smoking Sea!"
+ dragon_event.1001.a:0 "Come to me!"
+ dragon_event.1001.desc:0 "It's been many weeks at sail in these treacherous seas, and we're about to give up hope. At this point I've little choice, it has been said that in ancient times a worthy dragon rider would shout a Valyrian phrase at the top of their lungs; believing that a Dragon may come to them. Perhaps it's time I try the same."
+ 
+ dragon_event.1002.t:0 "A Dragon Appears!"
+ dragon_event.1002.a:0 "Now, what should I name you?"
+ dragon_event.1002.desc:0 "A small shadow looms over our ship, I can't believe it.. a Dragon! It looks about as big as Tessarion. It's been roaring loudly while encirling our ship, but if it wanted to kill us it already would have. I've done it, I've secured a Dragon! It'll follow us back home, there's much to plan..."
+
+ dragon_event.1003.t:0 "A Dragon Appears!"
+ dragon_event.1003.a:0 "What size! Now, what should I name you?"
+ dragon_event.1003.desc:0 "A large shadow looms over our ship, everyone on board is looking around nervously... Unbelievable! To think such massive Dragons still existed! This Dragon could easily sink our ships and threaten the livelihood of all Westeros... And it's mine! It looks about as big as the famous Caraxes, with a beast as great as this by my side... There's nothing I can't accomplish!"
+
+ dragon_event.tooltip4:0 "You find nothing..."
+ dragon_event.tooltip1:0 "You find a Great Dragon!"
+ dragon_event.tooltip2:0 "You find a Large Dragon!"
+ dragon_event.tooltip3:0 "You find a Small Dragon!"
+
+ dragon_event.1004.t:0 "The Black Dread"
+ dragon_event.1004.a:0 "I wonder what I should name you.."
+ dragon_event.1004.desc:0 "The sea is shaking, and everyone on board is frozen in fear. A massive storm seems to be approaching, at least that's what it looks like. To think such a monster still lived... With wings that completely cover the skies and scales as dark as depths below us, this beast must be as large as the Black Dread himself! It seems to be flying past our ships, in the direction we came from. The Dragon approves of me it seems, is there anyone in Westeros who could ever stand up to me now?"
+
+ dragon_event.2001.t:0 "Fire and Blood"
+ dragon_event.2001.a:0 "These walls are nothing, Dracarys!"
+ dragon_event.2001.b:0 "On second thought, this is far too cruel."
+ dragon_event.2001.desc:0 "How foolish can one be, what are walls to the might of dragon fire? With my command, I could order my dragon to burn these walls to the ground - although it may have quite the devastating effect."
+ dragon_siege_modifier:0 "Recent Dragon Attack"
+ 
+ dragon_event.3004.t:0 "To Be a Dragonlord"
+ dragon_event.3004.desc1:0 "It has finally come time to make use of my Dragon! Many of the feeble lords of Westeros use their birthrights to establish their own petty claims on land. Yet I've no need of such formalities, for I have a Dragon.\n"
+ dragon_event.3004.desc2:0 "\nThe blood of Old Valyria courses through my veins, and atop my Dragon, these lands will be mine. Who will stand in the way of dragonfire?"
+ dragon_event.3004.a:0 "I must act quickly, the time for War is now."
+ 
+ dragon_event.3005.t:0 "The Conqueror Returns"
+ dragon_event.3005.desc1:0 "Centuries ago after the Doom, my ancestor conquered all of Westeros atop the mighty Balerion. Westerosi lords need formalities to argue their petty claims on the meager lands they fight over. Though I need no such thing!\n"
+ dragon_event.3005.desc2:0 "\nThe blood of Old Valyria courses through my veins, the blood of Gods! Like Aegon the Conqueror, I will establish a claim on all of the Seven Kingdoms by the right of my Dragon! For I control the very thing that united Westeros to begin with!\n"
+ dragon_event.3005.desc3:0 "\nSeven Kingdoms but one King, how could they all be made to bend? It's simple: Fire! Fire and Blood!"
+ dragon_event.3005.a:0 "Fire and Blood."
+ 
+ nick_the_conqueror:0 "the Conqueror"
+ nick_the_conqueror_desc:1 "What mightier deed can be writ in the annals than the subjugation of an #EMP entire#! realm? [CharYouSheHe(CHARACTER)|U] certainly won't let people forget [CharYourHerHis(CHARACTER)] accomplishment."
+ 
+ nick_the_dragonlord:0 "the Dragonlord"
+ nick_the_dragonlord_desc:1 "Like [CharYourHerHis(CHARACTER)] ancestor before [CharYouHerHim(CHARACTER)], [CharYouSheHe(CHARACTER)] [CharHaveHas(CHARACTER)] laid claim to the #bold entirety of the Seven Kingdoms#! using [CharYourHerHis(CHARACTER)] right as a Dragonlord. The threat of a Dragonlord is great, and there aren't many living who could ever rival [CharYouHerHim(CHARACTER)]."
+ 
+ use_dragon_in_siege_1:0 "Burn these Walls with your Dragon"
+ use_dragon_in_siege_1_title:0 "Burn these Walls with your Dragon"
+ use_dragon_in_siege_1_desc:0 "With my Dragon these walls are sure to fall.. Though it may come at a price."
+ use_dragon_in_siege_1_confirm:0 "Call your Dragon"
+ use_dragon_in_siege_1_tooltip:0 "Call your Dragon to destroy the walls blocking your path!"
+ 
+ summon_dragon_decision:0 "Call your Small Dragon to battle"
+ summon_dragon_decision_title:0 "Call your Small Dragon to battle"
+ summon_dragon_decision_desc:0 "The time has come to make use of my dragon! Though it is small, it will still prove useful; what could mere men do against a dragon? Unfortunately it refuses to fight unless fed, I'll have to give it quite a meal first..."
+ summon_dragon_decision_confirm:0 "Feed your Dragon"
+ summon_dragon_decision_tooltip:0 "Feed your Dragon to bring it to battle!"
+ 
+ dragon_name:0 "You may name your dragon at anytime."
+ 
+ summon_dragon_decision_2:0 "Call your Large Dragon to battle"
+ summon_dragon_decision_2_title:0 "Call your Large Dragon to battle"
+ summon_dragon_decision_2_desc:0 "The time has come to make use of my dragon! A dragon as large as this is certain to make quick work of any army! Unfortunately it refuses to fight unless fed, I'll have to give it quite a meal first..."
+ summon_dragon_decision_2_confirm:0 "Feed your Dragon"
+ summon_dragon_decision_2_tooltip:0 "Feed your Dragon to bring it to battle!"
+ 
+ summon_dragon_decision_3:0 "Call your Great Dragon to battle"
+ summon_dragon_decision_3_title:0 "Call your Great Dragon to battle"
+ summon_dragon_decision_3_desc:0 "I feel only shock and awe, to think such a magnificent creature is willing to fight for me. The time has come to bring it out into battle, with a beast like this Westeros is sure to fall. Unfortunately feeding it will cost an enormous amount of gold..."
+ summon_dragon_decision_3_confirm:0 "Feed your Dragon"
+ summon_dragon_decision_3_tooltip:0 "Feed your Dragon to bring it to battle!"
+ 
+ dragon_claim_throne:0 "Claim Throne by Right of Dragons"
+ dragon_claim_throne_desc:0 "Claim their primary title using your Dragon"
+ 
+ dragonlord_modifier:0 "Dragonlord"
+ dragonlord_custom:0 "My Dragon aches to be ridden! The time for War is now"
+ dragonlord_claimed_my_title:0 "You used your Dragons to claim my lands"
+ dragonlord_claimed_my_liege:0 "You are a Dragonlord"
+ dragonlord_claimed_family:0 "Rumors of a Dragonlord spread quickly in their family"
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

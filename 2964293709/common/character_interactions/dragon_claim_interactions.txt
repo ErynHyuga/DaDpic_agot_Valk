@@ -1,0 +1,62 @@
+﻿dragon_claim_throne = {
+	category = interaction_category_diplomacy
+	icon = dragon_claim_throne
+	cooldown = { months = 120 }
+	
+	use_diplomatic_range = no
+	
+	desc = dragon_claim_throne_desc
+	
+	is_shown = {
+		scope:actor = { # Must have a dragon equipped and be of Valyrian heritage
+			culture = { has_cultural_pillar = heritage_valyrian }
+			OR = {
+				any_character_artifact = { # You must own a dragon
+					has_artifact_modifier = small_dragon_modifier
+				}
+				any_character_artifact = {
+					has_artifact_modifier = large_dragon_modifier
+				}
+				any_character_artifact = {
+					has_artifact_modifier = black_dragon_modifier
+				}
+			}
+			NOT = { 
+				has_trait = craven # Cannot be fearful
+			}
+		} 
+		scope:recipient = { # Can't use this on the Wall, Prisoners, or low ranking nobles.
+		NOT = {
+			has_government = nights_watch_government
+			is_imprisoned_by = scope:actor
+			highest_held_title_tier < tier_kingdom
+			}
+		NOT = { scope:recipient = scope:actor }
+		}
+	}
+
+	is_highlighted = {
+		always = yes
+	}
+	
+	on_accept = {
+	
+		scope:recipient = {
+			primary_title = {
+				save_scope_as = target_title
+			}
+		}
+	
+		scope:actor = {
+			save_scope_as = claimant
+			
+			dragon_claim_throne_effect = {
+				TARGET = scope:recipient
+				CLAIMANT = scope:actor
+			}
+		}
+	}
+
+	auto_accept = yes
+	
+}

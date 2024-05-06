@@ -1,0 +1,83 @@
+﻿small_dragon = { # Most common Dragon you can find from the event
+	type = dragon
+	can_recruit = { always = no } # Must be spawned from Decision
+	
+	damage = 1000
+	toughness = 1000
+	pursuit = 500	# No one can escape the flames
+	screen = 250	
+	
+	counters = {
+		skirmishers = 1
+		heavy_infantry = 1
+		light_cavalry = 1
+		heavy_cavalry = 1
+	}
+	
+	buy_cost = { gold = 50 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = 1 }
+	
+	max_sub_regiments = 1
+	
+	stack = 100
+	ai_quality = { value = 100 }
+	
+	icon = dragon
+}
+
+large_dragon = { # Very powerful dragon, this is probably enough to annihilate Westeros
+	type = dragon
+	can_recruit = { always = no } # Must be spawned from Decision
+	
+	damage = 2500
+	toughness = 2500
+	pursuit = 1500	# No one can escape the flames
+	screen = 1000	
+	
+	counters = {
+		skirmishers = 1
+		heavy_infantry = 1
+		light_cavalry = 1
+		heavy_cavalry = 1
+	}
+	
+	buy_cost = { gold = 50 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = 1 }
+	
+	max_sub_regiments = 1
+	
+	stack = 100
+	ai_quality = { value = 100 }
+	
+	icon = dragon
+}
+
+black_dragon = { # Balerion the Black Dread, easily conquer all of Westeros; there is no force in the world that would stand up against this.
+	type = dragon
+	can_recruit = { always = no } # Must be spawned from Decision
+	
+	damage = 5000
+	toughness = 5000
+	pursuit = 5000	# No one can escape the flames
+	screen = 2500	
+	
+	counters = {
+		skirmishers = 1
+		heavy_infantry = 1
+		light_cavalry = 1
+		heavy_cavalry = 1
+	}
+	
+	buy_cost = { gold = 50 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = 1 }
+	
+	max_sub_regiments = 1
+	
+	stack = 100
+	ai_quality = { value = 100 }
+	
+	icon = dragon
+}

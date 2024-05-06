@@ -1,0 +1,240 @@
+﻿find_dragon_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_activity.dds"
+	
+	title = find_dragon_decision_title
+	desc = find_dragon_decision_desc
+	
+	major = yes
+
+	cooldown = { days = 100 }
+	
+	cost = {
+		gold = 1000
+	}
+	
+	
+	selection_tooltip = find_dragon_selection_tooltip
+	
+	is_shown = {
+		OR = {
+			dynasty = dynasty:dynn_Targaryen
+			culture = { has_cultural_pillar = heritage_valyrian }
+		}
+	
+		is_ai = no
+	}
+	
+	effect = {
+		trigger_event = {
+			id = dragon_event.1001
+		}
+		show_as_tooltip = {
+			random_list = {
+				10 = {
+					modifier = {
+						root = {
+							has_trait = fire_obsessed
+						}
+						add = 10
+					}
+					modifier = {
+						root = {
+							dynasty = dynasty:dynn_Targaryen
+							has_trait = pure_blooded
+						}
+						add = 400
+					}
+					create_black_dragon_effect = {
+					OWNER = root
+					}
+					
+				}
+				20 = {
+				modifier = {
+						root = {
+							has_trait = fire_obsessed
+						}
+						add = 20
+					}
+				modifier = {
+						root = {
+							dynasty = dynasty:dynn_Targaryen
+							has_trait = pure_blooded
+						}
+						add = -20
+					}
+					create_large_dragon_effect = {
+					OWNER = root
+					}
+					
+				}
+				30 = {
+				modifier = {
+						root = {
+							has_trait = fire_obsessed
+						}
+						add = 30
+					}
+					modifier = {
+						root = {
+							dynasty = dynasty:dynn_Targaryen
+							has_trait = pure_blooded
+						}
+						add = -30
+					}
+					create_small_dragon_effect = {
+					OWNER = root
+					}
+					
+				}
+				50 = {
+				modifier = {
+						root = {
+							has_trait = fire_obsessed
+						}
+						add = -15
+					}
+					modifier = {
+						root = {
+							dynasty = dynasty:dynn_Targaryen
+							has_trait = pure_blooded
+						}
+						add = -30
+					}
+				}
+			}
+		}
+	}
+	
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+
+}
+
+summon_dragon_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	
+	major = yes
+
+	cooldown = { days = 100 }
+	
+	is_shown = {
+		any_equipped_character_artifact = { 
+			has_artifact_modifier = small_dragon_modifier
+		}
+		is_ai = no
+	}
+	
+	cost = {
+		gold = 500
+	}
+	
+	effect = {
+		
+			spawn_army = {
+				men_at_arms = {
+					type = small_dragon
+					stacks = 1
+				}
+				location = root.capital_province
+				inheritable = no
+				name = "Small Dragon"
+			}
+	}
+	
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+
+}
+
+summon_dragon_decision_2 = {
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	
+	major = yes
+
+	cooldown = { days = 150 }
+	
+	cost = {
+		gold = 750
+	}
+	
+	is_shown = {
+		any_equipped_character_artifact = { 
+			has_artifact_modifier = large_dragon_modifier
+		}
+		is_ai = no
+	}
+	
+	effect = {
+		
+			spawn_army = {
+				men_at_arms = {
+					type = large_dragon
+					stacks = 1
+				}
+				location = root.capital_province
+				inheritable = no
+				name = "Large Dragon"
+			}
+	}
+	
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+
+}
+
+summon_dragon_decision_3 = {
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	
+	major = yes
+	
+	cost = {
+		gold = 1000
+	}
+
+	cooldown = { days = 200 }
+	
+	is_shown = {
+		any_equipped_character_artifact = { 
+			has_artifact_modifier = black_dragon_modifier
+		}
+		is_ai = no
+	}
+	
+	effect = {
+		
+			spawn_army = {
+				men_at_arms = {
+					type = black_dragon
+					stacks = 1
+				}
+				location = root.capital_province
+				inheritable = no
+				name = "Great Dragon"
+			}
+	}
+	
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+
+}

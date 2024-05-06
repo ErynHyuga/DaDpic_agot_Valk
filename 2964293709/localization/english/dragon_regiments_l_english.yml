@@ -1,0 +1,13 @@
+﻿l_english:
+ #MaA types
+ dragon:2 "[dragon|E]"
+ game_concept_dragon:0 "Dragons"
+ game_concept_dragon_desc:0 "Dragons are the pinnacle of power. Believed to be mere legends by many, it is said that Aegon was able to conquer all of Westeros with just three great dragons."
+ 
+ #Base MaA
+ small_dragon:0 "Small Dragon"
+ small_dragon_flavor:0 "A relatively small dragon; well, by the standards of a dragon. Despite its size, it's capable of mass destruction."
+ large_dragon:0 "Large Dragon"
+ large_dragon_flavor:0 "A large and powerful dragon, capable of wiping out multiple armies."
+ black_dragon:0 "Great Dragon"
+ black_dragon_flavor:0 "An enormous dragon clad in black scales, almost unkillable. The end of Westeros is near."

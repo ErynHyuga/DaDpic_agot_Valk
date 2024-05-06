@@ -1,0 +1,2385 @@
+﻿namespace = gpt_event_trade
+
+gpt_event_trade.0001 = {
+	type = character_event
+	title = gpt_event_trade.0001.title
+	desc = gpt_event_trade.0001.desc
+	
+	theme = diplomacy_foreign_affairs_focus
+	
+	right_portrait = {
+		character = scope:gpt_seller
+		animation = admiration
+	}
+
+	left_portrait = {
+		character = scope:gpt_buyer
+		animation = idle
+	}
+
+	trigger = {
+		is_landed = yes
+		exists = capital_province
+	}
+
+	option = { # grain/wine
+		name = gpt_event_trade.0001.a
+		ai_chance = { base = 100 }
+
+		trigger = {
+			scope:gpt_seller = {
+				highest_held_title_tier >= 2
+				sub_realm_size >= 4
+			 	OR = {
+					highest_held_title_tier = 5
+					AND = {
+						sub_realm_size <= 8
+						any_sub_realm_county = {
+							percent >= 0.30
+							any_county_province = {
+								OR = {
+									terrain = farmlands
+									terrain = floodplains
+									terrain = oasis
+								}
+							}
+						}
+					}
+					AND = {
+						sub_realm_size <= 16
+						any_sub_realm_county = {
+							percent >= 0.20
+							any_county_province = {
+								OR = {
+									terrain = farmlands
+									terrain = floodplains
+									terrain = oasis
+								}
+							}
+						}
+					}
+					AND = {
+						sub_realm_size >= 32
+						any_sub_realm_county = {
+							percent >= 0.10
+							any_county_province = {
+								OR = {
+									terrain = farmlands
+									terrain = floodplains
+									terrain = oasis
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_grain_wine years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_grain_wine years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_grain_wine years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { # horses/cattle
+		name = gpt_event_trade.0001.b
+		ai_chance = { base = 100 }
+
+		trigger = {
+			scope:gpt_seller = {
+				highest_held_title_tier >= 2
+				sub_realm_size >= 4
+				OR = {
+					AND = {
+						sub_realm_size <= 8
+						any_sub_realm_county = {
+							percent >= 0.70
+							any_county_province = {
+								OR = {
+									terrain = steppe
+									terrain = plains
+								}
+							}
+						}
+					}
+					AND = {
+						sub_realm_size <= 16
+						any_sub_realm_county = {
+							percent >= 0.60
+							any_county_province = {
+								OR = {
+									terrain = steppe
+									terrain = plains
+								}
+							}
+						}
+					}
+					AND = {
+						sub_realm_size >= 32
+						any_sub_realm_county = {
+							percent >= 0.50
+							any_county_province = {
+								OR = {
+									terrain = steppe
+									terrain = plains
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_war_horses years = 5 } }			
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_war_horses years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_war_horses years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { # wood/peat
+		name = gpt_event_trade.0001.c
+		ai_chance = { base = 100 }
+
+		trigger = {
+			scope:gpt_seller = {
+				highest_held_title_tier >= 2
+				sub_realm_size >= 4
+				OR = {
+					AND = {
+						sub_realm_size <= 8
+						any_sub_realm_county = {
+							percent >= 0.70
+							any_county_province = {
+								OR = {
+									terrain = wetlands
+									terrain = forest
+									terrain = taiga
+									terrain = jungle
+								}
+							}
+						}
+					}
+					AND = {
+						sub_realm_size <= 16
+						any_sub_realm_county = {
+							percent >= 0.60
+							any_county_province = {
+								OR = {
+									terrain = wetlands
+									terrain = forest
+									terrain = taiga
+									terrain = jungle
+								}
+							}
+						}
+					}
+					AND = {
+						sub_realm_size >= 32
+						any_sub_realm_county = {
+							percent >= 0.50
+							any_county_province = {
+								OR = {
+									terrain = wetlands
+									terrain = forest
+									terrain = taiga
+									terrain = jungle
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_wood_peat years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_wood_peat years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_wood_peat years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { # metal/stone
+		name = gpt_event_trade.0001.d
+		ai_chance = { base = 100 }
+
+		trigger = {
+			scope:gpt_seller = {
+				highest_held_title_tier >= 2
+				sub_realm_size >= 4
+				OR = {
+					AND = {
+						sub_realm_size <= 8
+						any_sub_realm_county = {
+							percent >= 0.70
+							any_county_province = {
+								OR = {
+									terrain = mountains
+									terrain = desert_mountains
+									terrain = hills
+								}
+							}
+						}
+					}
+					AND = {
+						sub_realm_size <= 16
+						any_sub_realm_county = {
+							percent >= 0.60
+							any_county_province = {
+								OR = {
+									terrain = mountains
+									terrain = desert_mountains
+									terrain = hills
+								}
+							}
+						}
+					}
+					AND = {
+						sub_realm_size >= 32
+						any_sub_realm_county = {
+							percent >= 0.50
+							any_county_province = {
+								OR = {
+									terrain = mountains
+									terrain = desert_mountains
+									terrain = hills
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_stone_metal years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_stone_metal years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_stone_metal years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+
+ 	option = { # pleasure slaves
+		name = gpt_event_trade.0001.e
+		ai_chance = { base = 100 }
+
+		trigger = {
+			scope:gpt_seller = {
+				highest_held_title_tier <= 4
+			 	OR = {
+					government_has_flag = government_is_tribal
+					faith = { has_doctrine_parameter = unreformed }
+					faith = { faith_hostility_level = { target = scope:gpt_buyer.faith value > faith_astray_level } }
+					any_held_title = { recent_history = { type = conquest_holy_war years = 5 } }
+					has_character_flag = gpt_war_for_gold_victory
+				}
+			 	OR = {
+					culture = { has_cultural_pillar = ethos_courtly }
+					culture = { has_cultural_pillar = ethos_bellicose }
+			 	}
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_pleasure_slaves years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_pleasure_slaves years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_pleasure_slaves years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { # domestic slaves
+		name = gpt_event_trade.0001.f
+		ai_chance = { base = 100 }
+
+		trigger = {
+			scope:gpt_seller = {
+				highest_held_title_tier <= 4
+			 	OR = {
+					government_has_flag = government_is_tribal
+					faith = { has_doctrine_parameter = unreformed }
+					faith = { faith_hostility_level = { target = scope:gpt_buyer.faith value > faith_astray_level } }
+					any_held_title = { recent_history = { type = conquest_holy_war years = 5 } }
+					has_character_flag = gpt_war_for_gold_victory
+				}
+			 	OR = {
+					culture = { has_cultural_pillar = ethos_spiritual }
+					culture = { has_cultural_pillar = ethos_egalitarian }
+			 	}
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_domestic_slaves years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_domestic_slaves years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_domestic_slaves years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { # labor slaves
+		name = gpt_event_trade.0001.g
+		ai_chance = { base = 100 }
+
+		trigger = {
+			scope:gpt_seller = {
+				highest_held_title_tier <= 4
+			 	OR = {
+					government_has_flag = government_is_tribal
+					faith = { has_doctrine_parameter = unreformed }
+					faith = { faith_hostility_level = { target = scope:gpt_buyer.faith value > faith_astray_level } }
+					any_held_title = { recent_history = { type = conquest_holy_war years = 5 } }
+					has_character_flag = gpt_war_for_gold_victory
+				}
+			 	OR = {
+					culture = { has_cultural_pillar = ethos_bureaucratic }
+					culture = { has_cultural_pillar = ethos_bellicose }
+			 	}
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_labor_slaves years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_labor_slaves years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_labor_slaves years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { # war spoils
+		name = gpt_event_trade.0001.h
+		ai_chance = { base = 100 }
+
+		trigger = {
+			scope:gpt_seller = {
+				highest_held_title_tier <= 4
+			 	OR = {
+					government_has_flag = government_is_tribal
+					faith = { has_doctrine_parameter = unreformed }
+					faith = { faith_hostility_level = { target = scope:gpt_buyer.faith value > faith_astray_level } }
+					any_held_title = { recent_history = { type = conquest_holy_war years = 5 } }
+					has_character_flag = gpt_war_for_gold_victory
+				}
+			 	OR = {
+					culture = { has_cultural_pillar = ethos_stoic }
+					culture = { has_cultural_pillar = ethos_communal }
+			 	}
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_war_spoils years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_war_spoils years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_war_spoils years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+
+ 	option = { # intrigue
+		name = gpt_event_trade.0001.i
+		ai_chance = { base = 100 }
+
+		trigger = {
+			scope:gpt_seller = {
+				OR = {
+					intrigue >= 24
+					any_vassal_or_below = {
+						highest_held_title_tier >= 2
+						intrigue >= 30
+					}
+				}
+				highest_held_title_tier >= 2
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_intel_reports years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_intel_reports years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_intel_reports years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { # stewardship
+		name = gpt_event_trade.0001.j
+		ai_chance = { base = 100 }
+
+		trigger = {
+			scope:gpt_seller = {
+				OR = {
+					stewardship >= 24
+					any_vassal_or_below = {
+						highest_held_title_tier >= 2
+						stewardship >= 30
+					}
+				}
+				highest_held_title_tier >= 2
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_strategic_goods years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_strategic_goods years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_strategic_goods years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { # diplomacy
+		name = gpt_event_trade.0001.k
+		ai_chance = { base = 100 }
+
+		trigger = {
+			scope:gpt_seller = {
+				OR = {
+					diplomacy >= 24
+					any_vassal_or_below = {
+						highest_held_title_tier >= 2
+						diplomacy >= 30
+					}
+				}
+				highest_held_title_tier >= 2
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_consumer_goods years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_consumer_goods years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_consumer_goods years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { # martial
+		name = gpt_event_trade.0001.l
+		ai_chance = { base = 100 }
+
+		trigger = {
+			scope:gpt_seller = {
+				OR = {
+					martial >= 24
+					any_vassal_or_below = {
+						highest_held_title_tier >= 2
+						martial >= 30
+					}
+				}
+				highest_held_title_tier >= 2
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_army_goods years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_army_goods years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_army_goods years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { # learning
+		name = gpt_event_trade.0001.m
+		ai_chance = { base = 100 }
+
+		trigger = {
+			scope:gpt_seller = {
+				OR = {
+					learning >= 24
+					any_vassal_or_below = {
+						highest_held_title_tier >= 2
+						learning >= 30
+					}
+				}
+				highest_held_title_tier >= 2
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_books_relics years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_books_relics years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_books_relics years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = { # luxury goods
+		name = gpt_event_trade.0001.n
+		ai_chance = { base = 100 }
+
+		trigger = {
+			OR = {
+				AND = {
+					scope:gpt_seller = {
+						NOT = { culture = { has_cultural_era_or_later = culture_era_high_medieval } }
+						capital_province.county = { development_level >= 20 }
+					}
+				}
+				AND = {
+					scope:gpt_seller = {
+						culture = { has_cultural_era_or_later = culture_era_high_medieval }
+						capital_province.county = { development_level >= 30 }
+					}
+				}
+				AND = {
+					scope:gpt_seller = {
+						culture = { has_cultural_era_or_later = culture_era_late_medieval }
+						capital_province.county = { development_level >= 40 }
+					}
+				}
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_luxury_goods years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_luxury_goods years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_luxury_goods years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { # spices
+		name = gpt_event_trade.0001.o
+		ai_chance = { base = 100 }
+
+		trigger = {
+			scope:gpt_seller = {
+				highest_held_title_tier = 5
+				any_sub_realm_county = {
+					count >= 1
+					is_coastal_county = yes
+				}
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_faraway_spices years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_faraway_spices years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_faraway_spices years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { # technology
+		name = gpt_event_trade.0001.p
+		ai_chance = { base = 100 }
+
+		trigger = {
+			OR = {
+				AND = {
+					scope:gpt_seller = { culture = { has_cultural_era_or_later = culture_era_early_medieval } }
+					scope:gpt_buyer = { culture = { has_cultural_era_or_later = culture_era_tribal } }
+					NOT = { scope:gpt_buyer = { culture = { has_cultural_era_or_later = culture_era_early_medieval } } }
+				}
+				AND = {
+					scope:gpt_seller = { culture = { has_cultural_era_or_later = culture_era_high_medieval } }
+					scope:gpt_buyer = { culture = { has_cultural_era_or_later = culture_era_early_medieval } }
+					NOT = { scope:gpt_buyer = { culture = { has_cultural_era_or_later = culture_era_high_medieval } } }
+				}
+				AND = {
+					scope:gpt_seller = { culture = { has_cultural_era_or_later = culture_era_late_medieval } }
+					scope:gpt_buyer = { culture = { has_cultural_era_or_later = culture_era_high_medieval } }
+					NOT = { scope:gpt_buyer = { culture = { has_cultural_era_or_later = culture_era_late_medieval } } }
+				}
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_specialists years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_specialists years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_specialists years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { # rare materials
+		name = gpt_event_trade.0001.q
+		ai_chance = { base = 100 }
+
+		trigger = {
+			scope:gpt_seller = {
+				sub_realm_size >= 100
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_rare_materials years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_rare_materials years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_rare_materials years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = { # medicinal herbs
+		name = gpt_event_trade.0001.r
+		ai_chance = { base = 100 }
+
+		trigger = {
+			OR = {
+				AND = {
+					scope:gpt_seller = {
+						employs_court_position = court_physician_court_position
+						any_court_position_holder = {
+							type = court_physician_court_position
+							aptitude:court_physician_court_position > 3
+						}
+					}
+				}
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_medicinal_herbs years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_medicinal_herbs years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_medicinal_herbs years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { # meat
+		name = gpt_event_trade.0001.s
+		ai_chance = { base = 100 }
+
+		trigger = {
+			OR = {
+				AND = {
+					scope:gpt_seller = {
+						employs_court_position = master_of_hunt_court_position
+						any_court_position_holder = {
+							type = master_of_hunt_court_position
+							aptitude:master_of_hunt_court_position > 3
+						}
+					}
+				}
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_preserved_meat years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_preserved_meat years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_preserved_meat years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { # tools
+		name = gpt_event_trade.0001.t
+		ai_chance = { base = 100 }
+
+		trigger = {
+			OR = {
+				AND = {
+					scope:gpt_seller = {
+						employs_court_position = travel_leader_court_position
+						any_court_position_holder = {
+							type = travel_leader_court_position
+							aptitude:travel_leader_court_position > 3
+						}
+					}
+				}
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_tools years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_tools years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_tools years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+	option = { # arts crafts
+		name = gpt_event_trade.0001.u
+		ai_chance = { base = 100 }
+
+		trigger = {
+			OR = {
+				AND = {
+					scope:gpt_seller = {
+						employs_court_position = court_artificer_court_position
+						any_court_position_holder = {
+							type = court_artificer_court_position
+							aptitude:court_artificer_court_position > 3
+						}
+					}
+				}
+			}
+		}
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_crafts_arts years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_crafts_arts years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_crafts_arts years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = { # common trade goods
+		name = gpt_event_trade.0001.z
+		ai_chance = { base = 20 }
+
+		scope:gpt_buyer = {
+			remove_short_term_gold = gpt_trade_gold_lose
+			pay_short_term_gold = {
+				target = scope:gpt_seller
+				gold = gpt_trade_gold_pay
+			}
+
+			if = {
+				limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+				add_truce_both_ways = {
+					character = scope:recipient
+					years = 5
+					name = TRUCE_ENFORCE_TRUCE
+				}
+			}
+			house = { add_house_modifier = { modifier = gpt_common_trade years = 5 } }
+		}
+
+	 #	stress_impact = {
+	 #		lustful = -15
+	 #	}
+
+		scope:gpt_seller = {
+			add_opinion = {
+				modifier = accepted_trade_opinion
+				target = scope:gpt_buyer
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_buyer = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_buyer_t
+					desc = gpt_trade_buyer_d
+				 #	left_icon = scope:gpt_seller
+					show_as_tooltip = {
+						remove_short_term_gold = gpt_trade_gold_lose
+						pay_short_term_gold = {
+							target = scope:gpt_seller
+							gold = gpt_trade_gold_pay
+						}
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_common_trade years = 5 } }
+						}
+					}
+				}
+			}
+		}
+
+		hidden_effect = {
+			scope:gpt_seller = {
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_trade_seller_t
+					desc = gpt_trade_seller_d
+					left_icon = scope:gpt_buyer
+					show_as_tooltip = {
+						add_gold = gpt_trade_gold_pay
+						scope:gpt_buyer = {
+							if = {
+								limit = { scope:gpt_buyer = { NOR = { is_allied_to = scope:gpt_seller is_vassal_or_below_of = scope:gpt_seller is_liege_or_above_of = scope:gpt_seller } } }
+								add_truce_both_ways = {
+									character = scope:gpt_seller
+									years = 5
+									name = TRUCE_ENFORCE_TRUCE
+								}
+							}
+							house = { add_house_modifier = { modifier = gpt_common_trade years = 5 } }
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,920 @@
+﻿
+feudal_always_title = {
+	picture = gfx/interface/illustrations/decisions/decision_convert_to_feudalism_liege_converted.dds
+
+	title = feudal_always_title_title
+	desc = feudal_always_title_desc
+	selection_tooltip = feudal_always_title_tooltip
+	confirm_text = feudal_always_title_confirm
+	major = yes
+
+	cooldown = { years = 5 }
+
+	is_shown = {
+		has_game_rule = GPT_decisions_enabled
+	 #	has_realm_law_flag = partition_succession_law
+	 	exists = dynasty
+		government_has_flag = government_is_feudal
+		NOT = { culture = { has_cultural_tradition = tradition_horse_lords } }
+	 #	special_succession_witengamot_trigger = no
+	 #	special_succession_thing_trigger = no
+	 #	special_succession_tanistry_trigger = no
+		is_ruler = yes
+		primary_title = {
+			tier >= 4
+			NOR = {
+				has_title_law_flag = advanced_succession_law
+				has_title_law_flag = elective_succession_law
+			}
+		}
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_at_war = no
+	 #	NOT = { culture = { has_innovation = innovation_primogeniture } }
+		highest_held_title_tier >= 4
+		NOR = {
+			has_trait = ambitious
+			has_trait = paranoid
+			has_trait = arbitrary
+		}
+	}
+
+	effect = {
+
+		primary_title = { add_title_law = feudal_elective_succession_law }
+
+		every_vassal = {
+			limit = {
+				government_has_flag = government_is_feudal
+			}
+			add_opinion = {
+				modifier = feudal_always_title_opinion
+				years = 15
+				target = root
+			}
+			custom = feudal_always_title_opinion_tt
+		}
+
+		add_piety = {
+			value = 50
+			multiply = vassal_count
+		}
+		add_stress = 50
+		stress_impact = {
+			content = -50
+			trusting = -50
+			just = -50
+		}
+
+	 #	custom_tooltip = feudal_always_title_tooltip1
+		custom_tooltip = feudal_always_title_tooltip2
+		custom_tooltip = feudal_always_title_tooltip3
+
+		send_interface_message = {
+			type = event_diplomacy_good_with_text
+			title = feudal_title_title
+			desc = feudal_title_desc
+			left_icon = root
+		}
+	}		
+
+	ai_potential = {
+		is_at_war = no
+		highest_held_title_tier = 4
+	}
+
+	ai_check_interval = 36
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			ai_greed <= -100
+			ai_honor >= 100
+			add = 100
+		}
+	}
+}
+
+clan_always_title = {
+	picture = gfx/interface/illustrations/decisions/decision_found_mamluk.dds
+
+	title = clan_always_title_title
+	desc = clan_always_title_desc
+	selection_tooltip = clan_always_title_tooltip
+	confirm_text = clan_always_title_confirm
+	major = yes
+
+	cooldown = { years = 5 }
+
+	is_shown = {
+		has_game_rule = GPT_decisions_enabled
+	 #  has_realm_law_flag = partition_succession_law
+	 	exists = dynasty
+		government_has_flag = government_is_clan
+		NOT = { culture = { has_cultural_tradition = tradition_horse_lords } }
+	 #	special_succession_witengamot_trigger = no
+	 #	special_succession_thing_trigger = no
+	 #	special_succession_tanistry_trigger = no
+		is_ruler = yes
+		primary_title = {
+			tier >= 4
+			NOR = {
+				has_title_law_flag = advanced_succession_law
+				has_title_law_flag = elective_succession_law
+			}
+		}
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_at_war = no
+	 #	NOT = { culture = { has_innovation = innovation_primogeniture } }
+		highest_held_title_tier >= 4
+		NOR = {
+			has_trait = ambitious
+			has_trait = paranoid
+			has_trait = arbitrary
+		}
+	}
+
+	effect = {
+
+		primary_title = { add_title_law = clan_elective_succession_law }
+
+		every_vassal = {
+			limit = {
+				government_has_flag = government_is_clan
+			}
+			add_opinion = {
+				modifier = feudal_always_title_opinion
+				years = 15
+				target = root
+			}
+			custom = clan_always_title_opinion_tt
+		}
+
+		add_piety = {
+			value = 50
+			multiply = vassal_count
+		}
+		add_stress = 50
+		stress_impact = {
+			content = -50
+			trusting = -50
+			just = -50
+		}
+
+	 #	custom_tooltip = clan_always_title_tooltip1
+		custom_tooltip = clan_always_title_tooltip2
+		custom_tooltip = clan_always_title_tooltip3
+
+		send_interface_message = {
+			type = event_diplomacy_good_with_text
+			title = clan_title_title
+			desc = clan_title_desc
+			left_icon = root
+		}
+	}		
+
+	ai_potential = {
+		is_at_war = no
+		highest_held_title_tier = 4
+	}
+
+	ai_check_interval = 36
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			ai_greed <= -100
+			ai_honor >= 100
+			add = 100
+		}
+	}
+}
+
+tribal_always_title = {
+	picture = gfx/interface/illustrations/decisions/decision_secure_high_kingdom_north_sea.dds
+
+	title = tribal_always_title_title
+	desc = tribal_always_title_desc
+	selection_tooltip = tribal_always_title_tooltip
+	confirm_text = tribal_always_title_confirm
+	major = yes
+
+	cooldown = { years = 5 }
+
+	is_shown = {
+		has_game_rule = GPT_decisions_enabled
+	 #  has_realm_law_flag = partition_succession_law
+	 	exists = dynasty
+		government_has_flag = government_is_tribal
+		NOT = { culture = { has_cultural_tradition = tradition_horse_lords } }
+		is_ruler = yes
+		primary_title = {
+			tier >= 4
+			NOR = {
+				has_title_law_flag = advanced_succession_law
+				has_title_law_flag = elective_succession_law
+			}
+		}
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_at_war = no
+	 #	NOT = { culture = { has_innovation = innovation_primogeniture } }
+		highest_held_title_tier >= 4
+		NOR = {
+			has_trait = ambitious
+			has_trait = paranoid
+			has_trait = arbitrary
+		}
+	}
+
+	effect = {
+
+		primary_title = { add_title_law = gpt_tribal_elective_succession_law }
+
+		every_vassal = {
+			limit = {
+				government_has_flag = government_is_tribal
+			}
+			add_opinion = {
+				modifier = feudal_always_title_opinion
+				years = 15
+				target = root
+			}
+			custom = tribal_always_title_opinion_tt
+		}
+
+		add_piety = {
+			value = 50
+			multiply = vassal_count
+		}
+		add_stress = 50
+		stress_impact = {
+			content = -50
+			trusting = -50
+			just = -50
+		}
+
+	 #	custom_tooltip = tribal_always_title_tooltip1
+		custom_tooltip = tribal_always_title_tooltip2
+		custom_tooltip = tribal_always_title_tooltip3
+
+		send_interface_message = {
+			type = event_diplomacy_good_with_text
+			title = tribal_title_title
+			desc = tribal_title_desc
+			left_icon = root
+		}
+	}		
+
+	ai_potential = {
+		is_at_war = no
+		highest_held_title_tier = 4
+	}
+
+	ai_check_interval = 36
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			ai_greed <= -100
+			ai_honor >= 100
+			add = 100
+		}
+	}
+}
+
+nomadic_always_title = {
+	picture = gfx/interface/illustrations/decisions/decision_genghis_khan.dds
+
+	title = nomadic_always_title_title
+	desc = nomadic_always_title_desc
+	selection_tooltip = nomadic_always_title_tooltip
+	confirm_text = nomadic_always_title_confirm
+	major = yes
+
+	cooldown = { years = 5 }
+
+	is_shown = {
+		has_game_rule = GPT_decisions_enabled
+	 #	has_realm_law_flag = partition_succession_law
+	 	exists = dynasty
+		culture = { has_cultural_tradition = tradition_horse_lords }
+		special_succession_witengamot_trigger = no
+		special_succession_thing_trigger = no
+		special_succession_tanistry_trigger = no
+		is_ruler = yes
+		primary_title = {
+			tier >= 4
+			NOR = {
+				has_title_law_flag = advanced_succession_law
+				has_title_law_flag = elective_succession_law
+			}
+		}
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_at_war = no
+		highest_held_title_tier >= 4
+		NOR = {
+			has_trait = ambitious
+			has_trait = paranoid
+			has_trait = arbitrary
+		}
+	}
+
+	effect = {
+
+		primary_title = {
+			add_title_law = confederate_elective_succession_law
+		}
+
+		every_vassal = {
+			limit = {
+				culture = { has_cultural_tradition = tradition_horse_lords }
+			}
+			add_opinion = {
+				modifier = feudal_always_title_opinion
+				years = 15
+				target = root
+			}
+			custom = nomadic_always_title_opinion_tt
+		}
+
+		add_prestige = {
+			value = 50
+			multiply = vassal_count
+		}
+		add_stress = 50
+		stress_impact = {
+			content = -50
+			trusting = -50
+			just = -50
+		}
+
+	 #	custom_tooltip = nomadic_always_title_tooltip1
+		custom_tooltip = nomadic_always_title_tooltip2
+		custom_tooltip = nomadic_always_title_tooltip3
+
+		send_interface_message = {
+			type = event_diplomacy_good_with_text
+			title = nomadic_title_title
+			desc = nomadic_title_desc
+			left_icon = root
+		}
+	}		
+
+	ai_potential = {
+		is_at_war = no
+	}
+
+	ai_check_interval = 36
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			ai_greed <= -100
+			ai_honor >= 100
+			add = 100
+		}
+	}
+}
+
+
+
+
+
+gpt_parochial_title = {
+	picture = gfx/interface/illustrations/decisions/decision_diligent_development_focus.dds
+
+	title = gpt_parochial_title_title
+	desc = gpt_parochial_title_desc
+	selection_tooltip = gpt_parochial_title_tooltip
+	confirm_text = gpt_parochial_title_confirm
+	major = yes
+
+	cooldown = { years = 10 }
+
+	is_shown = {
+		has_game_rule = GPT_trade_enabled
+		is_ruler = yes
+	 #	has_realm_law_flag = partition_succession_law
+	 	exists = dynasty
+		NOR = { 
+			government_has_flag = government_is_tribal
+			government_has_flag = government_is_theocracy
+			government_has_flag = government_is_republic
+		}
+		NOT = { culture = { has_cultural_tradition = tradition_horse_lords } }
+		NOT = { government_has_flag = government_is_tribal }
+		primary_title = {
+			tier >= 4
+			NOR = {
+				has_title_law_flag = advanced_succession_law
+				has_title_law_flag = elective_succession_law
+			}
+		}
+		OR = {
+			has_character_modifier = gpt_parochials_dem
+			has_character_modifier = gpt_parochials_sup
+			has_character_modifier = gpt_parochials_neg
+		}
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_at_war = no
+		highest_held_title_tier >= 4
+		NOR = {
+			has_trait = ambitious
+			has_trait = paranoid
+			has_trait = arbitrary
+			has_trait = lazy
+		}
+	}
+
+	effect = {
+
+		primary_title = {
+			add_title_law = gpt_republican_succession_law
+		}
+
+		every_vassal = {
+			limit = {
+				has_vassal_stance = parochial
+			}
+			add_opinion = {
+				modifier = gpt_stance_title_opinion
+				years = 20
+				target = root
+			}
+			custom = gpt_parochial_title_opinion_tt
+		}
+
+		add_stress = 50
+		stress_impact = {
+			content = -50
+			trusting = -50
+			just = -50
+			diligent = -100
+		}
+
+		add_gold = {
+			value = 50
+			multiply = vassal_count
+		}
+
+		custom_tooltip = gpt_parochial_title_tooltip2
+		custom_tooltip = gpt_parochial_title_tooltip3
+
+		send_interface_message = {
+			type = event_diplomacy_good_with_text
+			title = gpt_parochial_title_t
+			desc = gpt_parochial_desc_d
+			left_icon = root
+		}
+	}
+	
+	cost = { prestige = 500 } 		
+
+	ai_potential = {
+		is_at_war = no
+	}
+
+	ai_check_interval = 36
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+gpt_theocratic_title = {
+	picture = gfx/interface/illustrations/decisions/decision_establish_norman_culture.dds
+
+	title = gpt_theocratic_title_title
+	desc = gpt_theocratic_title_desc
+	selection_tooltip = gpt_theocratic_title_tooltip
+	confirm_text = gpt_theocratic_title_confirm
+	major = yes
+
+	cooldown = { years = 10 }
+
+	is_shown = {
+		has_game_rule = GPT_trade_enabled
+		is_ruler = yes
+	 #	has_realm_law_flag = partition_succession_law
+	 	exists = dynasty
+		NOR = { 
+			government_has_flag = government_is_tribal
+			government_has_flag = government_is_theocracy
+			government_has_flag = government_is_republic
+		}
+		NOT = { culture = { has_cultural_tradition = tradition_horse_lords } }
+		NOT = { government_has_flag = government_is_tribal }
+		primary_title = {
+			tier >= 4
+			NOR = {
+				has_title_law_flag = advanced_succession_law
+				has_title_law_flag = elective_succession_law
+			}
+		}
+		OR = {
+			has_character_modifier = gpt_zealot_sup
+			has_character_modifier = gpt_zealot_dem
+			has_character_modifier = gpt_zealot_neg
+		}
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_at_war = no
+		highest_held_title_tier >= 4
+		NOR = {
+			has_trait = ambitious
+			has_trait = paranoid
+			has_trait = arbitrary
+			has_trait = cynical
+		}
+	}
+
+	effect = {
+
+		primary_title = {
+			add_title_law = gpt_theocratic_succession_law
+		}
+
+		every_vassal = {
+			limit = {
+				has_vassal_stance = zealot
+			}
+			add_opinion = {
+				modifier = gpt_stance_title_opinion
+				years = 20
+				target = root
+			}
+			custom = gpt_theocratic_title_opinion_tt
+		}
+
+		add_piety = {
+			value = 100
+			multiply = vassal_count
+		}
+
+		add_stress = 50
+		stress_impact = {
+			content = -50
+			trusting = -50
+			just = -50
+			zealous = -100
+		}
+
+		custom_tooltip = gpt_theocratic_title_tooltip2
+		custom_tooltip = gpt_theocratic_title_tooltip3
+
+		send_interface_message = {
+			type = event_diplomacy_good_with_text
+			title = gpt_theocratic_title_t
+			desc = gpt_theocratic_desc_d
+			left_icon = root
+		}
+	}
+	
+	cost = { prestige = 500 } 		
+
+	ai_potential = {
+		is_at_war = no
+	}
+
+	ai_check_interval = 36
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+gpt_autocratic_title = {
+	picture = gfx/interface/illustrations/decisions/decision_restore_roman_empire_italian.dds
+
+	title = gpt_autocratic_title_title
+	desc = gpt_autocratic_title_desc
+	selection_tooltip = gpt_autocratic_title_tooltip
+	confirm_text = gpt_autocratic_title_confirm
+	major = yes
+
+	cooldown = { years = 10 }
+
+	is_shown = {
+		has_game_rule = GPT_trade_enabled
+		is_ruler = yes
+	 #	has_realm_law_flag = partition_succession_law
+	 	exists = dynasty
+		NOR = { 
+			government_has_flag = government_is_tribal
+			government_has_flag = government_is_theocracy
+			government_has_flag = government_is_republic
+		}
+		NOT = { culture = { has_cultural_tradition = tradition_horse_lords } }
+		NOT = { government_has_flag = government_is_tribal }
+		primary_title = {
+			tier >= 4
+			NOR = {
+				has_title_law_flag = advanced_succession_law
+				has_title_law_flag = elective_succession_law
+			}
+		}
+		OR = {
+			has_character_modifier = gpt_glory_hounds_dem
+			has_character_modifier = gpt_glory_hounds_sup
+			has_character_modifier = gpt_glory_hounds_neg
+		}
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_at_war = no
+		highest_held_title_tier >= 4
+		NOR = {
+			has_trait = ambitious
+			has_trait = paranoid
+			has_trait = arbitrary
+			has_trait = craven
+		}
+	}
+
+	effect = {
+
+		primary_title = {
+			add_title_law = gpt_autocratic_succession_law
+		}
+
+		every_vassal = {
+			limit = {
+				has_vassal_stance = glory_hound
+			}
+			add_opinion = {
+				modifier = gpt_stance_title_opinion
+				years = 20
+				target = root
+			}
+			custom = gpt_autocratic_title_opinion_tt
+		}
+
+		if = {
+			limit = {
+				exists = capital_province
+			}
+			spawn_army = {
+				levies = {
+					value = 0
+					add = {
+						value = 100
+						multiply = vassal_count
+					}
+				}
+				location = capital_province
+				inheritable = no
+				name = gpt_private_army
+			}
+		}
+
+		add_stress = 50
+		stress_impact = {
+			content = -50
+			trusting = -50
+			just = -50
+			brave = -100
+		}
+
+		custom_tooltip = gpt_autocratic_title_tooltip2
+		custom_tooltip = gpt_autocratic_title_tooltip3
+
+		send_interface_message = {
+			type = event_diplomacy_good_with_text
+			title = gpt_autocratic_title_t
+			desc = gpt_autocratic_desc_d
+			left_icon = root
+		}
+	}
+	
+	cost = { prestige = 500 } 		
+
+	ai_potential = {
+		is_at_war = no
+	}
+
+	ai_check_interval = 36
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+gpt_aristocratic_title = {
+	picture = gfx/interface/illustrations/decisions/decision_form_portugal.dds
+
+	title = gpt_aristocratic_title_title
+	desc = gpt_aristocratic_title_desc
+	selection_tooltip = gpt_aristocratic_title_tooltip
+	confirm_text = gpt_aristocratic_title_confirm
+	major = yes
+
+	cooldown = { years = 10 }
+
+	is_shown = {
+		has_game_rule = GPT_trade_enabled
+		is_ruler = yes
+	 #	has_realm_law_flag = partition_succession_law
+	 	exists = dynasty
+		NOR = { 
+			government_has_flag = government_is_tribal
+			government_has_flag = government_is_theocracy
+			government_has_flag = government_is_republic
+		}
+		NOT = { culture = { has_cultural_tradition = tradition_horse_lords } }
+		NOT = { government_has_flag = government_is_tribal }
+		primary_title = {
+			tier >= 4
+			NOR = {
+				has_title_law_flag = advanced_succession_law
+				has_title_law_flag = elective_succession_law
+			}
+		}
+		OR = {
+			has_character_modifier = gpt_courtly_dem
+			has_character_modifier = gpt_courtly_sup
+			has_character_modifier = gpt_courtly_neg
+		}
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_at_war = no
+		highest_held_title_tier >= 4
+		NOR = {
+			has_trait = ambitious
+			has_trait = paranoid
+			has_trait = arbitrary
+			has_trait = humble
+		}
+	}
+
+	effect = {
+
+		primary_title = {
+			add_title_law = gpt_aristocratic_succession_law
+		}
+
+		every_vassal = {
+			limit = {
+				has_vassal_stance = courtly
+			}
+			add_opinion = {
+				modifier = gpt_stance_title_opinion
+				years = 20
+				target = root
+			}
+			custom = gpt_aristocratic_title_opinion_tt
+		}
+
+	 	dynasty = { add_dynasty_prestige = 300 }
+
+		add_stress = 50
+		stress_impact = {
+			content = -50
+			trusting = -50
+			just = -50
+			arrogant = -100
+		}
+
+		custom_tooltip = gpt_aristocratic_title_tooltip2
+		custom_tooltip = gpt_aristocratic_title_tooltip3
+
+		send_interface_message = {
+			type = event_diplomacy_good_with_text
+			title = gpt_aristocratic_title_t
+			desc = gpt_aristocratic_desc_d
+			left_icon = root
+		}
+	}
+	
+	cost = { prestige = 500 } 		
+
+	ai_potential = {
+		is_at_war = no
+	}
+
+	ai_check_interval = 36
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+gpt_democratic_title = {
+	picture = gfx/interface/illustrations/decisions/decision_unite_africa.dds
+
+	title = gpt_democratic_title_title
+	desc = gpt_democratic_title_desc
+	selection_tooltip = gpt_democratic_title_tooltip
+	confirm_text = gpt_democratic_title_confirm
+	major = yes
+
+	cooldown = { years = 10 }
+
+	is_shown = {
+		has_game_rule = GPT_trade_enabled
+		is_ruler = yes
+	 #	has_realm_law_flag = partition_succession_law
+	 	exists = dynasty
+		NOR = { 
+			government_has_flag = government_is_tribal
+			government_has_flag = government_is_theocracy
+			government_has_flag = government_is_republic
+		}
+		NOT = { culture = { has_cultural_tradition = tradition_horse_lords } }
+		NOT = { government_has_flag = government_is_tribal }
+		primary_title = {
+			tier >= 4
+			NOR = {
+				has_title_law_flag = advanced_succession_law
+				has_title_law_flag = elective_succession_law
+			}
+		}
+		OR = {
+			has_character_modifier = gpt_minority_dem
+			has_character_modifier = gpt_minority_sup
+			has_character_modifier = gpt_minority_neg
+		}
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_at_war = no
+		highest_held_title_tier >= 4
+		NOR = {
+			has_trait = ambitious
+			has_trait = paranoid
+			has_trait = arbitrary
+			has_trait = callous
+		}
+	}
+
+	effect = {
+
+		primary_title = {
+			add_title_law = gpt_democratic_succession_law
+		}
+
+		every_vassal = {
+			limit = {
+				has_vassal_stance = minority
+			}
+			add_opinion = {
+				modifier = gpt_stance_title_opinion
+				years = 20
+				target = root
+			}
+			custom = gpt_democratic_title_opinion_tt
+		}
+
+		add_trait = peasant_leader
+
+		add_stress = 50
+		stress_impact = {
+			content = -50
+			trusting = -50
+			just = -50
+			compassionate = -100
+		}
+
+		custom_tooltip = gpt_democratic_title_tooltip2
+		custom_tooltip = gpt_democratic_title_tooltip3
+		custom_tooltip = gpt_democratic_title_tooltip4
+
+		send_interface_message = {
+			type = event_diplomacy_good_with_text
+			title = gpt_democratic_title_t
+			desc = gpt_democratic_desc_d
+			left_icon = root
+		}
+	}
+	
+	cost = { prestige = 500 } 		
+
+	ai_potential = {
+		is_at_war = no
+	}
+
+	ai_check_interval = 36
+
+	ai_will_do = {
+		base = 0
+	}
+}

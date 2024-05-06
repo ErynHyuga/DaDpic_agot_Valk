@@ -1,0 +1,1241 @@
+# Standard Values
+@pos_compat_high = 10
+@pos_compat_medium = 5
+@pos_compat_low = 2.5
+
+@neg_compat_high = -10
+@neg_compat_medium = -5
+@neg_compat_low = -2.5
+
+mbti_intj_6 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intp_6
+		mbti_entj_6
+		mbti_entp_6
+		mbti_infj_6
+		mbti_infp_6
+		mbti_enfj_6
+		mbti_enfp_6
+		mbti_istj_6
+		mbti_isfj_6
+		mbti_estj_6
+		mbti_esfj_6
+		mbti_istp_6
+		mbti_isfp_6
+		mbti_estp_6
+		mbti_esfp_6
+	}
+
+ 	#	I / E
+ 	movement_speed_land_raiding = 0.10
+ 	ai_sociability = -15
+ 	ai_honor = 15
+ 	knight_effectiveness_mult = -0.10
+ #	ai_sociability = 15
+ #	ai_honor = -15
+
+ 	#	S / N
+ 	character_travel_speed = 10
+ #	ai_greed = 15
+ #	ai_vengefulness = -15
+ 	prowess = 8
+ 	travel_danger = 5
+ 	ai_greed = -15
+ 	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	dread_baseline_add = 20
+ 	ai_rationality = 15
+ 	ai_zeal = -15
+ 	tyranny_gain_mult = 0.16
+ #	ai_rationality = -15
+ #	ai_zeal = 15
+
+ 	#	J / P
+ 	army_pursuit_mult = 0.20
+ 	ai_boldness = 15
+ 	ai_energy = -15
+ 	army_toughness_mult = -0.20
+ #	ai_boldness = -15
+ #	ai_energy = 15
+
+
+
+	# diplomacy = 4
+	# martial = 4
+
+	ruler_designer_cost = 20
+
+	icon = highbornnomad.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intj_6_desc
+			}
+			desc = trait_intj_6_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_intp_6 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_6
+		mbti_entj_6
+		mbti_entp_6
+		mbti_infj_6
+		mbti_infp_6
+		mbti_enfj_6
+		mbti_enfp_6
+		mbti_istj_6
+		mbti_isfj_6
+		mbti_estj_6
+		mbti_esfj_6
+		mbti_istp_6
+		mbti_isfp_6
+		mbti_estp_6
+		mbti_esfp_6
+	}
+
+ 	#	I / E
+ 	movement_speed_land_raiding = 0.10
+ 	ai_sociability = -15
+ 	ai_honor = 15
+ 	knight_effectiveness_mult = -0.10
+ #	ai_sociability = 15
+ #	ai_honor = -15
+
+ 	#	S / N
+ 	character_travel_speed = 10
+ #	ai_greed = 15
+ #	ai_vengefulness = -15
+ 	prowess = 8
+ 	travel_danger = 5
+ 	ai_greed = -15
+ 	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	dread_baseline_add = 20
+ 	ai_rationality = 15
+ 	ai_zeal = -15
+ 	tyranny_gain_mult = 0.16
+ #	ai_rationality = -15
+ #	ai_zeal = 15
+
+ 	#	J / P
+ 	army_pursuit_mult = 0.10
+ #	ai_boldness = 15
+ #	ai_energy = -15
+ 	army_toughness_mult = -0.10
+ 	ai_boldness = -15
+ 	ai_energy = 15
+
+	# learning = 4
+	# stewardship= 4
+
+	ruler_designer_cost = 20
+
+	icon = highbornnomad.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intp_6_desc
+			}
+			desc = trait_intp_6_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_entj_6 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_6
+		mbti_intp_6
+		mbti_entp_6
+		mbti_infj_6
+		mbti_infp_6
+		mbti_enfj_6
+		mbti_enfp_6
+		mbti_istj_6
+		mbti_isfj_6
+		mbti_estj_6
+		mbti_esfj_6
+		mbti_istp_6
+		mbti_isfp_6
+		mbti_estp_6
+		mbti_esfp_6
+	}
+
+ 	#	I / E
+ 	movement_speed_land_raiding = 0.20
+ #	ai_sociability = -15
+ #	ai_honor = 15
+ 	knight_effectiveness_mult = -0.20
+ 	ai_sociability = 15
+ 	ai_honor = -15
+
+ 	#	S / N
+ 	character_travel_speed = 10
+ #	ai_greed = 15
+ #	ai_vengefulness = -15
+ 	prowess = 8
+ 	travel_danger = 5
+ 	ai_greed = -15
+ 	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	dread_baseline_add = 20
+ 	ai_rationality = 15
+ 	ai_zeal = -15
+ 	tyranny_gain_mult = 0.16
+ #	ai_rationality = -15
+ #	ai_zeal = 15
+
+ 	#	J / P
+ 	army_pursuit_mult = 0.20
+ 	ai_boldness = 15
+ 	ai_energy = -15
+ 	army_toughness_mult = -0.20
+ #	ai_boldness = -15
+ #	ai_energy = 15
+
+ 	# martial = 4
+	# intrigue = 4
+
+	ruler_designer_cost = 20
+
+	icon = highbornnomad.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_entj_6_desc
+			}
+			desc = trait_entj_6_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_entp_6 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_6
+		mbti_intp_6
+		mbti_entj_6
+		mbti_infj_6
+		mbti_infp_6
+		mbti_enfj_6
+		mbti_enfp_6
+		mbti_istj_6
+		mbti_isfj_6
+		mbti_estj_6
+		mbti_esfj_6
+		mbti_istp_6
+		mbti_isfp_6
+		mbti_estp_6
+		mbti_esfp_6
+	}
+
+ 	#	I / E
+ 	movement_speed_land_raiding = 0.20
+ #	ai_sociability = -15
+ #	ai_honor = 15
+ 	knight_effectiveness_mult = -0.20
+ 	ai_sociability = 15
+ 	ai_honor = -15
+
+ 	#	S / N
+ 	character_travel_speed = 10
+ #	ai_greed = 15
+ #	ai_vengefulness = -15
+ 	prowess = 8
+ 	travel_danger = 5
+ 	ai_greed = -15
+ 	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	dread_baseline_add = 20
+ 	ai_rationality = 15
+ 	ai_zeal = -15
+ 	tyranny_gain_mult = 0.16
+ #	ai_rationality = -15
+ #	ai_zeal = 15
+
+ 	#	J / P
+ 	army_pursuit_mult = 0.10
+ #	ai_boldness = 15
+ #	ai_energy = -15
+ 	army_toughness_mult = -0.10
+ 	ai_boldness = -15
+ 	ai_energy = 15
+
+	# stewardship= 4
+	# intrigue = 4
+
+	ruler_designer_cost = 20
+
+	icon = highbornnomad.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_entp_6_desc
+			}
+			desc = trait_entp_6_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_infj_6 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_6
+		mbti_intp_6
+		mbti_entj_6
+		mbti_entp_6
+		mbti_infp_6
+		mbti_enfj_6
+		mbti_enfp_6
+		mbti_istj_6
+		mbti_isfj_6
+		mbti_estj_6
+		mbti_esfj_6
+		mbti_istp_6
+		mbti_isfp_6
+		mbti_estp_6
+		mbti_esfp_6
+	}
+
+ 	#	I / E
+ 	movement_speed_land_raiding = 0.10
+ 	ai_sociability = -15
+ 	ai_honor = 15
+ 	knight_effectiveness_mult = -0.10
+ #	ai_sociability = 15
+ #	ai_honor = -15
+
+ 	#	S / N
+ 	character_travel_speed = 10
+ #	ai_greed = 15
+ #	ai_vengefulness = -15
+ 	prowess = 8
+ 	travel_danger = 5
+ 	ai_greed = -15
+ 	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	dread_baseline_add = 10
+ #	ai_rationality = 15
+ #	ai_zeal = -15
+ 	tyranny_gain_mult = 0.08
+ 	ai_rationality = -15
+ 	ai_zeal = 15
+
+ 	#	J / P
+ 	army_pursuit_mult = 0.20
+ 	ai_boldness = 15
+ 	ai_energy = -15
+ 	army_toughness_mult = -0.20
+ #	ai_boldness = -15
+ #	ai_energy = 15
+
+	# diplomacy = 4
+	# intrigue = 4
+
+	ruler_designer_cost = 20
+
+	icon = highbornnomad.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infj_6_desc
+			}
+			desc = trait_infj_6_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_infp_6 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_6
+		mbti_intp_6
+		mbti_entj_6
+		mbti_entp_6
+		mbti_infj_6
+		mbti_enfj_6
+		mbti_enfp_6
+		mbti_istj_6
+		mbti_isfj_6
+		mbti_estj_6
+		mbti_esfj_6
+		mbti_istp_6
+		mbti_isfp_6
+		mbti_estp_6
+		mbti_esfp_6
+	}
+
+ 	#	I / E
+ 	movement_speed_land_raiding = 0.10
+ 	ai_sociability = -15
+ 	ai_honor = 15
+ 	knight_effectiveness_mult = -0.10
+ #	ai_sociability = 15
+ #	ai_honor = -15
+
+ 	#	S / N
+ 	character_travel_speed = 10
+ #	ai_greed = 15
+ #	ai_vengefulness = -15
+ 	prowess = 8
+ 	travel_danger = 5
+ 	ai_greed = -15
+ 	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	dread_baseline_add = 10
+ #	ai_rationality = 15
+ #	ai_zeal = -15
+ 	tyranny_gain_mult = 0.08
+ 	ai_rationality = -15
+ 	ai_zeal = 15
+
+ 	#	J / P
+ 	army_pursuit_mult = 0.10
+ #	ai_boldness = 15
+ #	ai_energy = -15
+ 	army_toughness_mult = -0.10
+ 	ai_boldness = -15
+ 	ai_energy = 15
+
+	# learning = 4
+	# diplomacy = 4
+
+	ruler_designer_cost = 20
+
+	icon = highbornnomad.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infp_6_desc
+			}
+			desc = trait_infp_6_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_enfj_6 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_6
+		mbti_intp_6
+		mbti_entj_6
+		mbti_entp_6
+		mbti_infj_6
+		mbti_infp_6
+		mbti_enfp_6
+		mbti_istj_6
+		mbti_isfj_6
+		mbti_estj_6
+		mbti_esfj_6
+		mbti_istp_6
+		mbti_isfp_6
+		mbti_estp_6
+		mbti_esfp_6
+	}
+
+ 	#	I / E
+ 	movement_speed_land_raiding = 0.20
+ #	ai_sociability = -15
+ #	ai_honor = 15
+ 	knight_effectiveness_mult = -0.20
+ 	ai_sociability = 15
+ 	ai_honor = -15
+
+ 	#	S / N
+ 	character_travel_speed = 10
+ #	ai_greed = 15
+ #	ai_vengefulness = -15
+ 	prowess = 8
+ 	travel_danger = 5
+ 	ai_greed = -15
+ 	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	dread_baseline_add = 10
+ #	ai_rationality = 15
+ #	ai_zeal = -15
+ 	tyranny_gain_mult = 0.08
+ 	ai_rationality = -15
+ 	ai_zeal = 15
+
+ 	#	J / P
+ 	army_pursuit_mult = 0.20
+ 	ai_boldness = 15
+ 	ai_energy = -15
+ 	army_toughness_mult = -0.20
+ #	ai_boldness = -15
+ #	ai_energy = 15
+
+	# diplomacy = 4
+	# prowess = 8
+
+	ruler_designer_cost = 20
+
+	icon = highbornnomad.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_enfj_6_desc
+			}
+			desc = trait_enfj_6_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_enfp_6 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_6
+		mbti_intp_6
+		mbti_entj_6
+		mbti_entp_6
+		mbti_infj_6
+		mbti_infp_6
+		mbti_enfj_6
+		mbti_istj_6
+		mbti_isfj_6
+		mbti_estj_6
+		mbti_esfj_6
+		mbti_istp_6
+		mbti_isfp_6
+		mbti_estp_6
+		mbti_esfp_6
+	}
+
+ 	#	I / E
+ 	movement_speed_land_raiding = 0.20
+ #	ai_sociability = -15
+ #	ai_honor = 15
+ 	knight_effectiveness_mult = -0.20
+ 	ai_sociability = 15
+ 	ai_honor = -15
+
+ 	#	S / N
+ 	character_travel_speed = 10
+ #	ai_greed = 15
+ #	ai_vengefulness = -15
+ 	prowess = 8
+ 	travel_danger = 5
+ 	ai_greed = -15
+ 	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	dread_baseline_add = 10
+ #	ai_rationality = 15
+ #	ai_zeal = -15
+ 	tyranny_gain_mult = 0.08
+ 	ai_rationality = -15
+ 	ai_zeal = 15
+
+ 	#	J / P
+ 	army_pursuit_mult = 0.10
+ #	ai_boldness = 15
+ #	ai_energy = -15
+ 	army_toughness_mult = -0.10
+ 	ai_boldness = -15
+ 	ai_energy = 15
+
+	# intrigue = 4
+	# learning = 4
+
+	ruler_designer_cost = 20
+
+	icon = highbornnomad.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_enfp_6_desc
+			}
+			desc = trait_enfp_6_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_istj_6 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_6
+		mbti_intp_6
+		mbti_entj_6
+		mbti_entp_6
+		mbti_infj_6
+		mbti_infp_6
+		mbti_enfj_6
+		mbti_enfp_6
+		mbti_isfj_6
+		mbti_estj_6
+		mbti_esfj_6
+		mbti_istp_6
+		mbti_isfp_6
+		mbti_estp_6
+		mbti_esfp_6
+	}
+
+ 	#	I / E
+ 	movement_speed_land_raiding = 0.10
+ 	ai_sociability = -15
+ 	ai_honor = 15
+ 	knight_effectiveness_mult = -0.10
+ #	ai_sociability = 15
+ #	ai_honor = -15
+
+ 	#	S / N
+ 	character_travel_speed = 20
+ 	ai_greed = 15
+ 	ai_vengefulness = -15
+ 	prowess = 4
+ 	travel_danger = 10
+ #	ai_greed = -15
+ #	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	dread_baseline_add = 20
+ 	ai_rationality = 15
+ 	ai_zeal = -15
+ 	tyranny_gain_mult = 0.16
+ #	ai_rationality = -15
+ #	ai_zeal = 15
+
+ 	#	J / P
+ 	army_pursuit_mult = 0.20
+ 	ai_boldness = 15
+ 	ai_energy = -15
+ 	army_toughness_mult = -0.20
+ #	ai_boldness = -15
+ #	ai_energy = 15
+
+	# stewardship= 4
+	# prowess = 8
+
+	ruler_designer_cost = 20
+
+	icon = highbornnomad.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istj_6_desc
+			}
+			desc = trait_istj_6_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_isfj_6 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_6
+		mbti_intp_6
+		mbti_entj_6
+		mbti_entp_6
+		mbti_infj_6
+		mbti_infp_6
+		mbti_enfj_6
+		mbti_enfp_6
+		mbti_istj_6
+		mbti_estj_6
+		mbti_esfj_6
+		mbti_istp_6
+		mbti_isfp_6
+		mbti_estp_6
+		mbti_esfp_6
+	}
+
+ 	#	I / E
+ 	movement_speed_land_raiding = 0.10
+ 	ai_sociability = -15
+ 	ai_honor = 15
+ 	knight_effectiveness_mult = -0.10
+ #	ai_sociability = 15
+ #	ai_honor = -15
+
+ 	#	S / N
+ 	character_travel_speed = 20
+ 	ai_greed = 15
+ 	ai_vengefulness = -15
+ 	prowess = 4
+ 	travel_danger = 10
+ #	ai_greed = -15
+ #	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	dread_baseline_add = 10
+ #	ai_rationality = 15
+ #	ai_zeal = -15
+ 	tyranny_gain_mult = 0.08
+ 	ai_rationality = -15
+ 	ai_zeal = 15
+
+ 	#	J / P
+ 	army_pursuit_mult = 0.20
+ 	ai_boldness = 15
+ 	ai_energy = -15
+ 	army_toughness_mult = -0.20
+ #	ai_boldness = -15
+ #	ai_energy = 15
+
+	# stewardship= 4
+	# learning = 4
+
+	ruler_designer_cost = 20
+
+	icon = highbornnomad.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_isfj_6_desc
+			}
+			desc = trait_isfj_6_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_estj_6 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_6
+		mbti_intp_6
+		mbti_entj_6
+		mbti_entp_6
+		mbti_infj_6
+		mbti_infp_6
+		mbti_enfj_6
+		mbti_enfp_6
+		mbti_istj_6
+		mbti_isfj_6
+		mbti_esfj_6
+		mbti_istp_6
+		mbti_isfp_6
+		mbti_estp_6
+		mbti_esfp_6
+	}
+
+ 	#	I / E
+ 	movement_speed_land_raiding = 0.20
+ #	ai_sociability = -15
+ #	ai_honor = 15
+ 	knight_effectiveness_mult = -0.20
+ 	ai_sociability = 15
+ 	ai_honor = -15
+
+ 	#	S / N
+ 	character_travel_speed = 20
+ 	ai_greed = 15
+ 	ai_vengefulness = -15
+ 	prowess = 4
+ 	travel_danger = 10
+ #	ai_greed = -15
+ #	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	dread_baseline_add = 20
+ 	ai_rationality = 15
+ 	ai_zeal = -15
+ 	tyranny_gain_mult = 0.16
+ #	ai_rationality = -15
+ #	ai_zeal = 15
+
+ 	#	J / P
+ 	army_pursuit_mult = 0.20
+ 	ai_boldness = 15
+ 	ai_energy = -15
+ 	army_toughness_mult = -0.20
+ #	ai_boldness = -15
+ #	ai_energy = 15
+
+	# stewardship= 4
+	# martial = 4
+
+	ruler_designer_cost = 20
+
+	icon = highbornnomad.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_estj_6_desc
+			}
+			desc = trait_estj_6_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_esfj_6 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_6
+		mbti_intp_6
+		mbti_entj_6
+		mbti_entp_6
+		mbti_infj_6
+		mbti_infp_6
+		mbti_enfj_6
+		mbti_enfp_6
+		mbti_istj_6
+		mbti_isfj_6
+		mbti_estj_6
+		mbti_istp_6
+		mbti_isfp_6
+		mbti_estp_6
+		mbti_esfp_6
+	}
+
+ 	#	I / E
+ 	movement_speed_land_raiding = 0.20
+ #	ai_sociability = -15
+ #	ai_honor = 15
+ 	knight_effectiveness_mult = -0.20
+ 	ai_sociability = 15
+ 	ai_honor = -15
+
+ 	#	S / N
+ 	character_travel_speed = 20
+ 	ai_greed = 15
+ 	ai_vengefulness = -15
+ 	prowess = 4
+ 	travel_danger = 10
+ #	ai_greed = -15
+ #	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	dread_baseline_add = 10
+ #	ai_rationality = 15
+ #	ai_zeal = -15
+ 	tyranny_gain_mult = 0.08
+ 	ai_rationality = -15
+ 	ai_zeal = 15
+
+ 	#	J / P
+ 	army_pursuit_mult = 0.20
+ 	ai_boldness = 15
+ 	ai_energy = -15
+ 	army_toughness_mult = -0.20
+ #	ai_boldness = -15
+ #	ai_energy = 15
+
+	# diplomacy = 4
+	# stewardship= 4
+
+	ruler_designer_cost = 20
+
+	icon = highbornnomad.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esfj_6_desc
+			}
+			desc = trait_esfj_6_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_istp_6 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_6
+		mbti_intp_6
+		mbti_entj_6
+		mbti_entp_6
+		mbti_infj_6
+		mbti_infp_6
+		mbti_enfj_6
+		mbti_enfp_6
+		mbti_istj_6
+		mbti_isfj_6
+		mbti_estj_6
+		mbti_esfj_6
+		mbti_isfp_6
+		mbti_estp_6
+		mbti_esfp_6
+	}
+
+ 	#	I / E
+ 	movement_speed_land_raiding = 0.10
+ 	ai_sociability = -15
+ 	ai_honor = 15
+ 	knight_effectiveness_mult = -0.10
+ #	ai_sociability = 15
+ #	ai_honor = -15
+
+ 	#	S / N
+ 	character_travel_speed = 20
+ 	ai_greed = 15
+ 	ai_vengefulness = -15
+ 	prowess = 4
+ 	travel_danger = 10
+ #	ai_greed = -15
+ #	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	dread_baseline_add = 20
+ 	ai_rationality = 15
+ 	ai_zeal = -15
+ 	tyranny_gain_mult = 0.16
+ #	ai_rationality = -15
+ #	ai_zeal = 15
+
+ 	#	J / P
+ 	army_pursuit_mult = 0.10
+ #	ai_boldness = 15
+ #	ai_energy = -15
+ 	army_toughness_mult = -0.10
+ 	ai_boldness = -15
+ 	ai_energy = 15
+
+	# learning = 4
+	# intrigue = 4
+
+	ruler_designer_cost = 20
+
+	icon = highbornnomad.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istp_6_desc
+			}
+			desc = trait_istp_6_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_isfp_6 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_6
+		mbti_intp_6
+		mbti_entj_6
+		mbti_entp_6
+		mbti_infj_6
+		mbti_infp_6
+		mbti_enfj_6
+		mbti_enfp_6
+		mbti_istj_6
+		mbti_isfj_6
+		mbti_estj_6
+		mbti_esfj_6
+		mbti_istp_6
+		mbti_estp_6
+		mbti_esfp_6
+	}
+
+ 	#	I / E
+ 	movement_speed_land_raiding = 0.10
+ 	ai_sociability = -15
+ 	ai_honor = 15
+ 	knight_effectiveness_mult = -0.10
+ #	ai_sociability = 15
+ #	ai_honor = -15
+
+ 	#	S / N
+ 	character_travel_speed = 20
+ 	ai_greed = 15
+ 	ai_vengefulness = -15
+ 	prowess = 4
+ 	travel_danger = 10
+ #	ai_greed = -15
+ #	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	dread_baseline_add = 10
+ #	ai_rationality = 15
+ #	ai_zeal = -15
+ 	tyranny_gain_mult = 0.08
+ 	ai_rationality = -15
+ 	ai_zeal = 15
+
+ 	#	J / P
+ 	army_pursuit_mult = 0.10
+ #	ai_boldness = 15
+ #	ai_energy = -15
+ 	army_toughness_mult = -0.10
+ 	ai_boldness = -15
+ 	ai_energy = 15
+
+	# learning = 4
+	# prowess = 8
+
+	ruler_designer_cost = 20
+
+	icon = highbornnomad.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_isfp_6_desc
+			}
+			desc = trait_isfp_6_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_estp_6 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_6
+		mbti_intp_6
+		mbti_entj_6
+		mbti_entp_6
+		mbti_infj_6
+		mbti_infp_6
+		mbti_enfj_6
+		mbti_enfp_6
+		mbti_istj_6
+		mbti_isfj_6
+		mbti_estj_6
+		mbti_esfj_6
+		mbti_istp_6
+		mbti_isfp_6
+		mbti_esfp_6
+	}
+
+ 	#	I / E
+ 	movement_speed_land_raiding = 0.20
+ #	ai_sociability = -15
+ #	ai_honor = 15
+ 	knight_effectiveness_mult = -0.20
+ 	ai_sociability = 15
+ 	ai_honor = -15
+
+ 	#	S / N
+ 	character_travel_speed = 20
+ 	ai_greed = 15
+ 	ai_vengefulness = -15
+ 	prowess = 4
+ 	travel_danger = 10
+ #	ai_greed = -15
+ #	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	dread_baseline_add = 20
+ 	ai_rationality = 15
+ 	ai_zeal = -15
+ 	tyranny_gain_mult = 0.16
+ #	ai_rationality = -15
+ #	ai_zeal = 15
+
+ 	#	J / P
+ 	army_pursuit_mult = 0.10
+ #	ai_boldness = 15
+ #	ai_energy = -15
+ 	army_toughness_mult = -0.10
+ 	ai_boldness = -15
+ 	ai_energy = 15
+
+	# martial = 4
+	# prowess = 8
+
+	ruler_designer_cost = 20
+
+	icon = highbornnomad.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_estp_6_desc
+			}
+			desc = trait_estp_6_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_esfp_6 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_6
+		mbti_intp_6
+		mbti_entj_6
+		mbti_entp_6
+		mbti_infj_6
+		mbti_infp_6
+		mbti_enfj_6
+		mbti_enfp_6
+		mbti_istj_6
+		mbti_isfj_6
+		mbti_estj_6
+		mbti_esfj_6
+		mbti_istp_6
+		mbti_isfp_6
+		mbti_estp_6
+	}
+ 	#	I / E
+ 	movement_speed_land_raiding = 0.20
+ #	ai_sociability = -15
+ #	ai_honor = 15
+ 	knight_effectiveness_mult = -0.20
+ 	ai_sociability = 15
+ 	ai_honor = -15
+
+ 	#	S / N
+ 	character_travel_speed = 20
+ 	ai_greed = 15
+ 	ai_vengefulness = -15
+ 	prowess = 4
+ 	travel_danger = 10
+ #	ai_greed = -15
+ #	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	dread_baseline_add = 10
+ #	ai_rationality = 15
+ #	ai_zeal = -15
+ 	tyranny_gain_mult = 0.08
+ 	ai_rationality = -15
+ 	ai_zeal = 15
+
+ 	#	J / P
+ 	army_pursuit_mult = 0.10
+ #	ai_boldness = 15
+ #	ai_energy = -15
+ 	army_toughness_mult = -0.10
+ 	ai_boldness = -15
+ 	ai_energy = 15
+
+	# intrigue = 4
+	# diplomacy = 4
+
+	ruler_designer_cost = 20
+
+	icon = highbornnomad.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esfp_6_desc
+			}
+			desc = trait_esfp_6_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}

@@ -1,0 +1,190 @@
+﻿
+
+
+## DREADFUL decisions
+
+dread_buff_lustful_modifier = {
+	icon = activity_witch_ritual_positive
+    seduce_scheme_power_add = 30
+    elope_scheme_power_add = 30
+    sway_scheme_power_add = 30
+    befriend_scheme_power_add = 30
+	general_opinion = 25
+	clergy_opinion = -25
+	courtier_and_guest_opinion = 25
+	enemy_hostile_scheme_success_chance_add = 20
+}
+
+dread_buff_greedy_modifier = {
+	icon = activity_witch_ritual_positive
+    monthly_income = 10
+	clergy_opinion = -25
+    learn_language_scheme_power_mult = 0.3
+    max_learn_language_schemes_add = 1
+}
+
+dread_buff_ambitious_modifier = {
+	icon = activity_witch_ritual_positive
+	monthly_income_mult = 0.1
+	liege_opinion = 25
+	fellow_vassal_opinion = 15
+	scheme_discovery_chance_mult = -0.5
+	enemy_hostile_scheme_success_chance_add = 20
+}
+
+dread_buff_gluttonous_modifier = {
+	icon = activity_witch_ritual_positive
+	court_grandeur_baseline_add = 5
+	character_capital_county_monthly_development_growth_add = 1
+	development_growth_factor = -0.25 
+	county_opinion_add = -25
+	clergy_opinion = -10
+}
+
+dread_buff_arbitrary_modifier = {
+	icon = activity_witch_ritual_positive
+	prowess = 6
+	mercenary_hire_cost_mult = -0.25
+	same_culture_mercenary_hire_cost_mult = -0.25
+	holy_order_hire_cost_mult = 0.50
+	general_opinion = -10
+	councillor_opinion = -10
+}
+
+dread_buff_cynical_modifier = {
+	icon = activity_witch_ritual_positive
+	monthly_county_control_growth_factor = 0.3
+	county_opinion_add = 25
+	levy_reinforcement_rate_same_faith = 0.5
+	different_faith_opinion = -25
+	monthly_piety_gain_per_dread_add = 0.15
+	powerful_vassal_opinion = -15
+}
+
+dread_buff_deceitful_modifier = {
+	icon = activity_witch_ritual_positive
+	cultural_head_fascination_mult = 0.25
+	monthly_lifestyle_xp_gain_mult = 0.25
+	independent_ruler_opinion = -25
+	personal_scheme_power_mult = 0.25
+	counter_efficiency = 0.25
+	pursue_efficiency = 0.25
+}
+
+dread_buff_callous_modifier = {
+	icon = activity_witch_ritual_positive
+	build_gold_cost = -0.30
+	build_prestige_cost = -0.30
+	army_maintenance_mult = -0.10
+	clergy_opinion = -15
+	monthly_piety_gain_mult = -0.3
+}
+
+dread_buff_sadistic_modifier = {
+	icon = activity_witch_ritual_positive
+	holy_order_hire_cost_mult = 1
+	owned_hostile_scheme_success_chance_add = 25
+	max_hostile_schemes_add = 1
+	general_opinion = -25
+}
+
+dread_buff_arrogant_modifier = {
+	icon = activity_witch_ritual_positive
+	court_grandeur_baseline_add = 5
+	fellow_vassal_opinion = 20
+	vassal_opinion = 20
+	liege_opinion = -20
+	attraction_opinion = 20
+	monthly_income_mult = -0.05
+}
+
+dread_buff_vengeful_modifier = {
+	icon = activity_witch_ritual_positive
+	abduct_scheme_power_add = 25
+    murder_scheme_power_add = 25
+    claim_throne_scheme_power_add = 25
+    fabricate_hook_scheme_power_add = 25
+	close_relative_opinion = -45
+	courtier_and_guest_opinion = -35
+	councillor_opinion = -25
+	liege_opinion = -15
+	vassal_opinion = -5
+}
+
+dread_buff_lazy_modifier = {
+	icon = activity_witch_ritual_positive
+	knight_effectiveness_mult = 0.5
+	knight_limit = 2
+	monthly_piety_gain_per_knight_add = 0.5
+	general_opinion = -15
+}
+
+
+#### CHANCELLOR MODDIFIERS ####
+
+legacy_chancellor10_modifier_dread = {
+	icon = dread_diplo
+	diplomacy_per_stress_level = 5
+	title_creation_cost_mult = -0.25
+	tyranny_gain_mult = -0.25
+	independent_ruler_opinion = 25
+	vassal_opinion = -10
+}
+
+#### STEWARD MODDIFIERS ####
+
+legacy_steward10_modifier_dread = {
+	icon = dread_stw
+	stewardship_per_stress_level = 5
+	monthly_dynasty_prestige = 1.5
+	monthly_dynasty_prestige_mult = 0.25
+	dynasty_opinion = 10
+	vassal_opinion = -10
+}
+
+#### CHAPLAIN MODDIFIERS ####
+
+legacy_chaplain10_modifier_dread = {
+	icon = dread_learning
+	learning_per_stress_level = 5
+	domain_tax_same_faith_mult = 0.2
+	levy_reinforcement_rate_same_faith = 0.5
+	court_grandeur_baseline_add = 4
+	clergy_opinion = 15
+	vassal_opinion = -10
+}
+
+#### SPYMASTER MODDIFIERS ####
+
+legacy_spymaster10_modifier_dread = {
+	icon = dread_intrigue
+	intrigue_per_stress_level = 5
+	dread_baseline_add = 10
+	monthly_lifestyle_xp_gain_mult = 0.25
+	scheme_discovery_chance_mult = 0.5
+	vassal_opinion = -10
+}
+
+#### MARSHAL MODDIFIERS ####
+
+legacy_marshal10_modifier_dread = {
+	icon = dread_martial
+	martial_per_stress_level = 5
+	cultural_head_fascination_mult = 0.15
+	supply_duration = 0.25
+	siege_weapon_siege_value_mult = 0.25
+	army_maintenance_mult = -0.15
+	vassal_opinion = -10
+}
+
+#### Prowess MODDIFIERS ####
+
+legacy_prowess10_modifier_dread = {
+	icon = dread_prowess
+	prowess_per_stress_level = 5
+	monthly_county_control_growth_factor = 0.5
+	county_opinion_add = 25
+	knight_limit = 2
+	enemy_hostile_scheme_success_chance_add = 10
+	vassal_opinion = -10
+}

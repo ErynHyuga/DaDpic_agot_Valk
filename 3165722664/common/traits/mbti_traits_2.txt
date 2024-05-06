@@ -1,0 +1,1386 @@
+# Standard Values
+@pos_compat_high = 12
+@pos_compat_medium = 6
+@pos_compat_low = 3
+
+@neg_compat_high = -12
+@neg_compat_medium = -6
+@neg_compat_low = -3
+
+mbti_intj_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_intp_2
+		mbti_entj_2
+		mbti_entp_2
+		mbti_infj_2
+		mbti_infp_2
+		mbti_enfj_2
+		mbti_enfp_2
+		mbti_istj_2
+		mbti_isfj_2
+		mbti_estj_2
+		mbti_esfj_2
+		mbti_istp_2
+		mbti_isfp_2
+		mbti_estp_2
+		mbti_esfp_2
+	}
+
+	# Dread / Peace
+ #	dread_baseline_add = 10
+ 	personal_scheme_power_mult = 0.10
+ 	dread_baseline_add = -10
+ #	personal_scheme_power_mult = -0.10
+
+ 	#	I / E
+ 	parochial_opinion = 10
+ 	glory_hound_opinion = -10
+ 	ai_sociability = -10 #ai
+ 	ai_honor = 10 #ai
+
+ 	#	S / N
+ 	barons_and_minor_landholders_opinion = -10 #ai
+ 	courtly_opinion = 10
+ 	ai_greed = -10 #ai
+ 	ai_vengefulness = 10 #ai
+	
+ 	#	T / F
+ 	zealot_opinion = 10
+ 	minority_opinion = -10	
+ 	ai_zeal = 10 #ai
+ 	ai_compassion = -10 #ai
+
+ 	#	J / P
+ 	councillor_opinion = 10
+ 	dynasty_opinion = -10
+ 	ai_boldness = 10 #ai
+ 	ai_rationality = -10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_intj_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intj_2_desc
+			}
+			desc = trait_intj_2_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @neg_compat_low
+		gluttonous = @neg_compat_low
+		greedy = @pos_compat_low
+		diligent = @pos_compat_high
+		calm = @pos_compat_low
+		patient = @pos_compat_medium
+		arrogant = @pos_compat_medium
+		honest = @pos_compat_medium
+		shy = @pos_compat_medium
+		ambitious = @pos_compat_low
+		zealous = @neg_compat_low
+		fickle = @neg_compat_medium
+	}
+}
+
+mbti_intp_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_intj_2
+		mbti_entj_2
+		mbti_entp_2
+		mbti_infj_2
+		mbti_infp_2
+		mbti_enfj_2
+		mbti_enfp_2
+		mbti_istj_2
+		mbti_isfj_2
+		mbti_estj_2
+		mbti_esfj_2
+		mbti_istp_2
+		mbti_isfp_2
+		mbti_estp_2
+		mbti_esfp_2
+	}
+
+	# Dread / Peace
+ #	dread_baseline_add = 10
+ 	personal_scheme_power_mult = 0.10
+ 	dread_baseline_add = -10
+ #	personal_scheme_power_mult = -0.10
+
+ 	#	I / E
+ 	parochial_opinion = 10
+ 	glory_hound_opinion = -10
+ 	ai_sociability = -10 #ai
+ 	ai_honor = 10 #ai
+
+ 	#	S / N
+ 	barons_and_minor_landholders_opinion = -10 #ai
+ 	courtly_opinion = 10
+ 	ai_greed = -10 #ai
+ 	ai_vengefulness = 10 #ai
+	
+ 	#	T / F
+ 	zealot_opinion = 10
+ 	minority_opinion = -10	
+ 	ai_zeal = 10 #ai
+ 	ai_compassion = -10 #ai
+
+ 	#	J / P
+ 	councillor_opinion = -10
+ 	dynasty_opinion = 10
+ 	ai_boldness = -10 #ai
+ 	ai_energy = 10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_intp_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intp_2_desc
+			}
+			desc = trait_intp_2_character_desc
+		}
+	}
+
+	compatibility = {
+		temperate = @pos_compat_low
+		generous = @neg_compat_low
+		diligent = @pos_compat_low
+		calm = @pos_compat_low
+		impatient = @pos_compat_medium
+		humble = @pos_compat_low
+		honest = @pos_compat_medium
+		gregarious = @neg_compat_medium
+		content = @neg_compat_medium
+		arbitrary = @pos_compat_low
+		cynical = @neg_compat_low
+		paranoid = @pos_compat_medium
+		callous = @pos_compat_low
+		stubborn = @pos_compat_low
+		vengeful = @pos_compat_low
+	}
+}
+
+mbti_entj_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_intj_2
+		mbti_intp_2
+		mbti_entp_2
+		mbti_infj_2
+		mbti_infp_2
+		mbti_enfj_2
+		mbti_enfp_2
+		mbti_istj_2
+		mbti_isfj_2
+		mbti_estj_2
+		mbti_esfj_2
+		mbti_istp_2
+		mbti_isfp_2
+		mbti_estp_2
+		mbti_esfp_2
+	}
+
+	# Dread / Peace
+ 	dread_baseline_add = 10
+ #	personal_scheme_power_mult = 0.10
+ #	dread_baseline_add = -10
+ 	personal_scheme_power_mult = -0.10
+
+ 	#	I / E
+ 	parochial_opinion = -10
+ 	glory_hound_opinion = 10
+ 	ai_sociability = 10 #ai
+ 	ai_honor = -10 #ai
+
+ 	#	S / N
+ 	barons_and_minor_landholders_opinion = -10 #ai
+ 	courtly_opinion = 10
+ 	ai_greed = -10 #ai
+ 	ai_vengefulness = 10 #ai
+	
+ 	#	T / F
+ 	zealot_opinion = 10
+ 	minority_opinion = -10	
+ 	ai_zeal = 10 #ai
+ 	ai_compassion = -10 #ai
+
+ 	#	J / P
+ 	councillor_opinion = 10
+ 	dynasty_opinion = -10
+ 	ai_boldness = 10 #ai
+ 	ai_rationality = -10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_entj_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_entj_2_desc
+			}
+			desc = trait_entj_2_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @pos_compat_low
+		temperate = @pos_compat_low
+		greedy = @pos_compat_medium
+		lazy = @neg_compat_high
+		wrathful = @pos_compat_low
+		impatient = @pos_compat_high
+		humble = @neg_compat_medium
+		deceitful = @neg_compat_low
+		craven = @neg_compat_medium
+		shy = @neg_compat_medium
+		ambitious = @pos_compat_high
+		arbitrary = @neg_compat_medium
+		zealous = @pos_compat_medium
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_medium
+		stubborn = @pos_compat_medium
+		forgiving = @neg_compat_low
+	}
+}
+
+mbti_entp_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_intj_2
+		mbti_intp_2
+		mbti_entj_2
+		mbti_infj_2
+		mbti_infp_2
+		mbti_enfj_2
+		mbti_enfp_2
+		mbti_istj_2
+		mbti_isfj_2
+		mbti_estj_2
+		mbti_esfj_2
+		mbti_istp_2
+		mbti_isfp_2
+		mbti_estp_2
+		mbti_esfp_2
+	}
+
+	# Dread / Peace
+ 	dread_baseline_add = 10
+ #	personal_scheme_power_mult = 0.10
+ #	dread_baseline_add = -10
+ 	personal_scheme_power_mult = -0.10
+
+ 	#	I / E
+ 	parochial_opinion = -10
+ 	glory_hound_opinion = 10
+ 	ai_sociability = 10 #ai
+ 	ai_honor = -10 #ai
+
+ 	#	S / N
+ 	barons_and_minor_landholders_opinion = -10 #ai
+ 	courtly_opinion = 10
+ 	ai_greed = -10 #ai
+ 	ai_vengefulness = 10 #ai
+	
+ 	#	T / F
+ 	zealot_opinion = 10
+ 	minority_opinion = -10	
+ 	ai_zeal = 10 #ai
+ 	ai_compassion = -10 #ai
+
+ 	#	J / P
+ 	dynasty_opinion = 10
+ 	councillor_opinion = -10	
+ 	ai_boldness = -10 #ai
+ 	ai_rationality = 10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_entp_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_entp_2_desc
+			}
+			desc = trait_entp_2_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_low
+		generous = @pos_compat_low
+		calm = @neg_compat_low
+		patient = @neg_compat_low
+		humble = @neg_compat_low
+		honest = @neg_compat_low
+		brave = @pos_compat_low
+		shy = @neg_compat_high
+		content = @neg_compat_medium
+		arbitrary = @neg_compat_medium
+		zealous = @pos_compat_medium
+		trusting = @neg_compat_medium
+		compassionate = @neg_compat_low
+		sadistic = @neg_compat_medium
+		fickle = @pos_compat_medium
+		vengeful = @neg_compat_low
+	}
+}
+
+mbti_infj_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_intj_2
+		mbti_intp_2
+		mbti_entj_2
+		mbti_entp_2
+		mbti_infp_2
+		mbti_enfj_2
+		mbti_enfp_2
+		mbti_istj_2
+		mbti_isfj_2
+		mbti_estj_2
+		mbti_esfj_2
+		mbti_istp_2
+		mbti_isfp_2
+		mbti_estp_2
+		mbti_esfp_2
+	}
+
+	# Dread / Peace
+ #	dread_baseline_add = 10
+ 	personal_scheme_power_mult = 0.10
+ 	dread_baseline_add = -10
+ #	personal_scheme_power_mult = -0.10
+
+ 	#	I / E
+ 	parochial_opinion = 10
+ 	glory_hound_opinion = -10
+ 	ai_sociability = -10 #ai
+ 	ai_honor = 10 #ai
+
+ 	#	S / N
+ 	barons_and_minor_landholders_opinion = -10 #ai
+ 	courtly_opinion = 10
+ 	ai_greed = -10 #ai
+ 	ai_vengefulness = 10 #ai
+	
+ 	#	T / F
+ 	zealot_opinion = -10 #
+ 	minority_opinion = 10 #	
+ 	ai_zeal = -10 #ai #
+ 	ai_compassion = 10 #ai #
+
+ 	#	J / P
+ 	councillor_opinion = 10
+ 	dynasty_opinion = -10
+ 	ai_boldness = 10 #ai
+ 	ai_rationality = -10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_infj_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infj_2_desc
+			}
+			desc = trait_infj_2_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @pos_compat_low
+		generous = @pos_compat_high
+		diligent = @pos_compat_medium
+		calm = @pos_compat_medium
+		patient = @neg_compat_low
+		humble = @pos_compat_medium
+		honest = @pos_compat_low
+		brave = @neg_compat_low
+		shy = @pos_compat_high
+		ambitious = @pos_compat_low
+		just = @pos_compat_high
+		cynical = @neg_compat_medium
+		compassionate = @pos_compat_high
+		sadistic = @neg_compat_high
+		fickle = @pos_compat_low
+		forgiving = @pos_compat_medium
+	}
+}
+
+mbti_infp_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_intj_2
+		mbti_intp_2
+		mbti_entj_2
+		mbti_entp_2
+		mbti_infj_2
+		mbti_enfj_2
+		mbti_enfp_2
+		mbti_istj_2
+		mbti_isfj_2
+		mbti_estj_2
+		mbti_esfj_2
+		mbti_istp_2
+		mbti_isfp_2
+		mbti_estp_2
+		mbti_esfp_2
+	}
+
+	# Dread / Peace
+ #	dread_baseline_add = 10
+ 	personal_scheme_power_mult = 0.10
+ 	dread_baseline_add = -10
+ #	personal_scheme_power_mult = -0.10
+
+ 	#	I / E
+ 	parochial_opinion = 10
+ 	glory_hound_opinion = -10
+ 	ai_sociability = -10 #ai
+ 	ai_honor = 10 #ai
+
+ 	#	S / N
+ 	barons_and_minor_landholders_opinion = -10 #ai
+ 	courtly_opinion = 10
+ 	ai_greed = -10 #ai
+ 	ai_vengefulness = 10 #ai
+	
+ 	#	T / F
+ 	zealot_opinion = -10 #
+ 	minority_opinion = 10 #	
+ 	ai_zeal = -10 #ai #
+ 	ai_compassion = 10 #ai #
+
+ 	#	J / P
+ 	dynasty_opinion = 10
+ 	councillor_opinion = -10	
+ 	ai_boldness = -10 #ai
+ 	ai_rationality = 10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_infp_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infp_2_desc
+			}
+			desc = trait_infp_2_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @neg_compat_low
+		gluttonous = @pos_compat_low
+		generous = @pos_compat_high
+		lazy = @pos_compat_medium
+		calm = @pos_compat_low
+		impatient = @pos_compat_low
+		humble = @pos_compat_medium
+		honest = @pos_compat_medium
+		brave = @pos_compat_low
+		shy = @pos_compat_medium
+		content = @pos_compat_low
+		just = @pos_compat_high
+		trusting = @pos_compat_low
+		compassionate = @pos_compat_medium
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_medium
+	}
+}
+
+mbti_enfj_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_intj_2
+		mbti_intp_2
+		mbti_entj_2
+		mbti_entp_2
+		mbti_infj_2
+		mbti_infp_2
+		mbti_enfp_2
+		mbti_istj_2
+		mbti_isfj_2
+		mbti_estj_2
+		mbti_esfj_2
+		mbti_istp_2
+		mbti_isfp_2
+		mbti_estp_2
+		mbti_esfp_2
+	}
+
+	# Dread / Peace
+ 	dread_baseline_add = 10
+ #	personal_scheme_power_mult = 0.10
+ #	dread_baseline_add = -10
+ 	personal_scheme_power_mult = -0.10
+
+ 	#	I / E
+ 	parochial_opinion = -10
+ 	glory_hound_opinion = 10
+ 	ai_sociability = 10 #ai
+ 	ai_honor = -10 #ai
+
+ 	#	S / N
+ 	barons_and_minor_landholders_opinion = -10 #ai
+ 	courtly_opinion = 10
+ 	ai_greed = -10 #ai
+ 	ai_vengefulness = 10 #ai
+	
+ 	#	T / F
+ 	zealot_opinion = -10 #
+ 	minority_opinion = 10 #	
+ 	ai_zeal = -10 #ai #
+ 	ai_compassion = 10 #ai #
+
+ 	#	J / P
+ 	councillor_opinion = 10
+ 	dynasty_opinion = -10
+ 	ai_boldness = 10 #ai
+ 	ai_rationality = -10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_enfj_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_enfj_2_desc
+			}
+			desc = trait_enfj_2_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_low
+		gluttonous = @pos_compat_low
+		generous = @pos_compat_high
+		diligent = @pos_compat_low
+		calm = @pos_compat_medium
+		impatient = @neg_compat_low
+		honest = @pos_compat_medium
+		brave = @pos_compat_medium
+		gregarious = @pos_compat_medium
+		just = @pos_compat_medium
+		cynical = @neg_compat_medium
+		paranoid = @neg_compat_low
+		callous = @neg_compat_high
+		sadistic = @neg_compat_medium
+		stubborn = @pos_compat_medium
+		vengeful = @neg_compat_medium
+	}
+}
+
+mbti_enfp_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_intj_2
+		mbti_intp_2
+		mbti_entj_2
+		mbti_entp_2
+		mbti_infj_2
+		mbti_infp_2
+		mbti_enfj_2
+		mbti_istj_2
+		mbti_isfj_2
+		mbti_estj_2
+		mbti_esfj_2
+		mbti_istp_2
+		mbti_isfp_2
+		mbti_estp_2
+		mbti_esfp_2
+	}
+
+	# Dread / Peace
+ 	dread_baseline_add = 10
+ #	personal_scheme_power_mult = 0.10
+ #	dread_baseline_add = -10
+ 	personal_scheme_power_mult = -0.10
+
+ 	#	I / E
+ 	parochial_opinion = -10
+ 	glory_hound_opinion = 10
+ 	ai_sociability = 10 #ai
+ 	ai_honor = -10 #ai
+
+ 	#	S / N
+ 	barons_and_minor_landholders_opinion = -10 #ai
+ 	courtly_opinion = 10
+ 	ai_greed = -10 #ai
+ 	ai_vengefulness = 10 #ai
+	
+ 	#	T / F
+ 	zealot_opinion = -10 #
+ 	minority_opinion = 10 #	
+ 	ai_zeal = -10 #ai #
+ 	ai_compassion = 10 #ai #
+
+ 	#	J / P
+ 	dynasty_opinion = 10
+ 	councillor_opinion = -10	
+ 	ai_boldness = -10 #ai
+ 	ai_rationality = 10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_enfp_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_enfp_2_desc
+			}
+			desc = trait_enfp_2_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_medium
+		temperate = @neg_compat_medium
+		generous = @pos_compat_low
+		diligent = @neg_compat_medium
+		calm = @neg_compat_medium
+		patient = @neg_compat_medium
+		humble = @pos_compat_medium
+		honest = @pos_compat_low
+		craven = @neg_compat_low
+		shy = @neg_compat_high
+		ambitious = @pos_compat_low
+		just = @pos_compat_medium
+		trusting = @pos_compat_medium
+		compassionate = @pos_compat_medium
+		callous = @neg_compat_medium
+		sadistic = @neg_compat_medium
+		fickle = @pos_compat_medium
+		vengeful = @pos_compat_low
+	}
+}
+
+mbti_istj_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_intj_2
+		mbti_intp_2
+		mbti_entj_2
+		mbti_entp_2
+		mbti_infj_2
+		mbti_infp_2
+		mbti_enfj_2
+		mbti_enfp_2
+		mbti_isfj_2
+		mbti_estj_2
+		mbti_esfj_2
+		mbti_istp_2
+		mbti_isfp_2
+		mbti_estp_2
+		mbti_esfp_2
+	}
+
+	# Dread / Peace
+ #	dread_baseline_add = 10
+ 	personal_scheme_power_mult = 0.10
+ 	dread_baseline_add = -10
+ #	personal_scheme_power_mult = -0.10
+
+ 	#	I / E
+ 	parochial_opinion = 10
+ 	glory_hound_opinion = -10
+ 	ai_sociability = -10 #ai
+ 	ai_honor = 10 #ai
+
+ 	#	S / N
+ 	barons_and_minor_landholders_opinion = 10 #ai
+ 	courtly_opinion = -10
+ 	ai_greed = 10 #ai
+ 	ai_vengefulness = -10 #ai
+	
+ 	#	T / F
+ 	zealot_opinion = 10
+ 	minority_opinion = -10	
+ 	ai_zeal = 10 #ai
+ 	ai_compassion = -10 #ai
+
+ 	#	J / P
+ 	councillor_opinion = 10
+ 	dynasty_opinion = -10
+ 	ai_boldness = 10 #ai
+ 	ai_rationality = -10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_istj_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istj_2_desc
+			}
+			desc = trait_istj_2_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @pos_compat_medium
+		temperate = @pos_compat_medium
+		greedy = @pos_compat_medium
+		lazy = @neg_compat_high
+		calm = @pos_compat_medium
+		patient = @pos_compat_low
+		humble = @neg_compat_low
+		honest = @pos_compat_high
+		craven = @neg_compat_low
+		gregarious = @neg_compat_medium
+		ambitious = @pos_compat_medium
+		just = @pos_compat_medium
+		cynical = @pos_compat_low
+		paranoid = @pos_compat_medium
+		compassionate = @neg_compat_medium
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_high
+		vengeful = @neg_compat_low
+		forgiving = @neg_compat_low
+	}
+}
+
+mbti_isfj_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_intj_2
+		mbti_intp_2
+		mbti_entj_2
+		mbti_entp_2
+		mbti_infj_2
+		mbti_infp_2
+		mbti_enfj_2
+		mbti_enfp_2
+		mbti_istj_2
+		mbti_estj_2
+		mbti_esfj_2
+		mbti_istp_2
+		mbti_isfp_2
+		mbti_estp_2
+		mbti_esfp_2
+	}
+
+	# Dread / Peace
+ #	dread_baseline_add = 10
+ 	personal_scheme_power_mult = 0.10
+ 	dread_baseline_add = -10
+ #	personal_scheme_power_mult = -0.10
+
+ 	#	I / E
+ 	parochial_opinion = 10
+ 	glory_hound_opinion = -10
+ 	ai_sociability = -10 #ai
+ 	ai_honor = 10 #ai
+
+ 	#	S / N
+ 	barons_and_minor_landholders_opinion = 10 #ai
+ 	courtly_opinion = -10
+ 	ai_greed = 10 #ai
+ 	ai_vengefulness = -10 #ai
+	
+ 	#	T / F
+ 	zealot_opinion = -10 #
+ 	minority_opinion = 10 #	
+ 	ai_zeal = -10 #ai #
+ 	ai_compassion = 10 #ai #
+
+ 	#	J / P
+ 	councillor_opinion = 10
+ 	dynasty_opinion = -10
+ 	ai_boldness = 10 #ai
+ 	ai_rationality = -10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_isfj_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_isfj_2_desc
+			}
+			desc = trait_isfj_2_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @pos_compat_low
+		temperate = @pos_compat_low
+		generous = @pos_compat_medium
+		diligent = @pos_compat_medium
+		calm = @pos_compat_medium
+		patient = @pos_compat_medium
+		arrogant = @neg_compat_low
+		humble = @pos_compat_high
+		deceitful = @neg_compat_low
+		craven = @neg_compat_low
+		gregarious = @neg_compat_low
+		content = @pos_compat_low
+		just = @pos_compat_medium
+		cynical = @neg_compat_medium
+		paranoid = @neg_compat_medium
+		compassionate = @pos_compat_medium
+		callous = @neg_compat_medium
+		sadistic = @neg_compat_high
+		stubborn = @pos_compat_medium
+		forgiving = @pos_compat_low
+	}
+}
+
+mbti_estj_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_intj_2
+		mbti_intp_2
+		mbti_entj_2
+		mbti_entp_2
+		mbti_infj_2
+		mbti_infp_2
+		mbti_enfj_2
+		mbti_enfp_2
+		mbti_istj_2
+		mbti_isfj_2
+		mbti_esfj_2
+		mbti_istp_2
+		mbti_isfp_2
+		mbti_estp_2
+		mbti_esfp_2
+	}
+
+	# Dread / Peace
+ #	dread_baseline_add = 10
+ 	personal_scheme_power_mult = 0.10
+ 	dread_baseline_add = -10
+ #	personal_scheme_power_mult = -0.10
+
+ 	#	I / E
+ 	parochial_opinion = -10
+ 	glory_hound_opinion = 10
+ 	ai_sociability = 10 #ai
+ 	ai_honor = -10 #ai
+
+ 	#	S / N
+ 	barons_and_minor_landholders_opinion = 10 #ai
+ 	courtly_opinion = -10
+ 	ai_greed = 10 #ai
+ 	ai_vengefulness = -10 #ai
+	
+ 	#	T / F
+ 	zealot_opinion = 10
+ 	minority_opinion = -10	
+ 	ai_zeal = 10 #ai
+ 	ai_compassion = -10 #ai
+
+ 	#	J / P
+ 	councillor_opinion = 10
+ 	dynasty_opinion = -10
+ 	ai_boldness = 10 #ai
+ 	ai_rationality = -10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_estj_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_estj_2_desc
+			}
+			desc = trait_estj_2_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @neg_compat_medium
+		temperate = @pos_compat_medium
+		generous = @neg_compat_medium
+		diligent = @pos_compat_high
+		calm = @pos_compat_low
+		patient = @pos_compat_medium
+		arrogant = @pos_compat_medium
+		honest = @pos_compat_low
+		brave = @pos_compat_medium
+		shy = @neg_compat_low
+		gregarious = @neg_compat_low
+		ambitious = @pos_compat_medium
+		arbitrary = @neg_compat_high
+		zealous = @pos_compat_low
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_high
+		fickle = @neg_compat_high
+		forgiving = @neg_compat_medium
+	}
+}
+
+mbti_esfj_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_intj_2
+		mbti_intp_2
+		mbti_entj_2
+		mbti_entp_2
+		mbti_infj_2
+		mbti_infp_2
+		mbti_enfj_2
+		mbti_enfp_2
+		mbti_istj_2
+		mbti_isfj_2
+		mbti_estj_2
+		mbti_istp_2
+		mbti_isfp_2
+		mbti_estp_2
+		mbti_esfp_2
+	}
+
+	# Dread / Peace
+ 	dread_baseline_add = 10
+ #	personal_scheme_power_mult = 0.10
+ #	dread_baseline_add = -10
+ 	personal_scheme_power_mult = -0.10
+
+ 	#	I / E
+ 	parochial_opinion = -10
+ 	glory_hound_opinion = 10
+ 	ai_sociability = 10 #ai
+ 	ai_honor = -10 #ai
+
+ 	#	S / N
+ 	barons_and_minor_landholders_opinion = 10 #ai
+ 	courtly_opinion = -10
+ 	ai_greed = 10 #ai
+ 	ai_vengefulness = -10 #ai
+	
+ 	#	T / F
+ 	zealot_opinion = -10 #
+ 	minority_opinion = 10 #	
+ 	ai_zeal = -10 #ai #
+ 	ai_compassion = 10 #ai #
+
+ 	#	J / P
+ 	councillor_opinion = 10
+ 	dynasty_opinion = -10
+ 	ai_boldness = 10 #ai
+ 	ai_rationality = -10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_esfj_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esfj_2_desc
+			}
+			desc = trait_esfj_2_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_low
+		gluttonous = @pos_compat_low
+		greedy = @neg_compat_medium
+		diligent = @pos_compat_medium
+		wrathful = @pos_compat_low
+		patient = @pos_compat_low
+		gregarious = @pos_compat_high
+		ambitious = @pos_compat_medium
+		arbitrary = @neg_compat_high
+		cynical = @neg_compat_medium
+		trusting = @neg_compat_low
+		compassionate = @pos_compat_medium
+		callous = @neg_compat_low
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_low
+		forgiving = @pos_compat_medium
+	}
+}
+
+mbti_istp_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_intj_2
+		mbti_intp_2
+		mbti_entj_2
+		mbti_entp_2
+		mbti_infj_2
+		mbti_infp_2
+		mbti_enfj_2
+		mbti_enfp_2
+		mbti_istj_2
+		mbti_isfj_2
+		mbti_estj_2
+		mbti_esfj_2
+		mbti_isfp_2
+		mbti_estp_2
+		mbti_esfp_2
+	}
+
+	# Dread / Peace
+ 	dread_baseline_add = 10
+ #	personal_scheme_power_mult = 0.10
+ #	dread_baseline_add = -10
+ 	personal_scheme_power_mult = -0.10
+
+ 	#	I / E
+ 	parochial_opinion = 10
+ 	glory_hound_opinion = -10
+ 	ai_sociability = -10 #ai
+ 	ai_honor = 10 #ai
+
+ 	#	S / N
+ 	barons_and_minor_landholders_opinion = 10 #ai
+ 	courtly_opinion = -10
+ 	ai_greed = 10 #ai
+ 	ai_vengefulness = -10 #ai
+	
+ 	#	T / F
+ 	zealot_opinion = 10
+ 	minority_opinion = -10	
+ 	ai_zeal = 10 #ai
+ 	ai_compassion = -10 #ai
+
+ 	#	J / P
+ 	dynasty_opinion = 10
+ 	councillor_opinion = -10	
+ 	ai_boldness = -10 #ai
+ 	ai_rationality = 10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_istp_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istp_2_desc
+			}
+			desc = trait_istp_2_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @pos_compat_medium
+		gluttonous = @neg_compat_low
+		generous = @neg_compat_low
+		lazy = @neg_compat_high
+		impatient = @pos_compat_high
+		brave = @pos_compat_low
+		gregarious = @neg_compat_medium
+		ambitious = @pos_compat_low
+		arbitrary = @pos_compat_high
+		cynical = @pos_compat_low
+		trusting = @neg_compat_low
+		callous = @pos_compat_medium
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_high
+	}
+}
+
+mbti_isfp_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_intj_2
+		mbti_intp_2
+		mbti_entj_2
+		mbti_entp_2
+		mbti_infj_2
+		mbti_infp_2
+		mbti_enfj_2
+		mbti_enfp_2
+		mbti_istj_2
+		mbti_isfj_2
+		mbti_estj_2
+		mbti_esfj_2
+		mbti_istp_2
+		mbti_estp_2
+		mbti_esfp_2
+	}
+
+	# Dread / Peace
+ 	dread_baseline_add = 10
+ #	personal_scheme_power_mult = 0.10
+ #	dread_baseline_add = -10
+ 	personal_scheme_power_mult = -0.10
+
+ 	#	I / E
+ 	parochial_opinion = 10
+ 	glory_hound_opinion = -10
+ 	ai_sociability = -10 #ai
+ 	ai_honor = 10 #ai
+
+ 	#	S / N
+ 	barons_and_minor_landholders_opinion = 10 #ai
+ 	courtly_opinion = -10
+ 	ai_greed = 10 #ai
+ 	ai_vengefulness = -10 #ai
+	
+ 	#	T / F
+ 	zealot_opinion = -10 #
+ 	minority_opinion = 10 #	
+ 	ai_zeal = -10 #ai #
+ 	ai_compassion = 10 #ai #
+
+ 	#	J / P
+ 	dynasty_opinion = 10
+ 	councillor_opinion = -10	
+ 	ai_boldness = -10 #ai
+ 	ai_rationality = 10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_isfp_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_isfp_2_desc
+			}
+			desc = trait_isfp_2_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @neg_compat_medium
+		greedy = @neg_compat_low
+		calm = @pos_compat_medium
+		arrogant = @neg_compat_medium
+		brave = @neg_compat_low
+		shy = @pos_compat_medium
+		content = @pos_compat_medium
+		just = @pos_compat_low
+		zealous = @pos_compat_low
+		trusting = @neg_compat_medium
+		compassionate = @pos_compat_medium
+		fickle = @pos_compat_medium
+		forgiving = @pos_compat_low
+	}
+}
+
+mbti_estp_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_intj_2
+		mbti_intp_2
+		mbti_entj_2
+		mbti_entp_2
+		mbti_infj_2
+		mbti_infp_2
+		mbti_enfj_2
+		mbti_enfp_2
+		mbti_istj_2
+		mbti_isfj_2
+		mbti_estj_2
+		mbti_esfj_2
+		mbti_istp_2
+		mbti_isfp_2
+		mbti_esfp_2
+	}
+
+	# Dread / Peace
+ 	dread_baseline_add = 10
+ #	personal_scheme_power_mult = 0.10
+ #	dread_baseline_add = -10
+ 	personal_scheme_power_mult = -0.10
+
+ 	#	I / E
+ 	parochial_opinion = -10
+ 	glory_hound_opinion = 10
+ 	ai_sociability = 10 #ai
+ 	ai_honor = -10 #ai
+
+ 	#	S / N
+ 	barons_and_minor_landholders_opinion = 10 #ai
+ 	courtly_opinion = -10
+ 	ai_greed = 10 #ai
+ 	ai_vengefulness = -10 #ai
+	
+ 	#	T / F
+ 	zealot_opinion = 10
+ 	minority_opinion = -10	
+ 	ai_zeal = 10 #ai
+ 	ai_compassion = -10 #ai
+
+ 	#	J / P
+ 	dynasty_opinion = 10
+ 	councillor_opinion = -10	
+ 	ai_boldness = -10 #ai
+ 	ai_rationality = 10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_estp_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_estp_2_desc
+			}
+			desc = trait_estp_2_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @neg_compat_high
+		temperate = @neg_compat_high
+		greedy = @pos_compat_medium
+		diligent = @pos_compat_low
+		calm = @neg_compat_medium
+		impatient = @pos_compat_high
+		arrogant = @pos_compat_medium
+		craven = @neg_compat_high
+		shy = @neg_compat_high
+		content = @neg_compat_medium
+		just = @neg_compat_medium
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_medium
+		sadistic = @pos_compat_low
+		fickle = @pos_compat_low
+		forgiving = @neg_compat_low
+	}
+}
+
+mbti_esfp_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_intj_2
+		mbti_intp_2
+		mbti_entj_2
+		mbti_entp_2
+		mbti_infj_2
+		mbti_infp_2
+		mbti_enfj_2
+		mbti_enfp_2
+		mbti_istj_2
+		mbti_isfj_2
+		mbti_estj_2
+		mbti_esfj_2
+		mbti_istp_2
+		mbti_isfp_2
+		mbti_estp_2
+	}
+
+	# Dread / Peace
+ #	dread_baseline_add = 10
+ 	personal_scheme_power_mult = 0.10
+ 	dread_baseline_add = -10
+ #	personal_scheme_power_mult = -0.10
+
+ 	#	I / E
+ 	parochial_opinion = -10
+ 	glory_hound_opinion = 10
+ 	ai_sociability = 10 #ai
+ 	ai_honor = -10 #ai
+
+ 	#	S / N
+ 	barons_and_minor_landholders_opinion = 10 #ai
+ 	courtly_opinion = -10
+ 	ai_greed = 10 #ai
+ 	ai_vengefulness = -10 #ai
+	
+ 	#	T / F
+ 	zealot_opinion = -10 #
+ 	minority_opinion = 10 #	
+ 	ai_zeal = -10 #ai #
+ 	ai_compassion = 10 #ai #
+
+ 	#	J / P
+ 	dynasty_opinion = 10
+ 	councillor_opinion = -10	
+ 	ai_boldness = -10 #ai
+ 	ai_rationality = 10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_esfp_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esfp_2_desc
+			}
+			desc = trait_esfp_2_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_high
+		temperate = @neg_compat_medium
+		diligent = @neg_compat_low
+		calm = @neg_compat_high
+		impatient = @pos_compat_high
+		humble = @pos_compat_low
+		deceitful = @pos_compat_medium
+		craven = @pos_compat_low
+		gregarious = @pos_compat_high
+		ambitious = @pos_compat_medium
+		arbitrary = @pos_compat_low
+		cynical = @neg_compat_low
+		trusting = @neg_compat_low
+		compassionate = @pos_compat_low
+		stubborn = @neg_compat_medium
+		vengeful = @pos_compat_medium
+	}
+}

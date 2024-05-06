@@ -1,0 +1,588 @@
+
+spread_lies_AI = {
+	icon = debug_secret
+	category = interaction_category_hostile
+	use_diplomatic_range = yes
+	interface_priority = 80
+	use_diplomatic_range = yes
+
+	desc = spread_lies_desc
+
+	is_shown = {
+		has_game_rule = GPT_interactions_enabled
+			
+		scope:recipient = {
+			highest_held_title_tier >= 3
+			highest_held_title_tier >= scope:actor.highest_held_title_tier
+			NOT = { this = scope:actor }
+			NOT = { has_character_modifier = suffering_from_lies }
+			NOT = { has_character_modifier = spreading_lies }
+			is_ruler = yes
+		}
+
+		scope:actor = {
+				is_ai = yes
+				highest_held_title_tier >= 3
+				NOT = {has_character_modifier = spreading_lies }
+				is_ruler = yes
+				opinion = {
+					target = scope:recipient
+					value <= -25
+				}
+		}
+
+		scope:actor = {
+			OR = {
+				any_neighboring_and_across_water_top_liege_realm_owner = {
+					this = scope:recipient
+				}
+				liege = scope:recipient
+				scope:actor.liege = scope:recipient.liege
+				any_vassal = {
+					this = scope:recipient
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+
+		scope:actor = {
+			is_imprisoned = no
+			intrigue >= 16
+			is_adult = yes
+		}
+
+		custom_description = {
+			text = "gpt_opinion_not_low_enough_insult"
+			scope:recipient = {
+				opinion = {
+					value <= 0
+					target = scope:actor
+				}
+			}
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+
+		#scope:actor = { trigger_event = char_interaction.0234 }
+
+		scope:recipient = { 
+			add_opinion = {
+				modifier = spreading_lies_from
+				target = scope:actor
+			}
+		}
+
+		scope:actor = {
+		 #	add_piety_level = -1
+
+			send_interface_toast = {
+				title = spread_lies_notification   
+
+				left_icon = scope:actor					
+				right_icon = scope:recipient
+				custom_tooltip = spread_lies_notification_tooltip
+			}
+		
+			add_character_modifier = {
+				modifier = spreading_lies
+				years = 5
+			}
+		}
+		
+		scope:recipient = {
+
+			add_character_modifier = {
+				modifier = suffering_from_lies
+				years = 5
+			}
+		
+			send_interface_toast = {
+				title = spread_lies_notification
+
+				left_icon = scope:actor					
+				right_icon = scope:recipient
+				custom_tooltip = spread_lies_notification_tooltip
+			}
+		}	
+
+		scope:recipient = { 
+					hidden_effect = {
+							if = {
+								limit = {
+									has_relation_potential_rival = scope:actor
+								}
+								remove_relation_potential_rival = scope:actor
+							}
+					}
+					set_relation_rival = scope:actor
+		}
+	}
+
+	ai_potential = {
+		is_at_war = no
+	}
+
+	ai_targets = {
+		ai_recipients = neighboring_rulers
+		max = 10
+	}
+
+	ai_targets = {
+		ai_recipients = peer_vassals
+		max = 10
+	}
+
+	cooldown = { years = 10 }
+
+	ai_frequency = 60
+
+	ai_will_do = { 
+		base = 0
+		modifier = {
+			add = {
+				value = 0
+			 #	add = scope:actor.ai_boldness
+				add = scope:actor.ai_vengefulness
+			}
+		}
+	}
+}
+
+
+denounce_liege_AI = {
+	icon = debug_secret
+	category = interaction_category_hostile
+	use_diplomatic_range = yes
+	interface_priority = 80
+	use_diplomatic_range = yes
+
+	desc = denounce_liege_desc
+
+	is_shown = {
+		has_game_rule = GPT_interactions_enabled
+			
+		scope:recipient = {
+			highest_held_title_tier >= 3
+			vassal_count <= 15
+			NOT = { this = scope:actor }
+			NOT = { has_character_modifier = denouncing_liege }
+			NOT = { has_character_modifier = denounced_liege }
+			NOT = { has_character_modifier = denounced_liege_2 }
+			is_ruler = yes
+		}
+
+		scope:actor = {
+			is_ai = yes
+			is_powerful_vassal_of = scope:recipient
+			highest_held_title_tier >= 2
+			NOT = { has_character_modifier = denouncing_liege }
+			is_ruler = yes
+			opinion = {
+				target = scope:recipient
+				value <= -50
+			}
+			OR = {
+				has_trait = vengeful
+				has_trait = arrogant
+				has_trait = disloyal
+				has_trait = brave
+				has_trait = ambitious
+				has_relation_rival = scope:recipient
+				has_relation_nemesis = scope:recipient
+			}
+			NOR = {
+				has_trait = content
+				has_trait = craven
+				has_trait = loyal
+				has_trait = forgiving
+				has_trait = lazy
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+
+		scope:actor = {
+			is_imprisoned = no
+			is_adult = yes
+			is_at_war = no
+		}
+
+		scope:recipient = {
+			is_imprisoned = no
+			is_adult = yes
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+
+		#scope:actor = { trigger_event = char_interaction.0234 }
+
+		scope:recipient = { 
+			add_opinion = {
+				modifier = denounced_liege_opinion
+				target = scope:actor
+			}
+		}
+		
+		scope:actor = {
+			send_interface_toast = {
+				title = spread_lies_notification   
+
+				left_icon = scope:actor					
+				right_icon = scope:recipient
+				custom_tooltip = spread_lies_notification_tooltip
+			}
+		
+			add_character_modifier = {
+				modifier = denouncing_liege
+				years = 3
+			}
+		}
+		
+		scope:recipient = {
+
+			if = {
+				limit = {
+					scope:actor = {
+						opinion = {
+							target = scope:recipient
+							value <= -200
+						}
+					}
+				}
+				add_character_modifier = {
+					modifier = denounced_liege_2
+					years = 3
+				}
+			}
+			else = {
+				add_character_modifier = {
+					modifier = denounced_liege
+					years = 3
+				}
+			}
+		
+			send_interface_toast = {
+				title = denounce_liege_notification
+
+				left_icon = scope:actor					
+				right_icon = scope:recipient
+				custom_tooltip = denounce_liege_notification_tooltip
+			}
+		}	
+	}
+
+	ai_potential = {
+		is_at_war = no
+	}
+
+	ai_targets = {
+		ai_recipients = liege
+	}
+
+	cooldown = { years = 5 }
+
+	ai_frequency = 24
+
+	ai_will_do = { 
+		base = 0
+		modifier = {
+			add = {
+				value = 0
+				add = scope:actor.ai_vengefulness
+				subtract = scope:actor.ai_honor
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+spread_lies = {
+	icon = debug_secret
+	category = interaction_category_hostile
+	use_diplomatic_range = yes
+	interface_priority = 80
+	use_diplomatic_range = yes
+
+	desc = spread_lies_desc
+
+	is_shown = {
+		has_game_rule = GPT_interactions_enabled
+			
+		scope:recipient = {
+			highest_held_title_tier >= 2
+			highest_held_title_tier >= scope:actor.highest_held_title_tier
+			NOT = { this = scope:actor }
+			NOT = { has_character_modifier = suffering_from_lies }
+			NOT = { has_character_modifier = spreading_lies }
+			is_ruler = yes
+		}
+
+		scope:actor = {
+				is_ai = no
+				highest_held_title_tier >= 2
+				NOT = {has_character_modifier = spreading_lies }
+				is_ruler = yes
+		}
+
+		scope:actor = {
+			OR = {
+				any_neighboring_and_across_water_top_liege_realm_owner = {
+					this = scope:recipient
+				}
+				liege = scope:recipient
+				scope:actor.liege = scope:recipient.liege
+				any_vassal = {
+					this = scope:recipient
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+
+		scope:actor = {
+			is_imprisoned = no
+			intrigue >= 16
+			is_adult = yes
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+
+		scope:recipient = { 
+			add_opinion = {
+				modifier = spreading_lies_from
+				target = scope:actor
+			}
+		}
+
+		#scope:actor = { trigger_event = char_interaction.0234 }
+		
+		scope:actor = {
+
+			if = {
+				limit = {
+					is_ai = no
+				}
+				add_stress = 25
+			}
+
+		 #	add_piety_level = -1
+
+			hidden_effect = {
+				send_interface_toast = {
+					title = spread_lies_notification   
+
+					left_icon = scope:actor					
+					right_icon = scope:recipient
+					custom_tooltip = spread_lies_notification_tooltip
+				}
+			}
+		
+			add_character_modifier = {
+				modifier = spreading_lies
+				years = 3
+			}
+		}
+		
+		scope:recipient = {
+
+			add_character_modifier = {
+				modifier = suffering_from_lies
+				years = 3
+			}
+
+			hidden_effect = {
+				send_interface_toast = {
+					title = spread_lies_notification
+
+					left_icon = scope:actor					
+					right_icon = scope:recipient
+					custom_tooltip = spread_lies_notification_tooltip
+				}
+			}
+		}	
+
+		scope:recipient = { 
+					hidden_effect = {
+							if = {
+								limit = {
+									has_relation_potential_rival = scope:actor
+								}
+								remove_relation_potential_rival = scope:actor
+							}
+					}
+					set_relation_rival = scope:actor
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	cooldown = { years = 5 }
+
+	ai_frequency = 3600
+
+	ai_will_do = { base = 0 }
+}
+
+
+
+denounce_liege = {
+	icon = debug_secret
+	category = interaction_category_hostile
+	use_diplomatic_range = yes
+	interface_priority = 100
+	use_diplomatic_range = yes
+
+	desc = denounce_liege_desc
+
+	is_shown = {
+		has_game_rule = GPT_interactions_enabled
+			
+		scope:recipient = {
+			highest_held_title_tier >= 3
+			vassal_count <= 15
+			NOT = { this = scope:actor }
+			NOT = { has_character_modifier = denouncing_liege }
+			NOT = { has_character_modifier = denounced_liege }
+			NOT = { has_character_modifier = denounced_liege_2 }
+			is_ruler = yes
+		}
+
+		scope:actor = {
+			is_ai = no
+			is_powerful_vassal_of = scope:recipient
+			highest_held_title_tier >= 2
+			NOT = { has_character_modifier = denouncing_liege }
+			is_ruler = yes
+		}
+	}
+
+	is_valid_showing_failures_only = {
+
+		scope:actor = {
+			is_imprisoned = no
+			is_adult = yes
+			is_at_war = no
+		}
+
+		scope:recipient = {
+			is_imprisoned = no
+			is_adult = yes
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+
+		scope:recipient = { 
+			add_opinion = {
+				modifier = denounced_liege_opinion
+				target = scope:actor
+			}
+		}
+
+		#scope:actor = { trigger_event = char_interaction.0234 }
+		
+		scope:actor = {
+
+			if = {
+				limit = {
+					is_ai = no
+				}
+				add_stress = 20
+			}
+
+		 #	add_piety_level = -1
+
+		 	hidden_effect = {
+				send_interface_toast = {
+					title = spread_lies_notification   
+
+					left_icon = scope:actor					
+					right_icon = scope:recipient
+					custom_tooltip = spread_lies_notification_tooltip
+				}
+			}
+		
+			add_character_modifier = {
+				modifier = denouncing_liege
+				years = 3
+			}
+		}
+		
+		scope:recipient = {
+
+			if = {
+				limit = {
+					has_relation_nemesis = scope:actor
+					}
+				add_character_modifier = {
+					modifier = denounced_liege_2
+					years = 3
+				}
+			}
+			else = {
+				add_character_modifier = {
+					modifier = denounced_liege
+					years = 3
+				}
+			}
+
+			hidden_effect = {
+				send_interface_toast = {
+					title = denounce_liege_notification
+
+					left_icon = scope:actor					
+					right_icon = scope:recipient
+					custom_tooltip = denounce_liege_notification_tooltip
+				}
+			}
+		}	
+		
+		scope:recipient = { 
+					hidden_effect = {
+							if = {
+								limit = {
+									has_relation_potential_rival = scope:actor
+								}
+								remove_relation_potential_rival = scope:actor
+							}
+					}
+					set_relation_rival = scope:actor
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	cooldown = { years = 5 }
+
+	ai_frequency = 3600
+
+	ai_will_do = { base = 0 }
+}

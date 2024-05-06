@@ -1,0 +1,802 @@
+# Standard Values
+@pos_compat_high = 5
+@pos_compat_medium = 2.5
+@pos_compat_low = 1.25
+
+@neg_compat_high = -5
+@neg_compat_medium = -2.5
+@neg_compat_low = -1.25
+
+mbti_intj_10 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intp_10
+		mbti_entj_10
+		mbti_entp_10
+		mbti_infj_10
+		mbti_infp_10
+		mbti_enfj_10
+		mbti_enfp_10
+		mbti_istj_10
+		mbti_isfj_10
+		mbti_estj_10
+		mbti_esfj_10
+		mbti_istp_10
+		mbti_isfp_10
+		mbti_estp_10
+		mbti_esfp_10
+	}
+
+	intrigue = 3
+	movement_speed = 0.15
+	enemy_hard_casualty_modifier = 0.20
+
+	min_combat_roll = -4
+	max_combat_roll = 8
+	
+	ruler_designer_cost = 20
+
+	icon = mbti_intj_10.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intj_10_character_desc
+			}
+			desc = trait_intj_10_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_intp_10 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_10
+		mbti_entj_10
+		mbti_entp_10
+		mbti_infj_10
+		mbti_infp_10
+		mbti_enfj_10
+		mbti_enfp_10
+		mbti_istj_10
+		mbti_isfj_10
+		mbti_estj_10
+		mbti_esfj_10
+		mbti_istp_10
+		mbti_isfp_10
+		mbti_estp_10
+		mbti_esfp_10
+	}
+
+	martial = 3
+	winter_movement_speed = 0.15
+	winter_advantage = 6
+
+	min_combat_roll = -4
+	max_combat_roll = 8
+	
+	ruler_designer_cost = 20
+
+	icon = mbti_intp_10.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intp_10_character_desc
+			}
+			desc = trait_intp_10_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_entj_10 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_10
+		mbti_intp_10
+		mbti_entp_10
+		mbti_infj_10
+		mbti_infp_10
+		mbti_enfj_10
+		mbti_enfp_10
+		mbti_istj_10
+		mbti_isfj_10
+		mbti_estj_10
+		mbti_esfj_10
+		mbti_istp_10
+		mbti_isfp_10
+		mbti_estp_10
+		mbti_esfp_10
+	}
+
+	learning = 3
+	siege_phase_time = -0.25
+	enemy_hard_casualty_modifier = 0.25
+	dread_baseline_add = 10
+
+	min_combat_roll = -4
+	max_combat_roll = 8
+	
+	ruler_designer_cost = 20
+
+	icon = mbti_entj_10.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_entj_10_character_desc
+			}
+			desc = trait_entj_10_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_entp_10 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_10
+		mbti_intp_10
+		mbti_entj_10
+		mbti_infj_10
+		mbti_infp_10
+		mbti_enfj_10
+		mbti_enfp_10
+		mbti_istj_10
+		mbti_isfj_10
+		mbti_estj_10
+		mbti_esfj_10
+		mbti_istp_10
+		mbti_isfp_10
+		mbti_estp_10
+		mbti_esfp_10
+	}
+
+	learning = 3
+	naval_movement_speed_mult = 0.15
+	embarkation_cost_mult = -0.50
+	enemy_terrain_advantage = -4
+
+	min_combat_roll = -4
+	max_combat_roll = 8
+	
+	ruler_designer_cost = 20
+
+	icon = mbti_entp_10.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_entp_10_character_desc
+			}
+			desc = trait_entp_10_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_infj_10 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_10
+		mbti_intp_10
+		mbti_entj_10
+		mbti_entp_10
+		mbti_infp_10
+		mbti_enfj_10
+		mbti_enfp_10
+		mbti_istj_10
+		mbti_isfj_10
+		mbti_estj_10
+		mbti_esfj_10
+		mbti_istp_10
+		mbti_isfp_10
+		mbti_estp_10
+		mbti_esfp_10
+	}
+
+	intrigue = 3
+	hostile_raid_time = 0.20
+	controlled_province_advantage = 6
+
+	min_combat_roll = -4
+	max_combat_roll = 8
+	
+	ruler_designer_cost = 20
+
+	icon = mbti_infj_10.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infj_10_character_desc
+			}
+			desc = trait_infj_10_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_infp_10 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_10
+		mbti_intp_10
+		mbti_entj_10
+		mbti_entp_10
+		mbti_infj_10
+		mbti_enfj_10
+		mbti_enfp_10
+		mbti_istj_10
+		mbti_isfj_10
+		mbti_estj_10
+		mbti_esfj_10
+		mbti_istp_10
+		mbti_isfp_10
+		mbti_estp_10
+		mbti_esfp_10
+	}
+
+	dread_baseline_add = 20
+	retreat_losses = -0.50
+	army_maintenance_mult = -0.10
+	county_opinion_add = -15
+	general_opinion = -5
+
+
+	min_combat_roll = -4
+	max_combat_roll = 8
+	
+	ruler_designer_cost = 20
+
+	icon = mbti_infp_10.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infp_10_character_desc
+			}
+			desc = trait_infp_10_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_enfj_10 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_10
+		mbti_intp_10
+		mbti_entj_10
+		mbti_entp_10
+		mbti_infj_10
+		mbti_infp_10
+		mbti_enfp_10
+		mbti_istj_10
+		mbti_isfj_10
+		mbti_estj_10
+		mbti_esfj_10
+		mbti_istp_10
+		mbti_isfp_10
+		mbti_estp_10
+		mbti_esfp_10
+	}
+
+	diplomacy = 3
+	retreat_losses = -0.50
+	advantage_against_coreligionists = 4
+
+	min_combat_roll = -4
+	max_combat_roll = 8
+	
+	ruler_designer_cost = 20
+
+	icon = mbti_enfj_10.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_enfj_10_character_desc
+			}
+			desc = trait_enfj_10_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_enfp_10 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_10
+		mbti_intp_10
+		mbti_entj_10
+		mbti_entp_10
+		mbti_infj_10
+		mbti_infp_10
+		mbti_enfj_10
+		mbti_istj_10
+		mbti_isfj_10
+		mbti_estj_10
+		mbti_esfj_10
+		mbti_istp_10
+		mbti_isfp_10
+		mbti_estp_10
+		mbti_esfp_10
+	}
+
+	prowess = 4
+	dread_baseline_add = 10
+	attraction_opinion = 10
+
+	min_combat_roll = -4
+	max_combat_roll = 8
+	
+	ruler_designer_cost = 20
+
+	icon = mbti_enfp_10.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_enfp_10_character_desc
+			}
+			desc = trait_enfp_10_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_istj_10 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_10
+		mbti_intp_10
+		mbti_entj_10
+		mbti_entp_10
+		mbti_infj_10
+		mbti_infp_10
+		mbti_enfj_10
+		mbti_enfp_10
+		mbti_isfj_10
+		mbti_estj_10
+		mbti_esfj_10
+		mbti_istp_10
+		mbti_isfp_10
+		mbti_estp_10
+		mbti_esfp_10
+	}
+
+	stewardship = 3
+	additional_fort_level = 1
+	defender_holding_advantage = 8
+
+	min_combat_roll = -4
+	max_combat_roll = 8
+	
+	ruler_designer_cost = 20
+
+	icon = mbti_istj_10.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istj_10_character_desc
+			}
+			desc = trait_istj_10_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_isfj_10 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_10
+		mbti_intp_10
+		mbti_entj_10
+		mbti_entp_10
+		mbti_infj_10
+		mbti_infp_10
+		mbti_enfj_10
+		mbti_enfp_10
+		mbti_istj_10
+		mbti_estj_10
+		mbti_esfj_10
+		mbti_istp_10
+		mbti_isfp_10
+		mbti_estp_10
+		mbti_esfp_10
+	}
+
+	learning = 3
+	tolerance_advantage_mod = 8
+	hard_casualty_modifier = -0.20
+
+	min_combat_roll = -4
+	max_combat_roll = 8
+	
+	ruler_designer_cost = 20
+
+	icon = mbti_isfj_10.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_isfj_10_character_desc
+			}
+			desc = trait_isfj_10_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_estj_10 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_10
+		mbti_intp_10
+		mbti_entj_10
+		mbti_entp_10
+		mbti_infj_10
+		mbti_infp_10
+		mbti_enfj_10
+		mbti_enfp_10
+		mbti_istj_10
+		mbti_isfj_10
+		mbti_esfj_10
+		mbti_istp_10
+		mbti_isfp_10
+		mbti_estp_10
+		mbti_esfp_10
+	}
+
+	dread_baseline_add = 15
+	siege_morale_loss = -0.20
+	supply_duration = 0.20
+	parochial_opinion = -10
+
+	min_combat_roll = -4
+	max_combat_roll = 8
+	
+	ruler_designer_cost = 20
+
+	icon = mbti_estj_10.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_estj_10_character_desc
+			}
+			desc = trait_estj_10_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_esfj_10 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_10
+		mbti_intp_10
+		mbti_entj_10
+		mbti_entp_10
+		mbti_infj_10
+		mbti_infp_10
+		mbti_enfj_10
+		mbti_enfp_10
+		mbti_istj_10
+		mbti_isfj_10
+		mbti_estj_10
+		mbti_istp_10
+		mbti_isfp_10
+		mbti_estp_10
+		mbti_esfp_10
+	}
+
+	martial = 3
+	counter_efficiency = 0.20
+	men_at_arms_cap = 1
+
+	min_combat_roll = -4
+	max_combat_roll = 8
+	
+	ruler_designer_cost = 20
+
+	icon = mbti_esfj_10.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esfj_10_character_desc
+			}
+			desc = trait_esfj_10_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_istp_10 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_10
+		mbti_intp_10
+		mbti_entj_10
+		mbti_entp_10
+		mbti_infj_10
+		mbti_infp_10
+		mbti_enfj_10
+		mbti_enfp_10
+		mbti_istj_10
+		mbti_isfj_10
+		mbti_estj_10
+		mbti_esfj_10
+		mbti_isfp_10
+		mbti_estp_10
+		mbti_esfp_10
+	}
+
+	martial = 3
+	movement_speed = 0.20 
+	hard_casualty_modifier = -0.20
+	no_water_crossing_penalty = yes
+
+	min_combat_roll = -4
+	max_combat_roll = 8
+	
+	ruler_designer_cost = 20
+
+	icon = mbti_istp_10.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istp_10_character_desc
+			}
+			desc = trait_istp_10_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_isfp_10 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_10
+		mbti_intp_10
+		mbti_entj_10
+		mbti_entp_10
+		mbti_infj_10
+		mbti_infp_10
+		mbti_enfj_10
+		mbti_enfp_10
+		mbti_istj_10
+		mbti_isfj_10
+		mbti_estj_10
+		mbti_esfj_10
+		mbti_istp_10
+		mbti_estp_10
+		mbti_esfp_10
+	}
+
+	diplomacy = 3
+	hard_casualty_modifier = -0.20
+	supply_duration = 0.20
+
+	min_combat_roll = -4
+	max_combat_roll = 8
+	
+	ruler_designer_cost = 20
+
+	icon = mbti_isfp_10.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_isfp_10_character_desc
+			}
+			desc = trait_isfp_10_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_estp_10 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_10
+		mbti_intp_10
+		mbti_entj_10
+		mbti_entp_10
+		mbti_infj_10
+		mbti_infp_10
+		mbti_enfj_10
+		mbti_enfp_10
+		mbti_istj_10
+		mbti_isfj_10
+		mbti_estj_10
+		mbti_esfj_10
+		mbti_istp_10
+		mbti_isfp_10
+		mbti_esfp_10
+	}
+
+	prowess = 4
+	dread_baseline_add = 10
+	attacker_advantage = 4
+	pursue_efficiency = 0.20
+
+	min_combat_roll = -4
+	max_combat_roll = 8
+	
+	ruler_designer_cost = 20
+
+	icon = mbti_estp_10.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_estp_10_character_desc
+			}
+			desc = trait_estp_10_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_esfp_10 = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+		mbti_intj_10
+		mbti_intp_10
+		mbti_entj_10
+		mbti_entp_10
+		mbti_infj_10
+		mbti_infp_10
+		mbti_enfj_10
+		mbti_enfp_10
+		mbti_istj_10
+		mbti_isfj_10
+		mbti_estj_10
+		mbti_esfj_10
+		mbti_istp_10
+		mbti_isfp_10
+		mbti_estp_10
+	}
+
+	stewardship = 3
+	hostile_county_attrition = -0.50
+	monthly_war_income_mult = 0.10
+	dread_baseline_add = 15
+	general_opinion = -10
+
+	min_combat_roll = -4
+	max_combat_roll = 8
+	
+	ruler_designer_cost = 20
+
+	icon = mbti_esfp_10.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esfp_10_character_desc
+			}
+			desc = trait_esfp_10_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+

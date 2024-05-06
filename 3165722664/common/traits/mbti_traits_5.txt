@@ -1,0 +1,1314 @@
+# Standard Values
+@pos_compat_high = 5
+@pos_compat_medium = 3.5
+@pos_compat_low = 1.25
+
+@neg_compat_high = -5
+@neg_compat_medium = -2.5
+@neg_compat_low = -1.25
+
+mbti_intj_5 = { #philosopher
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_learning_penalty_add = 4
+	learning_per_stress_level = 2
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ 	ai_sociability = -10 #ai
+ 	ai_rationality = 10 #ai
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_intj_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intj_5_desc
+			}
+			desc = trait_intj_5_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_intp_5 = { #bookwork
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_learning_penalty_add = 4
+	learning_per_stress_level = 2
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ 	ai_sociability = -10 #ai
+ 	ai_rationality = 10 #ai
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_intp_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intp_5_desc
+			}
+			desc = trait_intp_5_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_entj_5 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_martial_penalty_add = 4
+	martial_per_stress_level = 2
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = -10 #ai
+ 	ai_energy = 10 #ai
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_entj_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_entj_5_desc
+			}
+			desc = trait_entj_5_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_entp_5 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_diplomacy_penalty_add = 4
+	diplomacy_per_stress_level = 2
+
+ 	ai_boldness = -10 #ai
+ 	ai_compassion = 10 #ai
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_entp_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_entp_5_desc
+			}
+			desc = trait_entp_5_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_infj_5 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_intrigue_penalty_add = 4
+	intrigue_per_stress_level = 2
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = 10 #ai
+ #	ai_energy = 0
+ 	ai_honor = -10 #ai
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_infj_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infj_5_desc
+			}
+			desc = trait_infj_5_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_infp_5 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_intrigue_penalty_add = 4
+	intrigue_per_stress_level = 2
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = 10 #ai
+ #	ai_energy = 0
+ 	ai_honor = -10 #ai
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_infp_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infp_5_desc
+			}
+			desc = trait_infp_5_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_enfj_5 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_learning_penalty_add = 4
+	learning_per_stress_level = 2
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = -10 #ai
+ 	ai_energy = 10 #ai
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_enfj_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_enfj_5_desc
+			}
+			desc = trait_enfj_5_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_enfp_5 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_diplomacy_penalty_add = 4
+	diplomacy_per_stress_level = 2
+	fellow_vassal_opinion = 5
+
+ 	ai_boldness = -10 #ai
+ 	ai_compassion = 10 #ai
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_enfp_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_enfp_5_desc
+			}
+			desc = trait_enfp_5_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_istj_5 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_learning_penalty_add = 4
+	monthly_learning_lifestyle_xp_gain_mult = 0.25
+
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = 10 #ai
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ 	ai_zeal = -10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_istj_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istj_5_desc
+			}
+			desc = trait_istj_5_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_isfj_5 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_stewardship_penalty_add = 4
+	stewardship_per_stress_level = 2
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = 10 #ai
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ 	ai_zeal = -10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_isfj_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_isfj_5_desc
+			}
+			desc = trait_isfj_5_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_estj_5 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_martial_penalty_add = 4
+	martial_per_stress_level = 2
+	
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = -10 #ai
+ 	ai_energy = 10 #ai
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_estj_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_estj_5_desc
+			}
+			desc = trait_estj_5_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_esfj_5 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_diplomacy_penalty_add = 4
+	diplomacy_per_stress_level = 2
+
+ 	ai_boldness = -10 #ai
+ 	ai_compassion = 10 #ai
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_esfj_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esfj_5_desc
+			}
+			desc = trait_esfj_5_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_istp_5 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_prowess_penalty_add = 4
+	prowess_per_stress_level = 2
+
+ 	ai_boldness = 10 #ai
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = -10 #ai
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_istp_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istp_5_desc
+			}
+			desc = trait_istp_5_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_isfp_5 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_prowess_penalty_add = 4
+	prowess_per_stress_level = 2
+
+ 	ai_boldness = 10 #ai
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = -10 #ai
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_isfp_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_isfp_5_desc
+			}
+			desc = trait_isfp_5_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_estp_5 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_esfp_5
+	}
+
+	negate_stewardship_penalty_add = 4
+	stewardship_per_stress_level = 2
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = 10 #ai
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ 	ai_zeal = -10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_estp_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_estp_5_desc
+			}
+			desc = trait_estp_5_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_esfp_5 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+	}
+
+	negate_intrigue_penalty_add = 4
+	intrigue_per_stress_level = 2
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = 10 #ai
+ #	ai_energy = 0
+ 	ai_honor = -10 #ai
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_esfp_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esfp_5_desc
+			}
+			desc = trait_esfp_5_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_extra_1 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_diplomacy_penalty_add = 1
+	negate_martial_penalty_add = 1
+	negate_stewardship_penalty_add = 1
+	negate_intrigue_penalty_add = 1
+	negate_learning_penalty_add = 1
+	negate_prowess_penalty_add = 1
+
+	ruler_designer_cost = 20
+
+	icon = mbti_extra_1.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mbti_extra_1_desc
+			}
+			desc = trait_mbti_extra_1_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_extra_2 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_1
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_martial_penalty_add = 4
+	martial_per_stress_level = 2
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = -10 #ai
+ 	ai_energy = 10 #ai
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_extra_2.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mbti_extra_2_desc
+			}
+			desc = trait_mbti_extra_2_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_extra_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_2
+		mbti_extra_1
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	diplomacy = 2
+	stewardship = 2
+	martial = 2
+	intrigue = 2
+	learning = 2
+	prowess = 2
+	stress_gain_mult = 0.15
+
+	ruler_designer_cost = 20
+
+	icon = mbti_extra_3.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mbti_extra_3_desc
+			}
+			desc = trait_mbti_extra_3_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_extra_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_1
+		mbti_extra_5
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_stewardship_penalty_add = 4
+	stewardship_per_stress_level = 2
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = 10 #ai
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ 	ai_zeal = -10 #ai
+
+	ruler_designer_cost = 20
+
+	icon = mbti_extra_4.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mbti_extra_4_desc
+			}
+			desc = trait_mbti_extra_4_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_extra_5 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_1
+		mbti_extra_6
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_diplomacy_penalty_add = 4
+    monthly_income_mult = -0.05
+    general_opinion = 5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ 	ai_sociability = -10 #ai
+ 	ai_rationality = 10 #ai
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_extra_5.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mbti_extra_5_desc
+			}
+			desc = trait_mbti_extra_5_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_extra_6 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_2
+		mbti_extra_3
+		mbti_extra_4
+		mbti_extra_5
+		mbti_extra_1
+		mbti_intj_5
+		mbti_intp_5
+		mbti_entj_5
+		mbti_entp_5
+		mbti_infj_5
+		mbti_infp_5
+		mbti_enfj_5
+		mbti_enfp_5
+		mbti_istj_5
+		mbti_isfj_5
+		mbti_estj_5
+		mbti_esfj_5
+		mbti_istp_5
+		mbti_isfp_5
+		mbti_estp_5
+		mbti_esfp_5
+	}
+
+	negate_prowess_penalty_add = 4
+	prowess_per_stress_level = 2
+
+ 	ai_boldness = 10 #ai
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = -10 #ai
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_extra_6.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mbti_extra_6_desc
+			}
+			desc = trait_mbti_extra_6_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}

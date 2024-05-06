@@ -1,0 +1,220 @@
+﻿
+# change_succession_law_prestige_base = 1000 #from 500
+
+#Send Gift
+
+#GIFTS
+gift_value = {
+	value = 50
+	add = scope:recipient.monthly_character_income
+	if = {
+		limit = {
+			scope:recipient.ai_greed > 0
+		}
+		add = {
+			value = scope:recipient.ai_greed
+			divide = 4
+			max = 25
+		}
+	}
+	if = {
+		limit = {
+			scope:recipient = { is_landed = yes }
+			scope:recipient.primary_title.tier <= 1
+		}
+		multiply = 1.25
+	}
+	else_if = {
+		limit = {
+			scope:recipient.primary_title.tier = 2
+		}
+		multiply = 1.5
+	}
+	else_if = {
+		limit = {
+			scope:recipient.primary_title.tier = 3
+		}
+		multiply = 2
+	}
+	else_if = {
+		limit = {
+			scope:recipient.primary_title.tier = 4
+		}
+		multiply = 2.5
+	}
+	else_if = {
+		limit = {
+			scope:recipient.primary_title.tier >= 5
+		}
+		multiply = 3
+	}
+	if = {
+		limit = {
+			scope:recipient = {
+				liege = scope:actor
+				is_theocratic_lessee = yes
+			}
+			scope:actor.primary_title.tier < tier_duchy
+		}
+		multiply = 2
+	}
+	else_if = {
+		limit = {
+			scope:recipient = {
+				liege = scope:actor
+				is_theocratic_lessee = yes
+			}
+			scope:actor.primary_title.tier >= tier_duchy
+		}
+		multiply = 3
+	}
+	
+	if = {
+		limit = {
+			scope:actor = {
+				exists = dynasty
+				dynasty = {
+					has_dynasty_perk = fp1_adventure_legacy_2
+				}
+			}
+		}
+		multiply = 0.5
+	}
+	
+	if = {
+		limit = {
+			scope:recipient = {
+				OR = {
+					AND = {
+						is_landed = yes
+						government_has_flag = government_is_tribal
+					}
+					AND = {
+						is_landed = no
+						exists = liege
+						liege = {
+							government_has_flag = government_is_tribal
+						}
+					}
+					AND = {
+						is_landed = no
+						exists = host
+						host = {
+							government_has_flag = government_is_tribal
+						}
+					}
+				}
+			}
+		}
+		multiply = 0.50
+		min = 25
+	}
+	add = scope:recipient.monthly_character_income
+}
+
+send_gift_opinion = {
+	value = 20
+	add = {
+		if = {
+			limit = {
+				scope:actor.diplomacy > 0
+			}
+			add = {
+				value = scope:actor.diplomacy
+				multiply = 0.5
+			}
+		}
+		if = {
+			limit = {
+				scope:actor.learning > 0
+			}
+			add = {
+				value = scope:actor.learning
+				multiply = 0.5
+			}
+		}
+		if = {
+			limit = {
+				scope:actor.intrigue > 0
+			}
+			add = {
+				value = scope:actor.intrigue
+				multiply = 0.5
+			}
+		}
+		if = {
+			limit = {
+				scope:recipient.ai_greed > 0
+			}
+			add = {
+				value = scope:recipient.ai_greed
+				divide = 6
+			}
+		}
+		if = {
+			limit = {
+				scope:recipient.liege = scope:actor
+			}
+			divide = 1.5
+		}
+		if = {
+			limit = {
+				scope:recipient = scope:actor.faith.religious_head
+			}
+			divide = 3
+		}
+		if = {
+			limit = {
+				scope:actor.culture ?= {
+					has_innovation = fp3_innovation_fritware
+				}
+			}
+			multiply = 1.2
+		}
+		max = 50
+	}
+	add = {
+		if = {
+			limit = {
+				scope:recipient = { is_ruler = no }
+			}
+			add = 10
+		}
+		if = {
+			limit = {
+				scope:recipient.highest_held_title_tier = 1
+			}
+			add = 8
+		}
+		if = {
+			limit = {
+				scope:recipient.highest_held_title_tier = 2
+			}
+			add = 6
+		}
+		if = {
+			limit = {
+				scope:recipient.highest_held_title_tier = 3
+			}
+			add = 4
+		}
+		if = {
+			limit = {
+				scope:recipient.highest_held_title_tier = 4
+			}
+			add = 2
+		}
+	}
+	if = {
+		limit = {
+			scope:actor.culture = { has_cultural_parameter = more_gift_opinion }
+		}
+		multiply = 1.2
+	}
+	if = {
+		limit = {
+			scope:actor = { has_perk = thoughtful_perk }
+		}
+		multiply = 1.5
+	}
+}

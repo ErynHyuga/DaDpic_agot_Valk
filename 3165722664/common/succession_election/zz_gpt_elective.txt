@@ -1,0 +1,1641 @@
+﻿# The entry should be named in the same way that the elective succession law is named to define it's voter's logic.
+# Root scope - Elector, the character voting in the election.
+# scope:candidate scope - Candidate, Character considered for the title.
+# scope:title scope - Title, The title the nomination is for.
+# scope:holder scope - Ruler, The ruler currently holding the title.
+# scope:holder_candidate scope - Favored Candidate, The title owner's candidate.
+# The voter will vote for the top score candidate calculated from this script.
+
+clan_elective = {
+	elector_vote_strength = {
+		base = 0
+		modifier = { #subrealmlv1
+			desc = tooltip_clan_elective_domain_size
+			add = {
+				value = domain_size
+			}
+			this = scope:holder
+		}
+		modifier = { #subrealmlv1
+			desc = tooltip_clan_elective_house_vassal
+			add = {
+				value = sub_realm_size
+			}
+			and = {
+				NOT = { this = scope:holder }
+				is_vassal_of = scope:holder
+			}
+		}									
+		modifier = { #Powerful Vassal
+			desc = tooltip_feudal_vote_strength_powerful_vassal
+			add = {
+				value = 1
+				if = { #Additional point if the vassal is more powerful than the current ruler (Vassal King who meets this condition will have more voting power than the Emperor himself (1+1+1+2 = 5))
+					limit = {
+						max_military_strength > scope:holder.max_military_strength
+					}
+					add = 2
+				}
+			}
+			NOT = { this = scope:holder }
+			is_powerful_vassal = yes
+		}
+		modifier = { #Regent Influence
+			desc = tooltip_feudal_vote_strength_is_diarch
+			add = 2
+			is_diarch_of_target = scope:holder
+		}			
+	}
+	
+	electors = {
+		add = holder
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				OR = { #1 or 2 tiers of difference for Electors.
+					scope:title = { tier = tier_county }
+					AND = {
+						scope:title = { tier = tier_duchy }
+						highest_held_title_tier >= 1
+					}
+					AND = {
+						scope:title = { tier = tier_kingdom }
+						highest_held_title_tier >= 2
+					}
+					AND = {
+						scope:title = { tier = tier_empire }
+						highest_held_title_tier >= 3
+					}
+				}
+				OR = { #Either de facto direct vassal, or independent ruler who is de jure vassal. (no sub-vassals)
+					is_vassal_of = scope:holder
+					is_independent_ruler = yes
+				}
+				any_held_title = { #Elector title must be a de jure vassal of the title being voted on; multi-Dukes (or similar) might have two duchies in multiple electoral domains, which they should be able to vote on. This is only valid for the highest-tier title (so a Duke-Elector who also owns a County which is an electoral title for another title does not get a vote from that county).
+					tier = root.highest_held_title_tier
+					exists = de_jure_liege
+					target_is_de_jure_liege_or_above = scope:title
+				}
+			}
+		}
+	}
+
+	candidate_score = {
+		base = 0
+		#Elector self-voting pattern
+		elector_self_voting_pattern_feudal_elective_modifier = yes
+
+		#Holder voting pattern	
+		holder_voting_pattern_feudal_elective_modifier = yes
+
+		#Elector voting patterns (circumstances)	
+		elector_voting_pattern_circumstances_feudal_elective_modifier = yes
+
+		#Elector voting patterns (prestige/piety)
+		elector_voting_pattern_prestige_piety_feudal_elective_modifier = yes
+
+		#Elector voting patterns (traits)
+		elector_voting_pattern_traits_feudal_elective_modifier = yes
+
+		#Elector voting patterns (opinion)
+		elector_voting_pattern_opinion_feudal_elective_modifier = yes
+	}
+	
+	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
+	candidates = {
+		add = {
+			type = holder_direct_vassals
+			limit = {
+				feudal_elective_potential_landless_claimant_candidate_trigger = yes
+				is_vassal_of = scope:holder
+				is_adult = yes
+			}
+		}
+	}
+}
+
+confederate_elective = {
+	elector_vote_strength = {
+		base = 1	
+		modifier = { #Imperial Dignity
+			desc = tooltip_feudal_vote_strength_emperor_tier
+			add = 3
+			highest_held_title_tier = 5
+		}
+		modifier = { #Royal Dignity
+			desc = tooltip_feudal_vote_strength_king_tier
+			add = 2
+			highest_held_title_tier = 4
+		}
+		modifier = { #Princely Dignity
+			desc = tooltip_feudal_vote_strength_duke_tier
+			add = 1
+			highest_held_title_tier = 3
+		}								
+		modifier = { #Powerful Vassal
+			desc = tooltip_feudal_vote_strength_powerful_vassal
+			add = {
+				value = 1
+				if = { #Additional point if the vassal is more powerful than the current ruler (Vassal King who meets this condition will have more voting power than the Emperor himself (1+1+1+2 = 5))
+					limit = {
+						max_military_strength > scope:holder.max_military_strength
+					}
+					add = 1
+				}
+			}
+			NOT = { this = scope:holder }
+			is_powerful_vassal = yes
+		}
+		modifier = { #Regent Influence
+			desc = tooltip_feudal_vote_strength_is_diarch
+			add = 1
+			is_diarch_of_target = scope:holder
+		}			
+	}
+	
+	electors = {
+		add = holder
+		add = holder_direct_vassals	
+		#add = title_dejure_vassals
+	}
+
+	candidate_score = {
+		base = 0
+
+		#No Nepotism Allowed
+		modifier = {
+			desc = tooltip_is_family_of_title_holder
+			NOT = { 
+				scope:candidate = {
+				is_vassal_of = scope:holder
+			} 
+			}
+			scope:candidate = {
+				is_vassal_of = scope:holder
+				is_close_or_extended_family_of = scope:holder
+			}			
+			add = {
+				subtract = 80
+			}
+		}			
+
+		elector_self_voting_pattern_feudal_elective_modifier = yes
+		holder_voting_pattern_feudal_elective_modifier = yes
+		elector_voting_pattern_circumstances_feudal_elective_modifier = yes
+		elector_voting_pattern_prestige_piety_feudal_elective_modifier = yes
+		elector_voting_pattern_traits_feudal_elective_modifier = yes
+		elector_voting_pattern_opinion_feudal_elective_modifier = yes
+	}
+	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
+	candidates = {
+		add = {
+			type = holder_direct_vassals
+			limit = {
+				gpt_nomadic_elective_potential_landed_candidate_trigger = yes
+				culture = { has_cultural_tradition = tradition_horse_lords }
+			}
+		}
+	}	
+}
+
+confederate_elective_2 = {
+	elector_vote_strength = {
+		base = 1	
+		modifier = { #Imperial Dignity
+			desc = tooltip_feudal_vote_strength_emperor_tier
+			add = 3
+			highest_held_title_tier = 5
+		}
+		modifier = { #Royal Dignity
+			desc = tooltip_feudal_vote_strength_king_tier
+			add = 2
+			highest_held_title_tier = 4
+		}
+		modifier = { #Princely Dignity
+			desc = tooltip_feudal_vote_strength_duke_tier
+			add = 1
+			highest_held_title_tier = 3
+		}								
+		modifier = { #Powerful Vassal
+			desc = tooltip_feudal_vote_strength_powerful_vassal
+			add = {
+				value = 1
+				if = { #Additional point if the vassal is more powerful than the current ruler (Vassal King who meets this condition will have more voting power than the Emperor himself (1+1+1+2 = 5))
+					limit = {
+						max_military_strength > scope:holder.max_military_strength
+					}
+					add = 1
+				}
+			}
+			NOT = { this = scope:holder }
+			is_powerful_vassal = yes
+		}
+		modifier = { #Regent Influence
+			desc = tooltip_feudal_vote_strength_is_diarch
+			add = 1
+			is_diarch_of_target = scope:holder
+		}			
+	}
+	
+	electors = {
+		add = holder
+		add = holder_direct_vassals	
+		#add = title_dejure_vassals
+	}
+
+	candidate_score = {
+		base = 0
+
+		#No Nepotism Allowed
+		modifier = {
+			desc = tooltip_is_family_of_title_holder
+			NOT = { 
+				scope:candidate = {
+				is_vassal_of = scope:holder
+			} 
+			}
+			scope:candidate = {
+				is_vassal_of = scope:holder
+				is_close_or_extended_family_of = scope:holder
+			}			
+			add = {
+				subtract = 80
+			}
+		}			
+
+		elector_self_voting_pattern_feudal_elective_modifier = yes
+		holder_voting_pattern_feudal_elective_modifier = yes
+		elector_voting_pattern_circumstances_feudal_elective_modifier = yes
+		elector_voting_pattern_prestige_piety_feudal_elective_modifier = yes
+		elector_voting_pattern_traits_feudal_elective_modifier = yes
+		elector_voting_pattern_opinion_feudal_elective_modifier = yes
+	}
+	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
+	candidates = {
+		add = {
+			type = holder_direct_vassals
+			limit = {
+				gpt_nomadic_elective_potential_landed_candidate_trigger = yes
+			 #	culture = { has_cultural_tradition = tradition_horse_lords }
+			}
+		}
+	}	
+}
+
+
+
+
+
+
+
+
+gpt_republican_elective = {
+	elector_vote_strength = {
+		base = 1
+
+		modifier = {
+			desc = gpt_republican_vote_strenght_respect
+			add = 1
+			monthly_character_income > scope:holder.monthly_character_income
+		}
+		modifier = {
+			desc = gpt_republican_vote_strenght_skill
+			add = 1
+			stewardship >= 16
+			stewardship > scope:holder.stewardship
+		}
+
+		modifier = { #Sicilian Parliamentary Support
+			desc = tooltip_feudal_vote_strength_parliament
+			add = 1
+			is_landed = yes
+			exists = capital_county
+			capital_county.county_opinion > 25
+			capital_county = { exists = var:variable_sicilian_parliament_county }
+		}
+		modifier = { #Imperial Dignity
+			desc = tooltip_feudal_vote_strength_emperor_tier
+			add = 3
+			highest_held_title_tier = 5
+		}
+		modifier = { #Royal Dignity
+			desc = tooltip_feudal_vote_strength_king_tier
+			add = 2
+			highest_held_title_tier = 4
+		}
+		modifier = { #Princely Dignity
+			desc = tooltip_feudal_vote_strength_duke_tier
+			add = 1
+			highest_held_title_tier = 3
+		}
+		modifier = { #Powerful Vassal
+			desc = tooltip_feudal_vote_strength_powerful_vassal
+			add = {
+				value = 1
+				if = { #Additional point if the vassal is more powerful than the current ruler (Vassal King who meets this condition will have more voting power than the Emperor himself (1+1+1+2 = 5))
+					limit = {
+						max_military_strength > scope:holder.max_military_strength
+					}
+					add = 1
+				}
+			}
+			NOT = { this = scope:holder }
+			is_powerful_vassal = yes
+			liege = scope:holder
+		}
+		modifier = { #Clerical Influence
+			desc = tooltip_feudal_vote_strength_theocrat
+			add = 1
+			NOT = { this = scope:holder }
+			OR = {
+				government_has_flag = government_is_theocracy
+				has_council_position = councillor_court_chaplain
+			}
+			faith = scope:holder.faith
+			faith = { has_doctrine = doctrine_theocracy_lay_clergy }
+		}
+		modifier = { #Regent Influence
+			desc = tooltip_feudal_vote_strength_is_diarch
+			add = 1
+			is_diarch_of_target = scope:holder
+		}
+	}
+	
+	electors = {
+		add = holder
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				OR = { #1 or 2 tiers of difference for Electors.
+					scope:title = { tier = tier_county }
+					AND = {
+						scope:title = { tier = tier_duchy }
+						highest_held_title_tier >= 1
+					}
+					AND = {
+						scope:title = { tier = tier_kingdom }
+						highest_held_title_tier >= 2
+					}
+					AND = {
+						scope:title = { tier = tier_empire }
+						highest_held_title_tier >= 3
+					}
+				}
+				OR = { #Either de facto direct vassal, or independent ruler who is de jure vassal. (no sub-vassals)
+					is_vassal_of = scope:holder
+					is_independent_ruler = yes
+				}
+				any_held_title = { #Elector title must be a de jure vassal of the title being voted on; multi-Dukes (or similar) might have two duchies in multiple electoral domains, which they should be able to vote on. This is only valid for the highest-tier title (so a Duke-Elector who also owns a County which is an electoral title for another title does not get a vote from that county).
+					tier = root.highest_held_title_tier
+					exists = de_jure_liege
+					target_is_de_jure_liege_or_above = scope:title
+				}
+			}
+		}
+	}
+
+	candidate_score = {
+		base = 0
+
+		modifier = {
+			add = -50
+			desc = gpt_republican_heir_low_skill
+			scope:candidate = {
+				stewardship < 12
+			}
+		}
+		modifier = {
+			desc = gpt_republican_score_skill
+			scope:candidate = {
+				stewardship >= 12
+			}
+			add = scope:candidate.stewardship
+		}
+		modifier = {
+			desc = gpt_republican_score_education
+			scope:candidate = {
+				OR = {
+					has_trait = education_stewardship_4
+					has_trait = education_stewardship_5
+				}
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_republican_score_stance
+			scope:candidate = {
+				is_vassal_of = scope:holder
+				has_vassal_stance = parochial
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_republican_score_respect
+			scope:candidate = {
+				is_landed = yes
+				OR = {
+					monthly_character_income >= 10
+					domain_size >= 5
+					AND = {
+						exists = capital_province
+						capital_province = { has_special_building = yes }
+					}
+					has_realm_law = realm_administration_law_2
+				}
+			}
+			add = 60
+		}
+		modifier = {
+			desc = gpt_republican_score_experience
+			scope:candidate = {
+				OR = {
+					has_trait = avaricious
+					has_trait = administrator
+					has_trait = architect
+				}
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_republican_score_traits_pos
+			scope:candidate = {
+				OR = {
+					has_trait = just
+					has_trait = diligent
+					has_trait = greedy
+				}
+				NOR = {
+					has_trait = arbitrary
+					has_trait = lazy
+					has_trait = generous
+				}
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_republican_score_traits_neg
+			scope:candidate = {
+				OR = {
+					has_trait = arbitrary
+					has_trait = lazy
+					has_trait = generous
+				}
+			}
+			add = -50
+		}
+
+		######################	Elector self-voting pattern	##########################
+		elector_self_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Holder voting pattern	##########################
+		holder_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (circumstances)	##########################
+		elector_voting_pattern_circumstances_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (prestige/piety)	##########################
+		elector_voting_pattern_prestige_piety_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (traits)	##########################
+		elector_voting_pattern_traits_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (opinion)	##########################
+		elector_voting_pattern_opinion_feudal_elective_modifier = yes
+	}
+	
+	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
+	candidates = {
+		add = {
+			type = holder_direct_vassals
+			limit = {
+				feudal_elective_potential_landed_candidate_trigger = yes
+				OR = {
+					has_trait = education_stewardship_3
+					has_trait = education_stewardship_4
+					has_trait = education_stewardship_5
+					stewardship >= 12
+				}
+			}
+		}
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				is_independent_ruler = yes #De jure vassals of the title who are not de facto vassals of the current ruler.
+				feudal_elective_potential_landed_candidate_trigger = yes
+				OR = {
+					has_trait = education_stewardship_3
+					has_trait = education_stewardship_4
+					has_trait = education_stewardship_5
+					stewardship >= 12
+				}
+			}
+		}
+		add = {
+			type = title_claimants
+			limit = {
+				feudal_elective_potential_landless_claimant_candidate_trigger = yes
+				OR = {
+					has_trait = education_stewardship_3
+					has_trait = education_stewardship_4
+					has_trait = education_stewardship_5
+					stewardship >= 12
+				}
+			}
+		}
+		add = {
+			type = holder_close_or_extended_family
+			limit = {
+				is_close_family_of = scope:holder
+				feudal_elective_potential_landless_dynastic_candidate_trigger = yes
+				OR = {
+					has_trait = education_stewardship_3
+					has_trait = education_stewardship_4
+					has_trait = education_stewardship_5
+					stewardship >= 12
+				 #	is_primary_heir_of = scope:holder
+				}
+			}
+		}
+	}
+}
+
+gpt_theocratic_elective = {
+	elector_vote_strength = {
+		base = 1
+
+		modifier = {
+			desc = gpt_theocratic_vote_strenght_respect
+			add = 1
+			piety_level >= 3
+			piety_level > scope:holder.piety_level
+		}
+		modifier = {
+			desc = gpt_theocratic_vote_strenght_skill
+			add = 1
+			learning >= 16
+			learning > scope:holder.learning
+		}
+
+		modifier = { #Sicilian Parliamentary Support
+			desc = tooltip_feudal_vote_strength_parliament
+			add = 1
+			is_landed = yes
+			exists = capital_county
+			capital_county.county_opinion > 25
+			capital_county = { exists = var:variable_sicilian_parliament_county }
+		}
+		modifier = { #Imperial Dignity
+			desc = tooltip_feudal_vote_strength_emperor_tier
+			add = 3
+			highest_held_title_tier = 5
+		}
+		modifier = { #Royal Dignity
+			desc = tooltip_feudal_vote_strength_king_tier
+			add = 2
+			highest_held_title_tier = 4
+		}
+		modifier = { #Princely Dignity
+			desc = tooltip_feudal_vote_strength_duke_tier
+			add = 1
+			highest_held_title_tier = 3
+		}
+		modifier = { #Powerful Vassal
+			desc = tooltip_feudal_vote_strength_powerful_vassal
+			add = {
+				value = 1
+				if = { #Additional point if the vassal is more powerful than the current ruler (Vassal King who meets this condition will have more voting power than the Emperor himself (1+1+1+2 = 5))
+					limit = {
+						max_military_strength > scope:holder.max_military_strength
+					}
+					add = 1
+				}
+			}
+			NOT = { this = scope:holder }
+			is_powerful_vassal = yes
+			liege = scope:holder
+		}
+		modifier = { #Clerical Influence
+			desc = tooltip_feudal_vote_strength_theocrat
+			add = 1
+			NOT = { this = scope:holder }
+			OR = {
+				government_has_flag = government_is_theocracy
+				has_council_position = councillor_court_chaplain
+			}
+			faith = scope:holder.faith
+			faith = { has_doctrine = doctrine_theocracy_lay_clergy }
+		}
+		modifier = { #Regent Influence
+			desc = tooltip_feudal_vote_strength_is_diarch
+			add = 1
+			is_diarch_of_target = scope:holder
+		}
+	}
+	
+	electors = {
+		add = holder
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				OR = { #1 or 2 tiers of difference for Electors.
+					scope:title = { tier = tier_county }
+					AND = {
+						scope:title = { tier = tier_duchy }
+						highest_held_title_tier >= 1
+					}
+					AND = {
+						scope:title = { tier = tier_kingdom }
+						highest_held_title_tier >= 2
+					}
+					AND = {
+						scope:title = { tier = tier_empire }
+						highest_held_title_tier >= 3
+					}
+				}
+				OR = { #Either de facto direct vassal, or independent ruler who is de jure vassal. (no sub-vassals)
+					is_vassal_of = scope:holder
+					is_independent_ruler = yes
+				}
+				any_held_title = { #Elector title must be a de jure vassal of the title being voted on; multi-Dukes (or similar) might have two duchies in multiple electoral domains, which they should be able to vote on. This is only valid for the highest-tier title (so a Duke-Elector who also owns a County which is an electoral title for another title does not get a vote from that county).
+					tier = root.highest_held_title_tier
+					exists = de_jure_liege
+					target_is_de_jure_liege_or_above = scope:title
+				}
+			}
+		}
+	}
+
+	candidate_score = {
+		base = 0
+
+		modifier = {
+			add = -50
+			desc = gpt_theocratic_heir_low_skill
+			scope:candidate = {
+				learning < 12
+			}
+		}
+		modifier = {
+			desc = gpt_theocratic_score_skill
+			scope:candidate = {
+				learning >= 12
+			}
+			add = scope:candidate.learning
+		}
+		modifier = {
+			desc = gpt_theocratic_score_education
+			scope:candidate = {
+				OR = {
+					has_trait = education_learning_4
+					has_trait = education_learning_5
+				}
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_theocratic_score_stance
+			scope:candidate = {
+				is_vassal_of = scope:holder
+				has_vassal_stance = zealot
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_theocratic_score_respect
+			scope:candidate = {
+				OR = {
+					piety_level >= 4
+					piety > 1000
+					faith.religious_head = {
+						opinion = {
+							target = root
+							value >= 50
+						}
+					}
+				}
+			}
+			add = 60
+		}
+		modifier = {
+			desc = gpt_theocratic_score_experience
+			scope:candidate = {
+				OR = {
+					has_trait = scholar
+					has_trait = theologian
+					has_trait = whole_of_body
+				}
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_theocratic_score_traits_pos
+			scope:candidate = {
+				OR = {
+					has_trait = zealous
+					has_trait = chaste
+					has_trait = honest
+				}
+				NOR = {
+					has_trait = cynical
+					has_trait = lustful
+					has_trait = deceitful
+				}
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_theocratic_score_traits_neg
+			scope:candidate = {
+				OR = {
+					has_trait = cynical
+					has_trait = sadistic
+					has_trait = deceitful
+				}
+			}
+			add = -50
+		}
+
+		######################	Elector self-voting pattern	##########################
+		elector_self_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Holder voting pattern	##########################
+		holder_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (circumstances)	##########################
+		elector_voting_pattern_circumstances_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (prestige/piety)	##########################
+		elector_voting_pattern_prestige_piety_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (traits)	##########################
+		elector_voting_pattern_traits_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (opinion)	##########################
+		elector_voting_pattern_opinion_feudal_elective_modifier = yes
+	}
+	
+	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
+	candidates = {
+		add = {
+			type = holder_direct_vassals
+			limit = {
+				feudal_elective_potential_landed_candidate_trigger = yes
+				OR = {
+					has_trait = education_learning_3
+					has_trait = education_learning_4
+					has_trait = education_learning_5
+					learning >= 12
+				}
+			}
+		}
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				is_independent_ruler = yes #De jure vassals of the title who are not de facto vassals of the current ruler.
+				feudal_elective_potential_landed_candidate_trigger = yes
+				OR = {
+					has_trait = education_learning_3
+					has_trait = education_learning_4
+					has_trait = education_learning_5
+					learning >= 12
+				}
+			}
+		}
+		add = {
+			type = title_claimants
+			limit = {
+				feudal_elective_potential_landless_claimant_candidate_trigger = yes
+				OR = {
+					has_trait = education_learning_3
+					has_trait = education_learning_4
+					has_trait = education_learning_5
+					learning >= 12
+				}
+			}
+		}
+		add = {
+			type = holder_close_or_extended_family
+			limit = {
+				is_close_family_of = scope:holder
+				feudal_elective_potential_landless_dynastic_candidate_trigger = yes
+				OR = {
+					has_trait = education_learning_3
+					has_trait = education_learning_4
+					has_trait = education_learning_5
+					learning >= 12
+				 #	is_primary_heir_of = scope:holder
+				}
+			}
+		}
+	}
+}
+
+gpt_autocratic_elective = {
+	elector_vote_strength = {
+		base = 1
+
+		modifier = {
+			desc = gpt_autocratic_vote_strenght_respect
+			add = 1
+			dread >= 60
+			dread > scope:holder.dread
+		}
+		modifier = {
+			desc = gpt_autocratic_vote_strenght_skill
+			add = 1
+			martial >= 16
+			martial > scope:holder.martial
+		}
+
+		modifier = { #Sicilian Parliamentary Support
+			desc = tooltip_feudal_vote_strength_parliament
+			add = 1
+			is_landed = yes
+			exists = capital_county
+			capital_county.county_opinion > 25
+			capital_county = { exists = var:variable_sicilian_parliament_county }
+		}
+		modifier = { #Imperial Dignity
+			desc = tooltip_feudal_vote_strength_emperor_tier
+			add = 3
+			highest_held_title_tier = 5
+		}
+		modifier = { #Royal Dignity
+			desc = tooltip_feudal_vote_strength_king_tier
+			add = 2
+			highest_held_title_tier = 4
+		}
+		modifier = { #Princely Dignity
+			desc = tooltip_feudal_vote_strength_duke_tier
+			add = 1
+			highest_held_title_tier = 3
+		}
+		modifier = { #Powerful Vassal
+			desc = tooltip_feudal_vote_strength_powerful_vassal
+			add = {
+				value = 1
+				if = { #Additional point if the vassal is more powerful than the current ruler (Vassal King who meets this condition will have more voting power than the Emperor himself (1+1+1+2 = 5))
+					limit = {
+						max_military_strength > scope:holder.max_military_strength
+					}
+					add = 1
+				}
+			}
+			NOT = { this = scope:holder }
+			is_powerful_vassal = yes
+			liege = scope:holder
+		}
+		modifier = { #Clerical Influence
+			desc = tooltip_feudal_vote_strength_theocrat
+			add = 1
+			NOT = { this = scope:holder }
+			OR = {
+				government_has_flag = government_is_theocracy
+				has_council_position = councillor_court_chaplain
+			}
+			faith = scope:holder.faith
+			faith = { has_doctrine = doctrine_theocracy_lay_clergy }
+		}
+		modifier = { #Regent Influence
+			desc = tooltip_feudal_vote_strength_is_diarch
+			add = 1
+			is_diarch_of_target = scope:holder
+		}
+	}
+	
+	electors = {
+		add = holder
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				OR = { #1 or 2 tiers of difference for Electors.
+					scope:title = { tier = tier_county }
+					AND = {
+						scope:title = { tier = tier_duchy }
+						highest_held_title_tier >= 1
+					}
+					AND = {
+						scope:title = { tier = tier_kingdom }
+						highest_held_title_tier >= 2
+					}
+					AND = {
+						scope:title = { tier = tier_empire }
+						highest_held_title_tier >= 3
+					}
+				}
+				OR = { #Either de facto direct vassal, or independent ruler who is de jure vassal. (no sub-vassals)
+					is_vassal_of = scope:holder
+					is_independent_ruler = yes
+				}
+				any_held_title = { #Elector title must be a de jure vassal of the title being voted on; multi-Dukes (or similar) might have two duchies in multiple electoral domains, which they should be able to vote on. This is only valid for the highest-tier title (so a Duke-Elector who also owns a County which is an electoral title for another title does not get a vote from that county).
+					tier = root.highest_held_title_tier
+					exists = de_jure_liege
+					target_is_de_jure_liege_or_above = scope:title
+				}
+			}
+		}
+	}
+
+	candidate_score = {
+		base = 0
+
+		modifier = {
+			add = -50
+			desc = gpt_autocratic_heir_low_skill
+			scope:candidate = {
+				martial < 12
+			}
+		}
+		modifier = {
+			desc = gpt_autocratic_score_skill
+			scope:candidate = {
+				martial >= 12
+			}
+			add = scope:candidate.martial
+		}
+		modifier = {
+			desc = gpt_autocratic_score_education
+			scope:candidate = {
+				OR = {
+					has_trait = education_martial_4
+					has_trait = education_martial_5
+				}
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_autocratic_score_stance
+			scope:candidate = {
+				is_vassal_of = scope:holder
+				has_vassal_stance = glory_hound
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_autocratic_score_respect
+			scope:candidate = {
+				OR = {
+					dread >= 70
+					tyranny >= 15
+					any_held_title = {
+						recent_history = {
+							type = conquest
+							years = 5
+						}
+					}
+				}
+			}
+			add = 60
+		}
+		modifier = {
+			desc = gpt_autocratic_score_experience
+			scope:candidate = {
+				OR = {
+					has_trait = strategist
+					has_trait = gallant
+					has_trait = overseer
+				}
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_autocratic_score_traits_pos
+			scope:candidate = {
+				OR = {
+					has_trait = brave
+					has_trait = generous
+					has_trait = ambitious
+				}
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_autocratic_score_traits_neg
+			scope:candidate = {
+				OR = {
+					has_trait = craven
+					has_trait = greedy
+					has_trait = content
+				}
+			}
+			add = -50
+		}
+
+		######################	Elector self-voting pattern	##########################
+		elector_self_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Holder voting pattern	##########################
+		holder_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (circumstances)	##########################
+		elector_voting_pattern_circumstances_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (prestige/piety)	##########################
+		elector_voting_pattern_prestige_piety_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (traits)	##########################
+		elector_voting_pattern_traits_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (opinion)	##########################
+		elector_voting_pattern_opinion_feudal_elective_modifier = yes
+	}
+	
+	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
+	candidates = {
+		add = {
+			type = holder_direct_vassals
+			limit = {
+				feudal_elective_potential_landed_candidate_trigger = yes
+				OR = {
+					has_trait = education_martial_3
+					has_trait = education_martial_4
+					has_trait = education_martial_5
+					martial >= 12
+				}
+			}
+		}
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				is_independent_ruler = yes #De jure vassals of the title who are not de facto vassals of the current ruler.
+				feudal_elective_potential_landed_candidate_trigger = yes
+				OR = {
+					has_trait = education_martial_3
+					has_trait = education_martial_4
+					has_trait = education_martial_5
+					martial >= 12
+				}
+			}
+		}
+		add = {
+			type = title_claimants
+			limit = {
+				feudal_elective_potential_landless_claimant_candidate_trigger = yes
+				OR = {
+					has_trait = education_martial_3
+					has_trait = education_martial_4
+					has_trait = education_martial_5
+					martial >= 12
+				}
+			}
+		}
+		add = {
+			type = holder_close_or_extended_family
+			limit = {
+				is_close_family_of = scope:holder
+				feudal_elective_potential_landless_dynastic_candidate_trigger = yes
+				OR = {
+					has_trait = education_martial_3
+					has_trait = education_martial_4
+					has_trait = education_martial_5
+					martial >= 12
+				 #	is_primary_heir_of = scope:holder
+				}
+			}
+		}
+	}
+}
+
+gpt_aristocratic_elective = {
+	elector_vote_strength = {
+		base = 1
+
+		modifier = {
+			desc = gpt_aristocratic_vote_strenght_respect
+			add = 1
+			dynasty.dynasty_prestige_level >= 5
+			dynasty.dynasty_prestige_level > scope:holder.dynasty.dynasty_prestige_level
+		}
+		modifier = {
+			desc = gpt_aristocratic_vote_strenght_skill
+			add = 1
+			diplomacy >= 16
+			diplomacy > scope:holder.diplomacy
+		}
+
+		modifier = { #Sicilian Parliamentary Support
+			desc = tooltip_feudal_vote_strength_parliament
+			add = 1
+			is_landed = yes
+			exists = capital_county
+			capital_county.county_opinion > 25
+			capital_county = { exists = var:variable_sicilian_parliament_county }
+		}
+		modifier = { #Imperial Dignity
+			desc = tooltip_feudal_vote_strength_emperor_tier
+			add = 3
+			highest_held_title_tier = 5
+		}
+		modifier = { #Royal Dignity
+			desc = tooltip_feudal_vote_strength_king_tier
+			add = 2
+			highest_held_title_tier = 4
+		}
+		modifier = { #Princely Dignity
+			desc = tooltip_feudal_vote_strength_duke_tier
+			add = 1
+			highest_held_title_tier = 3
+		}
+		modifier = { #Powerful Vassal
+			desc = tooltip_feudal_vote_strength_powerful_vassal
+			add = {
+				value = 1
+				if = { #Additional point if the vassal is more powerful than the current ruler (Vassal King who meets this condition will have more voting power than the Emperor himself (1+1+1+2 = 5))
+					limit = {
+						max_military_strength > scope:holder.max_military_strength
+					}
+					add = 1
+				}
+			}
+			NOT = { this = scope:holder }
+			is_powerful_vassal = yes
+			liege = scope:holder
+		}
+		modifier = { #Clerical Influence
+			desc = tooltip_feudal_vote_strength_theocrat
+			add = 1
+			NOT = { this = scope:holder }
+			OR = {
+				government_has_flag = government_is_theocracy
+				has_council_position = councillor_court_chaplain
+			}
+			faith = scope:holder.faith
+			faith = { has_doctrine = doctrine_theocracy_lay_clergy }
+		}
+		modifier = { #Regent Influence
+			desc = tooltip_feudal_vote_strength_is_diarch
+			add = 1
+			is_diarch_of_target = scope:holder
+		}
+	}
+	
+	electors = {
+		add = holder
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				OR = { #1 or 2 tiers of difference for Electors.
+					scope:title = { tier = tier_county }
+					AND = {
+						scope:title = { tier = tier_duchy }
+						highest_held_title_tier >= 1
+					}
+					AND = {
+						scope:title = { tier = tier_kingdom }
+						highest_held_title_tier >= 2
+					}
+					AND = {
+						scope:title = { tier = tier_empire }
+						highest_held_title_tier >= 3
+					}
+				}
+				OR = { #Either de facto direct vassal, or independent ruler who is de jure vassal. (no sub-vassals)
+					is_vassal_of = scope:holder
+					is_independent_ruler = yes
+				}
+				any_held_title = { #Elector title must be a de jure vassal of the title being voted on; multi-Dukes (or similar) might have two duchies in multiple electoral domains, which they should be able to vote on. This is only valid for the highest-tier title (so a Duke-Elector who also owns a County which is an electoral title for another title does not get a vote from that county).
+					tier = root.highest_held_title_tier
+					exists = de_jure_liege
+					target_is_de_jure_liege_or_above = scope:title
+				}
+			}
+		}
+	}
+
+	candidate_score = {
+		base = 0
+
+		modifier = {
+			add = -50
+			desc = gpt_aristocratic_heir_low_skill
+			scope:candidate = {
+				diplomacy < 12
+			}
+		}
+		modifier = {
+			desc = gpt_aristocratic_score_skill
+			scope:candidate = {
+				diplomacy >= 12
+			}
+			add = scope:candidate.diplomacy
+		}
+		modifier = {
+			desc = gpt_aristocratic_score_education
+			scope:candidate = {
+				OR = {
+					has_trait = education_diplomacy_4
+					has_trait = education_diplomacy_5
+				}
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_aristocratic_score_stance
+			scope:candidate = {
+				is_vassal_of = scope:holder
+				has_vassal_stance = courtly
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_aristocratic_score_respect
+			scope:candidate = {
+				OR = {
+					court_positions_currently_filled >= 5
+					dynasty.dynasty_prestige_level >= 7
+					any_character_artifact = {
+						rarity = famed #masterwork
+					}
+				}
+			}
+			add = 60
+		}
+		modifier = {
+			desc = gpt_aristocratic_score_experience
+			scope:candidate = {
+				OR = {
+					has_trait = diplomat
+					has_trait = august
+					has_trait = family_first
+				}
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_aristocratic_score_traits_pos
+			scope:candidate = {
+				OR = {
+					has_trait = arrogant
+					has_trait = gregarious
+					has_trait = trusting
+				}
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_aristocratic_score_traits_neg
+			scope:candidate = {
+				OR = {
+					has_trait = humble
+					has_trait = shy
+					has_trait = paranoid
+				}
+			}
+			add = -50
+		}
+
+		######################	Elector self-voting pattern	##########################
+		elector_self_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Holder voting pattern	##########################
+		holder_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (circumstances)	##########################
+		elector_voting_pattern_circumstances_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (prestige/piety)	##########################
+		elector_voting_pattern_prestige_piety_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (traits)	##########################
+		elector_voting_pattern_traits_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (opinion)	##########################
+		elector_voting_pattern_opinion_feudal_elective_modifier = yes
+	}
+	
+	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
+	candidates = {
+		add = {
+			type = holder_direct_vassals
+			limit = {
+				feudal_elective_potential_landed_candidate_trigger = yes
+				OR = {
+					has_trait = education_diplomacy_3
+					has_trait = education_diplomacy_4
+					has_trait = education_diplomacy_5
+					diplomacy >= 12
+				}
+			}
+		}
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				is_independent_ruler = yes #De jure vassals of the title who are not de facto vassals of the current ruler.
+				feudal_elective_potential_landed_candidate_trigger = yes
+				OR = {
+					has_trait = education_diplomacy_3
+					has_trait = education_diplomacy_4
+					has_trait = education_diplomacy_5
+					diplomacy >= 12
+				}
+			}
+		}
+		add = {
+			type = title_claimants
+			limit = {
+				feudal_elective_potential_landless_claimant_candidate_trigger = yes
+				OR = {
+					has_trait = education_diplomacy_3
+					has_trait = education_diplomacy_4
+					has_trait = education_diplomacy_5
+					diplomacy >= 12
+				}
+			}
+		}
+		add = {
+			type = holder_close_or_extended_family
+			limit = {
+				is_close_family_of = scope:holder
+				feudal_elective_potential_landless_dynastic_candidate_trigger = yes
+				OR = {
+					has_trait = education_diplomacy_3
+					has_trait = education_diplomacy_4
+					has_trait = education_diplomacy_5
+					diplomacy >= 12
+				 #	is_primary_heir_of = scope:holder
+				}
+			}
+		}
+	}
+}
+
+gpt_democratic_elective = {
+	elector_vote_strength = {
+		base = 1
+
+		modifier = {
+			desc = gpt_democratic_vote_strenght_respect
+			add = 1
+			prestige_level >= 3
+			prestige_level > scope:holder.prestige_level
+		}
+		modifier = {
+			desc = gpt_democratic_vote_strenght_skill
+			add = 1
+			intrigue >= 16
+			intrigue > scope:holder.intrigue
+		}
+
+		modifier = { #Sicilian Parliamentary Support
+			desc = tooltip_feudal_vote_strength_parliament
+			add = 1
+			is_landed = yes
+			exists = capital_county
+			capital_county.county_opinion > 25
+			capital_county = { exists = var:variable_sicilian_parliament_county }
+		}
+		modifier = { #Imperial Dignity
+			desc = tooltip_feudal_vote_strength_emperor_tier
+			add = 3
+			highest_held_title_tier = 5
+		}
+		modifier = { #Royal Dignity
+			desc = tooltip_feudal_vote_strength_king_tier
+			add = 2
+			highest_held_title_tier = 4
+		}
+		modifier = { #Princely Dignity
+			desc = tooltip_feudal_vote_strength_duke_tier
+			add = 1
+			highest_held_title_tier = 3
+		}
+		modifier = { #Powerful Vassal
+			desc = tooltip_feudal_vote_strength_powerful_vassal
+			add = {
+				value = 1
+				if = { #Additional point if the vassal is more powerful than the current ruler (Vassal King who meets this condition will have more voting power than the Emperor himself (1+1+1+2 = 5))
+					limit = {
+						max_military_strength > scope:holder.max_military_strength
+					}
+					add = 1
+				}
+			}
+			NOT = { this = scope:holder }
+			is_powerful_vassal = yes
+			liege = scope:holder
+		}
+		modifier = { #Clerical Influence
+			desc = tooltip_feudal_vote_strength_theocrat
+			add = 1
+			NOT = { this = scope:holder }
+			OR = {
+				government_has_flag = government_is_theocracy
+				has_council_position = councillor_court_chaplain
+			}
+			faith = scope:holder.faith
+			faith = { has_doctrine = doctrine_theocracy_lay_clergy }
+		}
+		modifier = { #Regent Influence
+			desc = tooltip_feudal_vote_strength_is_diarch
+			add = 1
+			is_diarch_of_target = scope:holder
+		}
+	}
+	
+	electors = {
+		add = holder
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				OR = { #1 or 2 tiers of difference for Electors.
+					scope:title = { tier = tier_county }
+					AND = {
+						scope:title = { tier = tier_duchy }
+						highest_held_title_tier >= 1
+					}
+					AND = {
+						scope:title = { tier = tier_kingdom }
+						highest_held_title_tier >= 2
+					}
+					AND = {
+						scope:title = { tier = tier_empire }
+						highest_held_title_tier >= 3
+					}
+				}
+				OR = { #Either de facto direct vassal, or independent ruler who is de jure vassal. (no sub-vassals)
+					is_vassal_of = scope:holder
+					is_independent_ruler = yes
+				}
+				any_held_title = { #Elector title must be a de jure vassal of the title being voted on; multi-Dukes (or similar) might have two duchies in multiple electoral domains, which they should be able to vote on. This is only valid for the highest-tier title (so a Duke-Elector who also owns a County which is an electoral title for another title does not get a vote from that county).
+					tier = root.highest_held_title_tier
+					exists = de_jure_liege
+					target_is_de_jure_liege_or_above = scope:title
+				}
+			}
+		}
+	}
+
+	candidate_score = {
+		base = 0
+
+		modifier = {
+			add = -50
+			desc = gpt_democratic_heir_low_skill
+			scope:candidate = {
+				intrigue < 12
+			}
+		}
+		modifier = {
+			desc = gpt_democratic_score_skill
+			scope:candidate = {
+				intrigue >= 12
+			}
+			add = scope:candidate.intrigue
+		}
+		modifier = {
+			desc = gpt_democratic_score_education
+			scope:candidate = {
+				OR = {
+					has_trait = education_intrigue_4
+					has_trait = education_intrigue_5
+				}
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_democratic_score_stance
+			scope:candidate = {
+				is_vassal_of = scope:holder
+				has_vassal_stance = minority
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_democratic_score_respect
+			scope:candidate = {
+				OR = {
+					has_trait = peasant_leader
+					prestige_level >= 4
+					prestige > 1000
+					AND = {
+						domain_size >= 4
+						any_held_county = {
+							percent >= 0.8
+							county_opinion_target = {
+								target = root
+								value >= 30
+							}
+						}
+					}
+				}
+			}
+			add = 60
+		}
+		modifier = {
+			desc = gpt_democratic_score_experience
+			scope:candidate = {
+				OR = {
+					has_trait = torturer
+					has_trait = seducer
+					has_trait = schemer
+				}
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_democratic_score_traits_pos
+			scope:candidate = {
+				OR = {
+					has_trait = cynical
+					has_trait = compassionate
+					has_trait = forgiving
+				}
+			}
+			add = 30
+		}
+		modifier = {
+			desc = gpt_democratic_score_traits_neg
+			scope:candidate = {
+				OR = {
+					has_trait = zealous
+					has_trait = callous
+					has_trait = vengeful
+				}
+			}
+			add = -50
+		}
+
+		######################	Elector self-voting pattern	##########################
+		elector_self_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Holder voting pattern	##########################
+		holder_voting_pattern_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (circumstances)	##########################
+		elector_voting_pattern_circumstances_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (prestige/piety)	##########################
+		elector_voting_pattern_prestige_piety_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (traits)	##########################
+		elector_voting_pattern_traits_feudal_elective_modifier = yes
+
+		##########################	Elector voting patterns (opinion)	##########################
+		elector_voting_pattern_opinion_feudal_elective_modifier = yes
+	}
+	
+	#scope:candidate = Candidate, scope:title = Title, scope:holder_candidate = Candidate currently selected by ruler.
+	candidates = {
+		add = {
+			type = holder_direct_vassals
+			limit = {
+				feudal_elective_potential_landed_candidate_trigger = yes
+				OR = {
+					has_trait = peasant_leader
+					has_trait = education_intrigue_3
+					has_trait = education_intrigue_4
+					has_trait = education_intrigue_5
+					intrigue >= 12
+				}
+			}
+		}
+		add = {
+			type = title_dejure_vassals
+			limit = {
+				is_independent_ruler = yes #De jure vassals of the title who are not de facto vassals of the current ruler.
+				feudal_elective_potential_landed_candidate_trigger = yes
+				OR = {
+					has_trait = peasant_leader
+					has_trait = education_intrigue_3
+					has_trait = education_intrigue_4
+					has_trait = education_intrigue_5
+					intrigue >= 12
+				}
+			}
+		}
+		add = {
+			type = title_claimants
+			limit = {
+				feudal_elective_potential_landless_claimant_candidate_trigger = yes
+				OR = {
+					has_trait = peasant_leader
+					has_trait = education_intrigue_3
+					has_trait = education_intrigue_4
+					has_trait = education_intrigue_5
+					intrigue >= 12
+				}
+			}
+		}
+		add = {
+			type = holder_close_or_extended_family
+			limit = {
+				is_close_family_of = scope:holder
+				feudal_elective_potential_landless_dynastic_candidate_trigger = yes
+				OR = {
+					has_trait = education_intrigue_3
+					has_trait = education_intrigue_4
+					has_trait = education_intrigue_5
+					intrigue >= 12
+				 #	is_primary_heir_of = scope:holder
+				}
+			}
+		}
+		add = {
+			type = holder_dynasty
+			limit = {
+				feudal_elective_potential_landless_dynastic_candidate_trigger = yes
+				has_trait = peasant_leader
+			}
+		}
+	}
+}

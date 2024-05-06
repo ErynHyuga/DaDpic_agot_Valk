@@ -1,0 +1,3494 @@
+# Standard Values
+@pos_compat_high = 12
+@pos_compat_medium = 6
+@pos_compat_low = 3
+
+@neg_compat_high = -12
+@neg_compat_medium = -6
+@neg_compat_low = -3
+
+mbti_intj_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_intj_4
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+ 	dread_baseline_add = 5
+	monthly_lifestyle_xp_gain_mult = 0.1
+	learning = 2
+	courtly_opinion = 5
+	zealot_opinion = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = 15
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intj_3_desc
+			}
+			desc = trait_intj_3_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @neg_compat_low
+		gluttonous = @neg_compat_low
+		greedy = @pos_compat_low
+		diligent = @pos_compat_high
+		calm = @pos_compat_low
+		patient = @pos_compat_medium
+		arrogant = @pos_compat_medium
+		honest = @pos_compat_medium
+		shy = @pos_compat_medium
+		ambitious = @pos_compat_low
+		zealous = @neg_compat_low
+		fickle = @neg_compat_medium
+	}
+}
+
+mbti_intj_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 10
+	owned_scheme_secrecy_add = -10
+	owned_hostile_scheme_success_chance_add = 10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ 	ai_honor = -15
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intj_4_desc
+			}
+			desc = trait_intj_4_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @neg_compat_low
+		gluttonous = @neg_compat_low
+		greedy = @pos_compat_low
+		diligent = @pos_compat_high
+		calm = @pos_compat_low
+		patient = @pos_compat_medium
+		arrogant = @pos_compat_medium
+		honest = @pos_compat_medium
+		shy = @pos_compat_medium
+		ambitious = @pos_compat_low
+		zealous = @neg_compat_low
+		fickle = @neg_compat_medium
+	}
+}
+
+mbti_intp_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_intp_4
+		mbti_intj_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+ 	dread_baseline_add = 10
+	hostile_scheme_resistance_add = 10
+	councillor_opinion = 5
+	general_opinion = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ 	ai_sociability = -15
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intp_3_desc
+			}
+			desc = trait_intp_3_character_desc
+		}
+	}
+
+	compatibility = {
+		temperate = @pos_compat_low
+		generous = @neg_compat_low
+		diligent = @pos_compat_low
+		calm = @pos_compat_low
+		impatient = @pos_compat_medium
+		humble = @pos_compat_low
+		honest = @pos_compat_medium
+		gregarious = @neg_compat_medium
+		content = @neg_compat_medium
+		arbitrary = @pos_compat_low
+		cynical = @neg_compat_low
+		paranoid = @pos_compat_medium
+		callous = @pos_compat_low
+		stubborn = @pos_compat_low
+		vengeful = @pos_compat_low
+	}
+}
+
+mbti_intp_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_intp_3
+		mbti_intj_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 15
+	scheme_discovery_chance_mult = 0.2
+	courtier_and_guest_opinion = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ 	ai_vengefulness = 15
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intp_4_desc
+			}
+			desc = trait_intp_4_character_desc
+		}
+	}
+
+	compatibility = {
+		temperate = @pos_compat_low
+		generous = @neg_compat_low
+		diligent = @pos_compat_low
+		calm = @pos_compat_low
+		impatient = @pos_compat_medium
+		humble = @pos_compat_low
+		honest = @pos_compat_medium
+		gregarious = @neg_compat_medium
+		content = @neg_compat_medium
+		arbitrary = @pos_compat_low
+		cynical = @neg_compat_low
+		paranoid = @pos_compat_medium
+		callous = @pos_compat_low
+		stubborn = @pos_compat_low
+		vengeful = @pos_compat_low
+	}
+}
+
+mbti_entj_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_entj_4
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 15
+	tyranny_gain_mult = 0.10
+	general_opinion = -5
+	accolade_glory_gain_mult = 0.10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = 25
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_entj_3_desc
+			}
+			desc = trait_entj_3_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @pos_compat_low
+		temperate = @pos_compat_low
+		greedy = @pos_compat_medium
+		lazy = @neg_compat_high
+		wrathful = @pos_compat_low
+		impatient = @pos_compat_high
+		humble = @neg_compat_medium
+		deceitful = @neg_compat_low
+		craven = @neg_compat_medium
+		shy = @neg_compat_medium
+		ambitious = @pos_compat_high
+		arbitrary = @neg_compat_medium
+		zealous = @pos_compat_medium
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_medium
+		stubborn = @pos_compat_medium
+		forgiving = @neg_compat_low
+	}
+}
+
+mbti_entj_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_entj_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 15
+	max_hostile_schemes_add = 1
+	court_grandeur_baseline_add = -4
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ 	ai_vengefulness = 25
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_entj_4_desc
+			}
+			desc = trait_entj_4_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @pos_compat_low
+		temperate = @pos_compat_low
+		greedy = @pos_compat_medium
+		lazy = @neg_compat_high
+		wrathful = @pos_compat_low
+		impatient = @pos_compat_high
+		humble = @neg_compat_medium
+		deceitful = @neg_compat_low
+		craven = @neg_compat_medium
+		shy = @neg_compat_medium
+		ambitious = @pos_compat_high
+		arbitrary = @neg_compat_medium
+		zealous = @pos_compat_medium
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_medium
+		stubborn = @pos_compat_medium
+		forgiving = @neg_compat_low
+	}
+}
+
+mbti_entp_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_entp_4
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 10
+	opinion_of_same_faith = 10
+	opinion_of_different_faith = -30
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ 	ai_zeal = 25
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_entp_3_desc
+			}
+			desc = trait_entp_3_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_low
+		generous = @pos_compat_low
+		calm = @neg_compat_low
+		patient = @neg_compat_low
+		humble = @neg_compat_low
+		honest = @neg_compat_low
+		brave = @pos_compat_low
+		shy = @neg_compat_high
+		content = @neg_compat_medium
+		arbitrary = @neg_compat_medium
+		zealous = @pos_compat_medium
+		trusting = @neg_compat_medium
+		compassionate = @neg_compat_low
+		sadistic = @neg_compat_medium
+		fickle = @pos_compat_medium
+		vengeful = @neg_compat_low
+	}
+}
+
+mbti_entp_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_entp_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 5
+	travel_companion_opinion = 10
+	character_travel_speed = 20
+	character_travel_safety = -10
+
+ 	ai_boldness = 25
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_entp_4_desc
+			}
+			desc = trait_entp_4_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_low
+		generous = @pos_compat_low
+		calm = @neg_compat_low
+		patient = @neg_compat_low
+		humble = @neg_compat_low
+		honest = @neg_compat_low
+		brave = @pos_compat_low
+		shy = @neg_compat_high
+		content = @neg_compat_medium
+		arbitrary = @neg_compat_medium
+		zealous = @pos_compat_medium
+		trusting = @neg_compat_medium
+		compassionate = @neg_compat_low
+		sadistic = @neg_compat_medium
+		fickle = @pos_compat_medium
+		vengeful = @neg_compat_low
+	}
+}
+
+mbti_infj_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_infj_4
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = -5
+	knight_limit = 1
+	attacker_advantage = -3
+	enemy_hard_casualty_modifier = -0.1
+
+ #	ai_boldness = 0
+ 	ai_compassion = 15
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ 	ai_honor = 15
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infj_3_desc
+			}
+			desc = trait_infj_3_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @pos_compat_low
+		generous = @pos_compat_high
+		diligent = @pos_compat_medium
+		calm = @pos_compat_medium
+		patient = @neg_compat_low
+		humble = @pos_compat_medium
+		honest = @pos_compat_low
+		brave = @neg_compat_low
+		shy = @pos_compat_high
+		ambitious = @pos_compat_low
+		just = @pos_compat_high
+		cynical = @neg_compat_medium
+		compassionate = @pos_compat_high
+		sadistic = @neg_compat_high
+		fickle = @pos_compat_low
+		forgiving = @pos_compat_medium
+	}
+}
+
+mbti_infj_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_infj_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 10
+	religious_head_opinion = -10
+	realm_priest_opinion = -10
+	faith_conversion_piety_cost_mult = -0.30
+	faith_creation_piety_cost_mult = -0.30
+
+ 	ai_boldness = 15
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infj_4_desc
+			}
+			desc = trait_infj_4_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @pos_compat_low
+		generous = @pos_compat_high
+		diligent = @pos_compat_medium
+		calm = @pos_compat_medium
+		patient = @neg_compat_low
+		humble = @pos_compat_medium
+		honest = @pos_compat_low
+		brave = @neg_compat_low
+		shy = @pos_compat_high
+		ambitious = @pos_compat_low
+		just = @pos_compat_high
+		cynical = @neg_compat_medium
+		compassionate = @pos_compat_high
+		sadistic = @neg_compat_high
+		fickle = @pos_compat_low
+		forgiving = @pos_compat_medium
+	}
+}
+
+mbti_infp_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_infp_4
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = -5
+	monthly_income_mult = -0.05
+	monthly_prestige_gain_mult = 0.20
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = -25
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infp_3_desc
+			}
+			desc = trait_infp_3_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @neg_compat_low
+		gluttonous = @pos_compat_low
+		generous = @pos_compat_high
+		lazy = @pos_compat_medium
+		calm = @pos_compat_low
+		impatient = @pos_compat_low
+		humble = @pos_compat_medium
+		honest = @pos_compat_medium
+		brave = @pos_compat_low
+		shy = @pos_compat_medium
+		content = @pos_compat_low
+		just = @pos_compat_high
+		trusting = @pos_compat_low
+		compassionate = @pos_compat_medium
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_medium
+	}
+}
+
+mbti_infp_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_infp_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = -5
+	monthly_income_mult = -0.05
+	monthly_prestige_gain_mult = 0.20
+
+
+ #	ai_boldness = 0
+ 	ai_compassion = 15
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = -25
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infp_4_desc
+			}
+			desc = trait_infp_4_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @neg_compat_low
+		gluttonous = @pos_compat_low
+		generous = @pos_compat_high
+		lazy = @pos_compat_medium
+		calm = @pos_compat_low
+		impatient = @pos_compat_low
+		humble = @pos_compat_medium
+		honest = @pos_compat_medium
+		brave = @pos_compat_low
+		shy = @pos_compat_medium
+		content = @pos_compat_low
+		just = @pos_compat_high
+		trusting = @pos_compat_low
+		compassionate = @pos_compat_medium
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_medium
+	}
+}
+
+mbti_enfj_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_enfj_4
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = -5
+	monthly_income_mult = -0.05
+	monthly_prestige_gain_mult = 0.20
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = -25
+ #	ai_energy = 0
+ 	ai_honor = 15
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_enfj_3_desc
+			}
+			desc = trait_enfj_3_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_low
+		gluttonous = @pos_compat_low
+		generous = @pos_compat_high
+		diligent = @pos_compat_low
+		calm = @pos_compat_medium
+		impatient = @neg_compat_low
+		honest = @pos_compat_medium
+		brave = @pos_compat_medium
+		gregarious = @pos_compat_medium
+		just = @pos_compat_medium
+		cynical = @neg_compat_medium
+		paranoid = @neg_compat_low
+		callous = @neg_compat_high
+		sadistic = @neg_compat_medium
+		stubborn = @pos_compat_medium
+		vengeful = @neg_compat_medium
+	}
+}
+
+mbti_enfj_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_enfj_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 5
+	dynasty_opinion = 10
+	monthly_dynasty_prestige = 0.5
+	courtier_and_guest_opinion = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = 15
+ #	ai_greed = 0
+ #	ai_energy = 0
+ 	ai_honor = -15
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_enfj_4_desc
+			}
+			desc = trait_enfj_4_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_low
+		gluttonous = @pos_compat_low
+		generous = @pos_compat_high
+		diligent = @pos_compat_low
+		calm = @pos_compat_medium
+		impatient = @neg_compat_low
+		honest = @pos_compat_medium
+		brave = @pos_compat_medium
+		gregarious = @pos_compat_medium
+		just = @pos_compat_medium
+		cynical = @neg_compat_medium
+		paranoid = @neg_compat_low
+		callous = @neg_compat_high
+		sadistic = @neg_compat_medium
+		stubborn = @pos_compat_medium
+		vengeful = @neg_compat_medium
+	}
+}
+
+mbti_enfp_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_enfp_4
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = -10
+	stress_gain_mult = -0.20
+	stress_loss_mult = 0.20
+	health = 0.15
+	courtier_and_guest_opinion = -10
+	fertility = 0.10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = -15
+ #	ai_greed = 0
+ #	ai_energy = 0
+ 	ai_honor = -15
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_enfp_3_desc
+			}
+			desc = trait_enfp_3_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_medium
+		temperate = @neg_compat_medium
+		generous = @pos_compat_low
+		diligent = @neg_compat_medium
+		calm = @neg_compat_medium
+		patient = @neg_compat_medium
+		humble = @pos_compat_medium
+		honest = @pos_compat_low
+		craven = @neg_compat_low
+		shy = @neg_compat_high
+		ambitious = @pos_compat_low
+		just = @pos_compat_medium
+		trusting = @pos_compat_medium
+		compassionate = @pos_compat_medium
+		callous = @neg_compat_medium
+		sadistic = @neg_compat_medium
+		fickle = @pos_compat_medium
+		vengeful = @pos_compat_low
+	}
+}
+
+mbti_enfp_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_enfp_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = -10
+	owned_personal_scheme_success_chance_add = 10
+	tyranny_gain_mult = -0.10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ 	ai_sociability = 15
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ 	ai_energy = 15
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_enfp_4_desc
+			}
+			desc = trait_enfp_4_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_medium
+		temperate = @neg_compat_medium
+		generous = @pos_compat_low
+		diligent = @neg_compat_medium
+		calm = @neg_compat_medium
+		patient = @neg_compat_medium
+		humble = @pos_compat_medium
+		honest = @pos_compat_low
+		craven = @neg_compat_low
+		shy = @neg_compat_high
+		ambitious = @pos_compat_low
+		just = @pos_compat_medium
+		trusting = @pos_compat_medium
+		compassionate = @pos_compat_medium
+		callous = @neg_compat_medium
+		sadistic = @neg_compat_medium
+		fickle = @pos_compat_medium
+		vengeful = @pos_compat_low
+	}
+}
+
+mbti_istj_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_istj_4
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 15
+	scheme_discovery_chance_mult = 0.2
+	general_opinion = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ 	ai_sociability = -20
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istj_3_desc
+			}
+			desc = trait_istj_3_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @pos_compat_medium
+		temperate = @pos_compat_medium
+		greedy = @pos_compat_medium
+		lazy = @neg_compat_high
+		calm = @pos_compat_medium
+		patient = @pos_compat_low
+		humble = @neg_compat_low
+		honest = @pos_compat_high
+		craven = @neg_compat_low
+		gregarious = @neg_compat_medium
+		ambitious = @pos_compat_medium
+		just = @pos_compat_medium
+		cynical = @pos_compat_low
+		paranoid = @pos_compat_medium
+		compassionate = @neg_compat_medium
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_high
+		vengeful = @neg_compat_low
+		forgiving = @neg_compat_low
+	}
+}
+
+mbti_istj_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_istj_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 10
+	build_speed = 0.20
+	holding_build_speed = 0.20
+	character_travel_speed_mult = -0.20
+	development_growth_factor = 0.10
+	stress_gain_mult = 0.20
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = 25
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istj_4_desc
+			}
+			desc = trait_istj_4_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @pos_compat_medium
+		temperate = @pos_compat_medium
+		greedy = @pos_compat_medium
+		lazy = @neg_compat_high
+		calm = @pos_compat_medium
+		patient = @pos_compat_low
+		humble = @neg_compat_low
+		honest = @pos_compat_high
+		craven = @neg_compat_low
+		gregarious = @neg_compat_medium
+		ambitious = @pos_compat_medium
+		just = @pos_compat_medium
+		cynical = @pos_compat_low
+		paranoid = @pos_compat_medium
+		compassionate = @neg_compat_medium
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_high
+		vengeful = @neg_compat_low
+		forgiving = @neg_compat_low
+	}
+}
+
+mbti_isfj_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_isfj_4
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	county_opinion_add = 10
+	guest_opinion = -10
+	courtly_opinion = -10
+	dread_baseline_add = 10
+	army_maintenance_mult = -0.10
+	diplomacy = -2
+
+ 	ai_boldness = 15
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_isfj_3_desc
+			}
+			desc = trait_isfj_3_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @pos_compat_low
+		temperate = @pos_compat_low
+		generous = @pos_compat_medium
+		diligent = @pos_compat_medium
+		calm = @pos_compat_medium
+		patient = @pos_compat_medium
+		arrogant = @neg_compat_low
+		humble = @pos_compat_high
+		deceitful = @neg_compat_low
+		craven = @neg_compat_low
+		gregarious = @neg_compat_low
+		content = @pos_compat_low
+		just = @pos_compat_medium
+		cynical = @neg_compat_medium
+		paranoid = @neg_compat_medium
+		compassionate = @pos_compat_medium
+		callous = @neg_compat_medium
+		sadistic = @neg_compat_high
+		stubborn = @pos_compat_medium
+		forgiving = @pos_compat_low
+	}
+}
+
+mbti_isfj_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_isfj_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = -10
+	opinion_of_liege = 15
+	opinion_of_vassal = 15
+
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ 	ai_honor = 25
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_isfj_4_desc
+			}
+			desc = trait_isfj_4_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @pos_compat_low
+		temperate = @pos_compat_low
+		generous = @pos_compat_medium
+		diligent = @pos_compat_medium
+		calm = @pos_compat_medium
+		patient = @pos_compat_medium
+		arrogant = @neg_compat_low
+		humble = @pos_compat_high
+		deceitful = @neg_compat_low
+		craven = @neg_compat_low
+		gregarious = @neg_compat_low
+		content = @pos_compat_low
+		just = @pos_compat_medium
+		cynical = @neg_compat_medium
+		paranoid = @neg_compat_medium
+		compassionate = @pos_compat_medium
+		callous = @neg_compat_medium
+		sadistic = @neg_compat_high
+		stubborn = @pos_compat_medium
+		forgiving = @pos_compat_low
+	}
+}
+
+mbti_estj_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_estj_4
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 10
+	councillor_opinion = -10
+	dynasty_opinion = 10
+	glory_hound_opinion = 10
+	minority_opinion = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = 15
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_estj_3_desc
+			}
+			desc = trait_estj_3_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @neg_compat_medium
+		temperate = @pos_compat_medium
+		generous = @neg_compat_medium
+		diligent = @pos_compat_high
+		calm = @pos_compat_low
+		patient = @pos_compat_medium
+		arrogant = @pos_compat_medium
+		honest = @pos_compat_low
+		brave = @pos_compat_medium
+		shy = @neg_compat_low
+		gregarious = @neg_compat_low
+		ambitious = @pos_compat_medium
+		arbitrary = @neg_compat_high
+		zealous = @pos_compat_low
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_high
+		fickle = @neg_compat_high
+		forgiving = @neg_compat_medium
+	}
+}
+
+mbti_estj_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_estj_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 10
+	parochial_opinion = 10
+	zealot_opinion = 10
+	courtly_opinion = -10
+	court_grandeur_baseline_add = -4
+	monthly_county_control_growth_factor = 0.20
+
+ #	ai_boldness = 0
+ 	ai_compassion = -15
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ 	ai_honor = 15
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_estj_4_desc
+			}
+			desc = trait_estj_4_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @neg_compat_medium
+		temperate = @pos_compat_medium
+		generous = @neg_compat_medium
+		diligent = @pos_compat_high
+		calm = @pos_compat_low
+		patient = @pos_compat_medium
+		arrogant = @pos_compat_medium
+		honest = @pos_compat_low
+		brave = @pos_compat_medium
+		shy = @neg_compat_low
+		gregarious = @neg_compat_low
+		ambitious = @pos_compat_medium
+		arbitrary = @neg_compat_high
+		zealous = @pos_compat_low
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_high
+		fickle = @neg_compat_high
+		forgiving = @neg_compat_medium
+	}
+}
+
+mbti_esfj_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_esfj_4
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 15
+	general_opinion = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = -25
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esfj_3_desc
+			}
+			desc = trait_esfj_3_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_low
+		gluttonous = @pos_compat_low
+		greedy = @neg_compat_medium
+		diligent = @pos_compat_medium
+		wrathful = @pos_compat_low
+		patient = @pos_compat_low
+		gregarious = @pos_compat_high
+		ambitious = @pos_compat_medium
+		arbitrary = @neg_compat_high
+		cynical = @neg_compat_medium
+		trusting = @neg_compat_low
+		compassionate = @pos_compat_medium
+		callous = @neg_compat_low
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_low
+		forgiving = @pos_compat_medium
+	}
+}
+
+mbti_esfj_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_esfj_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = -5
+	monthly_income_mult = -0.05
+	monthly_prestige_gain_mult = 0.20
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ 	ai_sociability = 15
+ #	ai_rationality = 0
+ 	ai_greed = -25
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esfj_4_desc
+			}
+			desc = trait_esfj_4_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_low
+		gluttonous = @pos_compat_low
+		greedy = @neg_compat_medium
+		diligent = @pos_compat_medium
+		wrathful = @pos_compat_low
+		patient = @pos_compat_low
+		gregarious = @pos_compat_high
+		ambitious = @pos_compat_medium
+		arbitrary = @neg_compat_high
+		cynical = @neg_compat_medium
+		trusting = @neg_compat_low
+		compassionate = @pos_compat_medium
+		callous = @neg_compat_low
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_low
+		forgiving = @pos_compat_medium
+	}
+}
+
+mbti_istp_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_istp_4
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 15
+	attraction_opinion = -15
+	opinion_of_female_rulers = -25
+	opinion_of_male_rulers = 10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ 	ai_vengefulness = 15
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istp_3_desc
+			}
+			desc = trait_istp_3_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @pos_compat_medium
+		gluttonous = @neg_compat_low
+		generous = @neg_compat_low
+		lazy = @neg_compat_high
+		impatient = @pos_compat_high
+		brave = @pos_compat_low
+		gregarious = @neg_compat_medium
+		ambitious = @pos_compat_low
+		arbitrary = @pos_compat_high
+		cynical = @pos_compat_low
+		trusting = @neg_compat_low
+		callous = @pos_compat_medium
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_high
+	}
+}
+
+mbti_istp_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_istp_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 15
+	general_opinion = -10
+	intrigue = 2
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = 15
+ #	ai_energy = 0
+ 	ai_honor = -25
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istp_4_desc
+			}
+			desc = trait_istp_4_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @pos_compat_medium
+		gluttonous = @neg_compat_low
+		generous = @neg_compat_low
+		lazy = @neg_compat_high
+		impatient = @pos_compat_high
+		brave = @pos_compat_low
+		gregarious = @neg_compat_medium
+		ambitious = @pos_compat_low
+		arbitrary = @pos_compat_high
+		cynical = @pos_compat_low
+		trusting = @neg_compat_low
+		callous = @pos_compat_medium
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_high
+	}
+}
+
+mbti_isfp_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_isfp_4
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = -5
+	artifact_decay_reduction_mult = -0.4
+	cultural_head_fascination_mult = 0.15
+	monthly_dynasty_prestige = 0.5
+	monthly_income_mult = -0.05
+	close_relative_opinion = -10
+
+ 	ai_boldness = 15
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = -15
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_isfp_3_desc
+			}
+			desc = trait_isfp_3_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @neg_compat_medium
+		greedy = @neg_compat_low
+		calm = @pos_compat_medium
+		arrogant = @neg_compat_medium
+		brave = @neg_compat_low
+		shy = @pos_compat_medium
+		content = @pos_compat_medium
+		just = @pos_compat_low
+		zealous = @pos_compat_low
+		trusting = @neg_compat_medium
+		compassionate = @pos_compat_medium
+		fickle = @pos_compat_medium
+		forgiving = @pos_compat_low
+	}
+}
+
+mbti_isfp_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_isfp_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_estp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = -10
+	attacker_advantage = -5
+	councillor_opinion = -10
+	build_speed = 0.20
+	monthly_piety_gain_mult = 0.10
+	parochial_opinion = 10
+
+ 	ai_boldness = -15
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ 	ai_energy = -15
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_isfp_4_desc
+			}
+			desc = trait_isfp_4_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @neg_compat_medium
+		greedy = @neg_compat_low
+		calm = @pos_compat_medium
+		arrogant = @neg_compat_medium
+		brave = @neg_compat_low
+		shy = @pos_compat_medium
+		content = @pos_compat_medium
+		just = @pos_compat_low
+		zealous = @pos_compat_low
+		trusting = @neg_compat_medium
+		compassionate = @pos_compat_medium
+		fickle = @pos_compat_medium
+		forgiving = @pos_compat_low
+	}
+}
+
+mbti_estp_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_estp_4
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 20
+	courtier_and_guest_opinion = -10
+
+ #	ai_boldness = 0
+ 	ai_compassion = -25
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_estp_3_desc
+			}
+			desc = trait_estp_3_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @neg_compat_high
+		temperate = @neg_compat_high
+		greedy = @pos_compat_medium
+		diligent = @pos_compat_low
+		calm = @neg_compat_medium
+		impatient = @pos_compat_high
+		arrogant = @pos_compat_medium
+		craven = @neg_compat_high
+		shy = @neg_compat_high
+		content = @neg_compat_medium
+		just = @neg_compat_medium
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_medium
+		sadistic = @pos_compat_low
+		fickle = @pos_compat_low
+		forgiving = @neg_compat_low
+	}
+}
+
+mbti_estp_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_estp_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_esfp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 10
+	monthly_prestige_gain_mult = -0.10
+	monthly_dynasty_prestige_mult = -0.10
+	monthly_income_mult = 0.05
+	minority_opinion = 10
+	councillor_opinion = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = 15
+ #	ai_energy = 0
+ 	ai_honor = -15
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_estp_4_desc
+			}
+			desc = trait_estp_4_character_desc
+		}
+	}
+
+	compatibility = {
+		chaste = @neg_compat_high
+		temperate = @neg_compat_high
+		greedy = @pos_compat_medium
+		diligent = @pos_compat_low
+		calm = @neg_compat_medium
+		impatient = @pos_compat_high
+		arrogant = @pos_compat_medium
+		craven = @neg_compat_high
+		shy = @neg_compat_high
+		content = @neg_compat_medium
+		just = @neg_compat_medium
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_medium
+		sadistic = @pos_compat_low
+		fickle = @pos_compat_low
+		forgiving = @neg_compat_low
+	}
+}
+
+mbti_esfp_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_esfp_4
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+	}
+
+	dread_baseline_add = 5
+	stress_gain_mult = -0.20
+	stress_loss_mult = 0.20
+	fertility = 0.10
+	courtly_opinion = 5
+	parochial_opinion = -10
+	monthly_income_mult = -0.05
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ 	ai_sociability = 15
+ #	ai_rationality = 0
+ 	ai_greed = -15
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esfp_3_desc
+			}
+			desc = trait_esfp_3_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_high
+		temperate = @neg_compat_medium
+		diligent = @neg_compat_low
+		calm = @neg_compat_high
+		impatient = @pos_compat_high
+		humble = @pos_compat_low
+		deceitful = @pos_compat_medium
+		craven = @pos_compat_low
+		gregarious = @pos_compat_high
+		ambitious = @pos_compat_medium
+		arbitrary = @pos_compat_low
+		cynical = @neg_compat_low
+		trusting = @neg_compat_low
+		compassionate = @pos_compat_low
+		stubborn = @neg_compat_medium
+		vengeful = @pos_compat_medium
+	}
+}
+
+mbti_esfp_4 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_esfp_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+	}
+
+	dread_baseline_add = 15
+	general_opinion = -10
+    owned_hostile_scheme_success_chance_add = 0.15
+
+ 	ai_boldness = -15
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = 15
+ #	ai_greed = 0
+ #	ai_energy = 0
+ 	ai_honor = -15
+ 	ai_vengefulness = 15
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esfp_4_desc
+			}
+			desc = trait_esfp_4_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_high
+		temperate = @neg_compat_medium
+		diligent = @neg_compat_low
+		calm = @neg_compat_high
+		impatient = @pos_compat_high
+		humble = @pos_compat_low
+		deceitful = @pos_compat_medium
+		craven = @pos_compat_low
+		gregarious = @pos_compat_high
+		ambitious = @pos_compat_medium
+		arbitrary = @pos_compat_low
+		cynical = @neg_compat_low
+		trusting = @neg_compat_low
+		compassionate = @pos_compat_low
+		stubborn = @neg_compat_medium
+		vengeful = @pos_compat_medium
+	}
+}
+
+mbti_extra_1_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_esfp_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 10
+	owned_scheme_secrecy_add = 10
+	general_opinion = -5
+	scheme_discovery_chance_mult = 0.10
+	personal_scheme_resistance_add = 5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mbti_extra_1_3_desc
+			}
+			desc = trait_mbti_extra_1_3_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_extra_2_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_esfp_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = -5
+	courtier_and_guest_opinion = -5
+	clergy_opinion = 5
+	stewardship = 2
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mbti_extra_2_3_desc
+			}
+			desc = trait_mbti_extra_2_3_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_extra_3_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_4_3
+		mbti_extra_5_3
+		mbti_esfp_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = -5
+	courtly_opinion = -5
+	guest_opinion = -10
+	close_relative_opinion = 10
+	diplomacy = -2
+	monthly_piety_gain_mult = 0.10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mbti_extra_3_3_desc
+			}
+			desc = trait_mbti_extra_3_3_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_extra_4_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_5_3
+		mbti_esfp_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = -5
+	courtly_opinion = -5
+	guest_opinion = -5
+	councillor_opinion = 5
+	parochial_opinion = 5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mbti_extra_4_3_desc
+			}
+			desc = trait_mbti_extra_4_3_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_high
+		temperate = @neg_compat_medium
+		diligent = @neg_compat_low
+		calm = @neg_compat_high
+		impatient = @pos_compat_high
+		humble = @pos_compat_low
+		deceitful = @pos_compat_medium
+		craven = @pos_compat_low
+		gregarious = @pos_compat_high
+		ambitious = @pos_compat_medium
+		arbitrary = @pos_compat_low
+		cynical = @neg_compat_low
+		trusting = @neg_compat_low
+		compassionate = @pos_compat_low
+		stubborn = @neg_compat_medium
+		vengeful = @pos_compat_medium
+	}
+}
+
+mbti_extra_5_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_6_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_esfp_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	dread_baseline_add = 10
+	general_opinion = -5
+	glory_hound_opinion = -5
+	court_grandeur_baseline_add = 4
+	knight_effectiveness_mult = 0.1
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mbti_extra_5_3_desc
+			}
+			desc = trait_mbti_extra_5_3_character_desc
+		}
+	}
+
+	compatibility = {
+		lustful = @pos_compat_high
+		temperate = @neg_compat_medium
+		diligent = @neg_compat_low
+		calm = @neg_compat_high
+		impatient = @pos_compat_high
+		humble = @pos_compat_low
+		deceitful = @pos_compat_medium
+		craven = @pos_compat_low
+		gregarious = @pos_compat_high
+		ambitious = @pos_compat_medium
+		arbitrary = @pos_compat_low
+		cynical = @neg_compat_low
+		trusting = @neg_compat_low
+		compassionate = @pos_compat_low
+		stubborn = @neg_compat_medium
+		vengeful = @pos_compat_medium
+	}
+}
+
+mbti_extra_6_3 = {
+	category = lifestyle
+	opposites = {
+		mbti_extra_5_3
+		mbti_extra_1_3
+		mbti_extra_2_3
+		mbti_extra_3_3
+		mbti_extra_4_3
+		mbti_esfp_3
+		mbti_intj_3
+		mbti_intp_3
+		mbti_entj_3
+		mbti_entp_3
+		mbti_infj_3
+		mbti_infp_3
+		mbti_enfj_3
+		mbti_enfp_3
+		mbti_istj_3
+		mbti_isfj_3
+		mbti_estj_3
+		mbti_esfj_3
+		mbti_istp_3
+		mbti_isfp_3
+		mbti_estp_3
+		mbti_intj_4
+		mbti_intp_4
+		mbti_entj_4
+		mbti_entp_4
+		mbti_infj_4
+		mbti_infp_4
+		mbti_enfj_4
+		mbti_enfp_4
+		mbti_istj_4
+		mbti_isfj_4
+		mbti_estj_4
+		mbti_esfj_4
+		mbti_istp_4
+		mbti_isfp_4
+		mbti_estp_4
+		mbti_esfp_4
+	}
+
+	tyranny_gain_mult = -0.05
+    close_relative_opinion = -10
+    stress_loss_mult = -0.25
+	monthly_lifestyle_xp_gain_mult = -0.15
+	intrigue_per_stress_level = 2
+	health = -0.15
+
+ 	ai_boldness = -15
+ 	ai_compassion = 15
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ 	ai_energy = -15
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 20
+
+	icon = mbti_rnd.dds
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mbti_extra_6_3_desc
+			}
+			desc = trait_mbti_extra_6_3_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}

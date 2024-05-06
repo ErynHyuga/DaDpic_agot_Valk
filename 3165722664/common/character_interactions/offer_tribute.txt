@@ -1,0 +1,501 @@
+﻿offer_tribute = {
+	icon = money_interaction
+	category = interaction_category_diplomacy
+	ai_min_reply_days = 4
+	ai_max_reply_days = 9
+	use_diplomatic_range = yes
+	interface_priority = 70
+	use_diplomatic_range = yes
+
+	desc = offer_tribute_desc
+
+	is_shown = {
+		has_game_rule = GPT_interactions_enabled
+
+	 	scope:actor.highest_held_title_tier <= scope:recipient.highest_held_title_tier
+			
+		scope:recipient = {
+			highest_held_title_tier >= 3
+			NOT = { this = scope:actor }
+			NOT = { is_allied_to = scope:actor }
+			NOT = { has_truce = scope:actor }
+		 	NOT = { has_character_modifier = demanding_tributes }
+		 	NOT = { has_character_modifier = offering_tributes }
+			is_ruler = yes
+			is_independent_ruler = yes
+		}
+
+		scope:actor = {
+			is_independent_ruler = yes
+		 	NOT = { has_character_modifier = demanding_tributes }
+		 	NOT = { has_character_modifier = offering_tributes }
+			highest_held_title_tier >= 3
+			NOT = {is_at_war_with = scope:recipient}
+			is_ruler = yes
+			NOT = {
+				any_character_struggle = {
+					involvement = involved
+					has_struggle_phase_parameter = unlocks_truce_purchasing_interaction
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+
+		scope:recipient = {
+			NOT = { has_relation_rival = scope:actor }
+			NOT = { has_relation_nemesis = scope:actor }
+			is_imprisoned = no
+			is_adult = yes
+			highest_held_title_tier >= 3
+		}
+
+		scope:actor = {
+			is_imprisoned = no
+			is_at_war = no
+			is_adult = yes
+			highest_held_title_tier >= 3
+		 	dread <= 40
+		}
+
+		scope:actor = {
+			custom_description = {
+				text = gpt_tier_diff_general
+				OR = {
+					scope:actor = {
+						tier_difference = {
+							target = scope:recipient
+							value = -1
+						}
+					}
+					scope:actor.highest_held_title_tier = scope:recipient.highest_held_title_tier
+				}
+			}
+		}
+	}
+
+	on_auto_accept = {
+		scope:recipient = {
+			trigger_event = char_interaction.0234
+		}
+	}
+
+	#Use hook
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+		}
+		flag = hook	
+		localization = GENERIC_SPEND_A_HOOK
+	}
+	should_use_extra_icon = {
+		scope:actor = { has_usable_hook = scope:recipient }
+	}
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+
+	send_options_exclusive = no
+
+	on_accept = {
+
+		scope:recipient = { 
+			add_opinion = {
+				modifier = receiving_tribute
+				target = scope:actor
+			}
+		}
+
+		scope:actor = { add_truce_both_ways = { character = scope:recipient years = 5 override = yes name = TRUCE_ENFORCE_TRUCE } }
+
+		scope:actor = {
+
+			if = {
+				limit = {
+					is_ai = no
+				}
+				add_stress = 20
+			}
+
+		 	add_prestige = -100
+		 #	remove_short_term_gold = 50
+
+
+			add_character_modifier = {
+				modifier = offering_tributes
+				years = 5
+			}
+
+			hidden_effect = {
+				send_interface_toast = {
+					title = offer_tribute_notification
+					left_icon = scope:actor					
+					right_icon = scope:recipient
+					custom_tooltip = offer_tribute_tooltip
+				}
+			}
+		}
+		
+		scope:recipient = {
+		 	add_prestige = 100
+		 #	add_gold = 50
+			add_character_modifier = {
+				modifier = demanding_tributes
+				years = 5
+			}
+		}	
+	}
+
+	on_decline = {
+		scope:actor = {
+			add_prestige = -150
+		}
+	}
+
+	auto_accept = {
+		custom_description = {
+			text = "spending_hook"
+			subject = scope:actor
+			object = scope:recipient
+			scope:hook = yes
+		}
+	}
+
+	ai_accept = {
+		base = -50
+		
+		opinion_modifier = { # Opinion Factor
+			who = scope:recipient
+			opinion_target = scope:actor
+			multiplier = 0.25
+			desc = AI_OPINION_REASON
+		}
+
+		modifier = {
+			scope:recipient = { ai_greed > 1 }
+			add = { 
+				value = scope:recipient.ai_greed
+				multiply = 0.5
+		 		min = 0
+				max = 75
+			}	
+			desc = AI_GREEDY
+		}
+
+		modifier = {
+			scope:recipient = { ai_rationality > 3 }
+			add = { 
+				value = scope:recipient.ai_rationality
+				multiply = 0.25
+		 		min = -25
+				max = 25
+			}	
+			desc = AI_RATIONAL
+		}
+
+		modifier = {
+			scope:recipient = { ai_boldness < -1 }
+			add = { 
+				value = scope:recipient.ai_boldness
+				multiply = -0.50
+		 		min = 0
+				max = 50
+			}	
+			desc = AI_COWARDNESS
+		}
+
+		modifier = {
+		 	desc = IS_NOT_NEIGHBOR
+			NOT = { 
+				scope:recipient = {
+					any_sub_realm_county = {
+						is_neighbor_to_realm = scope:actor	
+					}
+				}
+			}
+			add = -50
+		}
+
+		modifier = { #Faith compatibility
+			scope:recipient.faith = {
+				faith_hostility_level = {
+					target = scope:actor.faith
+					value > faith_fully_accepted_level
+				}
+			}
+			add = {
+				value = 0
+				if = {
+					limit = {
+						scope:recipient.faith = {
+							faith_hostility_level = {
+								target = scope:actor.faith
+								value >= faith_astray_level
+							}
+						}
+					}
+					subtract = 5
+				}
+				if = {
+					limit = {
+						scope:recipient.faith = {
+							faith_hostility_level = {
+								target = scope:actor.faith
+								value >= faith_hostile_level
+							}
+						}
+					}
+					subtract = 5
+				}
+				if = {
+					limit = {
+						scope:recipient.faith = {
+							faith_hostility_level = {
+								target = scope:actor.faith
+								value >= faith_evil_level
+							}
+						}
+					}
+					subtract = 10
+				}
+			}
+			desc = MARRY_DIFFERENT_FAITH_REASON
+		}
+
+		modifier = {
+		 	desc = TRIBUTES_EMPIRE_DUKE
+			scope:actor = { highest_held_title_tier = 3 }
+			scope:recipient = { highest_held_title_tier = 5 }
+			add = -100
+		}
+
+		modifier = {
+			add = 10
+			scope:recipient = {
+				has_dread_level_towards = {
+					target = scope:actor
+					level = 1
+				}
+			}
+			desc = INTIMIDATED_REASON
+		}
+		modifier = {
+			add = 20
+			scope:recipient = {
+				has_dread_level_towards = {
+					target = scope:actor
+					level = 2
+				}
+			}
+			desc = COWED_REASON
+		}
+
+		modifier = {
+			scope:actor = {
+				any_claim = {
+					holder = scope:recipient
+				}
+			}
+			add = 20
+			desc = IS_CLAIMANT_OF_RECIPIENT   # IS_CLAIMANT_TO_ACTORS_TITLES
+		}
+
+		modifier = { # Shared Court Language (non-spoken)
+			add = 10
+			desc = foreign_realm_court_language_non_spoken_interaction_reason
+			trigger = {
+				scope:actor = {
+					has_royal_court = yes
+					NOT = { knows_court_language_of = this }
+				}
+				NOT = {
+					scope:actor.top_liege = scope:recipient.top_liege
+				}
+				OR = {
+					AND = {
+						scope:recipient = {
+							has_royal_court = yes
+						}
+						scope:actor = { # You share Court Language
+							has_same_court_language = scope:recipient
+						}
+					}
+					
+					scope:recipient = { # The recipient doesn't have a royal court, but their liege does
+						is_independent_ruler = no
+						has_royal_court = no
+						liege = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+						}
+					}
+					scope:recipient = { # The recipient doesn't have a royal court, but their liege's liege does, while their liege doesn't have a royal court
+						is_independent_ruler = no
+						has_royal_court = no
+						exists = liege.liege
+						liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+						}
+					}
+					scope:recipient = { # The recipient doesn't have a royal court, but their liege's liege's liege does, while their liege doesn't have a royal court
+						is_independent_ruler = no
+						has_royal_court = no
+						exists = liege.liege
+						exists = liege.liege.liege
+						liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege.liege = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+						}
+					}
+					scope:recipient = { # The recipient doesn't have a royal court, but their liege's liege's liege's liege does, while their liege doesn't have a royal court
+						is_independent_ruler = no
+						has_royal_court = no
+						exists = liege.liege
+						exists = liege.liege.liege
+						exists = liege.liege.liege.liege
+						liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege.liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege.liege.liege = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+						}
+					}
+				}
+			}
+		}
+		
+		modifier = { # Shared Court Language (spoken)
+			add = 20
+			desc = foreign_realm_court_language_spoken_interaction_reason
+			trigger = {
+				scope:actor = {
+					has_royal_court = yes
+					knows_court_language_of = this
+				}
+				NOT = {
+					scope:actor.top_liege = scope:recipient.top_liege
+				}
+				OR = {
+					AND = {
+						scope:recipient = {
+							has_royal_court = yes
+						}
+						scope:actor = { # You share Court Language
+							has_same_court_language = scope:recipient
+						}
+					}
+					
+					scope:recipient = { # The recipient doesn't have a royal court, but their liege does
+						is_independent_ruler = no
+						has_royal_court = no
+						liege = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+						}
+					}
+					scope:recipient = { # The recipient doesn't have a royal court, but their liege's liege does, while their liege doesn't have a royal court
+						is_independent_ruler = no
+						has_royal_court = no
+						exists = liege.liege
+						liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+						}
+					}
+					scope:recipient = { # The recipient doesn't have a royal court, but their liege's liege's liege does, while their liege doesn't have a royal court
+						is_independent_ruler = no
+						has_royal_court = no
+						exists = liege.liege
+						exists = liege.liege.liege
+						liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege.liege = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+						}
+					}
+					scope:recipient = { # The recipient doesn't have a royal court, but their liege's liege's liege's liege does, while their liege doesn't have a royal court
+						is_independent_ruler = no
+						has_royal_court = no
+						exists = liege.liege
+						exists = liege.liege.liege
+						exists = liege.liege.liege.liege
+						liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege.liege = {
+							is_independent_ruler = no
+							has_royal_court = no
+						}
+						liege.liege.liege.liege = {
+							has_royal_court = yes
+							has_same_court_language = scope:actor
+						}
+					}
+				}
+			}
+		}
+	}
+
+	ai_potential = {
+		is_at_war = no
+	}
+
+	ai_targets = {
+ 		ai_recipients = neighboring_rulers
+ 	}
+
+	cooldown = { years = 5 }
+
+	ai_frequency = 36
+
+	ai_will_do = { 
+		base = 0
+		modifier = {
+			add = {
+				value = 0
+				add = scope:actor.ai_rationality
+				add = scope:actor.ai_compassion
+			}
+		}
+	}
+}

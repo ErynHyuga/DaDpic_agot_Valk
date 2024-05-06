@@ -1,0 +1,45 @@
+﻿## AGOT Custom Ethos ##
+ethos_festive = {
+	type = ethos
+	character_modifier = {
+		diplomacy = 2
+		intrigue = 2
+		direct_vassal_opinion = 10
+		diplomatic_range_mult = 0.25
+		county_opinion_add = 10
+	}
+
+	ai_will_do = {
+		value = 1
+	}
+}
+
+ethos_mystic = {
+	type = ethos
+	character_modifier = {
+		intrigue = 2
+		monthly_piety_gain_mult = 0.2
+		faith_creation_piety_cost_mult = -0.30
+	}
+	county_modifier = {
+		build_speed = -0.15
+	}
+	ai_will_do = {
+		value = 1
+	}
+}
+
+ethos_methodical = {
+	type = ethos
+	character_modifier = {
+		prowess = 2
+		hard_casualty_modifier = -0.15
+		army_toughness_mult = 0.10
+	}
+	county_modifier = {
+		development_growth_factor = 0.2
+	}
+	ai_will_do = {
+		value = 1
+	}
+}

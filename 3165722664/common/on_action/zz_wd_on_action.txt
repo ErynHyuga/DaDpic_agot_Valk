@@ -1,0 +1,309 @@
+﻿# Define on_actions for war_debuffs_modifier
+on_war_started = {
+	on_actions = { on_war_started_war_debuffs_trigger }
+}
+on_join_war_as_secondary = {
+	on_actions = { on_war_started_war_debuffs_trigger }
+}
+# Define on_actions for war_debuffs_modifier_removed
+on_war_invalidated = {
+	on_actions = { on_war_debuffs_modifier_removed }
+}
+on_war_won_attacker = {
+	on_actions = { on_war_debuffs_modifier_removed }
+}
+on_war_white_peace = {
+	on_actions = { on_war_debuffs_modifier_removed }
+}
+on_war_won_defender = {
+	on_actions = { on_war_debuffs_modifier_removed }
+}
+on_war_transferred = {
+	on_actions = { on_war_debuffs_modifier_removed }
+}
+# Define on_actions for war_debuffs_modifier_message
+on_war_started_war_debuffs_modifier = {
+	on_actions = { war_debuffs_interface_message }
+}
+#Define on_actions for war_debuffs_modifier_siege_completion
+on_siege_completion = {
+	on_actions = { war_debuffs_modifier_siege_completion }
+}
+# Add War Debuffs whenever a landed character declares OR joins a war.
+# Debuffs applies to all countys in a realm when their holder is at war (also Cities & Temples).
+on_war_started_war_debuffs_trigger = { # On_action to start on_war_started_war_debuffs_modifier - maybe useful when setting variables in the future
+	on_actions = {
+		on_war_started_war_debuffs_modifier
+		on_war_started_war_debuffs_event_trigger
+	}
+}
+
+
+
+on_war_started_war_debuffs_modifier = { # Started from on_war_started and on_join_war_as_secondary
+	effect = {
+		scope:war = {
+			every_war_participant = { # For Player - different modifiers than AI
+				limit = {
+					OR = {
+						has_game_rule = GPT_micro_enabled
+						has_game_rule = GPT_micro_land_disabled
+					}
+					highest_held_title_tier >= tier_barony 
+					is_ai = no
+					NOT = {	has_character_flag = wd_modifier_flag }
+				}
+				every_sub_realm_county = { # Maybe find a better solution for this because this scopes to EVERY sub realm county, also those of vassals (not problematic if they declair their own war because multiple modifiers won't be apllied) 
+					limit = {
+						NOR = {
+							has_county_modifier = wd_modifier
+							has_county_modifier = wd_modifier_01
+							has_county_modifier = wd_modifier_02
+							has_county_modifier = wd_modifier_03
+							has_county_modifier = wd_modifier_04
+							has_county_modifier = wd_modifier_ai
+							has_county_modifier = wd_modifier_01_ai
+							has_county_modifier = wd_modifier_02_ai
+							has_county_modifier = wd_modifier_03_ai
+							has_county_modifier = wd_modifier_04_ai
+							
+						}
+						county_controller = { is_at_war = yes }
+					}
+					random_list = {
+						20 = {
+							modifier = { add = { value = county_controller.stewardship divide = 3 } }
+							add_county_modifier = { modifier = wd_modifier } 
+						}
+						20 = {
+							modifier = { add = { value = county_controller.stewardship divide = 2 } }
+							add_county_modifier = { modifier = wd_modifier_01 } 
+						}
+						20 = {
+							modifier = { add = { value = county_controller.stewardship } }
+							add_county_modifier = { modifier = wd_modifier_02 } 
+						}
+						20 = {
+							modifier = { add = { value = county_controller.stewardship multiply = -0.75 } }
+							add_county_modifier = { modifier = wd_modifier_03 } 
+						}
+						20 = {
+							modifier = { add = { value = county_controller.stewardship multiply = -0.50 } }
+							add_county_modifier = { modifier = wd_modifier_04 } 
+						}
+					}
+				}
+				send_interface_message = { # To inform the player
+					type = event_waralert_bad_with_text
+					title = war_debuffs_message_title
+					desc = war_debuffs_message_desc
+					show_as_tooltip = { custom_tooltip = { text = gpt_stw_war_relief } }
+				}
+				add_character_flag = wd_modifier_flag
+			}
+			every_war_participant = { # Modifiers For AI
+				limit = {
+					OR = {
+						has_game_rule = GPT_micro_enabled
+						has_game_rule = GPT_micro_land_disabled
+					}
+					highest_held_title_tier >= tier_barony 
+					is_ai = yes
+					NOT = { has_character_flag = wd_modifier_flag }
+				}
+				every_sub_realm_county = {
+					limit = {
+						NOR = {
+							has_county_modifier = wd_modifier
+							has_county_modifier = wd_modifier_01
+							has_county_modifier = wd_modifier_02
+							has_county_modifier = wd_modifier_03
+							has_county_modifier = wd_modifier_04
+							has_county_modifier = wd_modifier_ai
+							has_county_modifier = wd_modifier_01_ai
+							has_county_modifier = wd_modifier_02_ai
+							has_county_modifier = wd_modifier_03_ai
+							has_county_modifier = wd_modifier_04_ai
+						}
+						county_controller = { is_at_war = yes }
+					}
+					random_list = {
+						20 = { 
+							modifier = { add = { value = county_controller.stewardship divide = 3 } }
+							add_county_modifier = { modifier = wd_modifier_ai } 
+						}
+						20 = {
+							modifier = { add = { value = county_controller.stewardship divide = 2 } }
+							add_county_modifier = { modifier = wd_modifier_01_ai } 
+						}
+						20 = {
+							modifier = { add = { value = county_controller.stewardship } }
+							add_county_modifier = { modifier = wd_modifier_02_ai } 
+						}
+						20 = {
+							modifier = { add = { value = county_controller.stewardship multiply = -0.75 } }
+							add_county_modifier = { modifier = wd_modifier_03_ai } 
+						}
+						20 = {
+							modifier = { add = { value = county_controller.stewardship multiply = -0.50 } }
+							add_county_modifier = { modifier = wd_modifier_04_ai } 
+						}
+					}
+				}
+				add_character_flag = wd_modifier_flag
+			}
+		}
+	}
+}
+# Trigger event to remove wd_modifiers_xx
+on_war_debuffs_modifier_removed = {
+	effect = {
+		scope:war = {
+			every_war_participant = {
+				limit = {
+					OR = {
+						has_game_rule = GPT_micro_enabled
+						has_game_rule = GPT_micro_land_disabled
+					}
+					highest_held_title_tier >= tier_barony 
+				}
+				every_sub_realm_county = {
+					add_to_list = wd_remove_debuffs_county_list
+				}
+				trigger_event = {
+					id = wd_event_war.9000
+					days = 2 # 2 day delay to make sure war is over
+				}
+			}
+		}
+	}
+}
+# Make sure interface message shows up even when not declaring and instead joining war
+war_debuffs_interface_message = {
+	effect = {
+		scope:war = {
+			every_war_participant = {
+				limit = {
+					OR = {
+						has_game_rule = GPT_micro_enabled
+						has_game_rule = GPT_micro_land_disabled
+					}
+					is_ai = no
+					NOT = {
+						has_character_flag = wd_modifier_flag
+					}
+				}
+				send_interface_message = {
+					type = event_waralert_bad_with_text
+					title = war_debuffs_message_title
+					desc = war_debuffs_message_desc
+					show_as_tooltip = { custom_tooltip = { text = gpt_stw_war_relief } }
+				}
+			}
+		}
+	}
+}
+# Add Modifier, Development loss & destruction of random building in occupied barony IF a Modifier is not already applied 
+war_debuffs_modifier_siege_completion = {
+	effect = {
+		scope:county = {
+			if = {
+				limit = { # If county already has one of those modifiers don't apply another one
+					OR = {
+						has_game_rule = GPT_micro_enabled
+						has_game_rule = GPT_micro_land_disabled
+					}
+					NOT = {
+						has_county_modifier = wd_sieged_modifier
+						has_county_modifier = wd_sieged_modifier_01
+						has_county_modifier = wd_sieged_modifier_02 
+						has_county_modifier = wd_sieged_modifier_03
+						has_county_modifier = wd_sieged_modifier_04 
+					} 	
+				}
+				random_list = {
+					10 = {
+						add_county_modifier = {
+							modifier = wd_sieged_modifier
+							years = { 2 5 }
+						}
+						change_development_progress_with_overflow = -20
+					}
+					20 = {
+						add_county_modifier = {
+							modifier = wd_sieged_modifier_01
+							years = { 2 5 }
+						}
+						change_development_progress_with_overflow = -40
+					}
+					30 = {
+						add_county_modifier = {
+							modifier = wd_sieged_modifier_02
+							years = { 2 5 }
+						}
+						change_development_progress_with_overflow = -60
+					}
+					20 = {
+						add_county_modifier = {
+							modifier = wd_sieged_modifier_03
+							years = { 2 5 }
+						}
+						change_development_progress_with_overflow = -80
+					}
+					10 = {
+						add_county_modifier = {
+							modifier = wd_sieged_modifier_04
+							years = { 2 5 }
+						}
+						change_development_progress_with_overflow = -100
+					}
+				}
+			} 
+		}
+		hidden_effect = {
+			scope:barony = {
+				title_province = {
+					destroy_random_building_variable_effect = yes
+					destroy_random_building_effect = yes
+				}
+			}
+		}
+	}
+}
+
+#Remove Modifier in weird cases
+#wd_on_title_gain_remove_modifier = {
+#	effect = {	
+#		root = {
+#			every_sub_realm_county = {
+#				limit = {
+#					county_controller = root
+#					OR = {
+#						has_county_modifier = wd_modifier	
+#						has_county_modifier = wd_modifier_01
+#						has_county_modifier = wd_modifier_02	
+#						has_county_modifier = wd_modifier_03	
+#						has_county_modifier = wd_modifier_04
+#						has_county_modifier = wd_modifier_ai	
+#						has_county_modifier = wd_modifier_01_ai
+#						has_county_modifier = wd_modifier_02_ai	
+#						has_county_modifier = wd_modifier_03_ai
+#						has_county_modifier = wd_modifier_04_ai
+#					}
+#				}
+#				OR = {
+#					remove_county_modifier = wd_modifier	
+#					remove_county_modifier = wd_modifier_01
+#					remove_county_modifier = wd_modifier_02	
+#					remove_county_modifier = wd_modifier_03	
+#					remove_county_modifier = wd_modifier_04
+#					remove_county_modifier = wd_modifier_ai	
+#					remove_county_modifier = wd_modifier_01_ai
+#					remove_county_modifier = wd_modifier_02_ai	
+#					remove_county_modifier = wd_modifier_03_ai
+#					remove_county_modifier = wd_modifier_04_ai
+#				}
+#			}
+#		}
+#	}
+#}

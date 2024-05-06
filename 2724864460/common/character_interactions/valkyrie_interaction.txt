@@ -1,0 +1,138 @@
+﻿designate_valkyrie_interaction = {
+	category = interaction_category_friendly
+	common_interaction = yes
+
+	send_name = SEND_PROPOSAL
+
+	interface_priority = 121
+
+	ai_targets = {
+		ai_recipients = courtiers
+	}
+	ai_frequency = 180
+
+	is_shown = {
+		scope:actor = {
+			has_fp1_dlc_trigger = yes
+			is_physically_able_adult = yes
+			religion = religion:germanic_religion
+			prowess >= decent_skill_rating
+#			has_culture_group = culture_group:north_germanic_group
+			faith = { has_doctrine = doctrine_gender_male_dominated }
+		}
+		scope:recipient = {
+			NOT = {
+				has_trait = valkyrie
+				has_trait = incapable
+				has_trait = leper
+				has_trait = disfigured
+				has_trait = infirm
+				has_trait = blind
+				has_trait = beauty_bad_1
+				has_trait = beauty_bad_2
+				has_trait = beauty_bad_3
+				has_trait = intellect_bad_1
+				has_trait = intellect_bad_2
+				has_trait = intellect_bad_3
+				has_trait = physique_bad_1
+				has_trait = physique_bad_2
+				has_trait = physique_bad_3
+				has_trait = weak
+				has_trait = dull
+			}
+			is_courtier_of = scope:actor
+			has_trait = brave
+			has_trait = shieldmaiden
+			is_female = yes
+		}
+	}
+
+
+	is_valid_showing_failures_only = {
+		scope:recipient = {
+			is_adult = yes
+			is_imprisoned = no
+		}
+	}
+
+	is_valid = {
+			scope:actor = {
+				is_adult = yes
+				is_imprisoned = no
+				is_in_an_activity = no
+				is_commanding_army = no
+				has_trait = viking
+				prestige_level >= 3
+				piety_level >= 3
+			}
+	}
+
+	desc = designate_valkyrie_interaction_desc
+
+	on_accept = {
+#		scope:actor = {
+#		}
+		scope:recipient = {
+			add_trait = valkyrie
+			hidden_effect = {
+				add_diplomacy_skill = 1
+				add_martial_skill = 1
+				add_intrigue_skill = 1
+				add_stewardship_skill = 1
+				add_learning_skill = 1
+				add_prowess_skill = 4
+			}
+		}
+		hidden_effect = {
+			scope:actor = {
+				send_interface_toast = {
+					title = designate_valkyrie_interaction_notification
+
+					left_icon = scope:actor					
+					right_icon = scope:recipient
+
+					show_as_tooltip = {
+						scope:recipient = {
+							add_trait_force_tooltip = valkyrie
+						}
+					}
+				}
+			}
+		}
+	}
+
+	auto_accept = yes
+	
+	cost = {
+		prestige = scope:actor.major_prestige_value
+		piety = scope:actor.medium_piety_value
+		gold = scope:actor.medium_gold_value
+	}
+	
+	ai_potential = {
+		religion = religion:germanic_religion
+		has_culture_group = culture_group:north_germanic_group
+		prestige > major_prestige_value
+		has_fp1_dlc_trigger = yes
+		is_physically_able_adult = yes
+	}
+	
+
+	ai_accept = {
+		base = -100
+
+		modifier = {
+			add = 100
+			has_trait = brave
+		}
+		
+		modifier = {
+			add = 100
+			has_trait = shieldmaiden
+		}
+	}
+	
+	ai_will_do = {
+		base = 100
+	}
+}

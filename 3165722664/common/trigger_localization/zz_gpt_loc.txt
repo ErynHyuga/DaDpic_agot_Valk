@@ -1,0 +1,65 @@
+﻿
+
+
+gpt_opinion_not_low_enough = {
+	global_not = GPT_OPINION_NOT_LOW_ENOUGH
+}
+
+gpt_opinion_not_high_enough = {
+	global_not = GPT_OPINION_NOT_HIGH_ENOUGH
+}
+
+gpt_opinion_not_low_enough_insult = {
+	global_not = GPT_OPINION_NOT_LOW_ENOUGH_INSULT
+}
+
+gpt_only_neighbors = {
+	global_not = GPT_ONLY_NEIGHBORS_TRIGGER
+}
+
+gpt_only_independent = {
+	global_not = GPT_ONLY_INDEPENDENT_TRIGGER
+}
+
+
+gpt_paroquial_dominant = {
+	global_not = gpt_paroquial_dominant_not
+}
+
+gpt_zealot_dominant = {
+	global_not = gpt_zealot_dominant_not
+}
+
+gpt_glory_hound_dominant = {
+	global_not = gpt_glory_hound_dominant_not
+}
+
+gpt_courtly_dominant = {
+	global_not = gpt_courtly_dominant_not
+}
+
+gpt_minority_dominant = {
+	global_not = gpt_minority_dominant_not
+}
+
+
+
+gpt_low_trade_power = {
+	global_not = gpt_low_trade_power_not
+}
+
+gpt_high_tier_diff = {
+	global_not = gpt_high_tier_diff_not
+}
+
+gpt_seller_too_small = {
+	global = gpt_seller_too_small_yes
+}
+
+gpt_tier_diff_general = {
+	global_not = gpt_tier_diff_general_not
+}
+
+gpt_need_more_piety = {
+	global_not = gpt_need_more_piety_not
+}

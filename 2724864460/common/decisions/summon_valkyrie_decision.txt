@@ -1,0 +1,55 @@
+﻿@summon_valkyrie_cooldown_time = 666
+
+
+summon_valkyrie_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
+
+	desc = summon_valkyrie_decision_desc
+	selection_tooltip = summon_valkyrie_decision_tooltip
+
+	ai_check_interval = 0
+
+	cooldown = { days = @summon_valkyrie_cooldown_time }
+
+	is_shown = {
+			is_ai = no
+			is_ruler = yes
+			religion = religion:germanic_religion
+	}
+
+	is_valid = {
+			has_trait = viking
+			prestige_level >= 3
+			piety_level >= 3
+#			faith = { has_doctrine_parameter = gruesome_festivals_active }
+#			faith = { has_doctrine = tenet_gruesome_festivals }
+	}
+
+	is_valid_showing_failures_only = {
+		is_in_an_activity = no
+		is_imprisoned = no
+		is_commanding_army = no
+	}
+
+
+	effect = {
+		custom_tooltip = summon_valkyrie_decision_confirm
+		trigger_event = {
+					id = add_valkyrie_courtier.3214
+					days = 4
+		}
+	}
+	cost = { 
+			prestige = major_prestige_value
+			piety = medium_piety_value
+			gold = medium_gold_value
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}

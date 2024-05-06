@@ -1,0 +1,21 @@
+﻿realm_administration_law = {
+	texture = "gfx/interface/icons/travel/icon_travel_hud_placeholder.dds"
+	parent = law
+}
+
+tribal_raid_stance = {
+	texture = "gfx/interface/icons/message_feed/mercenary.dds"
+	parent = law
+}
+
+gpt_character_desires = {
+	texture = "gfx/interface/icons/message_feed/emoji_1_positive.dds"
+}
+
+gpt_satisfaction = {
+	texture = "gfx/interface/icons/message_feed/emoji_1_positive.dds"
+}
+
+gpt_war_reparations_cb = {
+	texture = "gfx/interface/icons/casus_bellis/request_mercenary.dds"
+}

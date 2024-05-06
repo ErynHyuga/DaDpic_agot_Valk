@@ -1,0 +1,3406 @@
+
+trade_agrrement = {
+	icon = icon_supply_positive
+	character_capital_county_monthly_development_growth_add = 0.20
+	court_grandeur_baseline_add = 4
+	monthly_county_control_growth_add = -0.10
+	monthly_county_control_growth_at_war_add = -0.15
+	cultural_head_fascination_mult = 0.10
+	hostile_scheme_resistance_add = -10
+	courtier_and_guest_opinion = 5
+	parochial_opinion = 5
+}
+
+demanding_tributes = {
+	icon = icon_liege_positive
+	monthly_income_mult = 0.05
+	monthly_war_income_mult = 0.05
+	independent_ruler_opinion = -10
+}
+
+offering_tributes = {
+	icon = icon_vassal_negative
+	monthly_income_mult = -0.10
+ #	monthly_war_income_mult = -0.10
+	independent_ruler_opinion = 10
+}
+
+sabotaged_interaction = {
+	icon = death_murder_negative
+	county_opinion_add = -30
+	glory_hound_opinion = -30
+	monthly_war_income_mult = -0.10
+	monthly_county_control_growth_add = -0.5
+}
+
+terrorized_interaction = {
+	icon = death_disease_negative
+	county_opinion_add = -30
+	glory_hound_opinion = -30
+	hostile_county_attrition = 1
+	army_maintenance_mult = 0.15
+	men_at_arms_maintenance = 0.15
+}
+
+is_sabotaging_interaction = {
+	icon = death_murder_banner_positive
+	general_opinion = -10
+	glory_hound_opinion = 30
+	army_maintenance_mult = -0.15
+	raid_speed = 0.2
+}
+
+is_terrorizing_interaction = {
+	icon = death_desease_banner_positive
+	independent_ruler_opinion = -25
+	general_opinion = -15
+	glory_hound_opinion = 30
+	uncontrolled_province_advantage = 5
+	army_siege_value_mult = 0.2
+}
+
+demanded_interaction = {
+	icon = too_few_soldiers_negative
+	levy_size = -0.25
+	opinion_of_liege = -15
+	army_maintenance_mult = 0.20
+	vassal_levy_contribution_mult = -0.25
+	levy_reinforcement_rate = -0.5
+}
+
+is_demanding_interaction = {
+	icon = demanding_positive
+	levy_size = 0.15
+	army_maintenance_mult = -0.10
+	vassal_levy_contribution_mult = 0.15
+	levy_reinforcement_rate = 0.5
+	powerful_vassal_opinion = -10
+}
+
+accepted_terms_receive = {
+	icon = economy_positive
+	monthly_income = 2.5
+	monthly_prestige = 1
+}
+
+accepted_terms_pay = {
+	icon = economy_negative
+	monthly_income = -2.5
+	monthly_prestige = -1
+}
+
+spreading_lies = {
+	icon = icon_event_effect_positive
+	hostile_scheme_resistance_add = -10
+	owned_scheme_secrecy_add = -10
+	monthly_prestige = 2
+}
+
+suffering_from_lies = {
+	icon = icon_warning_negative
+	general_opinion = -15
+	county_opinion_add = -20
+	monthly_prestige = -2.5
+	dread_baseline_add = 10
+	scheme_discovery_chance_mult = 0.2
+}
+
+incited_to_revolt = {
+	icon = icon_warning_negative
+	men_at_arms_maintenance = 0.25
+	opinion_of_liege = -100
+	dread_baseline_add = 10
+	travel_safety = -10
+}
+
+Incite_rebelion = {
+	icon = icon_event_effect_positive
+	men_at_arms_maintenance = 0.15
+	dread_baseline_add = -10
+	independent_ruler_opinion = -25
+	travel_safety = -10
+	opinion_of_vassal = -25
+	tyranny_gain_mult = 0.5
+}
+
+denouncing_liege = {
+	icon = icon_event_effect_positive
+	hostile_scheme_resistance_add = -10
+	monthly_dynasty_prestige = 0.25
+	liege_opinion = -30
+	dread_baseline_add = 10
+}
+
+denounced_liege = {
+	icon = icon_warning_negative
+	vassal_levy_contribution_mult = -0.10
+	vassal_tax_contribution_mult = -0.10
+	monthly_dynasty_prestige = -0.25
+	courtly_opinion = -10
+}
+
+denounced_liege_2 = {
+	icon = icon_warning_negative
+	vassal_levy_contribution_mult = -0.20
+	vassal_tax_contribution_mult = -0.20
+	monthly_dynasty_prestige = -0.5
+	general_opinion = -15
+}
+
+realm_warden_appointment = {
+	icon = warden_positive
+	fellow_vassal_opinion = 10
+	opinion_of_liege = 10
+	liege_opinion = 20
+	independent_ruler_opinion = -10
+}
+
+council_warden_appointment = {
+	icon = warden_positive
+	fellow_vassal_opinion = 10
+	opinion_of_liege = 10
+	liege_opinion = 20
+	independent_ruler_opinion = -10
+}
+
+house_warden_appointment = {
+	icon = warden_positive
+	fellow_vassal_opinion = 10
+	opinion_of_liege = 10
+	liege_opinion = 20
+	independent_ruler_opinion = -10
+}
+
+holy_warden_appointment = {
+	icon = warden_positive
+	fellow_vassal_opinion = 10
+	opinion_of_liege = 10
+	liege_opinion = 20
+	independent_ruler_opinion = -10
+}
+
+faith_warden_appointment = {
+	icon = warden_positive
+	clergy_opinion = 10
+	opinion_of_liege = 10
+	liege_opinion = 20
+	monthly_piety = 10
+	knight_limit = 2
+	independent_ruler_opinion = -10
+}
+
+republican_warden_appointment = {
+	icon = warden_positive
+	independent_ruler_opinion = 10
+	opinion_of_liege = 10
+	liege_opinion = 20
+	monthly_income = 10
+	knight_limit = 2
+}
+
+
+
+
+
+socially_unsatisfied = {
+	icon = stress_negative
+ #	stress_gain_mult = 0.05
+ #	stress_loss_mult = -0.05
+ 	monthly_lifestyle_xp_gain_mult = -0.10
+	health = -0.10
+}
+
+
+socially_satisfied_brave = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	prowess = 3
+}
+
+socially_satisfied_craven = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	intrigue = 2
+}
+
+socially_satisfied_calm = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	martial = 2
+}
+
+socially_satisfied_wrathful = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	martial = 2
+}
+
+socially_satisfied_chaste = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	learning = 2
+}
+
+socially_satisfied_lustful = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	intrigue = 2
+}
+
+socially_satisfied_content = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	learning = 2
+}
+
+socially_satisfied_ambitious = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	stewardship = 2
+}
+
+socially_satisfied_diligent = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	stewardship = 2
+}
+
+socially_satisfied_lazy = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	intrigue = 2
+}
+
+socially_satisfied_fickle = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	learning = 2
+}
+
+socially_satisfied_stubborn = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	stewardship = 2
+}
+
+socially_satisfied_forgiving = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	diplomacy = 2
+}
+
+socially_satisfied_vengeful = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	intrigue = 2	
+}
+
+socially_satisfied_generous = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	diplomacy = 2
+}
+
+socially_satisfied_greedy = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	stewardship = 2
+}
+
+socially_satisfied_gregarious = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	diplomacy = 2
+}
+
+socially_satisfied_shy = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	learning = 2
+}
+
+socially_satisfied_honest = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	diplomacy = 2
+}
+
+socially_satisfied_deceitful = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	intrigue = 2
+}
+
+socially_satisfied_humble = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	stewardship = 2
+}
+
+socially_satisfied_arrogant = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	prowess = 3
+}
+
+socially_satisfied_just = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	martial = 2
+}
+
+socially_satisfied_arbitrary = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	martial = 2
+}
+
+socially_satisfied_patient = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	stewardship = 2
+}
+
+socially_satisfied_impatient = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	prowess = 3
+}
+
+socially_satisfied_temperate = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	prowess = 3
+}
+
+socially_satisfied_gluttonous = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	diplomacy = 2
+}
+
+socially_satisfied_trusting = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	martial = 2
+}
+
+socially_satisfied_paranoid = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	intrigue = 2
+}
+
+socially_satisfied_zealous = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	monthly_piety = 1
+	learning = 2
+}
+
+socially_satisfied_cynical = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	learning = 2
+}
+
+socially_satisfied_compassionate = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = -5
+	diplomacy = 2
+}
+
+socially_satisfied_callous = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	learning = 2
+}
+
+socially_satisfied_sadistic = {
+	icon = stress_positive
+	stress_gain_mult = -0.10
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	dread_baseline_add = 5
+	prowess = 3
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+corruption_gold_lv1 = {
+	icon = economy_negative
+	monthly_income_mult = -0.08
+	monthly_dynasty_prestige = 0.1
+	dread_baseline_add = 3
+	parochial_opinion = 4
+	glory_hound_opinion = -2
+}
+corruption_gold_lv2 = {
+	icon = economy_negative
+	monthly_income_mult = -0.16
+	monthly_dynasty_prestige = 0.2
+	dread_baseline_add = 6
+	parochial_opinion = 8
+	glory_hound_opinion = -4
+}
+corruption_gold_lv3 = {
+	icon = economy_negative
+	monthly_income_mult = -0.24
+	monthly_dynasty_prestige = 0.3
+	dread_baseline_add = 9
+	parochial_opinion = 12
+	glory_hound_opinion = -6
+}
+corruption_gold_lv4 = {
+	icon = economy_negative
+	monthly_income_mult = -0.32
+	monthly_dynasty_prestige = 0.4
+	dread_baseline_add = 12
+	parochial_opinion = 16
+	glory_hound_opinion = -8
+}
+corruption_gold_lv5 = {
+	icon = economy_negative
+	monthly_income_mult = -0.40
+	monthly_dynasty_prestige = 0.5
+	dread_baseline_add = 15
+	parochial_opinion = 20
+	glory_hound_opinion = -10
+}
+
+
+
+
+corruption_piety_lv1 = {
+	icon = piety_negative
+	monthly_piety_gain_mult = -0.1
+	monthly_dynasty_prestige = 0.1
+	dread_baseline_add = 3
+	zealot_opinion = 4
+	minority_opinion = -4
+}
+corruption_piety_lv2 = {
+	icon = piety_negative
+	monthly_piety_gain_mult = -0.2
+	monthly_dynasty_prestige = 0.2
+	dread_baseline_add = 6
+	zealot_opinion = 8
+	minority_opinion = -8
+}
+corruption_piety_lv3 = {
+	icon = piety_negative
+	monthly_piety_gain_mult = -0.3
+	monthly_dynasty_prestige = 0.3
+	dread_baseline_add = 9
+	zealot_opinion = 12
+	minority_opinion = -12
+}
+corruption_piety_lv4 = {
+	icon = piety_negative
+	monthly_piety_gain_mult = -0.4
+	monthly_dynasty_prestige = 0.4
+	dread_baseline_add = 12
+	zealot_opinion = 16
+	minority_opinion = -16
+}
+corruption_piety_lv5 = {
+	icon = piety_negative
+	monthly_piety_gain_mult = -0.5
+	monthly_dynasty_prestige = 0.5
+	dread_baseline_add = 15
+	zealot_opinion = 20
+	minority_opinion = -20
+}
+
+
+
+corruption_prestige_lv1 = {
+	icon = prestige_negative
+	monthly_prestige_gain_mult = -0.1
+	monthly_dynasty_prestige = 0.1
+	dread_baseline_add = 3
+	courtly_opinion = 4
+	parochial_opinion = -2
+}
+corruption_prestige_lv2 = {
+	icon = prestige_negative
+	monthly_prestige_gain_mult = -0.2
+	monthly_dynasty_prestige = 0.2
+	dread_baseline_add = 6
+	courtly_opinion = 8
+	parochial_opinion = -4
+}
+corruption_prestige_lv3 = {
+	icon = prestige_negative
+	monthly_prestige_gain_mult = -0.3
+	monthly_dynasty_prestige = 0.3
+	dread_baseline_add = 9
+	courtly_opinion = 12
+	parochial_opinion = -6
+}
+corruption_prestige_lv4 = {
+	icon = prestige_negative
+	monthly_prestige_gain_mult = -0.4
+	monthly_dynasty_prestige = 0.4
+	dread_baseline_add = 12
+	courtly_opinion = 16
+	parochial_opinion = -8
+}
+corruption_prestige_lv5 = {
+	icon = prestige_negative
+	monthly_prestige_gain_mult = -0.5
+	monthly_dynasty_prestige = 0.5
+	dread_baseline_add = 15
+	courtly_opinion = 20
+	parochial_opinion = -10
+}
+
+
+corruption_realm_lv0 = {
+	icon = county_modifier_development_negative
+	vassal_tax_contribution_mult = -0.03
+	glory_hound_opinion = 1
+}
+corruption_realm_lv1 = {
+	icon = county_modifier_development_negative
+	vassal_tax_contribution_mult = -0.03
+	vassal_levy_contribution_mult = -0.03
+	court_grandeur_baseline_add = 1
+	dread_baseline_add = 3
+	glory_hound_opinion = 2
+}
+corruption_realm_lv2 = {
+	icon = county_modifier_development_negative
+	vassal_tax_contribution_mult = -0.06
+	vassal_levy_contribution_mult = -0.06
+	court_grandeur_baseline_add = 2
+	dread_baseline_add = 6
+	glory_hound_opinion = 3
+}
+corruption_realm_lv3 = {
+	icon = county_modifier_development_negative
+	vassal_tax_contribution_mult = -0.09
+	vassal_levy_contribution_mult = -0.09
+	court_grandeur_baseline_add = 3
+	dread_baseline_add = 9
+	glory_hound_opinion = 4
+}
+corruption_realm_lv4 = {
+	icon = county_modifier_development_negative
+	vassal_tax_contribution_mult = -0.12
+	vassal_levy_contribution_mult = -0.12
+	court_grandeur_baseline_add = 4
+	dread_baseline_add = 12
+	glory_hound_opinion = 5
+}
+corruption_realm_lv5 = {
+	icon = county_modifier_development_negative
+	vassal_tax_contribution_mult = -0.15
+	vassal_levy_contribution_mult = -0.15
+	court_grandeur_baseline_add = 5
+	dread_baseline_add = 15
+	glory_hound_opinion = 6
+}
+corruption_realm_lv6 = {
+	icon = county_modifier_development_negative
+	vassal_tax_contribution_mult = -0.18
+	vassal_levy_contribution_mult = -0.18
+	court_grandeur_baseline_add = 6
+	dread_baseline_add = 18
+	glory_hound_opinion = 7
+}
+corruption_realm_lv7 = {
+	icon = county_modifier_development_negative
+	vassal_tax_contribution_mult = -0.21
+	vassal_levy_contribution_mult = -0.21
+	court_grandeur_baseline_add = 7
+	dread_baseline_add = 21
+	glory_hound_opinion = 8
+}
+corruption_realm_lv8 = {
+	icon = county_modifier_development_negative
+	vassal_tax_contribution_mult = -0.24
+	vassal_levy_contribution_mult = -0.24
+	court_grandeur_baseline_add = 8
+	dread_baseline_add = 24
+	glory_hound_opinion = 9
+}
+corruption_realm_lv9 = {
+	icon = county_modifier_development_negative
+	vassal_tax_contribution_mult = -0.27
+	vassal_levy_contribution_mult = -0.27
+	court_grandeur_baseline_add = 9
+	dread_baseline_add = 27
+	glory_hound_opinion = 10
+}
+corruption_realm_lv10 = {
+	icon = county_modifier_development_negative
+	vassal_tax_contribution_mult = -0.30
+	vassal_levy_contribution_mult = -0.30
+	court_grandeur_baseline_add = 10
+	dread_baseline_add = 30
+	glory_hound_opinion = 10
+}
+
+small_realm_lv1 = {
+	icon = county_modifier_development_positive
+	vassal_tax_contribution_mult = 0.03
+	vassal_levy_contribution_mult = 0.03
+}
+small_realm_lv2 = {
+	icon = county_modifier_development_positive
+	vassal_tax_contribution_mult = 0.06
+	vassal_levy_contribution_mult = 0.06
+}
+small_realm_lv3 = {
+	icon = county_modifier_development_positive
+	vassal_tax_contribution_mult = 0.09
+	vassal_levy_contribution_mult = 0.09
+}
+small_realm_lv4 = {
+	icon = county_modifier_development_positive
+	vassal_tax_contribution_mult = 0.12
+	vassal_levy_contribution_mult = 0.12
+}
+small_realm_lv5 = {
+	icon = county_modifier_development_positive
+	vassal_tax_contribution_mult = 0.15
+	vassal_levy_contribution_mult = 0.15
+}
+
+corruption_dread_lv1 = { # <10
+	icon = dread_positive
+	monthly_piety_gain_mult = 0.10
+	army_toughness_mult = -0.10
+	army_damage_mult = -0.10
+	monthly_county_control_growth_factor = -0.2
+	general_opinion = 10
+	travel_danger = -10
+	ai_compassion = 25
+	ai_vengefulness = -25
+}
+corruption_dread_lv2 = { # <20
+	icon = dread_positive
+	monthly_piety_gain_mult = 0.05
+	army_toughness_mult = -0.05
+	army_damage_mult = -0.05
+	monthly_county_control_growth_factor = -0.15
+	general_opinion = 5
+	travel_danger = -5
+	ai_compassion = 15
+	ai_vengefulness = -15
+}
+corruption_dread_lv3 = { # <30
+	icon = dread_positive
+	vassal_opinion = 5
+	army_toughness_mult = -0.05
+	monthly_county_control_growth_factor = -0.1
+	ai_compassion = 5
+	ai_vengefulness = -5
+}
+corruption_dread_lv4 = { # <40
+	icon = dread_positive
+	councillor_opinion = 5
+	monthly_county_control_growth_factor = -0.05
+	ai_compassion = -5
+	ai_vengefulness = 5
+}
+corruption_dread_lv5 = { # >40
+	icon = dread_negative
+	army_toughness_mult = 0.05
+	travel_danger = 5
+	ai_compassion = -10
+	ai_vengefulness = 10
+}
+corruption_dread_lv6 = { # >50
+	icon = dread_negative
+	monthly_prestige_gain_mult = 0.05
+	monthly_piety_gain_mult = -0.05
+	army_toughness_mult = 0.10
+	general_opinion = -5
+	travel_danger = 10
+	ai_compassion = -20
+	ai_vengefulness = 20
+	ai_war_chance = 0.1
+}
+corruption_dread_lv7 = { # >60
+	icon = dread_negative
+	monthly_prestige_gain_mult = 0.10
+	monthly_piety_gain_mult = -0.10
+	army_toughness_mult = 0.10
+	general_opinion = -5
+	travel_danger = 15
+	ai_compassion = -30
+	ai_vengefulness = 30
+	ai_war_chance = 0.2
+}
+corruption_dread_lv8 = { # >80
+	icon = dread_negative
+	monthly_prestige_gain_mult = 0.15
+	monthly_piety_gain_mult = -0.20
+	army_toughness_mult = 0.20
+	general_opinion = -10
+	travel_danger = 20
+	ai_compassion = -40
+	ai_vengefulness = 40
+	ai_war_chance = 0.3
+}
+
+Realm_resources_lv0 = { 
+	icon = realmeconomy_negative
+	court_grandeur_baseline_add = -2
+}
+Realm_resources_lv1 = { 
+	icon = realmeconomy_positive
+	stewardship = 1
+	court_grandeur_baseline_add = 2
+	monthly_income = 0.1
+}
+Realm_resources_lv2 = { 
+	icon = realmeconomy_positive
+	stewardship = 2
+	court_grandeur_baseline_add = 4
+	monthly_income = 0.3
+}
+Realm_resources_lv3 = { 
+	icon = realmeconomy_positive
+	stewardship = 3
+	court_grandeur_baseline_add = 6
+	monthly_income = 0.5
+}
+Realm_resources_lv4 = { 
+	icon = realmeconomy_positive
+	stewardship = 4
+	court_grandeur_baseline_add = 8
+	monthly_income = 0.7
+}
+Realm_resources_lv5 = { 
+	icon = realmeconomy_positive
+	stewardship = 5
+	court_grandeur_baseline_add = 10
+	monthly_income = 1
+}
+Realm_resources_lv6 = { 
+	icon = realmeconomy_positive
+	stewardship = 6
+	court_grandeur_baseline_add = 12
+	monthly_income = 1.4
+}
+
+realm_industry_lv0 = { 
+	icon = realmindustry_negative
+	dread_baseline_add = -5
+}
+realm_industry_lv1 = { 
+	icon = realmindustry_positive
+	martial = 1
+	dread_baseline_add = 5
+	knight_effectiveness_mult = 0.15
+}
+realm_industry_lv2 = { 
+	icon = realmindustry_positive
+	martial = 2
+	dread_baseline_add = 10
+	knight_effectiveness_mult = 0.3
+}
+realm_industry_lv3 = { 
+	icon = realmindustry_positive
+	martial = 3
+	dread_baseline_add = 15
+	knight_effectiveness_mult = 0.45
+}
+realm_industry_lv4 = { 
+	icon = realmindustry_positive
+	martial = 4
+	dread_baseline_add = 20
+	knight_effectiveness_mult = 0.60
+}
+realm_industry_lv5 = { 
+	icon = realmindustry_positive
+	martial = 5
+	dread_baseline_add = 25
+	knight_effectiveness_mult = 0.75
+}
+realm_industry_lv6 = { 
+	icon = realmindustry_positive
+	martial = 6
+	dread_baseline_add = 30
+	knight_effectiveness_mult = 0.90
+}
+
+
+random_domain_malus_1 = { # Bad Weather
+	icon = letter_negative
+	county_opinion_add = -10
+	domain_tax_mult = -0.1
+	travel_danger = 5
+}
+random_domain_malus_2 = { # Bad Harvest
+	icon = letter_negative
+	county_opinion_add = -20
+	domain_tax_mult = -0.2
+	travel_danger = 10
+}
+random_domain_malus_3 = { # Disease Outbreak
+	icon = letter_negative
+	health = -0.25
+	monthly_county_control_growth_add = -0.5
+	travel_danger = 5
+    monthly_income_mult = -0.05
+}
+random_domain_malus_4 = { # Peasant Turmoil
+	icon = letter_negative
+	county_opinion_add = -15
+	levy_size = -0.10
+	travel_danger = 10
+}
+random_domain_malus_5 = { # Clergy Turmoil
+	icon = letter_negative
+	monthly_piety_gain_mult = -0.15
+	clergy_opinion = -10
+	travel_danger = 5
+}
+random_domain_malus_6 = { # Nobility Turmoil
+	icon = letter_negative
+	monthly_prestige_gain_mult = -0.15
+	vassal_opinion = -5
+	travel_danger = 5
+}
+random_domain_malus_7 = { # Court Turmoil
+	icon = letter_negative
+	court_grandeur_baseline_add = -4
+	courtier_and_guest_opinion = -10
+	travel_danger = 5
+}
+random_domain_malus_8 = { # Court Schemes
+	icon = letter_negative
+	stress_loss_mult = -0.2
+	monthly_lifestyle_xp_gain_mult = -0.15
+	councillor_opinion = -5
+	travel_danger = 5
+}
+random_domain_malus_9 = { # Knights Turmoil
+	icon = letter_negative
+	knight_effectiveness_mult = -0.25
+	travel_danger = 10
+}
+random_domain_malus_10 = { # Lack of Mampower
+	icon = letter_negative
+	men_at_arms_maintenance = 0.15
+	mercenary_hire_cost_mult = 0.15
+	travel_danger = 5
+}
+random_domain_malus_11 = { # Economic Failure
+	icon = letter_negative
+	monthly_income_mult = -0.10
+	travel_danger = 5
+}
+random_domain_malus_12 = { # Industry Failure
+	icon = letter_negative
+	build_speed = 0.20
+	build_gold_cost = 0.2
+	holding_build_gold_cost = 0.2
+	holding_build_speed = 0.2
+	travel_danger = 5
+}
+random_domain_malus_13 = { # Logistic Failure
+	icon = letter_negative
+	garrison_size = -0.20
+	supply_capacity_mult = -0.20
+	hostile_county_attrition = 0.20
+	travel_danger = 10
+}
+
+random_domain_malus_14 = { # Cultural Decline
+	icon = letter_negative
+	development_growth_factor = -0.20
+	opinion_of_different_culture = 10
+	opinion_of_same_culture = -10
+	travel_danger = 5
+}
+
+random_domain_malus_15 = { # Diplomatic Setback
+	icon = letter_negative
+	independent_ruler_opinion = -10
+	monthly_prestige_gain_mult = -0.10
+	travel_danger = 5
+}
+
+random_domain_malus_16 = { # Wildlife Depletion
+	icon = letter_negative
+	county_opinion_add = -10
+	monthly_county_control_growth_factor = -0.10
+	courtier_and_guest_opinion = -5
+	travel_danger = 10
+}
+
+random_domain_malus_17 = { # Educational Struggles
+	icon = letter_negative
+	build_speed = 0.20
+	development_growth_factor = 0.10
+	courtier_and_guest_opinion = -5
+	travel_danger = 5
+}
+
+random_domain_malus_18 = { # Unfortunate Expeditions
+	icon = letter_negative
+	domain_tax_mult = -0.10
+	monthly_dynasty_prestige = -0.5
+	courtier_and_guest_opinion = -5
+	travel_danger = 5
+}
+
+random_domain_malus_19 = { # Festival Disasters
+	icon = letter_negative
+	domain_tax_mult = -0.10
+	monthly_piety_gain_mult = -0.10
+	clergy_opinion = -10
+	travel_danger = 5
+}
+
+random_domain_malus_20 = { # Agricultural Challenges
+	icon = letter_negative
+	county_opinion_add = -10
+	domain_tax_mult = -0.1
+	travel_danger = 5	
+	travel_danger = 10
+}
+
+random_domain_malus_21 = { # Discord Among Communities
+	icon = letter_negative
+	monthly_county_control_growth_add = -0.5
+	travel_danger = 20
+}
+
+random_domain_malus_22 = { # Infrastructure Failures
+	icon = letter_negative
+	monthly_county_control_growth_add = -0.2
+	character_travel_speed_mult = -0.20
+	build_speed = 0.20
+	travel_danger = 10
+}
+
+random_domain_malus_23 = { # Scientific Stagnation
+	icon = letter_negative
+	cultural_head_fascination_mult = -0.20
+	development_growth_factor = -0.10
+	courtier_and_guest_opinion = -5
+	travel_danger = 5
+}
+
+random_domain_malus_24 = { # Oppressive Policies
+	icon = letter_negative
+	tyranny_gain_mult = 0.15
+	county_opinion_add = -15
+	travel_danger = 20
+}
+
+random_domain_malus_25 = { # Fallen Heroes
+	icon = letter_negative
+	monthly_dynasty_prestige = -1
+	monthly_prestige_gain_mult = -0.10
+	travel_danger = 5
+}
+
+random_domain_malus_26 = { # Artisan's Exodus
+	icon = letter_negative
+	development_growth_factor = -0.10
+	courtier_and_guest_opinion = -10
+	monthly_dynasty_prestige = -0.5
+	travel_danger = 5
+}
+
+random_domain_malus_27 = { # Religious Strife
+	icon = letter_negative
+	clergy_opinion = -10
+	character_travel_speed_mult = -0.10
+	monthly_piety_gain_mult = -0.10
+	travel_danger = 10
+}
+
+random_domain_malus_28 = { # Culinary Stagnation
+	icon = letter_negative
+	independent_ruler_opinion = -10
+	courtly_opinion = -10
+	glory_hound_opinion = -5
+	travel_danger = 5
+}
+
+
+
+random_domain_bonus_1 = { # Bad Weather
+	icon = letter_positive
+	county_opinion_add = 10
+	domain_tax_mult = 0.10
+}
+random_domain_bonus_2 = { # Bad Harvest
+	icon = letter_positive
+	county_opinion_add = 20
+	domain_tax_mult = 0.2
+}
+random_domain_bonus_3 = { # Disease Outbreak
+	icon = letter_positive
+	monthly_county_control_growth_add = 0.5
+}
+random_domain_bonus_4 = { # Peasant Turmoil
+	icon = letter_positive
+	county_opinion_add = 15
+	levy_size = 0.10
+}
+random_domain_bonus_5 = { # Clergy Turmoil
+	icon = letter_positive
+	monthly_piety_gain_mult = 0.15
+	clergy_opinion = 10
+}
+random_domain_bonus_6 = { # Nobility Turmoil
+	icon = letter_positive
+	monthly_prestige_gain_mult = 0.15
+	vassal_opinion = 5
+}
+random_domain_bonus_7 = { # Court Turmoil
+	icon = letter_positive
+	court_grandeur_baseline_add = 4
+	courtier_and_guest_opinion = 10
+}
+random_domain_bonus_8 = { # Court Schemes
+	icon = letter_positive
+	stress_loss_mult = 0.2
+	monthly_lifestyle_xp_gain_mult = 0.15
+	councillor_opinion = 5
+}
+random_domain_bonus_9 = { # Knights Turmoil
+	icon = letter_positive
+	knight_effectiveness_mult = 0.25
+}
+random_domain_bonus_10 = { # Lack of Mampower
+	icon = letter_positive
+	men_at_arms_maintenance = -0.10
+	mercenary_hire_cost_mult = -0.10
+}
+random_domain_bonus_11 = { # Economic Failure
+	icon = letter_positive
+	monthly_income_mult = 0.10
+}
+random_domain_bonus_12 = { # Industry Failure
+	icon = letter_positive
+	build_gold_cost = -0.2
+	holding_build_gold_cost = -0.2
+	holding_build_speed = -0.2
+	build_speed = -0.2
+}
+random_domain_bonus_13 = { # Logistic Failure
+	icon = letter_positive
+	garrison_size = 0.20
+	supply_capacity_mult = 0.20
+	hostile_county_attrition = -0.20
+	travel_danger = -5
+}
+
+random_domain_bonus_14 = { # Cultural Renaissance
+    icon = letter_positive
+    development_growth_factor = 0.20
+    opinion_of_different_culture = -10
+    opinion_of_same_culture = 10
+    travel_danger = -5
+}
+
+random_domain_bonus_15 = { # Diplomatic Triumph
+    icon = letter_positive
+    independent_ruler_opinion = 10
+    monthly_prestige_gain_mult = 0.10
+    travel_danger = -5
+}
+
+random_domain_bonus_16 = { # Flourishing Wildlife
+    icon = letter_positive
+    county_opinion_add = 10
+    monthly_county_control_growth_factor = 0.10
+    courtier_and_guest_opinion = 5
+    travel_danger = -10
+}
+
+random_domain_bonus_17 = { # Educational Advancements
+    icon = letter_positive
+    build_speed = -0.20
+    development_growth_factor = -0.10
+    courtier_and_guest_opinion = 5
+    travel_danger = -5
+}
+
+random_domain_bonus_18 = { # Successful Expeditions
+    icon = letter_positive
+    domain_tax_mult = 0.10
+    monthly_dynasty_prestige = 0.5
+    courtier_and_guest_opinion = 5
+    travel_danger = -5
+}
+
+random_domain_bonus_19 = { # Festival Success
+    icon = letter_positive
+    domain_tax_mult = 0.10
+    monthly_piety_gain_mult = 0.10
+    clergy_opinion = 10
+    travel_danger = -5
+}
+
+random_domain_bonus_20 = { ## Agricultural Prosperity
+    icon = letter_positive
+    county_opinion_add = 10
+    domain_tax_mult = 0.1
+    travel_danger = -5
+    travel_danger = -10
+}
+
+random_domain_bonus_21 = { # Harmony Among Communities
+    icon = letter_positive
+    monthly_county_control_growth_add = 0.5
+    travel_danger = -20
+}
+
+random_domain_bonus_22 = { # Successful Infrastructure
+    icon = letter_positive
+    monthly_county_control_growth_add = 0.2
+    character_travel_speed_mult = 0.20
+    build_speed = -0.20
+    travel_danger = -10
+}
+
+random_domain_bonus_23 = { # Scientific Advancements
+    icon = letter_positive
+    cultural_head_fascination_mult = 0.20
+    development_growth_factor = 0.10
+    courtier_and_guest_opinion = 5
+    travel_danger = -5
+}
+
+random_domain_bonus_24 = { # Enlightened Policies
+    icon = letter_positive
+    tyranny_gain_mult = -0.15
+    county_opinion_add = 15
+    travel_danger = -20
+}
+
+random_domain_bonus_25 = { # Honored Heroes
+    icon = letter_positive
+    monthly_dynasty_prestige = 1
+    monthly_prestige_gain_mult = 0.10
+    travel_danger = -5
+}
+
+random_domain_bonus_26 = { # Artisan's Flourish
+    icon = letter_positive
+    development_growth_factor = 0.10
+    courtier_and_guest_opinion = 10
+    monthly_dynasty_prestige = 0.5
+    travel_danger = -5
+}
+
+random_domain_bonus_27 = { # Religious Harmony
+    icon = letter_positive
+    clergy_opinion = 10
+    character_travel_speed_mult = 0.10
+    monthly_piety_gain_mult = 0.10
+    travel_danger = -10
+}
+
+random_domain_bonus_28 = { # Culinary Renaissance
+    icon = letter_positive
+    independent_ruler_opinion = 10
+    courtly_opinion = 10
+    glory_hound_opinion = 5
+    travel_danger = -5
+}
+
+
+
+
+
+
+
+diary_event_1 = { # adventure
+	icon = county_modifier_opinion_positive
+	monthly_prestige_gain_mult = 0.15
+	martial_scheme_resistance = 10
+	martial_scheme_power = 5
+	martial = 2
+}
+diary_event_2 = { # adventure
+	icon = county_modifier_opinion_negative
+	monthly_prestige_gain_mult = -0.15
+	martial_scheme_resistance = -10
+	martial_scheme_power = -5
+	martial = -2
+}
+
+diary_event_3 = { # penance
+	icon = county_modifier_opinion_positive
+	monthly_piety_gain_mult = 0.15
+	general_opinion = 5
+	learning = 2
+}
+diary_event_4 = { # penance
+	icon = county_modifier_opinion_negative
+	monthly_piety_gain_mult = -0.15
+	general_opinion = -5
+	learning = -2
+}
+
+diary_event_5 = { # gamble
+	icon = county_modifier_opinion_positive
+	general_opinion = 5
+	monthly_income_mult = 0.1
+	intrigue = 2
+}
+diary_event_6 = { # gamble
+	icon = county_modifier_opinion_negative
+	general_opinion = -5
+	monthly_income_mult = -0.1
+	intrigue = -2
+}
+
+diary_event_7 = { # judged criminals - authority
+	icon = county_modifier_opinion_positive
+	general_opinion = 5
+	monthly_county_control_growth_add = 0.5
+	county_opinion_add = 20
+	diplomacy = 2
+}
+diary_event_8 = { # judged criminals - authority
+	icon = county_modifier_opinion_negative
+	general_opinion = -5
+	monthly_county_control_growth_add = -0.5
+	county_opinion_add = -20
+	diplomacy = -2
+}
+
+diary_event_9 = { # insist to polite decline subjects demands
+	icon = county_modifier_opinion_positive
+	general_opinion = 5
+	diplomacy_scheme_power = 20
+	diplomacy = 2
+}
+diary_event_10 = { # insist to polite decline subjects demands
+	icon = county_modifier_opinion_negative
+	general_opinion = -5
+	diplomacy_scheme_power = -20
+	diplomacy = 2
+}
+
+diary_event_11 = { # study
+	icon = county_modifier_opinion_positive
+	monthly_lifestyle_xp_gain_mult = 0.15
+	cultural_head_fascination_mult = 0.15
+	learn_language_scheme_power_mult = 0.25
+	learning = 2
+}
+diary_event_12 = { # study
+	icon = county_modifier_opinion_negative
+	monthly_lifestyle_xp_gain_mult = -0.15
+	cultural_head_fascination_mult = -0.15
+	learn_language_scheme_power_mult = -0.25
+	learning = -2
+}
+
+diary_event_13 = { # planned trade
+	icon = county_modifier_opinion_positive
+    diplomacy_scheme_power = 10
+    stewardship_scheme_power = 10
+	court_grandeur_baseline_add = 4
+	stewardship = 2
+}
+diary_event_14 = { # planned trade
+	icon = county_modifier_opinion_negative
+    diplomacy_scheme_power = -10
+    stewardship_scheme_power = -10
+	court_grandeur_baseline_add = -4
+	stewardship = -2
+}
+
+diary_event_15 = { # planned war
+	icon = county_modifier_opinion_positive
+	vassal_tax_contribution_mult = 0.15
+	vassal_levy_contribution_mult = 0.15
+	martial = 2
+	
+}
+diary_event_16 = { # planned war
+	icon = county_modifier_opinion_negative
+	vassal_tax_contribution_mult = -0.15
+	vassal_levy_contribution_mult = -0.15
+	martial = -2
+}
+
+diary_event_17 = { # planned schemes
+	icon = county_modifier_opinion_positive
+    hostile_scheme_power_add = 10
+    owned_hostile_scheme_success_chance_add = 10
+	intrigue = 2
+}
+diary_event_18 = { # planned schemes
+	icon = county_modifier_opinion_negative
+    hostile_scheme_power_add = -10
+    owned_hostile_scheme_success_chance_add = -10
+	intrigue = -2
+}
+
+diary_event_19 = { # inspiring speeches
+	icon = county_modifier_opinion_positive
+	general_opinion = 10
+	diplomacy = 2
+}
+diary_event_20 = { # inspiring speeches
+	icon = county_modifier_opinion_negative
+	general_opinion = -10
+	diplomacy = -2
+}
+
+diary_event_21 = { # punishment
+	icon = county_modifier_opinion_positive
+	glory_hound_opinion = 10
+	dread_baseline_add = 25
+	monthly_dread = 1
+}
+diary_event_22 = { # punishment
+	icon = county_modifier_opinion_negative
+	glory_hound_opinion = -10
+	dread_baseline_add = -25
+	monthly_dread = -1
+}
+
+diary_event_23 = { # supression
+	icon = county_modifier_opinion_positive
+	dread_baseline_add = 15
+	garrison_size = 0.25
+	defender_advantage = 5
+}
+diary_event_24 = { #
+	icon = county_modifier_opinion_negative
+	dread_baseline_add = -15
+	garrison_size = -0.25
+	defender_advantage = -5
+}
+
+diary_event_25 = { # adventure
+	icon = county_modifier_opinion_positive
+	general_opinion = 5
+	health = 0.25
+	prowess = 3
+	lifestyle_traveler_xp_gain_mult = 0.5
+	enemy_terrain_advantage = -5
+}
+diary_event_26 = { # adventure
+	icon = county_modifier_opinion_negative
+	general_opinion = -5
+	health = -0.25
+	prowess = -3
+	lifestyle_traveler_xp_gain_mult = -0.5
+	enemy_terrain_advantage 5
+}
+
+diary_event_27 = { # tournament
+	icon = county_modifier_opinion_positive
+	general_opinion = 5
+	monthly_dynasty_prestige = 1
+	tourney_participant_xp_gain_mult = 0.5
+	prowess = 3
+}
+diary_event_28 = { # tournament
+	icon = county_modifier_opinion_negative
+	general_opinion = -5
+	monthly_dynasty_prestige = -1
+	tourney_participant_xp_gain_mult = -0.5
+	prowess = -3
+}
+
+
+
+random_war_malus_1 = { #Missing Foragers
+	icon = prowess_negative
+	army_pursuit_mult = -0.10
+	supply_limit_mult = -0.25
+	martial = -2
+}
+
+random_war_malus_2 = { #Missing Messengers
+	icon = prowess_negative
+	enemy_hostile_scheme_success_chance_add = 10
+	levy_reinforcement_rate = -0.20
+	glory_hound_opinion = -10
+}
+
+random_war_malus_3 = { #Dreadfull Commanders
+	icon = prowess_negative
+	monthly_tyranny = 0.25
+	clergy_opinion = -10
+	martial = -2
+}
+
+random_war_malus_4 = { #Runaway Prisoners
+	icon = prowess_negative
+	dread_baseline_add = -15
+	levy_reinforcement_rate = -0.15
+	glory_hound_opinion = -10
+}
+
+random_war_malus_5 = { #Defeated Skirmishers
+	icon = prowess_negative
+	army_screen_mult = -0.10
+	martial = -2
+	glory_hound_opinion = -10
+}
+
+random_war_malus_6 = { #Supply Disruption
+	icon = prowess_negative
+	army_maintenance_mult = 0.10
+	army_siege_value_mult = -0.20
+	hostile_county_attrition = 0.5
+}
+
+random_war_malus_7 = { #Disentery Outbreak
+	icon = prowess_negative
+	army_toughness_mult = -0.1
+	army_siege_value_mult = -0.1
+	army_pursuit_mult = -0.1
+	army_screen_mult = -0.1
+	army_damage_mult = -0.1
+	levy_reinforcement_rate = -0.10
+}
+
+random_war_malus_8 = { #Levies Desertion
+	icon = prowess_negative
+	levy_size = -0.15
+	vassal_levy_contribution_mult = -0.10
+	levy_reinforcement_rate = -0.2
+}
+
+random_war_malus_9 = { #Blocked Trade Routes
+	icon = prowess_negative
+	monthly_war_income_mult = -0.05
+	character_capital_county_monthly_development_growth_add = -0.5
+	county_opinion_add = -20
+}
+
+random_war_malus_10 = { #Foreign Trade Embargo
+	icon = prowess_negative
+	monthly_war_income_mult = -0.05
+	court_grandeur_baseline_add = -4
+	learn_language_scheme_power_mult = -0.25
+}
+
+random_war_malus_11 = { #Raided Villages
+	icon = prowess_negative
+	county_opinion_add = -25
+	holding_build_speed = 0.20
+	build_speed = 0.20
+	monthly_county_control_growth_add = -0.5
+}
+
+random_war_malus_12 = { #Pillaged Temples
+	icon = prowess_negative
+	clergy_opinion = -10
+	holding_build_speed = 0.20
+	build_speed = 0.20
+	development_growth_factor = -0.25
+}
+
+random_war_malus_13 = { #Captured Outposts
+	icon = prowess_negative
+	garrison_size = -0.20
+	holding_build_speed = 0.20
+	build_speed = 0.20
+	army_siege_value_mult = -0.20
+}
+
+random_war_malus_14 = { #Lost Dinasty Standard
+	icon = prowess_negative
+	dynasty_opinion = -10
+	monthly_dynasty_prestige = -1
+	short_reign_duration_mult = 0.2
+}
+
+random_war_malus_15 = { #Contested Casus Belli
+	icon = prowess_negative
+	general_opinion = -10
+	long_reign_bonus_mult = -0.25
+	learn_language_scheme_power_mult = -0.25
+}
+
+random_war_malus_16 = { #Council Struggle
+	icon = prowess_negative
+	councillor_opinion = -10
+	happy_powerful_vassal_levy_contribution_mult = -0.15
+	diplomacy = -2
+}
+
+random_war_malus_17 = { #Strategic failure
+	icon = prowess_negative
+	army_damage_mult = -0.10
+	monthly_war_income_mult = -0.1
+	martial_per_stress_level = -2
+}
+
+random_war_malus_18 = { #Resented Vassals
+	icon = prowess_negative
+	vassal_opinion = -10
+	monthly_prestige = -0.3
+	short_reign_duration_mult = 0.15
+	character_travel_safety = -5
+}
+
+
+
+
+random_war_bonus_1 = { #Captured Enemy Foragers
+	icon = prowess_positive
+	army_pursuit_mult = 0.10
+	supply_limit_mult = 0.35
+	martial = 2
+}
+
+random_war_bonus_2 = { #Captured Enemy Messengers
+	icon = prowess_positive
+	enemy_hostile_scheme_success_chance_add = -10
+	levy_reinforcement_rate = 0.20
+	glory_hound_opinion = 10
+}
+
+random_war_bonus_3 = { #Honorable Commanders
+	icon = prowess_positive
+	monthly_tyranny = -0.25
+	clergy_opinion = 10
+	martial = 2
+}
+
+random_war_bonus_4 = { #Rescued Prisoners
+	icon = prowess_positive
+	dread_baseline_add = 15
+	levy_reinforcement_rate = 0.15
+	glory_hound_opinion = 10
+}
+
+random_war_bonus_5 = { #Victorious Skirmishers
+	icon = prowess_positive
+	army_screen_mult = 0.10
+	martial = 2
+	glory_hound_opinion = 10
+}
+
+random_war_bonus_6 = { #Secured Supply Lines
+	icon = prowess_positive
+	army_maintenance_mult = -0.15
+	army_siege_value_mult = 0.20
+	hostile_county_attrition = -0.25
+}
+
+random_war_bonus_7 = { #Generous Battle Loot
+	icon = prowess_positive
+	army_toughness_mult = 0.1
+	army_siege_value_mult = 0.1
+	army_pursuit_mult = 0.1
+	army_screen_mult = 0.1
+	army_damage_mult = 0.1
+	levy_reinforcement_rate = 0.10
+}
+
+random_war_bonus_8 = { #Arrived Reinforcements
+	icon = prowess_positive
+	levy_size = 0.15
+	vassal_levy_contribution_mult = 0.10
+	levy_reinforcement_rate = 0.2
+}
+
+random_war_bonus_9 = { #Captured Enemy Trade Route
+	icon = prowess_positive
+	monthly_war_income_mult = 0.05
+	character_capital_county_monthly_development_growth_add = 1
+	county_opinion_add = 10
+}
+
+random_war_bonus_10 = { #Discret Foreign Funding
+	icon = prowess_positive
+	monthly_war_income_mult = 0.05
+	court_grandeur_baseline_add = 4
+	learn_language_scheme_power_mult = 0.50
+}
+
+random_war_bonus_11 = { #Defeated Enemy Raiders
+	icon = prowess_positive
+	county_opinion_add = 25
+	holding_build_speed = -0.20
+	build_speed = -0.20
+	monthly_county_control_growth_add = 0.5
+}
+
+random_war_bonus_12 = { #Rescued Besieged Cities
+	icon = prowess_positive
+	clergy_opinion = 10
+	holding_build_speed = -0.20
+	build_speed = -0.20
+	development_growth_factor = 0.25
+}
+
+random_war_bonus_13 = { #Captured Enemy Outposts
+	icon = prowess_positive
+	garrison_size = 0.20
+	holding_build_speed = -0.20
+	build_speed = -0.20
+	army_siege_value_mult = 0.20
+}
+
+random_war_bonus_14 = { #Captured Enemy Standard
+	icon = prowess_positive
+	dynasty_opinion = 10
+	monthly_dynasty_prestige = 1
+	short_reign_duration_mult = -0.2
+}
+
+random_war_bonus_15 = { #Sanctioned Casus Belli
+	icon = prowess_positive
+	independent_ruler_opinion = 10
+	long_reign_bonus_mult = 0.2
+	learn_language_scheme_power_mult = 0.25
+}
+
+random_war_bonus_16 = { #Council's Approval
+	icon = prowess_positive
+	councillor_opinion = 10
+	happy_powerful_vassal_levy_contribution_mult = 0.15
+	diplomacy = 2
+}
+
+random_war_bonus_17 = { #Strategic Success
+	icon = prowess_positive
+	army_damage_mult = 0.10
+	monthly_war_income_mult = 0.1
+	martial_per_stress_level = 2
+}
+
+random_war_bonus_18 = { #Supportive Vassals
+	icon = prowess_positive
+	vassal_opinion = 10
+	monthly_prestige = 0.25
+	short_reign_duration_mult = -0.15
+	character_travel_safety = 5
+}
+
+
+
+
+
+
+good_job_councillor = {
+	icon = county_modifier_opinion_positive
+	liege_opinion = 10
+	monthly_prestige_gain_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	stress_loss_mult = 0.10
+}
+
+bad_job_councillor = {
+	icon = county_modifier_opinion_negative
+	liege_opinion = -10
+	monthly_prestige_gain_mult = -0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	stress_gain_mult = 0.10
+}
+
+
+good_job_regent = {
+	icon = county_modifier_opinion_positive
+	liege_opinion = 10
+	monthly_prestige_gain_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	stress_loss_mult = 0.10
+}
+
+bad_job_regent = {
+	icon = county_modifier_opinion_negative
+	liege_opinion = -10
+	monthly_prestige_gain_mult = -0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+	stress_gain_mult = 0.10
+}
+
+
+
+
+troubled_house_modifier = {
+	icon = family_negative
+	dynasty_opinion = -10
+	monthly_prestige_gain_mult = -0.10
+	travel_danger = 5
+}
+
+gpt_reliable_house_modifier = {
+	icon = family_positive
+	dynasty_opinion = 10
+	short_reign_duration_mult = -0.25
+	character_travel_safety = 5
+}
+
+
+
+
+expedition_diplomacy_minor_success = {
+	icon = diplomacy_positive
+	diplomacy = 1
+	general_opinion = 5
+	short_reign_duration_mult = -0.10
+}
+expedition_diplomacy_major_success = {
+	icon = diplomacy_positive
+	diplomacy = 2
+	general_opinion = 10
+	short_reign_duration_mult = -0.20
+}
+
+expedition_stewardship_minor_success = {
+	icon = stewardship_positive
+	stewardship = 1
+	domain_tax_mult = 0.05
+	character_travel_safety = 3
+}
+expedition_stewardship_major_success = {
+	icon = stewardship_positive
+	stewardship = 2
+	domain_tax_mult = 0.10
+	character_travel_safety = 6
+}
+
+expedition_martial_minor_success = {
+	icon = martial_positive
+	martial = 1
+	cultural_head_fascination_mult = 0.1
+	development_growth_factor = 0.1
+}
+expedition_martial_major_success = {
+	icon = martial_positive
+	martial = 2
+	cultural_head_fascination_mult = 0.2
+	development_growth_factor = 0.2
+}
+
+expedition_intrigue_minor_success = {
+	icon = intrigue_positive
+	intrigue = 1
+	owned_hostile_scheme_success_chance_add = 5
+	owned_personal_scheme_success_chance_add = 5
+	owned_scheme_secrecy_add = 5
+}
+expedition_intrigue_major_success = {
+	icon = intrigue_positive
+	intrigue = 2
+	owned_hostile_scheme_success_chance_add = 10
+	owned_personal_scheme_success_chance_add = 10
+	owned_scheme_secrecy_add = 10
+}
+
+expedition_learning_minor_success = {
+	icon = learning_positive
+	learning = 1
+	monthly_piety_gain_mult = 0.1
+	monthly_lifestyle_xp_gain_mult = 0.1
+}
+expedition_learning_major_success = {
+	icon = learning_positive
+	learning = 2
+	monthly_piety_gain_mult = 0.2
+	monthly_lifestyle_xp_gain_mult = 0.2
+}
+
+expedition_prowess_minor_success = {
+	icon = prowess_positive
+	prowess = 1
+	monthly_prestige_gain_mult = 0.10
+	knight_effectiveness_mult = 0.10
+}
+expedition_prowess_major_success = {
+	icon = prowess_positive
+	prowess = 2
+	monthly_prestige_gain_mult = 0.2
+	knight_effectiveness_mult = 0.2
+}
+
+
+
+
+
+
+
+
+random_herald_bonus_01 = { # Stewardship
+	icon = economy_positive
+	tax_mult = 0.1
+	development_growth_factor = 0.15
+	build_speed = -0.10
+	build_gold_cost = -0.10
+	travel_danger = -5
+}
+random_herald_malus_01 = { # Stewardship
+	icon = economy_negative
+	tax_mult = -0.1
+	development_growth_factor = -0.15
+	build_speed = 0.10
+	build_gold_cost = 0.10
+	travel_danger = 10
+}
+
+random_herald_bonus_02 = { # Diplomacy
+	icon = social_positive
+	monthly_county_control_growth_add = 0.1
+	levy_size = 0.25
+	build_speed = -0.10
+	build_gold_cost = -0.10
+	travel_danger = -5
+}
+random_herald_malus_02 = { # Diplomacy
+	icon = social_negative
+	monthly_county_control_growth_add = -0.1
+	levy_size = -0.25
+	build_speed = 0.10
+	build_gold_cost = 0.10
+	travel_danger = 10
+}
+
+random_herald_bonus_03 = { # LEarning
+	icon = compass_positive
+	county_opinion_add = 15
+	development_growth_factor = 0.3
+	build_speed = -0.10
+	build_gold_cost = -0.10
+	travel_danger = -5
+}
+random_herald_malus_03 = { # LEarning
+	icon = compass_negative
+	county_opinion_add = -15
+	development_growth_factor = -0.3
+	build_speed = 0.10
+	build_gold_cost = 0.10
+	travel_danger = 10
+}
+
+random_herald_bonus_04 = { # Intrigue
+	icon = mask_positive
+	county_opinion_add = 30
+	monthly_county_control_growth_factor = 0.10
+	build_speed = -0.10
+	build_gold_cost = -0.10
+	travel_danger = -5
+}
+random_herald_malus_04 = { # Intrigue
+	icon = mask_negative
+	county_opinion_add = -30
+	monthly_county_control_growth_factor = -0.20
+	build_speed = 0.10
+	build_gold_cost = 0.10
+	travel_danger = 10
+}
+
+random_herald_bonus_05 = { # Martial
+	icon = county_modifier_control_positive
+	monthly_county_control_growth_add = 0.4
+	supply_limit_mult = 0.3
+	build_speed = -0.10
+	build_gold_cost = -0.10
+	travel_danger = -5
+}
+random_herald_malus_05 = { # Martial
+	icon = county_modifier_control_negative
+	monthly_county_control_growth_add = -0.4
+	supply_limit_mult = -0.3
+	build_speed = 0.10
+	build_gold_cost = 0.10
+	travel_danger = 10
+}
+
+
+
+
+
+tribal_random_herald_bonus_01 = { # Stewardship
+	icon = economy_positive
+	tax_mult = 0.1
+	development_growth_factor = 0.15
+	build_speed = -0.10
+	build_gold_cost = -0.10
+	travel_danger = -5
+}
+tribal_random_herald_malus_01 = { # Stewardship
+	icon = economy_negative
+	tax_mult = -0.1
+	development_growth_factor = -0.15
+	build_speed = 0.10
+	build_gold_cost = 0.10
+	travel_danger = 10
+}
+
+tribal_random_herald_bonus_02 = { # Diplomacy
+	icon = social_positive
+	monthly_county_control_growth_add = 0.1
+	levy_size = 0.25
+	build_speed = -0.10
+	build_gold_cost = -0.10
+	travel_danger = -5
+}
+tribal_random_herald_malus_02 = { # Diplomacy
+	icon = social_negative
+	monthly_county_control_growth_add = -0.1
+	levy_size = -0.25
+	build_speed = 0.10
+	build_gold_cost = 0.10
+	travel_danger = 10
+}
+
+tribal_random_herald_bonus_03 = { # LEarning
+	icon = compass_positive
+	county_opinion_add = 15
+	development_growth_factor = 0.3
+	build_speed = -0.10
+	build_gold_cost = -0.10
+	travel_danger = -5
+}
+tribal_random_herald_malus_03 = { # LEarning
+	icon = compass_negative
+	county_opinion_add = -15
+	development_growth_factor = -0.3
+	build_speed = 0.10
+	build_gold_cost = 0.10
+	travel_danger = 10
+}
+
+tribal_random_herald_bonus_04 = { # Intrigue
+	icon = mask_positive
+	county_opinion_add = 30
+	monthly_county_control_growth_factor = 0.10
+	build_speed = -0.10
+	build_gold_cost = -0.10
+	travel_danger = -5
+}
+tribal_random_herald_malus_04 = { # Intrigue
+	icon = mask_negative
+	county_opinion_add = -30
+	monthly_county_control_growth_factor = -0.20
+	build_speed = 0.10
+	build_gold_cost = 0.10
+	travel_danger = 10
+}
+
+tribal_random_herald_bonus_05 = { # Martial
+	icon = county_modifier_control_positive
+	monthly_county_control_growth_add = 0.4
+	supply_limit_mult = 0.3
+	build_speed = -0.10
+	build_gold_cost = -0.10
+	travel_danger = -5
+}
+tribal_random_herald_malus_05 = { # Martial
+	icon = county_modifier_control_negative
+	monthly_county_control_growth_add = -0.4
+	supply_limit_mult = -0.3
+	build_speed = 0.10
+	build_gold_cost = 0.10
+	travel_danger = 10
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+random_tribal_war_malus_1 = { #Missing Foragers
+	icon = prowess_negative
+	army_pursuit_mult = -0.10
+	supply_limit_mult = -0.25
+	martial = -2
+}
+
+random_tribal_war_malus_2 = { #Missing Messengers
+	icon = prowess_negative
+	enemy_hostile_scheme_success_chance_add = 10
+	levy_reinforcement_rate = -0.20
+	glory_hound_opinion = -10
+}
+
+random_tribal_war_malus_3 = { #Dreadfull Commanders
+	icon = prowess_negative
+	monthly_tyranny = 0.25
+	clergy_opinion = -10
+	martial = -2
+}
+
+random_tribal_war_malus_4 = { #Runaway Prisoners
+	icon = prowess_negative
+	dread_baseline_add = -15
+	levy_reinforcement_rate = -0.15
+	glory_hound_opinion = -10
+}
+
+random_tribal_war_malus_5 = { #Defeated Skirmishers
+	icon = prowess_negative
+	army_screen_mult = -0.10
+	martial = -2
+	glory_hound_opinion = -10
+}
+
+random_tribal_war_malus_6 = { #Supply Disruption
+	icon = prowess_negative
+	army_maintenance_mult = 0.10
+	army_siege_value_mult = -0.20
+	hostile_county_attrition = 0.5
+}
+
+random_tribal_war_malus_7 = { #Disentery Outbreak
+	icon = prowess_negative
+	army_toughness_mult = -0.1
+	army_siege_value_mult = -0.1
+	army_pursuit_mult = -0.1
+	army_screen_mult = -0.1
+	army_damage_mult = -0.1
+	levy_reinforcement_rate = -0.10
+}
+
+random_tribal_war_malus_8 = { #Levies Desertion
+	icon = prowess_negative
+	levy_size = -0.15
+	vassal_levy_contribution_mult = -0.10
+	levy_reinforcement_rate = -0.2
+}
+
+random_tribal_war_malus_9 = { #Blocked Trade Routes
+	icon = prowess_negative
+	monthly_war_income_mult = -0.05
+	character_capital_county_monthly_development_growth_add = -0.5
+	county_opinion_add = -20
+}
+
+random_tribal_war_malus_10 = { #Foreign Trade Embargo
+	icon = prowess_negative
+	monthly_war_income_mult = -0.05
+	court_grandeur_baseline_add = -4
+	learn_language_scheme_power_mult = -0.25
+}
+
+random_tribal_war_malus_11 = { #Raided Villages
+	icon = prowess_negative
+	county_opinion_add = -25
+	holding_build_speed = 0.20
+	build_speed = 0.20
+	monthly_county_control_growth_add = -0.5
+}
+
+random_tribal_war_malus_12 = { #Pillaged Temples
+	icon = prowess_negative
+	clergy_opinion = -10
+	holding_build_speed = 0.20
+	build_speed = 0.20
+	development_growth_factor = -0.25
+}
+
+random_tribal_war_malus_13 = { #Captured Outposts
+	icon = prowess_negative
+	garrison_size = -0.20
+	holding_build_speed = 0.20
+	build_speed = 0.20
+	army_siege_value_mult = -0.20
+}
+
+random_tribal_war_malus_14 = { #Lost Dinasty Standard
+	icon = prowess_negative
+	dynasty_opinion = -10
+	monthly_dynasty_prestige = -1
+	short_reign_duration_mult = 0.2
+}
+
+random_tribal_war_malus_15 = { #Contested Casus Belli
+	icon = prowess_negative
+	general_opinion = -10
+	long_reign_bonus_mult = -0.25
+	learn_language_scheme_power_mult = -0.25
+}
+
+random_tribal_war_malus_16 = { #Council Struggle
+	icon = prowess_negative
+	councillor_opinion = -10
+	happy_powerful_vassal_levy_contribution_mult = -0.15
+	diplomacy = -2
+}
+
+random_tribal_war_malus_17 = { #Strategic failure
+	icon = prowess_negative
+	army_damage_mult = -0.10
+	monthly_war_income_mult = -0.1
+	martial_per_stress_level = -2
+}
+
+random_tribal_war_malus_18 = { #Resented Vassals
+	icon = prowess_negative
+	vassal_opinion = -10
+	monthly_prestige = -0.3
+	short_reign_duration_mult = 0.15
+	character_travel_safety = -5
+}
+
+
+
+
+random_tribal_war_bonus_1 = { #Captured Enemy Foragers
+	icon = prowess_positive
+	army_pursuit_mult = 0.10
+	supply_limit_mult = 0.35
+	martial = 2
+}
+
+random_tribal_war_bonus_2 = { #Captured Enemy Messengers
+	icon = prowess_positive
+	enemy_hostile_scheme_success_chance_add = -10
+	levy_reinforcement_rate = 0.20
+	glory_hound_opinion = 10
+}
+
+random_tribal_war_bonus_3 = { #Honorable Commanders
+	icon = prowess_positive
+	monthly_tyranny = -0.25
+	clergy_opinion = 10
+	martial = 2
+}
+
+random_tribal_war_bonus_4 = { #Rescued Prisoners
+	icon = prowess_positive
+	dread_baseline_add = 15
+	levy_reinforcement_rate = 0.15
+	glory_hound_opinion = 10
+}
+
+random_tribal_war_bonus_5 = { #Victorious Skirmishers
+	icon = prowess_positive
+	army_screen_mult = 0.10
+	martial = 2
+	glory_hound_opinion = 10
+}
+
+random_tribal_war_bonus_6 = { #Secured Supply Lines
+	icon = prowess_positive
+	army_maintenance_mult = -0.15
+	army_siege_value_mult = 0.20
+	hostile_county_attrition = -0.25
+}
+
+random_tribal_war_bonus_7 = { #Generous Battle Loot
+	icon = prowess_positive
+	army_toughness_mult = 0.1
+	army_siege_value_mult = 0.1
+	army_pursuit_mult = 0.1
+	army_screen_mult = 0.1
+	army_damage_mult = 0.1
+	levy_reinforcement_rate = 0.10
+}
+
+random_tribal_war_bonus_8 = { #Arrived Reinforcements
+	icon = prowess_positive
+	levy_size = 0.15
+	vassal_levy_contribution_mult = 0.10
+	levy_reinforcement_rate = 0.2
+}
+
+random_tribal_war_bonus_9 = { #Captured Enemy Trade Route
+	icon = prowess_positive
+	monthly_war_income_mult = 0.05
+	character_capital_county_monthly_development_growth_add = 1
+	county_opinion_add = 10
+}
+
+random_tribal_war_bonus_10 = { #Discret Foreign Funding
+	icon = prowess_positive
+	monthly_war_income_mult = 0.05
+	court_grandeur_baseline_add = 4
+	learn_language_scheme_power_mult = 0.50
+}
+
+random_tribal_war_bonus_11 = { #Defeated Enemy Raiders
+	icon = prowess_positive
+	county_opinion_add = 25
+	holding_build_speed = -0.20
+	build_speed = -0.20
+	monthly_county_control_growth_add = 0.5
+}
+
+random_tribal_war_bonus_12 = { #Rescued Besieged Cities
+	icon = prowess_positive
+	clergy_opinion = 10
+	holding_build_speed = -0.20
+	build_speed = -0.20
+	development_growth_factor = 0.25
+}
+
+random_tribal_war_bonus_13 = { #Captured Enemy Outposts
+	icon = prowess_positive
+	garrison_size = 0.20
+	holding_build_speed = -0.20
+	build_speed = -0.20
+	army_siege_value_mult = 0.20
+}
+
+random_tribal_war_bonus_14 = { #Captured Enemy Standard
+	icon = prowess_positive
+	dynasty_opinion = 10
+	monthly_dynasty_prestige = 1
+	short_reign_duration_mult = -0.2
+}
+
+random_tribal_war_bonus_15 = { #Sanctioned Casus Belli
+	icon = prowess_positive
+	independent_ruler_opinion = 10
+	long_reign_bonus_mult = 0.2
+	learn_language_scheme_power_mult = 0.25
+}
+
+random_tribal_war_bonus_16 = { #Council's Approval
+	icon = prowess_positive
+	councillor_opinion = 10
+	happy_powerful_vassal_levy_contribution_mult = 0.15
+	diplomacy = 2
+}
+
+random_tribal_war_bonus_17 = { #Strategic Success
+	icon = prowess_positive
+	army_damage_mult = 0.10
+	monthly_war_income_mult = 0.1
+	martial_per_stress_level = 2
+}
+
+random_tribal_war_bonus_18 = { #Supportive Vassals
+	icon = prowess_positive
+	vassal_opinion = 10
+	monthly_prestige = 0.25
+	short_reign_duration_mult = -0.15
+	character_travel_safety = 5
+}
+
+
+
+random_tribal_malus_1 = { # Bad Weather
+	icon = letter_negative
+	county_opinion_add = -10
+	domain_tax_mult = -0.1
+	travel_danger = 5
+}
+random_tribal_malus_2 = { # Bad Harvest
+	icon = letter_negative
+	county_opinion_add = -20
+	domain_tax_mult = -0.2
+	travel_danger = 10
+}
+random_tribal_malus_3 = { # Disease Outbreak
+	icon = letter_negative
+	health = -0.25
+	monthly_county_control_growth_add = -0.5
+	travel_danger = 5
+}
+random_tribal_malus_4 = { # Peasant Turmoil
+	icon = letter_negative
+	county_opinion_add = -15
+	levy_size = -0.10
+	travel_danger = 10
+}
+random_tribal_malus_5 = { # Clergy Turmoil
+	icon = letter_negative
+	monthly_piety_gain_mult = -0.15
+	clergy_opinion = -10
+	travel_danger = 5
+
+}
+random_tribal_malus_6 = { # Nobility Turmoil
+	icon = letter_negative
+	monthly_prestige_gain_mult = -0.15
+	vassal_opinion = -5
+	travel_danger = 5
+}
+random_tribal_malus_7 = { # Court Turmoil
+	icon = letter_negative
+	court_grandeur_baseline_add = -4
+	courtier_and_guest_opinion = -10
+	travel_danger = 5
+}
+random_tribal_malus_8 = { # Court Schemes
+	icon = letter_negative
+	stress_loss_mult = -0.2
+	monthly_lifestyle_xp_gain_mult = -0.15
+	councillor_opinion = -5
+	travel_danger = 5
+}
+random_tribal_malus_9 = { # Knights Turmoil
+	icon = letter_negative
+	knight_effectiveness_mult = -0.25
+	travel_danger = 10
+}
+random_tribal_malus_10 = { # Lack of Mampower
+	icon = letter_negative
+	men_at_arms_maintenance = 0.15
+	mercenary_hire_cost_mult = 0.15
+	travel_danger = 5
+}
+random_tribal_malus_11 = { # Economic Failure
+	icon = letter_negative
+	monthly_income_mult = -0.10
+	travel_danger = 5
+}
+random_tribal_malus_12 = { # Industry Failure
+	icon = letter_negative
+	build_speed = 0.20
+	build_gold_cost = 0.2
+	holding_build_gold_cost = 0.2
+	holding_build_speed = 0.2
+	travel_danger = 5
+}
+random_tribal_malus_13 = { # Logistic Failure
+	icon = letter_negative
+	garrison_size = -0.20
+	supply_capacity_mult = -0.20
+	hostile_county_attrition = 0.20
+	travel_danger = 10
+}
+
+
+random_tribal_bonus_1 = { # Bad Weather
+	icon = letter_positive
+	county_opinion_add = 10
+	domain_tax_mult = 0.10
+}
+random_tribal_bonus_2 = { # Bad Harvest
+	icon = letter_positive
+	county_opinion_add = 20
+	domain_tax_mult = 0.2
+}
+random_tribal_bonus_3 = { # Disease Outbreak
+	icon = letter_positive
+	monthly_county_control_growth_add = 0.5
+}
+random_tribal_bonus_4 = { # Peasant Turmoil
+	icon = letter_positive
+	county_opinion_add = 15
+	levy_size = 0.10
+}
+random_tribal_bonus_5 = { # Clergy Turmoil
+	icon = letter_positive
+	monthly_piety_gain_mult = 0.15
+	clergy_opinion = 10
+}
+random_tribal_bonus_6 = { # Nobility Turmoil
+	icon = letter_positive
+	monthly_prestige_gain_mult = 0.15
+	vassal_opinion = 5
+}
+random_tribal_bonus_7 = { # Court Turmoil
+	icon = letter_positive
+	court_grandeur_baseline_add = 4
+	courtier_and_guest_opinion = 10
+}
+random_tribal_bonus_8 = { # Court Schemes
+	icon = letter_positive
+	stress_loss_mult = 0.2
+	monthly_lifestyle_xp_gain_mult = 0.15
+	councillor_opinion = 5
+}
+random_tribal_bonus_9 = { # Knights Turmoil
+	icon = letter_positive
+	knight_effectiveness_mult = 0.25
+}
+random_tribal_bonus_10 = { # Lack of Mampower
+	icon = letter_positive
+	men_at_arms_maintenance = -0.10
+	mercenary_hire_cost_mult = -0.10
+}
+random_tribal_bonus_11 = { # Economic Failure
+	icon = letter_positive
+	monthly_income_mult = 0.10
+}
+random_tribal_bonus_12 = { # Industry Failure
+	icon = letter_positive
+	build_gold_cost = -0.2
+	holding_build_gold_cost = -0.2
+	holding_build_speed = -0.2
+	build_speed = -0.2
+}
+random_tribal_bonus_13 = { # Logistic Failure
+	icon = letter_positive
+	garrison_size = 0.20
+	supply_capacity_mult = 0.20
+	hostile_county_attrition = -0.20
+	travel_danger = -5
+}
+
+
+
+tribal_diary_event_1 = { # adventure
+    icon = county_modifier_opinion_positive
+    monthly_prestige_gain_mult = 0.15
+    martial_scheme_resistance = 10
+    martial_scheme_power = 5
+    martial = 2
+}
+tribal_diary_event_2 = { # adventure
+    icon = county_modifier_opinion_negative
+    monthly_prestige_gain_mult = -0.15
+    martial_scheme_resistance = -10
+    martial_scheme_power = -5
+    martial = -2
+}
+
+tribal_diary_event_3 = { # penance
+    icon = county_modifier_opinion_positive
+    monthly_piety_gain_mult = 0.15
+    general_opinion = 5
+    learning = 2
+}
+tribal_diary_event_4 = { # penance
+    icon = county_modifier_opinion_negative
+    monthly_piety_gain_mult = -0.15
+    general_opinion = -5
+    learning = -2
+}
+
+tribal_diary_event_5 = { # gamble
+    icon = county_modifier_opinion_positive
+    general_opinion = 5
+    monthly_income_mult = 0.1
+    intrigue = 2
+}
+tribal_diary_event_6 = { # gamble
+    icon = county_modifier_opinion_negative
+    general_opinion = -5
+    monthly_income_mult = -0.1
+    intrigue = -2
+}
+
+tribal_diary_event_7 = { # judged criminals - authority
+    icon = county_modifier_opinion_positive
+    general_opinion = 5
+    monthly_county_control_growth_add = 0.5
+    county_opinion_add = 20
+    diplomacy = 2
+}
+tribal_diary_event_8 = { # judged criminals - authority
+    icon = county_modifier_opinion_negative
+    general_opinion = -5
+    monthly_county_control_growth_add = -0.5
+    county_opinion_add = -20
+    diplomacy = -2
+}
+
+tribal_diary_event_9 = { # insist to polite decline subjects' demands
+    icon = county_modifier_opinion_positive
+    general_opinion = 5
+    diplomacy_scheme_power = 20
+    diplomacy = 2
+}
+tribal_diary_event_10 = { # insist to polite decline subjects' demands
+    icon = county_modifier_opinion_negative
+    general_opinion = -5
+    diplomacy_scheme_power = -20
+    diplomacy = 2
+}
+
+tribal_diary_event_11 = { # study
+    icon = county_modifier_opinion_positive
+    monthly_lifestyle_xp_gain_mult = 0.15
+    cultural_head_fascination_mult = 0.15
+    learn_language_scheme_power_mult = 0.25
+    learning = 2
+}
+tribal_diary_event_12 = { # study
+    icon = county_modifier_opinion_negative
+    monthly_lifestyle_xp_gain_mult = -0.15
+    cultural_head_fascination_mult = -0.15
+    learn_language_scheme_power_mult = -0.25
+    learning = -2
+}
+
+tribal_diary_event_13 = { # planned trade
+    icon = county_modifier_opinion_positive
+    diplomacy_scheme_power = 10
+    stewardship_scheme_power = 10
+    court_grandeur_baseline_add = 4
+    stewardship = 2
+}
+tribal_diary_event_14 = { # planned trade
+    icon = county_modifier_opinion_negative
+    diplomacy_scheme_power = -10
+    stewardship_scheme_power = -10
+    court_grandeur_baseline_add = -4
+    stewardship = -2
+}
+
+tribal_diary_event_15 = { # planned war
+    icon = county_modifier_opinion_positive
+    vassal_tax_contribution_mult = 0.15
+    vassal_levy_contribution_mult = 0.15
+    martial = 2
+}
+tribal_diary_event_16 = { # planned war
+    icon = county_modifier_opinion_negative
+    vassal_tax_contribution_mult = -0.15
+    vassal_levy_contribution_mult = -0.15
+    martial = -2
+}
+
+tribal_diary_event_17 = { # planned schemes
+    icon = county_modifier_opinion_positive
+    hostile_scheme_power_add = 10
+    owned_hostile_scheme_success_chance_add = 10
+    intrigue = 2
+}
+tribal_diary_event_18 = { # planned schemes
+    icon = county_modifier_opinion_negative
+    hostile_scheme_power_add = -10
+    owned_hostile_scheme_success_chance_add = -10
+    intrigue = -2
+}
+
+tribal_diary_event_19 = { # inspiring speeches
+    icon = county_modifier_opinion_positive
+    general_opinion = 10
+    diplomacy = 2
+}
+tribal_diary_event_20 = { # inspiring speeches
+    icon = county_modifier_opinion_negative
+    general_opinion = -10
+    diplomacy = -2
+}
+
+tribal_diary_event_21 = { # punishment
+    icon = county_modifier_opinion_positive
+    glory_hound_opinion = 10
+    dread_baseline_add = 25
+    monthly_dread = 1
+}
+tribal_diary_event_22 = { # punishment
+    icon = county_modifier_opinion_negative
+    glory_hound_opinion = -10
+    dread_baseline_add = -25
+    monthly_dread = -1
+}
+
+tribal_diary_event_23 = { # suppression
+    icon = county_modifier_opinion_positive
+    dread_baseline_add = 15
+    garrison_size = 0.25
+    defender_advantage = 5
+}
+tribal_diary_event_24 = { # suppression
+    icon = county_modifier_opinion_negative
+    dread_baseline_add = -15
+    garrison_size = -0.25
+    defender_advantage = -5
+}
+
+tribal_diary_event_25 = { # adventure
+    icon = county_modifier_opinion_positive
+    general_opinion = 5
+    health = 0.25
+    prowess = 3
+    lifestyle_traveler_xp_gain_mult = 0.5
+    enemy_terrain_advantage = -5
+}
+tribal_diary_event_26 = { # adventure
+    icon = county_modifier_opinion_negative
+    general_opinion = -5
+    health = -0.25
+    prowess = -3
+    lifestyle_traveler_xp_gain_mult = -0.5
+    enemy_terrain_advantage = 5
+}
+
+tribal_diary_event_27 = { # tournament
+    icon = county_modifier_opinion_positive
+    general_opinion = 5
+    monthly_dynasty_prestige = 1
+    tourney_participant_xp_gain_mult = 0.5
+    prowess = 3
+}
+tribal_diary_event_28 = { # tournament
+    icon = county_modifier_opinion_negative
+    general_opinion = -5
+    monthly_dynasty_prestige = -1
+    tourney_participant_xp_gain_mult = -0.5
+    prowess = -3
+}
+
+
+
+tribal_diary_event_29 = {
+	icon = county_modifier_opinion_positive
+}
+tribal_diary_event_30 = {
+	icon = county_modifier_opinion_negative
+}
+tribal_diary_event_31 = {
+	icon = county_modifier_opinion_positive
+}
+tribal_diary_event_32 = {
+	icon = county_modifier_opinion_negative
+}
+tribal_diary_event_33 = {
+	icon = county_modifier_opinion_positive
+}
+tribal_diary_event_34 = {
+	icon = county_modifier_opinion_negative
+}
+tribal_diary_event_35 = {
+	icon = county_modifier_opinion_positive
+}
+tribal_diary_event_36 = {
+	icon = county_modifier_opinion_negative
+}
+tribal_diary_event_37 = {
+	icon = county_modifier_opinion_positive
+}
+tribal_diary_event_38 = {
+	icon = county_modifier_opinion_negative
+}
+tribal_diary_event_39 = {
+	icon = county_modifier_opinion_positive
+}
+tribal_diary_event_40 = {
+	icon = county_modifier_opinion_negative
+}
+tribal_diary_event_41 = {
+	icon = county_modifier_opinion_positive
+}
+tribal_diary_event_42 = {
+	icon = county_modifier_opinion_negative
+}
+tribal_diary_event_43 = {
+	icon = county_modifier_opinion_positive
+}
+tribal_diary_event_44 = {
+	icon = county_modifier_opinion_negative
+}
+tribal_diary_event_45 = {
+	icon = county_modifier_opinion_positive
+}
+tribal_diary_event_46 = {
+	icon = county_modifier_opinion_negative
+}
+tribal_diary_event_47 = {
+	icon = county_modifier_opinion_positive
+}
+tribal_diary_event_48 = {
+	icon = county_modifier_opinion_negative
+}
+tribal_diary_event_49 = {
+	icon = county_modifier_opinion_positive
+}
+tribal_diary_event_50 = {
+	icon = county_modifier_opinion_negative
+}
+tribal_diary_event_51 = {
+	icon = county_modifier_opinion_positive
+}
+tribal_diary_event_52 = {
+	icon = county_modifier_opinion_negative
+}
+tribal_diary_event_53 = {
+	icon = county_modifier_opinion_positive
+}
+tribal_diary_event_54 = {
+	icon = county_modifier_opinion_negative
+}
+tribal_diary_event_55 = {
+	icon = county_modifier_opinion_positive
+}
+tribal_diary_event_56 = {
+	icon = county_modifier_opinion_negative
+}
+tribal_diary_event_57 = {
+	icon = county_modifier_opinion_positive
+}
+tribal_diary_event_58 = {
+	icon = county_modifier_opinion_negative
+}
+tribal_diary_event_59 = {
+	icon = county_modifier_opinion_positive
+}
+tribal_diary_event_60 = {
+	icon = county_modifier_opinion_negative
+}
+
+
+
+
+gpt_allow_all_missionaries = {
+	icon = learning_positive
+	knight_limit = -2
+	different_faith_opinion = 10
+	cultural_head_fascination_mult = 0.20
+	clergy_opinion = -10
+}
+
+gpt_allow_slave_trading = {
+	icon = prison_positive
+	knight_limit = -2
+	domain_tax_mult = 0.10
+	levy_size = 0.10
+	clergy_opinion = -10
+	owned_personal_scheme_success_chance_add = 10
+}
+
+gpt_allow_privateers = {
+	icon = dread_positive
+	knight_limit = -2
+	dread_baseline_add = 15
+	mercenary_hire_cost_mult = -0.20
+	independent_ruler_opinion = -10
+}
+
+gpt_import_resources = {
+	icon = county_modifier_development_positive
+	knight_limit = -2
+	monthly_income_mult = -0.10
+	character_capital_county_monthly_development_growth_add = 0.4
+	court_grandeur_baseline_add = 4
+}
+
+gpt_market_speculation = {
+	icon = economy_positive
+	knight_limit = -2
+	monthly_income_mult = 0.05
+	monthly_war_income_mult = -0.25
+	owned_scheme_secrecy_add = 10
+}
+
+gpt_military_ships = {
+	icon = martial_positive
+	knight_limit = -2
+	build_gold_cost = 0.10
+	build_speed = 0.10
+	army_pursuit_mult = 0.10
+	army_screen_mult = 0.15
+	army_siege_value_mult = 0.25
+}
+
+gpt_trade_power = {
+	icon = county_modifier_opinion_positive
+	knight_limit = -2
+	levy_size = -0.10
+	county_opinion_add = 20
+}
+
+gpt_combat_piracy = {
+	icon = county_modifier_control_positive
+	knight_limit = -2
+	monthly_prestige_gain_mult = 0.10
+	monthly_county_control_growth_factor = 0.20
+}
+
+
+
+
+gpt_low_war_tax = {
+	icon = martial2_positive
+	vassal_tax_contribution_mult = 0.10
+	domain_tax_mult = 0.10
+	levy_attack = 1
+	levy_toughness = 1
+	county_opinion_add = -15
+}
+gpt_medium_war_tax = {
+	icon = martial2_positive
+	vassal_tax_contribution_mult = 0.20
+	domain_tax_mult = 0.20
+	levy_attack = 2
+	levy_toughness = 2
+	county_opinion_add = -30
+}
+gpt_high_war_tax = {
+	icon = martial2_positive
+	vassal_tax_contribution_mult = 0.30
+	domain_tax_mult = 0.30
+	levy_attack = 3
+	levy_toughness = 3
+	county_opinion_add = -45
+}
+
+
+
+gpt_coastal_landlock = {
+	icon = gpt_coastal_negative
+	diplomatic_range_mult = -0.30
+	cultural_head_fascination_mult = -0.20
+	development_growth_factor = -0.20
+	vassal_opinion = 20
+}
+
+gpt_coastal_river = {
+	icon = gpt_coastal_2_negative
+	diplomatic_range_mult = -0.15
+	cultural_head_fascination_mult = -0.10
+	development_growth_factor = -0.10
+	vassal_opinion = 10
+}
+
+gpt_coastal_yes = {
+	icon = gpt_coastal_positive
+	opinion_of_liege = -10
+}
+
+
+gpt_liege_dislike_low_CA = {
+	icon = opinion_inactive_negative
+	diplomatic_range_mult = -0.10
+	knight_limit = -1
+	men_at_arms_limit = -1
+	opinion_of_liege = -5
+}
+
+gpt_liege_dislike_high_CA = {
+	icon = opinion_inactive_negative
+	diplomatic_range_mult = -0.20
+	knight_limit = -2
+	men_at_arms_limit = -2
+	owned_scheme_secrecy_add = -5
+	opinion_of_liege = -5
+}
+
+gpt_liege_hate_low_CA = {
+	icon = opinion_active_negative
+	diplomatic_range_mult = -0.20
+	knight_limit = -2
+	men_at_arms_limit = -2
+	opinion_of_liege = -10
+}
+
+gpt_liege_hate_high_CA = {
+	icon = opinion_active_negative
+	diplomatic_range_mult = -0.30
+	knight_limit = -4
+	men_at_arms_limit = -2
+	owned_scheme_secrecy_add = -10
+	opinion_of_liege = -10
+}
+
+
+
+
+
+gpt_low_population_1 = {
+	icon = terrain_active_negative
+	monthly_income_mult = -0.10
+	court_grandeur_baseline_add = -4
+}
+
+gpt_low_food_1 = {
+	icon = army_active_negative
+	levy_size = -0.10
+	vassal_levy_contribution_mult = -0.10
+	men_at_arms_limit = -2
+}
+
+gpt_low_production_1 = {
+	icon = development_active_negative
+	holding_build_gold_cost = 0.20
+	build_gold_cost = 0.20
+	build_speed = 0.10
+	holding_build_speed = 0.10
+}
+
+gpt_low_control_1 = {
+	icon = county_control_active_negative
+	vassal_opinion = -5
+	character_travel_safety_mult = -0.15
+	monthly_prestige_gain_mult = -0.15
+	monthly_piety_gain_mult = -0.10
+}
+
+
+
+
+
+
+
+
+
+gpt_glory_hounds_neg = {
+	icon = glory_hound_negative
+	knight_effectiveness_mult = -0.30
+	knight_limit = -2
+	glory_hound_opinion = -20
+}
+gpt_glory_hounds_dem = {
+	icon = glory_hound_negative
+	knight_effectiveness_mult = -0.15
+	knight_limit = -1
+	glory_hound_opinion = -10
+}
+gpt_glory_hounds_sup = {
+	icon = glory_hound_positive
+	knight_effectiveness_mult = 0.15
+	knight_limit = 1
+	glory_hound_opinion = 10
+}
+
+gpt_parochials_neg = {
+	icon = parochial_negative
+	republic_government_tax_contribution_mult = -0.40
+	parochial_opinion = -20
+}
+gpt_parochials_dem = {
+	icon = parochial_negative
+	republic_government_tax_contribution_mult = -0.20
+	parochial_opinion = -10
+}
+gpt_parochials_sup = {
+	icon = parochial_positive
+	republic_government_tax_contribution_mult = 0.20
+	parochial_opinion = 10
+}
+
+gpt_zealot_neg = {
+	icon = zealot_negative
+	zealot_opinion = -20
+	monthly_piety_gain_mult = -0.30
+	advantage_against_coreligionists = -10
+}
+gpt_zealot_dem = {
+	icon = zealot_negative
+	zealot_opinion = -10
+	monthly_piety_gain_mult = -0.15
+	advantage_against_coreligionists = -5
+}
+gpt_zealot_sup = {
+	icon = zealot_positive
+	zealot_opinion = 10
+	monthly_piety_gain_mult = 0.15
+	advantage_against_coreligionists = 5
+}
+
+gpt_courtly_neg = {
+	icon = courtly_negative
+	courtly_opinion = -20
+	monthly_prestige_gain_mult = -0.30
+	owned_personal_scheme_success_chance_add = -10
+}
+gpt_courtly_dem = {
+	icon = courtly_negative
+	courtly_opinion = -10
+	monthly_prestige_gain_mult = -0.15
+	owned_personal_scheme_success_chance_add = -5
+}
+gpt_courtly_sup = {
+	icon = courtly_positive
+	courtly_opinion = 10
+	monthly_prestige_gain_mult = 0.15
+	owned_personal_scheme_success_chance_add = 5
+}
+
+gpt_minority_neg = {
+	icon = minority_negative
+	minority_opinion = -20
+	independent_ruler_opinion = -20
+	county_opinion_add = -20
+}
+gpt_minority_dem = {
+	icon = minority_negative
+	minority_opinion = -10
+	independent_ruler_opinion = -10
+	county_opinion_add = -10
+}
+gpt_minority_sup = {
+	icon = minority_positive
+	minority_opinion = 10
+	independent_ruler_opinion = 10
+	county_opinion_add = 10
+}
+
+gpt_no_dominant_faction = {
+	icon = unpredictable_positive
+	vassal_opinion = 5
+}
+
+
+
+
+
+
+
+gpt_emoji_lv5_modif = {
+	icon = emoji_1_positive
+	diplomacy = 2
+	stewardship = 2
+	martial = 2
+	intrigue = 2
+	learning = 2
+	stress_loss_mult = 0.15
+	monthly_lifestyle_xp_gain_mult = 0.20
+}
+
+gpt_emoji_lv4_modif = {
+	icon = emoji_2_positive
+	diplomacy = 1
+	stewardship = 1
+	martial = 1
+	intrigue = 1
+	learning = 1
+	stress_loss_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = 0.10
+}
+
+gpt_emoji_lv3_modif = {
+	icon = emoji_3_positive
+	stress_loss_mult = 0.05
+	stress_gain_mult = 0.05
+}
+
+gpt_emoji_lv2_modif = {
+	icon = emoji_4_negative
+	diplomacy = -1
+	stewardship = -1
+	martial = -1
+	intrigue = -1
+	learning = -1
+	stress_gain_mult = 0.10
+	monthly_lifestyle_xp_gain_mult = -0.10
+}
+
+gpt_emoji_lv1_modif = {
+	icon = emoji_5_negative
+	diplomacy = -2
+	stewardship = -2
+	martial = -2
+	intrigue = -2
+	learning = -2
+	stress_gain_mult = 0.15
+	monthly_lifestyle_xp_gain_mult = -0.20
+}
+
+
+gpt_failed_seizure = {
+	icon = social_negative
+	general_opinion = -10
+	monthly_prestige_gain_mult = -0.10
+}
+
+
+
+#Trade = Independent ruler of Different Culture
+#can_raid_trigger = no
+#Coastal access or neighbor
+
+#general trade options (70% terrain coverage) - Counts / Dukes
+
+gpt_war_horses = { #steppes / grasslands
+	icon = horse_positive
+	men_at_arms_maintenance = -0.10
+	army_screen_mult = 0.20
+	army_pursuit_mult = 0.20
+}
+gpt_wood_peat = { #forests / wetlands
+	icon = outdoors_positive
+	siege_weapon_siege_value_mult = 0.20
+	hostile_raid_time = 0.50
+}
+gpt_stone_metal = { #montains / hills
+	icon = rock_positive
+	men_at_arms_recruitment_cost = -0.10
+	army_damage_mult = 0.15
+	army_toughness_mult = 0.15
+}
+gpt_grain_wine = { #farmlands and floodplains (30%) or empire
+	icon = food_positive
+	levy_size = 0.20
+	garrison_size = 0.20
+	army_maintenance_mult = -0.20
+}
+
+#trade for captured slaves (recent conquest) tribal/early medieval era cultures / unreformed religions / Dukes-Kings
+
+gpt_pleasure_slaves = { # courtly / bellicose
+	icon = stress_positive
+	stress_gain_mult = -0.20
+	monthly_prestige_gain_mult = 0.20
+}
+gpt_domestic_slaves = { # spiritual / egalitarian
+	icon = spoon_positive
+	stress_loss_mult = 0.20
+	monthly_piety_gain_mult = 0.20
+}
+gpt_labor_slaves = { # bureucratic / bellicose
+	icon = prison_positive
+	domain_tax_mult = 0.20
+	monthly_piety_gain_mult = -0.20
+}
+gpt_war_spoils = { # communal / stoic
+	icon = stewardship_positive
+	monthly_dynasty_prestige = 0.15
+	dread_baseline_add = 10
+}
+
+#trade reformed religion / Dukes-Kings
+
+gpt_intel_reports = { # intrigue > 16
+	icon = intrigue_positive
+	intrigue = 3
+	monthly_intrigue_lifestyle_xp_gain_mult = 0.25
+}
+gpt_strategic_goods = {
+	icon = stewardship_positive
+	stewardship = 3
+	monthly_stewardship_lifestyle_xp_gain_mult = 0.25
+}
+gpt_books_relics = {
+	icon = learning_positive
+	learning = 3
+	monthly_learning_lifestyle_xp_gain_mult = 0.25
+}
+gpt_consumer_goods = {
+	icon = diplomacy_positive
+	diplomacy = 3
+	monthly_diplomacy_lifestyle_xp_gain_mult = 0.25
+}
+gpt_army_goods = {
+	icon = martial_positive
+	martial = 3
+	monthly_martial_lifestyle_xp_gain_mult = 0.25
+}
+
+#advanced trade Kings/Empires
+
+gpt_luxury_goods = { # high capital development
+	icon = prestige_positive
+	courtly_opinion = 10
+	court_grandeur_baseline_add = 8
+	long_reign_bonus_mult = 0.25
+}
+gpt_faraway_spices = { # empire title, coastal
+	icon = drink_positive
+	vassal_tax_contribution_mult = 0.10
+	vassal_opinion = 15
+}
+gpt_specialists = { # higher cultural era
+	icon = piety_positive
+	character_capital_county_monthly_development_growth_add = 0.5
+	cultural_head_fascination_mult = 0.10
+	title_creation_cost_mult = -0.25
+}
+gpt_rare_materials = { # 100+ sub_realm_size
+	icon = magic_positive
+	owned_hostile_scheme_success_chance_add = 20
+	owned_scheme_secrecy_add = 20
+}
+
+
+#court positions
+gpt_medicinal_herbs = { # excelent physician
+	icon = treatment_positive
+	health = 0.5
+	life_expectancy = 5
+}
+gpt_preserved_meat = { # excelent hunt master
+	icon = fertility_positive
+	fertility = 0.25
+	years_of_fertility = 5
+}
+gpt_tools = { # excelent caravan master
+	icon = county_modifier_development_positive
+	build_gold_cost = -0.20
+	holding_build_gold_cost = -0.20
+	build_speed = -0.10
+}
+gpt_crafts_arts = { # excelent antiquarian
+	icon = social_positive
+	different_faith_opinion = 10
+	different_culture_opinion = 10
+	cultural_head_acceptance_gain_mult = 0.25
+}
+
+gpt_common_trade = { # Common Trade Goods
+	icon = county_modifier_control_positive
+	county_opinion_add = 10
+	monthly_county_control_growth_factor = 0.15
+	courtier_and_guest_opinion = 5
+}
+
+
+
+
+
+
+
+
+#dynasty
+
+gpt_rising_dynasty_lv2 = { # King+ < 20 members
+	icon = fertility_positive
+	fertility = 0.30
+	vassal_opinion = 20
+	life_expectancy = 6
+}
+gpt_rising_dynasty_lv1 = { # King+ < 40 members
+	icon = fertility_positive
+	fertility = 0.15
+	vassal_opinion = 10
+	life_expectancy = 3
+}
+gpt_decadent_dynasty_lv1 = { # King+ > 60 members
+	icon = fertility_negative
+	fertility = -0.20
+	vassal_opinion = -10
+	life_expectancy = -3
+}
+gpt_decadent_dynasty_lv2 = { # King+ > 100 members
+	icon = fertility_negative
+	fertility = -0.40
+	vassal_opinion = -20
+	life_expectancy = -6
+}
+
+
+
+
+gpt_liege_call_war_lv1 = {
+	icon = county_modifier_corruption_negative
+	vassal_levy_contribution_mult = -0.10
+	vassal_tax_contribution_mult = -0.10
+}
+gpt_liege_call_war_lv2 = {
+	icon = county_modifier_corruption_negative
+	vassal_levy_contribution_mult = -0.20
+	vassal_tax_contribution_mult = -0.20
+}
+gpt_liege_call_war_lv3 = {
+	icon = county_modifier_corruption_negative
+	vassal_levy_contribution_mult = -0.30
+	vassal_tax_contribution_mult = -0.30
+}
+gpt_liege_call_war_lv4 = {
+	icon = county_modifier_corruption_negative
+	vassal_levy_contribution_mult = -0.40
+	vassal_tax_contribution_mult = -0.40
+}
+gpt_liege_call_war_lv5 = {
+	icon = county_modifier_corruption_negative
+	vassal_levy_contribution_mult = -0.50
+	vassal_tax_contribution_mult = -0.50
+}

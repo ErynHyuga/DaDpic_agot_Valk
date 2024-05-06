@@ -1,0 +1,16 @@
+﻿l_russian:
+trait_valkyrie:0 "Валькирия"
+trait_valkyrie_desc:0 "Этот персонаж обладает божественной силой Валькирии."
+summon_valkyrie_decision:0 "Призвать Валькирию"
+summon_valkyrie_decision_confirm:0 "Провести ритуал по призыву Валькирии."
+summon_valkyrie_decision_desc:0 "Проведите ритуал, чтобы призвать Валькирию."
+summon_valkyrie_decision_tooltip:0 "Валькирия попытается присоединиться к вашему двору."
+summon_valkyrie_decision_effect:0 "Перед Вами стоит Валькирия. Присоединится ли она к вашему двору?"
+add_valkyrie_courtier_event.3214.title:0 "Перед Вами стоит Валькирия."
+add_valkyrie_courtier_event.3214.desc:0 "Присоединится ли она к вашему двору?"
+add_valkyrie_courtier_event.3214.a:0 "Добро пожаловать..."
+add_valkyrie_courtier_event.3214.b:0 "Изгнать её..."
+
+designate_valkyrie_interaction:0 "Валькирия"
+designate_valkyrie_interaction_desc:0 "Дать [recipient.GetFirstNameNoTooltip] возмодность стать Валькирией"
+designate_valkyrie_interaction_notification:0 "[recipient.GetShortUIName] становится Валькирией!"

@@ -1,0 +1,1982 @@
+﻿
+gpt_happy_lv5 = {
+
+            is_ai = no
+            has_game_rule = GPT_decisions_enabled
+            highest_held_title_tier >= 2
+        calc_true_if = {
+            amount >= 4
+            gpt_happy_brave_lv1 = yes
+            gpt_happy_brave_lv2 = yes
+            gpt_happy_craven_lv1 = yes
+            gpt_happy_craven_lv2 = yes
+            gpt_happy_calm_lv1 = yes
+            gpt_happy_calm_lv2 = yes
+            gpt_happy_wrathful_lv1 = yes
+            gpt_happy_wrathful_lv2 = yes
+            gpt_happy_chaste_lv1 = yes
+            gpt_happy_chaste_lv2 = yes
+            gpt_happy_lustful_lv1 = yes
+            gpt_happy_lustful_lv2 = yes
+            gpt_happy_content_lv1 = yes
+            gpt_happy_content_lv2 = yes
+            gpt_happy_ambitious_lv1 = yes
+            gpt_happy_ambitious_lv2 = yes
+            gpt_happy_diligent_lv1 = yes
+            gpt_happy_diligent_lv2 = yes
+            gpt_happy_lazy_lv1 = yes
+            gpt_happy_lazy_lv2 = yes
+            gpt_happy_forgiving_lv1 = yes
+            gpt_happy_forgiving_lv2 = yes
+            gpt_happy_vengeful_lv1 = yes
+            gpt_happy_vengeful_lv2 = yes
+            gpt_happy_generous_lv1 = yes
+            gpt_happy_generous_lv2 = yes
+            gpt_happy_greedy_lv1 = yes
+            gpt_happy_greedy_lv2 = yes
+            gpt_happy_gregarious_lv1 = yes
+            gpt_happy_gregarious_lv2 = yes
+            gpt_happy_shy_lv1 = yes
+            gpt_happy_shy_lv2 = yes
+            gpt_happy_honest_lv1 = yes
+            gpt_happy_honest_lv2 = yes
+            gpt_happy_deceitful_lv1 = yes
+            gpt_happy_deceitful_lv2 = yes
+            gpt_happy_humble_lv1 = yes
+            gpt_happy_humble_lv2 = yes
+            gpt_happy_arrogant_lv1 = yes
+            gpt_happy_arrogant_lv2 = yes
+            gpt_happy_just_lv1 = yes
+            gpt_happy_just_lv2 = yes
+            gpt_happy_arbitrary_lv1 = yes
+            gpt_happy_arbitrary_lv2 = yes
+            gpt_happy_patient_lv1 = yes
+            gpt_happy_patient_lv2 = yes
+            gpt_happy_impatient_lv1 = yes
+            gpt_happy_impatient_lv2 = yes
+            gpt_happy_temperate_lv1 = yes
+            gpt_happy_temperate_lv2 = yes
+            gpt_happy_gluttonous_lv1 = yes
+            gpt_happy_gluttonous_lv2 = yes
+            gpt_happy_trusting_lv1 = yes
+            gpt_happy_trusting_lv2 = yes
+            gpt_happy_paranoid_lv1 = yes
+            gpt_happy_paranoid_lv2 = yes
+            gpt_happy_zealous_lv1 = yes
+            gpt_happy_zealous_lv2 = yes
+            gpt_happy_cynical_lv1 = yes
+            gpt_happy_cynical_lv2 = yes
+            gpt_happy_compassionate_lv1 = yes
+            gpt_happy_compassionate_lv2 = yes
+            gpt_happy_callous_lv1 = yes
+            gpt_happy_callous_lv2 = yes
+            gpt_happy_sadistic_lv1 = yes
+            gpt_happy_sadistic_lv2 = yes
+            gpt_happy_fickle_lv1 = yes
+            gpt_happy_fickle_lv2 = yes
+            gpt_happy_stubborn_lv1 = yes
+            gpt_happy_stubborn_lv2 = yes
+            gpt_happy_eccentric_lv1 = yes
+            gpt_happy_eccentric_lv2 = yes
+    }
+}
+gpt_happy_lv4 = {
+
+            is_ai = no
+            has_game_rule = GPT_decisions_enabled
+            highest_held_title_tier >= 2
+        calc_true_if = {
+            amount >= 3
+            gpt_happy_brave_lv1 = yes
+            gpt_happy_brave_lv2 = yes
+            gpt_happy_craven_lv1 = yes
+            gpt_happy_craven_lv2 = yes
+            gpt_happy_calm_lv1 = yes
+            gpt_happy_calm_lv2 = yes
+            gpt_happy_wrathful_lv1 = yes
+            gpt_happy_wrathful_lv2 = yes
+            gpt_happy_chaste_lv1 = yes
+            gpt_happy_chaste_lv2 = yes
+            gpt_happy_lustful_lv1 = yes
+            gpt_happy_lustful_lv2 = yes
+            gpt_happy_content_lv1 = yes
+            gpt_happy_content_lv2 = yes
+            gpt_happy_ambitious_lv1 = yes
+            gpt_happy_ambitious_lv2 = yes
+            gpt_happy_diligent_lv1 = yes
+            gpt_happy_diligent_lv2 = yes
+            gpt_happy_lazy_lv1 = yes
+            gpt_happy_lazy_lv2 = yes
+            gpt_happy_forgiving_lv1 = yes
+            gpt_happy_forgiving_lv2 = yes
+            gpt_happy_vengeful_lv1 = yes
+            gpt_happy_vengeful_lv2 = yes
+            gpt_happy_generous_lv1 = yes
+            gpt_happy_generous_lv2 = yes
+            gpt_happy_greedy_lv1 = yes
+            gpt_happy_greedy_lv2 = yes
+            gpt_happy_gregarious_lv1 = yes
+            gpt_happy_gregarious_lv2 = yes
+            gpt_happy_shy_lv1 = yes
+            gpt_happy_shy_lv2 = yes
+            gpt_happy_honest_lv1 = yes
+            gpt_happy_honest_lv2 = yes
+            gpt_happy_deceitful_lv1 = yes
+            gpt_happy_deceitful_lv2 = yes
+            gpt_happy_humble_lv1 = yes
+            gpt_happy_humble_lv2 = yes
+            gpt_happy_arrogant_lv1 = yes
+            gpt_happy_arrogant_lv2 = yes
+            gpt_happy_just_lv1 = yes
+            gpt_happy_just_lv2 = yes
+            gpt_happy_arbitrary_lv1 = yes
+            gpt_happy_arbitrary_lv2 = yes
+            gpt_happy_patient_lv1 = yes
+            gpt_happy_patient_lv2 = yes
+            gpt_happy_impatient_lv1 = yes
+            gpt_happy_impatient_lv2 = yes
+            gpt_happy_temperate_lv1 = yes
+            gpt_happy_temperate_lv2 = yes
+            gpt_happy_gluttonous_lv1 = yes
+            gpt_happy_gluttonous_lv2 = yes
+            gpt_happy_trusting_lv1 = yes
+            gpt_happy_trusting_lv2 = yes
+            gpt_happy_paranoid_lv1 = yes
+            gpt_happy_paranoid_lv2 = yes
+            gpt_happy_zealous_lv1 = yes
+            gpt_happy_zealous_lv2 = yes
+            gpt_happy_cynical_lv1 = yes
+            gpt_happy_cynical_lv2 = yes
+            gpt_happy_compassionate_lv1 = yes
+            gpt_happy_compassionate_lv2 = yes
+            gpt_happy_callous_lv1 = yes
+            gpt_happy_callous_lv2 = yes
+            gpt_happy_sadistic_lv1 = yes
+            gpt_happy_sadistic_lv2 = yes
+            gpt_happy_fickle_lv1 = yes
+            gpt_happy_fickle_lv2 = yes
+            gpt_happy_stubborn_lv1 = yes
+            gpt_happy_stubborn_lv2 = yes
+            gpt_happy_eccentric_lv1 = yes
+            gpt_happy_eccentric_lv2 = yes
+    }
+}
+gpt_happy_lv3 = {
+
+            is_ai = no
+            has_game_rule = GPT_decisions_enabled
+            highest_held_title_tier >= 2
+        calc_true_if = {
+            amount >= 2
+            gpt_happy_brave_lv1 = yes
+            gpt_happy_brave_lv2 = yes
+            gpt_happy_craven_lv1 = yes
+            gpt_happy_craven_lv2 = yes
+            gpt_happy_calm_lv1 = yes
+            gpt_happy_calm_lv2 = yes
+            gpt_happy_wrathful_lv1 = yes
+            gpt_happy_wrathful_lv2 = yes
+            gpt_happy_chaste_lv1 = yes
+            gpt_happy_chaste_lv2 = yes
+            gpt_happy_lustful_lv1 = yes
+            gpt_happy_lustful_lv2 = yes
+            gpt_happy_content_lv1 = yes
+            gpt_happy_content_lv2 = yes
+            gpt_happy_ambitious_lv1 = yes
+            gpt_happy_ambitious_lv2 = yes
+            gpt_happy_diligent_lv1 = yes
+            gpt_happy_diligent_lv2 = yes
+            gpt_happy_lazy_lv1 = yes
+            gpt_happy_lazy_lv2 = yes
+            gpt_happy_forgiving_lv1 = yes
+            gpt_happy_forgiving_lv2 = yes
+            gpt_happy_vengeful_lv1 = yes
+            gpt_happy_vengeful_lv2 = yes
+            gpt_happy_generous_lv1 = yes
+            gpt_happy_generous_lv2 = yes
+            gpt_happy_greedy_lv1 = yes
+            gpt_happy_greedy_lv2 = yes
+            gpt_happy_gregarious_lv1 = yes
+            gpt_happy_gregarious_lv2 = yes
+            gpt_happy_shy_lv1 = yes
+            gpt_happy_shy_lv2 = yes
+            gpt_happy_honest_lv1 = yes
+            gpt_happy_honest_lv2 = yes
+            gpt_happy_deceitful_lv1 = yes
+            gpt_happy_deceitful_lv2 = yes
+            gpt_happy_humble_lv1 = yes
+            gpt_happy_humble_lv2 = yes
+            gpt_happy_arrogant_lv1 = yes
+            gpt_happy_arrogant_lv2 = yes
+            gpt_happy_just_lv1 = yes
+            gpt_happy_just_lv2 = yes
+            gpt_happy_arbitrary_lv1 = yes
+            gpt_happy_arbitrary_lv2 = yes
+            gpt_happy_patient_lv1 = yes
+            gpt_happy_patient_lv2 = yes
+            gpt_happy_impatient_lv1 = yes
+            gpt_happy_impatient_lv2 = yes
+            gpt_happy_temperate_lv1 = yes
+            gpt_happy_temperate_lv2 = yes
+            gpt_happy_gluttonous_lv1 = yes
+            gpt_happy_gluttonous_lv2 = yes
+            gpt_happy_trusting_lv1 = yes
+            gpt_happy_trusting_lv2 = yes
+            gpt_happy_paranoid_lv1 = yes
+            gpt_happy_paranoid_lv2 = yes
+            gpt_happy_zealous_lv1 = yes
+            gpt_happy_zealous_lv2 = yes
+            gpt_happy_cynical_lv1 = yes
+            gpt_happy_cynical_lv2 = yes
+            gpt_happy_compassionate_lv1 = yes
+            gpt_happy_compassionate_lv2 = yes
+            gpt_happy_callous_lv1 = yes
+            gpt_happy_callous_lv2 = yes
+            gpt_happy_sadistic_lv1 = yes
+            gpt_happy_sadistic_lv2 = yes
+            gpt_happy_fickle_lv1 = yes
+            gpt_happy_fickle_lv2 = yes
+            gpt_happy_stubborn_lv1 = yes
+            gpt_happy_stubborn_lv2 = yes
+            gpt_happy_eccentric_lv1 = yes
+            gpt_happy_eccentric_lv2 = yes
+    }
+}
+gpt_happy_lv2 = {
+
+            is_ai = no
+            has_game_rule = GPT_decisions_enabled
+            highest_held_title_tier >= 2
+        calc_true_if = {
+            amount >= 1
+            gpt_happy_brave_lv1 = yes
+            gpt_happy_brave_lv2 = yes
+            gpt_happy_craven_lv1 = yes
+            gpt_happy_craven_lv2 = yes
+            gpt_happy_calm_lv1 = yes
+            gpt_happy_calm_lv2 = yes
+            gpt_happy_wrathful_lv1 = yes
+            gpt_happy_wrathful_lv2 = yes
+            gpt_happy_chaste_lv1 = yes
+            gpt_happy_chaste_lv2 = yes
+            gpt_happy_lustful_lv1 = yes
+            gpt_happy_lustful_lv2 = yes
+            gpt_happy_content_lv1 = yes
+            gpt_happy_content_lv2 = yes
+            gpt_happy_ambitious_lv1 = yes
+            gpt_happy_ambitious_lv2 = yes
+            gpt_happy_diligent_lv1 = yes
+            gpt_happy_diligent_lv2 = yes
+            gpt_happy_lazy_lv1 = yes
+            gpt_happy_lazy_lv2 = yes
+            gpt_happy_forgiving_lv1 = yes
+            gpt_happy_forgiving_lv2 = yes
+            gpt_happy_vengeful_lv1 = yes
+            gpt_happy_vengeful_lv2 = yes
+            gpt_happy_generous_lv1 = yes
+            gpt_happy_generous_lv2 = yes
+            gpt_happy_greedy_lv1 = yes
+            gpt_happy_greedy_lv2 = yes
+            gpt_happy_gregarious_lv1 = yes
+            gpt_happy_gregarious_lv2 = yes
+            gpt_happy_shy_lv1 = yes
+            gpt_happy_shy_lv2 = yes
+            gpt_happy_honest_lv1 = yes
+            gpt_happy_honest_lv2 = yes
+            gpt_happy_deceitful_lv1 = yes
+            gpt_happy_deceitful_lv2 = yes
+            gpt_happy_humble_lv1 = yes
+            gpt_happy_humble_lv2 = yes
+            gpt_happy_arrogant_lv1 = yes
+            gpt_happy_arrogant_lv2 = yes
+            gpt_happy_just_lv1 = yes
+            gpt_happy_just_lv2 = yes
+            gpt_happy_arbitrary_lv1 = yes
+            gpt_happy_arbitrary_lv2 = yes
+            gpt_happy_patient_lv1 = yes
+            gpt_happy_patient_lv2 = yes
+            gpt_happy_impatient_lv1 = yes
+            gpt_happy_impatient_lv2 = yes
+            gpt_happy_temperate_lv1 = yes
+            gpt_happy_temperate_lv2 = yes
+            gpt_happy_gluttonous_lv1 = yes
+            gpt_happy_gluttonous_lv2 = yes
+            gpt_happy_trusting_lv1 = yes
+            gpt_happy_trusting_lv2 = yes
+            gpt_happy_paranoid_lv1 = yes
+            gpt_happy_paranoid_lv2 = yes
+            gpt_happy_zealous_lv1 = yes
+            gpt_happy_zealous_lv2 = yes
+            gpt_happy_cynical_lv1 = yes
+            gpt_happy_cynical_lv2 = yes
+            gpt_happy_compassionate_lv1 = yes
+            gpt_happy_compassionate_lv2 = yes
+            gpt_happy_callous_lv1 = yes
+            gpt_happy_callous_lv2 = yes
+            gpt_happy_sadistic_lv1 = yes
+            gpt_happy_sadistic_lv2 = yes
+            gpt_happy_fickle_lv1 = yes
+            gpt_happy_fickle_lv2 = yes
+            gpt_happy_stubborn_lv1 = yes
+            gpt_happy_stubborn_lv2 = yes
+            gpt_happy_eccentric_lv1 = yes
+            gpt_happy_eccentric_lv2 = yes
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+gpt_happy_brave_lv2 = {
+
+            has_trait = brave
+        calc_true_if = {
+            amount >= 2
+            AND = {
+                employs_court_position = master_of_hunt_court_position
+                any_court_position_holder = {
+                    type = master_of_hunt_court_position
+                    aptitude:master_of_hunt_court_position > 2
+                }
+            }
+            OR = {
+                any_relation = {
+                    type = rival
+                    highest_held_title_tier > root.highest_held_title_tier
+                }
+                any_relation = {
+                    type = nemesis
+                    highest_held_title_tier > root.highest_held_title_tier
+                }
+            }
+            is_commanding_army = yes
+    }
+}
+
+gpt_happy_brave_lv1 = {
+
+            has_trait = brave
+        calc_true_if = {
+            amount >= 1
+            AND = {
+                employs_court_position = master_of_hunt_court_position
+                any_court_position_holder = {
+                    type = master_of_hunt_court_position
+                    aptitude:master_of_hunt_court_position > 2
+                    count >= 1
+                }
+            }
+            is_at_war_as_attacker = yes
+            is_commanding_army = yes
+    }
+}
+
+gpt_happy_craven_lv2 = {
+
+            has_trait = craven
+        calc_true_if = {
+            amount >= 2
+            AND = {
+                employs_court_position = food_taster_court_position
+                any_court_position_holder = {
+                    type = food_taster_court_position
+                    aptitude:food_taster_court_position > 2
+                }
+            }
+            AND = {
+                employs_court_position = bodyguard_court_position
+                any_court_position_holder = {
+                    type = bodyguard_court_position
+                    aptitude:bodyguard_court_position > 2
+                    count >= 1
+                }
+            }
+            AND = {
+                employs_court_position = bodyguard_court_position
+                any_court_position_holder = {
+                    type = bodyguard_court_position
+                    aptitude:bodyguard_court_position > 1
+                    count >= 2
+                }
+            }
+    }
+}
+
+gpt_happy_craven_lv1 = {
+
+            has_trait = craven
+        calc_true_if = {
+            amount >= 1
+            AND = {
+                employs_court_position = food_taster_court_position
+                any_court_position_holder = {
+                    type = food_taster_court_position
+                    aptitude:food_taster_court_position > 2
+                }
+            }
+            AND = {
+                employs_court_position = bodyguard_court_position
+                any_court_position_holder = {
+                    type = bodyguard_court_position
+                    aptitude:bodyguard_court_position > 2
+                    count >= 1
+                }
+            }
+            AND = {
+                employs_court_position = bodyguard_court_position
+                any_court_position_holder = {
+                    type = bodyguard_court_position
+                    aptitude:bodyguard_court_position > 2
+                    count >= 2
+                }
+            }
+    }
+}
+
+gpt_happy_calm_lv2 = {
+
+            has_trait = calm
+        calc_true_if = {
+            amount >= 2
+            OR = {
+                any_relation = {
+                    type = ward
+                    count >= 1
+                }
+                any_relation = {
+                    type = student
+                    count >= 1
+                }
+            }
+            days_of_continuous_peace >= 3650
+            piety_level >= 4
+    }
+}
+
+gpt_happy_calm_lv1 = {
+
+            has_trait = calm
+        calc_true_if = {
+            amount >= 1
+            OR = {
+                any_relation = {
+                    type = ward
+                    count >= 1
+                }
+                any_relation = {
+                    type = student
+                    count >= 1
+                }
+            }
+            days_of_continuous_peace >= 3650
+            piety_level >= 4
+    }
+}
+
+gpt_happy_wrathful_lv2 = {
+
+            has_trait = wrathful
+        calc_true_if = {
+            amount >= 2
+            AND = {
+                employs_court_position = executioner_court_position
+                any_court_position_holder = {
+                    type = executioner_court_position
+                    aptitude:executioner_court_position > 2
+                }
+            }
+            dread >= 80
+            has_character_flag = gpt_has_insulted_someone
+    }
+}
+
+gpt_happy_wrathful_lv1 = {
+
+            has_trait = wrathful
+        calc_true_if = {
+            amount >= 1
+            AND = {
+                employs_court_position = executioner_court_position
+                any_court_position_holder = {
+                    type = executioner_court_position
+                    aptitude:executioner_court_position > 2
+                }
+            }
+            dread >= 80
+            has_character_flag = gpt_has_insulted_someone
+    }
+}
+
+gpt_happy_chaste_lv2 = {
+
+            has_trait = chaste
+        calc_true_if = {
+            amount >= 2
+            is_married = no
+            has_trait = celibate
+            has_trait = devoted
+    }
+}
+
+gpt_happy_chaste_lv1 = {
+
+            has_trait = chaste
+        calc_true_if = {
+            amount >= 1
+            is_married = no
+            has_trait = celibate
+            has_trait = devoted
+    }
+}
+
+gpt_happy_lustful_lv2 = {
+
+            has_trait = lustful
+        calc_true_if = {
+            amount >= 2
+            any_consort = {
+                age < root.age
+                age < 40
+                has_trait = fecund
+            }
+            any_consort = {
+                age < root.age
+                age < 40
+                OR = {
+                    has_trait = beauty_good_1
+                    has_trait = beauty_good_2
+                    has_trait = beauty_good_3
+                }
+            }
+            any_courtier = {
+                NOT = { is_consort_of = root }
+                OR = {
+                    has_relation_lover = root
+                    has_relation_soulmate = root
+                }
+            }
+    }
+}
+
+gpt_happy_lustful_lv1 = {
+
+            has_trait = lustful
+        calc_true_if = {
+            amount >= 1
+            any_consort = {
+                age < root.age
+                age < 40
+                has_trait = fecund
+            }
+            any_consort = {
+                age < root.age
+                age < 40
+                OR = {
+                    has_trait = beauty_good_1
+                    has_trait = beauty_good_2
+                    has_trait = beauty_good_3
+                }
+            }
+            any_courtier = {
+                OR = {
+                    has_relation_lover = root
+                    has_relation_soulmate = root
+                }
+            }
+    }
+}
+
+gpt_happy_content_lv2 = {
+
+            has_trait = content
+        calc_true_if = {
+            amount >= 2
+            AND = {
+                is_independent_ruler = no
+                liege.highest_held_title_tier >= 4
+            }
+            OR = {
+                has_realm_law = crown_authority_0
+                has_realm_law = tribal_authority_0
+            }
+            AND = {
+                employs_court_position = seneschal_court_position
+                any_court_position_holder = {
+                    type = seneschal_court_position
+                    aptitude:seneschal_court_position > 2
+                }
+            }
+    }
+}
+
+gpt_happy_content_lv1 = {
+
+            has_trait = content
+        calc_true_if = {
+            amount >= 1
+            AND = {
+                is_independent_ruler = no
+                liege.highest_held_title_tier >= 4
+            }
+            OR = {
+                has_realm_law = crown_authority_0
+                has_realm_law = tribal_authority_0
+            }
+            AND = {
+                employs_court_position = seneschal_court_position
+                any_court_position_holder = {
+                    type = seneschal_court_position
+                    aptitude:seneschal_court_position > 2
+                }
+            }
+    }
+}
+
+gpt_happy_ambitious_lv2 = {
+
+            has_trait = ambitious
+        calc_true_if = {
+            amount >= 2
+            highest_held_title_tier >= 4
+            any_held_title = {
+                recent_history = {
+                    type = conquest
+                    years = 4
+                }
+            }
+            AND = {
+                employs_court_position = champion_court_position
+                any_court_position_holder = {
+                    type = champion_court_position
+                    aptitude:champion_court_position > 2
+                }
+            }
+    }
+}
+
+gpt_happy_ambitious_lv1 = {
+
+            has_trait = ambitious
+        calc_true_if = {
+            amount >= 1
+            highest_held_title_tier >= 4
+            any_held_title = {
+                recent_history = {
+                    type = conquest
+                    years = 4
+                }
+            }
+            AND = {
+                employs_court_position = champion_court_position
+                any_court_position_holder = {
+                    type = champion_court_position
+                    aptitude:champion_court_position > 2
+                }
+            }
+    }
+}
+
+gpt_happy_diligent_lv2 = {
+
+            has_trait = diligent
+        calc_true_if = {
+            amount >= 2
+            has_character_modifier = diligent_development_focus
+            domain_size = domain_limit
+            OR = {
+                has_realm_law = realm_administration_law_2
+                has_realm_law = tribal_raid_stance_1
+            }
+    }
+}
+
+gpt_happy_diligent_lv1 = {
+
+            has_trait = diligent
+        calc_true_if = {
+            amount >= 1
+            has_character_modifier = diligent_development_focus
+            domain_size = domain_limit
+            OR = {
+                has_realm_law = realm_administration_law_2
+                has_realm_law = tribal_raid_stance_1
+            }
+    }
+}
+
+gpt_happy_lazy_lv2 = {
+
+            has_trait = lazy
+        calc_true_if = {
+            amount >= 2
+            domain_size <= 2
+            has_active_diarchy = yes
+            AND = {
+                employs_court_position = lady_in_waiting_court_position
+                any_court_position_holder = {
+                    type = lady_in_waiting_court_position
+                    aptitude:lady_in_waiting_court_position > 2
+                }
+            }
+    }
+}
+
+gpt_happy_lazy_lv1 = {
+
+            has_trait = lazy
+        calc_true_if = {
+            amount >= 1
+            domain_size <= 2
+            has_active_diarchy = yes
+            AND = {
+                employs_court_position = lady_in_waiting_court_position
+                any_court_position_holder = {
+                    type = lady_in_waiting_court_position
+                    aptitude:lady_in_waiting_court_position > 2
+                }
+            }
+    }
+}
+
+gpt_happy_forgiving_lv2 = {
+
+            has_trait = forgiving
+        calc_true_if = {
+            amount >= 2
+            OR = {
+                any_truce_target = {
+                    count >= 1
+                }
+                any_truce_holder = {
+                    count >= 1
+                }
+            }
+            NOT = {
+                OR = {
+                    any_vassal = {
+                        opinion = {
+                            target = root
+                            value <= -50
+                        }
+                    }
+                    liege = {
+                        opinion = {
+                            target = root
+                            value <= -50
+                        }
+                    }
+                }
+            }
+            any_vassal = {
+                has_opinion_modifier = {
+                    target = root
+                    modifier = forgiven_opinion
+                }
+            }
+    }
+}
+
+gpt_happy_forgiving_lv1 = {
+
+            has_trait = forgiving
+        calc_true_if = {
+            amount >= 1
+            OR = {
+                any_truce_target = {
+                    count >= 1
+                }
+                any_truce_holder = {
+                    count >= 1
+                }
+            }
+            NOT = {
+                OR = {
+                    any_vassal = {
+                        opinion = {
+                            target = root
+                            value <= -50
+                        }
+                    }
+                    liege = {
+                        opinion = {
+                            target = root
+                            value <= -50
+                        }
+                    }
+                }
+            }
+            any_vassal = {
+                has_opinion_modifier = {
+                    target = root
+                    modifier = forgiven_opinion
+                }
+            }
+    }
+}
+
+gpt_happy_vengeful_lv2 = {
+
+            has_trait = vengeful
+        calc_true_if = {
+            amount >= 2
+            any_killed_character = {
+                OR = {
+                    has_relation_rival = root
+                    has_relation_nemesis = root
+                }
+            }
+            OR = {
+                is_a_faction_leader = yes
+                is_a_faction_member = yes
+            }
+            OR = {
+                num_of_relation_rival >= 3
+                num_of_relation_nemesis >= 2
+            }
+    }
+}
+
+gpt_happy_vengeful_lv1 = {
+
+            has_trait = vengeful
+        calc_true_if = {
+            amount >= 1
+            any_scheme = {
+                is_hostile = yes
+            }
+            OR = {
+                is_a_faction_leader = yes
+                is_a_faction_member = yes
+            }
+            OR = {
+                num_of_relation_rival >= 3
+                num_of_relation_nemesis >= 2
+            }
+    }
+}
+
+gpt_happy_generous_lv2 = {
+
+            has_trait = generous
+        calc_true_if = {
+            amount >= 2
+            has_character_flag = any_expedition
+            OR = {
+                any_courtier = {
+                    is_lowborn = yes
+                    has_opinion_modifier = {
+                        target = root
+                        modifier = gift_opinion
+                    }
+                }
+                any_vassal = {
+                    is_lowborn = yes
+                    has_opinion_modifier = {
+                        target = root
+                        modifier = gift_opinion
+                    }
+                }
+            }
+            AND = {
+                monthly_character_income > 10
+                gold <= 500
+            }
+            AND = {
+                monthly_character_income < 10
+                monthly_character_income > 5
+                gold <= 250
+            }
+            AND = {
+                monthly_character_income < 5
+                gold <= 100
+            }
+    }
+}
+
+gpt_happy_generous_lv1 = {
+
+            has_trait = generous
+        calc_true_if = {
+            amount >= 1
+            has_character_flag = any_expedition
+            OR = {
+                any_courtier = {
+                    is_lowborn = yes
+                    has_opinion_modifier = {
+                        target = root
+                        modifier = gift_opinion
+                    }
+                }
+                any_vassal = {
+                    is_lowborn = yes
+                    has_opinion_modifier = {
+                        target = root
+                        modifier = gift_opinion
+                    }
+                }
+            }
+            AND = {
+                monthly_character_income > 10
+                gold <= 500
+            }
+            AND = {
+                monthly_character_income < 10
+                monthly_character_income > 5
+                gold <= 250
+            }
+            AND = {
+                monthly_character_income < 5
+                gold <= 100
+            }
+    }
+}
+
+gpt_happy_greedy_lv2 = {
+
+            has_trait = greedy
+        calc_true_if = {
+            amount >= 2
+            faith.religious_head = {
+                has_opinion_modifier = {
+                    target = root
+                    modifier = requested_money_opinion
+                }
+            }
+            AND = {
+                monthly_character_income > 10
+                monthly_character_income < 20
+                monthly_character_expenses < 7.5
+            }
+            AND = {
+                monthly_character_income > 20
+                monthly_character_income < 40
+                monthly_character_expenses < 15
+            }
+            AND = {
+                monthly_character_income > 40
+                monthly_character_income < 60
+                monthly_character_expenses < 25
+            }
+            AND = {
+                monthly_character_income > 60
+                monthly_character_expenses < 35 
+            }
+            AND = {
+                monthly_character_income > 30
+                gold >= 2000
+            }
+            AND = {
+                monthly_character_income < 30
+                monthly_character_income > 15
+                gold >= 1500
+            }
+            AND = {
+                monthly_character_income < 15
+                gold >= 1000
+            }
+    }
+}
+
+gpt_happy_greedy_lv1 = {
+
+            has_trait = greedy
+        calc_true_if = {
+            amount >= 1
+            faith.religious_head = {
+                has_opinion_modifier = {
+                    target = root
+                    modifier = requested_money_opinion
+                }
+            }
+            AND = {
+                monthly_character_income > 10
+                monthly_character_income < 20
+                monthly_character_expenses < 7.5
+            }
+            AND = {
+                monthly_character_income > 20
+                monthly_character_income < 40
+                monthly_character_expenses < 15
+            }
+            AND = {
+                monthly_character_income > 40
+                monthly_character_income < 60
+                monthly_character_expenses < 25
+            }
+            AND = {
+                monthly_character_income > 60
+                monthly_character_expenses < 35 
+            }
+            AND = {
+                monthly_character_income > 30
+                gold >= 2000
+            }
+            AND = {
+                monthly_character_income < 30
+                monthly_character_income > 15
+                gold >= 1500
+            }
+            AND = {
+                monthly_character_income < 15
+                gold >= 1000
+            }
+    }
+}
+
+gpt_happy_gregarious_lv2 = {
+
+            has_trait = gregarious
+        calc_true_if = {
+            amount >= 2
+            num_of_relation_friend >= 4
+            num_of_known_languages >= 4
+            has_ongoing_grand_activity_trigger = yes
+            exists = involved_activity
+    }
+}
+
+gpt_happy_gregarious_lv1 = {
+
+            has_trait = gregarious
+        calc_true_if = {
+            amount >= 1
+            num_of_relation_friend >= 4
+            num_of_known_languages >= 4
+            has_ongoing_grand_activity_trigger = yes
+            exists = involved_activity
+    }
+}
+
+gpt_happy_shy_lv2 = {
+
+            has_trait = shy
+        calc_true_if = {
+            amount >= 2
+            AND = {
+                num_of_relation_rival = 0
+                num_of_relation_nemesis = 0
+            }
+            any_courtier_or_guest = {
+                count <= 10
+            }
+            primary_spouse = {
+                calc_true_if = {
+                    amount >= 3
+                    diplomacy >= 12
+                    stewardship >= 12
+                    martial >= 12
+                    intrigue >= 12
+                    learning >= 12
+                }
+            }
+    }
+}
+
+gpt_happy_shy_lv1 = {
+
+            has_trait = shy
+        calc_true_if = {
+            amount >= 1
+            AND = {
+                num_of_relation_rival = 0
+                num_of_relation_nemesis = 0
+            }
+            any_courtier_or_guest = {
+                count <= 10
+            }
+            primary_spouse = {
+                calc_true_if = {
+                    amount >= 3
+                    diplomacy >= 12
+                    stewardship >= 12
+                    martial >= 12
+                    intrigue >= 12
+                    learning >= 12
+                }
+            }
+    }
+}
+
+gpt_happy_honest_lv2 = {
+
+            has_trait = honest
+        calc_true_if = {
+            amount >= 2
+            any_unspent_known_secret = {
+                count = 0
+            }
+            has_any_secrets = no
+            has_trait = contrite
+    }
+}
+
+gpt_happy_honest_lv1 = {
+
+            has_trait = honest
+        calc_true_if = {
+            amount >= 1
+            any_unspent_known_secret = {
+                count = 0
+            }
+            has_any_secrets = no
+            has_trait = contrite
+    }
+}
+
+gpt_happy_deceitful_lv2 = {
+
+            has_trait = deceitful
+        calc_true_if = {
+            amount >= 2
+            any_scheme = {
+                is_hostile = yes
+            }
+            any_hooked_character = {
+                is_powerful_vassal = yes
+            }
+            any_hooked_character = {
+                highest_held_title_tier >= 4
+            }
+    }
+}
+
+gpt_happy_deceitful_lv1 = {
+
+            has_trait = deceitful
+        calc_true_if = {
+            amount >= 1
+            any_scheme = {
+                is_hostile = yes
+            }
+            any_hooked_character = {
+                is_powerful_vassal = yes
+            }
+            any_hooked_character = {
+                highest_held_title_tier >= 4
+            }
+    }
+}
+
+gpt_happy_humble_lv2 = {
+
+            has_trait = humble
+        calc_true_if = {
+            amount >= 2
+            court_grandeur_current_level < court_grandeur_minimum_expected_level
+            AND = {
+                highest_held_title_tier <= 4
+                prestige_level <= 2
+            }
+            AND = {
+                highest_held_title_tier = 5
+                prestige_level <= 3
+            }
+            AND = {
+                is_house_head = no
+                NOT = { culture.culture_head = root }
+            }
+    }
+}
+
+gpt_happy_humble_lv1 = {
+
+            has_trait = humble
+        calc_true_if = {
+            amount >= 1
+            court_grandeur_current_level < court_grandeur_minimum_expected_level
+            AND = {
+                highest_held_title_tier <= 4
+                prestige_level <= 2
+            }
+            AND = {
+                highest_held_title_tier = 5
+                prestige_level <= 3
+            }
+            AND = {
+                is_house_head = no
+                NOT = { culture.culture_head = root }
+            }
+    }
+}
+
+gpt_happy_arrogant_lv2 = {
+
+            has_trait = arrogant
+        calc_true_if = {
+            amount >= 2
+            prestige_level >= 4
+         #   dynasty.dynasty_prestige_level >= 8
+            OR = {
+                diplomacy >= 24
+                stewardship >= 24
+                martial >= 24
+                intrigue >= 24
+                learning >= 24
+            }
+            num_of_good_genetic_traits >= 1
+    }
+}
+
+gpt_happy_arrogant_lv1 = {
+
+            has_trait = arrogant
+        calc_true_if = {
+            amount >= 1
+            prestige_level >= 4
+         #   dynasty.dynasty_prestige_level >= 8
+            OR = {
+                diplomacy >= 24
+                stewardship >= 24
+                martial >= 24
+                intrigue >= 24
+                learning >= 24
+            }
+            num_of_good_genetic_traits >= 1
+    }
+}
+
+gpt_happy_just_lv2 = {
+
+            has_trait = just
+        calc_true_if = {
+            amount >= 3
+            AND = {
+                exists = cp:councillor_spymaster
+                cp:councillor_spymaster.intrigue >= 20
+            }
+            AND = {
+                exists = cp:councillor_steward
+                cp:councillor_steward.stewardship >= 20
+            }
+            AND = {
+                exists = cp:councillor_marshal
+                cp:councillor_marshal.martial >= 20
+            }
+            AND = {
+                exists = cp:councillor_chancellor
+                cp:councillor_chancellor.diplomacy >= 20
+            }
+            AND = {
+                exists = cp:councillor_court_chaplain
+                cp:councillor_court_chaplain.learning >= 20
+            }
+    }
+}
+
+gpt_happy_just_lv1 = {
+
+            has_trait = just
+        calc_true_if = {
+            amount >= 2
+            AND = {
+                exists = cp:councillor_spymaster
+                cp:councillor_spymaster.intrigue >= 20
+            }
+            AND = {
+                exists = cp:councillor_steward
+                cp:councillor_steward.stewardship >= 20
+            }
+            AND = {
+                exists = cp:councillor_marshal
+                cp:councillor_marshal.martial >= 20
+            }
+            AND = {
+                exists = cp:councillor_chancellor
+                cp:councillor_chancellor.diplomacy >= 20
+            }
+            AND = {
+                exists = cp:councillor_court_chaplain
+                cp:councillor_court_chaplain.learning >= 20
+            }
+    }
+}
+
+gpt_happy_arbitrary_lv2 = {
+
+            has_trait = arbitrary
+        calc_true_if = {
+            amount >= 2
+            OR = {
+                has_realm_law = crown_authority_3
+                has_realm_law = tribal_authority_3
+            }
+            tyranny >= 10
+            NOT = {
+                any_vassal = {
+                    highest_held_title_tier >= 2
+                    is_lowborn = yes
+                }
+            }
+    }
+}
+
+gpt_happy_arbitrary_lv1 = {
+
+            has_trait = arbitrary
+        calc_true_if = {
+            amount >= 1
+            OR = {
+                has_realm_law = crown_authority_3
+                has_realm_law = tribal_authority_3
+            }
+            tyranny >= 10
+            NOT = {
+                any_vassal = {
+                    highest_held_title_tier >= 2
+                    is_lowborn = yes
+                }
+            }
+    }
+}
+
+gpt_happy_patient_lv2 = {
+
+            has_trait = patient
+        calc_true_if = {
+            amount >= 2
+            days_as_ruler >= 5475
+            age >= 60
+            any_claim = {
+                count >= 5
+            }
+    }
+}
+
+gpt_happy_patient_lv1 = {
+
+            has_trait = patient
+        calc_true_if = {
+            amount >= 1
+            days_as_ruler >= 5475
+            age >= 60
+            any_claim = {
+                count >= 5
+            }
+    }
+}
+
+gpt_happy_impatient_lv2 = {
+
+            has_trait = impatient
+        calc_true_if = {
+            amount >= 2
+            has_character_flag = buying_dread
+            has_character_flag = buying_prestige
+            has_character_flag = buying_piety
+            has_character_flag = buying_renown
+            has_character_flag = buying_dread_tribal
+            has_character_flag = buying_prestige_tribal
+            has_character_flag = buying_piety_tribal
+            has_character_flag = buying_renown_tribal
+    }
+}
+
+gpt_happy_impatient_lv1 = {
+
+            has_trait = impatient
+        calc_true_if = {
+            amount >= 1
+            has_character_flag = buying_dread
+            has_character_flag = buying_prestige
+            has_character_flag = buying_piety
+            has_character_flag = buying_renown
+            has_character_flag = buying_dread_tribal
+            has_character_flag = buying_prestige_tribal
+            has_character_flag = buying_piety_tribal
+            has_character_flag = buying_renown_tribal
+    }
+}
+
+gpt_happy_temperate_lv2 = {
+
+            has_trait = temperate
+        calc_true_if = {
+            amount >= 2
+            AND = {
+                employs_court_position = court_physician_court_position
+                any_court_position_holder = {
+                    type = court_physician_court_position
+                    aptitude:court_physician_court_position > 2
+                }
+            }
+            health >= 4
+            NOT = {
+                num_of_bad_genetic_traits >= 1
+                any_close_family_member = {
+                    num_of_bad_genetic_traits >= 1
+                }
+            }
+    }
+}
+
+gpt_happy_temperate_lv1 = {
+
+            has_trait = temperate
+        calc_true_if = {
+            amount >= 1
+            AND = {
+                employs_court_position = court_physician_court_position
+                any_court_position_holder = {
+                    type = court_physician_court_position
+                    aptitude:court_physician_court_position > 2
+                }
+            }
+            health >= 4
+            NOT = {
+                num_of_bad_genetic_traits >= 1
+                any_close_family_member = {
+                    num_of_bad_genetic_traits >= 1
+                }
+            }
+    }
+}
+
+gpt_happy_gluttonous_lv2 = {
+
+            has_trait = gluttonous
+            has_royal_court = yes
+        calc_true_if = {
+            amount >= 2
+            court_grandeur_current_level >= 8
+            amenity_level = { type = court_food_quality value >= 5 }
+            AND = {
+                employs_court_position = cupbearer_court_position
+                any_court_position_holder = {
+                    type = cupbearer_court_position
+                    aptitude:cupbearer_court_position > 2
+                }
+            }
+    }
+}
+
+gpt_happy_gluttonous_lv1 = {
+
+            has_trait = gluttonous
+        calc_true_if = {
+            amount >= 1
+            court_grandeur_current_level >= 8
+            amenity_level = { type = court_food_quality value >= 5 }
+            AND = {
+                employs_court_position = cupbearer_court_position
+                any_court_position_holder = {
+                    type = cupbearer_court_position
+                    aptitude:cupbearer_court_position > 2
+                }
+            }
+    }
+}
+
+gpt_happy_trusting_lv2 = {
+
+            has_trait = trusting
+        calc_true_if = {
+            amount >= 2
+            any_ally = { is_powerful_vassal = yes }
+            court_positions_currently_filled >= 8
+            has_targeting_faction = yes
+    }
+}
+
+gpt_happy_trusting_lv1 = {
+
+            has_trait = trusting
+        calc_true_if = {
+            amount >= 1
+            any_ally = { is_powerful_vassal = yes }
+            court_positions_currently_filled >= 8
+            has_targeting_faction = yes
+    }
+}
+
+gpt_happy_paranoid_lv2 = {
+
+            has_trait = paranoid
+        calc_true_if = {
+            amount >= 2
+            any_prisoner = {
+                OR = {
+                    has_relation_rival = root
+                    has_relation_nemesis = root
+                }
+            }
+            any_prisoner = {
+                is_powerful_vassal_of = root
+            }
+            any_prisoner = {
+                has_trait = disloyal
+            }
+    }
+}
+
+gpt_happy_paranoid_lv1 = {
+
+            has_trait = paranoid
+        calc_true_if = {
+            amount >= 1
+            any_prisoner = {
+                OR = {
+                    has_relation_rival = root
+                    has_relation_nemesis = root
+                }
+            }
+            any_prisoner = {
+                is_powerful_vassal_of = root
+            }
+            any_prisoner = {
+                has_trait = disloyal
+            }
+    }
+}
+
+gpt_happy_zealous_lv2 = {
+
+            has_trait = zealous
+        calc_true_if = {
+            amount >= 2
+            AND = {
+                exists = faith.religious_head
+                faith.religious_head = {
+                    opinion = {
+						target = root
+						value >= 50
+					}
+                }
+            }
+            AND = {
+                exists = cp:councillor_court_chaplain
+                cp:councillor_court_chaplain = {
+                    opinion = {
+						target = root
+						value >= 50
+					}
+                }
+            }
+            AND = {
+                is_at_war = yes
+                any_primary_war_enemy = {
+                    NOT = { faith = root.faith }
+                }
+            }
+    }
+}
+
+gpt_happy_zealous_lv1 = {
+
+            has_trait = zealous
+        calc_true_if = {
+            amount >= 1
+            AND = {
+                exists = faith.religious_head
+                faith.religious_head = {
+                    opinion = {
+						target = root
+						value >= 50
+					}
+                }
+            }
+            AND = {
+                exists = cp:councillor_court_chaplain
+                cp:councillor_court_chaplain = {
+                    opinion = {
+						target = root
+						value >= 50
+					}
+                }
+            }
+            AND = {
+                is_at_war = yes
+                any_primary_war_enemy = {
+                    NOT = { faith = root.faith }
+                }
+            }
+    }
+}
+
+gpt_happy_cynical_lv2 = {
+
+            has_trait = cynical
+        calc_true_if = {
+            amount >= 2
+            piety_level <= 1
+            OR = {
+                any_councillor = {
+                    NOT = { faith = root.faith }
+                }
+                any_vassal = {
+                    NOT = { faith = root.faith }
+                }
+            }
+            OR = {
+                OR = {
+                    any_relation = {
+                        type = friend
+                        highest_held_title_tier >= 2
+                        NOT = { faith = root.faith }
+                    }
+                    any_relation = {
+                        type = best_friend
+                        highest_held_title_tier >= 2
+                        NOT = { faith = root.faith }
+                    }
+                }
+                any_ally = {
+                    NOT = { faith = root.faith }
+                }
+            }
+    }
+}
+
+gpt_happy_cynical_lv1 = {
+
+            has_trait = cynical
+        calc_true_if = {
+            amount >= 1
+            piety_level <= 1
+            OR = {
+                any_councillor = {
+                    NOT = { faith = root.faith }
+                }
+                any_close_family_member = {
+                    NOT = { faith = root.faith }
+                }
+            }
+            OR = {
+                OR = {
+                    any_relation = {
+                        type = friend
+                        highest_held_title_tier >= 2
+                        NOT = { faith = root.faith }
+                    }
+                    any_relation = {
+                        type = best_friend
+                        highest_held_title_tier >= 2
+                        NOT = { faith = root.faith }
+                    }
+                }
+                any_ally = {
+                    NOT = { faith = root.faith }
+                }
+            }
+    }
+}
+
+gpt_happy_compassionate_lv2 = {
+
+            has_trait = compassionate
+        calc_true_if = {
+            amount >= 2
+            any_councillor = {
+                num_virtuous_traits >= 2
+            }
+            any_powerful_vassal = {
+                num_virtuous_traits >= 2
+            }
+            AND = {
+                employs_court_position = high_almoner_court_position
+                any_court_position_holder = {
+                    type = high_almoner_court_position
+                    aptitude:high_almoner_court_position > 2
+                }
+            }
+    }
+}
+
+gpt_happy_compassionate_lv1 = {
+
+            has_trait = compassionate
+        calc_true_if = {
+            amount >= 1
+            any_councillor = {
+                num_virtuous_traits >= 2
+            }
+            any_powerful_vassal = {
+                num_virtuous_traits >= 2
+            }
+            AND = {
+                employs_court_position = high_almoner_court_position
+                any_court_position_holder = {
+                    type = high_almoner_court_position
+                    aptitude:high_almoner_court_position > 2
+                }
+            }
+    }
+}
+
+gpt_happy_callous_lv2 = {
+
+            has_trait = callous
+        calc_true_if = {
+            amount >= 2
+            any_vassal = {
+                percent >= 0.40
+                opinion = {
+                    target = root
+                    value < 0
+                }
+            }
+            any_courtier_or_guest = {
+                percent >= 0.40
+                opinion = {
+                    target = root
+                    value < 0
+                }
+            }
+            any_close_or_extended_family_member = {
+                percent >= 0.40
+                opinion = {
+                    target = root
+                    value < 0
+                }
+            }
+            AND = {
+                exists = liege
+                liege = {
+                    opinion = {
+                        target = root
+                        value < 0
+                    }
+                }
+            }
+    }
+}
+
+gpt_happy_callous_lv1 = {
+
+            has_trait = callous
+        calc_true_if = {
+            amount >= 1
+            any_vassal = {
+                percent >= 0.40
+                opinion = {
+                    target = root
+                    value < 0
+                }
+            }
+            any_courtier_or_guest = {
+                percent >= 0.40
+                opinion = {
+                    target = root
+                    value < 0
+                }
+            }
+            any_close_or_extended_family_member = {
+                percent >= 0.40
+                opinion = {
+                    target = root
+                    value < 0
+                }
+            }
+            AND = {
+                exists = liege
+                liege = {
+                    opinion = {
+                        target = root
+                        value < 0
+                    }
+                }
+            }
+    }
+}
+
+gpt_happy_sadistic_lv2 = {
+
+            has_trait = sadistic
+        calc_true_if = {
+            amount >= 2
+            AND = {
+                employs_court_position = court_jester_court_position
+                any_court_position_holder = {
+                    has_relation_rival = root
+                    type = court_jester_court_position
+                }
+            }
+            any_prisoner = {
+                has_character_flag = recently_tortured
+            }
+            any_councillor = {
+                has_dread_level_towards = {
+					target = root
+					level = 2
+				}
+            }
+            any_consort = {
+                has_dread_level_towards = {
+					target = root
+					level = 2
+				}
+            }
+    }
+}
+
+gpt_happy_sadistic_lv1 = {
+
+            has_trait = sadistic
+        calc_true_if = {
+            amount >= 1
+            AND = {
+                employs_court_position = court_jester_court_position
+                any_court_position_holder = {
+                    has_relation_rival = root
+                    type = court_jester_court_position
+                }
+            }
+            any_prisoner = {
+                has_character_flag = recently_tortured
+            }
+            any_councillor = {
+                has_dread_level_towards = {
+					target = root
+					level = 2
+				}
+            }
+            primary_spouse = {
+                has_dread_level_towards = {
+					target = root
+					level = 2
+				}
+            }
+    }
+}
+
+gpt_happy_fickle_lv2 = {
+
+            has_trait = fickle
+        calc_true_if = {
+            amount >= 2
+            AND = {
+                employs_court_position = antiquarian_court_position
+                any_court_position_holder = {
+                    type = antiquarian_court_position
+                    aptitude:antiquarian_court_position > 2
+                }
+            }
+            AND = {
+                employs_court_position = court_musician_court_position
+                any_court_position_holder = {
+                    type = court_musician_court_position
+                    aptitude:court_musician_court_position > 2
+                }
+            }
+            AND = {
+                employs_court_position = royal_architect_court_position
+                any_court_position_holder = {
+                    type = royal_architect_court_position
+                    aptitude:royal_architect_court_position > 2
+                }
+            }
+            AND = {
+                employs_court_position = court_artificer_court_position
+                any_court_position_holder = {
+                    type = court_artificer_court_position
+                    aptitude:court_artificer_court_position > 2
+                }
+            }
+    }
+}
+
+gpt_happy_fickle_lv1 = {
+
+            has_trait = fickle
+        calc_true_if = {
+            amount >= 1
+            AND = {
+                employs_court_position = antiquarian_court_position
+                any_court_position_holder = {
+                    type = antiquarian_court_position
+                    aptitude:antiquarian_court_position > 2
+                }
+            }
+            AND = {
+                employs_court_position = court_musician_court_position
+                any_court_position_holder = {
+                    type = court_musician_court_position
+                    aptitude:court_musician_court_position > 2
+                }
+            }
+            AND = {
+                employs_court_position = royal_architect_court_position
+                any_court_position_holder = {
+                    type = royal_architect_court_position
+                    aptitude:royal_architect_court_position > 2
+                }
+            }
+            AND = {
+                employs_court_position = court_artificer_court_position
+                any_court_position_holder = {
+                    type = court_artificer_court_position
+                    aptitude:court_artificer_court_position > 2
+                }
+            }
+    }
+}
+
+gpt_happy_stubborn_lv2 = {
+
+            has_trait = stubborn
+        calc_true_if = {
+            amount >= 2
+            has_character_flag = tyranny_gold
+            has_character_flag = tyranny_prestige
+            has_character_flag = tyranny_dread
+            has_character_flag = tyranny_army
+            has_character_flag = tyranny_gold_tribal
+            has_character_flag = tyranny_prestige_tribal
+            has_character_flag = tyranny_dread_tribal
+            has_character_flag = tyranny_army_tribal
+    }
+}
+
+gpt_happy_stubborn_lv1 = {
+
+            has_trait = stubborn
+        calc_true_if = {
+            amount >= 1
+            has_character_flag = tyranny_gold
+            has_character_flag = tyranny_prestige
+            has_character_flag = tyranny_dread
+            has_character_flag = tyranny_army
+            has_character_flag = tyranny_gold_tribal
+            has_character_flag = tyranny_prestige_tribal
+            has_character_flag = tyranny_dread_tribal
+            has_character_flag = tyranny_army_tribal
+    }
+}
+
+gpt_happy_eccentric_lv2 = {
+
+            has_trait = eccentric
+        calc_true_if = {
+            amount >= 2
+            is_house_head = yes
+            culture.culture_head = root
+            faith.religious_head = root
+    }
+}
+
+gpt_happy_eccentric_lv1 = {
+
+            has_trait = eccentric
+        calc_true_if = {
+            amount >= 1
+            is_house_head = yes
+            culture.culture_head = root
+            faith.religious_head = root
+    }
+}
+
+
+
+

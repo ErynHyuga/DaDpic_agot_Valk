@@ -1,0 +1,247 @@
+﻿dread_buff_lustful = {
+
+
+ #	add_character_modifier = { modifier = dread_buff_lustful_modifier years = 10 }
+
+	add_trait = dread_buff_lustful_trait
+}
+
+dread_buff_greedy = {
+
+
+ #	add_character_modifier = { modifier = dread_buff_greedy_modifier years = 10 }
+
+	add_trait = dread_buff_greedy_trait
+}
+
+dread_buff_ambitious = {
+
+
+ #	add_character_modifier = { modifier = dread_buff_ambitious_modifier years = 10 }
+
+	add_trait = dread_buff_ambitious_trait
+}
+
+dread_buff_gluttonous = {
+
+
+ #	add_character_modifier = { modifier = dread_buff_gluttonous_modifier years = 10 }
+
+	add_trait = dread_buff_gluttonous_trait
+}
+
+dread_buff_arbitrary = {
+
+
+ #	add_character_modifier = { modifier = dread_buff_arbitrary_modifier years = 10 }
+
+	add_trait = dread_buff_arbitrary_trait
+}
+
+dread_buff_cynical = {
+
+
+ #	add_character_modifier = { modifier = dread_buff_cynical_modifier years = 10 }
+
+	add_trait = dread_buff_cynical_trait
+}
+
+dread_buff_deceitful = {
+
+
+ #	add_character_modifier = { modifier = dread_buff_deceitful_modifier years = 10 }
+
+	add_trait = dread_buff_deceitful_trait
+}
+
+dread_buff_callous = {
+
+
+ #	add_character_modifier = { modifier = dread_buff_callous_modifier years = 10 }
+
+	add_trait = dread_buff_callous_trait
+}
+
+dread_buff_sadistic = {
+
+
+ #	add_character_modifier = { modifier = dread_buff_sadistic_modifier years = 10 }
+
+	add_trait = dread_buff_sadistic_trait
+}
+
+dread_buff_arrogant = {
+
+
+ #	add_character_modifier = { modifier = dread_buff_arrogant_modifier years = 10 }
+
+	add_trait = dread_buff_arrogant_trait
+}
+
+dread_buff_vengeful = {
+
+
+ #	add_character_modifier = { modifier = dread_buff_vengeful_modifier years = 10 }
+
+	add_trait = dread_buff_vengeful_trait
+}
+
+dread_buff_lazy = {
+
+	
+ #	add_character_modifier = { modifier = dread_buff_lazy_modifier years = 10 }
+
+	add_trait = dread_buff_lazy_trait
+}
+
+dread_buff_educate = {
+
+
+	add_trait = dread_buff_educate_trait
+}
+
+dread_buff_intimidate = {
+
+
+	add_trait = dread_buff_intimidate_trait
+}
+
+dread_buff_centralize = {
+
+
+	add_trait = dread_buff_centralize_trait
+}
+
+dread_buff_absurd = {
+
+
+	add_trait = dread_buff_absurd_trait
+}
+
+dread_buff_madness = {
+
+
+	add_trait = dread_buff_madness_trait
+}
+
+dread_buff_steal = {
+
+
+	add_trait = dread_buff_steal_trait
+}
+
+dread_buff_artisans = {
+
+
+	add_trait = dread_buff_artisans_trait
+}
+
+dread_buff_murder = {
+
+
+	add_trait = dread_buff_murder_trait
+}
+
+
+#####################################################################
+
+diplomacy_buff_dread = {
+
+	 	add_piety = {
+	 		value = -2
+	 		multiply = sub_realm_size
+	 	}
+
+		add_character_modifier = { modifier = legacy_chancellor10_modifier_dread years = 10 }
+		add_diplomacy_lifestyle_xp = 150
+
+			stress_impact = {
+				
+
+			}
+
+}
+
+stewardship_buff_dread = {
+
+	 	add_piety = {
+	 		value = -2
+	 		multiply = sub_realm_size
+	 	}
+
+		add_character_modifier = { modifier = legacy_steward10_modifier_dread years = 10 }
+		add_stewardship_lifestyle_xp = 150
+
+			stress_impact = {
+				
+
+			}
+
+}
+
+martial_buff_dread = {
+
+	 	add_piety = {
+	 		value = -2
+	 		multiply = sub_realm_size
+	 	}
+
+		add_character_modifier = { modifier = legacy_marshal10_modifier_dread years = 10 }
+		add_martial_lifestyle_xp = 150
+
+			stress_impact = {
+				
+
+			}
+
+}
+
+intrigue_buff_dread = {
+
+	 	add_piety = {
+	 		value = -2
+	 		multiply = sub_realm_size
+	 	}
+
+		add_character_modifier = { modifier = legacy_spymaster10_modifier_dread years = 10 }
+		add_intrigue_lifestyle_xp = 150
+
+			stress_impact = {
+				
+
+			}
+
+}
+
+learning_buff_dread = {
+
+	 	add_piety = {
+	 		value = -2
+	 		multiply = sub_realm_size
+	 	}
+
+		add_character_modifier = { modifier = legacy_chaplain10_modifier_dread years = 10 }
+		add_learning_lifestyle_xp = 150
+
+			stress_impact = {
+				
+
+			}
+
+}
+
+prowess_buff_dread = {
+
+	 	add_piety = {
+	 		value = -2
+	 		multiply = sub_realm_size
+	 	}
+
+		add_character_modifier = { modifier = legacy_prowess10_modifier_dread years = 10 }
+
+			stress_impact = {
+				
+
+			}
+
+}

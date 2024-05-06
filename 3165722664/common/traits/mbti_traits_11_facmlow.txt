@@ -1,0 +1,824 @@
+# Standard Values
+@pos_compat_high = 10
+@pos_compat_medium = 5
+@pos_compat_low = 2.5
+
+@neg_compat_high = -10
+@neg_compat_medium = -5
+@neg_compat_low = -2.5
+
+mbti_intj_11 = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11_extra
+		mbti_intp_11
+		mbti_entj_11
+		mbti_entp_11
+		mbti_infj_11
+		mbti_infp_11
+		mbti_enfj_11
+		mbti_enfp_11
+		mbti_istj_11
+		mbti_isfj_11
+		mbti_estj_11
+		mbti_esfj_11
+		mbti_istp_11
+		mbti_isfp_11
+		mbti_estp_11
+		mbti_esfp_11
+	}
+
+	intrigue = 3
+
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_intj_8.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intj_11_character_desc
+			}
+			desc = trait_intj_11_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_intp_11 = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11_extra
+		mbti_intj_11
+		mbti_entj_11
+		mbti_entp_11
+		mbti_infj_11
+		mbti_infp_11
+		mbti_enfj_11
+		mbti_enfp_11
+		mbti_istj_11
+		mbti_isfj_11
+		mbti_estj_11
+		mbti_esfj_11
+		mbti_istp_11
+		mbti_isfp_11
+		mbti_estp_11
+		mbti_esfp_11
+	}
+
+	intrigue = 3
+
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_intp_8.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intp_11_character_desc
+			}
+			desc = trait_intp_11_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_entj_11 = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11_extra
+		mbti_intj_11
+		mbti_intp_11
+		mbti_entp_11
+		mbti_infj_11
+		mbti_infp_11
+		mbti_enfj_11
+		mbti_enfp_11
+		mbti_istj_11
+		mbti_isfj_11
+		mbti_estj_11
+		mbti_esfj_11
+		mbti_istp_11
+		mbti_isfp_11
+		mbti_estp_11
+		mbti_esfp_11
+	}
+
+	martial = 3
+
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_entj_8.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_entj_11_character_desc
+			}
+			desc = trait_entj_11_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_entp_11 = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11_extra
+		mbti_intj_11
+		mbti_intp_11
+		mbti_entj_11
+		mbti_infj_11
+		mbti_infp_11
+		mbti_enfj_11
+		mbti_enfp_11
+		mbti_istj_11
+		mbti_isfj_11
+		mbti_estj_11
+		mbti_esfj_11
+		mbti_istp_11
+		mbti_isfp_11
+		mbti_estp_11
+		mbti_esfp_11
+	}
+
+	intrigue = 3
+
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_entp_8.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_entp_11_character_desc
+			}
+			desc = trait_entp_11_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_infj_11 = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11_extra
+		mbti_intj_11
+		mbti_intp_11
+		mbti_entj_11
+		mbti_entp_11
+		mbti_infp_11
+		mbti_enfj_11
+		mbti_enfp_11
+		mbti_istj_11
+		mbti_isfj_11
+		mbti_estj_11
+		mbti_esfj_11
+		mbti_istp_11
+		mbti_isfp_11
+		mbti_estp_11
+		mbti_esfp_11
+	}
+
+	diplomacy = 3
+
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_infj_8.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infj_11_character_desc
+			}
+			desc = trait_infj_11_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_infp_11 = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11_extra
+		mbti_intj_11
+		mbti_intp_11
+		mbti_entj_11
+		mbti_entp_11
+		mbti_infj_11
+		mbti_enfj_11
+		mbti_enfp_11
+		mbti_istj_11
+		mbti_isfj_11
+		mbti_estj_11
+		mbti_esfj_11
+		mbti_istp_11
+		mbti_isfp_11
+		mbti_estp_11
+		mbti_esfp_11
+	}
+
+	martial = 3
+
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_infp_8.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infp_11_character_desc
+			}
+			desc = trait_infp_11_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_enfj_11 = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11_extra
+		mbti_intj_11
+		mbti_intp_11
+		mbti_entj_11
+		mbti_entp_11
+		mbti_infj_11
+		mbti_infp_11
+		mbti_enfp_11
+		mbti_istj_11
+		mbti_isfj_11
+		mbti_estj_11
+		mbti_esfj_11
+		mbti_istp_11
+		mbti_isfp_11
+		mbti_estp_11
+		mbti_esfp_11
+	}
+
+	learning = 3
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_enfj_8.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_enfj_11_character_desc
+			}
+			desc = trait_enfj_11_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_enfp_11 = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11_extra
+		mbti_intj_11
+		mbti_intp_11
+		mbti_entj_11
+		mbti_entp_11
+		mbti_infj_11
+		mbti_infp_11
+		mbti_enfj_11
+		mbti_istj_11
+		mbti_isfj_11
+		mbti_estj_11
+		mbti_esfj_11
+		mbti_istp_11
+		mbti_isfp_11
+		mbti_estp_11
+		mbti_esfp_11
+	}
+
+	learning = 3
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_enfp_8.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_enfp_11_character_desc
+			}
+			desc = trait_enfp_11_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_istj_11 = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11_extra
+		mbti_intj_11
+		mbti_intp_11
+		mbti_entj_11
+		mbti_entp_11
+		mbti_infj_11
+		mbti_infp_11
+		mbti_enfj_11
+		mbti_enfp_11
+		mbti_isfj_11
+		mbti_estj_11
+		mbti_esfj_11
+		mbti_istp_11
+		mbti_isfp_11
+		mbti_estp_11
+		mbti_esfp_11
+	}
+
+	stewardship = 3
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_istj_8.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istj_11_character_desc
+			}
+			desc = trait_istj_11_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_isfj_11 = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11_extra
+		mbti_intj_11
+		mbti_intp_11
+		mbti_entj_11
+		mbti_entp_11
+		mbti_infj_11
+		mbti_infp_11
+		mbti_enfj_11
+		mbti_enfp_11
+		mbti_istj_11
+		mbti_estj_11
+		mbti_esfj_11
+		mbti_istp_11
+		mbti_isfp_11
+		mbti_estp_11
+		mbti_esfp_11
+	}
+
+
+	diplomacy = 3
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_isfj_8.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_isfj_11_character_desc
+			}
+			desc = trait_isfj_11_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_estj_11 = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11_extra
+		mbti_intj_11
+		mbti_intp_11
+		mbti_entj_11
+		mbti_entp_11
+		mbti_infj_11
+		mbti_infp_11
+		mbti_enfj_11
+		mbti_enfp_11
+		mbti_istj_11
+		mbti_isfj_11
+		mbti_esfj_11
+		mbti_istp_11
+		mbti_isfp_11
+		mbti_estp_11
+		mbti_esfp_11
+	}
+
+
+	prowess = 4
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_estj_8.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_estj_11_character_desc
+			}
+			desc = trait_estj_11_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_esfj_11 = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11_extra
+		mbti_intj_11
+		mbti_intp_11
+		mbti_entj_11
+		mbti_entp_11
+		mbti_infj_11
+		mbti_infp_11
+		mbti_enfj_11
+		mbti_enfp_11
+		mbti_istj_11
+		mbti_isfj_11
+		mbti_estj_11
+		mbti_istp_11
+		mbti_isfp_11
+		mbti_estp_11
+		mbti_esfp_11
+	}
+
+	diplomacy = 3
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_esfj_8.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esfj_11_character_desc
+			}
+			desc = trait_esfj_11_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_istp_11 = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11_extra
+		mbti_intj_11
+		mbti_intp_11
+		mbti_entj_11
+		mbti_entp_11
+		mbti_infj_11
+		mbti_infp_11
+		mbti_enfj_11
+		mbti_enfp_11
+		mbti_istj_11
+		mbti_isfj_11
+		mbti_estj_11
+		mbti_esfj_11
+		mbti_isfp_11
+		mbti_estp_11
+		mbti_esfp_11
+	}
+
+
+	stewardship = 3
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_istp_8.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istp_11_character_desc
+			}
+			desc = trait_istp_11_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_isfp_11 = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11_extra
+		mbti_intj_11
+		mbti_intp_11
+		mbti_entj_11
+		mbti_entp_11
+		mbti_infj_11
+		mbti_infp_11
+		mbti_enfj_11
+		mbti_enfp_11
+		mbti_istj_11
+		mbti_isfj_11
+		mbti_estj_11
+		mbti_esfj_11
+		mbti_istp_11
+		mbti_estp_11
+		mbti_esfp_11
+	}
+
+	prowess = 4
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_isfp_8.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_isfp_11_character_desc
+			}
+			desc = trait_isfp_11_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_estp_11 = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11_extra
+		mbti_intj_11
+		mbti_intp_11
+		mbti_entj_11
+		mbti_entp_11
+		mbti_infj_11
+		mbti_infp_11
+		mbti_enfj_11
+		mbti_enfp_11
+		mbti_istj_11
+		mbti_isfj_11
+		mbti_estj_11
+		mbti_esfj_11
+		mbti_istp_11
+		mbti_isfp_11
+		mbti_esfp_11
+	}
+
+	stewardship = 3
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_estp_8.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_estp_11_character_desc
+			}
+			desc = trait_estp_11_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_esfp_11 = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11_extra
+		mbti_intj_11
+		mbti_intp_11
+		mbti_entj_11
+		mbti_entp_11
+		mbti_infj_11
+		mbti_infp_11
+		mbti_enfj_11
+		mbti_enfp_11
+		mbti_istj_11
+		mbti_isfj_11
+		mbti_estj_11
+		mbti_esfj_11
+		mbti_istp_11
+		mbti_isfp_11
+		mbti_estp_11
+	}
+
+	martial = 3
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_esfp_8.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esfp_11_character_desc
+			}
+			desc = trait_esfp_11_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_istj_11_extra = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11
+		mbti_infp_11_extra
+		mbti_intj_11
+		mbti_intp_11
+		mbti_entj_11
+		mbti_entp_11
+		mbti_infj_11
+		mbti_infp_11
+		mbti_enfj_11
+		mbti_enfp_11
+		mbti_isfj_11
+		mbti_estj_11
+		mbti_esfj_11
+		mbti_istp_11
+		mbti_isfp_11
+		mbti_estp_11
+		mbti_esfp_11
+	}
+
+	learning = 3
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_istj_8_extra.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istj_11_extra_character_desc
+			}
+			desc = trait_istj_11_extra_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}
+
+mbti_infp_11_extra = {
+	category = lifestyle
+	opposites = {
+		mbti_istj_11_extra
+		mbti_infp_11
+		mbti_intj_11
+		mbti_intp_11
+		mbti_entj_11
+		mbti_entp_11
+		mbti_infj_11
+		mbti_enfj_11
+		mbti_enfp_11
+		mbti_istj_11
+		mbti_isfj_11
+		mbti_estj_11
+		mbti_esfj_11
+		mbti_istp_11
+		mbti_isfp_11
+		mbti_estp_11
+		mbti_esfp_11
+	}
+
+	learning = 3
+	same_opinion = 10
+	shown_in_ruler_designer = no
+
+	icon = mbti_infp_8_extra.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infp_11_extra_character_desc
+			}
+			desc = trait_infp_11_extra_character_desc
+		}
+	}
+
+	compatibility = {
+
+	}
+}

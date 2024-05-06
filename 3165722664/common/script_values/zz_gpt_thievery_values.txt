@@ -1,0 +1,123 @@
+gpt_mt_steal_gold_value = {
+	value = 0
+	add = scope:recipient.monthly_character_income
+	multiply = 6
+	min = 0
+	max = {
+		value = 0
+		add = scope:actor.monthly_character_income
+		multiply = 12
+	}
+	round = yes
+}
+
+gpt_trade_gold_pay = {
+	value = 50
+	add = {
+		value = 0
+		add = scope:gpt_buyer.monthly_character_income
+		multiply = 3
+	}
+	if = {
+		limit = {
+			scope:gpt_buyer.house = {
+				any_house_member = {
+					count >= 10
+					is_alive = yes
+				}
+			}
+		}
+		add = 25
+	}
+	if = {
+		limit = {
+			scope:gpt_buyer.house = {
+				any_house_member = {
+					count >= 20
+					is_alive = yes
+				}
+			}
+		}
+		add = 25
+	}
+	if = {
+		limit = {
+			scope:gpt_buyer.house = {
+				any_house_member = {
+					count >= 30
+					is_alive = yes
+				}
+			}
+		}
+		add = 25
+	}
+	if = {
+		limit = {
+			scope:gpt_buyer.house = {
+				any_house_member = {
+					count >= 40
+					is_alive = yes
+				}
+			}
+		}
+		add = 25
+	}
+	if = {
+		limit = {
+			scope:gpt_buyer.house = {
+				any_house_member = {
+					count >= 50
+					is_alive = yes
+				}
+			}
+		}
+		add = 25
+	}
+	add = {
+		value = 0
+		add = scope:gpt_seller.diplomacy
+		add = scope:gpt_seller.intrigue
+		divide = 2
+	}
+	multiply = scope:gpt_seller.highest_held_title_tier
+	divide = 2
+	divide = 2
+	if = {
+		limit = {
+			scope:gpt_buyer = {
+				OR = {
+					AND = {
+						is_vassal_or_below_of = scope:gpt_seller
+						NOT = { vassal_contract_has_flag = gpt_coinage_rights }
+						NOT = { scope:gpt_buyer = { is_allied_to = scope:gpt_seller } }
+					}
+					is_liege_or_above_of = scope:gpt_seller
+				}
+			}
+		}
+		multiply = 0.8
+	}
+	if = {
+		limit = {
+			scope:gpt_buyer = { is_vassal_or_below_of = scope:gpt_seller vassal_contract_has_flag = gpt_coinage_rights }
+			NOT = { scope:gpt_buyer = { is_allied_to = scope:gpt_seller } }
+		}
+		divide = 2
+	}
+	if = {
+		limit = {
+			scope:gpt_buyer = { is_allied_to = scope:gpt_seller }
+		}
+		divide = 2
+	}
+	min = 25
+	round = yes
+}
+
+gpt_trade_gold_lose = {
+	value = 0
+	add = gpt_trade_gold_pay
+	multiply = 2
+	min = 50
+}
+

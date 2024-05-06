@@ -1,0 +1,1394 @@
+﻿on_game_start_after_lobby = { 
+	on_actions = {
+		gpt_on_game_start
+		gpt_on_game_start_2
+	 # 	gpt_landlock_game_start
+	}
+}
+
+gpt_landlock_game_start = {
+	
+	effect = {
+		every_ruler = {
+
+			if = {
+				limit = {
+					is_landed = yes
+					any_sub_realm_county = {
+						count >= 1
+						is_coastal_county = yes
+					}
+				}
+				add_character_modifier = gpt_coastal_yes
+			}
+			else_if = {
+				limit = {
+					is_landed = yes
+					any_sub_realm_county = {
+						count >= 1
+						is_riverside_county = yes
+					}
+				}
+				add_character_modifier = gpt_coastal_river
+			}
+			else = {
+				add_character_modifier = gpt_coastal_landlock
+			}
+		}
+	}	
+}
+
+gpt_on_game_start = {
+	effect = {
+
+		every_player = {
+			trigger_event = {
+				id = gpt_event_intro.0001
+			}
+		}
+
+		every_culture_global = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add_innovation = innovation_debug_01
+		}
+
+		every_culture_global = {
+			limit = {
+				has_cultural_era_or_later = culture_era_early_medieval
+				has_cultural_pillar = ethos_bellicose
+				has_game_rule = GPT_culture_enabled
+			}
+			add_innovation = innovation_church_01
+			add_innovation = innovation_military_01
+			add_innovation = innovation_tactics_01
+			add_innovation = innovation_slave_01
+			add_innovation = innovation_trade_01
+			add_innovation = innovation_industry_01
+			add_innovation = innovation_aesthetic_01
+			add_innovation = innovation_military_02
+			add_innovation = innovation_tactics_02
+			add_innovation = innovation_trade_02
+		}
+		every_culture_global = {
+			limit = {
+				has_cultural_era_or_later = culture_era_early_medieval
+				has_cultural_pillar = ethos_stoic
+				has_game_rule = GPT_culture_enabled
+			}
+			add_innovation = innovation_church_01
+			add_innovation = innovation_military_01
+			add_innovation = innovation_tactics_01
+			add_innovation = innovation_slave_01
+			add_innovation = innovation_trade_01
+			add_innovation = innovation_industry_01
+			add_innovation = innovation_aesthetic_01
+			add_innovation = innovation_military_02
+			add_innovation = innovation_industry_02
+			add_innovation = innovation_aesthetic_02
+		}
+		every_culture_global = {
+			limit = {
+				has_cultural_era_or_later = culture_era_early_medieval
+				OR = {
+					has_cultural_pillar = ethos_bureaucratic
+					has_cultural_pillar = ethos_methodical
+				}
+				has_game_rule = GPT_culture_enabled
+			}
+			add_innovation = innovation_church_01
+			add_innovation = innovation_military_01
+			add_innovation = innovation_tactics_01
+			add_innovation = innovation_slave_01
+			add_innovation = innovation_trade_01
+			add_innovation = innovation_industry_01
+			add_innovation = innovation_aesthetic_01
+			add_innovation = innovation_trade_02
+			add_innovation = innovation_slave_02
+			add_innovation = innovation_industry_02
+		}
+		every_culture_global = {
+			limit = {
+				has_cultural_era_or_later = culture_era_early_medieval
+				OR = {
+					has_cultural_pillar = ethos_spiritual
+					has_cultural_pillar = ethos_mystic
+				}
+				has_game_rule = GPT_culture_enabled
+			}
+			add_innovation = innovation_church_01
+			add_innovation = innovation_military_01
+			add_innovation = innovation_tactics_01
+			add_innovation = innovation_slave_01
+			add_innovation = innovation_trade_01
+			add_innovation = innovation_industry_01
+			add_innovation = innovation_aesthetic_01
+			add_innovation = innovation_industry_02
+			add_innovation = innovation_aesthetic_02
+			add_innovation = innovation_church_02
+		}
+		every_culture_global = {
+			limit = {
+				has_cultural_era_or_later = culture_era_early_medieval
+				OR = {
+					has_cultural_pillar = ethos_courtly
+					has_cultural_pillar = ethos_festive
+				}
+				has_game_rule = GPT_culture_enabled
+			}
+			add_innovation = innovation_church_01
+			add_innovation = innovation_military_01
+			add_innovation = innovation_tactics_01
+			add_innovation = innovation_slave_01
+			add_innovation = innovation_trade_01
+			add_innovation = innovation_industry_01
+			add_innovation = innovation_aesthetic_01
+			add_innovation = innovation_military_02
+			add_innovation = innovation_aesthetic_02
+			add_innovation = innovation_trade_02
+		}
+		every_culture_global = {
+			limit = {
+				has_cultural_era_or_later = culture_era_early_medieval
+				has_cultural_pillar = ethos_egalitarian
+				has_game_rule = GPT_culture_enabled
+			}
+			add_innovation = innovation_church_01
+			add_innovation = innovation_military_01
+			add_innovation = innovation_tactics_01
+			add_innovation = innovation_slave_01
+			add_innovation = innovation_trade_01
+			add_innovation = innovation_industry_01
+			add_innovation = innovation_aesthetic_01
+			add_innovation = innovation_slave_02
+			add_innovation = innovation_trade_02
+			add_innovation = innovation_military_02
+		}
+		every_culture_global = {
+			limit = {
+				has_cultural_era_or_later = culture_era_early_medieval
+				has_cultural_pillar = ethos_communal
+				has_game_rule = GPT_culture_enabled
+			}
+			add_innovation = innovation_church_01
+			add_innovation = innovation_military_01
+			add_innovation = innovation_tactics_01
+			add_innovation = innovation_slave_01
+			add_innovation = innovation_trade_01
+			add_innovation = innovation_industry_01
+			add_innovation = innovation_aesthetic_01
+			add_innovation = innovation_tactics_02
+			add_innovation = innovation_industry_02
+			add_innovation = innovation_slave_02
+		}
+
+		every_culture_global = {
+			limit = {
+				NOT = { has_cultural_era_or_later = culture_era_early_medieval }
+				has_cultural_pillar = ethos_bellicose
+				has_game_rule = GPT_culture_enabled
+			}
+			add_innovation = innovation_military_01
+			add_innovation = innovation_tactics_01
+			add_innovation = innovation_slave_01
+			add_innovation = innovation_church_01
+		}
+		every_culture_global = {
+			limit = {
+				NOT = { has_cultural_era_or_later = culture_era_early_medieval }
+				has_cultural_pillar = ethos_stoic
+				has_game_rule = GPT_culture_enabled
+			}
+			add_innovation = innovation_military_01
+			add_innovation = innovation_tactics_01
+			add_innovation = innovation_church_01
+			add_innovation = innovation_aesthetic_01
+		}
+		every_culture_global = {
+			limit = {
+				NOT = { has_cultural_era_or_later = culture_era_early_medieval }
+				OR = {
+					has_cultural_pillar = ethos_bureaucratic
+					has_cultural_pillar = ethos_methodical
+				}
+				has_game_rule = GPT_culture_enabled
+			}
+			add_innovation = innovation_slave_01
+			add_innovation = innovation_trade_01
+			add_innovation = innovation_industry_01
+			add_innovation = innovation_aesthetic_01
+
+		}
+		every_culture_global = {
+			limit = {
+				NOT = { has_cultural_era_or_later = culture_era_early_medieval }
+				OR = {
+					has_cultural_pillar = ethos_spiritual
+					has_cultural_pillar = ethos_mystic
+				}
+				has_game_rule = GPT_culture_enabled
+			}
+			add_innovation = innovation_church_01
+			add_innovation = innovation_aesthetic_01
+			add_innovation = innovation_industry_01
+			add_innovation = innovation_slave_01
+
+		}	
+		every_culture_global = {
+			limit = {
+				NOT = { has_cultural_era_or_later = culture_era_early_medieval }
+				OR = {
+					has_cultural_pillar = ethos_courtly
+					has_cultural_pillar = ethos_festive
+				}
+				has_game_rule = GPT_culture_enabled
+			}
+			add_innovation = innovation_military_01
+			add_innovation = innovation_aesthetic_01
+			add_innovation = innovation_trade_01
+			add_innovation = innovation_industry_01
+		}		
+		every_culture_global = {
+			limit = {
+				NOT = { has_cultural_era_or_later = culture_era_early_medieval }
+				has_cultural_pillar = ethos_egalitarian
+				has_game_rule = GPT_culture_enabled
+			}
+			add_innovation = innovation_aesthetic_01
+			add_innovation = innovation_slave_01
+			add_innovation = innovation_trade_01
+			add_innovation = innovation_military_01
+		}		
+		every_culture_global = {
+			limit = {
+				NOT = { has_cultural_era_or_later = culture_era_early_medieval }
+				has_cultural_pillar = ethos_communal
+				has_game_rule = GPT_culture_enabled
+			}
+			add_innovation = innovation_tactics_01
+			add_innovation = innovation_industry_01
+			add_innovation = innovation_slave_01
+			add_innovation = innovation_church_01
+		}			
+
+
+
+
+
+
+		every_culture_global = {
+			limit = {
+				has_cultural_pillar = ethos_bellicose
+				has_game_rule = GPT_culture_enabled
+				exists = culture_head
+			}
+			random_list = {
+				5 = { add_culture_tradition = tradition_iron_will }
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_war_phylosphy 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_temple_milit 
+				}
+				5 = { add_culture_tradition = tradition_divine_armaments }
+				5 = { add_culture_tradition = tradition_incentived_rivalry }
+				5 = { add_culture_tradition = tradition_brewer_brigade }
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_siege_engin 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_contract_allegiance 
+				}
+				5 = { add_culture_tradition = tradition_cruel_masters }
+				5 = { add_culture_tradition = tradition_public_trials }
+				0 = {
+					modifier = {
+						add = 5
+						NOR = {
+							has_cultural_tradition = tradition_monogamous
+							has_cultural_tradition = tradition_polygamous
+							has_cultural_tradition = tradition_concubines
+						}
+					}
+					add_culture_tradition = tradition_exess_luxury 
+				}
+				5 = { add_culture_tradition = tradition_shilded_allegiance }
+				5 = { add_culture_tradition = tradition_roving_warbands }
+				5 = { add_culture_tradition = tradition_blissful_ignorance }
+				5 = { add_culture_tradition = tradition_secular_idols }
+				5 = { add_culture_tradition = tradition_collective_prowess }
+			}
+		}
+
+		every_culture_global = {
+			limit = {
+				has_cultural_pillar = ethos_stoic
+				has_game_rule = GPT_culture_enabled
+				exists = culture_head
+			}
+			random_list = {
+				5 = { add_culture_tradition = tradition_iron_will }
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_contractualists 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_mercenary_guilds 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_innovative_trade 
+				}
+				5 = { add_culture_tradition = tradition_silent_strategists }
+				5 = { add_culture_tradition = tradition_meritocracy }
+				5 = { add_culture_tradition = tradition_bartering }
+				5 = { add_culture_tradition = tradition_unpretentious }
+				5 = { add_culture_tradition = tradition_chaste }
+				5 = { add_culture_tradition = tradition_honor_duels }
+				5 = { add_culture_tradition = tradition_minimalistics }
+				5 = { add_culture_tradition = tradition_concealed_trials }
+				5 = { add_culture_tradition = tradition_rite_of_passage }
+				5 = { add_culture_tradition = tradition_pragmatism }
+				5 = { add_culture_tradition = tradition_honorable_surrender }
+				5 = { add_culture_tradition = tradition_open_politics }
+				5 = { add_culture_tradition = tradition_ceremonial_warfare }
+				5 = { add_culture_tradition = tradition_opulent_forts }
+			}
+		}
+
+		every_culture_global = {
+			limit = {
+				OR = {
+					has_cultural_pillar = ethos_bureaucratic
+					has_cultural_pillar = ethos_methodical
+				}
+				has_game_rule = GPT_culture_enabled
+				exists = culture_head
+			}
+			random_list = {
+				5 = { add_culture_tradition = tradition_incentived_rivalry }
+				5 = { add_culture_tradition = tradition_brewer_brigade }
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_siege_engin 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_contract_allegiance 
+				}
+				5 = { add_culture_tradition = tradition_cruel_masters }
+				5 = { add_culture_tradition = tradition_public_trials }
+				0 = {
+					modifier = {
+						add = 5
+						NOR = {
+							has_cultural_tradition = tradition_monogamous
+							has_cultural_tradition = tradition_polygamous
+							has_cultural_tradition = tradition_concubines
+						}
+					}
+					add_culture_tradition = tradition_exess_luxury 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_contractualists 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_mercenary_guilds 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_innovative_trade 
+				}
+				5 = { add_culture_tradition = tradition_silent_strategists }
+				5 = { add_culture_tradition = tradition_meritocracy }
+				5 = { add_culture_tradition = tradition_arbitrary_laws }
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_refined_tastes 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_exagerated_ettiquete 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						any_culture_county = {
+							any_county_province = {
+								is_coastal = yes
+							}
+						}
+					}
+					add_culture_tradition = tradition_astronomers 
+				}
+				5 = { add_culture_tradition = tradition_nepotists }
+			}
+		}
+		every_culture_global = {
+			limit = {
+				OR = {
+					has_cultural_pillar = ethos_spiritual
+					has_cultural_pillar = ethos_mystic
+				}
+				has_game_rule = GPT_culture_enabled
+				exists = culture_head
+			}
+			random_list = {
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_war_phylosphy 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_temple_milit 
+				}
+				5 = { add_culture_tradition = tradition_divine_armaments }
+				5 = { add_culture_tradition = tradition_bartering }
+				5 = { add_culture_tradition = tradition_unpretentious }
+				5 = { add_culture_tradition = tradition_chaste }
+				5 = { add_culture_tradition = tradition_detachment }
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_ortodoxy 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_bookkeppers 
+				}
+				5 = { add_culture_tradition = tradition_advice_seekers }
+				5 = { add_culture_tradition = tradition_gnosticism }
+				5 = { add_culture_tradition = tradition_levy_tributes }
+				5 = { add_culture_tradition = tradition_arbitrary_laws }
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_refined_tastes 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_exagerated_ettiquete 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						any_culture_county = {
+							any_county_province = {
+								is_coastal = yes
+							}
+						}
+					}
+					add_culture_tradition = tradition_astronomers 
+				}
+				5 = { add_culture_tradition = tradition_nepotists }
+			}
+		}	
+		every_culture_global = {
+			limit = {
+				OR = {
+					has_cultural_pillar = ethos_courtly
+					has_cultural_pillar = ethos_festive
+				}
+				has_game_rule = GPT_culture_enabled
+				exists = culture_head
+			}
+			random_list = {
+				5 = { add_culture_tradition = tradition_open_politics }
+				5 = { add_culture_tradition = tradition_ceremonial_warfare }
+				5 = { add_culture_tradition = tradition_opulent_forts }
+				5 = { add_culture_tradition = tradition_child_mythos }
+				5 = { add_culture_tradition = tradition_gallant_pua }
+				5 = { add_culture_tradition = tradition_secret_politics }
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_ortodoxy 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_bookkeppers 
+				}
+				5 = { add_culture_tradition = tradition_backstabbers }
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_zookeppers 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						any_culture_county = {
+							percent >= 0.3
+							any_county_province = {
+								OR = {
+									terrain = plains
+									terrain = steppe
+								 #	geographical_region = world_steppe
+								}
+							}
+						}
+					}
+					add_culture_tradition = tradition_equestrian_elegance 
+				}
+				5 = { add_culture_tradition = tradition_auxiliary_troops }
+				5 = { add_culture_tradition = tradition_arbitrary_laws }
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_refined_tastes 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_exagerated_ettiquete 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						any_culture_county = {
+							any_county_province = {
+								is_coastal = yes
+							}
+						}
+					}
+					add_culture_tradition = tradition_astronomers 
+				}
+				5 = { add_culture_tradition = tradition_nepotists }
+			}
+		}		
+		every_culture_global = {
+			limit = {
+				has_cultural_pillar = ethos_egalitarian
+				has_game_rule = GPT_culture_enabled
+				exists = culture_head
+			}
+			random_list = {
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_war_phylosphy 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_temple_milit 
+				}
+				5 = { add_culture_tradition = tradition_divine_armaments }
+				5 = { add_culture_tradition = tradition_pragmatism }
+				5 = { add_culture_tradition = tradition_honorable_surrender }
+				5 = { add_culture_tradition = tradition_benevolent_masters }
+				5 = { add_culture_tradition = tradition_feminists }
+				5 = { add_culture_tradition = tradition_network_warfare }
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_inclusive_guilds 
+				}
+				5 = { add_culture_tradition = tradition_advice_seekers }
+				5 = { add_culture_tradition = tradition_gnosticism }
+				5 = { add_culture_tradition = tradition_levy_tributes }
+				5 = { add_culture_tradition = tradition_backstabbers }
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_zookeppers 
+				}
+				0 = {
+					modifier = {
+						add = 5
+						any_culture_county = {
+							percent >= 0.3
+							any_county_province = {
+								OR = {
+									terrain = plains
+									terrain = steppe
+								 #	geographical_region = world_steppe
+								}
+							}
+						}
+					}
+					add_culture_tradition = tradition_equestrian_elegance 
+				}
+				5 = { add_culture_tradition = tradition_auxiliary_troops }
+			}
+		}		
+		every_culture_global = {
+			limit = {
+				has_cultural_pillar = ethos_communal
+				has_game_rule = GPT_culture_enabled
+				exists = culture_head
+			}
+			random_list = {
+				5 = { add_culture_tradition = tradition_shilded_allegiance }
+				5 = { add_culture_tradition = tradition_roving_warbands }
+				5 = { add_culture_tradition = tradition_blissful_ignorance }
+				5 = { add_culture_tradition = tradition_secular_idols }
+				5 = { add_culture_tradition = tradition_collective_prowess }
+				5 = { add_culture_tradition = tradition_honor_duels }
+				5 = { add_culture_tradition = tradition_minimalistics }
+				5 = { add_culture_tradition = tradition_concealed_trials }
+				5 = { add_culture_tradition = tradition_rite_of_passage }
+				5 = { add_culture_tradition = tradition_benevolent_masters }
+				5 = { add_culture_tradition = tradition_feminists }
+				5 = { add_culture_tradition = tradition_network_warfare }
+				0 = {
+					modifier = {
+						add = 5
+						culture_head = {
+							OR = {
+								government_has_flag = government_is_feudal
+								government_has_flag = government_is_clan
+							}
+						}
+					}
+					add_culture_tradition = tradition_inclusive_guilds 
+				}
+				5 = { add_culture_tradition = tradition_child_mythos }
+				5 = { add_culture_tradition = tradition_gallant_pua }
+				5 = { add_culture_tradition = tradition_secret_politics }
+			}
+		}
+	}
+}
+
+gpt_on_game_start_2 = {
+	effect = {
+
+		every_independent_ruler = {
+			limit = {
+				is_landed = yes
+				realm_law_use_realm_administration_law = yes
+				highest_held_title_tier = 4
+				capital_province.county = { development_level >= 25 }
+				capital_province = {
+					is_county_capital = yes
+					has_special_building = yes 
+				}
+			}
+			add_realm_law = realm_administration_law_2
+		}
+
+		every_independent_ruler = {
+			limit = {
+				is_landed = yes
+				realm_law_use_realm_administration_law = yes
+				highest_held_title_tier = 5
+				capital_province.county = { development_level >= 25 }
+				capital_province = {
+					is_county_capital = yes
+					has_special_building = yes 
+				}
+			}
+			add_realm_law = realm_administration_law_3
+		}
+
+
+		every_independent_ruler = {
+
+			if = {
+				limit = {
+					has_game_rule = GPT_headstart_enabled
+					is_landed = yes
+				}
+				if = {
+					limit = {
+						highest_held_title_tier >= 4
+						realm_law_use_crown_authority = yes
+						capital_province.county = { development_level >= 25 }
+					}
+					add_realm_law_skip_effects = crown_authority_1
+					add_realm_law_skip_effects = crown_authority_2
+					add_dread = 30
+					add_gold = 750
+				}
+				if = {
+					limit = {
+						highest_held_title_tier >= 4
+						realm_law_use_crown_authority = yes
+						capital_province.county = { development_level < 25 }
+					}
+					add_realm_law_skip_effects = crown_authority_1
+					add_dread = 30
+					add_gold = 250
+				}
+				if = {
+					limit = {
+						highest_held_title_tier = 3
+						realm_law_use_crown_authority = yes
+						capital_province.county = { development_level >= 15 }
+					}
+					add_realm_law_skip_effects = crown_authority_1
+					add_dread = 15
+				}
+				if = {
+					limit = {
+						highest_held_title_tier = 3
+						realm_law_use_crown_authority = yes
+						capital_province.county = { development_level < 15 }
+					}
+					add_dread = 15
+				}
+				if = {
+					limit = {
+						highest_held_title_tier >= 4
+						realm_law_use_tribal_authority = yes
+					}
+					add_realm_law_skip_effects = tribal_authority_1
+					add_realm_law_skip_effects = tribal_authority_2
+					add_dread = 30
+				}
+				if = {
+					limit = {
+						highest_held_title_tier = 3
+						realm_law_use_tribal_authority = yes
+					}
+					add_realm_law_skip_effects = tribal_authority_1
+					add_dread = 15
+				}
+
+				if = {
+					limit = {
+						highest_held_title_tier = 5
+					}
+					add_prestige_level = 3
+				}
+				if = {
+					limit = {
+						highest_held_title_tier = 4
+					}
+					add_prestige_level = 2
+				}
+				if = {
+					limit = {
+						highest_held_title_tier = 3
+					}
+					add_prestige_level = 1
+				}
+
+				if = {
+					limit = {
+						highest_held_title_tier = 5
+						exists = house
+						exists = house.house_head
+						is_house_head = yes
+					}
+					dynasty = { add_dynasty_prestige_level = 3 }
+					if = {
+						limit = {
+							num_sinful_traits = 0
+							num_virtuous_traits >= 1
+						}
+						add_piety_level = 3
+					}
+				}
+				if = {
+					limit = {
+						highest_held_title_tier = 4
+						exists = house
+						exists = house.house_head
+						is_house_head = yes
+					}
+					dynasty = { add_dynasty_prestige_level = 2 }
+					if = {
+						limit = {
+							num_sinful_traits = 0
+							num_virtuous_traits >= 1
+						}
+						add_piety_level = 2
+					}
+				}
+				if = {
+					limit = {
+						highest_held_title_tier = 3
+					}
+					if = {
+						limit = {
+							num_sinful_traits = 0
+							num_virtuous_traits >= 1
+						}
+						add_piety_level = 1
+					}
+				}
+				
+				if = {
+					limit = {
+						exists = capital_province
+						highest_held_title_tier = 2
+						NOT = { government_has_flag = government_is_tribal }
+						is_independent_ruler = yes
+					}
+					spawn_army = {
+						levies = {
+							value = 0
+							add = {
+								value = 100
+								multiply = monthly_character_income
+							}
+						}
+						location = capital_province
+						inheritable = yes
+						name = loyal_army
+					}
+				}
+
+
+
+				if = {
+					limit = {
+						exists = capital_province
+						highest_held_title_tier = 2
+						government_has_flag = government_is_tribal
+						is_independent_ruler = yes
+					}
+					spawn_army = {
+						levies = {
+							value = 0
+							add = {
+								value = 150
+								multiply = monthly_character_income
+							}
+						}
+						location = capital_province
+						inheritable = yes
+						name = loyal_army
+					}
+				}
+
+				if = {
+					limit = {
+						exists = capital_province
+						highest_held_title_tier >= 3
+						government_has_flag = government_is_tribal
+						is_independent_ruler = yes
+						NOR = {
+							#AGOT Added
+							# culture = { has_cultural_pillar = heritage_turkic }
+							# culture = { has_cultural_pillar = heritage_mongolic }
+							culture = { has_cultural_pillar = heritage_dothraki }
+						}
+					}
+					spawn_army = {
+						levies = {
+							value = 0
+							add = {
+								value = 100
+								multiply = monthly_character_income
+							}
+						}
+						men_at_arms = {
+							type = light_horsemen
+							stacks = {
+								add = {
+									value = highest_held_title_tier
+									add = -2
+								}
+							}
+						}
+						men_at_arms = {
+							type = light_footmen
+							stacks = {
+								add = {
+									value = highest_held_title_tier
+									add = -2
+								}
+							}
+						}
+						location = capital_province
+						inheritable = yes
+						name = loyal_army
+					}
+				}
+
+				if = {
+					limit = {
+						exists = capital_province
+						highest_held_title_tier >= 3
+						is_independent_ruler = yes
+						OR = {
+							# culture = { has_cultural_pillar = heritage_turkic }
+							# culture = { has_cultural_pillar = heritage_mongolic }
+							culture = { has_cultural_pillar = heritage_dothraki }
+						}
+					}
+					spawn_army = {
+						levies = {
+							value = 0
+							add = {
+								value = 75
+								multiply = monthly_character_income
+							}
+						}
+						men_at_arms = {
+							type = horse_archers
+							stacks = {
+								add = {
+									value = highest_held_title_tier
+									add = -2
+									multiply = 1.5
+								}
+							}
+						}
+						location = capital_province
+						inheritable = yes
+						name = loyal_army
+					}
+				}
+
+				if = {
+					limit = {
+						exists = capital_province
+						highest_held_title_tier >= 3
+						government_has_flag = government_is_feudal
+						NOR = {
+							# culture = { has_cultural_pillar = heritage_turkic }
+							# culture = { has_cultural_pillar = heritage_mongolic }
+							culture = { has_cultural_pillar = heritage_dothraki }
+						}
+						is_independent_ruler = yes
+					}
+					spawn_army = {
+						levies = {
+							value = 0
+							add = {
+								value = 75
+								multiply = monthly_character_income
+							}
+						}
+						men_at_arms = {
+							type = armored_horsemen
+							stacks = {
+								add = {
+									value = highest_held_title_tier
+									add = -2
+								}
+							}
+						}
+						men_at_arms = {
+							type = pikemen_unit
+							stacks = {
+								add = {
+									value = highest_held_title_tier
+									add = -2
+								}
+							}
+						}
+						location = capital_province
+						inheritable = yes
+						name = loyal_army
+					}
+				}
+
+				if = {
+					limit = {
+						exists = capital_province
+						highest_held_title_tier >= 3
+						government_has_flag = government_is_clan
+						NOR = {
+							# culture = { has_cultural_pillar = heritage_turkic }
+							# culture = { has_cultural_pillar = heritage_mongolic }
+							culture = { has_cultural_pillar = heritage_dothraki }
+						}
+						is_independent_ruler = yes
+					}
+					spawn_army = {
+						levies = {
+							value = 0
+							add = {
+								value = 75
+								multiply = monthly_character_income
+							}
+						}
+						men_at_arms = {
+							type = armored_footmen
+							stacks = {
+								add = {
+									value = highest_held_title_tier
+									add = -2
+								}
+							}
+						}
+						men_at_arms = {
+							type = bowmen
+							stacks = {
+								add = {
+									value = highest_held_title_tier
+									add = -2
+								}
+							}
+						}
+						location = capital_province
+						inheritable = yes
+						name = loyal_army
+					}
+				}
+
+				if = {
+					limit = {
+						exists = capital_province
+						highest_held_title_tier >= 3
+						is_independent_ruler = yes
+						OR = {
+							government_has_flag = government_is_theocracy
+							government_has_flag = government_is_republic
+						}
+						NOR = {
+							# culture = { has_cultural_pillar = heritage_turkic }
+							# culture = { has_cultural_pillar = heritage_mongolic }
+							culture = { has_cultural_pillar = heritage_dothraki }
+						}
+					}
+					spawn_army = {
+						levies = {
+							value = 0
+							add = {
+								value = 50
+								multiply = monthly_character_income
+							}
+						}
+						men_at_arms = {
+							type = pikemen_unit
+							stacks = {
+								add = {
+									value = highest_held_title_tier
+									add = -2
+								}
+							}
+						}
+						men_at_arms = {
+							type = bowmen
+							stacks = {
+								add = {
+									value = highest_held_title_tier
+									add = -2
+								}
+							}
+						}
+						location = capital_province
+						inheritable = yes
+						name = loyal_army
+					}
+				}
+
+
+				every_vassal_or_below = {
+
+					
+					if = {
+						limit = {
+							exists = capital_province
+							NOT = { government_has_flag = government_is_tribal }
+						}
+						spawn_army = {
+							levies = {
+								value = 0
+								add = {
+									value = 50
+									multiply = monthly_character_income
+								}
+							}
+							location = capital_province
+							inheritable = yes
+							name = loyal_army
+						}
+					}
+
+					if = {
+						limit = {
+							exists = capital_province
+							government_has_flag = government_is_tribal
+						}
+						spawn_army = {
+							levies = {
+								value = 0
+								add = {
+									value = 100
+									multiply = monthly_character_income
+								}
+							}
+							location = capital_province
+							inheritable = yes
+							name = loyal_army
+						}
+					}
+
+					if = {
+						limit = {
+							highest_held_title_tier = 4
+						}
+						add_prestige_level = 2
+					}
+					if = {
+						limit = {
+							highest_held_title_tier = 3
+						}
+						add_prestige_level = 1
+					}
+
+					if = {
+						limit = {
+							highest_held_title_tier = 4
+							exists = house
+							exists = house.house_head
+							is_house_head = yes
+						}
+						dynasty = { add_dynasty_prestige_level = 3 }
+						if = {
+							limit = {
+								num_sinful_traits = 0
+								num_virtuous_traits >= 1
+							}
+							add_piety_level = 2
+						}
+					}
+					if = {
+						limit = {
+							highest_held_title_tier = 3
+							exists = house
+							exists = house.house_head
+							is_house_head = yes
+						}
+						dynasty = { add_dynasty_prestige_level = 2 }
+						if = {
+							limit = {
+								num_sinful_traits = 0
+								num_virtuous_traits >= 1
+							}
+							add_piety_level = 1
+						}
+					}
+				}				
+			}
+		}
+	}
+}
+

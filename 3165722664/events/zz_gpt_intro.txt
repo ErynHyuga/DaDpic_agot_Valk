@@ -1,0 +1,110 @@
+﻿namespace = gpt_event_intro
+
+gpt_event_intro.0001 = {
+	type = character_event
+	title = gpt_event_intro.0001.title
+	desc = gpt_event_intro.0001.desc
+	
+	theme = diplomacy_family_focus
+	
+	right_portrait = {
+		character = root
+		animation = admiration
+	}
+
+	trigger = { 
+		is_ai = no
+	}
+
+ #	option = { name = gpt_event_intro.0001.a trigger_event = { id = gpt_event_intro.0002 } }
+ #	option = { name = gpt_event_intro.0001.b trigger_event = { id = gpt_event_intro.0003 } }
+ #	option = { name = gpt_event_intro.0001.c trigger_event = { id = gpt_event_intro.0004 } }
+
+	option = {
+		name = gpt_event_intro.0001.z
+	}
+}
+
+gpt_event_intro.0002 = {
+	type = character_event
+	title = gpt_event_intro.0001.title
+	desc = gpt_event_intro.0002.desc
+	
+	theme = diplomacy_family_focus
+	
+	right_portrait = {
+		character = root
+		animation = admiration
+	}
+
+	trigger = { 
+		is_ai = no
+	}
+
+	option = {
+		name = gpt_event_intro.0001.x
+		trigger_event = {
+			id = gpt_event_intro.0001
+		}
+	}
+
+	option = {
+		name = gpt_event_intro.0001.z
+	}
+}
+
+gpt_event_intro.0003 = {
+	type = character_event
+	title = gpt_event_intro.0001.title
+	desc = gpt_event_intro.0003.desc
+	
+	theme = diplomacy_family_focus
+	
+	right_portrait = {
+		character = root
+		animation = admiration
+	}
+
+	trigger = { 
+		is_ai = no
+	}
+
+	option = {
+		name = gpt_event_intro.0001.x
+		trigger_event = {
+			id = gpt_event_intro.0001
+		}
+	}
+
+	option = {
+		name = gpt_event_intro.0001.z
+	}
+}
+
+gpt_event_intro.0004 = {
+	type = character_event
+	title = gpt_event_intro.0001.title
+	desc = gpt_event_intro.0003.desc
+	
+	theme = diplomacy_family_focus
+	
+	right_portrait = {
+		character = root
+		animation = admiration
+	}
+
+	trigger = { 
+		is_ai = no
+	}
+
+	option = {
+		name = gpt_event_intro.0001.x
+		trigger_event = {
+			id = gpt_event_intro.0001
+		}
+	}
+
+	option = {
+		name = gpt_event_intro.0001.z
+	}
+}

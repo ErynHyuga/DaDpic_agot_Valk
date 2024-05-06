@@ -1,0 +1,761 @@
+﻿### Toast SFX
+@default_toast_soundeffect = "event:/SFX/UI/Notifications/Toasts/sfx_ui_notification_toast_generic"
+@toast_soundeffect_neutral = "event:/SFX/UI/Notifications/Toasts/sfx_ui_notifications_toast_neutral"
+@toast_soundeffect_good = "event:/SFX/UI/Notifications/Toasts/sfx_ui_notifications_toast_positive"
+@toast_soundeffect_bad = "event:/SFX/UI/Notifications/Toasts/sfx_ui_notifications_toast_negative"
+
+
+### Message SFX
+@default_msg_soundeffect = "event:/SFX/UI/Notifications/Messages/sfx_ui_message_theme_neutral"
+@msg_neutral_soundeffect = "event:/SFX/UI/Notifications/Messages/sfx_ui_message_theme_neutral"
+@msg_good_soundeffect = "event:/SFX/UI/Notifications/Messages/sfx_ui_message_theme_positive"
+@msg_bad_soundeffect = "event:/SFX/UI/Notifications/Messages/sfx_ui_message_theme_negative"
+
+### Descriptions
+# desc = event_message_effect
+# desc = event_message_text
+# desc = event_message_text_and_effect
+# desc = event_message_effect_and_text
+
+event_waralert_bad_with_text = {
+	icon = "waralert"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_waralert_neutral_with_text = {
+	icon = "waralert"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_waralert_good_with_text = {
+	icon = "waralert"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_report_bad_with_text = {
+	icon = "report"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_report_neutral_with_text = {
+	icon = "report"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_report_good_with_text = {
+	icon = "report"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_domain_bad_with_text = {
+	icon = "building"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_domain_neutral_with_text = {
+	icon = "building"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_domain_good_with_text = {
+	icon = "building"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_dread_bad_with_text = {
+	icon = "control"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_dread_neutral_with_text = {
+	icon = "control"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_dread_good_with_text = {
+	icon = "control"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+
+
+event_realmsize_bad_with_text = {
+	icon = "realmsize"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_realmsize_good_with_text = {
+	icon = "realmsize"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_realmsize_neutral_with_text = {
+	icon = "realmsize"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_dreadfull_bad_with_text = {
+	icon = "dreadfull"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_dreadfull_neutral_with_text = {
+	icon = "dreadfull"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_dreadfull_good_with_text = {
+	icon = "dreadfull"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_corruption_bad_with_text = {
+	icon = "county_corruption"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_sabotage_bad_with_text = {
+	icon = "sabotage"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_ingratitude_bad_with_text = {
+	icon = "ingratitude"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_trade_good_with_text = {
+	icon = "law"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_industry_good_with_text = {
+	icon = "technology"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_trade_bad_with_text = {
+	icon = "law"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_industry_bad_with_text = {
+	icon = "technology"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_council_stw_good_with_text = {
+	icon = "icon_tax_collector"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_council_stw_bad_with_text = {
+	icon = "county_corruption"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_council_dip_good_with_text = {
+	icon = "a_catch_all_councillor_icon"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_council_dip_bad_with_text = {
+	icon = "generic_neutral_effect"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_council_ler_good_with_text = {
+	icon = "learning"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_council_ler_bad_with_text = {
+	icon = "heresy"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_council_int_good_with_text = {
+	icon = "secret"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_council_int_bad_with_text = {
+	icon = "spy_master"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_council_mar_good_with_text = {
+	icon = "control"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_council_mar_bad_with_text = {
+	icon = "tension"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_herald_good_with_text = {
+	icon = "activity"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_herald_bad_with_text = {
+	icon = "excommunication"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_stressed_good_with_text = {
+	icon = "icon_stress_loss"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_stressed_bad_with_text = {
+	icon = "icon_stress_loss"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_stress_gain_bad_with_text = {
+	icon = "icon_stress_gain"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_mbti_trait_with_text = {
+	icon = "trait"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+
+
+event_buying_prestige_with_text = {
+	icon = "tier_up"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_buying_piety_with_text = {
+	icon = "religious"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_buying_dread_with_text = {
+	icon = "hook"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_buying_renown_with_text = {
+	icon = "icon_house_unity"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_house_head_good_with_text = {
+	icon = "icon_house_unity"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_house_head_bad_with_text = {
+	icon = "antagonistic"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_tyranny_gold_with_text = {
+	icon = "icon_tax_collector"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_tyranny_army_with_text = {
+	icon = "request_mercenary"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_decision_start_end_with_text = {
+	icon = "icon_shift_privileges"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_expedition_progress_with_text = {
+	icon = "change_allegiance"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_expedition_success_with_text = {
+	icon = "icon_dynasty"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+
+
+event_house_head_good_with_text = {
+	icon = "icon_house_unity"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_gpt_trade_bad_with_text = {
+	icon = "tradeship"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_gpt_trade_good_with_text = {
+	icon = "tradeship"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_gpt_trade_neutral_with_text = {
+	icon = "tradeship"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_gpt_piracy_bad_with_text = {
+	icon = "pirateflag"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_gpt_liege_bad_with_text = {
+	icon = "rival"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_gpt_liege_good_with_text = {
+	icon = "rival"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_gpt_landlock_bad_with_text = {
+	icon = "coastal_sea"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_gpt_landlock_neutral_with_text = {
+	icon = "coastal_sea"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_gpt_landlock_good_with_text = {
+	icon = "coastal_sea"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_gpt_farmlands_bad_with_text = {
+	icon = "farmlands"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_gpt_plains_bad_with_text = {
+	icon = "plains"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_gpt_forest_bad_with_text = {
+	icon = "forest"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_gpt_hills_bad_with_text = {
+	icon = "hills"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_gpt_farmlands_neutral_with_text = {
+	icon = "farmlands"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_gpt_plains_neutral_with_text = {
+	icon = "plains"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_gpt_forest_neutral_with_text = {
+	icon = "forest"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_gpt_hills_neutral_with_text = {
+	icon = "hills"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_covert_bad_with_text = {
+	icon = "schemies"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_pp_bad_with_text = {
+	icon = "icon_scheme_claim_throne"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_pp_neutral_with_text = {
+	icon = "icon_scheme_claim_throne"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_pp_good_with_text = {
+	icon = "icon_scheme_claim_throne"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_favoritism_good_with_text = {
+	icon = "task_religious_relations"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+
+
+
+
+event_gpt_unpredictable_good_with_text = {
+	icon = "unpredictable"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_gpt_glory_hound_good_with_text = {
+	icon = "glory_hound"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_gpt_parochial_good_with_text = {
+	icon = "parochial"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_gpt_courtly_good_with_text = {
+	icon = "courtly"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_gpt_zealot_good_with_text = {
+	icon = "zealot"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_gpt_minority_good_with_text = {
+	icon = "minority"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+
+event_gpt_glory_hound_bad_with_text = {
+	icon = "glory_hound"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_gpt_parochial_bad_with_text = {
+	icon = "parochial"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_gpt_courtly_bad_with_text = {
+	icon = "courtly"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_gpt_zealot_bad_with_text = {
+	icon = "zealot"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_gpt_minority_bad_with_text = {
+	icon = "minority"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+
+
+
+
+event_gpt_emoji_lv5_with_text = {
+	icon = "emoji_1_positive"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_gpt_emoji_lv4_with_text = {
+	icon = "emoji_2_positive"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+event_gpt_emoji_lv3_with_text = {
+	icon = "emoji_3_positive"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = neutral
+	soundeffect = @msg_neutral_soundeffect
+}
+
+event_gpt_emoji_lv2_with_text = {
+	icon = "emoji_4_negative"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+event_gpt_emoji_lv1_with_text = {
+	icon = "emoji_5_negative"
+	title = event_message_title
+	desc = event_message_text_and_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}

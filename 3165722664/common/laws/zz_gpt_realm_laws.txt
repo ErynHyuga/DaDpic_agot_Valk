@@ -1,0 +1,324 @@
+﻿@crown_authority_cooldown_2_years = 5
+
+realm_administration_law = {
+	default = realm_administration_law_0
+	cumulative = no
+	flag = realm_law
+	
+	realm_administration_law_0 = {
+		modifier = {
+			dread_baseline_add = 10
+			development_growth_factor = -0.20
+			monthly_county_control_growth_factor = 0.20
+			intimidated_vassal_tax_contribution_mult = 0.10
+			intimidated_vassal_levy_contribution_mult = 0.10
+			cowed_vassal_tax_contribution_mult = 0.20
+			cowed_vassal_levy_contribution_mult = 0.20
+			glory_hound_opinion = 10
+			courtly_opinion = -10
+			parochial_opinion = -10
+			zealot_opinion = 10
+		}
+
+		can_keep = { 
+			highest_held_title_tier	>= 2
+			realm_law_use_realm_administration_law = yes
+		}
+
+		can_pass = {
+			trigger_if = {
+				limit = { 
+					OR = {
+						has_realm_law = realm_administration_law_1
+						has_realm_law = realm_administration_law_2
+						has_realm_law = realm_administration_law_3
+					}
+				}
+				custom_tooltip = {
+					subject = root
+					text = "has_crown_authority_cooldown_2"
+					NOT = {
+						has_variable = crown_authority_cooldown_2
+					}
+				}
+			}
+		}
+
+		on_pass = {
+			# Increment cooldown breaker tally, if appropriate.
+			# calculate_authority_cooldown_break_effect = yes
+			# Set regular cooldown.
+			set_variable = {
+				name = crown_authority_cooldown_2
+				years = @crown_authority_cooldown_2_years
+			}
+		}
+
+		pass_cost = { 
+			gold = {
+				value = 0
+				if = {
+					limit = {
+						is_ai = no
+					}
+					add = 50
+				}
+			} 
+		}
+
+		ai_will_do = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							dread > 30
+							highest_held_title_tier <= 3
+						}
+						capital_province.county = { development_level < 15 }
+					}					
+				}
+				value = 100
+			}
+		}
+	}
+	
+	realm_administration_law_1 = {
+		modifier = {
+			development_growth_factor = -0.10
+			monthly_county_control_growth_factor = 0.10
+			happy_powerful_vassal_tax_contribution_mult = 0.20
+			happy_powerful_vassal_levy_contribution_mult = 0.20
+			monthly_prestige_gain_per_happy_powerful_vassal_mult = -0.05
+			glory_hound_opinion = 5
+			courtly_opinion = -5
+			parochial_opinion = -5
+			zealot_opinion = 5
+		}
+
+		can_keep = { 
+			highest_held_title_tier	>= 3
+			realm_law_use_realm_administration_law = yes
+			capital_province.county = { development_level >= 15 }
+		}
+
+		can_pass = {
+			trigger_if = {
+				limit = { 
+					OR = {
+						has_realm_law = realm_administration_law_0
+						has_realm_law = realm_administration_law_2
+						has_realm_law = realm_administration_law_3
+					}
+				}
+				custom_tooltip = {
+					subject = root
+					text = "has_crown_authority_cooldown_2"
+					NOT = {
+						has_variable = crown_authority_cooldown_2
+					}
+				}
+			}
+		}
+		
+		pass_cost = { 
+			gold = {
+				value = 0
+				if = {
+					limit = {
+						is_ai = no
+					}
+					add = 100
+				}
+			} 
+		}
+		
+		on_pass = {
+			# Increment cooldown breaker tally, if appropriate.
+			# calculate_authority_cooldown_break_effect = yes
+			# Set regular cooldown.
+			set_variable = {
+				name = crown_authority_cooldown_2
+				years = @crown_authority_cooldown_2_years
+			}
+		}
+
+		ai_will_do = {
+			if = {
+				limit = {
+					highest_held_title_tier	<= 3
+					dread < 30
+					capital_province.county = { development_level > 15 }				
+				}
+				value = 100
+			}
+		}
+	}
+	
+	realm_administration_law_2 = {
+		modifier = { 
+			domain_tax_mult = 0.10
+			levy_size = 0.10
+			build_speed = -0.20
+			monthly_piety_gain_mult = -0.20
+			development_growth_factor = 0.10
+		 	cultural_head_fascination_mult = 0.10
+			monthly_county_control_growth_factor = -0.10
+			glory_hound_opinion = -5
+			courtly_opinion = 5
+			parochial_opinion = 5
+			zealot_opinion = -5
+		}
+		
+		can_keep = { 
+			highest_held_title_tier	>= 4
+			realm_law_use_realm_administration_law = yes
+			capital_province.county = { development_level >= 25 }
+			capital_province = {
+				is_county_capital = yes
+				has_special_building = yes 
+			}
+		}
+		
+		can_pass = {
+			trigger_if = {
+				limit = { 
+					OR = {
+						has_realm_law = realm_administration_law_0
+						has_realm_law = realm_administration_law_1
+						has_realm_law = realm_administration_law_3
+					}
+				}
+				custom_tooltip = {
+					subject = root
+					text = "has_crown_authority_cooldown_2"
+					NOT = {
+						has_variable = crown_authority_cooldown_2
+					}
+				}
+			}
+		}
+
+		pass_cost = { 
+			gold = {
+				value = 0
+				if = {
+					limit = {
+						is_ai = no
+					}
+					add = 200
+				}
+			} 
+		}
+		
+		on_pass = {
+			# Increment cooldown breaker tally, if appropriate.
+		 	# calculate_authority_cooldown_break_effect = yes
+			# Set regular cooldown.
+			set_variable = {
+				name = crown_authority_cooldown_2
+				years = @crown_authority_cooldown_2_years
+			}
+		}
+
+		ai_will_do = {
+			if = {
+				limit = {
+					AND = {
+						highest_held_title_tier <= 4
+						capital_province.county = { development_level > 25 }
+						capital_province = {
+							is_county_capital = yes
+							has_special_building = yes 
+						}						
+					}
+				}
+				value = 100
+			}
+		}
+	}
+	
+	realm_administration_law_3 = {
+		modifier = { 
+			domain_tax_mult = -0.10
+			monthly_dynasty_prestige_mult = 0.20
+			monthly_prestige_gain_mult = 0.20
+			monthly_county_control_growth_factor = -0.20
+			development_growth_factor = 0.20
+			owned_personal_scheme_success_chance_add = 10
+			short_reign_duration_mult = -0.20
+			glory_hound_opinion = -10
+			courtly_opinion = 10
+			parochial_opinion = 10
+			zealot_opinion = -10
+		}
+		
+		can_keep = {
+			highest_held_title_tier	>= 5
+			realm_law_use_realm_administration_law = yes
+			is_independent_ruler = yes
+			capital_province.county = { development_level >= 25 }
+			capital_province = {
+				is_county_capital = yes
+				has_special_building = yes 
+			}
+		}
+	
+		can_pass = {
+			trigger_if = {
+				limit = { 
+					OR = {
+						has_realm_law = realm_administration_law_0
+						has_realm_law = realm_administration_law_1
+						has_realm_law = realm_administration_law_2
+					}
+				}
+				custom_tooltip = {
+					subject = root
+					text = "has_crown_authority_cooldown_2"
+					NOT = {
+						has_variable = crown_authority_cooldown_2
+					}
+				}
+			}
+		}
+		
+		pass_cost = { 
+			gold = {
+				value = 0
+				if = {
+					limit = {
+						is_ai = no
+					}
+					add = 400
+				}
+			} 
+		}
+		
+		on_pass = {
+			# Increment cooldown breaker tally, if appropriate.
+		 	# calculate_authority_cooldown_break_effect = yes
+			# Set regular cooldown.
+			set_variable = {
+				name = crown_authority_cooldown_2
+				years = @crown_authority_cooldown_2_years
+			}
+		}
+
+		ai_will_do = {
+			if = {
+				limit = {
+					AND = {
+						highest_held_title_tier = 5
+						capital_province.county = { development_level > 25 }
+						capital_province = {
+							is_county_capital = yes
+							has_special_building = yes 
+						}						
+					}
+				}
+				value = 100
+			}
+		}
+	}
+}
+

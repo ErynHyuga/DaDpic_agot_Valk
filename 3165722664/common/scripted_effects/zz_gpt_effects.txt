@@ -1,0 +1,4788 @@
+﻿
+#Scripted effects relating to this mod
+
+######################################################################
+# EFFECTS
+######################################################################
+
+#####################################################################
+
+diplomacy_buff_4_1 = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				modifier = { add = { value = 0 add = diplomacy add = learning divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				add_character_modifier = { modifier = gpt_edicts_political_modifier_1 years = 5 }
+				custom_tooltip = realm_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = gpt_edicts_failure_political_modifier_1 years = 5 }
+				custom_tooltip = realm_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			10 = {
+				modifier = { add = { value = 0 add = diplomacy add = learning divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_edicts_success_political_1_t
+					desc = gpt_edicts_success_political_1_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_political_modifier_1 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_political_modifier_1 years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_diplomacy_bad_with_text
+					title = gpt_edicts_failure_political_1_t
+					desc = gpt_edicts_failure_political_1_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_failure_political_modifier_1 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_failure_political_modifier_1 years = 5 }
+			}
+		}
+	}
+}
+
+stewardship_buff_4_1 = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				modifier = { add = { value = 0 add = stewardship add = intrigue divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				add_character_modifier = { modifier = gpt_edicts_economy_modifier_1 years = 5 }
+				custom_tooltip = realm_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = gpt_edicts_failure_economy_modifier_1 years = 5 }
+				custom_tooltip = realm_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			10 = {
+				modifier = { add = { value = 0 add = stewardship add = intrigue divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				send_interface_message = {
+					type = event_stewardship_good_with_text
+					title = gpt_edicts_success_economy_1_t
+					desc = gpt_edicts_success_economy_1_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_economy_modifier_1 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_economy_modifier_1 years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_stewardship_bad_with_text
+					title = gpt_edicts_failure_economy_1_t
+					desc = gpt_edicts_failure_economy_1_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_failure_economy_modifier_1 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_failure_economy_modifier_1 years = 5 }
+			}
+		}
+	}
+}
+
+martial_buff_4_1 = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				modifier = { add = { value = 0 add = martial add = prowess divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				add_character_modifier = { modifier = gpt_edicts_military_modifier_1 years = 5 }
+				custom_tooltip = realm_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = gpt_edicts_failure_military_modifier_1 years = 5 }
+				custom_tooltip = realm_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			10 = {
+				modifier = { add = { value = 0 add = martial add = prowess divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				send_interface_message = {
+					type = event_martial_good_with_text
+					title = gpt_edicts_success_military_1_t
+					desc = gpt_edicts_success_military_1_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_military_modifier_1 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_military_modifier_1 years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_martial_bad_with_text
+					title = gpt_edicts_failure_military_1_t
+					desc = gpt_edicts_failure_military_1_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_failure_military_modifier_1 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_failure_military_modifier_1 years = 5 }
+			}
+		}
+	}
+}
+
+diplomacy_buff_4_2 = {
+	show_as_tooltip = {
+		random_list = {
+			5 = {
+				modifier = { add = { value = 0 add = diplomacy add = learning divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				add_character_modifier = { modifier = gpt_edicts_political_modifier_2 years = 5 }
+				custom_tooltip = realm_management_buff_desc_1
+			}
+			25 = {
+				add_character_modifier = { modifier = gpt_edicts_failure_political_modifier_2 years = 5 }
+				custom_tooltip = realm_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			5 = {
+				modifier = { add = { value = 0 add = diplomacy add = learning divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_edicts_success_political_2_t
+					desc = gpt_edicts_success_political_2_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_political_modifier_2 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_political_modifier_2 years = 5 }
+			}
+			25 = {
+				send_interface_message = {
+					type = event_diplomacy_bad_with_text
+					title = gpt_edicts_failure_political_2_t
+					desc = gpt_edicts_failure_political_2_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_failure_political_modifier_2 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_failure_political_modifier_2 years = 5 }
+			}
+		}
+	}
+}
+
+stewardship_buff_4_2 = {
+	show_as_tooltip = {
+		random_list = {
+			5 = {
+				modifier = { add = { value = 0 add = stewardship add = intrigue divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				add_character_modifier = { modifier = gpt_edicts_economy_modifier_2 years = 5 }
+				custom_tooltip = realm_management_buff_desc_1
+			}
+			25 = {
+				add_character_modifier = { modifier = gpt_edicts_failure_economy_modifier_2 years = 5 }
+				custom_tooltip = realm_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			5 = {
+				modifier = { add = { value = 0 add = stewardship add = intrigue divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				send_interface_message = {
+					type = event_stewardship_good_with_text
+					title = gpt_edicts_success_economy_2_t
+					desc = gpt_edicts_success_economy_2_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_economy_modifier_2 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_economy_modifier_2 years = 5 }
+			}
+			25 = {
+				send_interface_message = {
+					type = event_stewardship_bad_with_text
+					title = gpt_edicts_failure_economy_2_t
+					desc = gpt_edicts_failure_economy_2_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_failure_economy_modifier_2 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_failure_economy_modifier_2 years = 5 }
+			}
+		}
+	}
+}
+
+martial_buff_4_2 = {
+	show_as_tooltip = {
+		random_list = {
+			5 = {
+				modifier = { add = { value = 0 add = martial add = prowess divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				add_character_modifier = { modifier = gpt_edicts_military_modifier_2 years = 5 }
+				custom_tooltip = realm_management_buff_desc_1
+			}
+			25 = {
+				add_character_modifier = { modifier = gpt_edicts_failure_military_modifier_2 years = 5 }
+				custom_tooltip = realm_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			5 = {
+				modifier = { add = { value = 0 add = martial add = prowess divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				send_interface_message = {
+					type = event_martial_good_with_text
+					title = gpt_edicts_success_military_2_t
+					desc = gpt_edicts_success_military_2_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_military_modifier_2 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_military_modifier_2 years = 5 }
+			}
+			25 = {
+				send_interface_message = {
+					type = event_martial_bad_with_text
+					title = gpt_edicts_failure_military_2_t
+					desc = gpt_edicts_failure_military_2_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_failure_military_modifier_2 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_failure_military_modifier_2 years = 5 }
+			}
+		}
+	}
+}
+
+diplomacy_buff_4_3 = {
+	show_as_tooltip = {
+		random_list = {
+			0 = {
+				modifier = { add = { value = 0 add = diplomacy add = learning divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				add_character_modifier = { modifier = gpt_edicts_political_modifier_3 years = 5 }
+				custom_tooltip = realm_management_buff_desc_1
+			}
+			30 = {
+				add_character_modifier = { modifier = gpt_edicts_failure_political_modifier_3 years = 5 }
+				custom_tooltip = realm_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			0 = {
+				modifier = { add = { value = 0 add = diplomacy add = learning divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = gpt_edicts_success_political_3_t
+					desc = gpt_edicts_success_political_3_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_political_modifier_3 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_political_modifier_3 years = 5 }
+			}
+			30 = {
+				send_interface_message = {
+					type = event_diplomacy_bad_with_text
+					title = gpt_edicts_failure_political_3_t
+					desc = gpt_edicts_failure_political_3_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_failure_political_modifier_3 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_failure_political_modifier_3 years = 5 }
+			}
+		}
+	}
+}
+
+stewardship_buff_4_3 = {
+	show_as_tooltip = {
+		random_list = {
+			0 = {
+				modifier = { add = { value = 0 add = stewardship add = intrigue divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				add_character_modifier = { modifier = gpt_edicts_economy_modifier_3 years = 5 }
+				custom_tooltip = realm_management_buff_desc_1
+			}
+			30 = {
+				add_character_modifier = { modifier = gpt_edicts_failure_economy_modifier_3 years = 5 }
+				custom_tooltip = realm_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			0 = {
+				modifier = { add = { value = 0 add = stewardship add = intrigue divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				send_interface_message = {
+					type = event_stewardship_good_with_text
+					title = gpt_edicts_success_economy_3_t
+					desc = gpt_edicts_success_economy_3_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_economy_modifier_3 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_economy_modifier_3 years = 5 }
+			}
+			30 = {
+				send_interface_message = {
+					type = event_stewardship_bad_with_text
+					title = gpt_edicts_failure_economy_3_t
+					desc = gpt_edicts_failure_economy_3_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_failure_economy_modifier_3 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_failure_economy_modifier_3 years = 5 }
+			}
+		}
+	}
+}
+
+martial_buff_4_3 = {
+	show_as_tooltip = {
+		random_list = {
+			0 = {
+				modifier = { add = { value = 0 add = martial add = prowess divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				add_character_modifier = { modifier = gpt_edicts_military_modifier_3 years = 5 }
+				custom_tooltip = realm_management_buff_desc_1
+			}
+			30 = {
+				add_character_modifier = { modifier = gpt_edicts_failure_military_modifier_3 years = 5 }
+				custom_tooltip = realm_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			0 = {
+				modifier = { add = { value = 0 add = martial add = prowess divide = 2 } }
+				modifier = { add = 15 has_realm_law = crown_authority_1 }
+				modifier = { add = 30 has_realm_law = crown_authority_2 }
+				modifier = { add = 60 has_realm_law = crown_authority_3 }
+				send_interface_message = {
+					type = event_martial_good_with_text
+					title = gpt_edicts_success_military_3_t
+					desc = gpt_edicts_success_military_3_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_military_modifier_3 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_military_modifier_3 years = 5 }
+			}
+			30 = {
+				send_interface_message = {
+					type = event_martial_bad_with_text
+					title = gpt_edicts_failure_military_3_t
+					desc = gpt_edicts_failure_military_3_d
+				 #	left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = gpt_edicts_failure_military_modifier_3 years = 5 } }
+				}
+				add_character_modifier = { modifier = gpt_edicts_failure_military_modifier_3 years = 5 }
+			}
+		}
+	}
+}
+
+#####################################################################
+
+diplomacy_buff = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = diplomacy
+				}
+				add_character_modifier = { modifier = legacy_chancellor10_modifier years = 5 }
+				custom_tooltip = realm_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = realm_management_bad_1 years = 5 }
+				custom_tooltip = realm_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = diplomacy
+				}
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = realm_management_good_title
+					desc = realm_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_chancellor10_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_chancellor10_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_diplomacy_bad_with_text
+					title = realm_management_bad_title
+					desc = realm_management_bad_11_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = realm_management_bad_1 years = 5 } }
+				}
+				add_character_modifier = { modifier = realm_management_bad_1 years = 5 }
+			}
+		}
+	}
+}
+
+stewardship_buff = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = stewardship
+				}
+				add_character_modifier = { modifier = legacy_steward10_modifier years = 5 }
+				custom_tooltip = realm_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = realm_management_bad_2 years = 5 }
+				custom_tooltip = realm_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = stewardship
+				}
+				send_interface_message = {
+					type = event_stewardship_good_with_text
+					title = realm_management_good_title
+					desc = realm_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_steward10_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_steward10_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_stewardship_bad_with_text
+					title = realm_management_bad_title
+					desc = realm_management_bad_22_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = realm_management_bad_2 years = 5 } }
+				}
+				add_character_modifier = { modifier = realm_management_bad_2 years = 5 }
+			}
+		}
+	}
+}
+
+martial_buff = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = martial
+				}
+				add_character_modifier = { modifier = legacy_marshal10_modifier years = 5 }
+				custom_tooltip = realm_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = realm_management_bad_3 years = 5 }
+				custom_tooltip = realm_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = martial
+				}
+				send_interface_message = {
+					type = event_martial_good_with_text
+					title = realm_management_good_title
+					desc = realm_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_marshal10_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_marshal10_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_martial_bad_with_text
+					title = realm_management_bad_title
+					desc = realm_management_bad_33_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = realm_management_bad_3 years = 5 } }
+				}
+				add_character_modifier = { modifier = realm_management_bad_3 years = 5 }
+			}
+		}
+	}
+}
+
+intrigue_buff = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = intrigue
+				}
+				add_character_modifier = { modifier = legacy_spymaster10_modifier years = 5 }
+				custom_tooltip = realm_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = realm_management_bad_4 years = 5 }
+				custom_tooltip = realm_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = intrigue
+				}
+				send_interface_message = {
+					type = event_intrigue_good_with_text
+					title = realm_management_good_title
+					desc = realm_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_spymaster10_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_spymaster10_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_intrigue_bad_with_text
+					title = realm_management_bad_title
+					desc = realm_management_bad_44_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = realm_management_bad_4 years = 5 } }
+				}
+				add_character_modifier = { modifier = realm_management_bad_4 years = 5 }
+			}
+		}
+	}
+}
+
+learning_buff = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = learning
+				}
+				add_character_modifier = { modifier = legacy_chaplain10_modifier years = 5 }
+				custom_tooltip = realm_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = realm_management_bad_5 years = 5 }
+				custom_tooltip = realm_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = learning
+				}
+				send_interface_message = {
+					type = event_learning_good_with_text
+					title = realm_management_good_title
+					desc = realm_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_chaplain10_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_chaplain10_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_learning_bad_with_text
+					title = realm_management_bad_title
+					desc = realm_management_bad_55_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = realm_management_bad_5 years = 5 } }
+				}
+				add_character_modifier = { modifier = realm_management_bad_5 years = 5 }
+			}
+		}
+	}
+}
+
+prowess_buff = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = prowess
+				}
+				add_character_modifier = { modifier = legacy_prowess10_modifier years = 5 }
+				custom_tooltip = realm_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = realm_management_bad_6 years = 5 }
+				custom_tooltip = realm_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = prowess
+				}
+				send_interface_message = {
+					type = event_prowess_good_with_text
+					title = realm_management_good_title
+					desc = realm_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_prowess10_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_prowess10_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_prowess_bad_with_text
+					title = realm_management_bad_title
+					desc = realm_management_bad_66_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = realm_management_bad_6 years = 5 } }
+				}
+				add_character_modifier = { modifier = realm_management_bad_6 years = 5 }
+			}
+		}
+	}
+}
+
+#####################################################################
+
+diplomacy_buff2 = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = diplomacy
+				}
+				add_character_modifier = { modifier = legacy_chancellor9_modifier years = 5 }
+				custom_tooltip = holding_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = holding_management_bad_1 years = 5 }
+				custom_tooltip = holding_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = diplomacy
+				}
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = holding_management_good_title
+					desc = holding_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_chancellor9_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_chancellor9_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_diplomacy_bad_with_text
+					title = holding_management_bad_title
+					desc = holding_management_bad_11_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = holding_management_bad_1 years = 5 } }
+				}
+				add_character_modifier = { modifier = holding_management_bad_1 years = 5 }
+			}
+		}
+	}
+}
+
+stewardship_buff2 = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = stewardship
+				}
+				add_character_modifier = { modifier = legacy_steward9_modifier years = 5 }
+				custom_tooltip = holding_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = holding_management_bad_2 years = 5 }
+				custom_tooltip = holding_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = stewardship
+				}
+				send_interface_message = {
+					type = event_stewardship_good_with_text
+					title = holding_management_good_title
+					desc = holding_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_steward9_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_steward9_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_stewardship_bad_with_text
+					title = holding_management_bad_title
+					desc = holding_management_bad_12_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = holding_management_bad_2 years = 5 } }
+				}
+				add_character_modifier = { modifier = holding_management_bad_2 years = 5 }
+			}
+		}
+	}
+}
+
+martial_buff2 = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = martial
+				}
+				add_character_modifier = { modifier = legacy_marshal9_modifier years = 5 }
+				custom_tooltip = holding_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = holding_management_bad_3 years = 5 }
+				custom_tooltip = holding_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = martial
+				}
+				send_interface_message = {
+					type = event_martial_good_with_text
+					title = holding_management_good_title
+					desc = holding_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_marshal9_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_marshal9_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_martial_bad_with_text
+					title = holding_management_bad_title
+					desc = holding_management_bad_13_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = holding_management_bad_3 years = 5 } }
+				}
+				add_character_modifier = { modifier = holding_management_bad_3 years = 5 }
+			}
+		}
+	}
+}
+
+intrigue_buff2 = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = intrigue
+				}
+				add_character_modifier = { modifier = legacy_spymaster9_modifier years = 5 }
+				custom_tooltip = holding_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = holding_management_bad_4 years = 5 }
+				custom_tooltip = holding_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = intrigue
+				}
+				send_interface_message = {
+					type = event_intrigue_good_with_text
+					title = holding_management_good_title
+					desc = holding_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_spymaster9_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_spymaster9_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_intrigue_bad_with_text
+					title = holding_management_bad_title
+					desc = holding_management_bad_14_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = holding_management_bad_4 years = 5 } }
+				}
+				add_character_modifier = { modifier = holding_management_bad_4 years = 5 }
+			}
+		}
+	}
+}
+
+learning_buff2 = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = learning
+				}
+				add_character_modifier = { modifier = legacy_chaplain9_modifier years = 5 }
+				custom_tooltip = holding_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = holding_management_bad_5 years = 5 }
+				custom_tooltip = holding_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = learning
+				}
+				send_interface_message = {
+					type = event_learning_good_with_text
+					title = holding_management_good_title
+					desc = holding_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_chaplain9_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_chaplain9_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_learning_bad_with_text
+					title = holding_management_bad_title
+					desc = holding_management_bad_15_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = holding_management_bad_5 years = 5 } }
+				}
+				add_character_modifier = { modifier = holding_management_bad_5 years = 5 }
+			}
+		}
+	}
+}
+
+prowess_buff2 = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = prowess
+				}
+				add_character_modifier = { modifier = legacy_prowess9_modifier years = 5 }
+				custom_tooltip = holding_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = holding_management_bad_6 years = 5 }
+				custom_tooltip = holding_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = prowess
+				}
+				send_interface_message = {
+					type = event_prowess_good_with_text
+					title = holding_management_good_title
+					desc = holding_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_prowess9_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_prowess9_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_prowess_bad_with_text
+					title = holding_management_bad_title
+					desc = holding_management_bad_16_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = holding_management_bad_6 years = 5 } }
+				}
+				add_character_modifier = { modifier = holding_management_bad_6 years = 5 }
+			}
+		}
+	}
+}
+
+
+#####################################################################
+
+diplomacy_buff3 = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = diplomacy
+				}
+				add_character_modifier = { modifier = legacy_chancellor8_modifier years = 5 }
+				custom_tooltip = personal_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = personal_management_bad_1 years = 5 }
+				custom_tooltip = personal_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = diplomacy
+				}
+				send_interface_message = {
+					type = event_diplomacy_good_with_text
+					title = personal_management_good_title
+					desc = personal_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_chancellor8_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_chancellor8_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_diplomacy_bad_with_text
+					title = personal_management_bad_title
+					desc = personal_management_bad_11_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = personal_management_bad_1 years = 5 } }
+				}
+				add_character_modifier = { modifier = personal_management_bad_1 years = 5 }
+			}
+		}
+	}
+}
+
+stewardship_buff3 = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = stewardship
+				}
+				add_character_modifier = { modifier = legacy_steward8_modifier years = 5 }
+				custom_tooltip = personal_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = personal_management_bad_2 years = 5 }
+				custom_tooltip = personal_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = stewardship
+				}
+				send_interface_message = {
+					type = event_stewardship_good_with_text
+					title = personal_management_good_title
+					desc = personal_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_steward8_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_steward8_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_stewardship_bad_with_text
+					title = personal_management_bad_title
+					desc = personal_management_bad_12_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = personal_management_bad_2 years = 5 } }
+				}
+				add_character_modifier = { modifier = personal_management_bad_2 years = 5 }
+			}
+		}
+	}
+}
+
+martial_buff3 = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = martial
+				}
+				add_character_modifier = { modifier = legacy_marshal8_modifier years = 5 }
+				custom_tooltip = personal_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = personal_management_bad_3 years = 5 }
+				custom_tooltip = personal_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = martial
+				}
+				send_interface_message = {
+					type = event_martial_good_with_text
+					title = personal_management_good_title
+					desc = personal_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_marshal8_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_marshal8_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_martial_bad_with_text
+					title = personal_management_bad_title
+					desc = personal_management_bad_13_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = personal_management_bad_3 years = 5 } }
+				}
+				add_character_modifier = { modifier = personal_management_bad_3 years = 5 }
+			}
+		}
+	}
+}
+
+intrigue_buff3 = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = intrigue
+				}
+				add_character_modifier = { modifier = legacy_spymaster8_modifier years = 5 }
+				custom_tooltip = personal_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = personal_management_bad_4 years = 5 }
+				custom_tooltip = personal_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = intrigue
+				}
+				send_interface_message = {
+					type = event_intrigue_good_with_text
+					title = personal_management_good_title
+					desc = personal_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_spymaster8_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_spymaster8_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_intrigue_bad_with_text
+					title = personal_management_bad_title
+					desc = personal_management_bad_14_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = personal_management_bad_4 years = 5 } }
+				}
+				add_character_modifier = { modifier = personal_management_bad_4 years = 5 }
+			}
+		}
+	}
+}
+
+learning_buff3 = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = learning
+				}
+				add_character_modifier = { modifier = legacy_chaplain8_modifier years = 5 }
+				custom_tooltip = personal_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = personal_management_bad_5 years = 5 }
+				custom_tooltip = personal_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = learning
+				}
+				send_interface_message = {
+					type = event_learning_good_with_text
+					title = personal_management_good_title
+					desc = personal_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_chaplain8_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_chaplain8_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_learning_bad_with_text
+					title = personal_management_bad_title
+					desc = personal_management_bad_15_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = personal_management_bad_5 years = 5 } }
+				}
+				add_character_modifier = { modifier = personal_management_bad_5 years = 5 }
+			}
+		}
+	}
+}
+
+prowess_buff3 = {
+	show_as_tooltip = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = prowess
+				}
+				add_character_modifier = { modifier = legacy_prowess8_modifier years = 5 }
+				custom_tooltip = personal_management_buff_desc_1
+			}
+			20 = {
+				add_character_modifier = { modifier = personal_management_bad_6 years = 5 }
+				custom_tooltip = personal_management_buff_desc_2
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			25 = {
+				modifier = {
+					add = prowess
+				}
+				send_interface_message = {
+					type = event_prowess_good_with_text
+					title = personal_management_good_title
+					desc = personal_management_good_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = legacy_prowess8_modifier years = 5 } }
+				}
+				add_character_modifier = { modifier = legacy_prowess8_modifier years = 5 }
+			}
+			20 = {
+				send_interface_message = {
+					type = event_prowess_bad_with_text
+					title = personal_management_bad_title
+					desc = personal_management_bad_16_desc
+					left_icon = root
+					show_as_tooltip = { add_character_modifier = { modifier = personal_management_bad_6 years = 5 } }
+				}
+				add_character_modifier = { modifier = personal_management_bad_6 years = 5 }
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+brave_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_brave years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_brave years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = brave_friend
+					template = brave_character_template
+				}
+				add_courtier = scope:brave_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = brave_character_create_title
+					desc = brave_character_create_desc
+					left_icon = scope:brave_friend
+				}
+				add_character_modifier = { modifier = socially_satisfied_brave years = 5 }
+				random_list = {
+					80 = {
+						scope:brave_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:brave_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+craven_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_craven years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_craven years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = craven_friend
+					template = craven_character_template
+				}
+				add_courtier = scope:craven_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = craven_character_create_title
+					desc = craven_character_create_desc
+					left_icon = scope:craven_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_craven years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_craven years = 5 }
+				random_list = {
+					80 = {
+						scope:craven_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:craven_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+calm_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_calm years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_calm years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = calm_friend
+					template = calm_character_template
+				}
+				add_courtier = scope:calm_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = calm_character_create_title
+					desc = calm_character_create_desc
+					left_icon = scope:calm_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_calm years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_calm years = 5 }
+				random_list = {
+					80 = {
+						scope:calm_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:calm_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+wrathful_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_wrathful years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_wrathful years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = wrathful_friend
+					template = wrathful_character_template
+				}
+				add_courtier = scope:wrathful_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = wrathful_character_create_title
+					desc = wrathful_character_create_desc
+					left_icon = scope:wrathful_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_wrathful years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_wrathful years = 5 }
+				random_list = {
+					80 = {
+						scope:wrathful_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:wrathful_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+chaste_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_chaste years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_chaste years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = chaste_friend
+					template = chaste_character_template
+				}
+				add_courtier = scope:chaste_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = chaste_character_create_title
+					desc = chaste_character_create_desc
+					left_icon = scope:chaste_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_chaste years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_chaste years = 5 }
+				random_list = {
+					80 = {
+						scope:chaste_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:chaste_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+lustful_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_lustful years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_lustful years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = lustful_friend
+					template = lustful_character_template
+				}
+				add_courtier = scope:lustful_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = lustful_character_create_title
+					desc = lustful_character_create_desc
+					left_icon = scope:lustful_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_lustful years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_lustful years = 5 }
+				random_list = {
+					80 = {
+						scope:lustful_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:lustful_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+content_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_content years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_content years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = content_friend
+					template = content_character_template
+				}
+				add_courtier = scope:content_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = content_character_create_title
+					desc = content_character_create_desc
+					left_icon = scope:content_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_content years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_content years = 5 }
+				random_list = {
+					80 = {
+						scope:content_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:content_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+ambitious_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_ambitious years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_ambitious years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = ambitious_friend
+					template = ambitious_character_template
+				}
+				add_courtier = scope:ambitious_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = ambitious_character_create_title
+					desc = ambitious_character_create_desc
+					left_icon = scope:ambitious_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_ambitious years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_ambitious years = 5 }
+				random_list = {
+					80 = {
+						scope:ambitious_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:ambitious_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+diligent_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_diligent years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_diligent years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = diligent_friend
+					template = diligent_character_template
+				}
+				add_courtier = scope:diligent_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = diligent_character_create_title
+					desc = diligent_character_create_desc
+					left_icon = scope:diligent_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_diligent years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_diligent years = 5 }
+				random_list = {
+					80 = {
+						scope:diligent_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:diligent_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+lazy_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_lazy years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_lazy years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = lazy_friend
+					template = lazy_character_template
+				}
+				add_courtier = scope:lazy_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = lazy_character_create_title
+					desc = lazy_character_create_desc
+					left_icon = scope:lazy_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_lazy years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_lazy years = 5 }
+				random_list = {
+					80 = {
+						scope:lazy_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:lazy_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+fickle_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_fickle years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_fickle years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = fickle_friend
+					template = fickle_character_template
+				}
+				add_courtier = scope:fickle_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = fickle_character_create_title
+					desc = fickle_character_create_desc
+					left_icon = scope:fickle_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_fickle years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_fickle years = 5 }
+				random_list = {
+					80 = {
+						scope:fickle_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:fickle_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+stubborn_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_stubborn years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_stubborn years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = stubborn_friend
+					template = stubborn_character_template
+				}
+				add_courtier = scope:stubborn_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = stubborn_character_create_title
+					desc = stubborn_character_create_desc
+					left_icon = scope:stubborn_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_stubborn years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_stubborn years = 5 }
+				random_list = {
+					80 = {
+						scope:stubborn_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:stubborn_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+forgiving_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_forgiving years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_forgiving years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = forgiving_friend
+					template = forgiving_character_template
+				}
+				add_courtier = scope:forgiving_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = forgiving_character_create_title
+					desc = forgiving_character_create_desc
+					left_icon = scope:forgiving_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_forgiving years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_forgiving years = 5 }
+				random_list = {
+					80 = {
+						scope:forgiving_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:forgiving_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+vengeful_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_vengeful years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_vengeful years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = vengeful_friend
+					template = vengeful_character_template
+				}
+				add_courtier = scope:vengeful_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = vengeful_character_create_title
+					desc = vengeful_character_create_desc
+					left_icon = scope:vengeful_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_vengeful years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_vengeful years = 5 }
+				random_list = {
+					80 = {
+						scope:vengeful_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:vengeful_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+generous_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_generous years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_generous years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = generous_friend
+					template = generous_character_template
+				}
+				add_courtier = scope:generous_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = generous_character_create_title
+					desc = generous_character_create_desc
+					left_icon = scope:generous_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_generous years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_generous years = 5 }
+				random_list = {
+					80 = {
+						scope:generous_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:generous_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+greedy_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_greedy years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_greedy years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = greedy_friend
+					template = greedy_character_template
+				}
+				add_courtier = scope:greedy_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = greedy_character_create_title
+					desc = greedy_character_create_desc
+					left_icon = scope:greedy_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_greedy years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_greedy years = 5 }
+				random_list = {
+					80 = {
+						scope:greedy_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:greedy_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+gregarious_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_gregarious years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_gregarious years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = gregarious_friend
+					template = gregarious_character_template
+				}
+				add_courtier = scope:gregarious_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = gregarious_character_create_title
+					desc = gregarious_character_create_desc
+					left_icon = scope:gregarious_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_gregarious years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_gregarious years = 5 }
+				random_list = {
+					80 = {
+						scope:gregarious_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:gregarious_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+shy_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_shy years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_shy years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = shy_friend
+					template = shy_character_template
+				}
+				add_courtier = scope:shy_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = shy_character_create_title
+					desc = shy_character_create_desc
+					left_icon = scope:shy_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_shy years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_shy years = 5 }
+				random_list = {
+					80 = {
+						scope:shy_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:shy_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+honest_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_honest years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_honest years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = honest_friend
+					template = honest_character_template
+				}
+				add_courtier = scope:honest_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = honest_character_create_title
+					desc = honest_character_create_desc
+					left_icon = scope:honest_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_honest years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_honest years = 5 }
+				random_list = {
+					80 = {
+						scope:honest_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:honest_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+deceitful_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_deceitful years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_deceitful years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = deceitful_friend
+					template = deceitful_character_template
+				}
+				add_courtier = scope:deceitful_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = deceitful_character_create_title
+					desc = deceitful_character_create_desc
+					left_icon = scope:deceitful_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_deceitful years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_deceitful years = 5 }
+				random_list = {
+					80 = {
+						scope:deceitful_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:deceitful_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+humble_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_humble years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_humble years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = humble_friend
+					template = humble_character_template
+				}
+				add_courtier = scope:humble_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = humble_character_create_title
+					desc = humble_character_create_desc
+					left_icon = scope:humble_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_humble years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_humble years = 5 }
+				random_list = {
+					80 = {
+						scope:humble_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:humble_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+arrogant_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_arrogant years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_arrogant years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = arrogant_friend
+					template = arrogant_character_template
+				}
+				add_courtier = scope:arrogant_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = arrogant_character_create_title
+					desc = arrogant_character_create_desc
+					left_icon = scope:arrogant_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_arrogant years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_arrogant years = 5 }
+				random_list = {
+					80 = {
+						scope:arrogant_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:arrogant_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+just_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_just years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_just years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = just_friend
+					template = just_character_template
+				}
+				add_courtier = scope:just_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = just_character_create_title
+					desc = just_character_create_desc
+					left_icon = scope:just_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_just years = 5 } }
+				}
+				add_character_modifier = { modifier = socially_satisfied_just years = 5 }
+				random_list = {
+					80 = {
+						scope:just_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:just_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+arbitrary_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_arbitrary years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_arbitrary years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = arbitrary_friend
+					template = arbitrary_character_template
+				}
+				add_courtier = scope:arbitrary_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = arbitrary_character_create_title
+					desc = arbitrary_character_create_desc
+					left_icon = scope:arbitrary_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_arbitrary years = 5 } }
+				}
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_arbitrary years = 5 }
+				random_list = {
+					80 = {
+						scope:arbitrary_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:arbitrary_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+patient_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_patient years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_patient years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = patient_friend
+					template = patient_character_template
+				}
+				add_courtier = scope:patient_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = patient_character_create_title
+					desc = patient_character_create_desc
+					left_icon = scope:patient_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_patient years = 5 } }
+				}
+				add_character_modifier = { modifier = socially_satisfied_patient years = 5 }
+				random_list = {
+					80 = {
+						scope:patient_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:patient_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+impatient_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_impatient years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_impatient years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = impatient_friend
+					template = impatient_character_template
+				}
+				add_courtier = scope:impatient_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = impatient_character_create_title
+					desc = impatient_character_create_desc
+					left_icon = scope:impatient_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_impatient years = 5 } }
+				}
+				add_character_modifier = { modifier = socially_satisfied_impatient years = 5 }
+				random_list = {
+					80 = {
+						scope:impatient_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:impatient_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+temperate_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_temperate years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_temperate years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = temperate_friend
+					template = temperate_character_template
+				}
+				add_courtier = scope:temperate_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = temperate_character_create_title
+					desc = temperate_character_create_desc
+					left_icon = scope:temperate_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_temperate years = 5 } }
+				}
+				add_character_modifier = { modifier = socially_satisfied_temperate years = 5 }
+				random_list = {
+					80 = {
+						scope:temperate_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:temperate_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+gluttonous_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_gluttonous years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_gluttonous years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = gluttonous_friend
+					template = gluttonous_character_template
+				}
+				add_courtier = scope:gluttonous_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = gluttonous_character_create_title
+					desc = gluttonous_character_create_desc
+					left_icon = scope:gluttonous_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_gluttonous years = 5 } }
+				}
+				add_character_modifier = { modifier = socially_satisfied_gluttonous years = 5 }
+				random_list = {
+					80 = {
+						scope:gluttonous_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:gluttonous_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+trusting_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_trusting years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_trusting years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = trusting_friend
+					template = trusting_character_template
+				}
+				add_courtier = scope:trusting_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = trusting_character_create_title
+					desc = trusting_character_create_desc
+					left_icon = scope:trusting_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_trusting years = 5 } }
+				}
+				add_character_modifier = { modifier = socially_satisfied_trusting years = 5 }
+				random_list = {
+					80 = {
+						scope:trusting_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:trusting_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+paranoid_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_paranoid years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_paranoid years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = paranoid_friend
+					template = paranoid_character_template
+				}
+				add_courtier = scope:paranoid_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = paranoid_character_create_title
+					desc = paranoid_character_create_desc
+					left_icon = scope:paranoid_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_paranoid years = 5 } }
+				}
+				add_character_modifier = { modifier = socially_satisfied_paranoid years = 5 }
+				random_list = {
+					80 = {
+						scope:paranoid_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:paranoid_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+zealous_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_zealous years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_zealous years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = zealous_friend
+					template = zealous_character_template
+				}
+				add_courtier = scope:zealous_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = zealous_character_create_title
+					desc = zealous_character_create_desc
+					left_icon = scope:zealous_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_zealous years = 5 } }
+				}
+				add_character_modifier = { modifier = socially_satisfied_zealous years = 5 }
+				random_list = {
+					80 = {
+						scope:zealous_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:zealous_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+cynical_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_cynical years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_cynical years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = cynical_friend
+					template = cynical_character_template
+				}
+				add_courtier = scope:cynical_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = cynical_character_create_title
+					desc = cynical_character_create_desc
+					left_icon = scope:cynical_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_cynical years = 5 } }
+				}
+				add_character_modifier = { modifier = socially_satisfied_cynical years = 5 }
+				random_list = {
+					80 = {
+						scope:cynical_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:cynical_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+compassionate_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_compassionate years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_compassionate years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = compassionate_friend
+					template = compassionate_character_template
+				}
+				add_courtier = scope:compassionate_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = compassionate_character_create_title
+					desc = compassionate_character_create_desc
+					left_icon = scope:compassionate_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_compassionate years = 5 } }
+				}
+				add_character_modifier = { modifier = socially_satisfied_compassionate years = 5 }
+				random_list = {
+					80 = {
+						scope:compassionate_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:compassionate_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+callous_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_callous years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_callous years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = callous_friend
+					template = callous_character_template
+				}
+				add_courtier = scope:callous_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = callous_character_create_title
+					desc = callous_character_create_desc
+					left_icon = scope:callous_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_callous years = 5 } }
+				}
+				add_character_modifier = { modifier = socially_satisfied_callous years = 5 }
+				random_list = {
+					80 = {
+						scope:callous_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:callous_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+sadistic_character_create = {
+	show_as_tooltip = {
+		random_list = {
+			10 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_sadistic years = 5 }
+				custom_tooltip = create_long_term_rel_desc_3
+			}
+			65 = {
+				add_stress = -10
+				add_character_modifier = { modifier = socially_satisfied_sadistic years = 5 }
+				custom_tooltip = create_long_term_rel_desc_1
+			}
+			20 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_2
+			}
+			5 = {
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				custom_tooltip = create_long_term_rel_desc_4
+			}
+		}
+	}
+	hidden_effect = {
+		random_list = {
+			60 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = sadistic_friend
+					template = sadistic_character_template
+				}
+				add_courtier = scope:sadistic_friend
+				send_interface_message = {
+					type = event_generic_good_with_text
+					title = sadistic_character_create_title
+					desc = sadistic_character_create_desc
+					left_icon = scope:sadistic_friend
+					show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_sadistic years = 5 } }
+				}
+				add_character_modifier = { modifier = socially_satisfied_sadistic years = 5 }
+				random_list = {
+					80 = {
+						scope:sadistic_friend = { 
+							set_relation_friend = root
+						}
+					}
+					20 = {
+						scope:sadistic_friend = { 
+							set_relation_best_friend = root
+						}
+					}					
+				}
+			}
+			40 = {
+				create_character = {
+					location = root.capital_province
+					culture = root.location.culture
+					faith = root.location.faith
+					save_scope_as = random_rival
+					template = random_rival_character_template
+				}
+				add_courtier = scope:random_rival
+				send_interface_message = {
+					type = event_generic_bad_with_text
+					title = random_rival_create_title
+					desc = random_rival_create_desc
+					left_icon = scope:random_rival
+					show_as_tooltip = { add_stress = 20 add_character_modifier = { modifier = socially_unsatisfied years = 5 } }
+				}
+				add_stress = 20
+				add_character_modifier = { modifier = socially_unsatisfied years = 5 }
+				random_list = {
+					80 = {
+						scope:random_rival = { 
+							set_relation_rival = root
+						}
+					}
+					20 = {
+						scope:random_rival = { 
+							set_relation_nemesis = root
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+child_slave_create = {
+	show_as_tooltip = {
+		remove_short_term_gold = 50
+		custom_tooltip = create_long_term_rel_desc_3
+		add_character_modifier = { modifier = socially_satisfied_sadistic years = 5 }
+		if = {
+			limit = {
+				has_trait = compassionate
+			}
+			add_stress = -25
+		}
+		if = {
+			limit = {
+				has_trait = greedy
+			}
+			add_stress = 25
+		}
+	}
+	hidden_effect = {
+		create_character = {
+			location = root.capital_province
+			culture = root.location.culture
+			faith = root.location.faith
+			save_scope_as = newslave
+			template = qss_child_slave
+		}
+		send_interface_message = {
+			type = event_generic_good_with_text
+			title = child_slave_create_title
+			desc = child_slave_create_desc
+			left_icon = scope:newslave
+			show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_sadistic years = 5 } }
+		}
+		remove_short_term_gold = 50
+		scope:newslave = { 
+			add_opinion = {
+				modifier = my_master
+				target = root
+			}
+			add_character_flag = {
+				flag = mbti_origin_lowborn_flag
+			}	
+		}
+		add_hook = {
+			target = scope:newslave
+			type = loyalty_hook
+		}
+		if = {
+			limit = {
+				has_trait = compassionate
+			}
+			add_stress = -20
+		}
+		if = {
+			limit = {
+				has_trait = greedy
+			}
+			add_stress = 20
+		}
+		add_character_modifier = { modifier = socially_satisfied_sadistic years = 5 }
+		add_courtier = scope:newslave
+	}
+}
+
+virgin_slave_create = {
+	show_as_tooltip = {
+		remove_short_term_gold = 300
+		custom_tooltip = create_long_term_rel_desc_3
+		add_character_modifier = { modifier = socially_satisfied_sadistic years = 5 }
+		add_stress = -30
+		if = {
+			limit = {
+				has_trait = lustful
+			}
+			add_stress = -30 
+		}
+		if = {
+			limit = {
+				has_trait = greedy
+			}
+			add_stress = 60
+		}
+	}
+	hidden_effect = {
+		create_character = {
+			location = root.capital_province
+			culture = root.location.culture
+			faith = root.location.faith
+			save_scope_as = newslave
+			template = qss_slave_virgin
+		}
+		send_interface_message = {
+			type = event_generic_good_with_text
+			title = virgin_slave_create_title
+			desc = virgin_slave_create_desc
+			left_icon = scope:newslave
+			show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_sadistic years = 5 } }
+		}
+		remove_short_term_gold = 300
+		scope:newslave = {
+			set_relation_lover = root
+			add_opinion = {
+				modifier = my_master
+				target = root
+			}
+			add_character_flag = {
+				flag = mbti_origin_lowborn_flag
+			}	
+		}
+		add_hook = {
+			target = scope:newslave
+			type = loyalty_hook
+		}
+		add_stress = -50
+		if = {
+			limit = {
+				has_trait = lustful
+			}
+			add_stress = -50 
+		}
+		if = {
+			limit = {
+				has_trait = greedy
+			}
+			add_stress = 100
+		}
+		add_character_modifier = { modifier = socially_satisfied_sadistic years = 5 }
+		add_courtier = scope:newslave
+	}
+}
+
+exotic_slave_create = {
+	show_as_tooltip = {
+		remove_short_term_gold = 200
+		custom_tooltip = create_long_term_rel_desc_3
+		add_character_modifier = { modifier = socially_satisfied_sadistic years = 5 }
+		add_stress = -30
+		if = {
+			limit = {
+				OR = {
+					has_trait = sadistic
+					has_trait = arrogant
+					has_trait = arbitrary
+					has_trait = paranoid
+					has_trait = cynical
+					has_trait = wrathful
+				}
+			}
+			add_stress = -30 
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = greedy
+					has_trait = compassionate
+					has_trait = humble
+					has_trait = just
+					has_trait = content
+					has_trait = forgiving
+				}
+			}
+			add_stress = 30
+		}
+		if = {
+			limit = {
+				has_trait = greedy
+			}
+			add_stress = 30
+		}
+	}
+	hidden_effect = {
+		create_character = {
+			location = root.capital_province
+			culture = root.location.culture
+			faith = root.location.faith
+			save_scope_as = newslave
+			template = qss_exotic_slave
+		}
+		send_interface_message = {
+			type = event_generic_good_with_text
+			title = exotic_slave_create_title
+			desc = exotic_slave_create_desc
+			left_icon = scope:newslave
+			show_as_tooltip = { add_stress = -10 add_character_modifier = { modifier = socially_satisfied_sadistic years = 5 } }
+		}
+		remove_short_term_gold = 200
+		scope:newslave = {
+			set_relation_bully = root
+			add_opinion = {
+				modifier = my_master
+				target = root
+			}
+			add_character_flag = {
+				flag = mbti_origin_lowborn_flag
+			}	
+		}
+		add_hook = {
+			target = scope:newslave
+			type = loyalty_hook
+		}
+		add_character_modifier = { modifier = socially_satisfied_sadistic years = 5 }
+		add_stress = -30
+		if = {
+			limit = {
+				OR = {
+					has_trait = sadistic
+					has_trait = arrogant
+					has_trait = arbitrary
+					has_trait = paranoid
+					has_trait = cynical
+					has_trait = wrathful
+				}
+			}
+			add_stress = -30 
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = greedy
+					has_trait = compassionate
+					has_trait = humble
+					has_trait = just
+					has_trait = content
+					has_trait = forgiving
+				}
+			}
+			add_stress = 30
+		}
+		if = {
+			limit = {
+				has_trait = greedy
+			}
+			add_stress = 30
+		}
+		add_courtier = scope:newslave
+	}
+}

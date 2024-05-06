@@ -1,0 +1,48 @@
+﻿realm_law_use_realm_administration_law = {
+	NOT = { government_has_flag = government_is_tribal }
+	NOT = { government_has_flag = government_is_theocracy }
+	NOT = { government_has_flag = government_is_republic }
+	NOT = { government_has_flag = government_is_mercenary }
+	NOT = { government_has_flag = government_is_holy_order }
+	is_independent_ruler = yes
+	is_landed = yes
+	has_game_rule = GPT_realm_laws_enabled
+}
+
+realm_law_use_tribal_raid_stance = {
+	government_has_flag = government_is_tribal
+	has_game_rule = GPT_realm_laws_enabled
+	is_landed = yes
+}
+
+gpt_nomadic_elective_potential_landed_candidate_trigger = {
+	save_temporary_scope_as = potential_candidate
+	OR = {
+		any_liege_or_above = {
+			this = scope:holder
+		}
+		scope:holder = {
+			exists = liege
+			NOT = {
+				any_liege_or_above = {
+					has_realm_law_flag = titles_cannot_leave_realm_on_succession
+					NOR = {
+						this = scope:potential_candidate
+						target_is_vassal_or_below = scope:potential_candidate
+					}
+				}
+			}
+		}
+	}
+	OR = { #If the title controls the faith, candidates must be of the same faith.
+		scope:holder = {
+			NAND = {
+				exists = faith.religious_head
+				this = faith.religious_head
+			}
+		}
+		this.faith = scope:holder.faith
+	}
+	has_unelectable_trait_trigger = no
+	has_unelectable_government_trigger = no
+}

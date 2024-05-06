@@ -1,0 +1,63 @@
+﻿l_russian:
+ 
+ char_spawner.t:1 "Меню Персонажей"
+ char_spawner.d:0 "Призывай персонажей, которые тебе нужны. К тому же ты можешь выбрать, как много тебе нужно придворных."
+ 
+ char_spawner.numb.t:1 "Количество Персонажей"
+ char_spawner.numb.d:0 "Выберите количество персонажей, которых вы хотите призвать. Применяется ко всему в меню, кроме советников."
+ 
+ char_spawner.councillors.t:1 "Добавление Советников"
+ char_spawner.councillors.d:0 "Советники появятся в соответсвующих позициях."
+ 
+ char_spawner.heirs.t:1 "Добавление Детей"
+ char_spawner.heirs.d:0 "С помощью этого меню вы можете создать наследников трех разных типов: невероятный, обычный и жалкий. Вы также можете выбрать пол и возраст ребенка."
+ 
+ char_spawner.courtiers.t:1 "Добавление Придворных"
+ char_spawner.courtiers.d:0 "Призвать новых людей ко двору."
+ 
+ char_spawner.numb1:0 "1"
+ char_spawner.numb2:0 "2"
+ char_spawner.numb5:0 "5"
+ char_spawner.numb10:0 "10"
+ 
+ char_spawner.add_immortal:0 "Бессмертие: Включить"
+ char_spawner.remove_immortal:0 "Бессмертие: Выключить"
+ char_spawner.add_100_stat_man:0 "100 Stat Man: Включить"
+ char_spawner.remove_100_stat_man:0 "100 Stat Man: Выключить"
+ char_spawner.switch_m:0 "Пол: Мужской"
+ char_spawner.switch_f:0 "Пол: Женский"
+ 
+ char_spawner.diplo_councillor:0 "Канцлер (Дипломат)"
+ char_spawner.martial_councillor:0 "Маршал (Военное Дело)"
+ char_spawner.steward_councillor:0 "Стюард (Управляющий)"
+ char_spawner.intrigue_councillor:0 "Шпион (Интриган)"
+ char_spawner.learning_councillor:0 "Капеллан (Учёный)"
+ 
+ char_spawner.norm_heir:0 "Обычный"
+ char_spawner.great_heir:0 "Невероятный"
+ char_spawner.shitty_heir:0 "Жалкий"
+ 
+ char_spawner.heir_age_0:0 "Возраст Ребёнка: 0"
+ char_spawner.heir_age_3:0 "Возраст Ребёнка: 3"
+ char_spawner.heir_age_6:0 "Возраст Ребёнка: 6"
+ char_spawner.heir_age_9:0 "Возраст Ребёнка: 9"
+ char_spawner.heir_age_12:0 "Возраст Ребёнка: 12"
+ char_spawner.heir_age_15:0 "Возраст Ребёнка: 15"
+ char_spawner.heir_age_18:0 "Возраст Ребёнка: 18"
+ 
+ char_spawner.m_vassal:0 "Мужчина-Вассал"
+ char_spawner.f_vassal:0 "Женщина-Вассал"
+ char_spawner.m_dyn_vassal:0 "Мужчина-Вассал (Династия)"
+ char_spawner.f_dyn_vassal:0 "Женщина-Вассал (Династия)"
+ 
+ char_spawner.courtiers.m_courtier:0 "Нормальный Мужчина-Придворный"
+ char_spawner.courtiers.f_courtier:0 "Нормальная Женщина-Придворная"
+ char_spawner.courtiers.m_courtier_good:0 "Великолепный Мужчина-Придворный"
+ char_spawner.courtiers.f_courtier_good:0 "Великолепная Женщина-Придворная"
+ 
+ char_numb_1_TT:0 "Один персонаж с текущими настройками."
+ char_numb_2_TT:0 "Два персонажа с текущими настройками."
+ char_numb_5_TT:0 "Пять персонажей с текущими настройками."
+ char_numb_10_TT:0 "Десять персонажей с текущими настройками."
+ 
+ improved_stats_effect_TT:0 "Характеристики вашего придворного капеллана улучшатся."

@@ -1,0 +1,281 @@
+
+force_renounce_claims = {
+	icon = debug_take_title
+	category = interaction_category_diplomacy
+	ai_min_reply_days = 4
+	ai_max_reply_days = 9
+	use_diplomatic_range = yes
+	interface_priority = 50
+	use_diplomatic_range = yes
+
+	desc = force_renounce_claims_desc
+
+	is_shown = {
+		has_game_rule = GPT_interactions_enabled
+			
+		scope:recipient = {
+			NOT = { this = scope:actor }
+            OR = {
+                is_landed = no
+                is_vassal_or_below_of = scope:actor		
+            }
+		}
+		scope:actor = {
+			highest_held_title_tier >= 2
+			is_ruler = yes
+            is_adult = yes
+		}
+
+        scope:actor.primary_title = {
+			scope:recipient = {
+				has_claim_on = prev
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		
+		scope:recipient = {
+			prestige_level >= 1
+			is_imprisoned = no
+			is_at_war = no
+		}
+
+		scope:actor = {
+			highest_held_title_tier >= 3
+			prestige_level >= 1
+			is_imprisoned = no
+			is_at_war = no
+		 #	martial >= 25
+		}
+	}
+
+	on_auto_accept = {
+		scope:recipient = {
+			trigger_event = char_interaction.0200
+		}
+	}
+
+	#Use hook
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+		}
+		flag = hook	
+		localization = GENERIC_SPEND_A_HOOK
+	}
+
+	should_use_extra_icon = {
+		scope:actor = { has_usable_hook = scope:recipient }
+	}
+
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+
+	send_options_exclusive = no
+
+	on_accept = {
+
+		scope:actor = {
+
+			if = {
+				limit = {
+					is_ai = no
+				}
+				add_stress = 20
+				stress_impact = {
+					just = 30
+					greedy = 15
+					arrogant = 10
+					brave = 10
+					craven = -20
+					ambitious = -20
+					arbitrary = -20
+					deceitful = -20
+				}
+			}	
+
+				if = {
+					limit = {
+						highest_held_title_tier = 5
+					}
+					remove_short_term_gold = 350
+					add_prestige = -350
+				}
+				if = {
+					limit = {
+						highest_held_title_tier = 4
+					}
+					remove_short_term_gold = 250
+					add_prestige = -250
+				}
+				if = {
+					limit = {
+						highest_held_title_tier = 3
+					}
+					remove_short_term_gold = 150
+					add_prestige = -150
+				}
+
+				hidden_effect = {
+					send_interface_toast = {
+						title = intimidate_claimant_notification
+
+						left_icon = scope:actor					
+						right_icon = scope:recipient
+						custom_tooltip = intimidate_claimant_notification_tooltip
+					}
+				}
+       	}
+					scope:recipient = {
+						every_claim = {
+							explicit = yes
+							limit = {
+								save_temporary_scope_as = temp_claim
+								OR = {
+									holder = scope:actor
+									AND = {
+										exists = holder
+										NOT = { prev = { target_is_liege_or_above = scope:actor } }
+										holder = { target_is_liege_or_above = scope:actor }
+									}
+									scope:actor = {
+										any_held_title = {
+											is_de_jure_liege_or_above_target = scope:temp_claim
+										}
+									}
+								}
+							}
+							scope:recipient = { remove_claim = prev }
+						}
+					}
+		scope:recipient = { 
+			if = {
+				limit = {
+					scope:actor.highest_held_title_tier = 5
+				}
+				add_gold = 350
+			}
+			if = {
+				limit = {
+					scope:actor.highest_held_title_tier = 4
+				}
+				add_gold = 250
+			}
+			if = {
+				limit = {
+					scope:actor.highest_held_title_tier = 3
+				}
+				add_gold = 150
+			}
+		}
+	}
+
+	on_decline = {
+
+		scope:actor = {
+			add_prestige = -150
+			add_opinion = {
+				modifier = refused_intimidation
+				target = scope:recipient
+			}
+		}
+
+		scope:recipient = { 
+					hidden_effect = {
+							if = {
+								limit = {
+									has_relation_potential_rival = scope:actor
+								}
+								remove_relation_potential_rival = scope:actor
+							}
+					}
+					set_relation_rival = scope:actor
+		}
+	}
+
+	auto_accept = {
+		custom_description = {
+			text = "spending_hook"
+			subject = scope:actor
+			object = scope:recipient
+			scope:hook = yes
+		}
+	}
+
+	ai_accept = { 
+		base = -50
+
+		modifier = {
+			add = { 
+				value = scope:recipient.ai_boldness
+				multiply = -0.25
+		 		min = -25
+				max = 25
+			}	
+			desc = AI_BOLDNESS
+		}
+
+		modifier = {
+			add = { 
+				value = scope:recipient.ai_greed
+				multiply = 0.50
+		 		min = 0
+				max = 50
+			}	
+			desc = AI_GREEDY
+		}
+		
+		opinion_modifier = { # More likely to accept if Recipient likes the Actor
+			who = scope:recipient
+			opinion_target = scope:actor
+			multiplier = 0.25
+			desc = AI_OPINION_REASON
+		}
+
+		modifier = {
+			add = {
+				value = 0
+				add = scope:actor.dread
+				subtract = scope:recipient.dread
+				# divide = 2
+			}
+			desc = AI_INTIMIDATION_REASON_GPT
+		}
+	}
+
+	ai_potential = {
+		any_targeting_faction = {
+			faction_is_type = claimant_faction
+		}
+	}
+
+	ai_frequency = 36
+
+	ai_targets = {
+		ai_recipients = vassals
+		ai_recipients = neighboring_rulers
+		max = 30
+	}
+
+ #	cooldown = { years = 10 }
+
+	ai_will_do = { 
+		base = 0
+		modifier = {
+			add = 100
+			scope:recipient = {
+				OR = {
+					is_a_faction_member = yes
+					is_a_faction_leader = yes
+				}
+			}
+		}
+	}
+}
+
+
+
+
+

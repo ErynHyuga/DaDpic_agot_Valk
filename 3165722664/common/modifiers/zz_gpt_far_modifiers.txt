@@ -1,0 +1,14 @@
+far_agitator = {
+	icon = social_negative
+
+	monthly_prestige = -0.10
+    general_opinion = -5
+}
+
+far_challenged_goliath = {
+	icon = bear_positive
+
+	monthly_prestige = 0.30
+	monthly_dynasty_prestige = 0.10
+	general_opinion = 10
+}

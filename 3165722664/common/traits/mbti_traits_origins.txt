@@ -1,0 +1,2779 @@
+# Standard Values
+@pos_compat_high = 30
+@pos_compat_medium = 15
+@pos_compat_low = 5
+
+@neg_compat_high = -30
+@neg_compat_medium = -15
+@neg_compat_low = -5
+
+# Total: 50
+
+origin_genius = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 20
+	monthly_lifestyle_xp_gain_mult = 0.4
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = 100
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_genius_desc
+			}
+			desc = trait_origin_genius_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_dreadful = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	general_opinion = -10
+	opinion_of_liege = 20
+	dread_baseline_add = 25
+	prowess = 8
+
+ 	ai_boldness = 100
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_dreadful_desc
+			}
+			desc = trait_origin_dreadful_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_chaplain = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 20
+	monthly_piety = 2
+	clergy_opinion = 10
+	zealot_same_faith_opinion = 10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ 	ai_zeal = 100
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_chaplain_desc
+			}
+			desc = trait_origin_chaplain_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_courtfriend = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 20
+	general_opinion = 10
+	courtier_and_guest_opinion = 10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ 	ai_sociability = 100
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_courtfriend_desc
+			}
+			desc = trait_origin_courtfriend_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_ambitious = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 20
+	monthly_income = 2
+	close_relative_opinion = 10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = 100
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_ambitious_desc
+			}
+			desc = trait_origin_ambitious_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_wise = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 20
+	monthly_county_control_growth_factor = 0.2
+	life_expectancy = 8
+	health = 0.15
+
+ #	ai_boldness = 0
+ 	ai_compassion = 100
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_wise_desc
+			}
+			desc = trait_origin_wise_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_court_servant = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 30
+	liege_opinion = 10
+	monthly_prestige = 2
+
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ 	ai_honor = 100
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_court_servant_desc
+			}
+			desc = trait_origin_court_servant_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_farmer = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+	
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	prowess = 2
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 25
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_farmer_desc
+			}
+			desc = trait_origin_farmer_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_servant = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	diplomacy = 2
+	personal_scheme_power_mult = 0.1
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ 	ai_sociability = 25
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_servant_desc
+			}
+			desc = trait_origin_servant_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_formersoldier = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	martial = 2
+	prowess = 4
+
+ 	ai_boldness = 25
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_formersoldier_desc
+			}
+			desc = trait_origin_formersoldier_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_streeturchin = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	intrigue = 2
+	attraction_opinion = 5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ 	ai_honor = -25
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_streeturchin_desc
+			}
+			desc = trait_origin_streeturchin_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_armyfollower = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	stewardship = 2
+	supply_duration = 0.5
+
+ #	ai_boldness = 0
+ 	ai_compassion = 25
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_armyfollower_desc
+			}
+			desc = trait_origin_armyfollower_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_clergyservant = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	learning = 2
+	clergy_opinion = 10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ 	ai_zeal = 25
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_clergyservant_desc
+			}
+			desc = trait_origin_clergyservant_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_craftsman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	stress_gain_mult = -0.10
+	build_gold_cost = -0.15
+	holding_build_gold_cost = -0.15
+
+ 	ai_boldness = -25
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_craftsman_desc
+			}
+			desc = trait_origin_craftsman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_city_serviceprovider = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	diplomacy = 2
+	attraction_opinion = 5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ 	ai_sociability = 25
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_city_serviceprovider_desc
+			}
+			desc = trait_origin_city_serviceprovider_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_guard = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	prowess = 4
+	travel_danger = -10
+
+ 	ai_boldness = 15
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = 15
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_guard_desc
+			}
+			desc = trait_origin_guard_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_outlaw = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	general_opinion = -10
+	opinion_of_liege = 10
+	intrigue = 2
+	dread_baseline_add = 15
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ 	ai_vengefulness = 25
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_outlaw_desc
+			}
+			desc = trait_origin_outlaw_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_formerpoacher = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	stewardship = 2
+	domain_tax_mult = 0.20
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 25
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_formerpoacher_desc
+			}
+			desc = trait_origin_formerpoacher_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_explorer = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	character_travel_safety_mult = 0.15
+	character_travel_speed_mult = 0.15
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = 25
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_explorer_desc
+			}
+			desc = trait_origin_explorer_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_outdoorsman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	character_travel_speed = 20
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ 	ai_energy = 25
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_outdoorsman_desc
+			}
+			desc = trait_origin_outdoorsman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_wanderer = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	travel_companion_opinion = 20
+
+ #	ai_boldness = 0
+ 	ai_compassion = 15
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ 	ai_zeal = 15
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_wanderer_desc
+			}
+			desc = trait_origin_wanderer_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_disinherited = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	court_grandeur_baseline_add = 8
+	attraction_opinion = 10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = 25
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_disinherited_desc
+			}
+			desc = trait_origin_disinherited_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_herald = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	title_creation_cost_mult = -0.5
+	vassal_limit = 10
+	courtly_opinion = 10
+	parochial_opinion = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ 	ai_sociability = 25
+ 	ai_rationality = 25
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_herald_desc
+			}
+			desc = trait_origin_herald_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_entertainer = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	county_opinion_add = 25
+	army_maintenance_mult = -0.10
+	levy_size = 0.10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ 	ai_sociability = 25
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_entertainer_desc
+			}
+			desc = trait_origin_entertainer_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_merchant = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	monthly_income_mult = 0.10
+	monthly_war_income_mult	= 0.05
+	county_opinion_add = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = 25
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_merchant_desc
+			}
+			desc = trait_origin_merchant_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_steward = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	domain_limit = 1
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ 	ai_honor = 25
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_steward_desc
+			}
+			desc = trait_origin_steward_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_commanderassistant = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	men_at_arms_maintenance = -0.20
+	prowess = 4
+
+ 	ai_boldness = 15
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ 	ai_honor = 15
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_commanderassistant_desc
+			}
+			desc = trait_origin_commanderassistant_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_mercenary = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	mercenary_hire_cost_mult = -0.25
+	dread_baseline_add = 15
+	prowess = 4
+
+ 	ai_boldness = 15
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+	ai_rationality = 15
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_mercenary_desc
+			}
+			desc = trait_origin_mercenary_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_skilled_middleman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	courtly_opinion = -10
+	parochial_opinion = 10
+	development_growth_factor = 0.40
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = 15
+ #	ai_energy = 0
+ #	ai_honor = 0
+ 	ai_vengefulness = 15
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_skilled_middleman_desc
+			}
+			desc = trait_origin_skilled_middleman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_information_broker = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	owned_hostile_scheme_success_chance_add = 20
+	enemy_hostile_scheme_success_chance_add = -20
+	dread_baseline_add = 10
+
+ #	ai_boldness = 0
+ 	ai_compassion = -25
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ 	ai_vengefulness = 25
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_information_broker_desc
+			}
+			desc = trait_origin_information_broker_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_scholar = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	travel_companion_opinion = 10
+	dread_baseline_add = -10
+	monthly_lifestyle_xp_gain_mult = 0.2
+	faith_creation_piety_cost_mult = -0.5
+
+ 	ai_boldness = -15
+ 	ai_compassion = 15
+ #	ai_sociability = 0
+ 	ai_rationality = 15
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_scholar_desc
+			}
+			desc = trait_origin_scholar_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_scribe = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	zealot_opinion = 10
+	glory_hound_opinion = -10
+	cultural_head_fascination_mult = 0.50
+
+ 	ai_boldness = -25
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ 	ai_rationality = 25
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_scribe_desc
+			}
+			desc = trait_origin_scribe_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_court_servant_child = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	positive_random_genetic_chance = -0.5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_court_servant_child_desc
+			}
+			desc = trait_origin_court_servant_child_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_adopted_orphan = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	close_relative_opinion = 10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_adopted_orphan_desc
+			}
+			desc = trait_origin_adopted_orphan_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_bastard_courtier = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	general_opinion = -10
+	opinion_of_liege = 10
+	positive_random_genetic_chance = 0.5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_bastard_courtier_desc
+			}
+			desc = trait_origin_bastard_courtier_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_knight_squire = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	knight_effectiveness_mult = 0.25
+	prowess = 4
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ 	ai_honor = 25
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_knight_squire_desc
+			}
+			desc = trait_origin_knight_squire_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_femalesquire = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	knight_effectiveness_mult = 0.25
+	prowess = 4
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ 	ai_honor = 25
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_femalesquire_desc
+			}
+			desc = trait_origin_femalesquire_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_servant_raised_by_courtier = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	courtier_and_guest_opinion = 10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_servant_raised_by_courtier_desc
+			}
+			desc = trait_origin_servant_raised_by_courtier_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_chaperone = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	owned_personal_scheme_success_chance_add = 10
+
+ 	ai_boldness = -15
+ #	ai_compassion = 0
+ 	ai_sociability = 15
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_chaperone_desc
+			}
+			desc = trait_origin_chaperone_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_wetnurse = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	years_of_fertility = 5
+	fertility = 0.25
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_wetnurse_desc
+			}
+			desc = trait_origin_wetnurse_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_courtprostitute = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	health = -0.25
+	opinion_of_male_rulers = -10
+	attraction_opinion = 10
+	general_opinion = -10
+	opinion_of_liege = 10
+	knight_limit = 2
+
+ 	ai_boldness = 25
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_courtprostitute_desc
+			}
+			desc = trait_origin_courtprostitute_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_lover = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	general_opinion = -10
+	opinion_of_liege = 10
+	tyranny_gain_mult = -0.5
+
+ 	ai_boldness = -25
+ #	ai_compassion = 0
+ 	ai_sociability = 15
+ #	ai_rationality = 0
+ 	ai_greed = 15
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_lover_desc
+			}
+			desc = trait_origin_lover_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_courtmaid = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	monthly_county_control_growth_factor = 0.2
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ 	ai_energy = 15
+ 	ai_honor = 15
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_courtmaid_desc
+			}
+			desc = trait_origin_courtmaid_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_independent_woman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	max_personal_schemes_add = 1
+	opinion_of_female_rulers = 30
+	attraction_opinion = -10
+
+ #	ai_boldness = 0
+ 	ai_compassion = 15
+ #	ai_sociability = 0
+ 	ai_rationality = 15
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_independent_woman_desc
+			}
+			desc = trait_origin_independent_woman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_ambitious_woman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	attraction_opinion = 10
+	opinion_of_male_rulers = 20
+	seduce_scheme_power_add = 10
+	dread_baseline_add = 5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = 15
+ #	ai_energy = 0
+ 	ai_honor = -25
+ 	ai_vengefulness = 25
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_ambitious_woman_desc
+			}
+			desc = trait_origin_ambitious_woman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_skilled_fighter = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	general_opinion = -10
+	opinion_of_liege = 10
+	prowess = 8
+	dread_baseline_add = 10
+	advantage = 10
+
+ 	ai_boldness = 25
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_skilled_fighter_desc
+			}
+			desc = trait_origin_skilled_fighter_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_mysterious_seductress = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 10
+	seduce_scheme_power_mult = 0.50
+	attraction_opinion = 10
+	fertility = 0.25
+	positive_random_genetic_chance = 0.5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ 	ai_honor = -25
+ 	ai_vengefulness = 25
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_mysterious_seductress_desc
+			}
+			desc = trait_origin_mysterious_seductress_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_slave_companion = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	general_opinion = -10
+	opinion_of_liege = 10
+	attraction_opinion = 10
+
+ 	ai_boldness = -200
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	flag = can_not_marry
+	inheritance_blocker = all
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_slave_companion_desc
+			}
+			desc = trait_origin_slave_companion_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_skilled_slave = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	general_opinion = -10
+	opinion_of_liege = 50
+
+ 	ai_boldness = -200
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ 	ai_greed = -200
+ #	ai_energy = 0
+ 	ai_honor = 200
+ 	ai_vengefulness = -200
+ #	ai_zeal = 0
+
+ 	flag = can_not_marry
+	inheritance_blocker = all
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_skilled_slave_desc
+			}
+			desc = trait_origin_skilled_slave_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_courtborn = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	general_opinion = -10
+	opinion_of_liege = 10
+	diplomacy = 1
+	martial = 1
+	stewardship = 1
+	intrigue = 1
+	learning = 1
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_courtborn_desc
+			}
+			desc = trait_origin_courtborn_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+
+# unique origin traits
+
+origin_prostitute = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	dread_baseline_add = 10
+	intrigue = 4
+	intrigue_per_stress_level = 2
+	attraction_opinion = 10
+
+ 	flag = can_not_marry
+	inheritance_blocker = all
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_prostitute_desc
+			}
+			desc = trait_origin_prostitute_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_educated_deficient = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	attraction_opinion = -10
+	dread_baseline_add = -5
+	monthly_lifestyle_xp_gain_mult = 0.15
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_educated_deficient_desc
+			}
+			desc = trait_origin_educated_deficient_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_wandering_monk = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	learning = 4
+	travel_companion_opinion = 10
+	travel_danger = -5
+	character_travel_speed = 5
+
+ 	flag = can_not_marry
+	inheritance_blocker = all	
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_wandering_monk_desc
+			}
+			desc = trait_origin_wandering_monk_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_young_prodigy = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	diplomacy = 3
+	stewardship = 3
+	martial = 3
+	intrigue = 3
+	learning = 3
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_young_prodigy_desc
+			}
+			desc = trait_origin_young_prodigy_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_strongman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	prowess = 4
+	health = 0.25
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_strongman_desc
+			}
+			desc = trait_origin_strongman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_witchwoman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	intrigue = 4
+	dread_baseline_add = 30
+	general_opinion = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_witchwoman_desc
+			}
+			desc = trait_origin_witchwoman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_criminal = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	general_opinion = -10
+	dread_baseline_add = 20
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_criminal_desc
+			}
+			desc = trait_origin_criminal_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_warveteran = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	martial = 4
+	advantage = 4
+	dread_baseline_add = 10
+	intrigue = -4
+	health = -0.25
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_warveteran_desc
+			}
+			desc = trait_origin_warveteran_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_loyalist = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	opinion_of_liege = 10
+	opinion_of_vassal = 10
+	dread_baseline_add = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_loyalist_desc
+			}
+			desc = trait_origin_loyalist_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_revolutionary = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	opinion_of_liege = -10
+	opinion_of_vassal = -10
+	dread_baseline_add = 10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_revolutionary_desc
+			}
+			desc = trait_origin_revolutionary_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_adventurer = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	different_culture_opinion = 10
+	opinion_of_different_culture = 10
+	opinion_of_different_faith = 10
+	different_faith_opinion = 10
+	dread_baseline_add = 10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_adventurer_desc
+			}
+			desc = trait_origin_adventurer_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_court_slave = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	dread_baseline_add = -30
+	opinion_of_liege = 20
+	opinion_of_vassal = 20
+	monthly_prestige_gain_mult = -0.50
+
+ 	flag = can_not_marry
+	inheritance_blocker = all
+	flag = join_factions_less	
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_court_slave_desc
+			}
+			desc = trait_origin_court_slave_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_foreingner = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	opinion_of_different_culture = 30
+	different_culture_opinion = 30
+	opinion_of_different_faith = 30
+	different_faith_opinion = 30
+
+ 	flag = can_not_marry
+	inheritance_blocker = all	
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_foreingner_desc
+			}
+			desc = trait_origin_foreingner_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_disgracednoble = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	general_opinion = -10
+	opinion_of_liege = 10
+	opinion_of_vassal = 10
+	flag = join_factions_less	
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_disgracednoble_desc
+			}
+			desc = trait_origin_disgracednoble_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_traumatized = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	dread_baseline_add = 10
+	stress_gain_mult = 0.20
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_traumatized_desc
+			}
+			desc = trait_origin_traumatized_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+origin_diseased = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	health = -0.5
+	dread_baseline_add = -15
+	diplomacy_per_piety_level = 2
+	learning_per_piety_level = 2
+	stewardship_per_piety_level = 2
+	monthly_piety = 2
+
+	flag = join_factions_less	
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_diseased_desc
+			}
+			desc = trait_origin_diseased_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+
+
+# Slaves
+
+
+origin_slave_virgin = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	general_opinion = -30
+	domain_limit = -10
+	vassal_limit = -100
+
+ 	flag = can_not_marry
+	inheritance_blocker = all	
+
+ 	ai_boldness = -50
+ 	ai_compassion = 25
+ 	ai_sociability = -25
+ 	ai_rationality = 25
+ 	ai_greed = -50
+ 	ai_energy = -50
+ 	ai_honor = 50
+ 	ai_vengefulness = -25
+ 	ai_zeal = 25
+
+	icon = lowbornslave.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_slave_virgin_desc
+			}
+			desc = trait_origin_slave_virgin_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+	random_creation_weight = 0
+}
+
+origin_exotic_slave = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	general_opinion = -30
+	domain_limit = -10
+	vassal_limit = -100
+
+ 	flag = can_not_marry
+	inheritance_blocker = all	
+
+ 	ai_boldness = -50
+ 	ai_compassion = 25
+ 	ai_sociability = -25
+ 	ai_rationality = 25
+ 	ai_greed = -50
+ 	ai_energy = -50
+ 	ai_honor = 50
+ 	ai_vengefulness = -25
+ 	ai_zeal = 25
+
+	icon = lowbornslave.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_exotic_slave_desc
+			}
+			desc = trait_origin_exotic_slave_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+	random_creation_weight = 0
+}
+
+origin_child_slave = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	general_opinion = -30
+	domain_limit = -10
+	vassal_limit = -100
+
+ 	flag = can_not_marry
+	inheritance_blocker = all	
+
+ 	ai_boldness = -50
+ 	ai_compassion = 25
+ 	ai_sociability = -25
+ 	ai_rationality = 25
+ 	ai_greed = -50
+ 	ai_energy = -50
+ 	ai_honor = 50
+ 	ai_vengefulness = -25
+ 	ai_zeal = 25
+
+	icon = lowbornslave.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_origin_child_slave_desc
+			}
+			desc = trait_origin_child_slave_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+	random_creation_weight = 0
+}
+
+zzzzzzzz = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait__desc
+			}
+			desc = trait__character_desc
+		}
+	}
+
+	compatibility = {
+	}
+	random_creation_weight = 0
+}

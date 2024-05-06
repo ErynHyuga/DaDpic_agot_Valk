@@ -1,0 +1,59 @@
+﻿valkyrie = {
+#		index = 3658
+		valid_sex = female
+
+#		immortal = yes
+		set_immortal_age = 16
+		no_prowess_loss_from_age = yes
+		can_have_children = yes
+		inbreeding_chance = 0.25
+		
+		genetic = yes
+		inherit_chance = 50
+		
+
+		physical = yes
+		health_trait = yes
+		good = yes
+
+		life_expectancy = 40
+		years_of_fertility = 70
+		fertility = 20
+
+		diplomacy = 4
+		martial = 6
+		stewardship = 4
+		intrigue = 2	
+		learning = 6
+		prowess = 6
+
+		stress_loss_mult = -0.2
+		stress_gain_mult = 0.2
+		attraction_opinion = 15
+		vassal_opinion = -10
+		monthly_prestige = 2.0
+		monthly_piety = -2.0
+		
+
+		shown_in_ruler_designer = yes
+		ruler_designer_cost = 420
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_valkyrie_desc
+			}
+			desc = trait_valkyrie_desc
+		}
+	}
+
+#	desc = trait_valkyrie_desc
+
+	birth = 0.01
+	random_creation = 0.01
+	ai_energy = 20
+
+}

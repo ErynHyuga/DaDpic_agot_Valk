@@ -1,0 +1,13 @@
+﻿l_simp_chinese:
+ daddy_pika_information:0 "信息菜单"
+ information_desc:0 "这显示了一般信息，例如有用的提示，查找功能和更新日志。"
+ information_TT:0 "单击以查看有关此模组的详细信息。"
+ dp_information.changelog.t:0 "更新日志"
+ dp_information.changelog.d:0 "1.3.4\n-没有变化，只做了一些清理"
+ dp_information.useful_tips.t:0 "使用提示"
+ dp_information.useful_tips.d:0 "特质菜单\n-单击一次添加，然后再次单击删除。\n-当特质未显示时，这并不意味着该模块已损坏，这意味着存在冲突的特质。\n-由于某些限制，某些人物不会出现某些互动。\n-生育一堆孩子可能是一个大麻烦。\n-在角色编辑器的特质部分中可以找到不朽的特征，你也可以在特质菜单中查看。"
+ dp_information.locations.t:0 "发现特点"
+ dp_information.locations.d:0 "\n- 角色生成器已移至新的角色生成器菜单。\n- 生活方式点数和创新已经改变，现在可以在礼物菜单中找到。\n- 黄金可以在货币菜单中找到。\n- 文化创新可以在角色编辑器的礼物菜单中找到。\n- 在角色生成菜单中，您可以生成内阁成员、廷臣和孩子。不过要小心。\n- 在交互菜单的底部，有一个王朝杀手按钮。 您可以指定幸存者，并完成对整个王朝的杀戮。"
+ use_new_system:0 "新系统"
+ use_new_system_desc:0 "旧系统已替换为新系统。 您想尝试一下吗？"
+ use_new_system_tooltip:0 "单击此按钮将打开一个事件。"

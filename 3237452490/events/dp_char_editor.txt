@@ -1,4 +1,4 @@
-﻿namespace = dp_char_editor
+namespace = dp_char_editor
 
 ### CHARACTER SKILLS MENU ###
 
@@ -4669,6 +4669,21 @@ dp_char_editor.33 = {
 		}
 		trigger_event = dp_char_editor.33
 	}
+	option = {
+		name = trait_education_martial_5
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = education_martial_5
+				}
+				remove_trait = education_martial_5
+			}
+			else = {
+				add_trait = education_martial_5
+			}
+		}
+		trigger_event = dp_char_editor.33
+	}
 
 	option = {
 		name = dp_char_editor_back
@@ -4751,6 +4766,21 @@ dp_char_editor.34 = {
 		}
 		trigger_event = dp_char_editor.34
 	}
+	option = {
+		name = trait_education_diplomacy_5
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = education_diplomacy_5
+				}
+				remove_trait = education_diplomacy_5
+			}
+			else = {
+				add_trait = education_diplomacy_5
+			}
+		}
+		trigger_event = dp_char_editor.33
+	}	
 
 	option = {
 		name = dp_char_editor_back
@@ -4835,6 +4865,22 @@ dp_char_editor.35 = {
 	}
 
 	option = {
+		name = trait_education_stewardship_5
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = education_stewardship_5
+				}
+				remove_trait = education_stewardship_5
+			}
+			else = {
+				add_trait = education_stewardship_5
+			}
+		}
+		trigger_event = dp_char_editor.33
+	}
+
+	option = {
 		name = dp_char_editor_back
 		trigger_event = dp_char_editor.11
 	}
@@ -4914,6 +4960,21 @@ dp_char_editor.36 = {
 			}
 		}
 		trigger_event = dp_char_editor.36
+	}
+	option = {
+		name = trait_education_intrigue_5
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = education_intrigue_5
+				}
+				remove_trait = education_intrigue_5
+			}
+			else = {
+				add_trait = education_intrigue_5
+			}
+		}
+		trigger_event = dp_char_editor.33
 	}
 
 	option = {
@@ -4997,7 +5058,21 @@ dp_char_editor.37 = {
 		}
 		trigger_event = dp_char_editor.37
 	}
-
+	option = {
+		name = trait_education_learning_5
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = education_learning_5
+				}
+				remove_trait = education_learning_5
+			}
+			else = {
+				add_trait = education_learning_5
+			}
+		}
+		trigger_event = dp_char_editor.33
+	}
 	option = {
 		name = dp_char_editor_back
 		trigger_event = dp_char_editor.11
@@ -5078,6 +5153,22 @@ dp_char_editor.38 = {
 			}
 		}
 		trigger_event = dp_char_editor.38
+	}
+
+	option = {
+		name = trait_education_martial_prowess_5
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = education_martial_prowess_5
+				}
+				remove_trait = education_martial_prowess_5
+			}
+			else = {
+				add_trait = education_martial_prowess_5
+			}
+		}
+		trigger_event = dp_char_editor.33
 	}
 
 	option = {

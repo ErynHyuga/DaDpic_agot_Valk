@@ -1,4 +1,4 @@
-﻿open_daddy_pika_cheat_menu = {
+open_daddy_pika_cheat_menu = {
 	category = interaction_category_cheat_menu
 	desc = daddy_pika_cheat_menu_desc
 	common_interaction = yes
@@ -127,32 +127,28 @@ daddy_pika_character_currency_menu = {
 	}
 }
 
-daddy_pika_character_spawner = {
+VALYRIAN_WASHING = {
 	category = interaction_category_cheat_menu
-	desc = daddy_pika_character_spawner_desc
+	desc = high_valyrian
 	common_interaction = yes
 
 	auto_accept = yes
 	use_diplomatic_range = no
 	ignores_pending_interaction_block = yes
 	
-	is_shown = {
-		scope:actor = {
-			is_ai = no
-			has_character_flag = daddy_pika_cheat_menu
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = valyrian_3
+				}
+				remove_trait = valyrian_3
+			}
+			else = {
+				add_trait = valyrian_3
+			}
 		}
 	}
-	
-	on_send = {
-		scope:recipient = {
-			save_scope_as = char_spawner_scope
-		}
-		scope:actor = {
-			add_character_flag = char_numb_1
-			trigger_event = char_spawner.1
-		}
-	}
-}
+
 
 daddy_pika_change_character = {
 	category = interaction_category_cheat_menu
@@ -800,7 +796,7 @@ daddy_pika_boost_stats = {
 	ai_will_do = 0
 }
 
-daddy_pika_slay_character_interaction = {
+kaputti = {
 	category = interaction_category_cheat_menu
 	use_diplomatic_range = no
 	ignores_pending_interaction_block = yes
@@ -1478,6 +1474,33 @@ daddy_pika_add_strong_hook = {
 				target = scope:recipient
 				type = strong_test_hook
 			}
+		}
+	}
+}
+
+daddy_pika_character_spawner = {
+	category = interaction_category_cheat_menu
+	desc = daddy_pika_character_spawner_desc
+	common_interaction = yes
+
+	auto_accept = yes
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	
+	is_shown = {
+		scope:actor = {
+			is_ai = no
+			has_character_flag = daddy_pika_cheat_menu
+		}
+	}
+	
+	on_send = {
+		scope:recipient = {
+			save_scope_as = char_spawner_scope
+		}
+		scope:actor = {
+			add_character_flag = char_numb_1
+			trigger_event = char_spawner.1
 		}
 	}
 }

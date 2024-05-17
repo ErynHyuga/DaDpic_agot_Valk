@@ -1570,7 +1570,7 @@ dp_char_editor.14 = {
 
 dp_char_editor.15 = {
 	type = character_event
-	title = dp_char_editor.traits.lifestyle_perk.t
+	title = lifestyle_Traits
 	desc = dp_char_editor_menu.traits.d
 	theme = default
 	left_portrait = {
@@ -1579,6 +1579,10 @@ dp_char_editor.15 = {
 	}
 	override_background = { reference = courtyard }
 
+	option = {
+		name = Childhood_Traits
+		trigger_event = dp_char_editor.114
+	}
 	option = {
 		name = dp_char_editor.traits.lifestyle_perk_diplomacy.t
 		trigger_event = dp_char_editor.62
@@ -13662,6 +13666,89 @@ dp_char_editor.61 = {
 		scope:char_editor = {
 			remove_all_modifier_go_back_flags = yes
 		}
+	}
+}
+
+### Childhood traits ###
+
+dp_char_editor.114 = {
+	type = character_event
+	title = dp_char_editor.traits.special.t
+	desc = dp_char_editor.traits.special.d
+	theme = default
+	left_portrait = {
+		character = scope:char_editor
+		animation = personality_bold
+	}
+	override_background = { reference = tavern }
+	
+	immediate = {
+	}
+	
+	option = {
+		name = trait_pensive
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = pensive
+				}
+				remove_trait = pensive
+			}
+			else = {
+				add_trait = pensive
+			}
+		}
+		trigger_event = dp_char_editor.114
+	}
+	option = {
+		name = trait_bossy
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = bossy
+				}
+				remove_trait = bossy
+			}
+			else = {
+				add_trait = bossy
+			}
+		}
+		trigger_event = dp_char_editor.114
+	}
+	option = {
+		name = trait_charming
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = charming
+				}
+				remove_trait = charming
+			}
+			else = {
+				add_trait = charming
+			}
+		}
+		trigger_event = dp_char_editor.114
+	}
+	option = {
+		name = trait_rowdy
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = rowdy
+				}
+				remove_trait = rowdy
+			}
+			else = {
+				add_trait = rowdy
+			}
+		}
+		trigger_event = dp_char_editor.114
+	}
+
+	option = {
+		name = dp_char_editor_back
+		trigger_event = dp_char_editor.15
 	}
 }
 

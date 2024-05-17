@@ -127,29 +127,6 @@ daddy_pika_character_currency_menu = {
 	}
 }
 
-VALYRIAN_WASHING = {
-	category = interaction_category_cheat_menu
-	desc = high_valyrian
-	common_interaction = yes
-
-	auto_accept = yes
-	use_diplomatic_range = no
-	ignores_pending_interaction_block = yes
-	
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = valyrian_3
-				}
-				remove_trait = valyrian_3
-			}
-			else = {
-				add_trait = valyrian_3
-			}
-		}
-	}
-
-
 daddy_pika_change_character = {
 	category = interaction_category_cheat_menu
 	desc = daddy_pika_change_character_desc

@@ -1,4 +1,4 @@
-﻿namespace = dp_char_editor
+namespace = dp_char_editor
 
 ### CHARACTER SKILLS MENU ###
 
@@ -467,14 +467,24 @@ dp_char_editor.8 = {
 	
 	immediate = {
 	}
-
+	
 	option = {
-		name = special
-		scope:char_editor = { add_character_flag = last_event_11 }
-		trigger_event = dp_char_editor.111
+		name = trait_immortal
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = immortal
+				}
+				remove_trait = immortal
+			}
+			else = {
+				add_trait = immortal
+				set_immortal_age = 30
+			}
+		}
+		trigger_event = dp_char_editor.8
 	}
 
-	
 	option = {
 		name = trait_100_stat_man
 		scope:char_editor = {
@@ -557,8 +567,6 @@ dp_char_editor.8 = {
 		trigger_event = dp_char_editor.10
 	}
 }
-
-
 
 ### TRAIT MENU MAIN ###
 
@@ -760,8 +768,6 @@ dp_char_editor.11 = {
 		trigger_event = dp_char_editor.10
 	}
 }
-
-
 
 ### PERSONALITY TRAITS MAIN ###
 
@@ -2112,16 +2118,6 @@ dp_char_editor.19 = {
 	override_background = { reference = physicians_study }
 
 	option = {
-		name = Immortality
-		trigger_event = dp_char_editor.113
-	}
-
-	option = {
-		name = Incestuous_Blood_Fuckery
-		trigger_event = dp_char_editor.110
-	}
-
-	option = {
 		name = dp_char_editor.traits.beauty.t
 		trigger_event = dp_char_editor.20
 	}
@@ -2149,371 +2145,6 @@ dp_char_editor.19 = {
 	option = {
 		name = dp_char_editor_back
 		trigger_event = dp_char_editor.10
-	}
-}
-
-### Non-Mortality ###
-
-dp_char_editor.113 = {
-	type = character_event
-	title = dp_char_editor.presents.lifestyle.t
-	desc = dp_char_editor.presents.lifestyle.d
-	theme = default
-	left_portrait = {
-		character = scope:char_editor
-		animation = personality_bold
-	}
-	override_background = { reference = council_chamber }
-
-	option = {
-		name = 14
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = immortal
-				}
-				remove_trait = immortal
-			}
-			else = {
-				add_trait = immortal
-				set_immortal_age = 14
-			}
-		}
-		trigger_event = dp_char_editor.113
-	}
-	option = {
-		name = 16
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = immortal
-				}
-				remove_trait = immortal
-			}
-			else = {
-				add_trait = immortal
-				set_immortal_age = 16
-			}
-		}
-		trigger_event = dp_char_editor.113
-	}
-	option = {
-		name = 18
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = immortal
-				}
-				remove_trait = immortal
-			}
-			else = {
-				add_trait = immortal
-				set_immortal_age = 18
-			}
-		}
-		trigger_event = dp_char_editor.113
-	}
-	option = {
-		name = 22
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = immortal
-				}
-				remove_trait = immortal
-			}
-			else = {
-				add_trait = immortal
-				set_immortal_age = 22
-			}
-		}
-		trigger_event = dp_char_editor.113
-	}
-
-	option = {
-		name = 30
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = immortal
-				}
-				remove_trait = immortal
-			}
-			else = {
-				add_trait = immortal
-				set_immortal_age = 30
-			}
-		}
-		trigger_event = dp_char_editor.113
-	}
-	option = {
-		name = 45
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = immortal
-				}
-				remove_trait = immortal
-			}
-			else = {
-				add_trait = immortal
-				set_immortal_age = 45
-			}
-		}
-		trigger_event = dp_char_editor.113
-	}
-	option = {
-		name = 75
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = immortal
-				}
-				remove_trait = immortal
-			}
-			else = {
-				add_trait = immortal
-				set_immortal_age = 75
-			}
-		}
-		trigger_event = dp_char_editor.113
-	}
-
-	option = {
-		name = dp_char_editor_back
-		trigger_event = dp_char_editor.19
-	}
-}
-
-### AGOT Traits###
-
-dp_char_editor.111 = {
-	type = character_event
-	title = Lifestyles
-	desc = dp_char_editor.education.d
-	theme = default
-	left_portrait = {
-		character = scope:char_editor
-		animation = personality_bold
-	}
-	option = {
-		name = nightswatch
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = nightswatch
-				}
-				remove_trait = nightswatch
-			}
-			else = {
-				add_trait = nightswatch
-			}
-		}
-		trigger_event = dp_char_editor.111
-	}
-	option = {
-		name = septon
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = septon
-				}
-				remove_trait = septon
-			}
-			else = {
-				add_trait = septon
-			}
-		}
-		trigger_event = dp_char_editor.111
-	}
-		option = {
-		name = high_septon
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = high_septon
-				}
-				remove_trait = high_septon
-			}
-			else = {
-				add_trait = high_septon
-			}
-		}
-		trigger_event = dp_char_editor.111
-	}
-	option = {
-		name = maester
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = maester
-				}
-				remove_trait = maester
-			}
-			else = {
-				add_trait = maester
-			}
-		}
-		trigger_event = dp_char_editor.111
-	}
-	option = {
-		name = archmaester
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = archmaester
-				}
-				remove_trait = archmaester
-			}
-			else = {
-				add_trait = archmaester
-			}
-		}
-		trigger_event = dp_char_editor.111
-	}
-	option = {
-		name = knight
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = knight
-				}
-				remove_trait = knight
-			}
-			else = {
-				add_trait = knight
-			}
-		}
-		trigger_event = dp_char_editor.111
-	}
-	
-	option = {
-		name = nightswatch
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = nightswatch
-				}
-				remove_trait = nightswatch
-			}
-			else = {
-				add_trait = nightswatch
-			}
-		}
-		trigger_event = dp_char_editor.111
-	}
-	option = {
-		name = kingsguard
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = kingsguard
-				}
-				remove_trait = kingsguard
-			}
-			else = {
-				add_trait = kingsguard
-			}
-		}
-		trigger_event = dp_char_editor.111
-	}
-	option = {
-	name = silent_sister
-	scope:char_editor = {
-		if = {
-			limit = {
-				has_trait = silent_sister
-			}
-			remove_trait = silent_sister
-		}
-		else = {
-			add_trait = silent_sister
-		}
-	}
-	trigger_event = dp_char_editor.111
-	}
-
-	option = {
-		name = dp_char_editor_back
-		trigger_event = dp_char_editor.8
-	}
-}
-
-### Wincest Sim ###
-
-dp_char_editor.110 = {
-	type = character_event
-	title = special_blood_fuckery
-	desc = dp_char_editor.education.d
-	theme = default
-	left_portrait = {
-		character = scope:char_editor
-		animation = personality_bold
-	}
-	option = {
-		name = valkyrie
-		scope:char_editor = {
-			if = {	
-				limit = {
-					has_trait = valkyrie
-				}
-				remove_trait = valkyrie
-			}
-			else = {
-				add_trait = valkyrie
-			}
-		}
-		trigger_event = dp_char_editor.110
-	}
-	option = {
-		name = dragon_dreams
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = dragon_dreams
-				}
-				remove_trait = dragon_dreams
-			}
-			else = {
-				add_trait = dragon_dreams
-			}
-		}
-		trigger_event = dp_char_editor.110
-	}
-	option = {
-		name = greensight
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = greensight
-				}
-				remove_trait = greensight
-			}
-			else = {
-				add_trait = greensight
-			}
-		}
-		trigger_event = dp_char_editor.110
-	}
-	option = {
-		name = aged
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = aged
-				}
-				remove_trait = aged
-			}
-			else = {
-				add_trait = aged
-			}
-		}
-		trigger_event = dp_char_editor.110
-	}
-	
-	option = {
-		name = dp_char_editor_back
-		trigger_event = dp_char_editor.19
 	}
 }
 
@@ -2876,67 +2507,6 @@ dp_char_editor.23 = {
 	override_background = { reference = physicians_study }
 
 	option = {
-		name = baratheon
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = baratheon
-				}
-				remove_trait = baratheon
-			}
-			else = {
-				add_trait = baratheon
-			}
-		}
-		trigger_event = dp_char_editor.110
-	}
-	option = {
-		name = low_valyrian
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = valyrian_1
-				}
-				remove_trait = valyrian_1
-			}
-			else = {
-				add_trait = valyrian_1
-			}
-		}
-		trigger_event = dp_char_editor.110
-	}
-	option = {
-		name = Valyrisch	
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = valyrian_2
-				}
-				remove_trait = valyrian_2
-			}
-			else = {
-				add_trait = valyrian_2
-			}
-		}
-		trigger_event = dp_char_editor.110
-	}
-	option = {
-		name = high_valyrian
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = valyrian_3
-				}
-				remove_trait = valyrian_3
-			}
-			else = {
-				add_trait = valyrian_3
-			}
-		}
-		trigger_event = dp_char_editor.110
-	}
-
-	option = {
 		name = trait_pure_blooded
 		scope:char_editor = {
 			if = {
@@ -3018,7 +2588,6 @@ dp_char_editor.24 = {
 		animation = personality_bold
 	}
 	override_background = { reference = physicians_study }
-	
 
 	option = {
 		name = trait_dwarf
@@ -4421,22 +3990,6 @@ dp_char_editor.33 = {
 		}
 		trigger_event = dp_char_editor.33
 	}
-	option = {
-	name = trait_education_martial_5
-	scope:char_editor = {
-		if = {
-			limit = {
-				has_trait = education_martial_5
-			}
-			remove_trait = education_martial_5
-		}
-		else = {
-			add_trait = education_martial_5
-		}
-	}
-	trigger_event = dp_char_editor.33
-}
-
 
 	option = {
 		name = dp_char_editor_back
@@ -4521,28 +4074,9 @@ dp_char_editor.34 = {
 	}
 
 	option = {
-	name = trait_education_diplomacy_5
-	scope:char_editor = {
-		if = {
-			limit = {
-				has_trait = education_diplomacy_5
-			}
-			remove_trait = education_diplomacy_5
-		}
-		else = {
-			add_trait = education_diplomacy_5
-		}
-	}
-	trigger_event = dp_char_editor.34
-}
-
-	option = {
 		name = dp_char_editor_back
 		trigger_event = dp_char_editor.11
 	}
-
-
-
 }
 
 ### STEWARDSHIP EDUCATION ###
@@ -4620,22 +4154,6 @@ dp_char_editor.35 = {
 		}
 		trigger_event = dp_char_editor.35
 	}
-
-	option = {
-	name = trait_education_stewardship_5
-	scope:char_editor = {
-		if = {
-			limit = {
-				has_trait = education_stewardship_5
-			}
-			remove_trait = education_stewardship_5
-		}
-		else = {
-			add_trait = education_stewardship_5
-		}
-	}
-	trigger_event = dp_char_editor.35
-}
 
 	option = {
 		name = dp_char_editor_back
@@ -4720,22 +4238,6 @@ dp_char_editor.36 = {
 	}
 
 	option = {
-	name = trait_education_intrigue_5
-	scope:char_editor = {
-		if = {
-			limit = {
-				has_trait = education_intrigue_5
-			}
-			remove_trait = education_intrigue_5
-		}
-		else = {
-			add_trait = education_intrigue_5
-		}
-	}
-	trigger_event = dp_char_editor.36
-}
-
-	option = {
 		name = dp_char_editor_back
 		trigger_event = dp_char_editor.11
 	}
@@ -4818,27 +4320,10 @@ dp_char_editor.37 = {
 	}
 
 	option = {
-	name = trait_education_learning_5
-	scope:char_editor = {
-		if = {
-			limit = {
-				has_trait = education_learning_5
-			}
-			remove_trait = education_learning_5
-		}
-		else = {
-			add_trait = education_learning_5
-		}
-	}
-	trigger_event = dp_char_editor.37
-}
-
-	option = {
 		name = dp_char_editor_back
 		trigger_event = dp_char_editor.11
 	}
 }
-
 
 ### PROWESS EDUCATION ###
 
@@ -4917,30 +4402,11 @@ dp_char_editor.38 = {
 	}
 
 	option = {
-		name = trait_education_martial_prowess_5
-		scope:char_editor = {
-			if = {
-				limit = {
-					has_trait = education_martial_prowess_5
-				}
-				remove_trait = education_martial_prowess_5
-			}
-			else = {
-				add_trait = education_martial_prowess_5
-			}
-		}
-		trigger_event = dp_char_editor.38
-		}
-
-
-	option = {
 		name = dp_char_editor_back
 		trigger_event = dp_char_editor.11
 	}
-
-
-	
 }
+
 ### CULTURE GROUP ###
 
 dp_char_editor.39 = {
@@ -15050,17 +14516,6 @@ dp_char_editor.77 = {
 		animation = personality_bold
 	}
 	override_background = { reference = temple }
-
-	option = {
-			name = maester
-			trigger = {
-				scope:char_editor = {
-					has_character_flag = trait_menu_learned_pg_1
-				}
-			}
-			LIT_learned_trait_check = { TRAIT = maester VALUE = 50 }
-			trigger_event = dp_char_editor.77
-	}
 
 	option = {
 		name = trait_pilgrim

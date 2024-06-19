@@ -15373,8 +15373,14 @@ dp_char_editor.1000 = {
 				limit = {
 					has_trait = valyrian_3
 
+
 				}
 				remove_trait = valyrian_1
+				remove_trait = valyrian_2
+				remove_trait = valyrian_3
+				remove_trait = baratheon
+				
+
 				}
 			else = {
 				add_trait = valyrian_3

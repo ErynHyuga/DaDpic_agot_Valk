@@ -1,7 +1,7 @@
 ﻿dragon_claim_throne = {
 	category = interaction_category_diplomacy
 	icon = dragon_claim_throne
-	cooldown = { months = 120 }
+	cooldown = { months = 9 }
 	
 	use_diplomatic_range = no
 	

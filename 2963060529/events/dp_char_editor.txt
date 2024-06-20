@@ -703,14 +703,12 @@ dp_char_editor.11 = {
 	}
 }
 
-
-
 ### PERSONALITY TRAITS MAIN ###
 
 dp_char_editor.12 = {
 	type = character_event
 	title = dp_char_editor.traits.personality.t
-	desc = dp_char_editor.traits.personality.d
+	desc = 1
 	theme = default
 	left_portrait = {
 		character = scope:char_editor
@@ -1038,7 +1036,47 @@ dp_char_editor.12 = {
 		}
 		trigger_event = dp_char_editor.12
 	}
-	
+	option = {
+		name = trait_honorable
+		trigger = {
+			scope:char_editor = { has_character_flag = trait_menu_personality_pg_5 }
+		}
+		scope:char_editor = {
+			LIT_personality_trait_check = { TRAIT = honorable} 
+		}
+		trigger_event = dp_char_editor.12
+	}
+	option = {
+		name = trait_authoritative
+		trigger = {
+			scope:char_editor = { has_character_flag = trait_menu_personality_pg_5 }
+		}
+		scope:char_editor = {
+			LIT_personality_trait_check = { TRAIT = authoritative} 
+		}
+		trigger_event = dp_char_editor.12
+	}
+	option = {
+		name = trait_rude
+		trigger = {
+			scope:char_editor = { has_character_flag = trait_menu_personality_pg_5 }
+		}
+		scope:char_editor = {
+			LIT_personality_trait_check = { TRAIT = rude} 
+		}
+		trigger_event = dp_char_editor.12
+	}
+	option = {
+		name = trait_ruthless
+		trigger = {
+			scope:char_editor = { has_character_flag = trait_menu_personality_pg_5 }
+		}
+		scope:char_editor = {
+			LIT_personality_trait_check = { TRAIT = ruthless} 
+		}
+		trigger_event = dp_char_editor.12
+	}
+
 	option = {
 		name = trait_fickle
 		trigger = {
@@ -2112,6 +2150,51 @@ dp_char_editor.111 = {
 		animation = personality_bold
 	}
 	option = {
+		name = widowed
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = widowed
+				}
+				remove_trait = widowed
+			}
+			else = {
+				add_trait = widowed
+			}
+		}
+		trigger_event = dp_char_editor.111
+	}
+	option = {
+		name = refusing_marriage
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = refusing_marriage
+				}
+				remove_trait = refusing_marriage
+			}
+			else = {
+				add_trait = refusing_marriage
+			}
+		}
+		trigger_event = dp_char_editor.111
+	}
+	option = {
+		name = fashionable
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = fashionable
+				}
+				remove_trait = fashionable
+			}
+			else = {
+				add_trait = fashionable
+			}
+		}
+		trigger_event = dp_char_editor.111
+	}
+	option = {
 		name = fire_obsessed
 		scope:char_editor = {
 			if = {
@@ -2418,6 +2501,38 @@ dp_char_editor.113 = {
 		trigger_event = dp_char_editor.113
 	}
 	option = {
+		name = 55
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = immortal
+				}
+				remove_trait = immortal
+			}
+			else = {
+				add_trait = immortal
+				set_immortal_age = 55
+			}
+		}
+		trigger_event = dp_char_editor.113
+	}
+	option = {
+		name = 65
+		scope:char_editor = {
+			if = {
+				limit = {
+					has_trait = immortal
+				}
+				remove_trait = immortal
+			}
+			else = {
+				add_trait = immortal
+				set_immortal_age = 65
+			}
+		}
+		trigger_event = dp_char_editor.113
+	}
+	option = {
 		name = 75
 		scope:char_editor = {
 			if = {
@@ -2661,7 +2776,7 @@ dp_char_editor.115 = {
 				add_trait = deserter
 			}
 		}
-		trigger_event = dp_char_editor.114
+		trigger_event = dp_char_editor.115
 	}
 	option = {
 		name = nightswatch_temp 
@@ -2676,7 +2791,7 @@ dp_char_editor.115 = {
 				add_trait = nightswatch_temp 
 			}
 		}
-		trigger_event = dp_char_editor.114
+		trigger_event = dp_char_editor.115
 	}
 	option = {
 		name = lifestyle_nw_builder_temp 
@@ -2691,7 +2806,7 @@ dp_char_editor.115 = {
 				add_trait = lifestyle_nw_builder_temp 
 			}
 		}
-		trigger_event = dp_char_editor.114
+		trigger_event = dp_char_editor.115
 	}
 	option = {
 		name = lifestyle_nw_ranger
@@ -2706,7 +2821,7 @@ dp_char_editor.115 = {
 				add_trait = lifestyle_nw_ranger
 			}
 		}
-		trigger_event = dp_char_editor.114
+		trigger_event = dp_char_editor.115
 	}
 	option = {
 		name = lifestyle_nw_steward
@@ -2721,7 +2836,7 @@ dp_char_editor.115 = {
 				add_trait = lifestyle_nw_steward
 			}
 		}
-		trigger_event = dp_char_editor.114
+		trigger_event = dp_char_editor.115
 	}
 	option = {
 		name = dp_char_editor_back
@@ -15453,7 +15568,9 @@ dp_char_editor.1000 = {
 			if = {
 				limit = {
 					has_trait = valyrian_3
-
+					has_trait = valyrian_2
+					has_trait = valyrian_1
+					has_trait = baratheon
 
 				}
 				remove_trait = valyrian_1
@@ -15461,6 +15578,7 @@ dp_char_editor.1000 = {
 				remove_trait = valyrian_3
 				remove_trait = baratheon
 				
+
 
 				}
 			else = {

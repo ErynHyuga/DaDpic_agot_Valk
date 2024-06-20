@@ -16,7 +16,7 @@ create_small_dragon_effect = {
 		template = dragon_template
 		wealth = scope:wealth
 		quality = scope:quality
-		max_durability = 50
+		max_durability = 167
 		history = {
 			type = created_before_history
 		}
@@ -52,7 +52,7 @@ create_large_dragon_effect = {
 		template = dragon_template
 		wealth = scope:wealth
 		quality = scope:quality
-		max_durability = 100
+		max_durability = 225
 		history = {
 			type = created_before_history
 		}
@@ -88,7 +88,7 @@ create_black_dragon_effect = {
 		template = dragon_template
 		wealth = scope:wealth
 		quality = scope:quality
-		max_durability = 200
+		max_durability = 350
 		history = {
 			type = created_before_history
 		}

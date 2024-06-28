@@ -1,0 +1,6 @@
+﻿l_english:
+	mz_lovers_pox_treatment_decision:0 "Seek Treatment for Lover's Pox"
+	mz_lovers_pox_treatment_decision_desc:0 "If I have a $court_physician_court_position$, I can attempt to have my lover's pox treated. While curing it is unlikley, temporary relief is quite possible."
+	mz_lovers_pox_treatment_decision_confirm:0 "Seek Treatment"
+	mz_lovers_pox_treatment_decision_tooltip:0 "You will consult your $court_physician_court_position$ to consider your options."
+	mz_lovers_pox_treatment_decision_requirements:0 "You must have an availible $court_physician_court_position$ either at your court or in your entourage when traveling."

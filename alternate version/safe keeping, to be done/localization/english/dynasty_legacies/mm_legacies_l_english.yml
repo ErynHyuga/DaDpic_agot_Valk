@@ -1,0 +1,18 @@
+﻿l_english:
+  mz_matriarchy_legacy_track_name:0 "Matriarchy"
+  mz_matriarchy_legacy_track_desc:0 "Women that rule in a world dominated by men"
+  mz_matriarchy_legacy_1_name:0 "Mothers and Daughters"
+  mz_matriarchy_legacy_2_name:0 "Divine Matriarchs"
+  mz_matriarchy_legacy_3_name:0 "A Woman's Court"
+  mz_matriarchy_legacy_4_name:0 "Warrior Queens"
+  mz_matriarchy_legacy_5_name:0 "Absolute Gynarchy"
+  mz_matriarchy_legacy_2_modifier_name:0 "[GetDynastyPerk('mz_matriarchy_legacy_2').GetName]"
+
+  mz_womans_court_mod:0 "$mz_matriarchy_legacy_3_name$"
+
+  MM_CONQUEST_COUNTY_CB_NAME:1 "Matriarchal [county|E] Conquest"
+  MM_CONQUEST_DUCHY_CB_NAME:1 "Matriarchal [duchy|E] Conquest"
+  MM_CONQUEST_CB_SPECIFIC_NAME:1 "Conquer the [TITLE.GetBaseName]"
+  MM_CONQUEST_CB_NAME:0 "Conquer the [TITLE.GetBaseName]"
+  MM_CONQUEST_WAR_NAME:2 "$ORDER$ [ATTACKER.GetPrimaryTitle.GetAdjective] Conquest of the [TITLE.GetBaseName]"
+  MM_CONQUEST_WAR_NAME_BASE:0 "[ATTACKER.GetPrimaryTitle.GetAdjective][DEFENDER.GetPrimaryTitle.GetName]"

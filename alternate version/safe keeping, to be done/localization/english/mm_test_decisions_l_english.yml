@@ -1,0 +1,17 @@
+﻿l_english:
+	mz_change_sexuality_test_decision:0 "(DEBUG) Change Sexual Orientation"
+	mz_change_sexuality_test_decision_desc:0 "Use this decision to reconsider your sexual orientation."
+	mz_change_sexuality_test_decision_confirm:0 "Select Orientation"
+	mz_change_sexuality_test_decision_tooltip:0 "Gives you an option to change your sexual orientation."
+	mz_change_sexuality_effect_tooltip:0 "Change your sexual orientation."
+
+	mz_test_effect_decision:0 "(DEBUG) Test Decision"
+	mz_test_effect_decision_desc:0 "This decision is for testing effects."
+	mz_test_effect_decision_confirm:0 "Test Now"
+	mz_test_effect_decision_tooltip:0 "Will fire the effect selected for testing."
+
+	mz_amazon_culture_fix_decision:0 "Fix Amazon Traditions"
+	mz_amazon_culture_fix_decision_desc:0 "If the patch caught you midgame and some traditions are messed up or flags are not properly set, using this decision will fix this."
+	mz_amazon_culture_fix_decision_confirm:0 "Fix It!"
+	mz_amazon_culture_fix_decision_tooltip:0 "This does not count as a debug decision and shouldn't disable achievements."
+	mz_amazon_culture_fix_decision_effect_tt:0 "Will set some background global flags to allow certain traditions to be chosen if they should be."

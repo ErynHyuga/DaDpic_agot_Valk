@@ -1,0 +1,6 @@
+﻿l_english:
+	mz_dynasty.0001.t:0 "Matriarchal Dynasty"
+	mz_dynasty.0001.desc:0 "Several women of the [ROOT.Char.GetDynasty.GetBaseNameNoTooltip] dynasty have managed to become respected and powerful rulers in their own right, and the dynast, [ROOT.Char.GetTitledFirstName], has decreed that the [ROOT.Char.GetDynasty.GetBaseNameNoTooltip] dynasty shall henceforth be known as a matriarchal dynasty. So long as the divine powers that be allow it, female rulers who are members of this dynasty may rule their realms and pass laws in accordance with the tradition of the dynasty. What glorious reigns await the women of the [ROOT.Char.GetDynasty.GetBaseNameNoTooltip] dynasty?"
+	mz_dynasty.0001.a:0 "Long live the [ROOT.Char.GetDynasty.GetBaseNameNoTooltip] dynasty!"
+	mz_male_dynasty_opinion_loss:0 "All men in your dynasty"
+	mz_dynasty.0001.b.toast:0 "$female_preference_law$"

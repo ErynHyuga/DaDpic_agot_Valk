@@ -1,0 +1,1963 @@
+﻿namespace = mz_amazon_alliance
+
+## First Encounter
+# 1001 # Encounter Amazon during war
+# 1002 # Encounter Amazon during a hunt
+# 1003 # Head of Matriarchal dynasty approached by Amazon
+
+## Contact the Amazon diaspora
+# 2001 # Decision: contact the Amazon diaspora
+
+## Amazon reconquest war decision
+# 3001 # Decision: choose Pontus or Scythia
+# 3002 # Punishment event if you don't use the CB
+
+## Misc Amazon realm decisions
+# 3501 # Adopt Amazon culture, chance to reform
+# 3601 # Reform Amazonian culture as Amazon
+# 6000 # Establish Scythian Capital
+
+## Amazon realm formation
+# 4001 # Form Themiscyra
+# 4100 # Expand Themiscyra
+# 4200 # Form Amazonia
+# 5001 # Form Scythia
+# 5100 # Expand Scythia
+# 5200 # Form Greater Scythia
+
+mz_amazon_alliance.1001 = { # Encounter Amazon during war
+	type = character_event
+	title = mz_amazon_alliance.1001.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { 
+					scope:mz_amazon_warrior = { 
+						can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root } 
+					}
+				}
+				desc = mz_amazon_alliance.1001.a.desc
+			}
+		}
+		desc = mz_amazon_alliance.1001.b.desc
+	}
+	theme = war
+	right_portrait = {
+		character = scope:mz_amazon_warrior
+		animation = marshal
+	}
+	cooldown = { years = 20 }
+
+	trigger = {
+		is_ai = no
+		is_female = yes 
+		exists = dynasty 
+		is_dynast = yes # Amazons only want to negotiate with the dynast
+		mz_has_amazon_contact = no # Obviously we shouldn't trigger this if the Amazons have already made contact
+		is_at_war = yes # There must be an ongoing war
+		NOR = { 
+			has_character_flag = mz_amazon_contact_potential 
+			culture = culture:mz_amazonian # If we're already Amazonian we don't ally with the Amazons
+		}
+		culture:mz_amazonian = { has_cultural_tradition = tradition_diasporic }	
+	}
+	immediate = {
+		hidden_effect = {
+			create_character = {
+				template = mz_amazon_woman
+				save_scope_as = mz_amazon_warrior
+				location = root.location
+			}
+			add_visiting_courtier = scope:mz_amazon_warrior
+		} 
+	}
+
+	option = {
+		name = mz_amazon_alliance.1001.a # Recruit the Amazon
+		trigger = { 
+			scope:mz_amazon_warrior = {
+				can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+			}
+		}
+		add_courtier = scope:mz_amazon_warrior
+		hidden_effect = {
+			add_character_flag = {
+				flag = mz_amazon_contact_potential
+				years = 80
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+
+	option = {
+		name = mz_amazon_alliance.1001.b # Recruit the Amazon (Women can't be knights)
+		trigger = { 
+			NOT = {
+				scope:mz_amazon_warrior = {
+					can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+				}
+			}
+		}
+		add_courtier = scope:mz_amazon_warrior
+		hidden_effect = {
+			add_character_flag = {
+				flag = mz_amazon_contact_potential
+				years = 80
+			}
+			scope:mz_amazon_warrior = { add_character_modifier = ignores_gender_army_rules }
+		}
+		every_knight = { # Your knights are insulted
+			limit = { is_female = no }
+			custom = custom.every_knight
+			add_opinion = {
+				modifier = insult_opinion
+				target = root
+				opinion = -40
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+
+	option = { # Don't recruit the Amazon
+		name = mz_amazon_alliance.1001.c
+		remove_courtier_or_guest = scope:mz_amazon_warrior
+		hidden_effect = {
+			scope:mz_amazon_warrior = {
+				death = { death_reason = death_vanished }
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+mz_amazon_alliance.1002 = { # Encounter Amazon during a hunt
+	type = character_event
+	title = mz_amazon_alliance.1002.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { 
+					scope:mz_amazon_warrior = { 
+						can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root } 
+					}
+				}
+				desc = mz_amazon_alliance.1002.a.desc
+			}
+		}
+		desc = mz_amazon_alliance.1002.b.desc
+	}
+	theme = hunt_activity
+	left_portrait = {
+		character = scope:mz_amazon_warrior
+		animation = personality_bold
+	}
+	cooldown = { years = 20 }
+
+	trigger = {
+		is_ai = no
+		is_female = yes 
+		exists = dynasty 
+		is_dynast = yes # Amazons only want to negotiate with the dynast
+		mz_has_amazon_contact = no # Obviously we shouldn't trigger this if the Amazons have already made contact
+		NOR = { 
+			has_character_flag = mz_amazon_contact_potential 
+			culture = culture:mz_amazonian # If we're already Amazonian we don't ally with the Amazons
+		}
+		is_travelling_at_activity = yes
+		culture:mz_amazonian = { has_cultural_tradition = tradition_diasporic }
+	}
+	immediate = {
+		hidden_effect = {
+			create_character = {
+				template = mz_amazon_woman
+				save_scope_as = mz_amazon_warrior
+				location = scope:activity.activity_location
+				after_creation = {
+					if = {
+						limit = { 
+							NOT = { has_trait = lifestyle_hunter }
+						}
+						add_trait = lifestyle_hunter
+					}
+					random_list = {
+						1 = {
+							add_trait_xp = {
+								trait = lifestyle_hunter
+								track = hunter
+								value = {
+									integer_range = {
+										min = 20
+										max = 45
+									}
+								}
+							}
+						}
+						1 = {
+							add_trait_xp = {
+								trait = lifestyle_hunter
+								track = falconer
+								value = {
+									integer_range = {
+										min = 20
+										max = 45
+									}
+								}
+							}
+						}
+					}
+					random = {
+						chance = 50
+						random_list = {
+							1 = {
+								add_trait_xp = {
+									trait = lifestyle_hunter
+									track = hunter
+									value = {
+										integer_range = {
+											min = 20
+											max = 45
+										}
+									}
+								}
+							}
+							1 = {
+								add_trait_xp = {
+									trait = lifestyle_hunter
+									track = falconer
+									value = {
+										integer_range = {
+											min = 20
+											max = 45
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}		
+			add_visiting_courtier = scope:mz_amazon_warrior
+		} 
+	}
+
+	option = {
+		name = mz_amazon_alliance.1002.a # Recruit the Amazon
+		trigger = { 
+			scope:mz_amazon_warrior = {
+				can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+			}
+		}
+		recruit_to_entourage_court_and_activity_effect = { 
+			CHAR_TO_ADD = scope:mz_amazon_warrior 
+			NEW_COURT_OWNER = root 
+		}
+		#add_courtier = scope:mz_amazon_warrior
+		hidden_effect = {
+			add_character_flag = {
+				flag = mz_amazon_contact_potential
+				years = 80
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+
+	option = {
+		name = mz_amazon_alliance.1002.b # Recruit the Amazon (Women can't be knights)
+		trigger = { 
+			NOT = {
+				scope:mz_amazon_warrior = {
+					can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+				}
+			}
+		}
+		recruit_to_entourage_court_and_activity_effect = { 
+			CHAR_TO_ADD = scope:mz_amazon_warrior 
+			NEW_COURT_OWNER = root 
+		}
+		#add_courtier = scope:mz_amazon_warrior
+		hidden_effect = {
+			add_character_flag = {
+				flag = mz_amazon_contact_potential
+				years = 80
+			}
+			scope:mz_amazon_warrior = { add_character_modifier = ignores_gender_army_rules }
+		}
+		every_knight = { # Your knights are insulted
+			limit = { is_female = no }
+			custom = custom.every_knight
+			add_opinion = {
+				modifier = insult_opinion
+				target = root
+				opinion = -40
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+
+	option = {
+		name = mz_amazon_alliance.1002.c # Make Master of the Hunt
+		trigger = { 
+			scope:mz_amazon_warrior = {
+				can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+			}
+		}
+		current_travel_plan = { remove_character = root.court_position:master_of_hunt_court_position }
+		#add_courtier = scope:mz_amazon_warrior
+		recruit_to_entourage_court_and_activity_effect = { 
+			CHAR_TO_ADD = scope:mz_amazon_warrior 
+			NEW_COURT_OWNER = root 
+		}
+		if = {
+			limit = {
+				NOT = { employs_court_position = master_of_hunt_court_position }
+			}
+			appoint_court_position = {
+				recipient = scope:mz_amazon_warrior
+				court_position = master_of_hunt_court_position
+			}				
+		}
+		else = {
+			replace_court_position = {
+				recipient = scope:mz_amazon_warrior
+				holder = court_position:master_of_hunt_court_position
+				court_position = master_of_hunt_court_position				
+			}
+		}
+		hidden_effect = {
+			add_character_flag = {
+				flag = mz_amazon_contact_potential
+				years = 80
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+
+	option = {
+		name = mz_amazon_alliance.1002.d # Make Master of the Hunt (Women can't be knights)
+		trigger = { 
+			NOT = {
+				scope:mz_amazon_warrior = {
+					can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+				}
+			}
+		}
+		current_travel_plan = { remove_character = root.court_position:master_of_hunt_court_position }
+		#add_courtier = scope:mz_amazon_warrior
+		recruit_to_entourage_court_and_activity_effect = { 
+			CHAR_TO_ADD = scope:mz_amazon_warrior 
+			NEW_COURT_OWNER = root 
+		}	
+		hidden_effect = {
+			add_character_flag = {
+				flag = mz_amazon_contact_potential
+				years = 80
+			}
+			scope:mz_amazon_warrior = { add_character_modifier = ignores_gender_army_rules }
+		}
+		if = {
+			limit = {
+				NOT = { employs_court_position = master_of_hunt_court_position }
+			}
+			appoint_court_position = {
+				recipient = scope:mz_amazon_warrior
+				court_position = master_of_hunt_court_position
+			}				
+		}
+		else = {
+			replace_court_position = {
+				recipient = scope:mz_amazon_warrior
+				holder = court_position:master_of_hunt_court_position
+				court_position = master_of_hunt_court_position				
+			}
+		}	
+		every_knight = { # Your knights are insulted
+			limit = { is_female = no }
+			custom = custom.every_knight
+			add_opinion = {
+				modifier = insult_opinion
+				target = root
+				opinion = -40
+			}
+		}
+		ai_chance = { base = 100 }
+	}		
+
+	option = { # Don't recruit the Amazon
+		name = mz_amazon_alliance.1002.e
+		remove_courtier_or_guest = scope:mz_amazon_warrior
+		hidden_effect = {
+			scope:mz_amazon_warrior = {
+				death = { death_reason = death_vanished }
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+mz_amazon_alliance.1003 = { # Amazon joins after becoming Matriarchy
+	type = character_event
+	title = mz_amazon_alliance.1003.t
+	desc = mz_amazon_alliance.1003.desc
+	theme = dynasty
+	left_portrait = {
+		character = scope:mz_amazon_warrior
+		animation = marshal
+	}
+	cooldown = { years = 20 }
+
+	trigger = {
+		is_ai = no
+		is_female = yes 
+		exists = dynasty 
+		is_dynast = yes # Amazons only want to negotiate with the dynast
+		mz_has_amazon_contact = no # Obviously we shouldn't trigger this if the Amazons have already made contact
+		dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+		NOR = { 
+			has_character_flag = mz_amazon_contact_potential 
+			culture = culture:mz_amazonian # If we're already Amazonian we don't ally with the Amazons
+		}
+		culture:mz_amazonian = { has_cultural_tradition = tradition_diasporic }
+	}
+	immediate = {
+		hidden_effect = {
+			create_character = {
+				template = mz_amazon_woman
+				save_scope_as = mz_amazon_warrior
+				location = root.location
+			}
+			add_visiting_courtier = scope:mz_amazon_warrior
+		} 
+	}
+
+	option = {
+		name = mz_amazon_alliance.1003.a # Recruit the Amazon
+		trigger = { 
+			scope:mz_amazon_warrior = {
+				can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+			}
+		}
+		add_courtier = scope:mz_amazon_warrior
+		hidden_effect = {
+			hidden_effect = {
+				add_character_flag = {
+					flag = mz_amazon_contact_potential
+					years = 80
+				}
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+
+	option = {
+		name = mz_amazon_alliance.1003.b # Recruit the Amazon (Women can't be knights)
+		trigger = { 
+			NOT = {
+				scope:mz_amazon_warrior = {
+					can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root }
+				}
+			}
+		}
+		add_courtier = scope:mz_amazon_warrior
+		hidden_effect = { # Add exception
+			scope:mz_amazon_warrior = { add_character_modifier = ignores_gender_army_rules }
+			hidden_effect = {
+				add_character_flag = {
+					flag = mz_amazon_contact_potential
+					years = 80
+				}
+			}
+		}
+		every_knight = { # Your knights are insulted
+			limit = { is_female = no }
+			custom = custom.every_knight
+			add_opinion = {
+				modifier = insult_opinion
+				target = root
+				opinion = -40
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+
+	option = { # Don't recruit the Amazon
+		name = mz_amazon_alliance.1003.c
+		ai_chance = { base = 100 }
+		remove_courtier_or_guest = scope:mz_amazon_warrior
+		hidden_effect = {
+			scope:mz_amazon_warrior = {
+				death = { death_reason = death_vanished }
+			}
+		}
+	}
+}
+
+mz_amazon_alliance.2001 = { # Contact the Amazon diaspora
+	type = character_event
+	title = mz_amazon_alliance.2001.t
+	desc = mz_amazon_alliance.2001.desc
+	theme = dynasty
+	left_portrait = {
+		character = scope:mz_amazon_warrior
+		animation = marshal
+	}
+
+	trigger = {
+		mz_has_amazon_contact = no # Obviously we shouldn't trigger this if the Amazons have already made contact
+		has_character_flag = mz_amazon_contact_potential
+		any_courtier = {
+			mz_amazon_character_trigger = yes
+			is_imprisoned = no
+			is_available = yes
+		}
+	}
+	immediate = {
+		random_courtier = {
+			limit = {
+				mz_amazon_character_trigger = yes
+				is_imprisoned = no
+				is_available = yes				
+			}
+			save_scope_as = mz_amazon_warrior
+		}
+	}
+
+	option = {
+		name = mz_amazon_alliance.2001.a # Contact established
+		dynasty = { 
+			add_dynasty_modifier = mz_amazon_alliance_rank_1 
+			hidden_effect = { 
+				set_variable = {
+					name = mz_amazon_favor
+					value = 50 # Starting value is 50
+				}
+				if = { # Restroactively add value for taking matriarchy legacy perks
+					limit = {
+						has_dynasty_perk = mz_matriarchy_legacy_5
+					}
+					change_variable = {
+						name = mz_amazon_favor
+						add = 500
+					}
+				}
+				else_if = {
+					limit = {
+						has_dynasty_perk = mz_matriarchy_legacy_4
+					}
+					change_variable = {
+						name = mz_amazon_favor
+						add = 400
+					}
+				}
+				else_if = {
+					limit = {
+						has_dynasty_perk = mz_matriarchy_legacy_3
+					}
+					change_variable = {
+						name = mz_amazon_favor
+						add = 300
+					}
+				}
+				else_if = {
+					limit = {
+						has_dynasty_perk = mz_matriarchy_legacy_2
+					}
+					change_variable = {
+						name = mz_amazon_favor
+						add = 200
+					}
+				}
+				else_if = {
+					limit = {
+						has_dynasty_perk = mz_matriarchy_legacy_1
+					}
+					change_variable = {
+						name = mz_amazon_favor
+						add = 100
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = { has_character_flag = mz_amazon_contact_potential }
+				remove_character_flag = mz_amazon_contact_potential
+			}
+			if = {
+				limit = { has_character_flag = mz_amazon_contact_weak }
+				remove_character_flag = mz_amazon_contact_weak
+			}
+			if = {
+				limit = { has_character_flag = mz_amazon_contact_strong }
+				remove_character_flag = mz_amazon_contact_strong
+			}
+			if = {
+				limit = { has_variable = mz_amazon_contact_progress }
+				remove_variable = mz_amazon_contact_progress
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+
+	option = {
+		name = mz_amazon_alliance.2001.b # No contact for now
+		reverse_add_opinion = {
+			target = scope:mz_amazon_warrior
+			modifier = disappointed_opinion
+			opinion = -30			
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+mz_amazon_alliance.2101 = { # Begin negotiations
+	type = character_event
+	title = mz_amazon_alliance.2101.t
+	desc = mz_amazon_alliance.2101.desc
+	theme = dynasty
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = {
+		name = mz_amazon_alliance.2101.a
+		dynasty = {
+			remove_dynasty_modifier = mz_amazon_alliance_rank_1
+			add_dynasty_modifier = mz_amazon_alliance_rank_2
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+mz_amazon_alliance.2201 = { # Settlements
+	type = character_event
+	title = mz_amazon_alliance.2201.t
+	desc = mz_amazon_alliance.2201.desc
+	theme = dynasty
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = {
+		name = mz_amazon_alliance.2201.a
+		dynasty = {
+			remove_dynasty_modifier = mz_amazon_alliance_rank_2
+			add_dynasty_modifier = mz_amazon_alliance_rank_3
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+mz_amazon_alliance.2301 = { # Integration
+	type = character_event
+	title = mz_amazon_alliance.2301.t
+	desc = mz_amazon_alliance.2301.desc
+	theme = dynasty
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = {
+		name = mz_amazon_alliance.2301.a
+		dynasty = {
+			remove_dynasty_modifier = mz_amazon_alliance_rank_3
+			add_dynasty_modifier = mz_amazon_alliance_rank_4
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+mz_amazon_alliance.2401 = { # Alliance
+	type = character_event
+	title = mz_amazon_alliance.2401.t
+	desc = mz_amazon_alliance.2401.desc
+	theme = dynasty
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = {
+		name = mz_amazon_alliance.2401.a
+		dynasty = {
+			remove_dynasty_modifier = mz_amazon_alliance_rank_4
+			add_dynasty_modifier = mz_amazon_alliance_rank_5
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+mz_amazon_alliance.3001 = { # Amazon Conquest Decision granting CB
+	type = character_event
+	title = mz_amazon_alliance.3001.t
+	desc = mz_amazon_alliance.3001.desc
+	theme = dynasty
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	left_portrait = {
+		character = scope:mz_amazon_warrior
+		animation = marshal
+	}
+
+	trigger = { is_ai = no }
+
+	immediate = {
+		show_as_tooltip = {
+			add_character_modifier = {
+				modifier = mz_amazon_cb_modifier
+				years = 5
+			}			
+		}
+		if = {
+			limit = {
+				any_courtier = {
+					mz_amazon_character_trigger = yes
+					is_knight = yes
+				}
+			}
+			random_courtier = {
+				limit = {
+					mz_amazon_character_trigger = yes
+					is_knight = yes			
+				}
+				save_scope_as = mz_amazon_warrior
+			}
+		}
+		else = {
+			hidden_effect = {
+				create_character = {
+					template = mz_amazon_woman
+					save_scope_as = mz_amazon_warrior
+					location = root.location
+				}
+				add_visiting_courtier = scope:mz_amazon_warrior				
+			}
+		}
+	}
+
+	option = {
+		name = mz_amazon_alliance.3001.a # Pontus is chosen
+		custom_tooltip = mz_call_upon_amazon_alliance_decision_champions_effect
+		hidden_effect = {
+			add_character_flag = {
+				flag = mz_can_use_amazon_conquest_pontus
+				years = 5
+			}
+			add_character_flag = mz_amazon_reconquest_pledge
+		}
+		trigger_event = {
+			id = mz_amazon_alliance.3002
+			years = 5
+		}
+		ai_chance = { base = 100 }
+	}
+
+	option = {
+		name = mz_amazon_alliance.3001.b # Scythia is chosen
+		custom_tooltip = mz_call_upon_amazon_alliance_decision_champions_effect
+		hidden_effect = {
+			add_character_flag = {
+				flag = mz_can_use_amazon_conquest_steppe
+				years = 5
+			}
+			add_character_flag = mz_amazon_reconquest_pledge
+		}
+		trigger_event = {
+			id = mz_amazon_alliance.3002
+			years = 5
+		}
+		ai_chance = { base = 100 }
+	}
+
+	option = {
+		name = mz_amazon_alliance.3001.c # Wait, let's not be hasty
+		remove_character_modifier = mz_amazon_cb_modifier
+		hidden_effect = {
+			if = {
+				limit = { 
+					dynasty = { has_variable = mz_amazon_resettlement_blocker }
+				}
+				dynasty = { remove_variable = mz_amazon_resettlement_blocker } 
+			}
+		}
+		ai_chance = { base = 0 }
+	}
+}
+
+mz_amazon_alliance.3002 = { # Event to trigger if used CB decision but didn't use CB within 5 years
+	hidden = yes
+
+	trigger = { 
+		is_alive = yes # We don't punish the dead
+		has_character_flag = mz_amazon_reconquest_pledge # This flag is removed when using the CB--if this event fires, the CB was not used within 5 years
+	}
+
+	immediate = {
+		mz_change_amazon_favor_effect = { FAVOR = -500 }
+		send_interface_toast = {
+			title = mz_amazon_alliance.3002.toast.t	
+			custom_tooltip = mz_amazon_alliance.3002.toast.tt		
+		}
+		hidden_effect = { # Decrease rank
+			if = {
+				limit = { 
+					dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_2 }
+				}
+				dynasty = { remove_dynasty_modifier = mz_amazon_alliance_rank_2 }
+				dynasty = { add_dynasty_modifier = mz_amazon_alliance_rank_1 }
+			}
+			if = {
+				limit = { 
+					dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_3 }
+				}
+				dynasty = { remove_dynasty_modifier = mz_amazon_alliance_rank_3 }
+				dynasty = { add_dynasty_modifier = mz_amazon_alliance_rank_2 }
+			}
+			if = {
+				limit = { 
+					dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_4 }
+				}
+				dynasty = { remove_dynasty_modifier = mz_amazon_alliance_rank_4 }
+				dynasty = { add_dynasty_modifier = mz_amazon_alliance_rank_3 }
+			}
+			if = {
+				limit = { 
+					dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_5 }
+				}
+				dynasty = { remove_dynasty_modifier = mz_amazon_alliance_rank_5 }
+				dynasty = { add_dynasty_modifier = mz_amazon_alliance_rank_4 }
+			}
+			if = { # Further increases will be blocked for 5 years, just as if you had recently increased rank
+				limit = { exists = dynasty }
+				dynasty = { 
+					set_variable = {
+						name = mz_amazon_alliance_rankup_blocker
+						value = yes
+						years = 5
+					}
+				}
+			}
+		}		
+		every_courtier_or_guest = { # Every Amazon warrior courtier or guest has a chance to leave the court, unless consort. Friends and lovers are less likely. 50/50 chance to disappear when leaving.
+			limit = { 
+				mz_amazon_warrior_trigger = yes
+				NOT = { is_consort_of = root }
+				trigger_if = {
+					limit = { exists = dynasty }
+					NOT = { dynasty = root.dynasty }
+				}
+			}
+			if = {
+				limit = { 
+					OR = {
+						has_relation_soulmate = root
+						has_relation_best_friend = root 
+					}
+				}
+				random = {
+					chance = 40
+					save_temporary_scope_as = mz_amazon_warrior
+					root = {
+						send_interface_message = {
+							type = event_prowess_bad
+							title = mz_amazon_alliance.3002.t
+							remove_courtier_or_guest = scope:mz_amazon_warrior
+							if = {
+								limit = { has_relation_lover = scope:mz_amazon_warrior }
+								lover_breakup_effect = {
+									BREAKER = scope:mz_amazon_warrior
+									LOVER = root
+								}
+							}
+						}
+					}
+					hidden_effect = { 
+						random = {
+							chance = 50
+							scope:mz_amazon_warrior = {
+								death = { death_reason = death_vanished }
+							}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { 
+					OR = {
+						has_relation_lover = root
+						has_relation_friend = root
+					}
+				}
+				random = {
+					chance = 60
+					save_temporary_scope_as = mz_amazon_warrior
+					root = {
+						send_interface_message = {
+							type = event_prowess_bad
+							title = mz_amazon_alliance.3002.t
+							remove_courtier_or_guest = scope:mz_amazon_warrior
+							if = {
+								limit = { has_relation_lover = scope:mz_amazon_warrior }
+								lover_breakup_effect = {
+									BREAKER = scope:mz_amazon_warrior
+									LOVER = root
+								}
+							}
+						}
+					}
+					hidden_effect = { 
+						random = {
+							chance = 50
+							scope:mz_amazon_warrior = {
+								death = { death_reason = death_vanished }
+							}
+						}
+					}
+				}			
+			}
+			else = {
+				random = {
+					chance = 80
+					save_temporary_scope_as = mz_amazon_warrior
+					root = {
+						send_interface_message = {
+							type = event_prowess_bad
+							title = mz_amazon_alliance.3002.t
+							remove_courtier_or_guest = scope:mz_amazon_warrior
+						}
+					}
+					hidden_effect = { 
+						random = {
+							chance = 50
+							scope:mz_amazon_warrior = {
+								death = { death_reason = death_vanished }
+							}
+						}
+					}
+				}
+			}
+		}
+		every_courtier_away = {
+			limit = { 
+				mz_amazon_warrior_trigger = yes 
+				NOT = { is_consort_of = root }
+				trigger_if = {
+					limit = { exists = dynasty }
+					NOT = { dynasty = root.dynasty }
+				}
+			}
+			if = {
+				limit = { 
+					OR = {
+						has_relation_soulmate = root
+						has_relation_best_friend = root 
+					}
+				}
+				random = {
+					chance = 40
+					save_temporary_scope_as = mz_amazon_warrior
+					root = {
+						send_interface_message = {
+							type = event_prowess_bad
+							title = mz_amazon_alliance.3002.t
+							remove_courtier_or_guest = scope:mz_amazon_warrior
+							if = {
+								limit = { has_relation_lover = scope:mz_amazon_warrior }
+								lover_breakup_effect = {
+									BREAKER = scope:mz_amazon_warrior
+									LOVER = root
+								}
+							}
+						}
+					}
+					hidden_effect = { 
+						random = {
+							chance = 50
+							scope:mz_amazon_warrior = {
+								death = { death_reason = death_vanished }
+							}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = { 
+					OR = {
+						has_relation_lover = root
+						has_relation_friend = root
+					}
+				}
+				random = {
+					chance = 60
+					save_temporary_scope_as = mz_amazon_warrior
+					root = {
+						send_interface_message = {
+							type = event_prowess_bad
+							title = mz_amazon_alliance.3002.t
+							remove_courtier_or_guest = scope:mz_amazon_warrior
+							if = {
+								limit = { has_relation_lover = scope:mz_amazon_warrior }
+								lover_breakup_effect = {
+									BREAKER = scope:mz_amazon_warrior
+									LOVER = root
+								}
+							}
+						}
+					}
+					hidden_effect = { 
+						random = {
+							chance = 50
+							scope:mz_amazon_warrior = {
+								death = { death_reason = death_vanished }
+							}
+						}
+					}
+				}			
+			}
+			else = {
+				random = {
+					chance = 80
+					save_temporary_scope_as = mz_amazon_warrior
+					root = {
+						send_interface_message = {
+							type = event_prowess_bad
+							title = mz_amazon_alliance.3002.t
+							remove_courtier_or_guest = scope:mz_amazon_warrior
+						}
+					}
+					hidden_effect = { 
+						random = {
+							chance = 50
+							scope:mz_amazon_warrior = {
+								death = { death_reason = death_vanished }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+scripted_effect mz_convert_random_own_county_to_amazonian = { # Root should be the character
+	if = { # First we define which culture to convert to, if root's culture is Amazonian culture we go with that
+		limit = {
+			root.culture = { mz_is_amazonian_culture = yes }
+		}
+		root.culture = { save_scope_as = mz_chosen_amazon_culture }
+	}
+	else_if = { # Otherwise, if any realm county has an Amazonian culture, choose a random one and grab that culture
+		limit = {
+			any_sub_realm_county = {
+				culture = { mz_is_amazonian_culture = yes }
+			}
+		}
+		random_sub_realm_county = {
+			culture = { save_scope_as = mz_chosen_amazon_culture }
+		}
+	}
+	else = { # Otherwise, just use default Amazonian culture
+		culture:mz_amazonian = { save_scope_as = mz_chosen_amazon_culture }
+	}
+
+	if = {
+		limit = { 
+			any_sub_realm_county = {
+				holder = root
+				NOT = { this = root.capital_county }
+				has_county_modifier = mz_amazon_settlements_modifier
+				culture = { mz_is_amazonian_culture = no }
+			}
+		}
+		random_sub_realm_county = {
+			limit = { 
+				holder = root
+				NOT = { this = root.capital_county }
+				has_county_modifier = mz_amazon_settlements_modifier
+				culture = { mz_is_amazonian_culture = no }
+			}
+			set_county_culture = scope:mz_chosen_amazon_culture
+		}
+	}
+}
+
+scripted_effect mz_convert_random_adjacent_county_to_amazonian = { # Root should be character, scope:mz_chosen_amazon_culture must exist
+	if = {
+		limit = { 
+			any_sub_realm_county = {
+				any_neighboring_county = { 
+					culture = { mz_is_amazonian_culture = yes }
+				}
+				NOT = { this = root.capital_county }
+				has_county_modifier = mz_amazon_settlements_modifier
+				culture = { mz_is_amazonian_culture = no }
+			}
+		}
+		random_sub_realm_county = {
+			limit = { 
+				any_neighboring_county = { 
+					culture = { mz_is_amazonian_culture = yes }
+				}
+				NOT = { this = root.capital_county }
+				has_county_modifier = mz_amazon_settlements_modifier
+				culture = { mz_is_amazonian_culture = no }
+			}
+			set_county_culture = scope:mz_chosen_amazon_culture
+		}
+	}
+}
+
+mz_amazon_alliance.3601 = { # Reform Amazon culture as an Amazonian
+	type = character_event
+	title = mz_amazon_alliance.3601.t
+	desc = mz_amazon_alliance.3601.desc
+	theme = realm
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		culture = { save_scope_as = mz_amazon_culture } # for loc
+	}
+
+	option = { # Reform Amazonian - Stoic
+		name = mz_amazon_alliance.3601.a
+		if = {
+			limit = { 
+				NOR = { 
+					capital_county.culture = culture:mz_amazonian
+					has_global_variable = mz_amazon_culture_modernized
+				}
+			}
+			culture:mz_amazonian = { get_all_innovations_from = capital_county.culture }
+			set_global_variable = {
+				name = mz_amazon_culture_modernized
+				value = yes
+			}
+		}
+		show_as_tooltip = { # For tooltip we only show our own culture
+			culture = { 
+				remove_culture_tradition = mz_tradition_amazonian_matriarchy
+				add_culture_tradition = mz_tradition_stoic_matriarchy
+			}
+			if = { # Set Ethos to Stoic
+				limit = {
+					NOT = { culture = { has_cultural_pillar = ethos_stoic } }
+				}
+				custom_tooltip = mz_amazon_become_stoic
+				hidden_effect = {
+					culture = { set_culture_pillar = ethos_stoic }
+				}
+			}
+		}
+		hidden_effect = { # But we actually change this globally for every Amazonian culture
+			every_culture_global = {
+				limit = { 
+					mz_is_amazonian_culture = yes 
+					has_cultural_tradition = mz_tradition_amazonian_matriarchy
+				}
+				remove_culture_tradition = mz_tradition_amazonian_matriarchy
+				add_culture_tradition = mz_tradition_stoic_matriarchy
+				if = {
+					limit = { NOT = { has_cultural_pillar = ethos_stoic } }
+					set_culture_pillar = ethos_stoic
+				}		
+			}
+		}
+		hidden_effect = {
+			set_global_variable = {
+				name = mz_amazon_culture_reformed
+				value = flag:stoic
+			}
+		}	
+		ai_chance = { base = 100 }
+	}
+	
+	option = { # Reform Amazonian - Bellicose
+		name = mz_amazon_alliance.3601.b
+		if = {
+			limit = { 
+				NOR = { 
+					capital_county.culture = culture:mz_amazonian
+					has_global_variable = mz_amazon_culture_modernized
+				}
+			}
+			culture:mz_amazonian = { get_all_innovations_from = capital_county.culture }
+			set_global_variable = {
+				name = mz_amazon_culture_modernized
+				value = yes
+			}
+		}
+		show_as_tooltip = { # For tooltip we only show our own culture
+			culture = { 
+				remove_culture_tradition = mz_tradition_amazonian_matriarchy
+				add_culture_tradition = mz_tradition_bellicose_matriarchy
+			}
+			if = { # Set Ethos to Stoic
+				limit = {
+					NOT = { culture = { has_cultural_pillar = ethos_bellicose } }
+				}
+				custom_tooltip = mz_amazon_become_bellicose
+				hidden_effect = {
+					culture = { set_culture_pillar = ethos_bellicose }
+				}
+			}
+		}
+		hidden_effect = { # But we actually change this globally for every Amazonian culture
+			every_culture_global = {
+				limit = { 
+					mz_is_amazonian_culture = yes 
+					has_cultural_tradition = mz_tradition_amazonian_matriarchy
+				}
+				remove_culture_tradition = mz_tradition_amazonian_matriarchy
+				add_culture_tradition = mz_tradition_bellicose_matriarchy
+				if = {
+					limit = { NOT = { has_cultural_pillar = ethos_bellicose } }
+					set_culture_pillar = ethos_bellicose
+				}		
+			}
+		}
+		hidden_effect = {
+			set_global_variable = {
+				name = mz_amazon_culture_reformed
+				value = flag:bellicose
+			}
+		}		
+		ai_chance = { base = 0 }
+	}
+
+	option = { # Reform Amazonian - Communal
+		name = mz_amazon_alliance.3601.c
+		if = {
+			limit = { 
+				NOR = { 
+					capital_county.culture = culture:mz_amazonian
+					has_global_variable = mz_amazon_culture_modernized
+				}
+			}
+			culture:mz_amazonian = { get_all_innovations_from = capital_county.culture }
+			set_global_variable = {
+				name = mz_amazon_culture_modernized
+				value = yes
+			}
+		}
+		show_as_tooltip = { # For tooltip we only show our own culture
+			culture = { 
+				remove_culture_tradition = mz_tradition_amazonian_matriarchy
+				add_culture_tradition = mz_tradition_communal_matriarchy
+			}
+			if = { # Set Ethos to Stoic
+				limit = {
+					NOT = { culture = { has_cultural_pillar = ethos_communal } }
+				}
+				custom_tooltip = mz_amazon_become_communal
+				hidden_effect = {
+					culture = { set_culture_pillar = ethos_communal }
+				}
+			}
+		}
+		hidden_effect = { # But we actually change this globally for every Amazonian culture
+			every_culture_global = {
+				limit = { 
+					mz_is_amazonian_culture = yes 
+					has_cultural_tradition = mz_tradition_amazonian_matriarchy
+				}
+				remove_culture_tradition = mz_tradition_amazonian_matriarchy
+				add_culture_tradition = mz_tradition_communal_matriarchy
+				if = {
+					limit = { NOT = { has_cultural_pillar = ethos_communal } }
+					set_culture_pillar = ethos_communal
+				}		
+			}
+		}
+		hidden_effect = {
+			set_global_variable = {
+				name = mz_amazon_culture_reformed
+				value = flag:communal
+			}
+		}		
+		ai_chance = { base = 100 }
+	}
+
+	after = {
+		if = {
+			limit = { 
+				NOT = { capital_county.culture = root.culture }
+			}
+			capital_county = { set_county_culture = root.culture }
+		}
+	}
+}
+
+mz_amazon_alliance.4001 = { # Form Themiscyra, begins Amazon settlements
+	type = character_event
+	title = mz_amazon_alliance.4001.t
+	desc = mz_amazon_alliance.4001.desc
+	theme = realm
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		mz_form_themiscyra_scripted_effect = yes
+		legend_seed_new_title_effect = yes
+		show_as_tooltip = {
+			every_sub_realm_county = {
+				custom = mz_every_themiscyra_county
+				add_county_modifier = {
+					modifier = mz_amazon_settlements_modifier
+					years = 10
+				}
+			}
+		}
+		hidden_effect = {
+			title:k_mz_themiscyra = { save_scope_as = k_mz_themiscyra }
+			every_sub_realm_title = {
+				limit = {
+					tier = tier_county
+				}
+				if = {
+					limit = {
+						title_province = { geographical_region = mz_custom_themiscyra }
+					}
+					add_to_list = mz_themiscyra_counties
+				}
+			}
+			every_in_list = {
+				list = mz_themiscyra_counties
+				county = { 
+					add_county_modifier = {
+						modifier = mz_amazon_settlements_modifier
+						years = 10
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_culture = culture:mz_amazonian }
+			}
+			culture = { 
+				save_scope_as = mz_old_culture 
+				change_cultural_acceptance = { # Culture acceptance between root culture and Amazons set to 100%
+					target = culture:mz_amazonian
+					value = 100
+					desc = mz_themiscyra_founded
+				}
+			}
+		}
+		hidden_effect = {
+			# This effect should convert a random owned county and then two random adjacent counties to an Amazonian culture. By default the base Amazonian culture will be used.
+			mz_convert_random_own_county_to_amazonian = yes
+			mz_convert_random_adjacent_county_to_amazonian = yes
+			mz_convert_random_adjacent_county_to_amazonian = yes
+			# We block reforming the Amazonian culture for 1~5 years, chosen randomly
+			random_list = {
+				1 = {
+					set_global_variable = {
+						name = mz_amazon_culture_reformation_blocker
+						value = yes
+						years = 1
+					}
+				}
+				2 = {
+					set_global_variable = {
+						name = mz_amazon_culture_reformation_blocker
+						value = yes
+						years = 2
+					}
+				}
+				3 = {
+					set_global_variable = {
+						name = mz_amazon_culture_reformation_blocker
+						value = yes
+						years = 3
+					}
+				}
+				2 = {
+					set_global_variable = {
+						name = mz_amazon_culture_reformation_blocker
+						value = yes
+						years = 4
+					}
+				}
+				1 = {
+					set_global_variable = {
+						name = mz_amazon_culture_reformation_blocker
+						value = yes
+						years = 5
+					}
+				}
+			}			
+		}
+		custom_tooltip = mz_amazon_alliance.4001.tt
+		if = { # Amazons are no longer a diaspora
+			limit = { 
+				culture:mz_amazonian = { has_cultural_tradition = tradition_diasporic }
+			}
+			culture:mz_amazonian = { remove_culture_tradition = tradition_diasporic }
+			if = { # Add new culture tradition to replace Diasporic
+				limit = { 
+					culture:mz_amazonian = { 
+						NOT = { has_cultural_tradition = mz_tradition_amazon_mountaineers }
+					}
+				}
+				culture:mz_amazonian = { add_culture_tradition = mz_tradition_amazon_mountaineers }
+			}
+		}
+		if = { # Amazons are no longer a diaspora
+			limit = { 
+				NOT = { scope:mz_chosen_amazon_culture = culture:mz_amazonian }
+				scope:mz_chosen_amazon_culture ?= { has_cultural_tradition = tradition_diasporic }
+			}
+			scope:mz_chosen_amazon_culture = { remove_culture_tradition = tradition_diasporic }
+			if = { # Add new culture tradition to replace Diasporic
+				limit = { 
+					scope:mz_chosen_amazon_culture ?= { 
+						NOT = { has_cultural_tradition = mz_tradition_amazon_mountaineers }
+					}
+				}
+				scope:mz_chosen_amazon_culture = { add_culture_tradition = mz_tradition_amazon_mountaineers }
+			}
+		}
+	}
+
+	option = { # Option A: Convert to Amazonian culture
+		trigger = { exists = scope:mz_old_culture }
+		name = mz_amazon_alliance.4001.a
+		set_culture = culture:mz_amazonian
+		culture:mz_amazonian = { get_all_innovations_from = scope:mz_old_culture }
+		if = {
+			limit = { 
+				capital_county.culture = { mz_is_amazonian_culture = no }
+			}
+			capital_county = { set_county_culture = culture:mz_amazonian }
+		}
+		set_global_variable = {
+			name = mz_amazon_culture_modernized
+			value = yes
+		}	
+		add_character_flag = converted_culture_this_lifetime		
+		hidden_effect = {
+			every_courtier = { 
+				limit = { dynasty ?= root.dynasty }
+				set_culture = culture:mz_amazonian
+			}
+			every_courtier_away = { 
+				limit = { dynasty ?= root.dynasty }
+				set_culture = culture:mz_amazonian
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+
+	option = { # Option B: Do not Convert
+		trigger = { exists = scope:mz_old_culture }
+		name = mz_amazon_alliance.4001.b
+		custom_tooltip = mz_amazon_alliance.4001.b_tt
+		ai_chance = { base = 0 }
+	}
+
+	option = { # Option C: Already Amazon culture, learn what we can from locals
+		trigger = { 
+			culture = culture:mz_amazonian
+			capital_county.culture = { mz_is_amazonian_culture = no }
+			NOT = { has_global_variable = mz_amazon_culture_modernized }
+		}
+		culture:mz_amazonian = { get_all_innovations_from = capital_county.culture }
+		set_global_variable = {
+			name = mz_amazon_culture_modernized
+			value = yes
+		}
+		name = mz_amazon_alliance.4001.c
+		ai_chance = { base = 100 }
+	}
+
+	option = { # Option D: Focus on resettlement, converts capital if applicable
+		trigger = {
+			culture = { mz_is_amazonian_culture = yes }
+		}
+		name = mz_amazon_alliance.4001.d
+		if = {
+			limit = {
+				NOT = { root.culture = capital_county.culture }
+			}
+			capital_county = { set_county_culture = root.culture }
+		}
+		ai_chance = { base = 1 }
+	}
+}
+
+mz_amazon_alliance.4100 = { # Expand Themiscyra, begins second-wave Amazon settlements
+	type = character_event
+	title = mz_amazon_alliance.4100.t
+	desc = mz_amazon_alliance.4100.desc
+	theme = realm
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		mz_expand_themiscyra_scripted_effect = yes
+		show_as_tooltip = {
+			every_sub_realm_county = {
+				custom = mz_every_themiscyra_county
+				add_county_modifier = {
+					modifier = mz_amazon_settlements_modifier
+					years = 10
+				}
+			}
+		}
+		hidden_effect = {
+			every_sub_realm_title = {
+				limit = {
+					tier = tier_county
+				}
+				if = {
+					limit = {
+						OR = {
+							title_province = { geographical_region = mz_custom_greater_themiscyra }
+							title_province = { geographical_region = mz_custom_greater_themiscyra_ex }
+						}
+					}
+					add_to_list = mz_themiscyra_counties
+				}
+			}
+			every_in_list = {
+				list = mz_themiscyra_counties
+				county = { 
+					add_county_modifier = {
+						modifier = mz_amazon_settlements_modifier
+						years = 10
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = mz_amazon_alliance.4100.a
+		hidden_effect = {
+			mz_convert_random_own_county_to_amazonian = yes
+			mz_convert_random_adjacent_county_to_amazonian = yes
+			mz_convert_random_adjacent_county_to_amazonian = yes
+		}
+		custom_tooltip = mz_amazon_alliance.4100.tt
+		ai_chance = { base = 100 }
+	}
+}
+
+mz_amazon_alliance.4200 = { # Form Amazonia
+	type = character_event
+	title = mz_amazon_alliance.4200.t
+	desc = mz_amazon_alliance.4200.desc
+	theme = realm
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		mz_form_amazonia_scripted_effect = yes
+		show_as_tooltip = {
+			every_sub_realm_county = {
+				custom = mz_every_amazonia_county
+				add_county_modifier = {
+					modifier = mz_amazon_settlements_modifier
+					years = 20
+				}
+			}
+		}
+		hidden_effect = {
+			every_sub_realm_title = {
+				limit = {
+					tier = tier_county
+				}
+				if = {
+					limit = {
+						title_province = { geographical_region = mz_custom_amazonia }
+					}
+					add_to_list = mz_amazonia_counties
+				}
+			}
+			every_in_list = {
+				list = mz_amazonia_counties
+				county = { 
+					add_county_modifier = {
+						modifier = mz_amazon_settlements_modifier
+						years = 20
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = mz_amazon_alliance.4200.a
+		show_as_tooltip = { add_trait_force_tooltip = mz_amazon_queen }
+		if = {
+			limit = { exists = dynasty }
+			dynasty = { add_dynasty_prestige = 1000 }
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+mz_amazon_alliance.5001 = { # Form Scythia, begins Amazon settlements
+	type = character_event
+	title = mz_amazon_alliance.5001.t
+	desc = mz_amazon_alliance.5001.desc
+	theme = realm
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		mz_form_scythia_scripted_effect = yes
+		legend_seed_new_title_effect = yes
+		show_as_tooltip = {
+			every_sub_realm_county = {
+				custom = mz_every_scythia_county
+				add_county_modifier = {
+					modifier = mz_amazon_settlements_modifier
+					years = 10
+				}
+			}
+		}
+		hidden_effect = {
+			title:k_mz_scythia = { save_scope_as = k_mz_scythia }
+			every_sub_realm_title = {
+				limit = {
+					tier = tier_county
+				}
+				if = {
+					limit = {
+						title_province = { geographical_region = mz_custom_scythia }
+					}
+					add_to_list = mz_scythia_counties
+				}
+			}
+			every_in_list = {
+				list = mz_scythia_counties
+				county = { 
+					add_county_modifier = {
+						modifier = mz_amazon_settlements_modifier
+						years = 10
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_culture = culture:mz_amazonian }
+			}
+			culture = { 
+				save_scope_as = mz_old_culture 
+				change_cultural_acceptance = { # Culture acceptance between root culture and Amazons set to 100%
+					target = culture:mz_amazonian
+					value = 100
+					desc = mz_scythia_founded
+				}
+			}
+		}
+		hidden_effect = {
+			# This effect should convert a random owned county and then two random adjacent counties to an Amazonian culture. By default the base Amazonian culture will be used.
+			mz_convert_random_own_county_to_amazonian = yes
+			mz_convert_random_adjacent_county_to_amazonian = yes
+			mz_convert_random_adjacent_county_to_amazonian = yes
+			# We block reforming the Amazonian culture for 1~5 years, chosen randomly
+			random_list = {
+				1 = {
+					set_global_variable = {
+						name = mz_amazon_culture_reformation_blocker
+						value = yes
+						years = 1
+					}
+				}
+				2 = {
+					set_global_variable = {
+						name = mz_amazon_culture_reformation_blocker
+						value = yes
+						years = 2
+					}
+				}
+				3 = {
+					set_global_variable = {
+						name = mz_amazon_culture_reformation_blocker
+						value = yes
+						years = 3
+					}
+				}
+				2 = {
+					set_global_variable = {
+						name = mz_amazon_culture_reformation_blocker
+						value = yes
+						years = 4
+					}
+				}
+				1 = {
+					set_global_variable = {
+						name = mz_amazon_culture_reformation_blocker
+						value = yes
+						years = 5
+					}
+				}
+			}			
+		}
+		custom_tooltip = mz_amazon_alliance.5001.tt
+		if = { # Amazons are no longer a diaspora
+			limit = { 
+				culture:mz_amazonian = { has_cultural_tradition = tradition_diasporic }
+			}
+			culture:mz_amazonian = { remove_culture_tradition = tradition_diasporic }
+			if = { # Add new culture tradition to replace Diasporic
+				limit = { 
+					culture:mz_amazonian = { 
+						NOT = { has_cultural_tradition = mz_tradition_amazon_war_riders }
+					}
+				}
+				culture:mz_amazonian = { add_culture_tradition = mz_tradition_amazon_war_riders }
+			}
+		}
+		if = { # Amazons are no longer a diaspora
+			limit = { 
+				NOT = { scope:mz_chosen_amazon_culture = culture:mz_amazonian }
+				scope:mz_chosen_amazon_culture ?= { has_cultural_tradition = tradition_diasporic }
+			}
+			scope:mz_chosen_amazon_culture = { remove_culture_tradition = tradition_diasporic }
+			if = { # Add new culture tradition to replace Diasporic
+				limit = { 
+					scope:mz_chosen_amazon_culture ?= { 
+						NOT = { has_cultural_tradition = mz_tradition_amazon_war_riders }
+					}
+				}
+				scope:mz_chosen_amazon_culture = { add_culture_tradition = mz_tradition_amazon_war_riders }
+			}
+		}
+	}
+
+	option = { # Option A: Convert to Amazonian culture
+		trigger = { exists = scope:mz_old_culture }
+		name = mz_amazon_alliance.5001.a
+		set_culture = culture:mz_amazonian
+		culture:mz_amazonian = { get_all_innovations_from = scope:mz_old_culture }		
+		set_global_variable = {
+			name = mz_amazon_culture_modernized
+			value = yes
+		}
+		add_character_flag = converted_culture_this_lifetime		
+		hidden_effect = {
+			every_courtier = { 
+				limit = { dynasty ?= root.dynasty }
+				set_culture = culture:mz_amazonian
+			}
+			every_courtier_away = { 
+				limit = { dynasty ?= root.dynasty }
+				set_culture = culture:mz_amazonian
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+
+	option = { # Option B: Do not Convert
+		trigger = { exists = scope:mz_old_culture }
+		name = mz_amazon_alliance.5001.b
+		custom_tooltip = mz_amazon_alliance.4001.b_tt
+		ai_chance = { base = 0 }
+	}
+
+	option = { # Option C: Already Amazon culture, learn what we can from locals
+		trigger = { 
+			culture = culture:mz_amazonian
+			capital_county.culture = { mz_is_amazonian_culture = no }
+			NOT = { has_global_variable = mz_amazon_culture_modernized }
+		}
+		culture:mz_amazonian = { get_all_innovations_from = capital_county.culture }
+		set_global_variable = {
+			name = mz_amazon_culture_modernized
+			value = yes
+		}
+		name = mz_amazon_alliance.5001.c
+		ai_chance = { base = 100 }
+	}
+
+	option = { # Option D: Focus on resettlement, converts capital if applicable
+		trigger = {
+			culture = { mz_is_amazonian_culture = yes }
+		}
+		name = mz_amazon_alliance.5001.d
+		if = {
+			limit = {
+				NOT = { root.culture = capital_county.culture }
+			}
+			capital_county = { set_county_culture = root.culture }
+		}
+		ai_chance = { base = 0 }
+	}
+}
+
+mz_amazon_alliance.5100 = { # Expand Scythia, begins second-wave Amazon settlements
+	type = character_event
+	title = mz_amazon_alliance.5100.t
+	desc = mz_amazon_alliance.5100.desc
+	theme = realm
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		mz_expand_scythia_scripted_effect = yes
+		show_as_tooltip = {
+			every_sub_realm_county = {
+				custom = mz_every_scythia_county
+				add_county_modifier = {
+					modifier = mz_amazon_settlements_modifier
+					years = 10
+				}
+			}
+		}
+		hidden_effect = {
+			every_sub_realm_title = {
+				limit = {
+					tier = tier_county
+				}
+				if = {
+					limit = {
+						OR = {
+							title_province = { geographical_region = mz_custom_scythia_expanded }
+							title_province = { geographical_region = mz_custom_scythia_expanded_ex }
+						}
+					}
+					add_to_list = mz_scythia_counties
+				}
+			}
+			every_in_list = {
+				list = mz_scythia_counties
+				county = { 
+					add_county_modifier = {
+						modifier = mz_amazon_settlements_modifier
+						years = 10
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = mz_amazon_alliance.5100.a
+		hidden_effect = {
+			mz_convert_random_own_county_to_amazonian = yes
+			mz_convert_random_adjacent_county_to_amazonian = yes
+			mz_convert_random_adjacent_county_to_amazonian = yes
+		}
+		custom_tooltip = mz_amazon_alliance.5100.tt
+		ai_chance = { base = 100 }
+	}
+}
+
+mz_amazon_alliance.5200 = { # Form Greater Scythia
+	type = character_event
+	title = mz_amazon_alliance.5200.t
+	desc = mz_amazon_alliance.5200.desc
+	theme = realm
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		mz_form_greater_scythia_scripted_effect = yes
+		show_as_tooltip = {
+			every_sub_realm_county = {
+				custom = mz_every_greater_scythia_county
+				add_county_modifier = {
+					modifier = mz_amazon_settlements_modifier
+					years = 20
+				}
+			}
+		}
+		hidden_effect = {
+			every_sub_realm_title = {
+				limit = {
+					tier = tier_county
+				}
+				if = {
+					limit = {
+						title_province = { geographical_region = mz_custom_greater_scythia }
+					}
+					add_to_list = mz_greater_scythia_counties
+				}
+			}
+			every_in_list = {
+				list = mz_greater_scythia_counties
+				county = { 
+					add_county_modifier = {
+						modifier = mz_amazon_settlements_modifier
+						years = 20
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = mz_amazon_alliance.5200.a
+		show_as_tooltip = { add_trait_force_tooltip = mz_amazon_queen }
+		if = {
+			limit = { exists = dynasty }
+			dynasty = { add_dynasty_prestige = 1000 }
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+mz_amazon_alliance.6000 = { # Establish Scythian Capital
+	type = character_event
+	title = mz_amazon_alliance.6000.t
+	desc = mz_amazon_alliance.6000.desc
+	theme = realm
+	right_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_epic_sacral_moment"
+		mz_establish_scythian_capital_scripted_effect = yes
+	}
+
+	option = {
+		name = mz_amazon_alliance.6000.a
+		add_prestige_experience = major_prestige_gain
+		ai_chance = { base = 100 }
+	}
+}
+
+mz_amazon_alliance.9999 = { # Placeholder event to stop error.log from yelling at us
+	hidden = yes
+	orphan = yes
+	
+	trigger = {
+		global_var:mz_amazon_kingdom_founded = flag:mz_themiscyra
+		global_var:mz_amazon_kingdom_expanded = flag:mz_themiscyra
+		global_var:mz_amazon_empire_founded = flag:mz_amazonia
+		global_var:mz_amazon_kingdom_founded = flag:mz_scythia
+		global_var:mz_amazon_kingdom_expanded = flag:mz_scythia
+		global_var:mz_amazon_empire_founded = flag:mz_greater_scythia
+	}
+}

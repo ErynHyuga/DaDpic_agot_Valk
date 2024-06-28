@@ -1,0 +1,141 @@
+﻿l_english:
+	mz_convert_outcome.placeholder.t:0 "Placeholder" 		#Since you can't use Convert schemes against player characters, target events will be placeholders.
+	mz_convert_outcome.placeholder.desc:0 "Placeholder" 	#Events will still be programmed in case I want to change this later.
+	mz_convert_outcome.placeholder.option:0 "Placeholder" 	#Plus, it makes referencing the seduction scheme events easier.
+
+	mz_convert_outcome.permanent_block:0 "[owner.GetTitledFirstNameNoTooltip] will never try to convert me again."
+	mz_convert_outcome.cooldown:0 "[owner.GetTitledFirstNameNoTooltip] cannot attempt to convert me again for some time."
+	mz_convert_blocked:0 "I can never try to convert [target.GetTitledFirstNameNoTooltip] again."
+
+	mz_convert_outcome.0001.t:0 "Open Mind, Open Heart"
+	mz_convert_outcome.0001.desc:0 "It all comes down to this--one final chance to confirm whether or not [target.GetTitledFirstName] is interested in women. I'll need something drastic to confirm this once and for all, regardless of all that's happened so far."
+
+	mz_convert_outcome.0001.positive.desc:0 "I think my chances are good, yet I must remember that [discoverer.Custom2('NamePossessiveCharacterIntroduction', target)] is always watching..."
+	mz_convert_outcome.0001.negative.desc:0 "Yet, I fear the consequences. [discoverer.Custom2('NamePossessiveCharacterIntroduction', target)|U] and [discoverer.GetHerHis] agents could be hiding in any shadow, listening through any wall..."
+
+	mz_convert_outcome.0001.a:0 "I must know!"
+	mz_convert_outcome.0001.a.tt:0 "Attempt to discover if [target.GetFirstNameNoTooltip] may be secretly or unconsciously attracted to women."
+	mz_convert_outcome.0001.b:0 "This isn't worth the risk of discovery."
+	
+	mz_convert_outcome.0004.t:0 "Already Done"
+	mz_convert_outcome.0004.desc:0 "It would seem that [target.GetTitledFirstName] has taken a romantic interest in women independent of my actions--on [target.GetHerHis] own, or with the help of another. Either way, there is no reason to try and continue to convert [target.GetHerHim]."
+	mz_convert_outcome.0004.a:0 "An interesting development."
+
+	mz_convert_outcome.0005.t:0 "The Death of Potential"
+	mz_convert_outcome.0005.desc:0 "Alas, my efforts to awaken an interest in [target.GetTitledFirstName] for other women have come to naught, as [target.GetSheHe] is now dead. Any hidden affections [target.GetSheHe] took to [target.GetHerHis] grave."
+	mz_convert_outcome.0005.a:0 "[target.GetSheHe|U] did not deserve this fate."
+
+	mz_convert_outcome.2000.t:0 "[ROOT.Char.GetFaith.FertilityGodNamePossessive] Blessing"
+	mz_convert_outcome.2000.desc:0 "It began with a letter from [target.GetTitledFirstName], thanking me for opening [target.GetHerHis] mind to new possibilities [target.GetSheHe] never considered before. What came as a surprise was that the letter also included an invitation to a secret meeting with [target.GetTitledFirstNameNoTooltip], away from prying eyes.\n\nWhen I entered [target.GetHerHis|U] private chambers, [target.GetSheHe|U] immediately and forcefully closed the door behind me, and pressed [target.GetHerHis|U] lips to mine. I silently give my thanks to [owner.GetFaith.HighGodName] before it became impossible to think of anything but [target.GetTitledFirstNameNoTooltip]."
+	mz_convert_outcome.2000.a:0 "[target.GetShortUINameNoTooltip] will show me [ROOT.Char.GetFaith.FertilityGodNamePossessive] love."
+	mz_convert_outcome.2000.b:0 "[target.GetShortUINameNoTooltip] has known the touch of a woman, and that is enough for now."
+
+	mz_convert_outcome.2010.t:0 "The Lusty Lush"
+	mz_convert_outcome.2010.desc:0 "It seemed like just another evening out, drinking and enjoying life to the fullest with [target.GetTitledFirstName], when suddenly [target.GetSheHe] slammed her tankard down on the table a bit hard and seemed to stumble a bit. I reached out to steady [target.GetHerHim], and [target.GetSheHe] threw herself forward into my outstreched arms and kissed my lips. Fortunately, it seems nobody noticed this stumble, and I ushered the clearly inebriated [target.GetWomanMan] to a more private area. There, I confirmed that it wasn't an isolated incident, well into the night."
+	mz_convert_outcome.2010.a:0 "We need to do this again... and again, and again."
+	mz_convert_outcome.2010.b:0 "This one night will confirm my success."
+
+	mz_convert_outcome.2020.t:0 "The Retreat"
+	mz_convert_outcome.2020.desc:0 "[target.GetTitledFirstName] has become more and more noticeably affected by my presence as of late. It began with a simple look of longing that [target.GetSheHe] thought I wouldn't notice, or a blush when I made a somewhat off-color joke, but it was most obvious whenever I so much as brushed up against [target.GetHerHim]. It finally came to an end one afternoon where we were simply enjoying some tea in [target.GetHerHim] garden, and my hand lightly touched [target.GetHerHis] own. Suddenly, [target.GetTitledFirstName] stood up, red-faced, and excused herself to her quarters.\n\nAs she did not return for a few moments, I decided to follow... and the noises coming from [target.GetHerHis] bedchambers left little wonder to what was going on. Clearly, suppressing [target.GetHerHis] urges had taken its toll, and I swiftly moved into the room to do what I could to help, and though [target.GetSheHe] was hesitant at first, she quickly invited me into [target.GetHerHis] warm embrace..."
+	mz_convert_outcome.2020.a:0 "[target.GetSheHe|U] will probably need my 'help' on a regular basis."
+	mz_convert_outcome.2020.b:0 "Now that [target.GetSheHe] knows, my work here is done."
+
+	mz_convert_outcome.2030.t:0 "Hidden Potential"
+	mz_convert_outcome.2030.desc:0 "Shadowy dealings are not an uncommon dalliance for myself nor [target.GetTitledFirstName], and yet a private meeting beneath the castle wall is especially thrilling. As the shadows grow lengthy enough to cloak the area in darkness, I move swiftly to meet [target.GetHerHim], and find [target.GetHerHim] both eager and nervous.\n\nThe thick stone walls muffle our cries of passion, and the guards remain oblivious to our intimate encounter. It's clear that this sort of thing was not something [target.GetSheHe] imagined only a few months ago, and yet the movements of our hands and mouths quickly make it abundantly clear that it is now something [target.GetFirstName] would very much like, again and again."
+	mz_convert_outcome.2030.a:0 "I have no objection to indulging her."
+	mz_convert_outcome.2030.b:0 "[target.GetFirstNameNoTooltip] will find her own lovers in time."
+
+	mz_convert_outcome.2040.t:0 "The Fairer Sex"
+	mz_convert_outcome.2040.desc:0 "Away from the prying eyes of [target_spouse.GetTitledFirstName], [target.GetFirstName] meets me in a dark, abandoned corridor. Together, we use our bodies to make a pledge much more meaningful and pleasurable than any [target.GetTitledFirstName] has found in [target.GetHerHis] marriage. When we finally pull away from each other, [target.GetFirstNameNoTooltip] told me know that [target.GetSheHe] could've never imagined this, but it's what [target.GetSheHe] always wanted."
+	mz_convert_outcome.2040.a:0 "Our bond is far stronger than the bonds of marriage."
+	mz_convert_outcome.2040.b:0 "Now [target.GetSheHe] must seek out [target.GetHerHis] true love."
+
+	mz_convert_outcome.2050.t:0 "Invitation"
+	mz_convert_outcome.2050.desc:0 "During one of our many conversations that I have managed to steer onto the topic of love between women, [target.GetTitledFirstName] finally stops me and whispers in my ear. To my joy, it is an invitation to show [target.GetHerHim] just what exactly I'm describing--in [target.GetHerHis] chambers. [target.GetSheHe|U] takes my hand and leads me through the corridors to [target.GetHerHis] bed, and locks the door tightly behind us. The rest of the night is spent tumbling, feeling, tasting..."
+	mz_convert_outcome.2050.a:0 "We must do this again! And again, and again..."
+	mz_convert_outcome.2050.b:0 "[target.GetSheHe|U] sure knew how to please a [ROOT.Char.GetWomanMan]."
+
+	mz_convert_outcome.2060.t:0 "A [target.GetTitleTierNamePossessive] Duty"
+	mz_convert_outcome.2060.desc:0 "At my command, my loyal [target.GetTitleTierName] [target.GetFullName] has arrived at my court in [court_location.GetNameNoTier], and I receive [target.GetHerHim] in my throne room--alone. "[target.GetTitledFirstNameNoTooltip]," I address [target.GetHerHim] sternly. "No doubt you are curious as to why I've done the things I've done over the past few months. I must ask you a question, and it is a simple one. Do you harbor sexual or romantic feelings towards other women?"\n\n[target.GetTitledFirstNamePossessiveNoTooltip] face immediately flushes and [target.GetSheHe] begins to reply, but I cut [target.GetHerHim] off with a gesture. "Be truthful... and you will be rewarded," I say, giving a coy look and an expression that leaves little doubt of my intentions. [target.GetFirstNamePossessiveNoTooltip] eyes widen and [target.GetHerHis] gaze becomes lustful, and a few moments later, [target.GetHerHis] tongue and fingers give me my answer."
+	mz_convert_outcome.2060.a:0 ""You serve your [owner.GetTitleTierName] well, [target.GetShortUIName], and you will do so again.""
+	mz_convert_outcome.2060.b:0 ""I have taught you what you need to know, [target.GetShortUIName]--the rest is up to you.""
+
+	mz_convert_outcome.2070.t:0 "An Encounter Most Passionate"
+ 	mz_convert_outcome.2070.desc_opening:0 "My efforts to awaken [target.GetTitledFirstNamePossessive] hidden desires would seem to have paid off; upon receiving a discreet invitation I went to meet [target.GetHerHim] clandestinely."
+ 	mz_convert_outcome.2070.desc_ending:0 "[ROOT.Char.Custom2('sex_scene', SCOPE.sC('target'))]"
+	mz_convert_outcome.2070.a:0 "This was too good to be a one time thing."
+	mz_convert_outcome.2070.b:0 "My job is done now that [target.GetHerHis] desires are awakened."
+
+	mz_convert_outcome.2080.t:0 "The Open Sky"
+	mz_convert_outcome.2080.desc:0 "The wilds outside [court_location.GetNameNoTier] are a great place to lose onself for a time, and today I am joined by [target.GetTitledFirstName]. It is midday, and the two of us are laying on our backs, looking up at the sky, when [target.GetFirstNameNoTooltip] suddenly straddles me and addresses me in a low voice, "These past months have been eye-opening for me. To think that love between two women was so... enticing. I want it. I want you, now," [target.GetSheHe] tells me, pulling at my [owner.Custom('GetUpperClothingArticle')]. Before long the both of us are as naked as the day we were born, making wild, untamed love under a clear sky."
+	mz_convert_outcome.2080.a:0 ""So, when can we next meet?""
+	mz_convert_outcome.2080.b:0 ""Ah, the great outdoors!""
+
+	mz_convert_outcome.2501.t:0 "A [ROOT.Char.Custom2('RelationToMePossessive', SCOPE.sC('target'))|U] Devotion"
+	mz_convert_outcome.2501.desc:0 "My [target.Custom('ComplimentAdjective')] [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('target'))] [target.GetTitledFirstNamePossessive] enchanting gaze greets me unexpectedly as I leave the council chambers, having finished the day's duties. [target.GetSheHe|U] tells me that [target.GetSheHe] has been thinking about our interactions over the past months, the nature of love, the boundaries of love between both women and family... and that perhaps those boundaries are meant to be stretched, or broken. I smile, and offer to show [target.GetHerHim] what it means to break those boundaries in my bedchambers, and [target.GetSheHe] agrees with a hungry look in [target.GetHerHis] eyes. The remainder of our evening (and well into the night) is spent in the sort of passionate, carnal intercourse that can only be shared between"
+	mz_convert_outcome.2501.desc.ending_sisters:0 "sisters."
+	mz_convert_outcome.2501.desc.ending_cousins:0 "cousins."
+	mz_convert_outcome.2501.desc.ending_other:0 "[target.Custom2('RelationToMeShort', ROOT.Char)] and [ROOT.Char.GetHerHis] [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('target'))]."
+	mz_convert_outcome.2501.a:0 "Our bond will transcend even the bonds of family!"
+	mz_convert_outcome.2501.b:0 "My [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('target'))] must now find [target.GetHerHis] own lovers."
+
+	mz_convert_outcome.2511.t:0 "[ROOT.Char.GetFaith.FertilityGodNamePossessive] Loving Embrace"
+	mz_convert_outcome.2511.desc:0 "The [target.GetFaith.HouseOfWorship] seems deserted after hours, but brightly burning candles keep it well-illuminated. Therein, [target.GetTitledFirstName] awaits my arrival with a smile, and calls several [ROOT.Char.GetFaith.PriestFemalePlural] in training to gather around to witness our communion. [target.GetTitledFirstNameNoTooltip] whispers thanks in my ear for helping [target.GetHerHim] uncover [target.GetHerHis] true desires, and instructs me on how I may receive both [target.GetHerHis] gratitude and the love of [ROOT.Char.GetFaith.FertilityGodName].\n\nI walk towards the altar, shedding my clothes as I go, then lie atop it, fully exposed to [target.GetTitledFirstNameNoTooltip] and the gathered [ROOT.Char.GetFaith.PriestFemalePlural] in training. It is only moments before [target.GetFirstNamePossessiveNoTooltip] soft hands begin to run all over my body, stroking my shoulders, my breasts, my inner thighs, and finally finding the moistness between my legs. As I feel the precise touch of [target.GetHerHis] fingers, I'm not sure whether to shout [target.GetFirstNamePossessiveNoTooltip] name or thanks to [ROOT.Char.GetFaith.HighGodName]."
+	mz_convert_outcome.2511.a:0 "By [ROOT.Char.GetFaith.HighGodName], we must meet like this again!"
+	mz_convert_outcome.2511.b:0 "[target.GetShortUINameNoTooltip] has reconnected with the divine."
+
+	mz_convert_outcome.2521.t:0 "A Concubine's Duty"
+	mz_convert_outcome.2521.desc:0 "After an exhausting day, I retire to my bedchambers, finding quite the surprise waiting for me: it is my normally-reluctant concubine, [target.GetFirstName]. [target.GetSheHe|U] is smiling, posed seductively, and completely nude. "My [owner.GetLadyLord]," [target.GetSheHe] addresses me in as sensual a tone as [target.GetSheHe] can manage, "our meetings over these past months have awakened things in me I never knew. The touch of another woman... your touch. I can't get it out of my mind. I know now that it's everything I've ever wanted. Please, take me...take me now!""
+	mz_convert_outcome.2521.a:0 "I will be happy to indulge [target.GetHerHim], night after night!"
+	mz_convert_outcome.2521.b:0 "My concubine's wish will be granted, just for tonight."
+
+	mz_convert_outcome.2531.t:0 "A Sapphic Union"
+	mz_convert_outcome.2531.desc:0 ""I never though I'd look at another woman this way, you know," my wife tells me, pulling me into [target.GetHerHis] embrace for another passionate kiss. "But now..." [target.GetHerHis] words trail off, and as [target.GetFirstNameNoTooltip] leads me to the bed, I can tell that [target.GetSheHe] has chosen to let [target.GetHerHis] actions speak for [target.GetHerHim]. We spend the next several hours reaffirming our vows, our bodies intertwined and thoroughly explored by each others' hands and mouths."
+	mz_convert_outcome.2531.a:0 "As we were united in marriage, we are now united in heart!"
+	mz_convert_outcome.2531.b:0 "Just for the night, we shall be as one."
+
+	mz_convert_outcome.2900.t:0 "[target_liege.GetTitledFirstNamePossessiveNoTooltip] Ire"
+	mz_convert_outcome.2900.start.desc:0 "Though I was successful in uncovering [target.GetTitledFirstNamePossessiveNoTooltip] latent orientation, word has reached me"
+	mz_convert_outcome.2900.capital.desc:0 "from [capital.GetNameNoTierNoTooltip]"
+	mz_convert_outcome.2900.end.desc:1 "that [target_liege.GetTitledFirstName] has learned of just what I was doing with [target.GetTitledFirstName]! I don't know what consequences poor [target.GetFirstNameNoTooltip] might suffer because of this, and I am certainly no longer welcome at [target.GetTitledFirstNamePossessiveNoTooltip] court."
+	mz_convert_outcome.2900.a:0 "This is problematic, though at least we weren't caught in the act."
+
+	mz_convert_outcome.3901.t:0 "An Indecent Incident"
+	mz_convert_outcome.3901.desc:0 "I recognize the anxious look on my servant's face. [dummy_servant_gender.GetSheHe|U] is here to bring me bad news.\n\n"My [ROOT.Char.GetLadyLord], I have just received word from our agents. [owner.Custom2('YourCharacterIntroduction', ROOT.Char)|U] has been making immodest propositions towards [target.Custom2('YourCharacterIntroductionNoComma', ROOT.Char)]! It would seem they were discussing the possibility of romantic love between two women!""
+	mz_convert_outcome.3900.a:0 "This can only mean one thing!"
+
+	mz_convert_outcome.4001.t:0 "Turned Away"
+	mz_convert_outcome.4001.incest.desc:0 ""The idea of two women in love... it's something I'd rather not discuss, [ROOT.Char.GetFirstNameNoTooltip]," [target.GetTitledFirstName] smiles [target.Custom('quirk_pos_adverb')] as [target.GetSheHe] turns me away. "Especially with my #EMP [target.Custom2('RelationToMe', SCOPE.sC('owner') )]#!""
+	mz_convert_outcome.4001.default.desc:0 ""You are [target.Custom2('ComplimentAdjectiveArticle', ROOT.Char)] [ROOT.Char.GetWomanMan] [ROOT.Char.GetFirstNameNoTooltip], but two women simply cannot be together in that way," says [target.GetTitledFirstName] as [target.GetSheHe] [target.Custom('quirk_neg_present')]. "It is simply not the will of [target.GetFaith.HighGodName]... at least, for now.""
+	mz_convert_outcome.4001.a:0 "Oh... Yes, of course..."
+
+	mz_convert_outcome.4002.t:0 "A Forceful Refusal"
+	mz_convert_outcome.4002.desc:0 "It would seem [target.GetTitledFirstName] has finally had enough of this conversation topic. "Enough!" [target.GetSheHe] yells, slamming a hand on the table sitting between us. "I have endured your rants on this... abhorrant idea of yours for far too long! No more!" With that, [target.GetSheHe] picks herself up, and storms off."
+	mz_convert_outcome.4002.a:0 "I'm afraid [target.GetSheHe] is lost cause."
+
+	mz_convert_outcome.4003.t:0 "The Most Disasterous Outcome"
+	mz_convert_outcome.4003.plot.desc:0 "At first it seems to be going well... [target.GetTitledFirstName] seems putty in my hands until [target.GetSheHe] suddenly pushes me away and calls for the guards. Though I managed to escape, the damage has been done."
+	mz_convert_outcome.4003.default.desc:0 "[target.GetTitledFirstName] did not take well to my advances today, and eventually [target.GetSheHe] began to shout and make quite the scene, making sure that everyone within earshot knew just what I was trying to do. Though I managed to get away unscathed, I'm afraid the damage to my reputation has been done."
+	mz_convert_outcome.4003.a.plot:0 "This is horrible."
+	mz_convert_outcome.4003.a.default:0 "What a disaster!"
+
+	mz_convert_outcome.4004.t:0 "Too Much to Risk"
+	mz_convert_outcome.4004.desc:0 "[target.GetTitledFirstName] seemed receptive to my advances at first, and eventually the two of us were locked in a passionate embrace, alone in [target.GetHerHis] quarters, when suddenly [target.GetSheHe] pushed me away and yelled, "Forgive me [target.Custom2('RelationToMeShort', ROOT.Char)], but I cannot do this. I wish... No, it is too dangerous!"\n\nLost for words, [target.GetSheHe] kisses me quickly, and slams the door in my face!"
+	mz_convert_outcome.4004.a:0 "Why should we care about that? Please, open the door!"
+
+	mz_convert_outcome.4005.t:0 "Exposed!"
+	mz_convert_outcome.4005.desc:0 "It has come to my attention that my efforts to explore [target.GetTitledFirstNamePossessive] sexual orientation have not gone unnoticed. [target_liege.GetTitledFirstName] has been made aware of my intentions, which means that not only is it too risky to continue my efforts, but that they have been made public!"
+	mz_convert_outcome.4005.a:0 "Curses!"
+
+	mz_convert_outcome.4900.t:0 "Unwelcome Advances"
+	mz_convert_outcome.4900.desc:0 "Several of my courtiers and agents have informed me that [owner.GetTitledFirstName] has been harassing [target.GetTitledFirstName] with the most lewd and unwelcome advances, seemingly inquiring about [target.GetHerHis] interest in other women! [target.GetTitledFirstName] has no interest in women, and yet this pest continues to annoy her with such inquiries?!"
+	mz_convert_outcome.4900.a.family:0 "My own [target_liege.Custom2('RelationToMeShort', SCOPE.sC('target'))]?! The world will know of [owner.GetTitledFirstNamePossessive] deviancy!"
+	mz_convert_outcome.4900.a.courtier:0 "I must protect [target.GetFirstNameNoTooltip] from this [owner.Custom('InsultNounSexual')]!"
+
+	mz_convert_outcome.8102.t:0 "Hard Pass"
+	mz_convert_outcome.8102.desc:0 "My attempts to engage [target.GetTitledFirstName] about the subject of love between women have immediately triggered a harsh negative reaction--it would appear [target.GetSheHe] has no interest in discussing the matter. [target.GetFirstNameNoTooltip] was quite specific when [target.GetSheHe] mentioned that it was a subject not fit to discuss with one's [owner.Custom2('RelationToMe', SCOPE.sC('target') )]."
+	mz_convert_outcome.8102.a:0 "That one's a lost cause."
+
+	mz_convert_outcome.8103.t:0 "Unexpected Revelation"
+	mz_convert_outcome.8103.desc:0 "[target.GetTitledFirstName] seemed extremely offended when I attempted to discuss the subject of love between women with her. It would seem [target.GetSheHe] assumed that I was attempting to seduce her! Worse yet, [target.GetSheHe] is telling everyone at court about the incident!"
+	mz_convert_outcome.8103.a:0 "[target.GetFirstNameNoTooltip], how could you?!"

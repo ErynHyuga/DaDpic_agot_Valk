@@ -1,0 +1,23 @@
+﻿l_english:
+    mz_lesbian_union_concubines:0 "Sacred Concubines"
+    mz_lesbian_union_concubines_desc:0 "[piety|E]: [piety_i]#P +0.2#!/month for each female [concubine|E], and [piety_i]#P +0.6#!/month if [spouse|E] is female. Additional [piety_i]#P +0.2#!/month if the character has exactly one male concubine and spouse is female"
+
+    mz_lesbian_union_polygamy:0 "Sacred Polygamy"
+    mz_lesbian_union_polygamy_desc:0 "[piety|E]: [piety_i]#P +0.3#!/month for each female [spouse|E]. Additional [piety_i]#P +0.3#!/month if the character has exactly one male spouse and primary spouse is female"
+
+    mz_lesbian_union_monogamy:0 "Sacred Marriage"
+    mz_lesbian_union_monogamy_desc:0 "[piety|E]: [piety_i]#P +1.5#!/month if [spouse|E] is female"
+
+    mz_homosexual_union_concubines:0 "Sacred Concubines"
+    mz_homosexual_union_concubines_desc:0 "[piety|E]: [piety_i]#P +0.2#!/month for each male [concubine|E], and [piety_i]#P +0.6#!/month if [spouse|E] is male. Additional [piety_i]#P +0.2#!/month if the character has exactly one female concubine and spouse is male"
+
+    mz_homosexual_union_polygamy:0 "Sacred Polygamy"
+    mz_homosexual_union_polygamy_desc:0 "[piety|E]: [piety_i]#P +0.3#!/month for each male [spouse|E]. Additional [piety_i]#P +0.3#!/month if the character has exactly one female spouse and primary spouse is male"
+
+    mz_homosexual_union_monogamy:0 "Sacred Marriage"
+    mz_homosexual_union_monogamy_desc:0 "[piety|E]: [piety_i]#P +1.5#!/month if [spouse|E] is male"
+
+    mz_lesdivinity_broken_promise_modifier:0 "Betrayed Sacred Oath"
+    mz_lesdivinity_broken_promise_modifier_desc:0 "This character betrayed their sacred oath to their lesbian spouse."
+
+    mz_divine_lovers_modifier:0 "Divine Lovers"

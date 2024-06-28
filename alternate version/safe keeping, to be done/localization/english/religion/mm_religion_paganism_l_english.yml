@@ -1,0 +1,29 @@
+﻿l_english:
+  mz_heraionism_religion:2 "Pelasgian"
+  mz_heraionism_religion_adj:2 "Pelasgic"
+  mz_heraionism_religion_adherent:2 "Pelasgian"
+  mz_heraionism_religion_adherent_plural:2 "Pelasgians"
+  mz_heraionism_religion_desc:0 "Long before the Hellenes came to inhabit Greece, many monotheistic Pelasgians worshipped a single great mother goddess. Little is known of their ancient ways."
+
+  mz_heraionism_high_god_name:0 "Hera"
+  mz_heraionism_high_god_name_2:0 "$mz_heraionism_high_god_name$"
+  mz_heraionism_high_god_name_possessive:0 "Hera's"
+  mz_heraionism_high_god_name_alternate:0 "The Matriarch"
+  mz_heraionism_high_god_name_alternate_possessive:0 "The Matriarch's"
+
+  mz_heraionism_war_god_name:0 "Artemis"
+  mz_heraionism_war_god_name_possessive:0 "Artemis'"
+
+  mz_heraionism_evil_god_zeus:0 "Zeus"
+
+  mz_amazon_pagan:0 "Heraionism"
+  mz_amazon_pagan_adj:0 "Heraionic"
+  mz_amazon_pagan_adherent:0 "Heraionist"
+  mz_amazon_pagan_adherent_plural:0 "Heraionists"
+  mz_amazon_pagan_desc:0 "The last remnant of the ancient Pelasgic religion is a polytheistic branch that was heavily influenced by the Hellenes. The only known adherents are the Amazons, who worship Hera as the high goddess."
+
+  mz_amazon_pagan_old:0 "Old Heraionism"
+  mz_amazon_pagan_old_adj:0 "Old Heraionic"
+  mz_amazon_pagan_old_adherent:0 "Old Heraionist"
+  mz_amazon_pagan_old_adherent_plural:0 "Old Heraionists"
+  mz_amazon_pagan_old_desc:0 "The last remnant of the ancient Pelasgic religion is a polytheistic branch that was heavily influenced by the Hellenes. The only known adherents are the Amazons, who worship Hera as the high goddess."

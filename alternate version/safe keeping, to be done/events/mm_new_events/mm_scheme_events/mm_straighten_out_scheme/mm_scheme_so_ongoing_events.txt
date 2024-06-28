@@ -1,0 +1,302 @@
+﻿#Ongoing events for Straighten Out scheme
+namespace = mz_scheme_so_ongoing
+
+mz_scheme_so_ongoing.1001 = {
+	hidden = yes
+	trigger = { 
+		exists = scope:scheme
+		NOT = {
+			scope:scheme = { has_variable = mz_scheme_so_ongoing_event }
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			scope:target = {
+				opinion = {
+					target = scope:owner
+					value > 0
+				}
+			}
+			add = 0.5
+		}
+		modifier = {
+			scope:target = {
+				opinion = {
+					target = scope:owner
+					value > 20
+				}
+			}
+			add = 0.5
+		}
+		modifier = {
+			scope:target = {
+				opinion = {
+					target = scope:owner
+					value > 40
+				}
+			}
+			add = 1
+		}
+		modifier = {
+			scope:target = {
+				opinion = {
+					target = scope:owner
+					value > 60
+				}
+			}
+			add = 1
+		}
+		modifier = {
+			scope:target = {
+				opinion = {
+					target = scope:owner
+					value > 80
+				}
+			}
+			add = 1
+		}
+		modifier = {
+			scope:owner = { diplomacy > low_skill_rating }
+			add = 0.5
+		}
+		modifier = {
+			scope:owner = { diplomacy >= decent_skill_rating }
+			add = 1
+		}
+		modifier = {
+			scope:owner = { diplomacy >= very_high_skill_rating }
+			add = 1.5
+		}
+		modifier = {
+			scope:target = { has_trait = family_first }
+			add = 1
+		}
+		modifier = {
+			scope:target = { has_focus = diplomacy_family_focus }
+			add = 0.5
+		}
+		modifier = { 
+			scope:target = { ai_sociability > 50 }
+			add = 1
+		}
+	}
+
+	immediate = {
+		scope:scheme = {
+			set_variable = {
+				name = mz_scheme_so_ongoing_event
+				value = yes
+				days = 180
+			}
+		}
+		random = {
+			chance = 20
+			send_interface_toast = {
+				title = mz_scheme_so_stress_gain
+				left_icon = scope:owner
+				right_icon = scope:target
+				scope:owner = { add_stress = minor_stress_gain }
+			}
+		}
+		random = {
+			chance = 20
+			send_interface_toast = {
+				title = mz_scheme_so_stress_gain
+				left_icon = scope:owner
+				right_icon = scope:target
+				scope:target = { add_stress = minor_stress_gain }
+			}
+		}
+		random_list = {
+			1 = {
+				trigger = { exists = scope:scheme }
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_ongoing_good_t
+					left_icon = scope:target
+					custom_tooltip = mz_scheme_so_ongoing_good_tt
+					scope:scheme = { add_scheme_progress = scheme_progress_gain }
+				}				
+			}
+			1 = {
+				trigger = { exists = scope:scheme }
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_ongoing_good_t
+					left_icon = scope:target
+					custom_tooltip = mz_scheme_so_ongoing_good_tt
+					scope:scheme = { 
+						add_scheme_modifier = { 
+							type = mz_scheme_so_good_modifier
+							years = 5
+						}
+					}
+				}				
+			}
+			1 = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_ongoing_good_t
+					left_icon = scope:target
+					custom_tooltip = mz_scheme_so_ongoing_good_tt
+					scope:target = {
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_so_ongoing_good_opinion
+							opinion = 10
+						}
+					}
+				}				
+			}
+		}
+	}
+}
+
+mz_scheme_so_ongoing.1002 = {
+	hidden = yes
+	trigger = { 
+		exists = scope:scheme
+		NOT = {
+			scope:scheme = { has_variable = mz_scheme_so_ongoing_event }
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			scope:target = {
+				opinion = {
+					target = scope:owner
+					value < 0
+				}
+			}
+			add = 0.5
+		}
+		modifier = {
+			scope:target = {
+				opinion = {
+					target = scope:owner
+					value < -20
+				}
+			}
+			add = 0.5
+		}
+		modifier = {
+			scope:target = {
+				opinion = {
+					target = scope:owner
+					value < -40
+				}
+			}
+			add = 1
+		}
+		modifier = {
+			scope:target = {
+				opinion = {
+					target = scope:owner
+					value < -60
+				}
+			}
+			add = 1
+		}
+		modifier = {
+			scope:target = {
+				opinion = {
+					target = scope:owner
+					value < -80
+				}
+			}
+			add = 1
+		}
+		modifier = {
+			scope:owner = { diplomacy < low_skill_rating }
+			add = 1
+		}
+		modifier = {
+			scope:target = { has_trait = stubborn }
+			add = 0.5
+		}
+		modifier = {
+			scope:target = { has_trait = irritable }
+			add = 0.5
+		}
+		modifier = {
+			scope:target = { has_trait = wrathful }
+			add = 0.5
+		}
+		modifier = { 
+			scope:target = { ai_sociability < 20 }
+			add = 1
+		}
+	}
+
+	immediate = {
+		scope:scheme = {
+			set_variable = {
+				name = mz_scheme_so_ongoing_event
+				value = yes
+				days = 180
+			}
+		}
+		random = {
+			chance = 50
+			send_interface_toast = {
+				title = mz_scheme_so_stress_gain
+				left_icon = scope:owner
+				right_icon = scope:target
+				scope:owner = { add_stress = minor_stress_gain }
+			}
+		}
+		random = {
+			chance = 50
+			send_interface_toast = {
+				title = mz_scheme_so_stress_gain
+				left_icon = scope:owner
+				right_icon = scope:target
+				scope:target = { add_stress = minor_stress_gain }
+			}
+		}
+		random_list = {
+			1 = {
+				send_interface_message = {
+					type = sway_bad_message
+					title = mz_scheme_so_ongoing_bad_t
+					left_icon = scope:target
+					custom_tooltip = mz_scheme_so_ongoing_bad_tt
+					scope:scheme = { add_scheme_progress = scheme_progress_loss }
+				}				
+			}
+			1 = {
+				send_interface_message = {
+					type = sway_bad_message
+					title = mz_scheme_so_ongoing_bad_t
+					left_icon = scope:target
+					custom_tooltip = mz_scheme_so_ongoing_bad_tt
+					scope:scheme = { 
+						add_scheme_modifier = { 
+							type = mz_scheme_so_bad_modifier 
+							years = 5
+						}
+					}
+				}				
+			}
+			1 = {
+				send_interface_message = {
+					type = sway_bad_message
+					title = mz_scheme_so_ongoing_bad_t
+					left_icon = scope:target
+					custom_tooltip = mz_scheme_so_ongoing_bad_tt
+					scope:target = {
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_so_ongoing_bad_opinion
+							opinion = -10
+						}
+					}
+				}				
+			}
+		}
+	}
+}

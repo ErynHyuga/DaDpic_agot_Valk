@@ -1,0 +1,349 @@
+﻿l_english:
+
+innovation_xxxxx:0 ""
+innovation_xxxxx_desc:0 ""
+
+## DEBUG
+
+innovation_debug_01:0 "Game Balance"
+innovation_debug_01_desc:0 "This innovation is for game balance purposes (Chat GPT Flavor Pack). Since 28 innovations and 55 traditions have been added, these balance changes are necessary, and it is done this way to avoid touching game files, thus maintaining full mod compatibility!"
+
+#Tribal
+
+innovation_church_01:0 "Calligraphy"
+innovation_church_01_desc:0 "In the Tribal Era of medieval history, both Christian and Islamic religious institutions were in their formative stages. Among Christians, small Christian communities and monastic movements began to emerge, often existing on the fringes of the Roman Empire. In Islam, the Prophet Muhammad laid the foundations of the Muslim community in Arabia. Spiritual practices were intertwined with tribal customs, and religious leadership was often decentralized. This period set the groundwork for the later development of organized religious institutions."
+
+innovation_slave_01:0 "Slave Markets"
+innovation_slave_01_desc:0 "In the Tribal Era, societies were often organized into tribes, and slavery was prevalent. Slave markets emerged as a way to facilitate the exchange of human beings as property. Slavery during this period was often a result of warfare, where captives were taken and traded. The status of slaves was largely determined by their tribal affiliation and the circumstances of their capture."
+
+innovation_trade_01:0 "Trade Agreements"
+innovation_trade_01_desc:0 "During the Tribal Era, trading and commerce were primarily localized and driven by barter systems. Tribes engaged in the exchange of goods and services within their communities and with neighboring tribes. Trade routes were often informal, following natural paths or waterways. Items of value included food, tools, and crafted goods. The concept of currency was rudimentary, if present at all."
+
+innovation_industry_01:0 "Craftsmanship"
+innovation_industry_01_desc:0 "The Tribal Era was characterized by subsistence economies and simple craft production. Communities engaged in basic forms of agriculture, hunting, and gathering. Craftsmen created tools, weapons, and basic goods for local use. There was limited specialization, and production methods were often labor-intensive, using manual tools and techniques."
+
+innovation_aesthetic_01:0 "Aesthetic Codes"
+innovation_aesthetic_01_desc:0 "In the Tribal Era, aesthetic and social etiquette were deeply tied to cultural rituals and traditions. Body adornments, such as tattoos and piercings, served both aesthetic and social purposes, indicating tribal affiliations or personal achievements. Social interactions were often governed by unwritten codes of conduct, emphasizing cooperation within the community. Storytelling, dance, and art played crucial roles in expressing tribal identity and passing down cultural values."
+
+innovation_military_01:0 "Vassalage"
+innovation_military_01_desc:0 "In the Tribal Era, military leadership was often based on personal allegiances and vassalage. Leaders, often tribal chiefs or warlords, held authority through personal relationships and loyalty. Warriors pledged allegiance to a leader in exchange for protection and resources. The concept of vassalage involved reciprocal obligations, with the leader providing support and the followers offering military service. This system was characterized by a relatively small, close-knit group of warriors bound by personal ties."
+
+innovation_tactics_01:0 "Skirmish Tactics"
+innovation_tactics_01_desc:0 "In the Tribal Era, battles were characterized by skirmish tactics that focused on hit-and-run engagements. Warriors engaged in small-scale confrontations, often utilizing guerrilla warfare strategies. The emphasis was on individual bravery and skill rather than coordinated formations. Tribes relied on mobility and knowledge of the terrain, using a variety of weapons such as spears, bows, and slings for quick, opportunistic strikes."
+
+#Early Medieval
+
+innovation_church_02:0 "Theology"
+innovation_church_02_desc:0 "During the Early Medieval period, both Christianity and Islam saw the establishment of centralized religious authorities. In Christianity, the authority of the Catholic Church grew, with the Pope emerging as a key figure in ecclesiastical matters. Monastic orders played a vital role in preserving knowledge and spreading religious teachings. In Islam, the Caliphate took shape as a political and religious institution, uniting the Muslim community under a single leader. The spread of Islam led to the formation of a diverse and expansive Islamic civilization."
+
+innovation_slave_02:0 "Private Property"
+innovation_slave_02_desc:0 "The Early Medieval period witnessed a shift towards more organized forms of governance and the establishment of private property. Slavery continued to exist, but it became more intertwined with the concept of private ownership. Slaves were considered the property of individuals or households rather than being tied solely to tribal affiliations. The economic system during this period was often agrarian, and slaves were utilized for labor in agriculture and other domestic tasks."
+
+innovation_trade_02:0 "Trade Routes"
+innovation_trade_02_desc:0 "In the Early Medieval period, trading networks expanded as societies became more settled. Towns and markets began to emerge, providing central locations for trade. The growth of feudalism led to a system where local lords controlled trade in their territories. Long-distance trade routes connected regions, facilitated by the use of coins as a medium of exchange. The influence of the Byzantine and Islamic civilizations played a crucial role in connecting East and West through trade."
+
+innovation_industry_02:0 "Watermills"
+innovation_industry_02_desc:0 "The Early Medieval period saw the emergence of rudimentary craft specialization in local communities. With the establishment of feudal systems, there was increased agricultural productivity. Craftsmen began to specialize in producing goods for both local consumption and trade. Water and wind mills started to appear, harnessing natural energy for certain manufacturing processes. However, large-scale industrialization had not yet taken root."
+
+innovation_aesthetic_02:0 "Symbolical Rites"
+innovation_aesthetic_02_desc:0 "The Early Medieval period witnessed the influence of religious institutions on aesthetic and social etiquette. The Church played a central role in shaping societal norms. Art and architecture were dominated by religious themes, and social interactions were often guided by moral and religious principles. Nobility and chivalry emerged as influential social constructs, emphasizing codes of conduct for the elite class. Feudal hierarchies dictated social relationships and etiquette, with clear distinctions between different social classes."
+
+innovation_military_02:0 "Retinues"
+innovation_military_02_desc:0 "During the Early Medieval period, the feudal system brought about the rise of retinues. Military leaders, such as knights or nobles, maintained a personal following of warriors known as a retinue. These warriors were often bound by feudal obligations, with the leader providing land and protection in exchange for military service. Retinues formed the core of medieval armies, and the loyalty of warriors was often tied to the personal relationship with their leader. This system emphasized the importance of individual prowess in battle."
+
+innovation_tactics_02:0 "Battle Formations"
+innovation_tactics_02_desc:0 "With the establishment of feudalism, battles in the Early Medieval period saw the development of more organized and structured formations. Infantry, often comprising foot soldiers and armored knights, formed shield walls and spear lines. Cavalry charges, especially by heavily armored knights, became a prominent feature. The shield wall provided protection and cohesion, while cavalry charges aimed to break enemy lines. The code of chivalry influenced the conduct of warfare, emphasizing honor and noble behavior on the battlefield."
+
+#High Medieval
+
+innovation_church_03:0 "Philosophy"
+innovation_church_03_desc:0 "The High Medieval period witnessed significant intellectual and theological developments in both Christian and Islamic traditions. In Christianity, universities and monastic schools became centers of learning, fostering the study of theology, philosophy, and the arts. Figures like Thomas Aquinas contributed to the synthesis of Christian theology and classical philosophy. In Islam, the Golden Age saw the flourishing of science, mathematics, and philosophy, with scholars like Avicenna making substantial contributions. Theological debates and discussions within both traditions shaped the religious landscape of the time."
+
+innovation_slave_03:0 "Serfdom"
+innovation_slave_03_desc:0 "In the High Medieval period, serfdom became a dominant form of labor in many feudal societies. Serfs were tied to the land and obligated to work for their lords. While not entirely free, they were not sold in markets like slaves in the Tribal Era. Serfs had certain rights but were still bound to the land, and their labor contributed to the agricultural productivity of the manor. The feudal system provided a hierarchical structure, with lords at the top who owned the land and had control over the labor of the serfs."
+
+innovation_trade_03:0 "Trade Leagues"
+innovation_trade_03_desc:0 "High Medieval Europe saw further development in trade and commerce. The rise of merchant guilds and the establishment of trade fairs contributed to the organization of economic activities. The Crusades fostered cultural and economic exchanges between the East and West, bringing new goods and ideas to European markets. The Hanseatic League, a commercial and defensive confederation of merchant guilds, facilitated trade in Northern Europe. The use of bills of exchange and banking systems began to emerge, enhancing the efficiency of long-distance trade."
+
+innovation_industry_03:0 "Metallurgy"
+innovation_industry_03_desc:0 "The High Medieval period witnessed further advancements in craft specialization, particularly in urban centers. Guilds played a crucial role in organizing and regulating various trades. Water and wind mills became more widespread, contributing to increased efficiency in grain milling and other processes. Innovations in metallurgy and the development of more sophisticated tools and machinery laid the foundation for later industrialization. However, the scale of production was still limited compared to what would come in subsequent eras."
+
+innovation_aesthetic_03:0 "Court Etiquette"
+innovation_aesthetic_03_desc:0 "The High Medieval period saw the refinement of courtly manners and the development of more elaborate aesthetic expressions. The concept of courtly love became a prominent theme in literature and art, influencing social interactions among the upper classes. Castles and courts became centers of cultural and artistic patronage, fostering the development of illuminated manuscripts, troubadour poetry, and elaborate tapestries. Social etiquette became more formalized, with detailed rules governing behavior at court, including rules of dress and speech."
+
+innovation_military_03:0 "Bannerlords"
+innovation_military_03_desc:0 "In the High Medieval period, the concept of bannerlordship became prominent. Military leaders raised armies under their own banners, displaying heraldic symbols that represented their lineage and authority. The banner became a rallying point on the battlefield, symbolizing the leader's prestige and the allegiance of their followers. This period saw the development of more formalized military structures, with knights and men-at-arms organized under the banners of noble leaders. The chivalric code played a significant role in shaping the conduct of warfare and leadership."
+
+innovation_tactics_03:0 "Combined Arms"
+innovation_tactics_03_desc:0 "The High Medieval period witnessed the evolution of combined arms tactics, incorporating a mix of infantry, cavalry, and ranged units. The introduction of longbows and crossbows provided armies with effective ranged capabilities, challenging the dominance of heavily armored knights. Military commanders began to integrate different types of troops to create more versatile and adaptable forces. Siege warfare became more sophisticated, with the use of siege engines and tactics to breach fortified positions."
+
+#Late Medieval
+
+innovation_church_04:0 "Mysticism"
+innovation_church_04_desc:0 "The Late Medieval period brought about challenges and reformations in Christian and Islamic institutions. Within Christianity, the Western Schism divided the Catholic Church, leading to multiple popes and a decline in the Church's authority. The emergence of new religious movements, such as the Franciscans and Dominicans, reflected a desire for spiritual renewal. In Islam, the Mongol invasions and subsequent political upheavals led to the decline of the Caliphate, resulting in the fragmentation of Muslim political power. Theologians and mystics sought to address spiritual concerns amid changing political landscapes, paving the way for future developments in both religious traditions."
+
+innovation_slave_04:0 "Tenancy"
+innovation_slave_04_desc:0 "In the Late Medieval period there was a further transformation in the labor system. The decline of traditional feudalism and the rise of commerce led to changes in landownership. The emergence of tenancy allowed peasants to rent land from landlords and cultivate it for a share of the produce. This shift in agricultural practices reduced the direct control of lords over the labor of the peasantry. While serfdom persisted in some regions, the tenancy system marked a move towards a more fluid arrangement of labor, paving the way for changes in subsequent historical periods."
+
+innovation_trade_04:0 "Trade Surplus"
+innovation_trade_04_desc:0 "The Late Medieval period witnessed significant advancements in trading and commerce. The Black Death, while devastating, led to labor shortages, empowering the workforce and contributing to the decline of feudalism. This period also saw the emergence of early capitalism and the beginnings of a more market-oriented economy. The Italian city-states, such as Venice and Florence, became economic powerhouses, fostering trade and banking. Innovations like the double-entry bookkeeping system and joint-stock companies laid the groundwork for the commercial revolution that would follow in the Renaissance."
+
+innovation_industry_04:0 "Workshops"
+innovation_industry_04_desc:0 "The Late Medieval period marked the beginning of significant changes in economic and technological landscapes. The Black Death, while devastating, contributed to labor shortages, empowering workers and leading to increased wages. This, in turn, stimulated technological innovation as people sought more efficient ways of production. Early forms of manufacturing emerged, with specialized workshops and the use of water and wind power becoming more widespread. The groundwork was laid for the transition to the early modern period, which would witness the beginnings of true industrialization."
+
+innovation_aesthetic_04:0 "Patronage"
+innovation_aesthetic_04_desc:0 "The Late Medieval period marked the continuation of courtly manners but also witnessed changes in social dynamics. The Black Death and the subsequent economic shifts led to the rise of the middle class. This newly affluent class sought to emulate the manners of the nobility, leading to the dissemination of courtly etiquette beyond the aristocracy. The Renaissance, which began in the late medieval period and extended into the early modern era, brought about a revival of interest in classical art and culture, influencing aesthetic tastes and social norms. This period set the stage for the transformations in art, literature, and social etiquette that would characterize the subsequent centuries."
+
+innovation_military_04:0 "Conscription"
+innovation_military_04_desc:0 "The Late Medieval period witnessed significant changes in military organization and leadership. As warfare evolved and became more complex, the reliance on professional standing armies increased. Leaders began to employ conscription, drafting commoners into the military to meet the demands of larger conflicts. This marked a departure from the earlier system of personal loyalty and heraldic banners. The emergence of gunpowder and artillery further transformed military strategies, requiring more disciplined and organized armies. The shift toward conscription laid the groundwork for the military structures of the early modern period."
+
+innovation_tactics_04:0 "Mercenary Bands"
+innovation_tactics_04_desc:0 "In the Late Medieval period, the use of mercenary troops became more prevalent, influencing battlefield tactics. Mercenaries were often skilled professionals, and their employment allowed commanders to field specialized units for specific tasks. The use of pike and shot formations, combining pike-armed infantry with crossbows and early firearms, later on became a common tactic. The reliance on mercenaries also led to the development of more flexible and pragmatic battlefield tactics, as mercenary companies were often adaptable to different situations."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# not_bellicose_or_stoic_desc
+
+tradition_iron_will_name:0 "Iron Will"
+tradition_iron_will_desc:0 "This society values unyielding determination especially in the face of repeated failures. Embracing setbacks as opportunities for growth, they believe that true strength arises from resilience. The celebration of individuals who persevere through adversity define this culture, shaping a society where, on battlefield, retreat and death are synonymous."
+
+# not_bellicose_egalitarian_or_spiritual_desc
+
+tradition_war_phylosphy_name:0 "Warfare Theorists"
+tradition_war_phylosphy_desc:0 "This society venerates the art of war, placing great importance on the teachings of military theorists and strategists of the past. Rigorous training, war councils, and the study of ancient battles form the core of this culture, shaping a society where martial prowess is a revered path to glory."
+
+tradition_temple_milit_name:0 "Temple Militarism"
+tradition_temple_milit_desc:0 "This society integrates temples seamlessly into the art of war, recognizing them not only as places of worship but also as crucial military assets and training grounds. Temples serve as centers for both spiritual enlightenment and rigorous martial training, creating a unique fusion of faith and combat expertise."
+
+tradition_divine_armaments_name:0 "Divine Armaments"
+tradition_divine_armaments_desc:0 "This culture believes in the sanctity of weapons and armor, viewing them not just as tools of war but as sacred objects imbued with divine significance. Elaborate forging ceremonies, blessings of arms, and the crafting of relics contribute to a society where the act of war is seen as a sacred duty, and warriors are regarded as guardians of the divine order."
+
+# not_bellicose_or_bureaucratic_desc ++
+
+tradition_incentived_rivalry_name:0 "Incentived Rivalry"
+tradition_incentived_rivalry_desc:0 "This society thrives on the concept of perpetual competition and rivalry. From childhood games to adulthood, individuals are encouraged to engage in friendly but fierce competitions, ensuring that a spirit of rivalry permeates every aspect of their lives. Festivities often include and encourage brawlings, turning celebrations into arenas for showcasing prowess and determination."
+
+tradition_brewer_brigade_name:0 "Brewer's Brigade"
+tradition_brewer_brigade_desc:0 "This culture regards alcohol as a strategic weapon of war, celebrating the intoxicating elixir as a potent asset. Grand feasts, strategic imbibing, and the craft of potent brews are integral to this society, elevating the art of brewing and alcohol consumption to the status of sacred rites."
+
+tradition_siege_engin_name:0 "Siege Engineers"
+tradition_siege_engin_desc:0 "This culture specializes in the science of siege warfare, fostering traditions that venerate the expertise of siege engineers and architects. Through the construction of elaborate siege engines, strategic siege warfare competitions, and the study of historical sieges, these initiatives create a society where the ability to breach fortifications is considered an art."
+
+tradition_contract_allegiance_name:0 "Contracted Allegiance"
+tradition_contract_allegiance_desc:0 "In this culture, loyalty is a contractual agreement intertwined with the traditions of vassalage and mercenary work. Sworn warriors pledge allegiance through formal contracts, detailing their services both in times of peace and as hired mercenaries during conflicts. This unique tradition creates a society where loyalty is measured not only in oaths but also in the fulfillment of contractual obligations."
+
+tradition_cruel_masters_name:0 "Cruel Masters"
+tradition_cruel_masters_desc:0 "This society employs brutal methods to control, profit, and manage the lower classes, fostering traditions that prioritize fear and subjugation. Unfair laws, severe punishments for disobedience, and a culture of intimidation define this culture, shaping a society where the ruling class often derives pleasure from the suffering of others."
+
+tradition_public_trials_name:0 "Public Trials"
+tradition_public_trials_desc:0 "This society instills fear through the power of public trials, cultivating traditions that vividly showcase the consequences of disobedience and betrayal. Dramatic trials, severe punishments, and public humiliations are hallmarks of this culture, creating a society where the specter of dread looms over those who dare to defy authority."
+
+tradition_exess_luxury_name:0 "Orgiastic Concubinage"
+tradition_exess_luxury_desc:0 "Rooted in the belief in the therapeutic power of revelry and excess, regardless of their faith, this culture encourages indulgence as a means to alleviate stress. Grand festivities, hedonistic celebrations, and communal rituals define their traditions, fostering a society where stress finds release through uninhibited joy and shared revelry."
+
+# not_bellicose_or_communal_desc
+
+tradition_shilded_allegiance_name:0 "Shielded Allegiance"
+tradition_shilded_allegiance_desc:0 "This culture places paramount importance on the symbolism of shields in warfare, cultivating traditions that emphasize the camaraderie and loyalty among warriors who stand side by side, shield to shield. Shield formations, intricate coat-of-arms designs, and oaths of unwavering loyalty shape their customs, creating a society where the bond between soldiers is regarded as sacred and unbreakable."
+
+tradition_roving_warbands_name:0 "Roving Warbands"
+tradition_roving_warbands_desc:0 "This culture values the nomadic lifestyle of roving warbands, where small groups of warriors travel together, seeking challenges and conflicts. The initiation into adulthood involves a journey with a warband, and festivals often involve the gathering of various warbands to showcase their prowess. The itinerant lifestyle is seen as a test of resilience and adaptability."
+
+tradition_blissful_ignorance_name:0 "Blissful Ignorance"
+tradition_blissful_ignorance_desc:0 "This culture dismisses the pursuit of knowledge and wisdom, discouraging traditions that advocate seeking advice from scholars and sophisticated thinkers. Devoid of academic discourse and scholarly gatherings, this society values learning through trial and error, with little regard for the pursuit of ancient knowledge."
+
+tradition_secular_idols_name:0 "Secular Idolaters"
+tradition_secular_idols_desc:0 "This culture exalts secular accomplishments to divine status, nurturing traditions that transform rulers into idols. Grand monuments, opulent processions, and the veneration of worldly achievements define their customs, shaping a society where prestige and worldly success are worshipped."
+
+tradition_collective_prowess_name:0 "Collective Prowess"
+tradition_collective_prowess_desc:0 "This culture esteems collective martial prowess over individual achievement, eschewing traditions that promote duels and personal combat challenges. Through cooperative tournaments and team-based displays of skill, these customs create a society where valor and bravery are celebrated as a collective endeavor."
+
+# not_stoic_or_bureaucratic_desc +
+
+tradition_contractualists_name:0 "Stewardship Covenant"
+tradition_contractualists_desc:0 "This society upholds the principles of stewardship, placing a strong emphasis on contracts and endorsed documents. Meticulous record-keeping, formal negotiations, and unwavering adherence to contractual obligations define this culture, shaping a society where economic matters are governed by clear and binding agreements."
+
+tradition_mercenary_guilds_name:0 "Mercenary Guilds"
+tradition_mercenary_guilds_desc:0 "In this culture, warfare is a lucrative enterprise, and mercenary guilds play a pivotal role in conflicts. Professional mercenaries, elaborate contracts, and strategic negotiations characterize their traditions, creating a society where military prowess is commodified, and the highest bidder secures the services of the most skilled warriors."
+
+tradition_innovative_trade_name:0 "Market Pioneers"
+tradition_innovative_trade_desc:0 "This culture thrives on innovation in economic practices. Cutting-edge trade agreements, novel financial instruments, and a constant pursuit of new business ideas define their traditions. The society encourages adaptability and creative thinking in economic matters, shaping an environment where groundbreaking approaches to trade and commerce are celebrated."
+
+tradition_silent_strategists_name:0 "Silent Strategists"
+tradition_silent_strategists_desc:0 "In this society, the intelligence network takes center stage in shaping warfare tactics and political maneuvers. Secret agents, spies, and information brokers play pivotal roles in influencing conflicts and decisions. Covert operations, intricate espionage, and manipulation of information define this culture that rely more on their coins than their swords."
+
+tradition_meritocracy_name:0 "Meritocratic Governance"
+tradition_meritocracy_desc:0 "Prioritizing merit over familial ties, this culture rejects traditions favoring dynastic interests. Through merit-based appointments and a commitment to equal opportunities, their meritocracy establish a society where advancement is earned based on ability rather than familial connections."
+
+# not_stoic_or_spiritual_desc //
+
+tradition_bartering_name:0 "Informal Bartering"
+tradition_bartering_desc:0 "Disregarding the principles of formal stewardship, this culture rejects binding contracts and agreements. With no emphasis on meticulous record-keeping and a lack of adherence to contractual obligations, this creates a society where economic and social realm are governed by informal and unpredictable arrangements."
+
+tradition_unpretentious_name:0 "Unpretentious Pursuits"
+tradition_unpretentious_desc:0 "In this culture, simplicity takes precedence over the relentless pursuit of riches and prosperity. Rejecting traditions that exalt the refined tastes of the elite, this society embraces modest markets and emphasizes practicality. Here, the quest for wealth is dissociated from notions of cultural or political supremacy."
+
+tradition_chaste_name:0 "Restrained Pleasures"
+tradition_chaste_desc:0 "This culture discourages indulgence and excess as a means to alleviate stress, avoiding the promotion of unrestrained joy and communal revelry. Through reserved celebrations and controlled exuberance, these restrictions create a society where stress is managed with moderation and privacy."
+
+# not_stoic_or_communal_desc //
+
+tradition_honor_duels_name:0 "Honorable Duelists"
+tradition_honor_duels_desc:0 "This society celebrates individuals who dedicate their lives to honing their martial skills, promoting traditions that endorse honorable duels for mastery of the blade arts. Nomadism, wisdom and sacrifice are essential to the honorable duelists' way of life, shaping a society where virtue and bravery are the pillars of a true warrior."
+
+tradition_minimalistics_name:0 "Aesthetic Minimalism"
+tradition_minimalistics_desc:0 "Valuing simplicity in design and lifestyle, this culture promotes aesthetic minimalism. Rejecting excess and ostentation, members of this society find beauty in the understated and the functional. This tradition shapes an environment where elegance is found in simplicity, and material possessions are appreciated for their utility."
+
+tradition_concealed_trials_name:0 "Concealed Justice"
+tradition_concealed_trials_desc:0 "This culture avoids public trials, steering clear of traditions that showcase the consequences of disobedience and betrayal in a dramatic manner. Through private reconciliations and concealed justice, these customs create a society where the specter of dread is minimized, and conflicts find resolution behind closed doors."
+
+tradition_rite_of_passage_name:0 "Rituals of Passage"
+tradition_rite_of_passage_desc:0 "This society embraces rituals of passage that mark significant life milestones. Whether it's coming of age, marriage, or other important transitions, these traditions emphasize inclusivity and community support. The ceremonies involve the entire community, reinforcing the idea that every individual's journey is interconnected with the collective experiences of the society."
+
+# not_stoic_or_egalitarian_desc
+
+tradition_pragmatism_name:0 "Straightforward Laws"
+tradition_pragmatism_desc:0 "Rejecting excessive legislation, this culture avoids traditions that stress the importance of exhaustive legal codes and frequent decrees. With a more flexible legal framework, this is a society where order is maintained without the burden of meticulous and invasive laws."
+
+tradition_honorable_surrender_name:0 "Honorable Surrender"
+tradition_honorable_surrender_desc:0 "In the face of overwhelming odds, this culture values the concept of honorable surrender over senseless bloodshed. Surrendering with dignity and respecting the rules of engagement is regarded as a noble act. This tradition shapes a society where mercy and honor on the battlefield are esteemed virtues."
+
+# not_stoic_or_courtly_desc
+
+tradition_open_politics_name:0 "Transparent Politics"
+tradition_open_politics_desc:0 "This culture values openness in political affairs, eschewing traditions that involve secrecy, manipulation, and clandestine dealings. Through transparent networks, honest alliances, and public negotiations, these traditions shape a society where navigating the political landscape is conducted with integrity and openness."
+
+tradition_ceremonial_warfare_name:0 "Ceremonial Warfare"
+tradition_ceremonial_warfare_desc:0 "Rejecting the chaos of unpredictable battles, this society emphasizes the importance of ceremonial warfare. Battles are conducted with a set of established rituals and codes of conduct. Warfare becomes a carefully choreographed spectacle, blending martial skill with cultural expression, creating a society where the artistry of war is as important as its outcomes."
+
+tradition_opulent_forts_name:0 "Grand Architecture"
+tradition_opulent_forts_desc:0 "This society revels in the artistry of urban development, nurturing traditions that center around the aesthetic beauty of cityscapes and architectural marvels. Magnificent stone structures adorned with intricate carvings, grand archways, and meticulously planned urban landscapes characterize the essence of this culture."
+
+# not_communal_or_egalitarian_desc
+
+tradition_benevolent_masters_name:0 "Benevolent Masters"
+tradition_benevolent_masters_desc:0 "Embracing a paternalistic approach to the management of slaves, servants, and peasants, this culture shapes traditions that prioritize the welfare and development of these individuals. Through education initiatives, healthcare provisions, and fostering a sense of familial connection, these initiatives create a society where masters take responsibility for the well-being of their subordinates."
+
+tradition_feminists_name:0 "Venerated Womanhood"
+tradition_feminists_desc:0 "This culture holds a nuanced perspective on gender roles, fostering traditions that exalt the qualities and symbolism of women. Venerating virtues such as wisdom, compassion, and nurturing qualities attributed to women, this society, while maintaining formal male authority, believes true strength and moral authority reside in the elevated standards of women."
+
+tradition_network_warfare_name:0 "Networked Warfare"
+tradition_network_warfare_desc:0 "This culture embraces innovative and adaptative communication patterns to maintain a decentralized yet interconnected army structure. Through the use of signaling systems, messenger birds, and encrypted messages, these traditions create a society where each unit operates independently while staying informed about the overall strategic picture, enabling swift coordination and response."
+
+tradition_inclusive_guilds_name:0 "Inclusive Guilds"
+tradition_inclusive_guilds_desc:0 "Promoting accessible and inclusive education, this society establishes institutions that empower the commoners. The focus is on sharing knowledge, skills, and fostering a culture of intellectual curiosity. Education is viewed as a communal responsibility, with the belief that a well-educated populace contributes to the prosperity of the entire society."
+
+# not_communal_or_courtly_desc
+
+tradition_child_mythos_name:0 "Whimsical Mythos"
+tradition_child_mythos_desc:0 "This culture indulges in whimsical mythos, fostering traditions that celebrate the belief in supernatural creatures akin to the fantastical tales cherished by children. While considered lighthearted and immature by some, these tales serve as a reminder of the enduring human capacity for imagination and the joy found in embracing the whimsy of childhood beliefs."
+
+tradition_gallant_pua_name:0 "Renowed Lovers"
+tradition_gallant_pua_desc:0 "This culture embraces the charm and wit of the courtly rogue, celebrating traditions that highlight memorable romantic deeds. Poetic serenades, courtly love affairs, and elaborate gestures of admiration define their customs, creating a society where the pursuit of romance and the art of seduction are regarded as esteemed pastimes."
+
+tradition_secret_politics_name:0 "Secretive Gatherings"
+tradition_secret_politics_desc:0 "This society veils diplomacy in secrecy, steering clear of public ceremonies and favoring clandestine gatherings to cultivate alliances. Through discreet meetings and behind-the-scenes negotiations, these traditions give rise to a society where connections and mutual understanding thrive in the shadows."
+
+# not_communal_or_spiritual_desc
+
+tradition_detachment_name:0 "Wordly Detachment"
+tradition_detachment_desc:0 "This culture promotes the spiritual principle of detachment, discouraging empty secular achievements. Through minimalist ambitions and the rejection of luxuries — in some cases, even basic comforts and health habits — these traditions shape a contented society where prestige and worldly success are neither envied, exalted, nor adored."
+
+# not_spiritual_or_courtly_desc
+
+tradition_ortodoxy_name:0 "Orthodox Piety"
+tradition_ortodoxy_desc:0 "This culture rejects the pursuit of hidden truths and mystical ceremonies, discouraging traditions that venerate gnostic teachings. With a focus on conventional worship and adherence to established religious practices, this is a society where piety is more structured and less intertwined with esoteric pursuits."
+
+tradition_bookkeppers_name:0 "Custodians of Wisdom"
+tradition_bookkeppers_desc:0 "In this society, the preservation of ancient texts and knowledge is paramount. Dedicated individuals serve as custodians, undertaking the noble task of restoring, translating, and archiving ancient manuscripts. Libraries are revered sanctuaries, and the meticulous care of these repositories is considered a sacred duty, ensuring that the wisdom of the past endures for future generations."
+
+# not_spiritual_or_egalitarian_desc
+
+tradition_advice_seekers_name:0 "Advice Seekers"
+tradition_advice_seekers_desc:0 "This society venerates knowledge and wisdom, fostering traditions that strongly encourage seeking advice from esteemed elders, stabilished rulers and learned scholars. Friendly discussions, libraries, and scholarly gatherings are integral components of this culture, shaping a society where the pursuit of knowledge is held in high regard."
+
+tradition_gnosticism_name:0 "Gnostic Pursuits"
+tradition_gnosticism_desc:0 "This culture holds in high esteem the pursuit of spiritual enlightenment and divine knowledge, cultivating traditions that reverently embrace gnostic teachings. Mystical ceremonies, religious debates, and the quest for hidden truths define this culture, where piety is intricately woven with a profound understanding of the divine."
+
+tradition_levy_tributes_name:0 "Tributary Wardens"
+tradition_levy_tributes_desc:0 "Shifting away from traditional tax systems, this culture mostly demands levies in times of conflict. During wartime, tributary communities contribute with manpower and resources to the war effort, fostering a sense of collective responsibility for the realm's security. Each individual, regardless of social status, plays a role in the defense of the realm."
+
+# not_egalitarian_or_courtly_desc
+
+tradition_backstabbers_name:0 "Backstabbers"
+tradition_backstabbers_desc:0 "This society thrives in the shadows of intrigue, cultivating traditions that highly value secrecy, manipulation, and clandestine affairs. Covert networks, espionage, and whispered alliances define their customs, shaping a society where navigating the intricate web of politics is considered an essential skill."
+
+tradition_zookeppers_name:0 "Menagerie Lords"
+tradition_zookeppers_desc:0 "This culture harbors a profound fascination for exotic pets, celebrating traditions that revolve around the keeping and showcasing of rare and unusual animals. Exotic pet markets, royal menageries, and grand parades featuring extraordinary creatures are integral to this culture, creating a society where the love for unique animals symbolizes prestige and status."
+
+tradition_equestrian_elegance_name:0 "Horse Connoisseurs"
+tradition_equestrian_elegance_desc:0 "This society embraces the refined world of horsemanship, delving into the intricate realms of equine care and breeding. Their customs focus on the art of nurturing exceptional steeds, elevating horsemanship to an unparalleled sophistication. The nobility is distinguished not only by their lineage but by their mastery in cultivating and showcasing the most exquisite breeds."
+
+tradition_auxiliary_troops_name:0 "Minoritary Auxiliaries"
+tradition_auxiliary_troops_desc:0 "In this society, the art of war is not confined to a single cultural identity. Embracing diversity in combat, they adopt a tradition of incorporating allied auxiliaries from different minoritaries cultures into their military forces. This practice not only enhances the skillset of their armies but also promotes unity among diverse communities through shared experiences on the battlefield."
+
+
+# not_bureaucratic_courtly_or_spiritual_desc
+
+tradition_arbitrary_laws_name:0 "Arbitrary Laws"
+tradition_arbitrary_laws_desc:0 "This culture exercises control through a system of arbitrary legislation, emphasizing the whimsical nature of lawmaking in its traditions. Inconsistent legal codes, capricious decrees, and a haphazard legal system characterize this culture, creating a society where order is elusive, and the legal framework is in constant flux towards the powerholders."
+
+tradition_refined_tastes_name:0 "Refined Tastes"
+tradition_refined_tastes_desc:0 "This culture places a premium on the pursuit of beauty and prosperity, establishing traditions that celebrate the refined tastes of the elite. Opulent markets, exclusive luxury goods, and grand displays of wealth characterize their customs, creating a society where the quest for gold is synonymous with cultural sophistication."
+
+tradition_exagerated_ettiquete_name:0 "Exquisite Etiquette"
+tradition_exagerated_ettiquete_desc:0 "This culture places significant importance on courtly manners and refined etiquette, cultivating traditions that emphasize the art of graceful and exaggerated gestures. Elaborate greetings, ornate clothing, and meticulous attention to social rituals shape their customs, creating a society where courtly behavior is elevated to a performance of the highest order."
+
+tradition_astronomers_name:0 "Celestial Veneration"
+tradition_astronomers_desc:0 "This society venerates the celestial court, cultivating traditions that revolve around the study of the stars, celestial events, and astrological guidance. Stargazing gatherings, celestial-themed ceremonies, and the interpretation of heavenly omens define their customs, creating a culture where the cosmic realm is deeply intertwined with matters of fate and governance."
+
+tradition_nepotists_name:0 "Dynastic Favoritism"
+tradition_nepotists_desc:0 "This society places utmost importance on familial bonds, establishing traditions that prioritize the interests of the dynasty. Through arranged marriages, inheritance laws, and nepotistic practices, these customs shape a society where the preservation and prosperity of the ruling bloodline are of paramount significance."
+
+
+
+
+

@@ -1,0 +1,706 @@
+﻿namespace = mz_amazon_settlements
+
+mz_amazon_settlements.0001 = {
+	hidden = yes
+
+	weight_multiplier = { # Each time we roll a null event we reduce the chance it will reoccur
+		base = 1
+		modifier = {
+			has_variable = mz_amazon_settlements_null_event_variable
+			add = { 
+				value = var:mz_amazon_settlements_null_event_variable
+				multiply = -0.1
+				min = -0.8
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { 
+				NOT = { has_variable = mz_amazon_settlements_null_event_variable }
+			}
+			set_variable = {
+				name = mz_amazon_settlements_null_event_variable
+				value = 1
+			}
+		}
+		else = {
+			change_variable = {
+				name = mz_amazon_settlements_null_event_variable
+				add = 1
+			}
+		}
+	}
+}
+
+mz_amazon_settlements.1000 = { # Amazons bring tribute
+	hidden = yes
+	cooldown = { years = 1 }
+
+	trigger = { is_female = yes }
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			culture = { mz_is_amazonian_culture = yes }
+			add = 0.5
+		}
+		modifier = {
+			gold < medium_gold_max_value
+			add = 0.5
+		}
+		modifier = {
+			debt_level >= 1 
+			add = 1.5
+		}
+		modifier = {
+			has_character_modifier = mz_amazon_conquerer_modifier
+			add = 1
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { has_variable = mz_amazon_settlements_null_event_variable }
+			remove_variable = mz_amazon_settlements_null_event_variable
+		}
+		random_list = {
+			3 = {
+				modifier = {
+					dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_1 }
+					add = 2
+				}
+				modifier = {
+					dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_2 }
+					add = 1
+				}
+				send_interface_message = {
+					type = mz_event_money_good
+					title = mz_amazon_settlements.1000.t
+					custom_tooltip = mz_amazon_settlements.1000.desc
+					add_gold = medium_gold_value
+					if = {
+						limit = { debt_level >= 1 }
+						add_gold = {
+							value = minor_gold_value
+							multiply = debt_level
+						}
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_4 }
+					add = 2
+				}
+				modifier = {
+					dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_5 }
+					add = 4
+				}				
+				send_interface_message = {
+					type = mz_event_money_good
+					title = mz_amazon_settlements.1000.t
+					custom_tooltip = mz_amazon_settlements.1000.desc
+					add_gold = major_gold_value
+					if = {
+						limit = { debt_level >= 1 }
+						add_gold = {
+							value = minor_gold_value
+							multiply = debt_level
+						}
+					}
+				}
+			}
+		}		
+	}
+}
+
+mz_amazon_settlements.1100 = { # Cultural acceptance increase
+	hidden = yes
+	cooldown = { years = 2 }
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_1 }
+			add = -0.5
+		}
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_2 }
+			add = -0.25
+		}
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_4 }
+			add = 1
+		}
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_5 }
+			add = 2
+		}
+	}	
+
+	trigger = { 
+		any_held_title = {
+			tier = tier_county
+			county = { has_county_modifier = mz_amazon_settlements_modifier }
+			county.culture = { mz_is_amazonian_culture = no }
+		}
+		NOT = { has_global_variable = mz_amazon_settlements_1100_variable } # Keeps this from being spammed too often
+	}
+
+	immediate = {
+		if = {
+			limit = { has_variable = mz_amazon_settlements_null_event_variable }
+			remove_variable = mz_amazon_settlements_null_event_variable
+		}
+		set_global_variable = {
+			name = mz_amazon_settlements_1100_variable
+			value = yes
+			years = 1
+		}
+		random_held_title = {
+			limit = {
+				tier = tier_county
+				county = { has_county_modifier = mz_amazon_settlements_modifier }
+				county.culture = { mz_is_amazonian_culture = no }				
+			}
+			save_temporary_scope_as = mz_held_county
+		}
+		if = { # If root has an Amazonian culture, we set it to be the target. Else, default Amazon culture is the target.
+			limit = {
+				culture = { mz_is_amazonian_culture = yes }
+			}
+			culture = { save_temporary_scope_as = mz_amazon_culture }
+		}
+		else = {
+			culture:mz_amazonian = { save_temporary_scope_as = mz_amazon_culture }
+		}
+		send_interface_message = {
+			type = event_diplomacy_good
+			title = mz_amazon_settlements.1100.t
+			custom_tooltip = mz_amazon_settlements.1100.desc
+			scope:mz_held_county.county.culture = {
+				change_cultural_acceptance = {
+					target = scope:mz_amazon_culture
+					value = 10
+					desc = mz_amazon_settlements_event_accept
+				}				
+			}
+		}		
+	}
+}
+
+mz_amazon_settlements.1200 = { # Increase control
+	hidden = yes
+	cooldown = { years = 2 }
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_1 }
+			add = -0.5
+		}
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_2 }
+			add = -0.25
+		}
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_4 }
+			add = 1
+		}
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_5 }
+			add = 2
+		}
+	}	
+
+	trigger = { 
+		any_held_title = {
+			tier = tier_county
+			county = { has_county_modifier = mz_amazon_settlements_modifier }
+			county = { county_control < full_county_control }
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { has_variable = mz_amazon_settlements_null_event_variable }
+			remove_variable = mz_amazon_settlements_null_event_variable
+		}
+		random_held_title = {
+			limit = {
+				tier = tier_county
+				county = { has_county_modifier = mz_amazon_settlements_modifier }
+				county = { county_control < full_county_control }				
+			}
+			save_temporary_scope_as = mz_held_county
+		}
+		send_interface_message = {
+			type = mz_event_control_good
+			title = mz_amazon_settlements.1200.t
+			custom_tooltip = mz_amazon_settlements.1200.desc
+			scope:mz_held_county = { change_county_control = 20 }
+		}
+	}
+}
+
+mz_amazon_settlements.1300 = { # Cultural conversion
+	hidden = yes
+	cooldown = { years = 2 }
+
+	trigger = { 
+		any_held_title = {
+			tier = tier_county
+			county = { has_county_modifier = mz_amazon_settlements_modifier }
+			county.culture = { mz_is_amazonian_culture = no }
+			any_neighboring_county = { 
+				culture = { mz_is_amazonian_culture = yes }
+			}			
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = { # If there are very few Amazon counties, increase the chance this event fires.
+			any_held_title = {
+				tier = tier_county
+				county = { has_county_modifier = mz_amazon_settlements_modifier }
+				county.culture = { mz_is_amazonian_culture = no }
+				count < 3
+			}
+			add = 3		
+		}
+		modifier = {
+			culture = { mz_is_amazonian_culture = no } # Reduced chance if owner doesn't have an Amazonian culture
+			factor = 0.5
+		}		
+	}
+
+	immediate = {
+		if = {
+			limit = { has_variable = mz_amazon_settlements_null_event_variable }
+			remove_variable = mz_amazon_settlements_null_event_variable
+		}
+		random_held_title = {
+			limit = {
+				tier = tier_county
+				county = { has_county_modifier = mz_amazon_settlements_modifier }
+				county.culture = { mz_is_amazonian_culture = no }
+				any_neighboring_county = { 
+					culture = { mz_is_amazonian_culture = yes }
+				}
+			}
+			save_temporary_scope_as = mz_held_county
+		}
+		if = { # If root has an Amazonian culture, we set it to be the target. Else, default Amazon culture is the target.
+			limit = {
+				culture = { mz_is_amazonian_culture = yes }
+			}
+			culture = { save_temporary_scope_as = mz_amazon_culture }
+		}
+		else = {
+			culture:mz_amazonian = { save_temporary_scope_as = mz_amazon_culture }
+		}		
+		send_interface_message = {
+			type = event_diplomacy_neutral
+			title = mz_amazon_settlements.1300.t
+			custom_tooltip = mz_amazon_settlements.1300.desc
+			scope:mz_held_county = { set_county_culture = scope:mz_amazon_culture }
+		}		
+	}
+}
+
+mz_amazon_settlements.1400 = { # Decrease acceptance
+	hidden = yes
+	cooldown = { years = 2 }
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			is_female = no # Three times as likely for male rulers
+			factor = 3
+		}
+	}	
+
+	trigger = { 
+		NOT = { has_global_variable = mz_amazon_settlements_1400_variable } # Keeps this from being spammed too often
+		any_held_title = {
+			tier = tier_county
+			county = { has_county_modifier = mz_amazon_settlements_modifier }
+			county.culture = { mz_is_amazonian_culture = no }
+		}
+	}
+
+	immediate = {
+		set_global_variable = {
+			name = mz_amazon_settlements_1400_variable
+			value = yes
+			years = 3
+		}
+		if = {
+			limit = { has_variable = mz_amazon_settlements_null_event_variable }
+			remove_variable = mz_amazon_settlements_null_event_variable
+		}
+		random_held_title = {
+			limit = {
+				tier = tier_county
+				county = { has_county_modifier = mz_amazon_settlements_modifier }
+				county.culture = { mz_is_amazonian_culture = no }				
+			}
+			save_temporary_scope_as = mz_held_county
+		}
+		if = { # If root has an Amazonian culture, we set it to be the target. Else, default Amazon culture is the target.
+			limit = {
+				culture = { mz_is_amazonian_culture = yes }
+			}
+			culture = { save_temporary_scope_as = mz_amazon_culture }
+		}
+		else = {
+			culture:mz_amazonian = { save_temporary_scope_as = mz_amazon_culture }
+		}
+		send_interface_message = {
+			type = event_diplomacy_bad
+			title = mz_amazon_settlements.1400.t
+			custom_tooltip = mz_amazon_settlements.1400.desc
+			scope:mz_held_county.county.culture = {
+				change_cultural_acceptance = {
+					target = scope:mz_amazon_culture
+					value = -10
+					desc = mz_amazon_settlements_event_reject
+				}				
+			}
+		}		
+	}
+}
+
+mz_amazon_settlements.1500 = { # Decrease control
+	hidden = yes
+	cooldown = { years = 2 }
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			is_female = no # Three times as likely for male rulers
+			factor = 3
+		}
+	}
+
+	trigger = { 
+		any_held_title = {
+			tier = tier_county
+			county = { has_county_modifier = mz_amazon_settlements_modifier }
+			county = { county_control >= 20 }
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { has_variable = mz_amazon_settlements_null_event_variable }
+			remove_variable = mz_amazon_settlements_null_event_variable
+		}
+		random_held_title = {
+			limit = {
+				tier = tier_county
+				county = { has_county_modifier = mz_amazon_settlements_modifier }
+				county = { county_control >= 20 }				
+			}
+			save_temporary_scope_as = mz_held_county
+		}
+		send_interface_message = {
+			type = mz_event_control_bad
+			title = mz_amazon_settlements.1500.t
+			custom_tooltip = mz_amazon_settlements.1500.desc
+			scope:mz_held_county = { change_county_control = -20 }
+		}		
+	}
+}
+
+mz_amazon_settlements.1600 = { # Game sighting
+	hidden = yes
+	cooldown = { years = 2 }
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_1 }
+			add = -0.5
+		}
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_2 }
+			add = -0.25
+		}
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_4 }
+			add = 1
+		}
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_5 }
+			add = 2
+		}
+	}	
+
+	trigger = {
+		is_female = yes
+		any_held_title = {
+			tier = tier_county
+			county = { has_county_modifier = mz_amazon_settlements_modifier }
+			county = { hunt_activity_recent_hunt_sighting_trigger = no }
+		} 
+		NOT = {
+			any_held_title = {
+				tier = tier_county
+				county = { has_county_modifier = hunt_sighting_standard_modifier }
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { has_variable = mz_amazon_settlements_null_event_variable }
+			remove_variable = mz_amazon_settlements_null_event_variable
+		}
+		random_held_title = {
+			limit = {
+				tier = tier_county
+				county = { has_county_modifier = mz_amazon_settlements_modifier }
+				NOT = { 
+					county = { has_county_modifier = hunt_sighting_standard_modifier } 
+				}
+				county = { hunt_activity_recent_hunt_sighting_trigger = no }		
+			}
+			weight = {
+				base = 1
+				hunt_activity_sighting_county_modifier = yes
+			}
+			county = {
+				random_county_province = {
+					weight = {
+						base = 1
+						hunt_activity_sighting_terrain_modifier = yes
+						hunt_activity_sighting_building_modifier = { PROVINCE = this }
+						hunt_activity_game_building_modifier = { PROVINCE = this }
+					}
+					save_scope_as = sighting_province
+				}
+			}
+			save_scope_as = sighting_county
+		}		
+		send_interface_message = {
+			type = mz_event_activity_good
+			title = mz_amazon_settlements.1600.t
+			custom_tooltip = mz_amazon_settlements.1600.desc
+			scope:sighting_county = {
+				hunt_activity_standard_game_effect = { PROVINCE = scope:sighting_province HUNTER = root }
+				# Create new sighting
+				hunt_create_sighting_effect = {
+					TYPE = standard
+					ANIMAL = var:animal_type
+					OWNER = root
+				}
+			}
+		}
+	}
+}
+
+mz_amazon_settlements.1700 = { # Provisions reduce cost of next feast
+	hidden = yes
+	cooldown = { years = 2 }
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_1 }
+			add = -0.5
+		}
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_2 }
+			add = -0.25
+		}
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_4 }
+			add = 1
+		}
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_5 }
+			add = 2
+		}
+	}	
+
+	trigger = { 
+		is_female = yes
+		NOT = { has_variable = protected_alcohol_stores }
+	}
+
+	immediate = {
+		if = {
+			limit = { has_variable = mz_amazon_settlements_null_event_variable }
+			remove_variable = mz_amazon_settlements_null_event_variable
+		}
+		set_variable = {
+			name = protected_alcohol_stores
+			value = 1
+		}
+		send_interface_message = {
+			type = event_stewardship_good
+			title = mz_amazon_settlements.1700.t
+			custom_tooltip = mz_amazon_settlements.1700.desc
+			custom_tooltip = mz_amazon_settlements.1700.tt
+		}		
+	}
+}
+
+mz_amazon_settlements.1800 = { # Increase development
+	hidden = yes
+	cooldown = { years = 2 }
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_1 }
+			add = -0.5
+		}
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_2 }
+			add = -0.25
+		}
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_4 }
+			add = 1
+		}
+		modifier = {
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_5 }
+			add = 2
+		}
+	}	
+
+	trigger = { 
+		any_held_title = {
+			tier = tier_county
+			county = { has_county_modifier = mz_amazon_settlements_modifier }
+			county = { county_control = full_county_control }
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { has_variable = mz_amazon_settlements_null_event_variable }
+			remove_variable = mz_amazon_settlements_null_event_variable
+		}
+		random_held_title = {
+			limit = {
+				tier = tier_county
+				county = { has_county_modifier = mz_amazon_settlements_modifier }
+				county = { county_control = full_county_control }				
+			}
+			save_temporary_scope_as = mz_held_county
+		}
+		send_interface_message = {
+			type = event_stewardship_good
+			title = mz_amazon_settlements.1800.t
+			custom_tooltip = mz_amazon_settlements.1800.desc
+			scope:mz_held_county = { change_development_progress_with_overflow = 50 }
+		}		
+	}
+}
+
+mz_amazon_settlements.1900 = { # Overhunting stifles development
+	hidden = yes
+	cooldown = { years = 2 }
+
+	trigger = { 
+		any_held_title = {
+			tier = tier_county
+			county = { has_county_modifier = mz_amazon_settlements_modifier }
+			county = { county_control < full_county_control }
+			NOT = {
+				county = { has_county_modifier = mz_amazon_overhunting_modifier }
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { has_variable = mz_amazon_settlements_null_event_variable }
+			remove_variable = mz_amazon_settlements_null_event_variable
+		}
+		random_held_title = {
+			limit = {
+				tier = tier_county
+				county = { has_county_modifier = mz_amazon_settlements_modifier }
+				county = { county_control < full_county_control }	
+				NOT = {
+					county = { has_county_modifier = mz_amazon_overhunting_modifier }
+				}							
+			}
+			save_temporary_scope_as = mz_held_county
+		}
+		send_interface_message = {
+			type = event_stewardship_bad
+			title = mz_amazon_settlements.1900.t
+			custom_tooltip = mz_amazon_settlements.1900.desc
+			scope:mz_held_county = {
+				add_county_modifier = {
+					modifier = mz_amazon_overhunting_modifier
+					years = 5
+				}
+			 }
+		}		
+	}
+}
+
+mz_amazon_settlements.2000 = { # Faith shift
+	hidden = yes
+	cooldown = { years = 2 }
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			faith.religion = religion:mz_heraionism_religion
+			add = 2
+		}
+	}
+
+	trigger = { 
+		NOT = { exists = global_var:mz_amazon_global_faith }
+		any_held_title = {
+			tier = tier_county
+			county = { has_county_modifier = mz_amazon_settlements_modifier }
+			county.culture = { mz_is_amazonian_culture = yes }
+			NOT = { county.faith.religion = religion:mz_heraionism_religion }
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { has_variable = mz_amazon_settlements_null_event_variable }
+			remove_variable = mz_amazon_settlements_null_event_variable
+		}
+		random_held_title = {
+			limit = {
+				tier = tier_county
+				county = { has_county_modifier = mz_amazon_settlements_modifier }
+				county.culture = { mz_is_amazonian_culture = yes }
+				NOT = { county.faith.religion = religion:mz_heraionism_religion }					
+			}
+			save_temporary_scope_as = mz_held_county
+		}
+		if = {
+			limit = { faith.religion = religion:mz_heraionism_religion }
+			send_interface_message = {
+				type = event_learning_good
+				title = mz_amazon_settlements.2000.t
+				custom_tooltip = mz_amazon_settlements.2000.desc
+				scope:mz_held_county = { set_county_faith = root.faith }
+			}
+		}
+		else = {
+			send_interface_message = {
+				type = event_learning_good
+				title = mz_amazon_settlements.2000.t
+				custom_tooltip = mz_amazon_settlements.2000.desc
+				scope:mz_held_county = { set_county_faith = faith:mz_amazon_pagan }
+			}
+		}	
+	}
+}

@@ -1,0 +1,129 @@
+﻿l_english:
+  #New Traditions
+  mz_tradition_samesex_marriage_name:0 "Same-Sex Marriage"
+  mz_tradition_samesex_marriage_desc:1 "In this culture, members of the same gender are permitted to marry."
+  culture_parameter_mz_samesex_marriage_tradition_parameter:0 "Same-sex [marriage|E] is allowed"
+
+  mz_tradition_amazonian_enclaves_name:0 "Amazon Enclaves"
+  mz_tradition_amazonian_enclaves_desc:1 "Some peoples of this culture host enclaves of Amazonian warriors in the wilderness within their lands."
+
+  mz_tradition_amazon_warriors_name:0 "Amazon Warriors"
+  mz_tradition_amazon_warriors_desc:1 "As there are few remaining Amazons, their approach to warfare employs a smaller number of hardy, elite warriors."
+
+  #culture_parameter_mz_unlock_amazon_maa:0 "Can recruit [GetMaA('mz_amazon_toxotai').GetName], [GetMaA('mz_amazon_peltast').GetName], and [GetMaA('mz_amazon_hoplites').GetName] as [men_at_arms|E]"
+  culture_parameter_mz_unlock_maa_toxotai:0 "Can recruit [GetMaA('mz_amazon_toxotai').GetName] as [men_at_arms|E]"
+  culture_parameter_mz_unlock_maa_peltast:0 "Can recruit [GetMaA('mz_amazon_peltast').GetName] as [men_at_arms|E]"
+  culture_parameter_mz_unlock_maa_hoplites:0 "Can recruit [GetMaA('mz_amazon_hoplites').GetName] as [men_at_arms|E]"
+  culture_parameter_mz_unlock_maa_hippotoxotai:0 "Can recruit [GetMaA('mz_amazon_hippotoxotai').GetName] as [men_at_arms|E]"
+  culture_parameter_mz_recruit_amazons_enabled:0 "Gain a [decision|E] to recruit Amazon warriors to serve as [knights|E] or [commanders|E]"
+
+  mz_amazon_alliance_desc:0 "Your [dynasty|E] does not have the [GetDynastyPerk('mz_matriarchy_legacy_4').GetName] [dynasty_perk|E]"
+  mz_amazon_matriarchy_desc:0 "Your [dynasty|E] does not have the $mz_matriarchy_modifier$ dynasty modifier"
+
+  mz_recruit_amazon_warrior_decision:0 "Recruit Amazon Warrior"
+  mz_recruit_amazon_warrior_decision_desc:0 "The [ROOT.Char.GetCulture.GetCollectiveNoun] are known to make regular contact and trade with the Amazon enclaves hidden throughout their lands. As the Amazons maintain a society that values martial prowess, there is no shortage of willing warriors ready to answer the call to battle."
+  mz_recruit_amazon_warrior_decision.tt:0 "A high-[martial|E] and high-[prowess|E] warrior with the [GetTrait('mz_amazonian_warrior').GetName( GetNullCharacter )] [trait|E] joins your [court|E]"
+  mz_recruit_amazon_warrior_decision_tooltip:0 "$mz_recruit_amazon_warrior_decision.tt$"
+  mz_recruit_amazon_warrior_decision_confirm:0 "$invite_knights_decision_confirm$"
+  mz_amazon_warrior_recruited.t:0 "Amazon Recruited"
+  mz_amazon_warrior_recruited_desc:0 "[mz_amazon_warrior.GetShortUINameNoTooltip] joined your court."
+  MZ_RECRUIT_AMAZON_SELECT_WARRIOR_TYPE:0 "Select an Amazon Warrior to Recruit"
+  mz_recruit_amazon_warrior_dynasty_decision_desc:0 "The elusive Amazons are willing to send elite warriors to aid their friends in the [ROOT.Char.GetDynasty.GetBaseNameNoTooltip|V] dynasty. These champions can serve as [knights|E] and train allied [dynasty|E] members in the same court."
+
+  mz_settle_amazon_enclaves_decision:0 "Promote Amazonian Enclaves"
+  mz_settle_amazon_enclaves_decision_desc:0 "Should I choose, I can immediately invite the Amazons to begin establishing enclaves within my lands."
+  mz_settle_amazon_enclaves_decision_confirm:0 "Begin Settlements"
+  mz_settle_amazon_enclaves_decision_tooltip:0 "The Amazons will begin establishing enclaves"
+
+  mz_recruit_amazon_option_forest_fighter:0 "Recruit Woodswoman\n#low An forest-born archer and ambusher#!"
+	mz_recruit_amazon_forest_fighter_desc:0 "A bow-wielding Amazon, skilled at navigating woodlands joins your court."
+	mz_recruit_amazon_forest_fighter_tooltip:0 "An Amazon warrior with the [GetTrait('forest_fighter').GetName( GetNullCharacter )] trait joins your court."
+
+  mz_recruit_amazon_option_rough_terrain_expert:0 "Recruit Cragswoman\n#low A hardy rough terrain specialist#!"
+	mz_recruit_amazon_rough_terrain_expert_desc:0 "An Amazon specializing in combat taking place in uneven terrain joins your court."
+	mz_recruit_amazon_rough_terrain_expert_tooltip:0 "An Amazon warrior with the [GetTrait('rough_terrain_expert').GetName( GetNullCharacter )] trait joins your court."
+
+  mz_recruit_amazon_option_desert_warrior:0 "Recruit Desert Warrior\n#low A resilient, no-nonsense desert specialist#!"
+	mz_recruit_amazon_desert_warrior_desc:0 "An Amazon specializing in desert combat joins your court."
+	mz_recruit_amazon_desert_warrior_tooltip:0 "An Amazon warrior with the [GetTrait('desert_warrior').GetName( GetNullCharacter )] trait joins your court."
+
+  mz_recruit_amazon_option_jungle_stalker:0 "Recruit Bush Guide\n#low A clever, quick-witted pathfinder#!"
+	mz_recruit_amazon_jungle_stalker_desc:0 "An astute and quick-witted Amazon adept at pathfinding in dense vegetation joins your court."
+	mz_recruit_amazon_jungle_stalker_tooltip:0 "An Amazon warrior with the [GetTrait('jungle_stalker').GetName( GetNullCharacter )] trait joins your court."
+
+  mz_recruit_amazon_option_aggressive_attacker:0 "Recruit Wilder Hetairos\n#low An aggressive and quick-tempered cavalier#!"
+	mz_recruit_amazon_aggressive_attacker_desc:0 "An especially aggressive and experienced Amazon warrior with mounted combat training joins your court."
+	mz_recruit_amazon_aggressive_attacker_tooltip:0 "An Amazon warrior with the [GetTrait('aggressive_attacker').GetName( GetNullCharacter )] trait joins your court."
+
+  mz_recruit_amazon_option_flexible_leader:0 "Recruit Hippotoxotes\n#low An well-prepared and adaptable horse archer#!"
+	mz_recruit_amazon_flexible_leader_desc:0 "A flexible Amazon trained in both archery and mounted combat joins your court."
+	mz_recruit_amazon_flexible_leader_tooltip:0 "An Amazon warrior with the [GetTrait('flexible_leader').GetName( GetNullCharacter )] trait joins your court."
+
+  mz_recruit_amazon_option_hunter:0 "Recruit Mistress of the Hunt\n#low A slayer of beasts and monsters#!"
+	mz_recruit_amazon_hunter_desc:0 "An exceptionally skilled Amazon hunter joins your court."
+	mz_recruit_amazon_hunter_tooltip:0 "An Amazon warrior with the [GetTrait('lifestyle_hunter').GetName( GetNullCharacter )] trait joins your court."
+
+  mz_recruit_amazon_option_reckless:0 "Recruit Warmaiden\n#low A valiant firebrand, eager and brave#!"
+	mz_recruit_amazon_reckless_desc:0 "A firebrand among Amazons, yet to prove herself but eager to try, joins your court."
+	mz_recruit_amazon_reckless_tooltip:0 "An Amazon warrior with the [GetTrait('reckless').GetName( GetNullCharacter )] or [GetTrait('brave').GetName( GetNullCharacter )] trait joins your court."
+
+  mz_recruit_amazon_option_unyielding_defender:0 "Recruit Hoplite\n#low A loyal and implacable defensive specialist#!"
+	mz_recruit_amazon_unyielding_defender_desc:0 "An Amazon specializing in defensive tactics, clad in heavy armor and wielding spear and hoplon joins you court."
+	mz_recruit_amazon_unyielding_defender_tooltip:0 "An Amazon warrior with the [GetTrait('unyielding_defender').GetName( GetNullCharacter )] trait joins your court."
+
+  mz_tradition_amazonian_matriarchy_name:0 "Amazonian Matriarchy"
+  mz_tradition_amazonian_matriarchy_desc:1 "This culture dictates that only the strongest women may rule."
+  mz_has_dynasty_matriarchy_desc:0 "You must be a member of a Matriarchal [dynasty|E]"
+  mz_tradition_amazonian_matriarchy_requirement:0 "Culture cannot have the $martial_custom_male_only_name$ [culture_pillar|E]"
+  mz_tradition_amazonian_warriors_requirement:0 "Culture must have the $martial_custom_female_only_name$ [culture_pillar|E]"
+
+  mz_tradition_female_only_inheritance_requirements:0 "You must follow a [GetFaithDoctrine('doctrine_gender_female_dominated').GetBaseName] [faith|E], be a member of a [dynasty|E] with the $mz_matriarchy_modifier$ dynasty modifier, or your culture must have the #V $heritage_akan_name$#!, #V $heritage_west_african_name$#!, #V $heritage_senegambian_name$#!, or #V $heritage_yoruba_name$#! [heritage|E]"
+  mz_five_female_rulers_or_divine_matriachs_desc:1 "The [culture|E] does not have at least #V 5#! female [rulers|E] of rank [count|E] or above, nor does your [dynasty|E] have the [GetDynastyPerk('mz_matriarchy_legacy_2').GetName] [dynasty_perk|E]"
+  mz_three_gender_rulers_or_matriarchal_dynasty_desc:0 "The [culture|E] does not have #V 3#! or more female [rulers|E] and #V 3#! or more male [rulers|E], nor does your [dynasty|E] have the $mz_matriarchy_modifier$ dynasty modifier"
+
+  mz_female_preference_law_faith_or_culture_trigger:0 "Your [faith|E] does not have the [GetFaithDoctrine('doctrine_gender_equal').GetBaseName] or the [GetFaithDoctrine('doctrine_gender_female_dominated').GetBaseName] [doctrines|E] and your [culture|E] does not have a [culture_tradition|E] that allow [GetLaw('female_preference_law').GetName]\nYou may also bypass the above requirements if your [dynasty|E] has the $mz_matriarchy_modifier$ dynasty modifier"
+  mz_female_only_law_faith_or_culture_trigger:0 "Your [faith|E] does not have the [GetFaithDoctrine('doctrine_gender_female_dominated').GetBaseName] [doctrine|E] and your [culture|E] does not have a [culture_tradition|E] that allow [GetLaw('female_only_law').GetName]\nYou may also bypass the above requirements if your [dynasty|E] has the $mz_matriarchy_modifier$ dynasty modifier"
+  mz_amazon_culture_block_tt:0 "The $mz_tradition_amazonian_matriarchy$ tradition does #bold not#! allow [rulers] to grant [titles] to men"
+
+  mz_tradition_hedonists_name:0 "Hedonists"
+  mz_tradition_hedonists_desc:0 "This culture believes that revelry and debauchery serve to keep communal ties strong and healthy, encouraging local development and camaraderie."
+
+  culture_parameter_mz_hedonist_bonus:0 "[counties|E] of this [culture|E] get [development|E] when hosting a [GetActivityType('activity_feast').GetName] or [GetActivityType('mz_activity_lesorgy').GetName]"
+
+  mz_rulers_with_reveler_or_debauchess_lifestyle_desc:0 "The [culture|E] does not have #V 5#! [rulers|E] with [GetTrait('lifestyle_reveler').GetName( GetNullCharacter )] or [GetTrait('mz_lifestyle_lesorgy').GetName( GetNullCharacter )] [traits|E]"
+  mz_faith_has_reveler_sin_desc:0 "Your [faith|E] considiers the [GetTrait('lifestyle_reveler').GetName( GetNullCharacter )] [trait|E] to be @sin_icon! [sinful|E]"
+  mz_has_hedonist_culture_tt:0 "Has the $mz_tradition_hedonists_name$ [culture_tradition|E]"
+  mz_lesorgy.mz_feast_hedonist_development_t:0 "$mz_tradition_hedonists_name$"
+
+  mz_amazonian_opinion:0 "$mz_amazonian_prefix$ [culture|E] Opinion"
+
+  mz_cannot_have_tradition_only_the_strong:0 "$cannot_combine_tradition_trigger_desc$ #high $tradition_only_the_strong_name$#!"
+  mz_cannot_have_mz_tradition_amazonian_enclaves:0 "$cannot_combine_tradition_trigger_desc$ #high $mz_tradition_amazonian_enclaves_name$#!"
+  mz_cannot_have_mz_tradition_amazon_warriors:0 "$cannot_combine_tradition_trigger_desc$ #high $mz_tradition_amazon_warriors_name$#!"
+  mz_cannot_have_mz_tradition_amazon_war_riders:0 "$cannot_combine_tradition_trigger_desc$ #high $mz_tradition_amazon_war_riders_name$#!"
+
+  culture_parameter_mz_mandatory_female_only:0 "The [GetLaw('female_only_law').GetName] [gender_law|E] is mandatory for [feudal|E], [clan|E], and [tribal|E] rulers of this culture"
+  mz_amazon_culture_forbidden:0 "Only the [GetLaw('female_only_law').GetName] [gender_law|E] is allowed in your [culture|E]"
+
+  mz_tradition_bellicose_matriarchy_name:0 "Amazonian Warbands"
+  mz_tradition_bellicose_matriarchy_desc:0 "This culture has become especially aggressive and expanionist, and they refuse to be ruled by any except the strongest women."
+
+  mz_tradition_stoic_matriarchy_name:0 "Amazonian Gynarchy"
+  mz_tradition_stoic_matriarchy_desc:0 "A more modern and centralized adaptation of the Amazon's matriarchal traditions, these people retain the characteristic Amazonian honor and hardiness."
+
+  mz_tradition_communal_matriarchy_name:0 "Amazonian Unity"
+  mz_tradition_communal_matriarchy_desc:0 "A form of Amazonian matriarchy that emphasizes communal relations. Though these people tend to be open and accepting, they strongly believe that only women may bring propserity as rulers."
+
+  mz_tradition_amazon_war_riders_name:0 "Scythian Legacy"
+  mz_tradition_amazon_war_riders_desc:0 "The Scythians were masters of horse and bow, and the peoples of this culture put that mastery to great use on the battlefield."
+
+  mz_tradition_amazon_mountaineers_name:0 "Amazonian Hinterlanders"
+  mz_tradition_amazon_mountaineers_desc:0 "Centuries of navigating the peaks and valleys of the Pontic mountains have left the Amazons at ease in rugged environments."
+
+  mz_must_have_mz_tradition_amazon_warriors_or_enclaves:0 "Must have either #high $mz_tradition_amazon_warriors_name$#! or #high $mz_tradition_amazonian_enclaves_name$#! [culture_traditions|E]"
+  mz_hills_mountain_percentage_desc:0 "The [culture|E] does not have #V 30%#! of its [counties|E] in Hills, Mountain, or Desert Mountain [terrain|E]"
+
+  mz_cannot_have_tradition_bellicose_matriarchy:0 "$cannot_combine_tradition_trigger_desc$ #high $mz_tradition_bellicose_matriarchy_name$#!"
+  mz_cannot_have_tradition_stoic_matriarchy:0 "$cannot_combine_tradition_trigger_desc$ #high $mz_tradition_stoic_matriarchy_name$#!"
+  mz_cannot_have_tradition_communal_matriarchy:0 "$cannot_combine_tradition_trigger_desc$ #high $mz_tradition_communal_matriarchy_name$#!"
+  mz_amazon_reformation_desc:0 "Returning to the old ways"

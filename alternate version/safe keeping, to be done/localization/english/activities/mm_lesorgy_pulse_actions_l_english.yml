@@ -1,0 +1,9 @@
+﻿l_english:
+  mz_every_attendee:0 "Every guest"
+
+  mz_virtuous_lesorgy_title:0 "[first.GetShortUINameNoTooltip|U] Attended a Virtuous Debauch"
+  mz_guest_enjoys_courtesan_attention_title:0 "[first.GetShortUINameNoTooltip|U] Enjoyed the Attentions of Courtesans"
+  mz_dancers_entertain_guests_title:0 "Dancers Put On A Good Show"
+  mz_drank_good_wine_title:0 "[first.GetShortUINameNoTooltip|U] Had A Great Glass of Wine"
+  mz_guests_charm_others_title:0 "[first.GetShortUINameNoTooltip|U] and [second.GetShortUINameNoTooltip|U] Share a Passionate Kiss"
+  mz_guests_are_intimate_title:0 "[first.GetShortUINameNoTooltip|U] and [second.GetShortUINameNoTooltip|U] Get Physically Intimate"

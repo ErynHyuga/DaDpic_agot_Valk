@@ -1,0 +1,28 @@
+﻿l_english:
+  mz_health.2001.t:0 "Lover's Pox: Treatment"
+  mz_health.2001.desc:0 "[physician.GetTitledFirstName] has informed me that lover's pox is notoriously difficult to treat. Though [physician.GetSheHe] can try conventional treatments, they are unlikely to produce anything other than temporary relief, and even the odds of that are not especially high. [physician.GetTitledFirstNameNoTooltip] offers an alternative--there are certain salves and herbs that can be applied topically to the area which have a better chance of success, and in some cases can even result in a nigh-miraculous cure. They are quite expensive, however, and will need to be acquired from special vendors."
+  mz_lovers_pox_free_treatment.tt:0 "This treatment may work, or it may not, but it's free."
+  mz_lovers_pox_paid_treatment.tt:0 "This treatment will likely work, and may even cure me, but it will cost me."
+  mz_health.2001.a:0 "Let's try a conventional approach."
+  mz_health.2001.b:0 "I'll purchase the reagents, give me the best care."
+  mz_health.2001.c:0 "For now, there shall be no treatment."
+
+  mz_health.2002.t:0 "Relief, For Now At Least"
+  mz_health.2002.desc.fallback:0 "You shouldn't be seeing this description."
+  mz_health.2002.desc.paid:0 "[physician.GetTitledFirstName] spent some time processing the ingredients I purchased, then gently applied the mixture to my inflamed flesh. Though it stung like nothing else I'd ever experienced, [physician.GetSheHe] assured me it was a necessary step."
+  mz_health.2002.desc.end:0 "The next morning, I woke up without any itching or unsightly blemishes!"
+  mz_health.2002.a:0 "Sweet, sweet succor!"
+
+  mz_health.2003.t:0 "No Relief, No Reprieve"
+  mz_health.2003.desc.fallback:0 "You shouldn't be seeing this description."
+  mz_health.2003.desc.paid:0 "[physician.GetTitledFirstName] spent some time processing the ingredients I purchased, then gently applied the mixture to my inflamed flesh. Though it stung like nothing else I'd ever experienced, [physician.GetSheHe] assured me it was a necessary step."
+  mz_health.2003.desc.end:0 "However, the persistent pox endures the next few mornings."
+  mz_health.2003.a:0 "The nightmare continues!"
+
+  mz_health.2010.t:0 "An Unwelcome Return"
+  mz_health.2010.desc:0 "This morning, I awoke to a nasty suprise; that being an unbearable itch and nasty-looking blemishes, signaling the return of the thrice-cursed lover's pox!"
+  mz_health.2010.a:0 "It was too good to be true."
+
+  mz_health.2011.t:0 "Lover's Pox: Cured"
+  mz_health.2011.desc:0 "It has been several years and the lover's pox has not returned. I believe the treatment was completely successful, and I can finally breathe a sigh of relief!"
+  mz_health.2011.a:0 "Praise [ROOT.Char.GetFaith.FertilityGodName]!"

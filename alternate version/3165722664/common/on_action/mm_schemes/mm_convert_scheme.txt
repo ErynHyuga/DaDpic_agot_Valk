@@ -1,0 +1,72 @@
+﻿### Ongoing Events
+mz_convert_ongoing_milestone_1 = {
+	trigger = {
+		exists = scope:scheme
+	}
+	random_events = {
+		100 = mz_convert_ongoing.1101 #Outgoing venue
+		100 = mz_convert_ongoing.1102 #Reserved approach
+		150 = mz_convert_ongoing.5201 #Convert a friend
+		150 = mz_convert_ongoing.5301 #Convert family
+		100 = mz_convert_ongoing.4001 #Plant a book
+		100 = mz_convert_ongoing.4010 #Fan mail
+		50 = mz_convert_ongoing.3001 #Token of affection
+		100 = mz_convert_ongoing.6001 #Subtle approach (intrigue)
+		100 = mz_convert_ongoing.6050 #Special rite (both witches)
+	}
+}
+
+mz_convert_ongoing_milestone_2 = {
+	trigger = {
+		exists = scope:scheme
+	}
+	random_events = {
+		100 = mz_convert_ongoing.1001 #Tavern
+		100 = mz_convert_ongoing.1010 #Joint Study
+		50 = mz_convert_ongoing.1020 #Walk in the garden (married target)
+		100 = mz_convert_ongoing.1030 #Bathhouse (18+)
+		100 = mz_convert_ongoing.1040 #At the ball
+		50 = mz_convert_ongoing.3050 #Seduction
+		100 = mz_convert_ongoing.6010 #Army camp (martial)
+		100 = mz_convert_ongoing.6020 #Duel (prowess)
+		100 = mz_convert_ongoing.6030 #Physician (learning)
+	}
+}
+
+### Outcome Events
+
+## Success
+mz_convert_scheme_success = {
+	first_valid = { #Specialized success events
+		mz_convert_outcome.2000 #Convert the Head of Faith
+		mz_convert_outcome.2501 #Convert family
+		mz_convert_outcome.2511 #Convert clergy (carnal belief)
+		mz_convert_outcome.2521 #Convert your own concubine
+		mz_convert_outcome.2531 #Convert your own spouse
+	}
+	fallback = mz_convert_scheme_generic_success
+}
+
+mz_convert_scheme_generic_success = {
+	random_events = {
+		150 = mz_convert_outcome.2010 #Both revelers/drunkards
+		100 = mz_convert_outcome.2020 #Excuse Me!
+		150 = mz_convert_outcome.2030 #Secret Meeting (intrigue)
+		100 = mz_convert_outcome.2040 #Married woman
+		100 = mz_convert_outcome.2050 #Go to target's chambers
+		100 = mz_convert_outcome.2060 #Converting a vassal
+		100 = mz_convert_outcome.2070 #Use sex scene generator
+		100 = mz_convert_outcome.2080 #The Great Outdoors
+	}
+}
+
+## Failure
+mz_convert_scheme_failure = {
+	random_events = {
+		100 = mz_convert_outcome.4001 #Gentle refusal
+		100 = mz_convert_outcome.4002 #Harsh refusal
+		50 = mz_convert_outcome.4003 #Harsh refusal + reveal
+		100 = mz_convert_outcome.4004 #Incest refusal
+		100 = mz_convert_outcome.4005 #Failure due to discovery
+	}
+}

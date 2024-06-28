@@ -1,0 +1,317 @@
+﻿## Title and Realm Pulses
+
+# A title is transferred to a new character
+# root = the new holder
+# scope:title = the title that changes hands
+# scope:previous_holder = previous holder. Might be dead
+on_title_gain = {
+	on_actions = { 
+		mz_matriarchy_update
+		mz_matriarchy_highest_held_title_update
+		delay = { days = 1 }
+		mz_amazon_queen_trait_gain
+	}
+}
+
+# A title is lost by a character
+# root = the old holder
+# scope:title = the title that changes hands
+# scope:new_holder = new holder.
+on_title_lost = {
+	on_actions = { 
+		mz_matriarchy_update
+		mz_amazon_queen_trait_loss
+	}
+}
+
+# root = the holder before destruction
+# scope:landed_title = the title that is being destroyed
+# Does *not* provide scope:transfer_type
+on_title_destroyed = {
+	on_actions = { mz_merc_update_action }
+}
+
+mz_matriarchy_update = {
+	trigger = {
+		OR = {
+			AND = {
+				exists = dynasty
+				dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+				is_female = yes
+			}
+			has_character_modifier = mz_matriarchy_male_dominated_modifier
+		}
+	}
+	effect = {
+		if = {
+			limit = { has_character_modifier = mz_matriarchy_male_dominated_modifier }
+			remove_character_modifier = mz_matriarchy_male_dominated_modifier
+		}
+		if = {
+			limit = {
+				is_ruler = yes
+				is_female = yes
+				exists = dynasty
+				dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+				faith = { has_doctrine_parameter = male_dominated_law }
+			}
+			add_character_modifier = mz_matriarchy_male_dominated_modifier
+		}
+	}
+}
+
+mz_matriarchy_highest_held_title_update = {
+	trigger = {
+		exists = dynasty
+		dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+		is_female = yes		
+	}
+	# The effect works by giving you a flag with your highest tier title, which prevents it from ever triggering at this level again.
+	# This flag is replaced if you gain a higher tier title, but not if you gain a lower tier one, even if you lose your current title.
+	# The renown gain is based on the difference in tier. From unlanded, the values are Empire 150, Kingdom 75, Duchy 40, County 10, Barony 1.
+	effect = {
+		if = {
+			limit = {
+				is_alive = yes
+				is_female = yes
+				is_ruler = yes
+				exists = dynasty
+				dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+				highest_held_title_tier = tier_empire
+				NOT = { has_character_flag = mz_matriarch_trigger_tier_empire }
+			}
+			if = {
+				limit = { has_character_flag = mz_matriarch_trigger_tier_kingdom }
+				dynasty = { add_dynasty_prestige = 75 }
+			}
+			else_if = {
+				limit = { has_character_flag = mz_matriarch_trigger_tier_duchy }
+				dynasty = { add_dynasty_prestige = 110 }
+			}
+			else_if = {
+				limit = { has_character_flag = mz_matriarch_trigger_tier_county }
+				dynasty = { add_dynasty_prestige = 140 }
+			}
+			else_if = {
+				limit = { has_character_flag = mz_matriarch_trigger_tier_barony }
+				dynasty = { add_dynasty_prestige = 149 }
+			}
+			else = {
+				dynasty = { add_dynasty_prestige = 150 }
+			}
+			mz_matriarchy_remove_character_flags_effect = yes
+			add_character_flag = mz_matriarch_trigger_tier_empire
+		}
+
+		if = {
+			limit = {
+				is_female = yes
+				is_ruler = yes
+				exists = dynasty
+				dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+				highest_held_title_tier = tier_kingdom
+				NOR = { 
+					has_character_flag = mz_matriarch_trigger_tier_empire 
+					has_character_flag = mz_matriarch_trigger_tier_kingdom
+				}
+			}
+			if = {
+				limit = { has_character_flag = mz_matriarch_trigger_tier_duchy }
+				dynasty = { add_dynasty_prestige = 35 }
+			}
+			else_if = {
+				limit = { has_character_flag = mz_matriarch_trigger_tier_county }
+				dynasty = { add_dynasty_prestige = 65 }
+			}
+			else_if = {
+				limit = { has_character_flag = mz_matriarch_trigger_tier_barony }
+				dynasty = { add_dynasty_prestige = 74 }
+			}
+			else = {
+				dynasty = { add_dynasty_prestige = 75 }
+			}
+			mz_matriarchy_remove_character_flags_effect = yes
+			add_character_flag = mz_matriarch_trigger_tier_kingdom
+		}
+
+		if = {
+			limit = {
+				is_female = yes
+				is_ruler = yes
+				exists = dynasty
+				dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+				highest_held_title_tier = tier_duchy
+				NOR = { 
+					has_character_flag = mz_matriarch_trigger_tier_empire 
+					has_character_flag = mz_matriarch_trigger_tier_kingdom
+					has_character_flag = mz_matriarch_trigger_tier_duchy
+				}
+			}
+			if = {
+				limit = { has_character_flag = mz_matriarch_trigger_tier_county }
+				dynasty = { add_dynasty_prestige = 30 }
+			}
+			else_if = {
+				limit = { has_character_flag = mz_matriarch_trigger_tier_barony }
+				dynasty = { add_dynasty_prestige = 39 }
+			}
+			else = {
+				dynasty = { add_dynasty_prestige = 40 }
+			}
+			mz_matriarchy_remove_character_flags_effect = yes
+			add_character_flag = mz_matriarch_trigger_tier_duchy
+		}	
+
+		if = {
+			limit = {
+				is_female = yes
+				is_ruler = yes
+				exists = dynasty
+				dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+				highest_held_title_tier = tier_county
+				NOR = { 
+					has_character_flag = mz_matriarch_trigger_tier_empire 
+					has_character_flag = mz_matriarch_trigger_tier_kingdom
+					has_character_flag = mz_matriarch_trigger_tier_duchy
+					has_character_flag = mz_matriarch_trigger_tier_county
+				}
+			}
+			if = {
+				limit = { has_character_flag = mz_matriarch_trigger_tier_barony }
+				dynasty = { add_dynasty_prestige = 9 }
+			}
+			else = {
+				dynasty = { add_dynasty_prestige = 10 }
+			}
+			mz_matriarchy_remove_character_flags_effect = yes
+			add_character_flag = mz_matriarch_trigger_tier_county
+		}		
+
+		if = {
+			limit = {
+				is_female = yes
+				is_ruler = yes
+				dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+				highest_held_title_tier = tier_barony
+				NOR = {
+					has_character_flag = mz_matriarch_trigger_tier_barony
+					has_character_flag = mz_matriarch_trigger_tier_county
+					has_character_flag = mz_matriarch_trigger_tier_duchy
+					has_character_flag = mz_matriarch_trigger_tier_kingdom
+					has_character_flag = mz_matriarch_trigger_tier_empire
+				}
+			}
+			dynasty = { add_dynasty_prestige = 1 }
+			add_character_flag = mz_matriarch_trigger_tier_barony
+		}
+	}
+}
+
+mz_amazon_queen_trait_gain = {
+	trigger = {
+		is_female = yes
+		OR = {
+			scope:title = title:e_mz_amazonia
+			scope:title = title:e_mz_scythia
+		}
+	}
+	effect = { 
+		scope:title = { save_scope_as = mz_amazon_empire_title }
+		send_interface_toast = {
+			title = mz_amazon_queen_toast.t
+			left_icon = root
+			custom_tooltip = mz_amazon_queen_toast.tt
+			add_trait = mz_amazon_queen 
+		}
+	}
+}
+
+mz_amazon_queen_trait_loss = {
+	trigger = {
+		OR = {
+			scope:title = title:e_mz_amazonia
+			scope:title = title:e_mz_scythia
+		}
+		has_trait = mz_amazon_queen
+		is_alive = yes
+	}
+	effect = { remove_trait = mz_amazon_queen }
+}
+
+mz_merc_update_action = { # Mercenary companies for some reason don't like female-based succession. This attempts to resolve that issue for Amazons.
+	trigger = {
+		scope:landed_title = { 
+			is_mercenary_company = yes 
+			NOT = { exists = holder }
+		}
+	}
+	effect = {
+		scope:landed_title.title_capital_county.culture = { save_scope_as = mz_culture }
+		scope:landed_title.title_capital_county.title_province = { save_scope_as = mz_province }
+		if = {
+			limit = {
+				scope:landed_title.title_capital_county.culture = { mz_is_amazonian_culture = yes }
+			}
+			create_character = {
+				template = mz_amazon_woman
+				save_scope_as = mz_merc_captain
+				location = scope:landed_title.title_capital_county.title_province
+			}
+		}
+		else = {
+			create_character = {
+				template = new_commander_character
+				save_scope_as = mz_merc_captain
+				gender_female_chance = root_soldier_female_chance
+				location = scope:landed_title.title_capital_county.title_province
+			}
+		}
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
+		scope:landed_title = {
+			change_title_holder = {
+				holder = scope:mz_merc_captain
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		if = {
+			limit = {
+				scope:landed_title = { holder = scope:mz_merc_captain }
+			}
+			scope:mz_merc_captain = {
+				every_courtier = {
+					limit = {
+						NOT = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:mz_merc_captain } }
+					}
+					scope:mz_merc_captain = { remove_courtier_or_guest = prev }
+				}
+				if = {
+					limit = {
+						any_courtier = {
+							count < 5
+							can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:mz_merc_captain }
+						}
+					}
+					while = {
+						count = 5
+						create_character = {
+							template = new_warrior_character
+							gender_female_chance = root_soldier_female_chance
+							employer = scope:mz_merc_captain
+							after_creation = {
+								if = {
+									limit = { prowess < 12 }
+									add_prowess_skill = 4
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

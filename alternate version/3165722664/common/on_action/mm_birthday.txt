@@ -1,0 +1,7 @@
+﻿# character having its birthday in root scope
+# tested after age has increased
+on_15th_birthday = {
+	on_actions = { 
+		mz_matiarchy_legacy_1_boost
+	}
+}

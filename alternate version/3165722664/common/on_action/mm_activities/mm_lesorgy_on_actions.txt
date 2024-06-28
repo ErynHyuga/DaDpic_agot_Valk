@@ -1,0 +1,93 @@
+﻿# On actions for the lesbian orgy activity
+#mz_lesorgy_main_event_selection = { #Select appropriate main event or default
+#	trigger = {
+#		exists = scope:activity
+#	}
+#	random_events = {
+#		1000 = mz_lesorgy.3000 #Default main event
+#	}
+#}
+
+
+#mz_lesorgy_start_events = { # Picks out a start event
+#	events = {
+#		mz_lesorgy.2001 #Host: start event
+#		mz_lesorgy.2501 #Guest: start event
+#	}
+#}
+
+#mz_lesorgy_honored_guest_selection = { #Handled directly through events currently
+#	first_valid = {
+#		mz_lesorgy.2800
+#	}
+#}
+
+mz_lesorgy_event_selection = { #Picks out the event for a participant in a mz_lesorgy
+	trigger = { exists = scope:activity }
+	random_events = {
+		# Special category
+		999 = mz_lesorgy.1000 # Got a serious illness!
+		# General category
+		100 = mz_lesorgy.3001 # Dancer and guest
+		100 = mz_lesorgy.3011 # Just dessert
+		100 = mz_lesorgy.3021 # Spilled wine
+		100 = mz_lesorgy.3031 # Walk-In
+		100 = mz_lesorgy.3041 # Bathing
+		100 = mz_lesorgy.3051 # Massage
+		100 = mz_lesorgy.3061 # Tip or Join the Entertainment
+		100 = mz_lesorgy.3071 # Satisfied
+		100 = mz_lesorgy.3081 # Friend or lover
+		100 = mz_lesorgy.3091 # Deviant event
+		100 = mz_lesorgy.3101 # Clergy event (carnal lesbian faith)
+		500 = mz_lesorgy.3111 # Seduction scheme event (root scheme)
+		500 = mz_lesorgy.3121 # Seduction or romance scheme event (participant targeting root)
+		100 = mz_lesorgy.3131 # Using a toy
+		100 = mz_lesorgy.3151 # Family event (friendship or incest)
+		100 = mz_lesorgy.3161 # Clever courtesan (intrigue)
+		100 = mz_lesorgy.3171 # Shy/Chaste guest
+		100 = mz_lesorgy.3181 # Polyamory event: lesbian wife and lover
+		100 = mz_lesorgy.3191 # Polyamory event: threesome proposition
+		# Lifestyle Focus/Trait based Events
+		100 = mz_lesorgy.3601 # Martial
+		100 = mz_lesorgy.3611 # Learning
+		100 = mz_lesorgy.3621 # Intrigue
+		100 = mz_lesorgy.3631 # Diplomacy
+		100 = mz_lesorgy.3641 # Stewardship
+	}
+}
+
+mz_lesorgy_host_event_selection = { #Picks out the event for the host of a mz_lesorgy
+	trigger = { exists = scope:activity }	
+	random_events = {
+		# Special category
+		999 = mz_lesorgy.1000 # Got a serious illness!
+		# General category
+		100 = mz_lesorgy.3001 # Dancer and guest
+		100 = mz_lesorgy.3011 # Just dessert
+		100 = mz_lesorgy.3021 # Spilled wine
+		100 = mz_lesorgy.3031 # Walk-In
+		100 = mz_lesorgy.3041 # Bathing
+		100 = mz_lesorgy.3051 # Massage
+		100 = mz_lesorgy.3061 # Tip or Join the Entertainment
+		100 = mz_lesorgy.3071 # Satisfied
+		100 = mz_lesorgy.3081 # Friend or lover
+		100 = mz_lesorgy.3091 # Deviant event
+		100 = mz_lesorgy.3101 # Clergy event (carnal lesbian faith)
+		500 = mz_lesorgy.3111 # Seduction scheme event (root scheme)
+		500 = mz_lesorgy.3121 # Seduction or romance scheme event (participant targeting root)
+		100 = mz_lesorgy.3131 # Using a toy
+		100 = mz_lesorgy.3141 # (HOST ONLY) Low on wine
+		100 = mz_lesorgy.3151 # Family event (friendship or incest)
+		100 = mz_lesorgy.3161 # Clever courtesan (intrigue)
+		100 = mz_lesorgy.3171 # Shy/Chaste guest
+		100 = mz_lesorgy.3181 # Polyamory event: lesbian wife and lover
+		100 = mz_lesorgy.3191 # Polyamory event: threesome proposition
+		100 = mz_lesorgy.3201 # (HOST ONLY) Servants harassed 
+		# Lifestyle Focus/Trait based Events
+		100 = mz_lesorgy.3601 # Martial
+		100 = mz_lesorgy.3611 # Learning
+		100 = mz_lesorgy.3621 # Intrigue
+		100 = mz_lesorgy.3631 # Diplomacy
+		100 = mz_lesorgy.3641 # Stewardship
+	}
+}

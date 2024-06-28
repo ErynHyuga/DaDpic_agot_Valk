@@ -1,0 +1,188 @@
+﻿# called when a war is started.
+# same scopes are available in these events as in the CBs' on_declaration, this just fires for all CBs instead of a specific CB.
+# Base game on_actions
+on_war_started = {
+	on_actions = {
+		mz_amazon_contact_war
+	}
+}
+
+## MM custom on_actions
+mz_amazon_contact_war = {
+	effect = {
+		if = {
+			limit = {
+				scope:attacker = { 
+					is_ai = no
+					is_female = yes 
+					exists = dynasty 
+					is_dynast = yes # Amazons only want to negotiate with the dynast
+					mz_has_amazon_contact = no # Obviously we shouldn't trigger this if the Amazons have already made contact
+					NOT = { has_character_flag = mz_amazon_contact_potential }
+				}
+			}
+			scope:attacker = {
+				random = {
+					chance = {
+						value = 10 # Base is 10% chance.
+						max = 90
+						if = { # Martially-inclined characters add 20% chance.
+							limit = {
+								OR = {
+									has_education_martial_trigger = yes
+									has_focus_or_focus_trait_trigger = { FOCUS = martial_strategy_focus }
+									has_focus_or_focus_trait_trigger = { FOCUS = martial_chivalry_focus }
+									martial >= high_skill_rating
+								}
+							}
+							add = 20
+						}
+						if = { # Good physical traits add 10%.
+							limit = {
+								OR = {
+									has_trait = giant
+									has_trait = physique_good
+									has_trait = strong
+								}
+							}
+							add = 10
+						}
+						if = { # Brave adds 20%.
+							limit = { has_trait = brave }
+							add = 20
+						}
+						if = { # Matriarchs get an extra 30%
+							limit = { 
+								dynasty ?= { has_dynasty_modifier = mz_matriarchy_modifier }
+							}
+							add = 30
+						}
+						if = { # Max chance if we have somehow gotten to perk 4 but this hasn't triggered yet
+							limit = { 
+								dynasty ?= { has_dynasty_perk = mz_matriarchy_legacy_4 }	
+							}
+							add = 90
+						}
+
+						if = { # Has Royal Court - Ability to have female combatants adds another 30%.
+							limit = {
+								has_dlc_feature = diverge_culture # Can modify pillars
+								culture = {
+									OR = {
+										has_cultural_parameter = martial_custom_equal_combatant
+										has_cultural_parameter = martial_custom_female_only_combatant
+										has_cultural_parameter = has_access_to_shieldmaidens
+										has_cultural_parameter = mz_recruit_amazons_enabled
+									}
+								}
+							}
+							add = 30
+						}
+						else_if = { # No Royal Court - checks faith instead
+							limit = {
+								OR = {
+									faith = { has_doctrine_parameter = combatant_can_be_either_gender_if_no_roco }
+									faith = { has_doctrine_parameter = combatant_must_be_female_if_no_roco }
+									culture = { has_cultural_parameter = has_access_to_shieldmaidens }
+									culture = { has_cultural_parameter = mz_recruit_amazons_enabled }
+								}
+							}
+							add = 30
+						}
+					}
+					trigger_event = { # Trigger event in 1 to 3 weeks.
+						id = mz_amazon_alliance.1001
+						days = { 7 21 }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				scope:defender = { 
+					is_ai = no
+					is_female = yes 
+					exists = dynasty 
+					is_dynast = yes # Amazons only want to negotiate with the dynast
+					mz_has_amazon_contact = no # Obviously we shouldn't trigger this if the Amazons have already made contact
+					NOT = { has_character_flag = mz_amazon_contact_potential }
+				}
+			}
+			scope:defender = {
+				random = {
+					chance = {
+						value = 10 # Base is 10% chance.
+						max = 90
+						if = { # Martially-inclined characters add 20% chance.
+							limit = {
+								OR = {
+									has_education_martial_trigger = yes
+									has_focus_or_focus_trait_trigger = { FOCUS = martial_strategy_focus }
+									has_focus_or_focus_trait_trigger = { FOCUS = martial_chivalry_focus }
+									martial >= high_skill_rating
+								}
+							}
+							add = 20
+						}
+						if = { # Good physical traits add 10%.
+							limit = {
+								OR = {
+									has_trait = giant
+									has_trait = physique_good
+									has_trait = strong
+								}
+							}
+							add = 10
+						}
+						if = { # Brave adds 20%.
+							limit = { has_trait = brave }
+							add = 20
+						}
+						if = { # Matriarchs get an extra 30%
+							limit = { 
+								dynasty ?= { has_dynasty_modifier = mz_matriarchy_modifier }
+							}
+							add = 30
+						}
+						if = { # Max chance if we have somehow gotten to perk 4 but this hasn't triggered yet
+							limit = { 
+								dynasty ?= { has_dynasty_perk = mz_matriarchy_legacy_4 }	
+							}
+							add = 90
+						}
+
+						if = { # Has Royal Court - Ability to have female combatants adds another 30%.
+							limit = {
+								has_dlc_feature = diverge_culture # Can modify pillars
+								culture = {
+									OR = {
+										has_cultural_parameter = martial_custom_equal_combatant
+										has_cultural_parameter = martial_custom_female_only_combatant
+										has_cultural_parameter = has_access_to_shieldmaidens
+										has_cultural_parameter = mz_recruit_amazons_enabled
+									}
+								}
+							}
+							add = 30
+						}
+						else_if = { # No Royal Court - checks faith instead
+							limit = {
+								OR = {
+									faith = { has_doctrine_parameter = combatant_can_be_either_gender_if_no_roco }
+									faith = { has_doctrine_parameter = combatant_must_be_female_if_no_roco }
+									culture = { has_cultural_parameter = has_access_to_shieldmaidens }
+									culture = { has_cultural_parameter = mz_recruit_amazons_enabled }
+								}
+							}
+							add = 30
+						}
+					}
+					trigger_event = { # Trigger event in 1 to 3 weeks.
+						id = mz_amazon_alliance.1001
+						days = { 7 21 }
+					}
+				}
+			}			
+		}
+	}
+}

@@ -1,0 +1,21 @@
+﻿on_game_start = {
+	on_actions = { mz_monogamy_special_case }
+}
+
+mz_monogamy_special_case = {
+	trigger = { has_game_rule = accepted_same_sex_marriage }
+	effect = { 
+		every_religion_global = {
+			every_faith = {
+				limit = { 
+					has_doctrine = doctrine_monogamy
+					trigger_if = {
+						limit = { has_game_rule = default_same_sex_relations }
+						has_doctrine_parameter = homosexuality_accepted
+					}
+				}
+				add_doctrine = mz_lesbian_marriage_consort_doctrine
+			}
+		}
+	}
+}

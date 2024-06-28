@@ -1,0 +1,186 @@
+﻿# character just about to die in root scope
+# if a killer is know, it's set as scope:killer
+#Triggered by code
+on_death = {
+	on_actions = { 
+		mz_homosexual_spouses_delayed_update
+		mz_lesbian_revelation_cleanup
+		mz_end_eternal_devotion_action
+		mz_update_divine_lovers_death_action
+		mz_amazon_alliance_check_action
+	}
+}
+
+mz_end_eternal_devotion_action = {
+	trigger = {
+		any_spouse = { var:mz_eternal_devotion ?= root }
+	}
+	effect = {
+		every_spouse = {
+			limit = { var:mz_eternal_devotion ?= root } 
+			remove_variable = mz_eternal_devotion
+			mz_remove_all_lesdivinity_bonuses_effect = yes
+		}
+	}
+}
+
+mz_update_divine_lovers_death_action = {
+	trigger = {
+		OR = {
+			any_relation = {
+				type = lover
+				has_character_modifier = mz_divine_lovers_modifier
+			}
+			any_relation = {
+				type = soulmate
+				has_character_modifier = mz_divine_lovers_modifier
+			}
+		}
+	}
+	effect = {
+		every_relation = {
+			type = lover
+			limit = { has_character_modifier = mz_divine_lovers_modifier }
+			trigger_event = {
+				days = 1
+				on_action = mz_update_divine_lovers_action
+			}
+		}
+		every_relation = {
+			type = soulmate
+			limit = { has_character_modifier = mz_divine_lovers_modifier }
+			trigger_event = {
+				days = 1
+				on_action = mz_update_divine_lovers_action
+			}
+		}
+	}
+}
+
+mz_amazon_alliance_check_action = { # Checks if an dynasty with an Amazon alliance is killing Amazons--if so, reduce their favor
+	trigger = {
+		mz_amazon_character_trigger = yes
+		scope:killer ?= { mz_has_amazon_contact = yes }
+	}
+	effect = {
+		if = {
+			limit = {
+				scope:killer.dynasty = { has_variable = mz_amazon_favor }
+			}
+			# Reduce Favor
+			if = {
+				limit = { 
+					scope:killer.dynasty= { has_dynasty_modifier = mz_amazon_alliance_rank_5 }
+				}
+				scope:killer.dynasty = { 
+					change_variable = {
+						name = mz_amazon_favor
+						add = -300
+					}
+				}
+			}
+			else_if = {
+				limit = { 
+					scope:killer.dynasty= { has_dynasty_modifier = mz_amazon_alliance_rank_4 }
+				}
+				scope:killer.dynasty = { 
+					change_variable = {
+						name = mz_amazon_favor
+						add = -200
+					}
+				}				
+			}
+			else_if = {
+				limit = { 
+					scope:killer.dynasty= { has_dynasty_modifier = mz_amazon_alliance_rank_3 }
+				}
+				scope:killer.dynasty = { 
+					change_variable = {
+						name = mz_amazon_favor
+						add = -100
+					}
+				}				
+			}
+			else_if = {
+				limit = { 
+					scope:killer.dynasty= { has_dynasty_modifier = mz_amazon_alliance_rank_2 }
+				}
+				scope:killer.dynasty = { 
+					change_variable = {
+						name = mz_amazon_favor
+						add = -20
+					}
+				}				
+			}
+			else = {
+				scope:killer.dynasty = { 
+					change_variable = {
+						name = mz_amazon_favor
+						add = -10
+					}
+				}				
+			}
+			# Reduce rank if appropriate
+			if = {
+				limit = {
+					scope:killer.dynasty= { has_dynasty_modifier = mz_amazon_alliance_rank_5 }
+					scope:killer.dynasty.var:mz_amazon_favor < 4000
+				}
+				scope:killer.dynasty = {
+					remove_dynasty_modifier = mz_amazon_alliance_rank_5
+					add_dynasty_modifier = mz_amazon_alliance_rank_4
+					set_variable = {
+						name = mz_amazon_alliance_rankup_blocker
+						value = flag:yes
+						years = 5
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					scope:killer.dynasty= { has_dynasty_modifier = mz_amazon_alliance_rank_4 }
+					scope:killer.dynasty.var:mz_amazon_favor < 1500
+				}
+				scope:killer.dynasty = {
+					remove_dynasty_modifier = mz_amazon_alliance_rank_4
+					add_dynasty_modifier = mz_amazon_alliance_rank_3
+					set_variable = {
+						name = mz_amazon_alliance_rankup_blocker
+						value = flag:yes
+						years = 5
+					}
+				}				
+			}
+			else_if = {
+				limit = {
+					scope:killer.dynasty= { has_dynasty_modifier = mz_amazon_alliance_rank_3 }
+					scope:killer.dynasty.var:mz_amazon_favor < 500
+				}
+				scope:killer.dynasty = {
+					remove_dynasty_modifier = mz_amazon_alliance_rank_3
+					add_dynasty_modifier = mz_amazon_alliance_rank_2
+					set_variable = {
+						name = mz_amazon_alliance_rankup_blocker
+						value = flag:yes
+						years = 5
+					}
+				}				
+			}
+			else_if = {
+				limit = {
+					scope:killer.dynasty= { has_dynasty_modifier = mz_amazon_alliance_rank_2 }
+					scope:killer.dynasty.var:mz_amazon_favor < 50
+				}
+				scope:killer.dynasty = {
+					remove_dynasty_modifier = mz_amazon_alliance_rank_2
+					add_dynasty_modifier = mz_amazon_alliance_rank_1
+					set_variable = {
+						name = mz_amazon_alliance_rankup_blocker
+						value = flag:yes
+						years = 5
+					}
+				}				
+			}		
+		}
+	}
+}

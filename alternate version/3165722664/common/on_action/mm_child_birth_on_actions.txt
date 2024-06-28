@@ -1,0 +1,53 @@
+﻿# called for the newborn child
+# scope:child is the new born character
+# scope:mother is the pregnant mother
+# scope:father is the family father (not the biological)
+# scope:real_father is the biological father
+# scope:is_bastard, true if a known bastard
+on_birth_child = {
+	on_actions = {
+		mz_matriarchy_modifier_assignment_birth
+		mz_remove_child_of_concubine
+	}
+}
+
+mz_remove_child_of_concubine = {
+	trigger = { # Delay by 1 day to make sure things happen in the order they should.
+		scope:child = { 
+			OR = {
+				AND = {
+					scope:mother ?= { allowed_to_marry_same_sex_trigger = yes }
+					scope:father ?= { is_concubine_of = scope:mother }
+				}
+				AND = {
+					scope:father ?= { allowed_to_marry_same_sex_trigger = yes }
+					scope:mother ?= { is_concubine_of = scope:father }
+				}
+			}
+		}
+	}
+	effect = {
+		trigger_event = {
+			delayed = yes
+			#days = 1
+			on_action = mz_remove_child_of_concubine_effect
+		}
+	}
+}
+
+mz_remove_child_of_concubine_effect = {
+	effect = {
+		if = {
+			limit = {
+				scope:child = { has_trait = child_of_concubine_female } 
+			}
+			remove_trait = child_of_concubine_female
+		}
+		if = {
+			limit = {
+				scope:child = { has_trait = child_of_concubine_male } 
+			}
+			remove_trait = child_of_concubine_male
+		}
+	}
+}

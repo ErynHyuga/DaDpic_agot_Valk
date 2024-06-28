@@ -1,0 +1,76 @@
+﻿# Root = Winning combat side
+# scope:wipe - Was this a wipe?
+on_combat_end_winner = {
+	on_actions = {
+		mz_amazon_contact_favor_on_action
+		mz_amazon_favor_on_action
+	}
+}
+
+mz_amazon_contact_favor_on_action = {
+	trigger = {
+		any_side_knight = {
+			mz_amazon_character_trigger = yes
+			liege ?= { has_character_flag = mz_amazon_contact_potential }
+		}
+	}
+	effect = {
+		every_side_knight = {
+			limit = {
+				mz_amazon_character_trigger = yes
+				liege ?= { 
+					has_character_flag = mz_amazon_contact_potential 
+					NOT = { has_character_flag = mz_amazon_contact_potential_combat_blocker }
+				}				
+			}
+			liege = { 
+				mz_amazon_contact_add_progress_effect = yes
+				add_character_flag = {
+					flag = mz_amazon_contact_potential_combat_blocker
+					months = 6
+				}
+			}
+		}
+	}
+}
+
+mz_amazon_favor_on_action = {
+	trigger = {
+		any_side_knight = {
+			mz_amazon_character_trigger = yes
+			liege ?= { mz_has_amazon_contact = yes }
+		}
+	}
+	effect = {
+		every_side_knight = {
+			limit = {
+				mz_amazon_character_trigger = yes
+				liege ?= { 
+					mz_has_amazon_contact = yes 
+					NOT = { has_character_flag = mz_amazon_favor_combat_blocker }
+				}				
+			}
+			liege = { 
+				dynasty = { 
+					mz_change_amazon_favor_effect = { FAVOR = 10 }
+				}
+				trigger_event = {
+					days = 1
+					on_action = mz_add_amazon_combat_blocker_action
+				}
+			}
+		}
+	}
+}
+
+mz_add_amazon_combat_blocker_action = {
+	trigger = {
+		NOT = { has_character_flag = mz_amazon_favor_combat_blocker }
+	}
+	effect = {
+		add_character_flag = {
+			flag = mz_amazon_favor_combat_blocker
+			months = 6
+		}
+	}
+}

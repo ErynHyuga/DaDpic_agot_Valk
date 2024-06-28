@@ -1,0 +1,55 @@
+﻿# Fires for liege if employs a eunuch
+# root is liege character
+
+mz_court_eunuch_setup_on_action = { # This on_action sets up the below on_action. Something of an artifact now.
+	trigger = { 
+		NOT = { has_character_flag = mz_had_eunuch_event_recently }
+		any_court_position_holder = { type = chief_eunuch_court_position }
+	}
+	effect = {
+		if = { # Chief eunuch always takes priority, regardless of aptitude.
+			limit = {
+				any_court_position_holder = { 
+					type = chief_eunuch_court_position
+					is_physically_able = yes
+				}
+			}
+			random_court_position_holder = {
+				type = chief_eunuch_court_position
+				limit = { is_physically_able = yes }
+				save_scope_as = mz_court_eunuch
+			}
+		}
+		trigger_event = {
+			on_action = mz_court_eunuch_on_action
+			days = 1
+		}
+	}
+}
+
+mz_court_eunuch_on_action = {
+	trigger = {
+		NOT = { has_character_flag = mz_had_eunuch_event_recently }
+		scope:mz_court_eunuch ?= {
+			exists = liege
+			liege = root
+			has_court_position = chief_eunuch_court_position # Chief eunuchs have better odds for good events.
+		}
+	}
+
+	random_events = {
+		600 = mz_court_eunuch.0001 # "Nothing" event, reduced chance under some condtiions. Can improve eunuch stats.
+		# Diplomacy Events
+		100 = mz_court_eunuch.1001 # Gain prestige
+		100 = mz_court_eunuch.1101 # Improve relations (vassal and/or liege)
+		# Stewardship Events
+		100 = mz_court_eunuch.2001 # Gain gold or pay debts
+		100 = mz_court_eunuch.2101 # Gain development progress in domain county
+		# Intrigue Events
+		100 = mz_court_eunuch.3001 # Gain scheme resistance
+		100 = mz_court_eunuch.3101 # Gain scheme progress
+		# Learning Events
+		100 = mz_court_eunuch.4001 # Gain piety
+		100 = mz_court_eunuch.4101 # Advance education of court children
+	}
+}

@@ -1,0 +1,135 @@
+﻿## Opinion modifiers related to lesbian orgy event
+mz_had_sex_at_orgy_opinion = {
+	opinion = 10
+	stacking = no
+	years = 1
+}
+
+mz_orgy_public_sex_opinion = {
+	opinion = 10
+	stacking = yes
+	decaying = yes
+	years = 5
+}
+
+mz_gave_good_massage_opinion = {
+	opinion = 25
+	decaying = yes
+	years = 10
+}
+
+mz_hosted_orgy_opinion = {
+	opinion = 30
+	stacking = no
+	years = 5
+}
+
+mz_lesorgy_honored_opinion = {
+	monthly_change = 0.1
+	decaying = yes
+}
+
+mz_had_sex_at_private_orgy_opinion = {
+	opinion = 15
+	stacking = no
+	decaying = yes
+	monthly_change = 0.5
+}
+
+mz_respected_host_opinion = {
+	stacking = yes
+	decaying = yes
+	years = 10
+}
+
+mz_poor_host_opinion = {
+	stacking = yes
+	decaying = yes
+	years = 10
+}
+## Opinion modifiers related to eunuch events
+mz_eunuch_diplomacy_opinion = {
+	decaying = yes
+	years = 3
+}
+#Opinion modifiers applied from dynasty
+
+mz_education_matriarchy_1_modifier = {
+	opinion = 5
+}
+
+mz_education_matriarchy_2_modifier = {
+	opinion = 10
+}
+
+mz_education_matriarchy_3_modifier = {
+	opinion = 15
+}
+
+mz_education_matriarchy_4_modifier = {
+	opinion = 20
+}
+## Opinion modifiers related to heterosexual female concubines of female rulers
+mz_hetero_lesbian_concubine_opinion = {
+	opinion = -50
+	stacking = no
+}
+
+mz_heretical_concubine_opinion = {
+	opinion = -30
+	stacking = no
+}
+
+mz_hetero_lesbian_concubine_opinion_decaying = {
+	opinion = -50
+	decaying = yes
+	years = 20
+	stacking = yes
+}
+
+mz_heretical_concubine_opinion_decaying = {
+	opinion = -30
+	decaying = yes
+	years = 20
+	stacking = yes
+}
+#OPINIONS SET BY THE Straighten Out Scheme
+
+mz_scheme_straighten_out_opinion = {
+	monthly_change = 0.05
+	decaying = yes
+	min = -90
+	stacking = yes
+}
+
+mz_scheme_straighten_out_blocker_opinion = {
+	monthly_change = 0.05
+	decaying = yes
+}
+
+mz_scheme_so_ongoing_good_opinion = {
+	monthly_change = 0.2
+	decaying = yes
+	max = 100
+	stacking = yes
+}
+
+mz_scheme_so_ongoing_bad_opinion = {
+	monthly_change = 0.2
+	decaying = yes
+	min = -100
+	stacking = yes
+}
+#OPINIONS SET BY THE Convert Scheme
+
+## Rejection Opinions
+
+mz_convert_regular_cooldown_opinion = {
+	years = 5
+	decaying = yes
+	opinion = -10
+}
+
+mz_convert_permanent_blocker_opinion = {
+	opinion = -15
+}

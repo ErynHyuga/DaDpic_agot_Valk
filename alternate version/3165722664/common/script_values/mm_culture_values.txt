@@ -1,0 +1,37 @@
+﻿court_position_aptitude_family_business_value = { #mz_tag This is a convenient place to apply a bonus to all court positions.
+	if = {
+		limit = {
+			exists = liege
+			culture = liege.culture
+			culture = { has_cultural_parameter = close_family_better_court_positions }
+			is_close_family_of = liege
+		}
+		add = {
+			value = 20
+			desc = tradition_family_entrepreneurship_name
+		}
+	}
+	if = { # Eunuchs get an aptitude bonus for all court positions with the proper traditions or legacies.
+		limit = { 
+			exists = scope:recipient
+			NOT = { this = scope:recipient }
+			scope:recipient = { mz_can_appoint_eunuchs_trigger = yes }
+			has_trait = eunuch
+		}
+		add = {
+			value = 20
+			desc = trait_eunuch
+		}
+	}
+	else_if = {
+		limit = { 
+			exists = liege
+			liege = { mz_can_appoint_eunuchs_trigger = yes }
+			has_trait = eunuch
+		}
+		add = {
+			value = 20
+			desc = trait_eunuch
+		}
+	}	
+}

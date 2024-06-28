@@ -1,0 +1,36 @@
+﻿# On actions for the Feast activity
+# Picks out a start event
+feast_new_event_selection_tombola = {
+	on_actions = {
+		mz_feast_hedonist_development
+	}
+}
+
+mz_feast_hedonist_development = {
+	trigger = {
+		scope:activity.activity_host ?= {
+			NOT = { has_character_flag = mz_hedonist_feast_bonus_received }
+		}
+		exists = scope:activity
+		NOT = {
+			scope:activity.activity_host = {
+				exists = var:murder_feast
+			}
+		}
+		scope:activity.activity_location.county.development_level < 100
+		scope:activity.activity_location.culture = { has_cultural_parameter = mz_hedonist_bonus } # Hedonist bonus
+	}
+	effect = {
+		scope:activity.activity_host = {
+			add_character_flag = {
+				flag = mz_hedonist_feast_bonus_received
+				months = 10
+			}
+			send_interface_toast = {
+				title = mz_lesorgy.mz_feast_hedonist_development_t
+				left_icon = scope:host
+				scope:activity.activity_location.county = { change_development_level = 1 }
+			}
+		}
+	}
+}

@@ -1,0 +1,97 @@
+﻿
+gpt_vassal_called_to_war_calm = {
+	opinion = -10
+	years = 10
+	decaying = yes
+}
+gpt_vassal_called_to_war_norm = {
+	opinion = -20
+	years = 10
+	decaying = yes
+}
+gpt_vassal_called_to_war_rage = {
+	opinion = -30
+	years = 10
+	decaying = yes
+}
+
+refused_aid_opinion = {
+	opinion = -10
+}
+
+refused_trade_opinion = {
+	opinion = -10
+	years = 5
+	decaying = no
+}
+
+accepted_trade_opinion = {
+	opinion = 10
+	years = 5
+	decaying = no
+}
+
+refused_intimidation = {
+	opinion = -20
+}
+
+refused_tribute_opinion = {
+	opinion = -20
+}
+
+denounced_liege_opinion = {
+	opinion = -30
+	years = 5
+	decaying = yes
+}
+
+spreading_lies_from = {
+	opinion = -30
+	years = 10
+	decaying = yes
+}
+
+receiving_tribute = {
+	opinion = 20
+	years = 10
+	decaying = yes
+}
+
+feudal_always_title_opinion = {
+	opinion = 15
+	years = 10
+	decaying = yes
+}
+
+gpt_stance_title_opinion = {
+	opinion = 30
+	years = 20
+	decaying = yes
+}
+
+my_master = {
+	opinion = 30
+}
+
+gpt_insulted_calm = {
+	opinion = -15
+	years = 10
+	decaying = yes
+}
+
+gpt_insulted_rage = {
+	opinion = -45
+	years = 10
+	decaying = yes
+}
+
+gpt_insulted_normal = {
+	opinion = -30
+	years = 10
+	decaying = yes
+}
+
+gpt_gift_opinion = {
+	monthly_change = 0.125
+	decaying = yes
+}

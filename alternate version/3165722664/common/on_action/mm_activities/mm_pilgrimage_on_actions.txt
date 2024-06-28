@@ -1,0 +1,17 @@
+﻿#Fires at the destination
+pilgrimage_arrival_events = {
+	on_actions = { mz_lesbian_self_conversion }
+}
+
+mz_lesbian_self_conversion = {
+	trigger = {
+		mz_lesbian_faith_devotee = yes # Is female following lesbian faith
+		NOT = { has_sexuality = homosexual } # Not homosexual
+	}
+	effect = {
+		trigger_event = {
+			days = { 5 12 }
+			id = mz_pilgrimage.0001
+		}
+	}
+}

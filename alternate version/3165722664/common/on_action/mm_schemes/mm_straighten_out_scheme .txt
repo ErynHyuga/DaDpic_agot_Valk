@@ -1,0 +1,7 @@
+﻿mz_scheme_so_ongoing = {
+	random_events = {
+		400 = 0 # Nothing happens is likely, but below events can be weighted higher based on other factors
+		50 = mz_scheme_so_ongoing.1001 # Good event
+		50 = mz_scheme_so_ongoing.1002 # Bad event
+	}
+}

@@ -1,0 +1,70 @@
+﻿mz_lesbian_divinity_piety_cost_value = {
+	value = 2000
+
+	if = { # Adjustments for other doctrines and tenets
+		limit = {
+			faith = { has_doctrine = mz_doctrine_homosexuality_embraced }
+		}
+		add = -1000
+	}
+	if = {
+		limit = {
+			faith = { has_doctrine = doctrine_homosexuality_accepted }
+		}
+		add = -500
+	}
+	
+	if = { # Percentile adjustment. Not including them all just for the sake of brevity.
+		limit = {
+			has_perk = prophet_perk
+		}
+		multiply = 0.5
+	}
+	else_if = {
+		limit = {
+			exists = dynasty
+			OR = {
+				dynasty = { has_dynasty_perk = erudition_legacy_4 }
+				dynasty = { has_dynasty_perk = mz_matriarchy_legacy_2 }
+			}
+		}
+		multiply = 0.2
+	}
+}
+
+mz_sapphic_exaltation_piety_cost_value = {
+	value = 2000
+
+	if = { # Adjustments for other doctrines and tenets
+		limit = {
+			OR = {
+				faith = { has_doctrine = tenet_hedonistic }
+				faith = { has_doctrine = tenet_carnal_exaltation }
+			}
+		}
+		add = -1000
+	}
+	if = {
+		limit = {
+			faith = { has_doctrine = tenet_polyamory }
+		}
+		add = -500
+	}
+	
+	if = { # Percentile adjustment. Not including them all just for the sake of brevity.
+		limit = {
+			has_perk = prophet_perk
+		}
+		multiply = 0.5
+	}
+	else_if = {
+		limit = {
+			exists = dynasty
+			OR = {
+				dynasty = { has_dynasty_perk = erudition_legacy_4 }
+				dynasty = { has_dynasty_perk = mz_matriarchy_legacy_2 }
+			}
+		}
+		multiply = 0.2
+	}
+}

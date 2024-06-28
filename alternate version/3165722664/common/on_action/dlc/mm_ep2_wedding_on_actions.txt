@@ -1,0 +1,83 @@
+﻿wedding_ceremony_ending_event_pulse = {
+	on_actions = {
+		mm_lesbian_divinity_piety_gain
+	}
+}
+
+mm_lesbian_divinity_piety_gain = {
+	trigger = {
+		exists = scope:activity.special_guest:spouse_1
+		exists = scope:activity.special_guest:spouse_2
+		exists = scope:activity.activity_host
+		this = scope:activity.activity_host
+		scope:activity.special_guest:spouse_1 = { is_female = yes }
+		scope:activity.special_guest:spouse_2 = { is_female = yes }
+		OR = {
+			scope:activity.special_guest:spouse_1 ?= {
+				faith = { has_doctrine_parameter = mz_lesbian_dlc2gw_parameter }
+			}
+			scope:activity.special_guest:spouse_2 ?= {
+				faith = { has_doctrine_parameter = mz_lesbian_dlc2gw_parameter }
+			}
+			scope:activity.activity_host ?= {
+				faith = { has_doctrine_parameter = mz_lesbian_dlc2gw_parameter }
+			}
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				scope:activity.activity_host = { 
+					faith = { has_doctrine_parameter = mz_lesbian_dlc2gw_parameter }
+				}
+			}
+			scope:activity.activity_host = {
+				send_interface_toast = {
+					title = mz_lesbian_divinity_grand_wedding_effect
+					left_icon = scope:activity.activity_host
+					add_piety = major_piety_gain
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:activity.special_guest:spouse_1 = { 
+					is_female = yes
+					faith = { has_doctrine_parameter = mz_lesbian_dlc2gw_parameter }
+					NOR = { 
+						this = scope:activity.activity_host
+						has_character_flag = mz_received_grand_wedding_piety
+					}
+				}
+			}
+			scope:activity.special_guest:spouse_1 = {
+				add_character_flag = mz_received_grand_wedding_piety
+				send_interface_toast = {
+					title = mz_lesbian_divinity_grand_wedding_effect
+					left_icon = scope:activity.special_guest:spouse_1
+					add_piety = massive_piety_gain
+				}
+			}		
+		}
+		if = {
+			limit = {
+				scope:activity.special_guest:spouse_2 = { 
+					is_female = yes
+					faith = { has_doctrine_parameter = mz_lesbian_dlc2gw_parameter }
+					NOR = { 
+						this = scope:activity.activity_host
+						has_character_flag = mz_received_grand_wedding_piety
+					}
+				}
+			}
+			scope:activity.special_guest:spouse_2 = {
+				add_character_flag = mz_received_grand_wedding_piety
+				send_interface_toast = {
+					title = mz_lesbian_divinity_grand_wedding_effect
+					left_icon = scope:activity.special_guest:spouse_2
+					add_piety = massive_piety_gain
+				}
+			}		
+		}
+	}
+}

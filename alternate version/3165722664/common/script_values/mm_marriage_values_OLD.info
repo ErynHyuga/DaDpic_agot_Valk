@@ -1,0 +1,147 @@
+﻿mz_lesbian_marriage_script_value = {
+	value = 0
+	# Alliance factors.
+	# First, would this union form an alliance?
+	if = {
+		limit = {
+			exists = liege
+			liege = {
+				yields_alliance = {
+					candidate = prev
+					target = scope:mz_root
+					target_candidate = scope:mz_root
+				}
+			}		
+		}
+		if = { # Tier differences accounted for, if applicable.
+			limit = {
+				NOR = {
+					is_allied_to = scope:mz_host
+					tier_difference = {
+						target = scope:mz_host
+						value <= 3
+					}
+				}
+				OR = {
+					scope:mz_host = {
+						ai_diplomacy_stance = {
+							target = prev
+							stance = neutral
+						}						
+					}
+					scope:mz_host = {
+						ai_diplomacy_stance = {
+							target = prev
+							stance = threat
+						}						
+					}
+				}
+				OR = {
+					scope:mz_host = { is_independent_ruler = yes }
+					is_independent_ruler = yes
+					liege = scope:mz_host.liege
+				}
+			}
+			add = {
+				value = 40
+				if = {
+					limit = {
+						tier_difference = {
+							target = scope:mz_root
+							value = 1
+						}
+					}
+					add = -10
+				}
+				else_if = {
+					limit = {
+						tier_difference = {
+							target = scope:mz_root
+							value = 2
+						}
+					}
+					add = -30
+				}
+				if = {
+					limit = {
+						scope:mz_root = {
+							any_ally = {
+								NOR = {
+									target_is_liege_or_above = scope:mz_root
+									target_is_vassal_or_below = scope:mz_root
+								}
+								count >= 2
+							}
+						}
+					}
+					scope:mz_root = {
+						every_ally = {
+							limit = {
+								NOR = {
+									target_is_liege_or_above = scope:mz_root
+									target_is_vassal_or_below = scope:mz_root
+								}
+							}
+							multiply = 0.5
+						}
+					}
+				}
+			}
+		}
+		else_if = { # If friendly, alliance desire increases by a lot.
+			limit = {
+				NOT = { is_allied_to = scope:mz_host }
+				scope:mz_host = {
+					ai_diplomacy_stance = {
+						target = prev
+						stance = friend
+					}					
+				}
+			}
+			add = {
+				value = 100
+				if = {
+					limit = {
+						scope:mz_host = {
+							any_ally = {
+								NOR = {
+									target_is_liege_or_above = scope:mz_host
+									target_is_vassal_or_below = scope:mz_host
+								}
+								count >= 2
+							}
+						}
+					}
+					scope:mz_host = {
+						every_ally = {
+							limit = {
+								NOR = {
+									target_is_liege_or_above = scope:mz_host
+									target_is_vassal_or_below = scope:mz_host
+								}
+							}
+							multiply = 0.5
+						}
+					}
+				}
+			}
+		}
+		else_if = { # If enemy, alliance desire decreases by a lot.
+			limit = {
+				NOT = { is_allied_to = scope:mz_root }
+				scope:mz_root = {
+					ai_diplomacy_stance = {
+						target = prev
+						stance = enemy
+					}
+				}
+			}
+			add = -100
+		}
+	}
+
+	add = {
+		value = 0
+
+	}
+}

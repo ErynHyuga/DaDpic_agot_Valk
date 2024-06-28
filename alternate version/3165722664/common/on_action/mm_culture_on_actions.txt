@@ -1,0 +1,93 @@
+﻿# Happens when a character changes culture
+# Root = character
+on_character_culture_change = {
+	on_actions = { mz_lesbian_divinity_character_culture_update }
+}
+
+# Happens when a culture loses a tradition
+# Root = culture
+# scope:tradition = flag for the tradition removed
+on_tradition_removed = {
+	on_actions = { mz_lesbian_divinity_culture_update }
+}
+
+# Happens when a culture gains a tradition
+# Root = culture
+# scope:tradition = flag for the tradition added
+on_tradition_added = {
+	on_actions = { mz_lesbian_divinity_culture_update }
+}
+
+# Happens when a culture is created through hybridization or divergence
+# Root = The new culture
+# scope:founder = The founder of the new culture
+on_culture_created = {
+	on_actions = { mz_lesbian_divinity_culture_update }
+}
+
+## Lesbian divinity update for spouses. Root is culture.
+mz_lesbian_divinity_culture_update = {
+	effect = {
+		save_temporary_scope_as = mz_root_culture
+		every_living_character = {
+			limit = { 
+				culture = scope:mz_root_culture
+				is_female = yes
+				OR = {
+					faith = { has_doctrine_parameter = mz_lesbian_marriage_parameter }
+					any_spouse = { 
+						faith = { has_doctrine_parameter = mz_lesbian_marriage_parameter }
+					}
+					has_character_modifier = mz_lesbian_union_concubines
+					has_character_modifier = mz_lesbian_union_polygamy
+					has_character_modifier = mz_lesbian_union_monogamy
+				}
+			}
+			mz_update_lesbian_marriage_effect = yes
+		}
+	}
+}
+
+mz_lesbian_divinity_character_culture_update = {
+	trigger = {
+		is_female = yes
+		OR = { # For some reason this check HATES trying to use faith as a trigger. any_spouse nested within any_spouse doesn't throw any errors so hopefully we're good.
+			any_spouse = { 
+				faith = { has_doctrine_parameter = mz_lesbian_marriage_parameter }
+			}
+			any_spouse = {
+				any_spouse = { 
+					faith = { has_doctrine_parameter = mz_lesbian_marriage_parameter } 
+				}
+			}
+			has_character_modifier = mz_lesbian_union_concubines
+			has_character_modifier = mz_lesbian_union_polygamy
+			has_character_modifier = mz_lesbian_union_monogamy
+		}
+	}
+	effect = { mz_update_lesbian_marriage_effect = yes }
+}
+
+## After forming or expanding one of the Amazon kingdoms, the Amazons settle the lands. During the period where counties have the appropriate modifiers, some minor feed events may fire for holders of those counties.
+mz_amazon_settlement_on_action = {
+	trigger = { 
+		any_held_title = {
+			tier = tier_county
+			county = { has_county_modifier = mz_amazon_settlements_modifier }
+		}
+	}
+	random_events = {
+		800 = mz_amazon_settlements.0001 # Null event. Reduced chance of repeating each time it fires.
+		100 = mz_amazon_settlements.1000 # Amazons bring tribute. Better tribute for rulers of Amazonian culture. Only for women, the Amazons will not bring tribute to men.
+		20 = mz_amazon_settlements.1100 # Improved culture acceptance between Amazons and local culture.
+		20 = mz_amazon_settlements.1200 # County control goes up due to eliminating bandits and rif-raff
+		20 = mz_amazon_settlements.1300 # County culture converts to Amazonian culture, greatly reduced chance if ruler is not Amazonian
+		20 = mz_amazon_settlements.1400 # Culture clash reduces acceptance
+		20 = mz_amazon_settlements.1500 # Infighting reduces county control, higher chance if male ruler
+		20 = mz_amazon_settlements.1600 # Amazons invite you to join them to hunt game in a county, gives game sighting modifier. Only for women.
+		20 = mz_amazon_settlements.1700 # Amazons bring provisions, reducing the cost of your next feast. Only for women.
+		20 = mz_amazon_settlements.1800 # Amazons stimulate trade, increased development
+		20 = mz_amazon_settlements.1900 # Overhunting stifles development
+		20 = mz_amazon_settlements.2000 # Faith conversion
+	}
+}

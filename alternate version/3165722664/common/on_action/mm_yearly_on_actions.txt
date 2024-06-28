@@ -1,0 +1,34 @@
+﻿# Root is the character
+random_yearly_everyone_pulse = {
+	on_actions = { 
+		mz_childhood_sexuality_event
+		mz_lesbian_divinity_homosexual_update # Clergy of lesbian divinity should be homosexual is female
+	}
+}
+
+random_yearly_playable_pulse = {
+	on_actions = {
+		mz_lesbian_marriage_pulse # Let's try making this happen more often and see if it impacts performance very much
+		mz_lesbian_divintiy_broken_oath_pulse # The AI doesn't like using the character interaction for some reason, so we'll make it a pulse
+		mz_amazon_court_training_pulse # Amazon Training events
+	}
+}
+
+quarterly_playable_pulse = {
+	on_actions = { 
+		mz_court_eunuch_setup_on_action # Possible chief eunuch events
+		mz_amazon_settlement_on_action
+	}
+}
+
+three_year_playable_pulse = {
+	on_actions = { 
+		#mz_lesbian_marriage_pulse
+	}
+}
+
+yearly_global_pulse = {
+	on_actions = {
+		# Nothing here for now
+	}
+}

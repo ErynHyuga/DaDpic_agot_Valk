@@ -1,0 +1,55 @@
+﻿mz_childhood_sexuality_event = {
+	trigger = { #Triggers should limit to make sure this isn't triggering constantly for every character
+		any_child = {
+			is_imprisoned = no
+			is_adult = no
+			age >= 12
+			mz_lesbian_faith_devotee = yes
+			OR = {
+				has_sexuality = heterosexual
+				has_sexuality = asexual
+			}
+			is_alive = yes
+			NOT = { has_character_flag = mz_had_childhood_sexuality_event }
+		}
+		mz_lesbian_faith_devotee = yes
+		is_imprisoned = no
+		is_alive = yes
+	}
+
+	events = {
+		mz_childhood.0001 #This event sets up the events that can happen
+	}
+}
+
+mz_matiarchy_legacy_1_boost = {
+	trigger = {
+		is_female = yes
+		exists = dynasty
+		dynasty = { has_dynasty_perk = mz_matriarchy_legacy_1 }
+	}
+	events = { mz_childhood.5001 }
+}
+
+mz_matriarchy_modifier_assignment_birth = {
+	trigger = {
+		is_female = yes
+		exists = dynasty
+		dynasty = { has_dynasty_perk = mz_matriarchy_legacy_2 }
+	}
+	effect = {
+		trigger_event = { # Delay by 1 day to make sure effects trigger
+			days = 1
+			on_action = mz_matriarchy_modifier_assignment
+		}
+	}	
+}
+
+mz_matriarchy_modifier_assignment = {
+	trigger = {
+		is_female = yes
+		exists = dynasty
+		dynasty = { has_dynasty_perk = mz_matriarchy_legacy_2 }
+	}
+	effect = { mz_matriarchy_birth_add_modifier_effect = yes }
+}

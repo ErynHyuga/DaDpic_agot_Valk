@@ -1,0 +1,37 @@
+﻿mz_amazon_court_training_pulse = {
+	trigger = {
+		mz_has_amazon_rank_2 = yes # Alliance rank 2
+		any_courtier = { mz_amazon_warrior_trigger = yes } # Need a warrior to call to do the training
+	}
+
+	random_events = {
+		800 = mz_amazon_training.0001 # Null event, reduced chance of repeating
+		## Stat increasing events
+		200 = mz_amazon_training.1001 # Increased prowess
+		100 = mz_amazon_training.1002 # Increased martial
+		50 = mz_amazon_training.1003 # Increased diplomacy
+		50 = mz_amazon_training.1004 # Increased stewardship
+		50 = mz_amazon_training.1005 # Increased learning
+		## Trait gaining events
+		50 = mz_amazon_training.2001 # Herbalist trait
+		25 = mz_amazon_training.2002 # Loyal trait
+		50 = mz_amazon_training.2003 # Strong trait
+		25 = mz_amazon_training.2004 # Shrewd trait
+		50 = mz_amazon_training.2005 # Athletic trait
+		## Track EXP 
+		100 = mz_amazon_training.3001 # Hunter trait or EXP
+		100 = mz_amazon_training.3002 # Hastiluder trait or EXP
+		100 = mz_amazon_training.3003 # Blademaster trait or EXP
+		100 = mz_amazon_training.3004 # Traveler trait or EXP
+		## Trait swap event
+		25 = mz_amazon_training.4001 # Craven to Brave
+		25 = mz_amazon_training.4002 # Lazy to Diligent
+		25 = mz_amazon_training.4003 # Arbitrary to Just
+		## Commander trait event
+		100 = mz_amazon_training.5001
+		## Gain Amazon Warrior trait
+		15 = mz_amazon_training.6001
+		## Become wounded
+		15 = mz_amazon_training.7001
+	}
+}

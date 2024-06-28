@@ -1,0 +1,254 @@
+﻿# Called from random_yearly_everyone_pulse
+yearly_health_pulse = {
+	on_actions = { 
+		mz_lovers_pox_self_pulse
+		mz_lovers_pox_court_pulse
+	}
+}
+
+mz_lovers_pox_self_pulse = { # Simplified yearly on_action to simulate AI treating lover's pox (for rulers)
+	trigger = { 
+		has_trait = lovers_pox 
+		is_ai = yes
+	}
+	effect = {
+		save_scope_as = sick_character
+		random_list = {
+			60 = {
+				modifier = {
+					add = 20
+					short_term_gold >= minor_gold_value
+				}
+				every_spouse = {
+					limit = { has_std_trigger = yes }
+					add_character_modifier = rejected_from_marriage_bed_modifier				
+				}
+				every_concubine = { # Remove infected lovers/concubines/soulmates, or else the AI will just keep getting reinfected
+					limit = { has_std_trigger = yes }
+					save_temporary_scope_as = mz_infected_concubine
+					root = { remove_concubine = scope:mz_infected_concubine }
+				}
+				every_relation = {
+					type = lover
+					limit = { has_std_trigger = yes }
+					lover_breakup_effect = {
+						BREAKER = root
+						LOVER = this
+					}
+				}
+				every_relation = {
+					type = soulmate
+					limit = { has_std_trigger = yes }
+					remove_relation_soulmate = root
+					add_opinion = {
+						target = root
+						modifier = break_up_opinion
+					}
+				}
+				if = { 
+					limit = { gold >= minor_gold_value }
+					remove_short_term_gold = minor_gold_value
+					add_character_flag = {
+						flag = mz_paid_treatment
+						days = 5
+					}
+				}
+				if = { 
+					limit = { has_trait = lovers_pox }
+					remove_trait = lovers_pox
+					if = {
+						limit = { has_character_modifier = rejected_from_marriage_bed_modifier }
+						remove_character_modifier = rejected_from_marriage_bed_modifier
+						add_character_flag = {
+							flag = mz_removed_pox
+							days = 1100
+						}
+					}
+				}
+				if = {
+					limit = { court_physician_available_when_traveling_trigger = yes }
+					random_court_position_holder = {
+						type = court_physician_court_position
+						save_scope_as = mz_court_physician
+					}
+				}
+				random_list = {
+					40 = {
+						modifier = {
+							has_character_flag = mz_paid_treatment
+							add = 20
+						}
+						modifier = {
+							exists = scope:mz_court_physician
+							court_physician_available_when_traveling_trigger = yes
+							add = {
+								value = 0
+								add = scope:mz_court_physician.aptitude:court_physician_court_position
+								multiply = 10
+							}
+						}
+					}
+					60 = {
+						modifier = {
+							exists = scope:mz_court_physician
+							court_physician_available_when_traveling_trigger = yes
+							add = {
+								value = 0
+								add = scope:mz_court_physician.aptitude:court_physician_court_position
+								multiply = -10
+							}
+						}
+						trigger_event = {
+							id = mz_health.2010
+							days = 1095 # 3 years
+						}
+					}
+				}		
+			}
+			40 = { #No effect
+				modifier = {
+					add = -20
+					short_term_gold >= minor_gold_value
+				}
+			}
+		}
+		if = {
+			limit = { 
+				exists = scope:mz_court_physician 
+				court_physician_available_when_traveling_trigger = yes
+			}
+			scope:mz_court_physician = {
+				save_scope_as = physician
+				physician_level_up_chance_effect = { CHANCE = 10 }				
+			}
+		}		
+	}
+}
+
+mz_lovers_pox_court_pulse = { # Simplified yearly on_action to simulate AI treating lover's pox (for courtiers and guests)
+	trigger = { 
+		any_courtier_or_guest = {
+			has_trait = lovers_pox 
+			is_ai = yes
+		}	
+	}
+	effect = {
+		save_scope_as = mz_court_owner
+		if = {
+			limit = { court_physician_available_when_traveling_trigger = yes }
+			random_court_position_holder = {
+				type = court_physician_court_position
+				save_scope_as = mz_court_physician
+			}
+		}
+		every_courtier_or_guest = {
+			limit = { 
+				has_trait = lovers_pox 
+				is_ai = yes
+			}
+			save_scope_as = sick_character
+			random_list = {
+				60 = {
+					modifier = {
+						add = 20
+						short_term_gold >= minor_gold_value
+					}
+					every_spouse = {
+						limit = { has_std_trigger = yes }
+						add_character_modifier = rejected_from_marriage_bed_modifier				
+					}
+					every_concubine = { # Remove infected lovers/concubines/soulmates, or else the AI will just keep getting reinfected
+						limit = { has_std_trigger = yes }
+						save_temporary_scope_as = mz_infected_concubine
+						root = { remove_concubine = scope:mz_infected_concubine }
+					}
+					every_relation = {
+						type = lover
+						limit = { has_std_trigger = yes }
+						lover_breakup_effect = {
+							BREAKER = prev
+							LOVER = this
+						}
+					}
+					every_relation = {
+						type = soulmate
+						limit = { has_std_trigger = yes }
+						remove_relation_soulmate = root
+						add_opinion = {
+							target = root
+							modifier = break_up_opinion
+						}
+					}
+					if = { 
+						limit = { gold >= minor_gold_value }
+						remove_short_term_gold = minor_gold_value
+						add_character_flag = {
+							flag = mz_paid_treatment
+							days = 5
+						}
+					}
+					if = { 
+						limit = { has_trait = lovers_pox }
+						remove_trait = lovers_pox
+						if = {
+							limit = { has_character_modifier = rejected_from_marriage_bed_modifier }
+							remove_character_modifier = rejected_from_marriage_bed_modifier
+							add_character_flag = {
+								flag = mz_removed_pox
+								days = 1100
+							}
+						}
+					}
+					random_list = {
+						40 = {
+							modifier = {
+								scope:mz_court_owner = {  court_physician_available_when_traveling_trigger = yes }
+								exists = scope:mz_court_physician
+								add = {
+									value = 0
+									add = scope:mz_court_physician.aptitude:court_physician_court_position
+									multiply = 10
+								}
+							}
+							modifier = {
+								has_character_flag = mz_paid_treatment
+								add = 20
+							}
+						}
+						60 = {
+							modifier = {
+								scope:mz_court_owner = { court_physician_available_when_traveling_trigger = yes }
+								exists = scope:mz_court_physician
+								add = {
+									value = 0
+									add = scope:mz_court_physician.aptitude:court_physician_court_position
+									multiply = -10
+								}
+							}
+							trigger_event = {
+								id = mz_health.2010
+								days = 1095 # 3 years
+							}
+						}
+					}		
+				}
+				40 = { # No effect
+					modifier = {
+						add = -20
+						short_term_gold >= minor_gold_value
+					}
+				}		
+			}
+			if = {
+				limit = { 
+					exists = scope:mz_court_physician 
+					court_physician_available_when_traveling_trigger = yes
+				}
+				scope:mz_court_physician = {
+					save_scope_as = physician
+					physician_level_up_chance_effect = { CHANCE = 10 }				
+				}
+			}			
+		}
+	}
+}

@@ -1,0 +1,309 @@
+﻿## Faith Pulses
+
+# Code on-action: character changes faith. Not called when a character gets a faith on birth, creation, and similar
+# Root is the character
+# scope:old_faith is the faith they used to have
+on_character_faith_change = {
+	on_actions = {
+		mz_homosexual_spouses_update
+		mz_matriarchy_update
+		mz_lesbian_revelation_cleanup
+		mz_lesbian_divinity_cleanup
+		mz_update_divine_lovers_action
+		mz_remove_modifiers
+	}
+}
+
+# Code on-action: character creates a faith
+# Root is the creator
+# scope:old_faith is the faith they used to have
+on_faith_created = {
+	on_actions = { 
+		mz_lesbian_faith_creation 
+		mz_lesbian_faith_doctrine_cleanup
+		mz_lesbian_revelation_cleanup
+		mz_lesbian_faith_consort_doctrine
+		mz_homosexual_spouses_update
+		mz_remove_modifiers
+		mz_sacrifice_swap
+	}
+}
+
+mz_remove_modifiers = { # Catch-all for removing things that shouldn't be there
+	trigger = {
+		OR = {
+			has_character_modifier = mz_champion_of_hera
+			has_character_modifier = mz_friend_of_hera
+		}
+	}
+	effect = {
+		if = {
+			limit = { # Can keep modifier if same religion, otherwise discard
+				has_character_modifier = mz_champion_of_hera
+				NOT = { faith.religion = scope:old_faith.religion }
+			}
+			remove_character_modifier = mz_champion_of_hera
+		}
+		if = {
+			limit = { # Can keep modifier if same religion, otherwise discard
+				has_character_modifier = mz_friend_of_hera
+				NOT = { faith.religion = scope:old_faith.religion }
+			}
+			remove_character_modifier = mz_friend_of_hera
+		}
+	}
+}
+
+mz_lesbian_divinity_homosexual_update = {
+	trigger = {
+		faith = { has_doctrine_parameter = mz_lesbian_marriage_parameter }
+		is_clergy = yes
+		is_female = yes
+		NOT = { has_sexuality = homosexual }
+	}
+	effect = { set_sexuality = homosexual }
+}
+
+mz_lesbian_faith_creation = { # Lesbian faith creation requires certain parameters
+	trigger = {
+		faith = { mz_lesbian_faith = yes } # For faiths that consider lesbians sacred
+	}
+	effect = {
+		save_scope_as = mz_reformer
+		every_ruler = { # We set all female clergy to lesbian.
+			limit = { 
+				faith = scope:mz_reformer.faith
+			}
+			if = {
+				limit = { 
+					is_clergy = yes 
+					is_female = yes
+					NOT = { has_sexuality = homosexual }
+				}
+				set_sexuality = homosexual
+			}
+			every_courtier = {
+				limit = {
+					faith = scope:mz_reformer.faith
+					is_clergy = yes 
+					is_female = yes
+					NOT = { has_sexuality = homosexual }
+				}
+				set_sexuality = homosexual					
+			}
+		}
+	}
+}
+
+mz_lesbian_faith_doctrine_cleanup = { # Removes lesbian doctrine category if no option selected
+	trigger = {
+		faith = { has_doctrine = mz_doctrine_no_lesbian_doctrine }
+	}
+	effect = {
+		faith = { remove_doctrine = mz_doctrine_no_lesbian_doctrine } # Removes the doctrine from appearing in the Faith description.
+	}
+}
+
+# Lesbian divinity cleanup
+mz_lesbian_divinity_cleanup = { # If you change your faith, you lose the faith-specific faith traits and modifiers
+	trigger = { has_trait = mz_lesbian_divinity_trait }
+	effect = {
+		if = {
+			limit = {
+				NOT = { 
+					faith = { has_doctrine_parameter = mz_lesbian_devotion_parameter } 
+				}
+			}
+			mz_remove_all_lesdivinity_bonuses_effect = yes
+			if = {
+				limit = { has_variable = mz_eternal_devotion }
+				var:mz_eternal_devotion = {
+					mz_remove_all_lesdivinity_bonuses_effect = yes
+					if = {
+						limit = { has_variable = mz_eternal_devotion } 
+						remove_variable = mz_eternal_devotion
+					}
+				}
+				if = {
+					limit = {
+						has_relation_soulmate = var:mz_eternal_devotion
+					}
+					remove_relation_soulmate = var:mz_eternal_devotion # While the penalty is not quite as harsh as other circumstances, this will break your soulmate relationship.
+				}
+				remove_variable = mz_eternal_devotion
+			}
+		}
+	}
+}
+
+# Lesbian revelation cleanup
+mz_lesbian_revelation_cleanup = { # Will be used on death or faith change.
+	trigger = {
+		OR = {
+			AND = {
+				exists = scope:old_faith
+				scope:old_faith = { exists = var:mz_lesbian_revelation_variable }
+				scope:old_faith.var:mz_lesbian_revelation_variable = root
+			}
+			AND = {
+				faith = { exists = var:mz_lesbian_revelation_variable }
+				faith.var:mz_lesbian_revelation_variable = root
+			}
+		}
+	}
+	effect = { 
+		if = {
+			limit = { # If new faith is same religion as old faith, the revelation transfers to your new faith.
+				exists = scope:old_faith
+				scope:old_faith = { exists = var:mz_lesbian_revelation_variable }
+				scope:old_faith.var:mz_lesbian_revelation_variable = root
+				faith.religion = scope:old_faith.religion
+			}
+			scope:old_faith = { remove_variable = mz_lesbian_revelation_variable }
+			faith = {
+				set_variable = {
+					name = mz_lesbian_revelation_variable
+					value = root
+				}
+			}
+		}
+		else_if = { # Otherwise we remove the revelation.
+			limit = {
+				exists = scope:old_faith
+				scope:old_faith = { exists = var:mz_lesbian_revelation_variable }
+				scope:old_faith.var:mz_lesbian_revelation_variable = root
+			}
+			scope:old_faith = { remove_variable = mz_lesbian_revelation_variable }			
+		}
+		else_if = { # Catch for dead characters. Remove a revelation when the character dies.
+			limit = {
+				faith = { exists = var:mz_lesbian_revelation_variable }
+				faith.var:mz_lesbian_revelation_variable = root
+			}
+			faith = { remove_variable = mz_lesbian_revelation_variable }	
+		}
+	}
+}
+
+mz_lesbian_faith_consort_doctrine = { # Add or remove consort doctrine as appropriate
+	effect = {
+		if = {
+			limit = {
+				OR = {
+					faith = { has_doctrine_parameter = mz_lesbian_marriage_parameter }
+					faith = { has_doctrine_parameter = mz_homosexuality_embraced }
+					AND = {
+						has_game_rule = accepted_same_sex_marriage
+						faith = { has_doctrine_parameter = homosexuality_accepted }
+					}
+				}
+				faith = { has_doctrine = doctrine_monogamy }				
+			}
+			faith = { add_doctrine = mz_lesbian_marriage_consort_doctrine }
+		}
+	}
+}
+
+mz_lesbian_divintiy_broken_oath_pulse = { # If we've broken our Oath, the AI will probably call us on this.
+	trigger = {
+		has_variable = mz_eternal_devotion
+		var:mz_eternal_devotion = { is_ai = yes }
+		var:mz_eternal_devotion = {
+			OR = {
+				has_opinion_modifier = { 
+					target = root
+					modifier = betrayed_our_promise
+				}
+				has_opinion_modifier = { 
+					target = root
+					modifier = unfaithful_spouse_exposed_opinion
+				}
+				has_opinion_modifier = { 
+					target = root
+					modifier = unfaithful_spouse_discovered_opinion
+				}
+				has_opinion_modifier = {
+					target = root
+					modifier = lover_breakup_opinion
+				}
+			}
+		}
+		NOT = { 
+			faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active } 
+		}
+	}
+	effect = {
+		random = {
+			chance = {
+				value = 100
+				add = {
+					value = var:mz_eternal_devotion.calc_rough_root_opinion_value
+					multiply = -0.5
+				}
+				if = {
+					limit = {
+						NOT = { 
+							var:mz_eternal_devotion = { is_courtier_of = root }
+						}
+					}
+					add = 50
+				}
+			}
+			save_scope_as = mz_root
+			var:mz_eternal_devotion = {
+				save_scope_as = mz_dumper # This scope is used in the triggered event.
+				send_interface_toast = {
+					title = mz_break_eternal_devotion_interaction.accept.actor.tt
+					left_icon = scope:mz_root
+					reverse_add_opinion = {
+						target = scope:mz_root
+						modifier = rejected_opinion
+					}
+					## Hidden effect so that the modifiers don't show twice in the UI.
+					hidden_effect = {
+						show_as_tooltip = {
+							scope:actor = { 
+								mz_remove_all_lesdivinity_bonuses_effect = yes
+								if = {
+									limit = { 
+										OR = {
+											has_relation_soulmate = scope:mz_root
+											has_relation_lover = scope:mz_root
+										}
+									}
+									remove_lover_or_soulmate_relation_effect = { CHARACTER = scope:mz_root }
+								}
+							} 
+							scope:mz_root = { 
+								add_piety_level = -1
+								mz_remove_all_lesdivinity_bonuses_effect = yes 
+								add_character_modifier = {
+									modifier = mz_lesdivinity_broken_promise_modifier # Modifier prevents from using getting another bond for 20 years.
+									years = 20 # Recipient is blocked because they're the one that cheated.
+								}
+							}  
+						}
+					}
+				}			
+			}
+			trigger_event = mz_lover.0100
+		}
+	}
+}
+
+mz_sacrifice_swap = {
+	trigger = {
+		is_ai = no
+		faith.religion = religion:mz_heraionism_religion
+		OR = {
+			faith = { has_doctrine = tenet_human_sacrifice }
+			faith = { has_doctrine = tenet_gruesome_festivals }
+		}
+	}
+	effect = {
+		trigger_event = {
+			days = { 3 5 }
+			id = mz_doctrine_addition.0001
+		}
+	}
+}

@@ -1,0 +1,39 @@
+﻿#Chance for pregnancy when sleeping with consort
+mz_consort_sex_pregnancy_chance = {
+	value = 0
+	add = {
+		value = this.fertility
+		multiply = 100
+	}
+	add = {
+		value = scope:mz_court_consort.fertility
+		multiply = 100
+	}
+	multiply = 0.6 # Average fertility of both individuals, higher than normal chance since we're actively trying to get pregnant and are assumed to be taking measures
+	max = 100
+}
+
+#Chance for adopted child to be male/female
+mz_root_succession_law_gender_female_chance = {
+	if = {
+		limit = {
+			OR = {
+				has_realm_law = male_preference_law
+				has_realm_law = male_only_law
+			}	
+		}
+		add = 0
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_realm_law = female_preference_law
+				has_realm_law = female_only_law
+			}	
+		}
+		add = 100
+	}
+	else = {
+		add = 50
+	}
+}

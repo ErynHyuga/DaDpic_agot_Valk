@@ -1,0 +1,130 @@
+﻿####################################
+# Lover-related on actions
+####################################
+
+on_set_relation_lover = {
+	on_actions = {
+		mz_update_divine_lovers_action
+	}
+}
+
+on_remove_relation_lover = {
+	on_actions = {
+		delay = { days = 1 }
+		mz_update_divine_lovers_action
+	}
+}
+
+on_set_relation_soulmate = {
+	on_actions = {
+		mz_update_divine_lovers_action
+	}	
+}
+
+on_remove_relation_soulmate = {
+	on_actions = {
+		delay = { days = 1 }
+		mz_update_divine_lovers_action
+	}
+}
+
+mz_update_divine_lovers_action = {
+	trigger = {
+		OR = {
+			has_character_modifier = mz_divine_lovers_modifier
+			AND = { # Lesbian Divinity + Polyamory
+				is_female = yes
+				faith = { has_doctrine_parameter = mz_lesbian_synergy_parameter }
+				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
+			}
+		}
+	}
+	effect = {
+		if = { # Start by removing all modifiers.
+			limit = { has_character_modifier = mz_divine_lovers_modifier }
+			remove_all_character_modifier_instances = mz_divine_lovers_modifier			
+		}
+		if = {
+			limit = {
+				is_female = yes # We can add them back if we're a woman and faith meets the prerequisites.
+				faith = { has_doctrine_parameter = mz_lesbian_synergy_parameter }
+				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }				
+			}
+			every_relation = {
+				type = lover
+				limit = { is_female = yes }
+				add_to_list = mz_divine_lover_list
+			}
+			every_relation = {
+				type = soulmate
+				limit = { is_female = yes }
+				add_to_list = mz_divine_lover_list
+			}
+			if = { # If less than five female lovers, add one for every female lover.
+				limit = {
+					list_size = {
+						name = mz_divine_lover_list
+						value < 5
+					}
+				}
+				save_temporary_scope_as = mz_root
+				every_in_list = {
+					list = mz_divine_lover_list
+					scope:mz_root = { add_character_modifier = mz_divine_lovers_modifier }
+				}
+			}
+			else = { # Otherwise, add five instances of the modifier.
+				add_character_modifier = mz_divine_lovers_modifier
+				add_character_modifier = mz_divine_lovers_modifier
+				add_character_modifier = mz_divine_lovers_modifier
+				add_character_modifier = mz_divine_lovers_modifier
+				add_character_modifier = mz_divine_lovers_modifier
+			}	
+		}
+		if = {
+			limit = { exists = scope:target } # should prevent any infinite recursions
+			scope:target = { 
+				if = { # Start by removing all modifiers.
+					limit = { has_character_modifier = mz_divine_lovers_modifier }
+					remove_all_character_modifier_instances = mz_divine_lovers_modifier			
+				}
+				if = {
+					limit = {
+						is_female = yes # We can add them back if we're a woman and faith meets the prerequisites.
+						faith = { has_doctrine_parameter = mz_lesbian_synergy_parameter }
+						faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }				
+					}
+					every_relation = {
+						type = lover
+						limit = { is_female = yes }
+						add_to_list = mz_divine_lover_target_list
+					}
+					every_relation = {
+						type = soulmate
+						limit = { is_female = yes }
+						add_to_list = mz_divine_lover_target_list
+					}
+					if = { # If less than five female lovers, add one for every female lover.
+						limit = {
+							list_size = {
+								name = mz_divine_lover_target_list
+								value < 5
+							}
+						}
+						every_in_list = {
+							list = mz_divine_lover_target_list
+							scope:target = { add_character_modifier = mz_divine_lovers_modifier }
+						}
+					}
+					else = { # Otherwise, add five instances of the modifier.
+						add_character_modifier = mz_divine_lovers_modifier
+						add_character_modifier = mz_divine_lovers_modifier
+						add_character_modifier = mz_divine_lovers_modifier
+						add_character_modifier = mz_divine_lovers_modifier
+						add_character_modifier = mz_divine_lovers_modifier
+					}	
+				}
+			}
+		}
+	}
+}

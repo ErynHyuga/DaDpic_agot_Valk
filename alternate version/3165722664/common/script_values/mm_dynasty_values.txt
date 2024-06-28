@@ -1,0 +1,43 @@
+﻿######################
+# DYNASTY LEGACY STUFF
+######################
+
+mz_minor_matriarchy_claim_prestige_value = {
+	value = minor_prestige_value
+	multiply = 4
+}
+
+mz_medium_matriarchy_claim_prestige_value = {
+	value = mz_minor_matriarchy_claim_prestige_value
+	multiply = 2.5
+}
+
+mz_major_matriarchy_claim_prestige_value = {
+	value = mz_medium_matriarchy_claim_prestige_value
+	multiply = 2
+}
+
+mz_massive_matriarchy_claim_prestige_value = {
+	value = mz_major_matriarchy_claim_prestige_value
+	multiply = 3
+}
+
+mz_minor_matriarchy_claim_prestige_loss = {
+	value = 0
+	subtract = mz_minor_matriarchy_claim_prestige_value
+}
+
+mz_medium_matriarchy_claim_prestige_loss = {
+	value = 0
+	subtract = mz_medium_matriarchy_claim_prestige_value
+}
+
+mz_major_matriarchy_claim_prestige_loss = {
+	value = 0
+	subtract = mz_major_matriarchy_claim_prestige_value
+}
+
+mz_massive_matriarchy_claim_prestige_loss = {
+	value = 0
+	subtract = mz_massive_matriarchy_claim_prestige_value
+}

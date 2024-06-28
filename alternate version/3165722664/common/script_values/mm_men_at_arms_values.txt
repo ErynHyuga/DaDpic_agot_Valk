@@ -1,0 +1,279 @@
+﻿######################
+# Men-at-Arms Values #
+######################
+
+#########
+# Costs #
+#########
+@high_maint_mult = 3
+
+### Base Cost Values
+@skirmisher_recruitment_cost = 45
+@skirmisher_low_maint_cost = 0.15
+@skirmisher_high_maint_cost = @[skirmisher_low_maint_cost * high_maint_mult]
+
+@archers_recruitment_cost = 55
+@archers_low_maint_cost = 0.2
+@archers_high_maint_cost = @[archers_low_maint_cost * high_maint_mult]
+
+@pikemen_recruitment_cost = 75
+@pikemen_low_maint_cost = 0.3
+@pikemen_high_maint_cost = @[pikemen_low_maint_cost * high_maint_mult]
+
+@heavy_infantry_recruitment_cost = 90
+@heavy_infantry_low_maint_cost = 0.4
+@heavy_infantry_high_maint_cost = @[heavy_infantry_low_maint_cost * high_maint_mult]
+
+@light_cavalry_recruitment_cost = 85
+@light_cavalry_low_maint_cost = 0.35
+@light_cavalry_high_maint_cost = @[light_cavalry_low_maint_cost * high_maint_mult]
+
+@heavy_cavalry_recruitment_cost = 200
+@heavy_cavalry_low_maint_cost = 0.7
+@heavy_cavalry_high_maint_cost = @[heavy_cavalry_low_maint_cost * high_maint_mult]
+
+@siege_weapons_recruitment_cost = 60
+@siege_weapons_low_maint_cost = 0.1
+@siege_weapons_high_maint_cost = @[siege_weapons_low_maint_cost * high_maint_mult]
+
+### Amazon MAA
+mz_amazon_toxotai_recruitment_cost = @[archers_recruitment_cost * 1.6]
+mz_amazon_toxotai_low_maint_cost = @[archers_low_maint_cost * 1.5]
+mz_amazon_toxotai_high_maint_cost = @[archers_high_maint_cost * 1.5]
+
+mz_amazon_peltast_recruitment_cost = @[skirmisher_recruitment_cost * 1.4]
+mz_amazon_peltast_low_maint_cost = @[skirmisher_low_maint_cost * 1.4]
+mz_amazon_peltast_high_maint_cost = @[skirmisher_high_maint_cost * 1.4]
+
+mz_amazon_hoplites_recruitment_cost = @[heavy_infantry_recruitment_cost * 1.3]
+mz_amazon_hoplites_low_maint_cost = @[heavy_infantry_low_maint_cost * 1.3]
+mz_amazon_hoplites_high_maint_cost = @[heavy_infantry_high_maint_cost * 1.3]
+
+mz_amazon_hippotoxotai_recruitment_cost = @[skirmisher_recruitment_cost * 3]
+mz_amazon_hippotoxotai_low_maint_cost = @[skirmisher_low_maint_cost * 3]
+mz_amazon_hippotoxotai_high_maint_cost = @[skirmisher_high_maint_cost * 3]
+
+mz_amazon_hetairoi_recruitment_cost = @[heavy_cavalry_recruitment_cost * 1.2]
+mz_amazon_hetairoi_low_maint_cost = @[heavy_cavalry_low_maint_cost * 0.4]
+mz_amazon_hetairoi_high_maint_cost = @[heavy_cavalry_high_maint_cost * 0.4]
+
+mz_amazon_hetairoi_alliance_value = {
+	value = 2
+	if = {
+		limit = { highest_held_title_tier = tier_empire }
+		add = 4
+	}
+	else_if = {
+		limit = { highest_held_title_tier = tier_kingdom }
+		add = 3
+	}
+	else_if = {
+		limit = { highest_held_title_tier = tier_duchy }
+		add = 2		
+	}
+	if = {
+		limit = {
+			house ?= { has_house_modifier = mz_amazon_ruler_house_modifier }
+		}
+		add = 4
+	}
+}
+
+mz_amazon_peltast_alliance_value = {
+	value = 2
+	add = { 
+		value = sub_realm_size
+		divide = 5
+		round = yes
+		max = 18
+	}
+}
+
+mz_amazon_toxotai_alliance_value = {
+	value = mz_amazon_peltast_alliance_value
+	divide = 2
+	add = {
+		value = mz_amazon_hetairoi_alliance_value
+		divide = 2
+	}
+	subtract = 1
+	round = yes
+}
+
+mz_amazon_alliance_total_value = {
+	value = 0
+	add = {
+		value = mz_amazon_hetairoi_alliance_value
+		multiply = 50
+	}
+	add = {
+		value = mz_amazon_peltast_alliance_value
+		multiply = 100
+	}
+	add = {
+		value = mz_amazon_toxotai_alliance_value
+		multiply = 100
+	}
+}
+
+mz_amazon_warrior_count_value = {
+	value = 0
+	every_courtier = {
+		limit = { 
+			is_knight = yes
+			mz_amazon_character_trigger = yes 
+		}
+		add = 1
+	}
+	max = 10
+}
+
+mz_amazon_peltast_conquest_value = {
+	value = 5
+	add = { value = mz_amazon_warrior_count_value }
+}
+
+mz_amazon_toxotai_conquest_value = {
+	value = 5
+	add = {
+		value = mz_amazon_warrior_count_value
+		divide = 2
+	}
+	subtract = 1
+	round = yes
+}
+
+mz_amazon_hoplite_conquest_value = {
+	add = {
+		value = mz_amazon_warrior_count_value
+		divide = 2
+	}
+	add = 1
+	round = yes
+	min = 2
+}
+
+mz_amazon_hetairoi_conquest_value = {
+	value = 3
+	if = {
+		limit = {
+			dynasty = { dynasty_prestige >= 7 }
+		}
+		add = 4
+	}
+	else_if = {
+		limit = {
+			dynasty = { dynasty_prestige >= 4 }
+		}
+		add = 2
+	}
+
+	if = {
+		limit = { highest_held_title_tier = tier_empire }
+		add = 3
+	}
+	else_if = {
+		limit = { highest_held_title_tier = tier_kingdom }
+		add = 2
+	}
+	else_if = {
+		limit = { highest_held_title_tier = tier_duchy }
+		add = 1		
+	}
+}
+
+mz_amazon_conquest_total_value = {
+	value = 0
+	add = {
+		value = mz_amazon_hetairoi_conquest_value
+		multiply = 50
+	}
+	add = {
+		value = mz_amazon_peltast_conquest_value
+		multiply = 100
+	}
+	add = {
+		value = mz_amazon_toxotai_conquest_value
+		multiply = 100
+	}
+	add = {
+		value = mz_amazon_hoplite_conquest_value
+		multiply = 100
+	}
+}
+
+mz_amazon_peltast_mongol_war_value = {
+	value = 2
+	every_sub_realm_county = {
+		limit = { 
+			culture = { mz_is_amazonian_culture = yes }
+		}
+		add = 0.5
+	}
+	every_courtier = {
+		limit = {
+			mz_amazon_warrior_trigger = yes
+			NOT = { dynasty = court_owner.dynasty }
+		}
+		add = 0.5
+	}
+	max = 12
+}
+
+mz_amazon_toxotai_mongol_war_value = {
+	value = mz_amazon_peltast_mongol_war_value
+	divide = 2
+	round = yes
+	add = 2
+}
+
+mz_amazon_hoplite_mongol_war_value = {
+	value = mz_amazon_peltast_mongol_war_value
+	divide = 2
+	round = yes
+}
+
+mz_amazon_hetairoi_mongol_war_value = {
+	value = 3
+	if = {
+		limit = { mz_has_amazon_contact = yes }
+		add = 1
+	}
+	if = {
+		limit = { mz_has_amazon_rank_2 = yes }
+		add = 1
+	}
+	if = {
+		limit = { mz_has_amazon_rank_3 = yes }
+		add = 1
+	}
+	if = {
+		limit = { mz_has_amazon_rank_4 = yes }
+		add = 1
+	}
+	if = {
+		limit = { mz_has_amazon_rank_5 = yes }
+		add = 1
+	}
+	max = 8
+}
+
+mz_amazon_mongol_war_total_value = {
+	value = 0
+	add = {
+		value = mz_amazon_hetairoi_mongol_war_value
+		multiply = 50
+	}
+	add = {
+		value = mz_amazon_peltast_mongol_war_value
+		multiply = 100
+	}
+	add = {
+		value = mz_amazon_toxotai_mongol_war_value
+		multiply = 100
+	}
+	add = {
+		value = mz_amazon_hoplite_mongol_war_value
+		multiply = 100
+	}	
+}

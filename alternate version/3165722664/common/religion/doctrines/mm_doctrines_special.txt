@@ -1,0 +1,12 @@
+﻿mz_lesbian_marriage_consort_special_doctrine = { # Special consort doctrine
+	group = "special"
+	is_available_on_create = {
+		always = no
+	}
+
+	mz_lesbian_marriage_consort_doctrine = {
+		parameters = {
+			number_of_consorts = 1	
+		}
+	}	
+}

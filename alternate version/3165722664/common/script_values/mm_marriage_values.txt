@@ -1,0 +1,327 @@
+﻿mz_age_plus_20 = {
+	value = 0
+	add = age
+	add = 20
+}
+
+mz_wedding_cost_plus_value = {
+	value = ai_wedding_promise_gold_actor
+	add = major_gold_value
+}
+
+mz_lesbian_marriage_script_value = { # Used to determine attractiveness of candidates for lesbian marriage
+	value = 0
+	
+	if = { # Simplified alliance factors.
+		limit = {
+			NOR = {
+				is_allied_to = scope:mz_root
+				tier_difference = {
+					target = scope:mz_root
+					value <= 3
+				}
+			}
+			OR = {
+				AND = {
+					exists = liege
+					yields_alliance = {
+						candidate = scope:mz_root
+						target = liege
+						target_candidate = this
+					}
+				}
+				yields_alliance = {
+					candidate = scope:mz_root
+					target = this
+					target_candidate = this
+				}				
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					scope:mz_root = {
+						ai_diplomacy_stance = {
+							target = prev
+							stance = neutral
+						}
+					}
+					scope:mz_root = {
+						ai_diplomacy_stance = {
+							target = prev
+							stance = threat
+						}
+					}		
+				}
+			}
+			add = 40
+		}
+		else_if = {
+			limit = {
+				scope:mz_root = {
+					ai_diplomacy_stance = {
+						target = prev
+						stance = friend
+					}
+				}
+			}
+			add = 100
+		}
+		else_if = {
+			limit = {
+				scope:mz_root = {
+					ai_diplomacy_stance = {
+						target = prev
+						stance = enemy
+					}
+				}
+			}
+			add = -100
+		}
+		else = { add = 0 }
+	}
+
+	if = { # Tier differences.
+		limit = {
+			is_ruler = yes
+			scope:mz_root = { is_ruler = yes }
+		}
+		add = {
+			value = this.highest_held_title_tier
+			subtract = scope:mz_root.highest_held_title_tier
+			multiply = 30
+		}
+	}
+
+	if = { # Opinion modifiers
+		limit = {
+			scope:mz_root = {
+				opinion = {
+					target = prev
+					value < -20
+				}
+			}
+		}
+		add = -100
+	}
+	else_if = {
+		limit = {
+			scope:mz_root = {
+				opinion = {
+					target = prev
+					value < 0
+				}
+			}			
+		}
+		subtract = 80
+	}
+	else_if = {
+		limit = {
+			scope:mz_root = {
+				opinion = {
+					target = prev
+					value >= 100
+				}
+			}			
+		}
+		add = 50
+	}
+	else_if = {
+		limit = {
+			scope:mz_root = {
+				opinion = {
+					target = prev
+					value > 80
+				}
+			}			
+		}
+		add = 30
+	}
+	else_if = {
+		limit = {
+			scope:mz_root = {
+				opinion = {
+					target = prev
+					value > 50
+				}
+			}			
+		}
+		add = 20
+	}
+	else_if = {
+		limit = {
+			scope:mz_root = {
+				opinion = {
+					target = prev
+					value > 20
+				}
+			}			
+		}
+		add = 10
+	}
+
+	if = { # Trait compatibility
+		limit = {
+			trait_compatibility = {
+				target = scope:mz_root
+				value >= medium_positive_trait_compatibility
+			}
+		}
+		add = 50
+	}
+
+	if = { # Dynasty prestige concerns
+		limit = { is_lowborn = yes }
+		add = -25
+	}
+	else_if = {
+		limit = { 
+			exists = dynasty
+			NOT = { dynasty = { dynasty_prestige_level = 1 } } #Would equal a value of 0, so we hide it			
+		}
+		add = {
+			value = dynasty.dynasty_prestige_level
+			multiply = 5
+			subtract = 5 #At 0 dynasty prestige level, there should be a penalty
+		}
+	}
+
+	if = { # Faith hostility
+		limit = {
+			faith = {
+				faith_hostility_level = {
+					target = scope:mz_root.faith
+					value > faith_fully_accepted_level
+				}
+			}
+		}
+		add = {
+			value = -10
+			if = {
+				limit = {
+					faith = {
+						faith_hostility_level = {
+							target = scope:mz_root.faith
+							value > faith_astray_level
+						}
+					}
+				}
+				subtract = 15
+			}
+		}
+	}
+
+	if = { # Family concerns
+		limit = {
+			NOT = {
+				faith = {
+					faith_allows_marriage_consanguinity_trigger = { CHARACTER_1 = scope:mz_root CHARACTER_2 = this }
+				}
+			}
+		}
+		add = -1000
+	}
+	else_if = {
+		limit = { 
+			is_close_family_of = scope:mz_root
+			scope:mz_root = {
+				faith = { has_doctrine_parameter = divine_marriage_piety_gain_active }
+			}
+		}
+		add = 100
+	}
+
+	if = { # Age
+		limit = { # Target is 20 years older than mz_root age
+			age >= scope:mz_root.mz_age_plus_20
+		}
+		add = {
+			value = 0
+			add = age
+			subtract = scope:mz_root.age
+			multiply = -3
+			max = 200
+		}
+	}
+	else_if = { # mz_root age is 20 years older than target
+		limit = { scope:mz_root.age >= this.mz_age_plus_20 }
+		add = {
+			value = 0 
+			add = scope:mz_root.age
+			subtract = age
+			multiply = -3
+			max = 200
+		}
+	}
+
+	if = { # Inspiration
+		limit = { 
+			exists = inspiration
+			has_completed_inspiration = no
+		}
+		add = -100
+	}
+
+	if = { # Relations
+		limit = { has_relation_soulmate = scope:mz_root }
+		add = 200
+	}
+	else_if = {
+		limit = { has_relation_lover = scope:mz_root }
+		add = 150
+	}
+	if = {
+		limit = { has_relation_best_friend = scope:mz_root }
+		add = 100
+	}
+	else_if = {
+		limit = { has_relation_friend = scope:mz_root }
+		add = 50
+	}
+
+	if = { # Less likely to marry own landed vassals
+		limit = {
+			exists = liege
+			is_landed = yes
+			OR = {
+				liege = scope:mz_root
+				top_liege = scope:mz_root				
+			}
+		}
+		add = -200
+	}
+
+	if = { # Weight up unlanded courtiers that are not an heir
+		limit = { 
+			is_landed = no
+			any_heir_title = { count = 0 }
+		}
+		add = 200
+	}
+
+	if = { # Less likely to marry unlanded heirs -- this works better if they get land first
+		limit = {
+			is_landed = no
+			exists = liege
+			player_heir_position = { #0, 1, 2 = the first three player heirs in succession line.
+				value <= 2
+				target = this.liege
+			}
+		}
+		multiply = 0.25
+	}
+
+	if = { # Prefer unlanded spouses
+		limit = { 
+			is_landed = yes
+			is_independent_ruler = yes
+		}
+		multiply = 0.5
+	}
+	else_if = { # Prefer unlanded spouses
+		limit = { 
+			is_landed = yes
+		}
+		multiply = 0.25
+	}
+}

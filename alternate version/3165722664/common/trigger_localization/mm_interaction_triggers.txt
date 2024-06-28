@@ -1,0 +1,68 @@
+﻿mz_same_faith_required = {
+	global_not = mz_same_faith_required
+}
+
+mz_need_min_prowess = {
+	global_not = mz_need_min_prowess
+}
+
+mz_not_negative_health = {
+	global_not = mz_not_negative_health
+}
+
+mz_not_dishonorable = {
+	global_not = mz_not_dishonorable
+}
+
+mz_not_craven = {
+	global_not = mz_not_craven
+}
+
+mz_convert_blocked = {
+	first_not = MZ_I_AM_BLOCKED_FROM_CONVERTING_THIS_CHARACTER
+}
+
+mz_convert_cooldown = {
+	first_not = MZ_CONVERT_COOLDOWN_TRIGGER
+}
+
+mz_ban_from_marriage_bed_interaction_requirements_trigger = {
+	global_not = mz_ban_from_marriage_bed_interaction_requirements
+}
+
+mz_welcome_to_marriage_bed_interaction_requirements_trigger = {
+	global_not = mz_welcome_to_marriage_bed_interaction_requirements
+}
+
+mz_already_bought_kingdom_claim = {
+	global_not = MZ_ALREADY_BOUGHT_LIFETIME_KINGDOM_CLAIM
+}
+
+mz_emperor_cant_buy_empire = {
+	global_not = MZ_EMPEROR_CANNOT_BUY_EMPIRE_CLAIM
+}
+
+mz_has_correct_crown_authority = {
+	first_not = MZ_REQUIRES_CROWN_TRIBAL_AUTHORITY_2
+}
+
+mz_straighten_out_blocked = {
+	first = mz_straighten_out_blocked
+}
+
+mz_offer_eunuch_failure_desc = {
+	first_not = mz_offer_eunuch_failure_desc
+	global_not = mz_offer_eunuch_failure_desc
+}
+
+mz_not_heir_to_any_title_text = {
+	global_not = mz_not_heir_to_any_title_text
+}
+
+mz_recipient_hates_secondary_actor_desc = {
+	global_not = mz_recipient_hates_secondary_actor_desc
+}
+
+mz_recipient_faith_hostility_desc = {
+	global_not = mz_recipient_faith_hostility_desc
+}

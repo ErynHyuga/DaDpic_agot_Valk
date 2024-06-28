@@ -1,0 +1,925 @@
+﻿### Effects used in Lesbian Orgy activity
+
+## Sex Effect Adds Opinion
+mz_lesorgy_had_sex_effect = {
+	save_temporary_scope_as = root_character
+	$CHARACTER$ = { save_scope_as = mz_had_sex_with_effect_partner }
+	if = {
+		limit = { 
+			NOT = { this = root }
+		}
+		save_scope_as = mz_had_sex_third_person
+	}
+
+	hidden_effect = { 
+		had_sex_with_effect = {
+			CHARACTER = scope:mz_had_sex_with_effect_partner
+			PREGNANCY_CHANCE = 0 #No pregnancies possible during lesbian orgy
+		}
+		reverse_add_opinion = {
+			target = scope:mz_had_sex_with_effect_partner
+			modifier = mz_had_sex_at_orgy_opinion
+		}
+		add_opinion = {
+			target = scope:mz_had_sex_with_effect_partner
+			modifier = mz_had_sex_at_orgy_opinion
+		}
+	}
+
+	if = {
+		limit = { this = root }
+		custom_tooltip = mz_had_sex_with_effect.first_person.tt
+	}
+	else_if = {
+		limit = { root = scope:had_sex_with_effect_partner }
+		custom_tooltip = mz_had_sex_with_effect.other_person.tt
+	}
+	else = {
+		custom_tooltip = mz_had_sex_with_effect.third_person.tt
+	}
+}
+
+## Big Orgy Sex Effect
+mz_main_event_orgy_effect = {
+	scope:activity = {
+		random_attending_character = {
+			limit = { 
+				mz_lesorgy_participant_trigger = yes
+			}
+			weight = {
+				base = 10
+				modifier = {
+					has_opinion_modifier = {
+						modifier = mz_had_sex_at_orgy_opinion
+						target = root
+					}
+					factor = 0.1
+				}
+			}
+			save_scope_as = mz_sex_partner_1
+		}
+		if = {
+			limit = { exists = scope:mz_sex_partner_1 }
+			random_attending_character = {
+				limit = {
+					mz_lesorgy_participant_trigger = yes
+					NOT = { this = scope:mz_sex_partner_1 }
+				}
+				weight = {
+					base = 10
+					modifier = {
+						has_opinion_modifier = {
+							modifier = mz_had_sex_at_orgy_opinion
+							target = root
+						}
+						factor = 0.1
+					}
+				}
+				save_scope_as = mz_sex_partner_2
+			}
+		}
+		if = {
+			limit = { exists = scope:mz_sex_partner_2 }
+			random_attending_character = {
+				limit = { 
+					mz_lesorgy_participant_trigger = yes
+					NOR = { 
+						this = scope:mz_sex_partner_1 
+						this = scope:mz_sex_partner_2
+					}
+				}
+				weight = {
+					base = 10
+					modifier = {
+						has_opinion_modifier = {
+							modifier = mz_had_sex_at_orgy_opinion
+							target = root
+						}
+						factor = 0.1
+					}
+				}
+				save_scope_as = mz_sex_partner_3
+			}
+		}
+		if = {
+			limit = { exists = scope:mz_sex_partner_3 }
+			random = {
+				chance = 50
+				random_attending_character = {
+					limit = { 
+						mz_lesorgy_participant_trigger = yes
+						NOR = { 
+							this = scope:mz_sex_partner_1 
+							this = scope:mz_sex_partner_2
+							this = scope:mz_sex_partner_3
+						}
+					}
+					weight = {
+						base = 10
+						modifier = {
+							has_opinion_modifier = {
+								modifier = mz_had_sex_at_orgy_opinion
+								target = root
+							}
+							factor = 0.1
+						}
+					}
+					save_scope_as = mz_sex_partner_4
+				}
+			}
+		}
+		if = {
+			limit = { exists = scope:mz_sex_partner_4 }
+			random = {
+				chance = 50
+				random_attending_character = {
+					limit = { 
+						mz_lesorgy_participant_trigger = yes
+						NOR = { 
+							this = scope:mz_sex_partner_1 
+							this = scope:mz_sex_partner_2
+							this = scope:mz_sex_partner_3
+							this = scope:mz_sex_partner_4
+						}
+					}
+					weight = {
+						base = 10
+						modifier = {
+							has_opinion_modifier = {
+								modifier = mz_had_sex_at_orgy_opinion
+								target = root
+							}
+							factor = 0.1
+						}
+					}
+					save_scope_as = mz_sex_partner_5
+				}
+			}
+		}
+	}
+	if = {
+		limit = { exists = scope:mz_sex_partner_1 }
+		mz_lesorgy_had_sex_effect = { CHARACTER = scope:mz_sex_partner_1 }
+	}
+	if = {
+		limit = { exists = scope:mz_sex_partner_2 }
+		mz_lesorgy_had_sex_effect = { CHARACTER = scope:mz_sex_partner_2 }
+	}
+	if = {
+		limit = { exists = scope:mz_sex_partner_3 }
+		mz_lesorgy_had_sex_effect = { CHARACTER = scope:mz_sex_partner_3 }
+	}
+	if = {
+		limit = { exists = scope:mz_sex_partner_4 }
+		mz_lesorgy_had_sex_effect = { CHARACTER = scope:mz_sex_partner_4 }
+	}
+	if = {
+		limit = { exists = scope:mz_sex_partner_5 }
+		mz_lesorgy_had_sex_effect = { CHARACTER = scope:mz_sex_partner_5 }
+	}
+}
+
+## Threesome possibility calcualtr
+mz_threesome_possible_1character_effect = {
+	if = {
+		limit = { $CHARACTER$ = { has_trait = lustful } }
+		change_variable = {
+			name = mz_possible_threesome
+			add = 1
+		}
+	}
+	if = {
+		limit = { $CHARACTER$ = { has_trait = rakish } }
+		change_variable = {
+			name = mz_possible_threesome
+			add = 1
+		}
+	}
+	if = {
+		limit = { $CHARACTER$ = { mz_lesbian_faith_devotee = yes } }
+		change_variable = {
+			name = mz_possible_threesome
+			add = 1
+		}
+	}
+	if = {
+		limit = { attraction > 0 }
+		change_variable = {
+			name = mz_possible_threesome
+			add = 1
+		}
+	}
+	if = {
+		limit = { attraction < 0 }
+		change_variable = {
+			name = mz_possible_threesome
+			subtract = 2
+		}
+	}
+	if = {
+		limit = { has_trait = seducer }
+		change_variable = {
+			name = mz_possible_threesome
+			add = 100
+		}
+	}
+	if = {
+		limit = { has_focus = intrigue_temptation_focus }
+		change_variable = {
+			name = mz_possible_threesome
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			reverse_opinion = {
+				target = $CHARACTER$
+				value >= 50
+			}
+		}
+		change_variable = {
+			name = mz_possible_threesome
+			add = 1
+		}
+	}
+}
+
+## Clear blockers
+mz_lesorgy_activity_clear_blockers = {
+	save_scope_as = mz_temp_char
+	scope:activity = {
+		every_attending_character = {
+			limit = {
+				has_opinion_modifier = {
+					modifier = mz_had_sex_at_orgy_opinion
+					target = scope:mz_temp_char
+				}
+			}
+			remove_opinion = {
+				modifier = mz_had_sex_at_orgy_opinion
+				target = scope:mz_temp_char
+			}
+		}
+		every_attending_character = {
+			limit = {
+				has_variable = mz_possible_threesome
+			}
+			remove_variable = mz_possible_threesome
+		}
+	}
+}
+
+## Stress reduction from debauche
+mz_lesorgy_stress_impact = {
+	if = {
+		limit = { has_trait = chaste } # Chaste does not lose stress from orgies or sex.
+		custom_tooltip = mz_lesorgy_chaste_stress_impact
+		stress_impact = {
+			shy = activity_stress_gain_impact
+			reclusive = activity_stress_gain_impact
+			paranoid = activity_stress_gain_impact
+		}
+	}
+	else_if = { # Affected by servants and food.
+		limit = {
+			scope:activity.activity_host = {
+				has_royal_court = yes
+				mz_servants_food_value >= 9
+			}
+		}
+		stress_impact = {
+			base = exotic_feast_stress_loss_value
+			lustful = feast_stress_loss_value
+			rakish = feast_stress_loss_value
+			gregarious = feast_stress_loss_value
+			lifestyle_reveler = feast_stress_loss_value
+			mz_lifestyle_lesorgy = feast_stress_loss_value
+			drunkard = feast_stress_loss_value
+			shy = activity_stress_gain_impact
+			reclusive = activity_stress_gain_impact
+			paranoid = activity_stress_gain_impact
+		}
+	}
+	else_if = {
+		limit = {
+			scope:activity.activity_host = {
+				has_royal_court = yes
+				mz_servants_food_value >= 7
+			}
+		}
+		stress_impact = {
+			base = lavish_feast_stress_loss_value
+			lustful = feast_stress_loss_value
+			rakish = feast_stress_loss_value
+			gregarious = feast_stress_loss_value
+			lifestyle_reveler = feast_stress_loss_value
+			mz_lifestyle_lesorgy = feast_stress_loss_value
+			drunkard = feast_stress_loss_value
+			shy = activity_stress_gain_impact
+			reclusive = activity_stress_gain_impact
+			paranoid = activity_stress_gain_impact
+		}
+	}
+	else_if = {
+		limit = {
+			scope:activity.activity_host = {
+				has_royal_court = yes
+				mz_servants_food_value >= 5
+			}
+		}
+		stress_impact = {
+			base = medium_feast_stress_loss_value
+			lustful = feast_stress_loss_value
+			rakish = feast_stress_loss_value
+			gregarious = feast_stress_loss_value
+			lifestyle_reveler = feast_stress_loss_value
+			mz_lifestyle_lesorgy = feast_stress_loss_value
+			drunkard = feast_stress_loss_value
+			shy = activity_stress_gain_impact
+			reclusive = activity_stress_gain_impact
+			paranoid = activity_stress_gain_impact
+		}
+	}
+	else_if = {
+		limit = {
+			scope:activity.activity_host = {
+				has_royal_court = yes
+				mz_servants_food_value <= 2
+			}
+		}
+		stress_impact = {
+			base = meager_feast_stress_loss_value
+			lustful = feast_stress_loss_value
+			rakish = feast_stress_loss_value
+			gregarious = feast_stress_loss_value
+			lifestyle_reveler = feast_stress_loss_value
+			mz_lifestyle_lesorgy = feast_stress_loss_value
+			drunkard = feast_stress_loss_value
+			shy = activity_stress_gain_impact
+			reclusive = activity_stress_gain_impact
+			paranoid = activity_stress_gain_impact
+		}
+	}
+	else = { # Basic impact, if middling value or no RC
+		stress_impact = {
+			base = feast_stress_loss_value
+			lustful = activity_stress_loss_impact
+			rakish = activity_stress_loss_impact
+			gregarious = activity_stress_loss_impact
+			lifestyle_reveler = activity_stress_loss_impact
+			mz_lifestyle_lesorgy = activity_stress_loss_impact
+			drunkard = activity_stress_loss_impact
+			shy = activity_stress_gain_impact
+			reclusive = activity_stress_gain_impact
+			paranoid = activity_stress_gain_impact
+		}
+	}
+}
+
+## Prestige gain effect
+mz_lesorgy_host_prestige_gain_effect = {
+	add_prestige = { # Prestige gain affected by lodging and fashion
+		value = medium_prestige_gain
+		if = {
+			limit = {
+				has_royal_court = yes
+				mz_lodging_fashion_value >= 9
+			}
+			multiply = 1.75
+		}
+		else_if = {
+			limit = {
+				has_royal_court = yes
+				mz_lodging_fashion_value >= 7
+			}
+			multiply = 1.5
+		}
+		else_if = {
+			limit = {
+				has_royal_court = yes
+				mz_lodging_fashion_value >= 5
+			}
+			multiply = 1.25
+		}
+		else_if = {
+			limit = {
+				has_royal_court = yes
+				mz_lodging_fashion_value <= 2
+			}
+			multiply = 0.5
+		}
+		divide = 10
+		round = yes
+		multiply = 10
+	}	
+}
+
+## Disburse all the rewards with nested effects
+mz_disburse_lesorgy_activity_rewards = { # This should be used once, by the host. Host is root.
+	# for the loc
+	save_scope_as = root_scope
+	
+	# Prestige (affected by fashion and lodging amenities, for host)
+	if = {
+		limit = {
+			has_royal_court = yes
+			mz_lodging_fashion_value >= 9
+		}
+		scope:activity = {
+			add_activity_log_entry = {
+				key = mz_prestige_reward_magnificent
+				tags = { completed }
+				character = scope:root_scope
+				show_in_conclusion = yes
+				score = 50
+				prev = { mz_lesorgy_host_prestige_gain_effect = yes }
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_royal_court = yes
+			mz_lodging_fashion_value >= 7
+		}
+		scope:activity = {
+			add_activity_log_entry = {
+				key = mz_prestige_reward_excellent
+				tags = { completed }
+				character = scope:root_scope
+				show_in_conclusion = yes
+				score = 50
+				prev = { mz_lesorgy_host_prestige_gain_effect = yes }
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_royal_court = yes
+			mz_lodging_fashion_value >= 5
+		}
+		scope:activity = {
+			add_activity_log_entry = {
+				key = mz_prestige_reward_good
+				tags = { completed }
+				character = scope:root_scope
+				show_in_conclusion = yes
+				score = 50
+				prev = { mz_lesorgy_host_prestige_gain_effect = yes }
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_royal_court = yes
+			mz_lodging_fashion_value <= 2
+		}
+		scope:activity = {
+			add_activity_log_entry = {
+				key = mz_prestige_reward_bad
+				tags = { completed }
+				character = scope:root_scope
+				show_in_conclusion = yes
+				score = 50
+				prev = { mz_lesorgy_host_prestige_gain_effect = yes }
+			}
+		}
+	}
+	else = {
+		scope:activity = {
+			add_activity_log_entry = {
+				key = mz_prestige_reward_normal
+				tags = { completed }
+				character = scope:root_scope
+				show_in_conclusion = yes
+				score = 50
+				prev = { mz_lesorgy_host_prestige_gain_effect = yes }
+			}
+		}
+	}
+
+	# Opinion (affected by luxuries option and musician, for every attendee towards host)
+	if = {
+		limit = {
+			scope:activity = {
+				has_activity_option = {
+					category = mz_lesorgy_option_luxuries
+					option = mz_lesorgy_luxuries_good
+				}
+			}
+		}
+		scope:activity = {
+			add_activity_log_entry = {
+				key = mz_luxuries_good_reward_tt
+				tags = { completed }
+				character = scope:root_scope
+				show_in_conclusion = yes
+				score = 50
+				
+				# Effects
+				root = {
+					# Host Rewards
+					scope:activity = {
+						every_attending_character = {
+							limit = {
+								NOT = { this = root }
+							}
+							custom = custom.every_attending_character
+							if = {
+								limit = {
+									root = {
+										employs_court_position = court_musician_court_position
+										any_court_position_holder = {
+											type = court_musician_court_position
+											is_physically_able = yes
+										}
+									}
+								}
+								root = {
+									random_court_position_holder = {
+										type = court_musician_court_position
+										limit = {
+											is_physically_able = yes
+										}
+										save_scope_as = mz_lesorgy_court_musician
+									}
+								}
+								add_opinion = {
+									modifier = mz_hosted_orgy_opinion
+									target = root
+									opinion = mz_court_musician_good_bonus_value 
+								}
+							}
+							else = { #Baseline
+								add_opinion = {
+									modifier = mz_hosted_orgy_opinion
+									target = root
+									opinion = 20
+								}
+							}							
+						}						
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			scope:activity = {
+				has_activity_option = {
+					category = mz_lesorgy_option_luxuries
+					option = mz_lesorgy_luxuries_normal
+				}
+			}
+		}
+		scope:activity = {
+			add_activity_log_entry = {
+				key = mz_luxuries_normal_reward_tt
+				tags = { completed }
+				character = scope:root_scope
+				show_in_conclusion = yes
+				score = 50
+				
+				# Effects
+				root = {
+					# Host Rewards
+					scope:activity = {
+						every_attending_character = {
+							limit = {
+								NOT = { this = root }
+							}
+							custom = custom.every_attending_character
+							if = {
+								limit = {
+									root = {
+										employs_court_position = court_musician_court_position
+										any_court_position_holder = {
+											type = court_musician_court_position
+											is_physically_able = yes
+										}
+									}
+								}
+								root = {
+									random_court_position_holder = {
+										type = court_musician_court_position
+										limit = {
+											is_physically_able = yes
+										}
+										save_scope_as = mz_lesorgy_court_musician
+									}
+								}
+								add_opinion = {
+									modifier = mz_hosted_orgy_opinion
+									target = root
+									opinion = mz_court_musician_medium_bonus_value 
+								}
+							}
+							else = { #Baseline
+								add_opinion = {
+									modifier = mz_hosted_orgy_opinion
+									target = root
+									opinion = 15
+								}
+							}
+						}						
+					}
+				}
+			}
+		}
+	}
+	else = {
+		limit = {
+			scope:activity = {
+				has_activity_option = {
+					category = mz_lesorgy_option_luxuries
+					option = mz_lesorgy_luxuries_bad
+				}
+			}
+		}
+		scope:activity = {
+			add_activity_log_entry = {
+				key = mz_luxuries_bad_reward_tt
+				tags = { completed }
+				character = scope:root_scope
+				show_in_conclusion = yes
+				score = 50
+				
+				# Effects
+				root = {
+					# Host Rewards
+					scope:activity = {
+						every_attending_character = {
+							limit = {
+								NOT = { this = root }
+							}
+							custom = custom.every_attending_character
+							if = {
+								limit = {
+									root = {
+										employs_court_position = court_musician_court_position
+										any_court_position_holder = {
+											type = court_musician_court_position
+											is_physically_able = yes
+										}
+									}
+								}
+								root = {
+									random_court_position_holder = {
+										type = court_musician_court_position
+										limit = {
+											is_physically_able = yes
+										}
+										save_scope_as = mz_lesorgy_court_musician
+									}
+								}
+								add_opinion = {
+									modifier = mz_hosted_orgy_opinion
+									target = root
+									opinion = mz_court_musician_bad_bonus_value 
+								}
+							}
+							else = { #Baseline
+								add_opinion = {
+									modifier = mz_hosted_orgy_opinion
+									target = root
+									opinion = 10
+								}
+							}							
+						}						
+					}
+				}
+			}
+		}
+	}
+
+	# Fervor (Sapphic Exaltation doctrine)
+	if = {
+		limit = { 
+			faith = { has_doctrine_parameter = mz_lesorgy_fervor_gain }
+			has_character_flag = mz_lesorgy_size_large
+		}
+		scope:activity.activity_location = { save_scope_as = mz_orgy_location }
+		faith = {
+			change_fervor = {
+				value = 1
+				desc = mz_fervor_gain_large_orgy
+			}
+		}
+	}
+
+	# Other effects (possibly remove non-genetic depression)
+	hidden_effect = {
+		scope:activity = {
+			every_attending_character = {
+				limit = { has_trait = depressed_1 }
+				random = {
+					chance = 50
+					remove_trait = depressed_1
+				}
+			}
+		}
+	}
+
+	# Now we go to normal rewards
+	mz_hosted_successful_lesorgy_effect = yes
+	# Lesbian Debauchess rewards
+	mz_lifestyle_lesorgy_reward_effect = yes
+}
+
+## Standard effect for host
+mz_hosted_successful_lesorgy_effect = {
+	# Renown
+	if = {
+		limit = {
+			culture = { has_cultural_parameter = renown_from_feasts }
+			exists = dynasty
+		}
+		dynasty = { add_dynasty_prestige = minor_dynasty_prestige_value }
+	}
+
+	# Piety gain
+	if = {
+		limit = { 
+			faith = { has_doctrine_parameter = mz_lesorgy_piety_gain_or_loss }
+		}
+		add_piety = {
+			value = medium_piety_value
+			if = {
+				limit = {
+					has_royal_court = yes
+					mz_lodging_fashion_value >= 9
+				}
+				multiply = 2.5
+			}
+			else_if = {
+				limit = {
+					has_royal_court = yes
+					mz_lodging_fashion_value >= 7
+				}
+				multiply = 2
+			}
+			else_if = {
+				limit = {
+					has_royal_court = yes
+					mz_lodging_fashion_value >= 5
+				}
+				multiply = 1.5
+			}
+			else_if = {
+				limit = {
+					has_royal_court = yes
+					mz_lodging_fashion_value <= 2
+				}
+				multiply = 0.5
+			}
+		}
+	}
+
+	# County development
+	scope:activity_location.county = {
+		add_county_modifier = {
+			modifier = mz_lesorgy_recent_debauch_modifier
+			years = 5
+		}
+		if = {
+			limit = {
+				development_level < 100
+				scope:activity.activity_location.culture = { has_cultural_parameter = mz_hedonist_bonus } # Hedonist bonus
+			}
+			change_development_level = 1
+		}
+	}	
+}
+
+## Lifestyle progress
+mz_lifestyle_lesorgy_reward_effect = {
+	if = {
+		limit = {
+			has_trait = mz_lifestyle_lesorgy
+			scope:activity = {
+				has_activity_option = {
+					category = mz_lesorgy_option_entertainment
+					option = mz_lesorgy_entertainment_good
+				}
+			}
+			scope:activity = {
+				has_activity_option = {
+					category = mz_lesorgy_option_luxuries
+					option = mz_lesorgy_luxuries_good
+				}
+			}
+		}
+		add_trait_xp = {
+			trait = mz_lifestyle_lesorgy
+			value = 15
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = mz_lifestyle_lesorgy
+			scope:activity = {
+				has_activity_option = {
+					category = mz_lesorgy_option_luxuries
+					option = mz_lesorgy_luxuries_good
+				}
+			}
+		}
+		add_trait_xp = {
+			trait = mz_lifestyle_lesorgy
+			value = 10
+		}
+	}
+	else_if = {
+		limit = {
+			has_trait = mz_lifestyle_lesorgy
+			scope:activity = {
+				has_activity_option = {
+					category = mz_lesorgy_option_entertainment
+					option = mz_lesorgy_entertainment_good
+				}
+			}
+		}
+		add_trait_xp = {
+			trait = mz_lifestyle_lesorgy
+			value = 10
+		}
+	}
+	else_if = {
+		limit = { has_trait = mz_lifestyle_lesorgy }
+		add_trait_xp = {
+			trait = mz_lifestyle_lesorgy
+			value = 5
+		}
+	}
+	else = { #progress towards debauchess
+		custom_tooltip = {
+			text = mz_progress_towards_debauchess_tt
+			mz_lifestyle_lesorgy_points_gain_effect = {
+				CHANGE = 1
+				RANDOM_CHANGE = 1
+			}
+		}
+	}
+}
+
+## Remove certain negative effects (mood boost)
+mz_lesorgy_cleansing_effect = {
+	if = {
+		limit = { has_trait = depressed_1 }
+		random = {
+			chance = 50
+			remove_trait = depressed_1 # non-genetic variant
+		}
+	}
+	if = {
+		limit = { 
+			has_character_modifier = stress_frozen_grief
+		}
+		random = {
+			chance = 50
+			remove_character_modifier = stress_frozen_grief
+		}
+	}
+	if = {
+		limit = { 
+			has_character_modifier = stress_managed_grief
+		}
+		random = {
+			chance = 50
+			remove_character_modifier = stress_managed_grief
+		}
+	}
+}
+
+## Cheap company STD transmission
+mz_lesorgy_STD_transmission = {
+	if = {
+		limit = { has_character_flag = mz_cheap_debauch_attendee }
+		if = {
+			limit = { has_character_flag = mz_orgy_participant } # Higher chance if you chose to participate in the big orgy
+			random_list = {
+				88 = {
+					#Nothing
+				}
+				10 = {
+					contract_disease_notify_effect = { DISEASE = lovers_pox }
+				}
+				2 = {
+					contract_disease_notify_effect = { DISEASE = great_pox }
+				}
+			}
+		}
+		else = {
+			random_list = {
+				94 = {
+					#Nothing
+				}
+				5 = {
+					contract_disease_notify_effect = { DISEASE = lovers_pox }
+				}
+				1 = {
+					contract_disease_notify_effect = { DISEASE = great_pox }
+				}
+			}	
+		}
+	}
+}

@@ -1,0 +1,1223 @@
+# Standard Values
+@pos_compat_high = 10
+@pos_compat_medium = 5
+@pos_compat_low = 2.5
+
+@neg_compat_high = -10
+@neg_compat_medium = -5
+@neg_compat_low = -2.5
+
+mbti_intj = {
+	category = lifestyle
+	opposites = {
+		mbti_intp
+		mbti_entj
+		mbti_entp
+		mbti_infj
+		mbti_infp
+		mbti_enfj
+		mbti_enfp
+		mbti_istj
+		mbti_isfj
+		mbti_estj
+		mbti_esfj
+		mbti_istp
+		mbti_isfp
+		mbti_estp
+		mbti_esfp
+	}
+
+ 	#	I / E
+ 	monthly_lifestyle_xp_gain_mult = 0.15
+ 	ai_sociability = -15
+ 	ai_honor = 15
+ 	general_opinion = -5
+ #	ai_sociability = 15
+ #	ai_honor = -15
+
+ 	#	S / N
+ 	development_growth_factor = -0.10
+ #	ai_greed = 15
+ #	ai_vengefulness = -15
+ 	cultural_head_fascination_mult = 0.10
+ 	learn_language_scheme_power_mult = 0.15
+ 	ai_greed = -15
+ 	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	short_reign_duration_mult = -0.25
+ 	ai_rationality = 15
+ 	ai_zeal = -15
+ 	tyranny_gain_mult = 0.10
+ #	ai_rationality = -15
+ #	ai_zeal = 15
+
+ 	#	J / P
+ 	monthly_county_control_growth_factor = 0.10
+ 	ai_boldness = 15
+ 	ai_energy = -15
+ 	county_opinion_add = -10
+ #	ai_boldness = -15
+ #	ai_energy = 15
+
+	# diplomacy = 4
+	# martial = 4
+
+	ruler_designer_cost = 20
+
+	icon = highborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intj_desc
+			}
+			desc = trait_intj_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_intp = {
+	category = lifestyle
+	opposites = {
+		mbti_intj
+		mbti_entj
+		mbti_entp
+		mbti_infj
+		mbti_infp
+		mbti_enfj
+		mbti_enfp
+		mbti_istj
+		mbti_isfj
+		mbti_estj
+		mbti_esfj
+		mbti_istp
+		mbti_isfp
+		mbti_estp
+		mbti_esfp
+	}
+
+ 	#	I / E
+ 	monthly_lifestyle_xp_gain_mult = 0.15
+ 	ai_sociability = -15
+ 	ai_honor = 15
+ 	general_opinion = -5
+ #	ai_sociability = 15
+ #	ai_honor = -15
+
+ 	#	S / N
+ 	development_growth_factor = -0.10
+ #	ai_greed = 15
+ #	ai_vengefulness = -15
+ 	cultural_head_fascination_mult = 0.10
+ 	learn_language_scheme_power_mult = 0.15
+ 	ai_greed = -15
+ 	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	short_reign_duration_mult = -0.25
+ 	ai_rationality = 15
+ 	ai_zeal = -15
+ 	tyranny_gain_mult = 0.10
+ #	ai_rationality = -15
+ #	ai_zeal = 15
+
+ 	#	J / P
+ 	monthly_county_control_growth_factor = -0.10
+ #	ai_boldness = 15
+ #	ai_energy = -15
+ 	county_opinion_add = 10
+ 	ai_boldness = -15
+ 	ai_energy = 15
+
+	# learning = 4
+	# stewardship= 4
+
+	ruler_designer_cost = 20
+
+	icon = highborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intp_desc
+			}
+			desc = trait_intp_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_entj = {
+	category = lifestyle
+	opposites = {
+		mbti_intj
+		mbti_intp
+		mbti_entp
+		mbti_infj
+		mbti_infp
+		mbti_enfj
+		mbti_enfp
+		mbti_istj
+		mbti_isfj
+		mbti_estj
+		mbti_esfj
+		mbti_istp
+		mbti_isfp
+		mbti_estp
+		mbti_esfp
+	}
+
+ 	#	I / E
+ 	monthly_lifestyle_xp_gain_mult = -0.15
+ #	ai_sociability = -15
+ #	ai_honor = 15
+ 	general_opinion = 5
+ 	ai_sociability = 15
+ 	ai_honor = -15
+
+ 	#	S / N
+ 	development_growth_factor = -0.10
+ #	ai_greed = 15
+ #	ai_vengefulness = -15
+ 	cultural_head_fascination_mult = 0.10
+ 	learn_language_scheme_power_mult = 0.15
+ 	ai_greed = -15
+ 	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	short_reign_duration_mult = -0.25
+ 	ai_rationality = 15
+ 	ai_zeal = -15
+ 	tyranny_gain_mult = 0.10
+ #	ai_rationality = -15
+ #	ai_zeal = 15
+
+ 	#	J / P
+ 	monthly_county_control_growth_factor = 0.10
+ 	ai_boldness = 15
+ 	ai_energy = -15
+ 	county_opinion_add = -10
+ #	ai_boldness = -15
+ #	ai_energy = 15
+
+ 	# martial = 4
+	# intrigue = 4
+
+	ruler_designer_cost = 20
+
+	icon = highborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_entj_desc
+			}
+			desc = trait_entj_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_entp = {
+	category = lifestyle
+	opposites = {
+		mbti_intj
+		mbti_intp
+		mbti_entj
+		mbti_infj
+		mbti_infp
+		mbti_enfj
+		mbti_enfp
+		mbti_istj
+		mbti_isfj
+		mbti_estj
+		mbti_esfj
+		mbti_istp
+		mbti_isfp
+		mbti_estp
+		mbti_esfp
+	}
+
+ 	#	I / E
+ 	monthly_lifestyle_xp_gain_mult = -0.15
+ #	ai_sociability = -15
+ #	ai_honor = 15
+ 	general_opinion = 5
+ 	ai_sociability = 15
+ 	ai_honor = -15
+
+ 	#	S / N
+ 	development_growth_factor = -0.10
+ #	ai_greed = 15
+ #	ai_vengefulness = -15
+ 	cultural_head_fascination_mult = 0.10
+ 	learn_language_scheme_power_mult = 0.15
+ 	ai_greed = -15
+ 	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	short_reign_duration_mult = -0.25
+ 	ai_rationality = 15
+ 	ai_zeal = -15
+ 	tyranny_gain_mult = 0.10
+ #	ai_rationality = -15
+ #	ai_zeal = 15
+
+ 	#	J / P
+ 	monthly_county_control_growth_factor = -0.10
+ #	ai_boldness = 15
+ #	ai_energy = -15
+ 	county_opinion_add = 10
+ 	ai_boldness = -15
+ 	ai_energy = 15
+
+	# stewardship= 4
+	# intrigue = 4
+
+	ruler_designer_cost = 20
+
+	icon = highborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_entp_desc
+			}
+			desc = trait_entp_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_infj = {
+	category = lifestyle
+	opposites = {
+		mbti_intj
+		mbti_intp
+		mbti_entj
+		mbti_entp
+		mbti_infp
+		mbti_enfj
+		mbti_enfp
+		mbti_istj
+		mbti_isfj
+		mbti_estj
+		mbti_esfj
+		mbti_istp
+		mbti_isfp
+		mbti_estp
+		mbti_esfp
+	}
+
+ 	#	I / E
+ 	monthly_lifestyle_xp_gain_mult = 0.15
+ 	ai_sociability = -15
+ 	ai_honor = 15
+ 	general_opinion = -5
+ #	ai_sociability = 15
+ #	ai_honor = -15
+
+ 	#	S / N
+ 	development_growth_factor = -0.10
+ #	ai_greed = 15
+ #	ai_vengefulness = -15
+ 	cultural_head_fascination_mult = 0.10
+ 	learn_language_scheme_power_mult = 0.15
+ 	ai_greed = -15
+ 	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	long_reign_bonus_mult = 0.15
+ #	ai_rationality = 15
+ #	ai_zeal = -15
+ 	tyranny_gain_mult = -0.10
+ 	ai_rationality = -15
+ 	ai_zeal = 15
+
+ 	#	J / P
+ 	monthly_county_control_growth_factor = 0.10
+ 	ai_boldness = 15
+ 	ai_energy = -15
+ 	county_opinion_add = -10
+ #	ai_boldness = -15
+ #	ai_energy = 15
+
+	# diplomacy = 4
+	# intrigue = 4
+
+	ruler_designer_cost = 20
+
+	icon = highborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infj_desc
+			}
+			desc = trait_infj_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_infp = {
+	category = lifestyle
+	opposites = {
+		mbti_intj
+		mbti_intp
+		mbti_entj
+		mbti_entp
+		mbti_infj
+		mbti_enfj
+		mbti_enfp
+		mbti_istj
+		mbti_isfj
+		mbti_estj
+		mbti_esfj
+		mbti_istp
+		mbti_isfp
+		mbti_estp
+		mbti_esfp
+	}
+
+ 	#	I / E
+ 	monthly_lifestyle_xp_gain_mult = 0.15
+ 	ai_sociability = -15
+ 	ai_honor = 15
+ 	general_opinion = -5
+ #	ai_sociability = 15
+ #	ai_honor = -15
+
+ 	#	S / N
+ 	development_growth_factor = -0.10
+ #	ai_greed = 15
+ #	ai_vengefulness = -15
+ 	cultural_head_fascination_mult = 0.10
+ 	learn_language_scheme_power_mult = 0.15
+ 	ai_greed = -15
+ 	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	long_reign_bonus_mult = 0.15
+ #	ai_rationality = 15
+ #	ai_zeal = -15
+ 	tyranny_gain_mult = -0.10
+ 	ai_rationality = -15
+ 	ai_zeal = 15
+
+ 	#	J / P
+ 	monthly_county_control_growth_factor = -0.10
+ #	ai_boldness = 15
+ #	ai_energy = -15
+ 	county_opinion_add = 10
+ 	ai_boldness = -15
+ 	ai_energy = 15
+
+	# learning = 4
+	# diplomacy = 4
+
+	ruler_designer_cost = 20
+
+	icon = highborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_infp_desc
+			}
+			desc = trait_infp_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_enfj = {
+	category = lifestyle
+	opposites = {
+		mbti_intj
+		mbti_intp
+		mbti_entj
+		mbti_entp
+		mbti_infj
+		mbti_infp
+		mbti_enfp
+		mbti_istj
+		mbti_isfj
+		mbti_estj
+		mbti_esfj
+		mbti_istp
+		mbti_isfp
+		mbti_estp
+		mbti_esfp
+	}
+
+ 	#	I / E
+ 	monthly_lifestyle_xp_gain_mult = -0.15
+ #	ai_sociability = -15
+ #	ai_honor = 15
+ 	general_opinion = 5
+ 	ai_sociability = 15
+ 	ai_honor = -15
+
+ 	#	S / N
+ 	development_growth_factor = -0.10
+ #	ai_greed = 15
+ #	ai_vengefulness = -15
+ 	cultural_head_fascination_mult = 0.10
+ 	learn_language_scheme_power_mult = 0.15
+ 	ai_greed = -15
+ 	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	long_reign_bonus_mult = 0.15
+ #	ai_rationality = 15
+ #	ai_zeal = -15
+ 	tyranny_gain_mult = -0.10
+ 	ai_rationality = -15
+ 	ai_zeal = 15
+
+ 	#	J / P
+ 	monthly_county_control_growth_factor = 0.10
+ 	ai_boldness = 15
+ 	ai_energy = -15
+ 	county_opinion_add = -10
+ #	ai_boldness = -15
+ #	ai_energy = 15
+
+	# diplomacy = 4
+	# prowess = 6
+
+	ruler_designer_cost = 20
+
+	icon = highborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_enfj_desc
+			}
+			desc = trait_enfj_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_enfp = {
+	category = lifestyle
+	opposites = {
+		mbti_intj
+		mbti_intp
+		mbti_entj
+		mbti_entp
+		mbti_infj
+		mbti_infp
+		mbti_enfj
+		mbti_istj
+		mbti_isfj
+		mbti_estj
+		mbti_esfj
+		mbti_istp
+		mbti_isfp
+		mbti_estp
+		mbti_esfp
+	}
+
+ 	#	I / E
+ 	monthly_lifestyle_xp_gain_mult = -0.15
+ #	ai_sociability = -15
+ #	ai_honor = 15
+ 	general_opinion = 5
+ 	ai_sociability = 15
+ 	ai_honor = -15
+
+ 	#	S / N
+ 	development_growth_factor = -0.10
+ #	ai_greed = 15
+ #	ai_vengefulness = -15
+ 	cultural_head_fascination_mult = 0.10
+ 	learn_language_scheme_power_mult = 0.15
+ 	ai_greed = -15
+ 	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	long_reign_bonus_mult = 0.15
+ #	ai_rationality = 15
+ #	ai_zeal = -15
+ 	tyranny_gain_mult = -0.10
+ 	ai_rationality = -15
+ 	ai_zeal = 15
+
+ 	#	J / P
+ 	monthly_county_control_growth_factor = -0.10
+ #	ai_boldness = 15
+ #	ai_energy = -15
+ 	county_opinion_add = 10
+ 	ai_boldness = -15
+ 	ai_energy = 15
+
+	# intrigue = 4
+	# learning = 4
+
+	ruler_designer_cost = 20
+
+	icon = highborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_enfp_desc
+			}
+			desc = trait_enfp_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_istj = {
+	category = lifestyle
+	opposites = {
+		mbti_intj
+		mbti_intp
+		mbti_entj
+		mbti_entp
+		mbti_infj
+		mbti_infp
+		mbti_enfj
+		mbti_enfp
+		mbti_isfj
+		mbti_estj
+		mbti_esfj
+		mbti_istp
+		mbti_isfp
+		mbti_estp
+		mbti_esfp
+	}
+
+ 	#	I / E
+ 	monthly_lifestyle_xp_gain_mult = 0.15
+ 	ai_sociability = -15
+ 	ai_honor = 15
+ 	general_opinion = -5
+ #	ai_sociability = 15
+ #	ai_honor = -15
+
+ 	#	S / N
+ 	development_growth_factor = 0.10
+ 	ai_greed = 15
+ 	ai_vengefulness = -15
+ 	cultural_head_fascination_mult = -0.10
+ 	learn_language_scheme_power_mult = -0.15
+ #	ai_greed = -15
+ #	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	short_reign_duration_mult = -0.25
+ 	ai_rationality = 15
+ 	ai_zeal = -15
+ 	tyranny_gain_mult = 0.10
+ #	ai_rationality = -15
+ #	ai_zeal = 15
+
+ 	#	J / P
+ 	monthly_county_control_growth_factor = 0.10
+ 	ai_boldness = 15
+ 	ai_energy = -15
+ 	county_opinion_add = -10
+ #	ai_boldness = -15
+ #	ai_energy = 15
+
+	# stewardship= 4
+	# prowess = 6
+
+	ruler_designer_cost = 20
+
+	icon = highborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istj_desc
+			}
+			desc = trait_istj_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_isfj = {
+	category = lifestyle
+	opposites = {
+		mbti_intj
+		mbti_intp
+		mbti_entj
+		mbti_entp
+		mbti_infj
+		mbti_infp
+		mbti_enfj
+		mbti_enfp
+		mbti_istj
+		mbti_estj
+		mbti_esfj
+		mbti_istp
+		mbti_isfp
+		mbti_estp
+		mbti_esfp
+	}
+
+ 	#	I / E
+ 	monthly_lifestyle_xp_gain_mult = 0.15
+ 	ai_sociability = -15
+ 	ai_honor = 15
+ 	general_opinion = -5
+ #	ai_sociability = 15
+ #	ai_honor = -15
+
+ 	#	S / N
+ 	development_growth_factor = 0.10
+ 	ai_greed = 15
+ 	ai_vengefulness = -15
+ 	cultural_head_fascination_mult = -0.10
+ 	learn_language_scheme_power_mult = -0.15
+ #	ai_greed = -15
+ #	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	long_reign_bonus_mult = 0.15
+ #	ai_rationality = 15
+ #	ai_zeal = -15
+ 	tyranny_gain_mult = -0.10
+ 	ai_rationality = -15
+ 	ai_zeal = 15
+
+ 	#	J / P
+ 	monthly_county_control_growth_factor = 0.10
+ 	ai_boldness = 15
+ 	ai_energy = -15
+ 	county_opinion_add = -10
+ #	ai_boldness = -15
+ #	ai_energy = 15
+
+	# stewardship= 4
+	# learning = 4
+
+	ruler_designer_cost = 20
+
+	icon = highborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_isfj_desc
+			}
+			desc = trait_isfj_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_estj = {
+	category = lifestyle
+	opposites = {
+		mbti_intj
+		mbti_intp
+		mbti_entj
+		mbti_entp
+		mbti_infj
+		mbti_infp
+		mbti_enfj
+		mbti_enfp
+		mbti_istj
+		mbti_isfj
+		mbti_esfj
+		mbti_istp
+		mbti_isfp
+		mbti_estp
+		mbti_esfp
+	}
+
+ 	#	I / E
+ 	monthly_lifestyle_xp_gain_mult = -0.15
+ #	ai_sociability = -15
+ #	ai_honor = 15
+ 	general_opinion = 5
+ 	ai_sociability = 15
+ 	ai_honor = -15
+
+ 	#	S / N
+ 	development_growth_factor = 0.10
+ 	ai_greed = 15
+ 	ai_vengefulness = -15
+ 	cultural_head_fascination_mult = -0.10
+ 	learn_language_scheme_power_mult = -0.15
+ #	ai_greed = -15
+ #	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	short_reign_duration_mult = -0.25
+ 	ai_rationality = 15
+ 	ai_zeal = -15
+ 	tyranny_gain_mult = 0.10
+ #	ai_rationality = -15
+ #	ai_zeal = 15
+
+ 	#	J / P
+ 	monthly_county_control_growth_factor = 0.10
+ 	ai_boldness = 15
+ 	ai_energy = -15
+ 	county_opinion_add = -10
+ #	ai_boldness = -15
+ #	ai_energy = 15
+
+	# stewardship= 4
+	# martial = 4
+
+	ruler_designer_cost = 20
+
+	icon = highborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_estj_desc
+			}
+			desc = trait_estj_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_esfj = {
+	category = lifestyle
+	opposites = {
+		mbti_intj
+		mbti_intp
+		mbti_entj
+		mbti_entp
+		mbti_infj
+		mbti_infp
+		mbti_enfj
+		mbti_enfp
+		mbti_istj
+		mbti_isfj
+		mbti_estj
+		mbti_istp
+		mbti_isfp
+		mbti_estp
+		mbti_esfp
+	}
+
+ 	#	I / E
+ 	monthly_lifestyle_xp_gain_mult = -0.15
+ #	ai_sociability = -15
+ #	ai_honor = 15
+ 	general_opinion = 5
+ 	ai_sociability = 15
+ 	ai_honor = -15
+
+ 	#	S / N
+ 	development_growth_factor = 0.10
+ 	ai_greed = 15
+ 	ai_vengefulness = -15
+ 	cultural_head_fascination_mult = -0.10
+ 	learn_language_scheme_power_mult = -0.15
+ #	ai_greed = -15
+ #	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	long_reign_bonus_mult = 0.15
+ #	ai_rationality = 15
+ #	ai_zeal = -15
+ 	tyranny_gain_mult = -0.10
+ 	ai_rationality = -15
+ 	ai_zeal = 15
+
+ 	#	J / P
+ 	monthly_county_control_growth_factor = 0.10
+ 	ai_boldness = 15
+ 	ai_energy = -15
+ 	county_opinion_add = -10
+ #	ai_boldness = -15
+ #	ai_energy = 15
+
+	# diplomacy = 4
+	# stewardship= 4
+
+	ruler_designer_cost = 20
+
+	icon = highborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esfj_desc
+			}
+			desc = trait_esfj_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_istp = {
+	category = lifestyle
+	opposites = {
+		mbti_intj
+		mbti_intp
+		mbti_entj
+		mbti_entp
+		mbti_infj
+		mbti_infp
+		mbti_enfj
+		mbti_enfp
+		mbti_istj
+		mbti_isfj
+		mbti_estj
+		mbti_esfj
+		mbti_isfp
+		mbti_estp
+		mbti_esfp
+	}
+
+ 	#	I / E
+ 	monthly_lifestyle_xp_gain_mult = 0.15
+ 	ai_sociability = -15
+ 	ai_honor = 15
+ 	general_opinion = -5
+ #	ai_sociability = 15
+ #	ai_honor = -15
+
+ 	#	S / N
+ 	development_growth_factor = 0.10
+ 	ai_greed = 15
+ 	ai_vengefulness = -15
+ 	cultural_head_fascination_mult = -0.10
+ 	learn_language_scheme_power_mult = -0.15
+ #	ai_greed = -15
+ #	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	short_reign_duration_mult = -0.25
+ 	ai_rationality = 15
+ 	ai_zeal = -15
+ 	tyranny_gain_mult = 0.10
+ #	ai_rationality = -15
+ #	ai_zeal = 15
+
+ 	#	J / P
+ 	monthly_county_control_growth_factor = -0.10
+ #	ai_boldness = 15
+ #	ai_energy = -15
+ 	county_opinion_add = 10
+ 	ai_boldness = -15
+ 	ai_energy = 15
+
+	# learning = 4
+	# intrigue = 4
+
+	ruler_designer_cost = 20
+
+	icon = highborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_istp_desc
+			}
+			desc = trait_istp_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_isfp = {
+	category = lifestyle
+	opposites = {
+		mbti_intj
+		mbti_intp
+		mbti_entj
+		mbti_entp
+		mbti_infj
+		mbti_infp
+		mbti_enfj
+		mbti_enfp
+		mbti_istj
+		mbti_isfj
+		mbti_estj
+		mbti_esfj
+		mbti_istp
+		mbti_estp
+		mbti_esfp
+	}
+
+ 	#	I / E
+ 	monthly_lifestyle_xp_gain_mult = 0.15
+ 	ai_sociability = -15
+ 	ai_honor = 15
+ 	general_opinion = -5
+ #	ai_sociability = 15
+ #	ai_honor = -15
+
+ 	#	S / N
+ 	development_growth_factor = 0.10
+ 	ai_greed = 15
+ 	ai_vengefulness = -15
+ 	cultural_head_fascination_mult = -0.10
+ 	learn_language_scheme_power_mult = -0.15
+ #	ai_greed = -15
+ #	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	long_reign_bonus_mult = 0.15
+ #	ai_rationality = 15
+ #	ai_zeal = -15
+ 	tyranny_gain_mult = -0.10
+ 	ai_rationality = -15
+ 	ai_zeal = 15
+
+ 	#	J / P
+ 	monthly_county_control_growth_factor = -0.10
+ #	ai_boldness = 15
+ #	ai_energy = -15
+ 	county_opinion_add = 10
+ 	ai_boldness = -15
+ 	ai_energy = 15
+
+	# learning = 4
+	# prowess = 6
+
+	ruler_designer_cost = 20
+
+	icon = highborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_isfp_desc
+			}
+			desc = trait_isfp_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_estp = {
+	category = lifestyle
+	opposites = {
+		mbti_intj
+		mbti_intp
+		mbti_entj
+		mbti_entp
+		mbti_infj
+		mbti_infp
+		mbti_enfj
+		mbti_enfp
+		mbti_istj
+		mbti_isfj
+		mbti_estj
+		mbti_esfj
+		mbti_istp
+		mbti_isfp
+		mbti_esfp
+	}
+
+ 	#	I / E
+ 	monthly_lifestyle_xp_gain_mult = -0.15
+ #	ai_sociability = -15
+ #	ai_honor = 15
+ 	general_opinion = 5
+ 	ai_sociability = 15
+ 	ai_honor = -15
+
+ 	#	S / N
+ 	development_growth_factor = 0.10
+ 	ai_greed = 15
+ 	ai_vengefulness = -15
+ 	cultural_head_fascination_mult = -0.10
+ 	learn_language_scheme_power_mult = -0.15
+ #	ai_greed = -15
+ #	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	short_reign_duration_mult = -0.25
+ 	ai_rationality = 15
+ 	ai_zeal = -15
+ 	tyranny_gain_mult = 0.10
+ #	ai_rationality = -15
+ #	ai_zeal = 15
+
+ 	#	J / P
+ 	monthly_county_control_growth_factor = -0.10
+ #	ai_boldness = 15
+ #	ai_energy = -15
+ 	county_opinion_add = 10
+ 	ai_boldness = -15
+ 	ai_energy = 15
+
+	# martial = 4
+	# prowess = 6
+
+	ruler_designer_cost = 20
+
+	icon = highborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_estp_desc
+			}
+			desc = trait_estp_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+mbti_esfp = {
+	category = lifestyle
+	opposites = {
+		mbti_intj
+		mbti_intp
+		mbti_entj
+		mbti_entp
+		mbti_infj
+		mbti_infp
+		mbti_enfj
+		mbti_enfp
+		mbti_istj
+		mbti_isfj
+		mbti_estj
+		mbti_esfj
+		mbti_istp
+		mbti_isfp
+		mbti_estp
+	}
+ 	#	I / E
+ 	monthly_lifestyle_xp_gain_mult = -0.15
+ #	ai_sociability = -15
+ #	ai_honor = 15
+ 	general_opinion = 5
+ 	ai_sociability = 15
+ 	ai_honor = -15
+
+ 	#	S / N
+ 	development_growth_factor = 0.10
+ 	ai_greed = 15
+ 	ai_vengefulness = -15
+ 	cultural_head_fascination_mult = -0.10
+ 	learn_language_scheme_power_mult = -0.15
+ #	ai_greed = -15
+ #	ai_vengefulness = 15
+	
+ 	#	T / F
+ 	long_reign_bonus_mult = 0.15
+ #	ai_rationality = 15
+ #	ai_zeal = -15
+ 	tyranny_gain_mult = -0.10
+ 	ai_rationality = -15
+ 	ai_zeal = 15
+
+ 	#	J / P
+ 	monthly_county_control_growth_factor = -0.10
+ #	ai_boldness = 15
+ #	ai_energy = -15
+ 	county_opinion_add = 10
+ 	ai_boldness = -15
+ 	ai_energy = 15
+
+	# intrigue = 4
+	# diplomacy = 4
+
+	ruler_designer_cost = 20
+
+	icon = highborntrait.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_esfp_desc
+			}
+			desc = trait_esfp_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}

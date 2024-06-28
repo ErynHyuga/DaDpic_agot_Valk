@@ -1,0 +1,108 @@
+﻿#### This scripted trigger has been modified to allow matriarchs to grant landed titles to female dynasty members and some adjustments have been made for cultural traditions
+### Note that this is supposed to generate nice tooltips, but my experience is that it does not, not even with all mods disabled. Weird.
+### Given that I'm not going to worry about the fact that my tooltips don't generate very nicely. Niether custom_descritpion nor custom_tooltip seem to help here.
+can_be_granted_titles_by = { #This is set up with trigger-ifs to allow for nice tooltip printouts in grant title interaction
+	save_temporary_scope_as = title_grantee
+	#Gender check
+	trigger_if = { # Matriarchs can grant titles to women in defiance of faith-based gender law. There are no cultural traditions that restrict gender to male-only.
+		limit = {
+			exists = dynasty
+			dynasty = $RULER$.dynasty
+			dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+			$RULER$.faith = { has_doctrine_parameter = male_dominated_law }
+			is_female = yes
+		}
+		$RULER$ = { is_female = yes }
+	}
+	trigger_else_if = {
+		limit = {
+			is_ruler = no #Rulers can always get additional titles
+			is_theocratic_lessee = no #Theocratic lessees use other gender checks
+			NOR = { # Cultural traditions can bypass faith-based gender checks on title-granting. This check was added by the Medieval Matriarchs mod as well.
+				$RULER$.faith = { has_dominant_ruling_gender = scope:title_grantee }
+				$RULER$.culture = { has_cultural_parameter = gender_equal_inheritance }
+				AND = {
+					is_female = yes
+					$RULER$.culture = { has_cultural_parameter = female_preference_inheritance } # All triggering traditions should have this parameter
+				}
+			}
+		}
+		$RULER$.faith = { has_dominant_ruling_gender = scope:title_grantee }
+	}
+	trigger_else_if = {
+		limit = {
+			is_theocratic_lessee = yes
+		}
+		liege = $RULER$
+		#If this is ever visible anywhere, we need to write a custom desc "Theocratic lessees cannot only be given titles by their ruler"
+	}
+	trigger_else = {
+		always = yes
+	}
+}
+
+### NEW TRIGGERS: Female matriarchal dynastic vassals in the same realm as a ruler with a matriarchal dynasty should have female-favored succession laws if thier liege has same
+mz_should_have_female_favored_law = {
+	exists = dynasty
+	dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+	is_female = yes
+	is_independent_ruler = no
+	OR = {
+		has_government = tribal_government
+		has_government = feudal_government
+		has_government = clan_government
+	}
+	OR = {
+		top_liege = {
+			exists = dynasty
+			dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+			OR = {
+				has_realm_law = female_only_law
+				has_realm_law = female_preference_law
+			}
+		}
+		liege = {
+			exists = dynasty
+			dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+			OR = {
+				has_realm_law = female_only_law
+				has_realm_law = female_preference_law
+			}
+		}		
+	}
+}
+
+mz_can_enact_female_succession_special_trigger = { # Makes it easier to enact female-favored succession.
+	trigger_if = {
+		limit = { realm_law_use_crown_authority = no }
+		custom_description = {
+			text = "has_tribal_law_allowing_succession_law_change"
+			has_realm_law_flag = can_change_succession_laws
+		}
+	}
+	trigger_else = {
+		custom_description = {
+			text = "has_law_allowing_partition_succession_law_change"
+			has_realm_law_flag = can_change_partition_succession_laws
+		}
+	}
+	custom_description = {
+		text = "no_powerful_vassal_with_negative_opinion"
+		NOT = {
+			any_vassal = {
+				is_powerful_vassal = yes
+				opposes_succession_law_change_trigger = yes
+			}
+		}
+	}
+}
+
+mz_female_only_inheritance_required = {
+	OR = {
+		has_government = tribal_government
+		has_government = feudal_government
+		has_government = clan_government
+		#has_government = mercenary_government
+	}
+	culture = { has_cultural_parameter = mz_mandatory_female_only }
+}

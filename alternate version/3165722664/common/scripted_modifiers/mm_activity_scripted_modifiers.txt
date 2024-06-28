@@ -1,0 +1,326 @@
+﻿#Scripted Modifiers used for Activities
+mz_lesorgy_willing_to_have_sex_modifier = {
+	# CHARACTER_1 is initiator
+	# CHARACTER_2 is event target
+	min = 2
+	opinion_modifier = {
+		who = $CHARACTER_2$
+		opinion_target = $CHARACTER_1$
+		multiplier = 0.25
+	}
+	compare_modifier = {
+		target = $CHARACTER_1$
+		value = attraction
+		offset = high_positive_attraction
+		multiplier = 0.4
+	}
+	modifier = {
+		$CHARACTER_1$ = { has_focus = intrigue_temptation_focus }
+		add = 25
+	}
+	modifier = {
+		$CHARACTER_1$ = { has_trait = seducer }
+		add = 100
+	}
+	modifier = {
+		$CHARACTER_2$ = { has_trait = lustful }
+		add = 25
+	}
+	modifier = {
+		$CHARACTER_2$ = { 
+			has_opinion_modifier = {
+				target = $CHARACTER_1$
+				modifier = mz_had_sex_at_orgy_opinion
+			}
+		}
+		add = 150
+	}
+	modifier = {
+		$CHARACTER_2$ = { 
+			has_opinion_modifier = {
+				target = $CHARACTER_1$
+				modifier = romance_opinion
+			}
+		}
+		add = 50
+	}
+}
+
+mz_lesorgy_unwilling_to_have_sex_modifier = {
+	# CHARACTER_1 is initiator
+	# CHARACTER_2 is event target
+	opinion_modifier = {
+		who = $CHARACTER_2$
+		opinion_target = $CHARACTER_1$
+		multiplier = -0.25
+	}
+	compare_modifier = {
+		target = $CHARACTER_1$
+		value = attraction
+		offset = high_positive_attraction
+		multiplier = -0.4
+	}
+	modifier = {
+		$CHARACTER_2$ = { 
+			is_extended_family_of = $CHARACTER_1$
+			is_deviant_trigger = no
+			is_incestuous_trigger = no
+			relation_with_character_is_incestuous_in_my_or_lieges_faith_trigger = { CHARACTER = $CHARACTER_1$ }
+		}
+		$CHARACTER_1$ = { 
+			NOT = { has_perk = subtle_desire_perk }
+		}
+		add = 50
+	}
+	modifier = {
+		$CHARACTER_2$ = { 
+			is_close_family_of = $CHARACTER_1$
+			is_deviant_trigger = no
+			is_incestuous_trigger = no
+			relation_with_character_is_incestuous_in_my_or_lieges_faith_trigger = { CHARACTER = $CHARACTER_1$ }
+		}
+		$CHARACTER_1$ = { 
+			NOT = { has_perk = subtle_desire_perk }
+		}
+		add = 100
+	}
+	modifier = {
+		$CHARACTER_2$ = { has_trait = chaste }
+		add = 50
+	}
+	modifier = {
+		$CHARACTER_2$ = { has_trait = shy }
+		add = 25
+	}
+	modifier = {
+		$CHARACTER_1$ = { has_trait = irritable }
+		add = 25
+	}
+	modifier = {
+		$CHARACTER_1$ = { has_relation_lover = $CHARACTER_2$ }
+		factor = 0
+	}
+}
+
+mz_lesorgy_willing_to_be_lovers_modifier = {
+	# CHARACTER_1 is initiator
+	# CHARACTER_2 is event target
+	min = 2
+	opinion_modifier = {
+		who = $CHARACTER_2$
+		opinion_target = $CHARACTER_1$
+		multiplier = 0.5
+	}
+	compatibility_modifier = {
+		who = $CHARACTER_2$
+		compatibility_target = $CHARACTER_1$
+		min = -20
+		max = 20
+		multiplier = 2
+	}
+	modifier = {
+		$CHARACTER_1$ = { has_focus = intrigue_temptation_focus }
+		add = 25
+	}
+	modifier = {
+		$CHARACTER_1$ = { has_trait = seducer }
+		add = 100
+	}
+	modifier = {
+		$CHARACTER_2$ = { has_trait = lustful }
+		add = 25
+	}
+	modifier = { # If faith preaches carnal doctrine, more likely to accept more lovers
+		$CHARACTER_2$ = {
+			OR = {
+				AND = {
+					faith = { has_doctrine = mz_doctrine_sapphic_exaltation }
+					is_female = yes
+					$CHARACTER_1$ = { is_female = yes }
+				}
+				faith = { has_doctrine = tenet_carnal_exaltation }
+			}
+		}
+		add = 20
+	}
+	modifier = {
+		$CHARACTER_2$ = {
+			has_opinion_modifier = {
+				target = $CHARACTER_1$
+				modifier = romance_opinion
+			}
+		}
+		factor = 1.5
+	}
+}
+
+mz_lesorgy_unwilling_to_be_lovers_modifier = {
+	# CHARACTER_1 is initiator
+	# CHARACTER_2 is event target
+	opinion_modifier = {
+		who = $CHARACTER_2$
+		opinion_target = $CHARACTER_1$
+		multiplier = -0.5
+	}
+	modifier = {
+		$CHARACTER_2$ = { has_trait = chaste }
+		add = 50
+	}
+	modifier = {
+		$CHARACTER_2$ = { has_trait = shy }
+		add = 25
+	}
+	modifier = {
+		$CHARACTER_1$ = { has_trait = irritable }
+		add = 25
+	}
+	modifier = {
+		$CHARACTER_2$ = { 
+			is_extended_family_of = $CHARACTER_1$
+			is_deviant_trigger = no
+			is_incestuous_trigger = no
+			relation_with_character_is_incestuous_in_my_or_lieges_faith_trigger = { CHARACTER = $CHARACTER_1$ }
+		}
+		$CHARACTER_1$ = { 
+			NOT = { has_perk = subtle_desire_perk }
+		}
+		add = 75
+	}
+	modifier = {
+		$CHARACTER_2$ = { 
+			is_close_family_of = $CHARACTER_1$
+			is_deviant_trigger = no
+			is_incestuous_trigger = no
+			relation_with_character_is_incestuous_in_my_or_lieges_faith_trigger = { CHARACTER = $CHARACTER_1$ }
+		}
+		$CHARACTER_1$ = { 
+			NOT = { has_perk = subtle_desire_perk }
+		}
+		add = 150
+	}
+	modifier = {
+		$CHARACTER_2$ = { 
+			num_of_relation_lover > 2
+			NOT = { 
+				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
+			}
+		}
+		factor = 1.5 # Harder to have more than 3 lovers, unless polyamory is accepted
+	}
+}
+
+mz_activity_guest_lesorgy_ai_accept_modifier = {
+    #############
+    # LIFESTYLE #
+    #############
+    modifier = { # Revelers enjoy dabauchery
+        has_trait = lifestyle_reveler
+        add = 10
+        desc = ACTIVITY_GUEST_REVELER_REASON
+    }
+	modifier = {
+        has_trait = mz_lifestyle_lesorgy
+        add = 20
+        desc = ACTIVITY_GUEST_MZ_LIFESTYLE_LESORGY_REASON
+    }
+    ###############
+    # PERSONALITY #
+    ###############
+    modifier = {
+        has_trait = lustful
+        add = 10
+		desc = MZ_ACTIVITY_GUEST_LUSTFUL_REASON
+    }
+	modifier = {
+        has_trait = chaste
+        add = -50
+		desc = MZ_ACTIVITY_GUEST_CHASTE_REASON
+    }
+    ##########
+    # STRESS #
+    ##########
+    modifier = {
+        has_trait = rakish
+        add = 10
+		desc = MZ_ACTIVITY_GUEST_RAKISH_REASON
+    }
+    modifier = {
+        has_trait = drunkard
+        add = 10
+        desc = ACTIVITY_GUEST_DRUNKARD_REASON
+    }
+    #########
+    # FAITH #
+    #########
+    modifier = {
+        liege = scope:host
+        faith = { has_doctrine = mz_doctrine_sapphic_exaltation }
+        add = 15
+		desc = MZ_ACTIVITY_GUEST_LESORGY_SAPPHIC_EXALTATION
+    }
+	modifier = {
+		OR = {
+			is_clergy = yes
+			ai_zeal > medium_positive_ai_value
+		}
+        faith = { trait_is_virtue = lustful }
+        add = 25
+		desc = MZ_ACTIVITY_GUEST_LESORGY_CARNAL_DEVOTEE
+    }
+    #########
+    # OTHER #
+    #########
+    modifier = { # Yeah, I'd like to hit that
+		scope:host.attraction >= 20
+        add = {
+			value = 0
+			add = scope:host.attraction
+			multiply = 0.25
+		}
+		desc = MZ_ACTIVITY_GUEST_LESORGY_ATTRACTIVE_HOST
+    }
+	####################
+	# ACTIVITY OPTIONS #
+	####################
+	# OPTIONS
+	modifier = {
+		scope:mz_lesorgy_option_luxuries ?= flag:mz_lesorgy_luxuries_bad
+		add = -10
+		desc = MZ_ACTIVITY_GUEST_OPTION_LESORGY_LUXURIES_BAD
+	}
+	modifier = {
+		scope:mz_lesorgy_option_luxuries ?= flag:mz_lesorgy_luxuries_normal
+		add = 5
+		desc = MZ_ACTIVITY_GUEST_OPTION_LESORGY_LUXURIES_NORMAL
+	}
+	modifier = {
+		scope:mz_lesorgy_option_luxuries ?= flag:mz_lesorgy_luxuries_good
+		add = 10
+		desc = MZ_ACTIVITY_GUEST_OPTION_LESORGY_LUXURIES_GOOD
+	}
+	modifier = {
+		scope:mz_lesorgy_option_entertainment ?= flag:mz_lesorgy_entertainment_bad
+		add = -10
+		desc = MZ_ACTIVITY_GUEST_OPTION_LESORGY_ENTERTAINMENT_BAD
+	}
+	modifier = {
+		scope:mz_lesorgy_option_entertainment ?= flag:mz_lesorgy_entertainment_normal
+		add = 5
+		desc = MZ_ACTIVITY_GUEST_OPTION_LESORGY_ENTERTAINMENT_NORMAL
+	}
+	modifier = {
+		scope:mz_lesorgy_option_entertainment ?= flag:mz_lesorgy_entertainment_good
+		add = 10
+		desc = MZ_ACTIVITY_GUEST_OPTION_LESORGY_ENTERTAINMENT_GOOD
+	}
+	# Special modifier for Cheap Company option - learned characters know of STD risk
+	modifier = {
+		scope:mz_lesorgy_option_entertainment ?= flag:mz_lesorgy_entertainment_bad
+		add = {
+			value = 0
+			add = learning
+			multiply = -2
+		}
+		desc = MZ_ACTIVITY_GUEST_OPTION_LESORGY_LUXURIES_BAD_LEARNED
+	}
+}

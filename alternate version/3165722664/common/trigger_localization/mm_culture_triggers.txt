@@ -1,0 +1,3 @@
+﻿mz_has_dynasty_matriarchy_desc = {
+	third_not = mz_has_dynasty_matriarchy_desc
+}

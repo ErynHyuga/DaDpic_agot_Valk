@@ -1,0 +1,1318 @@
+﻿# Matriarchy
+mz_establish_matriarchal_dynasty_decision_effects = { # Matriarchy decision
+	dynasty = {
+		add_dynasty_modifier = { modifier = mz_matriarchy_modifier }
+		add_dynasty_prestige = 200
+		hidden_effect = {
+			every_dynasty_member = {
+				limit = {
+					is_female = yes
+					highest_held_title_tier = tier_empire
+				}
+				custom = mz_for_every_empress
+				add_character_flag = mz_matriarch_trigger_tier_empire
+				prev = { add_dynasty_prestige = 150 }
+			}
+			every_dynasty_member = {
+				limit = {
+					is_female = yes
+					highest_held_title_tier = tier_kingdom
+				}
+				custom = mz_for_every_queen
+				add_character_flag = mz_matriarch_trigger_tier_kingdom
+				prev = { add_dynasty_prestige = 75 }
+			}
+			every_dynasty_member = {
+				limit = {
+					is_female = yes
+					highest_held_title_tier = tier_duchy
+				}
+				custom = mz_for_every_duchess
+				add_character_flag = mz_matriarch_trigger_tier_duchy
+				prev = { add_dynasty_prestige = 40 }
+			}
+			every_dynasty_member = {
+				limit = {
+					is_female = yes
+					highest_held_title_tier = tier_county
+				}
+				custom = mz_for_every_countess
+				add_character_flag = mz_matriarch_trigger_tier_county
+				prev = { add_dynasty_prestige = 10 }
+			}
+			every_dynasty_member = {
+				limit = {
+					is_female = yes
+					highest_held_title_tier = tier_barony
+				}
+				custom = mz_for_every_baroness
+				add_character_flag = mz_matriarch_trigger_tier_barony
+				prev = { add_dynasty_prestige = 1 }
+			}
+		}
+		every_dynasty_member = {
+			limit = { is_female = no }
+			custom = mz_male_dynasty_opinion_loss
+			add_opinion = {
+				modifier = angry_opinion
+				target = root
+				opinion = -100
+			}
+		}
+		hidden_effect = {
+			every_dynasty_member = {
+				trigger_event = { on_action = mz_matriarchy_update }
+			}
+		}
+	}
+}
+
+mz_matriarchy_independence_war_effect = { # Old effect to start independence war on Matriarchy establishment
+	save_temporary_scope_as = mz_matriarch
+	if = {
+		limit = {
+			any_vassal = {
+				is_adult = yes
+				is_powerful_vassal = yes
+				is_female = no
+				is_ai = yes
+				is_imprisoned = no
+				highest_held_title_tier > tier_barony
+				dread_modified_ai_boldness = { #Too scared to do anything.
+					dreaded_character = scope:mz_matriarch
+					value >= -50
+				}
+				NOT = { has_trait = incapable }
+			}
+		}
+		every_vassal = {
+			limit = {
+				is_adult = yes
+				is_powerful_vassal = yes
+				is_female = no
+				is_ai = yes
+				is_imprisoned = no
+				highest_held_title_tier > tier_barony
+				dread_modified_ai_boldness = { #Too scared to do anything.
+					dreaded_character = scope:mz_matriarch
+					value >= -50
+				}
+				NOT = { has_trait = incapable }
+			}
+			if = {
+				limit = {
+					OR = {
+						scope:mz_matriarch = { has_realm_law = female_only_law }
+						faith = { has_doctrine_parameter = male_dominated_law }			
+					}
+				}
+				start_war = {
+					casus_belli = independence_war
+					target = scope:mz_matriarch
+				}
+				hidden_effect = {
+					reverse_add_opinion = {
+						target = scope:mz_matriarch
+						modifier = rebellious_vassal_opinion
+					}
+				}
+			}
+		}
+	}
+}
+
+mz_matriarchy_education_boost_master_effect = { # Education boost for dynasty perk
+	if = {
+		limit = { has_focus = education_diplomacy }
+		mz_matriarchy_education_boost_effect = { SKILL = diplomacy }
+	}
+	else_if = {
+		limit = { has_focus = education_martial }
+		mz_matriarchy_education_boost_effect = { SKILL = martial }
+	}
+	else_if = {
+		limit = { has_focus = education_stewardship }
+		mz_matriarchy_education_boost_effect = { SKILL = stewardship }
+	}
+	else_if = {
+		limit = { has_focus = education_intrigue }
+		mz_matriarchy_education_boost_effect = { SKILL = intrigue }
+	}
+	else_if = {
+		limit = { has_focus = education_learning }
+		mz_matriarchy_education_boost_effect = { SKILL = learning }
+	}
+}
+
+mz_matriarchy_education_boost_effect = { # Education boost for dynasty perk
+	random_list = {
+		3 = { 
+			change_variable = {
+				name = education_$SKILL$_variable
+				add = 2
+			}
+		}
+		2 = { 
+			change_variable = {
+				name = education_$SKILL$_variable
+				add = 3
+			}
+		}
+	}
+}
+
+mz_matriarchy_remove_character_flags_effect = { # Clean up effect
+	if = {
+		limit = { has_character_flag = mz_matriarch_trigger_tier_empire }
+		remove_character_flag = mz_matriarch_trigger_tier_empire
+	}
+	if = {
+		limit = { has_character_flag = mz_matriarch_trigger_tier_kingdom }
+		remove_character_flag = mz_matriarch_trigger_tier_kingdom
+	}
+	if = {
+		limit = { has_character_flag = mz_matriarch_trigger_tier_duchy }
+		remove_character_flag = mz_matriarch_trigger_tier_duchy
+	}
+	if = {
+		limit = { has_character_flag = mz_matriarch_trigger_tier_county }
+		remove_character_flag = mz_matriarch_trigger_tier_county
+	}
+	if = {
+		limit = { has_character_flag = mz_matriarch_trigger_tier_barony }
+		remove_character_flag = mz_matriarch_trigger_tier_barony
+	}
+}
+
+mz_matriarchy_gain_perk_1_effect = { # On gaining matriarchy perk 1
+	if = {
+		limit = {
+			dynasty ?= { has_variable = mz_amazon_favor }
+		}
+		dynasty = { 
+			change_variable = {
+				name = mz_amazon_favor
+				add = 100
+			} 
+		}
+	}
+}
+
+mz_matriarchy_gain_perk_2_effect = { # On gaining matriarchy perk 2
+	dynasty = {
+		every_dynasty_member = {
+			limit = {
+				is_female = yes
+				NOT = { has_character_modifier = mz_matriarchy_legacy_2_character_modifier }
+			}
+			add_character_modifier = mz_matriarchy_legacy_2_character_modifier
+		}
+	}
+	if = {
+		limit = {
+			dynasty ?= { has_variable = mz_amazon_favor }
+		}
+		dynasty = { 
+			change_variable = {
+				name = mz_amazon_favor
+				add = 100
+			} 
+		}
+	}
+}
+
+mz_matriarchy_gain_perk_3_effect = { # On gaining matriarchy perk 3
+	dynasty = {
+		every_dynasty_member = {
+			limit = {
+				is_female = yes
+				NOT = { has_character_modifier = mz_matriarchy_legacy_3_character_modifier }
+			}
+			add_character_modifier = mz_matriarchy_legacy_3_character_modifier
+		}
+		every_dynasty_member = {
+			limit = { has_character_modifier = mz_matriarchy_legacy_2_character_modifier }
+			remove_character_modifier = mz_matriarchy_legacy_2_character_modifier
+		}
+	}
+	if = {
+		limit = {
+			dynasty ?= { has_variable = mz_amazon_favor }
+		}
+		dynasty = { 
+			change_variable = {
+				name = mz_amazon_favor
+				add = 100
+			} 
+		}
+	}
+}
+
+mz_matriarchy_gain_perk_4_effect = { # On gaining matriarchy perk 4
+	dynasty = {
+		every_dynasty_member = {
+			limit = {
+				is_female = yes
+				NOT = { has_character_modifier = mz_matriarchy_legacy_4_character_modifier }
+			}
+			add_character_modifier = mz_matriarchy_legacy_4_character_modifier
+		}
+		every_dynasty_member = {
+			limit = { has_character_modifier = mz_matriarchy_legacy_2_character_modifier }
+			remove_character_modifier = mz_matriarchy_legacy_2_character_modifier
+		}
+		every_dynasty_member = {
+			limit = { has_character_modifier = mz_matriarchy_legacy_3_character_modifier }
+			remove_character_modifier = mz_matriarchy_legacy_3_character_modifier
+		}
+	}
+	if = {
+		limit = {
+			dynasty ?= { has_variable = mz_amazon_favor }
+		}
+		dynasty = { 
+			change_variable = {
+				name = mz_amazon_favor
+				add = 100
+			} 
+		}
+	}
+}
+
+mz_matriarchy_gain_perk_5_effect = { # On gaining matriarchy perk 5
+	dynasty = {
+		every_dynasty_member = {
+			limit = {
+				is_female = yes
+				NOT = { has_character_modifier = mz_matriarchy_legacy_5_character_modifier }
+			}
+			add_character_modifier = mz_matriarchy_legacy_5_character_modifier
+		}
+		every_dynasty_member = {
+			limit = { has_character_modifier = mz_matriarchy_legacy_4_character_modifier }
+			remove_character_modifier = mz_matriarchy_legacy_4_character_modifier
+		}
+		every_dynasty_member = {
+			limit = { has_character_modifier = mz_matriarchy_legacy_3_character_modifier }
+			remove_character_modifier = mz_matriarchy_legacy_3_character_modifier
+		}
+		every_dynasty_member = {
+			limit = { has_character_modifier = mz_matriarchy_legacy_2_character_modifier }
+			remove_character_modifier = mz_matriarchy_legacy_2_character_modifier
+		}
+	}
+	if = {
+		limit = {
+			dynasty ?= { has_variable = mz_amazon_favor }
+		}
+		dynasty = { 
+			change_variable = {
+				name = mz_amazon_favor
+				add = 100
+			} 
+		}
+	}
+}
+
+mz_matriarchy_birth_add_modifier_effect = { # On birth, give the appropriate modifier
+	if = {
+		limit = { 
+			dynasty = { has_dynasty_perk = mz_matriarchy_legacy_5 }
+		}
+		add_character_modifier = mz_matriarchy_legacy_5_character_modifier
+	}
+	else_if = {
+		limit = { 
+			dynasty = { has_dynasty_perk = mz_matriarchy_legacy_4 }
+		}
+		add_character_modifier = mz_matriarchy_legacy_4_character_modifier
+	}
+	else_if = {
+		limit = { 
+			dynasty = { has_dynasty_perk = mz_matriarchy_legacy_3 }
+		}
+		add_character_modifier = mz_matriarchy_legacy_3_character_modifier
+	}	
+	else_if = {
+		limit = { 
+			dynasty = { has_dynasty_perk = mz_matriarchy_legacy_2 }
+		}
+		add_character_modifier = mz_matriarchy_legacy_2_character_modifier
+	}
+}
+
+# Amazons (character effects)
+mz_add_amazon_warrior_trait_effect = { # Give the Amazon Warrior trait
+	if = {
+		limit = { has_character_modifier = mz_aspiring_amazon_warrior }
+		remove_character_modifier = mz_aspiring_amazon_warrior
+	}
+	if = {
+		limit = {
+			is_female = yes # Only women!
+			NOT = { has_trait = mz_amazonian_warrior }
+		}
+		add_trait = mz_amazonian_warrior
+	}
+}
+
+mz_amazon_training_ruler_effect = { # Amazon training: for rulers
+	scope:mz_amazon_trainer = {
+		duel = {
+			skill = prowess
+			value = high_skill_rating
+			10 = { #Critical success
+				desc = mz_amazon_training_dynasty.0001.a.crit_success
+				trigger = {
+					root.prowess >= 16
+				}
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+				}
+				modifier = {
+					root.house ?= { has_house_modifier = mz_amazon_ruler_house_modifier  }
+					add = 10
+				}
+				root = {
+					show_as_tooltip = {
+						add_trait = strong
+						add_prowess_skill = 2
+						if = {
+							limit = { has_dlc_feature = tours_and_tournaments }
+							custom_tooltip = mz_amazon_add_ruler_tourney_exp_effect_tt
+						}				
+					}
+					hidden_effect = {
+						send_interface_toast = {
+							title = mz_amazon_training_dynasty.0001.a.crit_success
+							left_icon = root
+							hidden_effect = {
+								if = {
+									limit = { has_trait = weak }
+									remove_trait = weak
+								}
+							}
+							add_trait = strong
+							add_prowess_skill = 2
+							if = {
+								limit = { has_dlc_feature = tours_and_tournaments }
+								mz_amazon_add_major_tourney_exp_effect = yes
+							}
+							hidden_effect = {
+								random = {
+									chance = {
+										value = 80
+										if = {
+											limit = { has_character_modifier = mz_aspiring_amazon_warrior } 
+											add = 20
+										}
+									}
+									mz_add_amazon_warrior_trait_effect = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			40 = { #Success
+				desc = mz_amazon_training_dynasty.0001.a.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+				}
+				root = {
+					show_as_tooltip = {
+						add_prowess_skill = 1
+						if = {
+							limit = { has_dlc_feature = tours_and_tournaments }
+							custom_tooltip = mz_amazon_add_ruler_tourney_exp_effect_tt
+						}				
+					}
+					hidden_effect = {
+						send_interface_toast = {
+							title = mz_amazon_training_dynasty.0001.a.success
+							left_icon = root
+							add_prowess_skill = 1
+							if = {
+								limit = { has_dlc_feature = tours_and_tournaments }
+								mz_amazon_add_moderate_tourney_exp_effect = yes
+							}
+							hidden_effect = {
+								random = {
+									chance = {
+										value = 50
+										if = {
+											limit = { has_character_modifier = mz_aspiring_amazon_warrior } 
+											add = 20
+										}
+									}
+									mz_add_amazon_warrior_trait_effect = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			50 = { #Failure
+				desc = mz_amazon_training_dynasty.0001.a.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+				}
+				modifier = {
+					prev.house ?= { has_house_modifier = mz_amazon_ruler_house_modifier  }
+					add = -20
+				}
+				root = {
+					show_as_tooltip = {
+						if = {
+							limit = { has_dlc_feature = tours_and_tournaments }
+							custom_tooltip = mz_amazon_add_ruler_tourney_exp_effect_tt
+						}				
+					}
+					hidden_effect = {
+						send_interface_toast = {
+							title = mz_amazon_training_dynasty.0001.a.failure
+							left_icon = root
+							if = {
+								limit = { has_dlc_feature = tours_and_tournaments }
+								mz_amazon_add_minor_tourney_exp_effect = yes
+							}
+							hidden_effect = {
+								random = {
+									chance = {
+										value = 20
+										if = {
+											limit = { has_character_modifier = mz_aspiring_amazon_warrior } 
+											add = 20
+										}
+									}
+									mz_add_amazon_warrior_trait_effect = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			25 = { #Critical Failure
+				desc = mz_amazon_training_dynasty.0001.a.crit_failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+				}
+				modifier = {
+					prev.house ?= { has_house_modifier = mz_amazon_ruler_house_modifier  }
+					add = -10
+				}
+				root = {
+					send_interface_toast = {
+						title = mz_amazon_training_dynasty.0001.a.crit_failure
+						left_icon = root
+						increase_wounds_effect = { REASON = accident }
+					}
+				}
+			}
+		}
+	}
+}
+
+mz_amazon_training_knight_effect = { # Amazon training: for knights
+	scope:mz_amazon_trainer = {
+		if = {
+			limit = { has_dlc_feature = tours_and_tournaments }
+			custom_tooltip = mz_amazon_add_knight_tourney_exp_effect_tt
+		}		
+		duel = {
+			skill = prowess
+			value = high_skill_rating
+			10 = { #Critical success
+				desc = mz_amazon_training_dynasty.0001.a.crit_success
+				trigger = {
+					root.prowess >= 16
+				}
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+				}
+				modifier = {
+					prev.house ?= { has_house_modifier = mz_amazon_ruler_house_modifier  }
+					add = 10
+				}
+				prev = {
+					hidden_effect = {
+						if = {
+							limit = { has_trait = weak }
+							remove_trait = weak
+						}
+					}
+					add_trait = strong
+					add_prowess_skill = 2
+					hidden_effect = {
+						if = {
+							limit = { has_dlc_feature = tours_and_tournaments }
+							mz_amazon_add_major_tourney_exp_effect = yes
+						}
+						random = {
+							chance = {
+								value = 80
+								if = {
+									limit = { has_character_modifier = mz_aspiring_amazon_warrior } 
+									add = 20
+								}
+							}
+							mz_add_amazon_warrior_trait_effect = yes
+						}
+					}
+				}
+			}
+			40 = { #Success
+				desc = mz_amazon_training_dynasty.0001.a.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+				}
+				prev = {
+					add_prowess_skill = 1
+					hidden_effect = {
+						if = {
+							limit = { has_dlc_feature = tours_and_tournaments }
+							mz_amazon_add_moderate_tourney_exp_effect = yes
+						}
+						random = {
+							chance = {
+								value = 50
+								if = {
+									limit = { has_character_modifier = mz_aspiring_amazon_warrior } 
+									add = 20
+								}
+							}
+							mz_add_amazon_warrior_trait_effect = yes
+						}
+					}
+				}
+			}
+			50 = { #Failure
+				desc = mz_amazon_training_dynasty.0001.a.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+				}
+				modifier = {
+					prev.house ?= { has_house_modifier = mz_amazon_ruler_house_modifier  }
+					add = -20
+				}
+				prev = {
+					hidden_effect = {
+						if = {
+							limit = { has_dlc_feature = tours_and_tournaments }
+							mz_amazon_add_minor_tourney_exp_effect = yes
+						}
+						random = {
+							chance = {
+								value = 20
+								if = {
+									limit = { has_character_modifier = mz_aspiring_amazon_warrior } 
+									add = 20
+								}
+							}
+							mz_add_amazon_warrior_trait_effect = yes
+						}
+					}
+				}
+			}
+			25 = { #Critical Failure
+				desc = mz_amazon_training_dynasty.0001.a.crit_failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+				}
+				modifier = {
+					prev.house ?= { has_house_modifier = mz_amazon_ruler_house_modifier  }
+					add = -10
+				}
+				prev = {
+					increase_wounds_effect = { REASON = accident }
+				}
+			}
+		}
+	}
+}
+
+mz_amazon_add_major_tourney_exp_effect = { # Give some more tourney_participant exp
+	if = {
+		limit = { has_trait = tourney_participant }
+		random_list = {
+			100 = {
+				trigger = {
+					NOT = { 
+						has_trait_xp = {
+							trait = tourney_participant
+							track = foot
+							value >= 100
+						}						
+					}
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = foot
+						value >= 80
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = foot
+						value >= 60
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = foot
+						value >= 40
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = foot
+						value >= 20
+					}
+					add = -20
+				}
+				custom_tooltip = {
+					text = mz_add_tourney_exp_effect_tt
+					add_trait_xp = {
+						trait = tourney_participant
+						track = foot
+						value = {
+							integer_range = {
+								min = tournament_hastiludes_xp_gain_medium_value
+								max = tournament_hastiludes_xp_gain_major_value
+							}
+						}
+					}
+				}
+			}
+			100 = {
+				trigger = {
+					NOT = { 
+						has_trait_xp = {
+							trait = tourney_participant
+							track = bow
+							value >= 100
+						}						
+					}
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = bow
+						value >= 80
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = bow
+						value >= 60
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = bow
+						value >= 40
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = bow
+						value >= 20
+					}
+					add = -20
+				}
+				custom_tooltip = {
+					text = mz_add_tourney_exp_effect_tt
+					add_trait_xp = {
+						trait = tourney_participant
+						track = bow
+						value = {
+							integer_range = {
+								min = tournament_hastiludes_xp_gain_medium_value
+								max = tournament_hastiludes_xp_gain_major_value
+							}
+						}
+					}
+				}
+			}
+			100 = {
+				trigger = {
+					NOT = { 
+						has_trait_xp = {
+							trait = tourney_participant
+							track = horse
+							value >= 100
+						}						
+					}
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = horse
+						value >= 80
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = horse
+						value >= 60
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = horse
+						value >= 40
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = horse
+						value >= 20
+					}
+					add = -20
+				}
+				custom_tooltip = {
+					text = mz_add_tourney_exp_effect_tt
+					add_trait_xp = {
+						trait = tourney_participant
+						track = horse
+						value = {
+							integer_range = {
+								min = tournament_hastiludes_xp_gain_medium_value
+								max = tournament_hastiludes_xp_gain_major_value
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	else = {
+		hidden_effect = { add_trait = tourney_participant } # Will show toast anyway
+		mz_amazon_add_moderate_tourney_exp_effect = yes
+	}
+}
+
+mz_amazon_add_moderate_tourney_exp_effect = { # Give some tourney_participant exp
+	if = {
+		limit = { has_trait = tourney_participant }
+		random_list = {
+			100 = {
+				trigger = {
+					NOT = { 
+						has_trait_xp = {
+							trait = tourney_participant
+							track = foot
+							value >= 100
+						}						
+					}
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = foot
+						value >= 80
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = foot
+						value >= 60
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = foot
+						value >= 40
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = foot
+						value >= 20
+					}
+					add = -20
+				}
+				custom_tooltip = {
+					text = mz_add_tourney_exp_effect_tt
+					add_trait_xp = {
+						trait = tourney_participant
+						track = foot
+						value = {
+							integer_range = {
+								min = tournament_hastiludes_xp_gain_minor_value
+								max = tournament_hastiludes_xp_gain_medium_value
+							}
+						}
+					}
+				}
+			}
+			100 = {
+				trigger = {
+					NOT = { 
+						has_trait_xp = {
+							trait = tourney_participant
+							track = bow
+							value >= 100
+						}						
+					}
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = bow
+						value >= 80
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = bow
+						value >= 60
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = bow
+						value >= 40
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = bow
+						value >= 20
+					}
+					add = -20
+				}
+				custom_tooltip = {
+					text = mz_add_tourney_exp_effect_tt
+					add_trait_xp = {
+						trait = tourney_participant
+						track = bow
+						value = {
+							integer_range = {
+								min = tournament_hastiludes_xp_gain_minor_value
+								max = tournament_hastiludes_xp_gain_medium_value
+							}
+						}
+					}
+				}
+			}
+			100 = {
+				trigger = {
+					NOT = { 
+						has_trait_xp = {
+							trait = tourney_participant
+							track = horse
+							value >= 100
+						}						
+					}
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = horse
+						value >= 80
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = horse
+						value >= 60
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = horse
+						value >= 40
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = horse
+						value >= 20
+					}
+					add = -20
+				}
+				custom_tooltip = {
+					text = mz_add_tourney_exp_effect_tt
+					add_trait_xp = {
+						trait = tourney_participant
+						track = horse
+						value = {
+							integer_range = {
+								min = tournament_hastiludes_xp_gain_minor_value
+								max = tournament_hastiludes_xp_gain_medium_value
+							}
+						}
+					}
+				}					
+			}
+		}
+	}
+	else = {
+		hidden_effect = { add_trait = tourney_participant } # Will show toast anyway
+		mz_amazon_add_minor_tourney_exp_effect = yes
+	}
+}
+
+mz_amazon_add_minor_tourney_exp_effect = { # Give less tourney_participant exp
+	if = {
+		limit = { has_trait = tourney_participant }
+		random_list = {
+			100 = {
+				trigger = {
+					NOT = { 
+						has_trait_xp = {
+							trait = tourney_participant
+							track = foot
+							value >= 100
+						}						
+					}
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = foot
+						value >= 80
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = foot
+						value >= 60
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = foot
+						value >= 40
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = foot
+						value >= 20
+					}
+					add = -20
+				}
+				custom_tooltip = {
+					text = mz_add_tourney_exp_effect_tt
+					add_trait_xp = {
+						trait = tourney_participant
+						track = foot
+						value = {
+							integer_range = {
+								min = tournament_hastiludes_xp_gain_miniscule_value
+								max = tournament_hastiludes_xp_gain_minor_value
+							}
+						}
+					}
+				}								
+			}
+			100 = {
+				trigger = {
+					NOT = { 
+						has_trait_xp = {
+							trait = tourney_participant
+							track = bow
+							value >= 100
+						}						
+					}
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = bow
+						value >= 80
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = bow
+						value >= 60
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = bow
+						value >= 40
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = bow
+						value >= 20
+					}
+					add = -20
+				}
+				custom_tooltip = {
+					text = mz_add_tourney_exp_effect_tt
+					add_trait_xp = {
+						trait = tourney_participant
+						track = bow
+						value = {
+							integer_range = {
+								min = tournament_hastiludes_xp_gain_miniscule_value
+								max = tournament_hastiludes_xp_gain_minor_value
+							}
+						}
+					}
+				}
+			}
+			100 = {
+				trigger = {
+					NOT = { 
+						has_trait_xp = {
+							trait = tourney_participant
+							track = horse
+							value >= 100
+						}						
+					}
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = horse
+						value >= 80
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = horse
+						value >= 60
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = horse
+						value >= 40
+					}
+					add = -20
+				}
+				modifier = {
+					has_trait_xp = {
+						trait = tourney_participant
+						track = horse
+						value >= 20
+					}
+					add = -20
+				}	
+				custom_tooltip = {
+					text = mz_add_tourney_exp_effect_tt
+					add_trait_xp = {
+						trait = tourney_participant
+						track = horse
+						value = {
+							integer_range = {
+								min = tournament_hastiludes_xp_gain_miniscule_value
+								max = tournament_hastiludes_xp_gain_minor_value
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	else = { 
+		hidden_effect = { add_trait = tourney_participant } # Will show toast anyway
+	}
+}
+
+mz_amazon_training_progress_effect = { # done from scope:amazon_trainee scope
+	if = {
+		limit = { 
+			has_variable = mz_amazon_training_progress
+			NOT = { has_trait = mz_amazonian_warrior }
+		}
+		change_variable = {
+			name = mz_amazon_training_progress
+			add = 1
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = { has_trait = mz_amazonian_warrior }
+		}
+		set_variable = {
+			name = mz_amazon_training_progress
+			value = 1
+		}
+	}
+	else_if = {
+		limit = { 
+			has_variable = mz_amazon_training_progress
+			has_trait = mz_amazonian_warrior
+		}
+		remove_variable = mz_amazon_training_progress
+	}
+}
+
+mz_amazon_contact_add_progress_effect = {
+	if = {
+		limit = { has_variable = mz_amazon_contact_progress }
+		change_variable = {
+			name = mz_amazon_contact_progress
+			add = 1
+		}
+	}
+	else = {
+		set_variable = {
+			name = mz_amazon_contact_progress
+			value = 1
+		}
+	}
+
+	if = {
+		limit = {
+			has_variable = mz_amazon_contact_progress
+			var:mz_amazon_contact_progress >= 6
+		}
+		add_character_flag = mz_amazon_contact_strong
+	}
+	else_if = {
+		limit = {
+			has_variable = mz_amazon_contact_progress
+			var:mz_amazon_contact_progress >= 3
+		}
+		add_character_flag = mz_amazon_contact_weak
+	}
+}
+
+# Amazons (dynasty effects)
+mz_change_amazon_favor_effect = { # Used from dynasty scope
+	if = {
+		limit = { # Permanent alliance disregards all Amazon favor effects
+			NOT = { has_dynasty_modifier = mz_permanent_amazon_alliance }
+		}
+		set_variable = {
+			name = mz_amazon_favor_temp
+			value = $FAVOR$
+		}
+		if = {
+			limit = { has_dynasty_modifier = mz_matriarchy_modifier }
+			random = {
+				chance = 20
+				change_variable = {
+					name = mz_amazon_favor_temp
+					add = 5
+				}
+			}
+		}
+		if = {
+			limit = { has_dynasty_perk = mz_matriarchy_legacy_4 }
+			random = {
+				chance = 50
+				change_variable = {
+					name = mz_amazon_favor_temp
+					add = 10
+				}
+			}
+		}
+	
+		if = {
+			limit = { 
+				has_variable = mz_amazon_favor 
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							var:mz_amazon_favor <= 8000 # Don't bother increasing if already 8000 or above.
+							OR = {
+								has_dynasty_modifier = mz_amazon_alliance_rank_4
+								has_dynasty_modifier = mz_amazon_alliance_rank_5
+							}
+						}
+						AND = {
+							var:mz_amazon_favor <= 4000 # Don't bother increasing if already 4000 or above.
+							has_dynasty_modifier = mz_amazon_alliance_rank_3
+						}
+						AND = {
+							var:mz_amazon_favor <= 1500 # Don't bother increasing if already 1500 or above.
+							has_dynasty_modifier = mz_amazon_alliance_rank_2
+						}
+						var:mz_amazon_favor <= 500 # Don't bother increasing if already 500 or above.
+					}
+				}
+				change_variable = {
+					name = mz_amazon_favor
+					add = {
+						value = var:mz_amazon_favor_temp
+						max = 25
+					}
+				}
+			}
+		}
+		else = {
+			set_variable = {
+				name = mz_amazon_favor
+				value = var:mz_amazon_favor_temp
+			}
+		}
+	
+		if = {
+			limit = { has_variable = mz_amazon_favor_temp }
+			remove_variable = mz_amazon_favor_temp
+		}
+	}
+}

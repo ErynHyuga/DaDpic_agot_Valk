@@ -1,0 +1,89 @@
+﻿## Sets the requirements for the lesbian orgy
+
+mz_can_join_lesorgy_trigger = {
+	age >= 18
+	health >= fine_health
+	mz_lesorgy_has_disfiguring_trait_trigger = no
+	mz_lesorgy_has_serious_illness_trigger = no
+	is_female = yes
+	is_attracted_to_women = yes
+	NOT = { has_trait = celibate }
+}
+
+mz_lesorgy_participant_trigger = { # This is used for finding people for events. Typically we don't want Players to be on the receiving end of these events.
+	is_ai = yes
+	NOT = { this = root }
+	is_alive = yes
+	is_imprisoned = no
+	mz_lesorgy_is_incest_trigger = no # Don't cause incest. But do note that if you're already consorts/lovers this is okay.
+	mz_lesorgy_has_serious_illness_trigger = no
+	mz_lesorgy_has_disfiguring_trait_trigger = no
+	is_participant_in_activity = scope:activity #scope:activity should exist
+}
+
+mz_lesorgy_pulse_action_trigger = {
+	is_physically_able_ai_adult = yes
+	mz_lesorgy_has_serious_illness_trigger = no
+	mz_lesorgy_has_disfiguring_trait_trigger = no	
+}
+
+mz_lesorgy_is_incest_trigger = { # Triggers TRUE if relationship would be incestuous and not already a lover/consort. Faith is not considered for this check.
+	is_close_or_extended_family_of = root
+	NOR = { 
+		has_relation_soulmate = root
+		has_relation_lover = root
+		is_consort_of = root
+	}
+}
+
+mz_lesorgy_has_serious_illness_trigger = { # Any serious illness, but not cancer or basic illness.
+	OR = {
+		has_contagious_disease_trigger = yes
+		has_trait = pneumonic
+		has_trait = leper
+		has_trait = consumption
+		has_trait = typhus
+		has_trait = measles # New diseases included!
+		has_trait = dysentery
+		has_trait = ergotism
+	}
+}
+
+mz_lesorgy_has_disfiguring_trait_trigger = { # Blind, one-eyed, and scarred are okay. Most others are not. Also includes some debilitating traits.
+	OR = {
+		has_trait = spindly
+		has_trait = leper
+		has_trait = disfigured
+		has_trait = maimed
+		has_trait = one_legged
+		has_trait = infirm
+		has_trait_rank = {
+			trait = wounded
+			rank >= 2
+		}
+	}
+}
+
+mz_bannable_serving_diarch_consort_exception_trigger = {
+	OR = {
+		trigger_if = {
+			limit = {
+				is_consort_of = prev
+				is_courtier_of = prev
+			}
+			# Spouses in your own court can come to your own activities that are hosted within your realm, even if they are your designated diarch.
+			always = no
+		}
+		trigger_else = {
+			# Diarchs with official responsibilities can't come out to play.
+			is_diarch = yes
+			is_designated_diarch = yes
+			# Assumed diarchs don't get to either if they're the AI, as the player might be planning around them & the AI may have designated to avoid people after if it'd known they were going to welch.
+			## Assumed-diarch players can make an intelligent choice on whether they want to go to events or not.
+			AND = {
+				is_ai = yes
+				is_diarchy_successor = yes
+			}
+		}
+	}	
+}

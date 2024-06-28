@@ -1,0 +1,150 @@
+﻿#### Controls whether or not to use secrecy for Convert scheme
+mz_use_convert_secrecy_trigger = {
+	scope:target = {
+		NOR = {
+			is_consort_of = scope:owner
+			is_courtier_of = scope:owner
+			is_ruler = yes
+		}
+		exists = liege
+		OR = {
+			is_consort_of = scope:target.liege
+			is_close_family_of = scope:target.liege
+			house = scope:target.house
+		}
+	}
+}
+
+mz_has_negative_lifestyle_trait_trigger = {
+	OR = {
+		AND = {
+			has_trait = rakish
+			NOR = { 
+				$OWNER$.faith = { trait_is_virtue = lustful } 
+				$OWNER$.faith = { trait_is_virtue = rakish } 
+			}
+		}
+		AND = {
+			has_trait = drunkard
+			NOR = { 
+				$OWNER$.faith = { trait_is_virtue = lifestyle_reveler }
+				$OWNER$.faith = { trait_is_virtue = drunkard }
+			}
+		}
+		AND = {
+			has_trait = irritable
+			NOR = { 
+				$OWNER$.faith = { trait_is_virtue = wrathful } 
+				$OWNER$.faith = { trait_is_virtue = irritable } 
+			}
+		}
+		AND = {
+			has_trait = hashishiyah
+			NOT = { $OWNER$.faith = { trait_is_virtue = hashishiyah } }
+			$OWNER$.faith = { trait_is_virtue = temperate }
+		}
+	}
+}
+
+mz_has_negative_personality_trait_trigger = {
+	OR = {
+		AND = {
+			has_trait = gluttonous
+			NOT = { $OWNER$.faith = { trait_is_virtue = gluttonous } }
+		}
+		AND = {
+			has_trait = lustful
+			$OWNER$.faith = { trait_is_sin = lustful }
+		}
+		AND = {
+			has_trait = chaste
+			$OWNER$.faith = { trait_is_sin = chaste }
+		}
+		AND = {
+			has_trait = content
+			NOT = { $OWNER$.faith = { trait_is_virtue = content } }
+			OR = {
+				$OWNER$.faith = { trait_is_sin = content }
+				$OWNER$.culture = { has_cultural_parameter = craven_and_content_traits_looked_down_upon }
+			}
+		}
+		AND = {
+			has_trait = ambitious
+			NOT = { $OWNER$.faith = { trait_is_virtue = ambitious } }
+			OR = {
+				$OWNER$.faith = { trait_is_sin = ambitious }
+				$OWNER$.culture = { has_cultural_parameter = ambitious_trait_penalty }
+			}
+		}
+		AND = {
+			has_trait = fickle
+			$OWNER$.faith = { trait_is_sin = fickle }
+		}
+		AND = {
+			has_trait = stubborn
+			$OWNER$.faith = { trait_is_sin = stubborn }
+		}
+		AND = {
+			has_trait = paranoid
+			NOT = { $OWNER$.faith = { trait_is_virtue = paranoid } }
+		}
+		AND = {
+			has_trait = lazy
+			NOT = { $OWNER$.faith = { trait_is_virtue = lazy } }
+		}
+		AND = {
+			has_trait = craven
+			NOT = { $OWNER$.faith = { trait_is_virtue = craven } }
+		}
+		AND = {
+			has_trait = sadistic
+			NOT = { $OWNER$.faith = { trait_is_virtue = sadistic } }
+		}
+		AND = {
+			has_trait = impatient
+			$OWNER$.faith = { trait_is_sin = impatient }
+		}
+		AND = {
+			has_trait = arbitrary
+			NOT = { $OWNER$.faith = { trait_is_virtue = arbitrary } }
+		}
+		AND = {
+			has_trait = forgiving
+			NOT = { $OWNER$.faith = { trait_is_virtue = forgiving } }
+			OR = { 
+				$OWNER$.faith = { trait_is_sin = forgiving } 
+				$OWNER$.culture = { has_cultural_parameter = vengeful_positive_forgiving_negative }
+			}
+		}
+		AND = {
+			has_trait = vengeful
+			NOR = { 
+				$OWNER$.faith = { trait_is_virtue = vengeful }
+				$OWNER$.culture = { has_cultural_parameter = vengeful_positive_forgiving_negative }
+			}
+		}
+		AND = {
+			has_trait = arrogant
+			$OWNER$.faith = { trait_is_sin = arrogant }
+		}
+		AND = {
+			has_trait = deceitful
+			$OWNER$.faith = { trait_is_sin = deceitful }
+		}
+		AND = {
+			has_trait = greedy
+			$OWNER$.faith = { trait_is_sin = greedy }
+		}
+		AND = {
+			has_trait = wrathful
+			$OWNER$.faith = { trait_is_sin = wrathful }
+		}
+	}
+}
+
+mz_has_valid_negative_trait_trigger = {
+	OR = {
+		mz_has_negative_lifestyle_trait_trigger = { OWNER = $OWNER$ }
+		mz_has_negative_personality_trait_trigger = { OWNER = $OWNER$ }
+	}
+}

@@ -1,0 +1,1997 @@
+﻿## Hedonist culture cascading development effect
+mz_cascading_development_effect = {
+	capital_province = {
+		county = {
+			add_to_list = mz_affected_counties
+			every_neighboring_county = { 
+				add_to_list = mz_affected_counties
+				every_neighboring_county = {
+					limit = {
+						NOT = { is_in_list = mz_affected_counties }
+					}
+					add_to_list = mz_affected_counties
+				}
+			}
+		}
+	}
+	custom_tooltip = mz_cascading_development_effect_tt
+	hidden_effect = {
+		every_in_list = {
+			list = mz_affected_counties
+			if = {
+				limit = { 
+					any_county_province = { this = root.capital_province }
+				}
+				change_development_progress_with_overflow = 20
+			}
+			else_if = {
+				limit = {
+					any_neighboring_county = {
+						any_county_province = { this = root.capital_province }
+					}
+				}
+				change_development_progress_with_overflow = 10
+			}
+			else = { change_development_progress_with_overflow = 5 }
+		}
+	}
+}
+
+## Level up lifestyle skills randomly, used for generated characters
+mz_trait_track_give_random_xp_effect = {
+	if = { # Hunter
+		limit = { has_trait = lifestyle_hunter }
+		random_list = {
+			1 = {
+				add_trait_xp = {
+					trait = lifestyle_hunter
+					track = hunter
+					value = {
+						integer_range = {
+							min = 20
+							max = 45
+						}
+					}
+				}
+			}
+			1 = {
+				add_trait_xp = {
+					trait = lifestyle_hunter
+					track = falconer
+					value = {
+						integer_range = {
+							min = 20
+							max = 45
+						}
+					}
+				}
+			}
+		}
+		random = {
+			chance = 50
+			random_list = {
+				1 = {
+					add_trait_xp = {
+						trait = lifestyle_hunter
+						track = hunter
+						value = {
+							integer_range = {
+								min = 20
+								max = 45
+							}
+						}
+					}
+				}
+				1 = {
+					add_trait_xp = {
+						trait = lifestyle_hunter
+						track = falconer
+						value = {
+							integer_range = {
+								min = 20
+								max = 45
+							}
+						}
+					}
+				}
+			}			
+		}	
+	}
+	if = { # Traveler
+		limit = { has_trait = lifestyle_traveler }
+		random_list = {
+			1 = {
+				add_trait_xp = {
+					trait = lifestyle_traveler
+					track = travel
+					value = {
+						integer_range = {
+							min = 20
+							max = 45
+						}
+					}
+				}
+			}
+			1 = {
+				add_trait_xp = {
+					trait = lifestyle_traveler
+					track = danger
+					value = {
+						integer_range = {
+							min = 20
+							max = 45
+						}
+					}
+				}
+			}
+		}
+		random = {
+			chance = 50
+			random_list = {
+				1 = {
+					add_trait_xp = {
+						trait = lifestyle_traveler
+						track = travel
+						value = {
+							integer_range = {
+								min = 20
+								max = 45
+							}
+						}
+					}
+				}
+				1 = {
+					add_trait_xp = {
+						trait = lifestyle_traveler
+						track = danger
+						value = {
+							integer_range = {
+								min = 20
+								max = 45
+							}
+						}
+					}
+				}
+			}			
+		}	
+	}	
+	if = { # Reveler
+		limit = { has_trait = lifestyle_reveler }
+		add_trait_xp = {
+			trait = lifestyle_reveler
+			value = {
+				integer_range = {
+					min = 20
+					max = 45
+				}
+			}
+		}
+		random = {
+			chance = 50
+			add_trait_xp = {
+				trait = lifestyle_reveler
+				value = {
+					integer_range = {
+						min = 20
+						max = 45
+					}
+				}
+			}			
+		}		
+	}
+	if = { # Pilgrim
+		limit = { has_trait = pilgrim }
+		add_trait_xp = {
+			trait = pilgrim
+			value = {
+				integer_range = {
+					min = 20
+					max = 45
+				}
+			}
+		}
+		random = {
+			chance = 50
+			add_trait_xp = {
+				trait = pilgrim
+				value = {
+					integer_range = {
+						min = 20
+						max = 45
+					}
+				}
+			}			
+		}		
+	}
+	if = { # Physician
+		limit = { has_trait = lifestyle_physician }
+		add_trait_xp = {
+			trait = lifestyle_physician
+			value = {
+				integer_range = {
+					min = 20
+					max = 45
+				}
+			}
+		}
+		random = {
+			chance = 50
+			add_trait_xp = {
+				trait = lifestyle_physician
+				value = {
+					integer_range = {
+						min = 20
+						max = 45
+					}
+				}
+			}			
+		}		
+	}
+	if = { # Mystic
+		limit = { has_trait = lifestyle_mystic }
+		add_trait_xp = {
+			trait = lifestyle_mystic
+			value = {
+				integer_range = {
+					min = 20
+					max = 45
+				}
+			}
+		}
+		random = {
+			chance = 50
+			add_trait_xp = {
+				trait = lifestyle_mystic
+				value = {
+					integer_range = {
+						min = 20
+						max = 45
+					}
+				}
+			}			
+		}		
+	}
+	if = { # Blademaster
+		limit = { has_trait = lifestyle_blademaster }
+		add_trait_xp = {
+			trait = lifestyle_blademaster
+			value = {
+				integer_range = {
+					min = 20
+					max = 45
+				}
+			}
+		}
+		random = {
+			chance = 50
+			add_trait_xp = {
+				trait = lifestyle_blademaster
+				value = {
+					integer_range = {
+						min = 20
+						max = 45
+					}
+				}
+			}			
+		}		
+	}
+	if = { # Scarred
+		limit = { has_trait = scarred }
+		add_trait_xp = {
+			trait = scarred
+			value = {
+				integer_range = {
+					min = 5
+					max = 10
+				}
+			}
+		}
+		random = {
+			chance = 50
+			add_trait_xp = {
+				trait = scarred
+				value = {
+					integer_range = {
+						min = 5
+						max = 10
+					}
+				}
+			}			
+		}		
+	}	
+}
+
+mz_tourney_participant_trait_xp_randomizer_effect = {
+	random_list = {
+		1 = {
+			add_trait_xp = {
+				trait = tourney_participant
+				track = foot
+				value = {
+					integer_range = {
+						min = 20
+						max = 45
+					}
+				}
+			}
+			random = {
+				chance = 50
+				add_trait_xp = {
+					trait = tourney_participant
+					track = foot
+					value = {
+						integer_range = {
+							min = 20
+							max = 45
+						}
+					}
+				}			
+			}			
+		}
+		1 = {
+			add_trait_xp = {
+				trait = tourney_participant
+				track = bow
+				value = {
+					integer_range = {
+						min = 20
+						max = 45
+					}
+				}
+			}
+			random = {
+				chance = 50
+				add_trait_xp = {
+					trait = tourney_participant
+					track = bow
+					value = {
+						integer_range = {
+							min = 20
+							max = 45
+						}
+					}
+				}			
+			}
+		}
+		1 = {
+			add_trait_xp = {
+				trait = tourney_participant
+				track = horse
+				value = {
+					integer_range = {
+						min = 20
+						max = 45
+					}
+				}
+			}
+			random = {
+				chance = 50
+				add_trait_xp = {
+					trait = tourney_participant
+					track = horse
+					value = {
+						integer_range = {
+							min = 20
+							max = 45
+						}
+					}
+				}			
+			}			
+		}
+		1 = {
+			add_trait_xp = {
+				trait = tourney_participant
+				track = wit
+				value = {
+					integer_range = {
+						min = 20
+						max = 45
+					}
+				}
+			}
+			random = {
+				chance = 50
+				add_trait_xp = {
+					trait = tourney_participant
+					track = wit
+					value = {
+						integer_range = {
+							min = 20
+							max = 45
+						}
+					}
+				}			
+			}			
+		}
+	}
+}
+
+mz_reduce_prowess_effect = {
+	random = {
+		chance = 80
+		add_prowess_skill = -2
+	}
+	random = {
+		chance = 80
+		add_prowess_skill = -2
+	}
+	random = {
+		chance = 80
+		add_prowess_skill = -2
+	}
+	random = {
+		chance = 80
+		add_prowess_skill = -2
+	}
+	random = {
+		chance = 80
+		add_prowess_skill = -2
+	}
+}
+
+## Formable countries
+mz_form_themiscyra_scripted_effect = { # Form Themiscyra
+	#Grab scopes for loc and such.
+	save_scope_as = mz_scoped_ruler	
+	#Hand over k_mz_themiscyra.
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = change
+		add_claim_on_loss = no
+	}
+	title:k_mz_themiscyra = {
+		change_title_holder = {
+			holder = root
+			change = scope:change
+		}
+		#hidden_effect = { copy_title_history = title:k_pontus } # I don't think this makes much sense.
+	}
+	resolve_title_and_vassal_change = scope:change	
+	#Try to make it the primary title, unless it's an Emperor doing this.
+	hidden_effect = {
+		if = {
+			limit = { primary_title.tier <= tier_kingdom }
+			set_primary_title_to = title:k_mz_themiscyra
+		}
+	}
+	#Save k_pontus's current de jure liege for future reference.
+	title:k_pontus.de_jure_liege = { save_scope_as = mz_previous_empire }	
+	hidden_effect = {
+		title:k_mz_themiscyra = {
+			set_de_jure_liege_title = scope:mz_previous_empire
+		}
+		every_county_in_region = {
+			region = mz_custom_themiscyra
+			duchy = { add_to_list = mz_thermiscrya_duchies_list }
+		}
+		every_in_list = {
+			list = mz_thermiscrya_duchies_list
+			limit = {
+				NOT = { de_jure_liege = title:k_mz_themiscyra }
+			}
+			set_de_jure_liege_title = title:k_mz_themiscyra
+		}
+	}
+	#Destroy k_pontus if within realm
+	if = {
+		limit = {
+			OR = {
+				has_title = title:k_pontus
+				any_vassal = {
+					has_title = title:k_pontus
+				}
+			}
+		}
+		hidden_effect = { destroy_title = title:k_pontus }
+	}
+	#Add a large amount of Amazon favor if applicable
+	if = {
+		limit = {
+			mz_has_amazon_contact = yes
+			dynasty = { has_variable = mz_amazon_favor }
+		}
+		dynasty = {
+			change_variable = {
+				name = mz_amazon_favor
+				add = 1000
+			}
+		}
+	}
+	add_character_flag = {
+		flag = mz_amazon_decision_blocker
+		days = 2
+	}
+}
+
+mz_form_scythia_scripted_effect = { # Form Scythia
+	#Grab scopes for loc and such.
+	save_scope_as = mz_scoped_ruler	
+	#Hand over k_mz_scythia.
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = change
+		add_claim_on_loss = no
+	}
+	title:k_mz_scythia = {
+		change_title_holder = {
+			holder = root
+			change = scope:change
+		}
+	}
+	resolve_title_and_vassal_change = scope:change	
+	#Try to make it the primary title, unless it's an Emperor doing this.
+	hidden_effect = {
+		if = {
+			limit = { primary_title.tier <= tier_kingdom }
+			set_primary_title_to = title:k_mz_scythia
+		}
+	}
+	#Save k_pontic_steppe's current de jure liege for future reference.
+	title:k_pontic_steppe.de_jure_liege = { save_scope_as = mz_previous_empire }	
+	hidden_effect = {
+		title:k_mz_scythia = {
+			set_de_jure_liege_title = scope:mz_previous_empire
+		}
+		every_county_in_region = {
+			region = mz_custom_scythia
+			duchy = { add_to_list = mz_scythia_duchies_list }
+		}
+		every_in_list = {
+			list = mz_scythia_duchies_list
+			limit = {
+				NOT = { de_jure_liege = title:k_mz_scythia }
+			}
+			set_de_jure_liege_title = title:k_mz_scythia
+		}
+	}
+	#Destroy k_pontic_steppe if within realm
+	if = {
+		limit = {
+			OR = {
+				has_title = title:k_pontic_steppe
+				any_vassal = {
+					has_title = title:k_pontic_steppe
+				}
+			}
+		}
+		hidden_effect = { destroy_title = title:k_pontic_steppe }
+	}
+	#Add a large amount of Amazon favor if applicable
+	if = {
+		limit = {
+			mz_has_amazon_contact = yes
+			dynasty = { has_variable = mz_amazon_favor }
+		}
+		dynasty = {
+			change_variable = {
+				name = mz_amazon_favor
+				add = 1000
+			}
+		}
+	}
+	add_character_flag = {
+		flag = mz_amazon_decision_blocker
+		days = 2
+	}
+}
+
+mz_expand_themiscyra_scripted_effect = { # Expand Themiscyra
+	#Grab scopes for loc and such.
+	save_scope_as = mz_scoped_ruler	
+	title:k_nikaea = { save_scope_as = k_nikaea }
+	title:k_mz_themiscyra = { save_scope_as = k_mz_themiscyra }
+	title:d_thrace = { save_scope_as = d_thrace }
+	title:d_aegean_islands = { save_scope_as = d_aegean_islands }
+	title:d_krete = { save_scope_as = d_krete }
+	#Start by taking k_nikaea and destroying it, making all of its lands dejure themiscrya
+	hidden_effect = {
+		every_county_in_region = {
+			region = mz_custom_greater_themiscyra
+			duchy = { add_to_list = mz_thermiscrya_duchies_list }
+		}
+		every_in_list = {
+			list = mz_thermiscrya_duchies_list
+			limit = {
+				NOT = { de_jure_liege = title:k_mz_themiscyra }
+			}
+			set_de_jure_liege_title = title:k_mz_themiscyra
+		}
+	}
+	custom_tooltip = mz_expand_themiscyra_scripted_effect.tt
+	#Destroy k_nikaea if within realm
+	if = {
+		limit = {
+			OR = {
+				has_title = title:k_nikaea
+				any_vassal = {
+					has_title = title:k_nikaea
+				}
+			}
+		}
+		hidden_effect = { destroy_title = title:k_nikaea }
+	}
+	#Resolve what happens to optional territories
+	if = {
+		limit = { completely_controls = title:d_thrace }
+		title:d_thrace = { set_de_jure_liege_title = title:k_mz_themiscyra }
+	}
+	else = { custom_tooltip = mz_expand_themiscyra_decision_effect_stretch_goals_thrace_tt }
+	if = {
+		limit = { completely_controls = title:d_aegean_islands }
+		title:d_aegean_islands = { set_de_jure_liege_title = title:k_mz_themiscyra }
+	}
+	else = { custom_tooltip = mz_expand_themiscyra_decision_effect_stretch_goals_aegean_tt }
+	if = {
+		limit = { completely_controls = title:d_krete }
+		title:d_krete = { set_de_jure_liege_title = title:k_mz_themiscyra }
+		#Destroy k_krete if within realm
+		if = {
+			limit = {
+				OR = {
+					has_title = title:k_krete
+					any_vassal = {
+						has_title = title:k_krete
+					}
+				}
+			}
+			hidden_effect = { destroy_title = title:k_krete }
+		}		
+	}
+	else = { custom_tooltip = mz_expand_themiscyra_decision_effect_stretch_goals_krete_tt }
+	#Add a large amount of Amazon favor if applicable
+	if = {
+		limit = {
+			mz_has_amazon_contact = yes
+			dynasty = { has_variable = mz_amazon_favor }
+		}
+		dynasty = {
+			change_variable = {
+				name = mz_amazon_favor
+				add = 1000
+			}
+		}
+	}
+}
+
+mz_expand_scythia_scripted_effect = { # Expand Scythia
+	#Grab scopes for loc and such.
+	save_scope_as = mz_scoped_ruler	
+	title:k_caucasus = { save_scope_as = k_caucasus }
+	title:k_caspian_steppe = { save_scope_as = k_caspian_steppe }
+	title:k_mz_scythia = { save_scope_as = k_mz_scythia }
+	title:d_kiev = { save_scope_as = d_kiev }
+	title:d_pereyaslavl = { save_scope_as = d_pereyaslavl }
+	title:d_voronezh = { save_scope_as = d_voronezh }
+	title:d_khopyor = { save_scope_as = d_khopyor }
+	#Start by taking k_caucasus and k_caspian_steppe, destroying them, making all of its lands dejure Scythia
+	hidden_effect = {
+		every_county_in_region = {
+			region = mz_custom_scythia_expanded
+			duchy = { add_to_list = mz_scythia_duchies_list }
+		}
+		every_in_list = {
+			list = mz_scythia_duchies_list
+			limit = {
+				NOT = { de_jure_liege = title:k_mz_scythia }
+			}
+			set_de_jure_liege_title = title:k_mz_scythia
+		}
+	}
+	custom_tooltip = mz_expand_sycthia_scripted_effect.tt
+	#Destroy k_caucasus if within realm
+	if = {
+		limit = {
+			OR = {
+				has_title = title:k_caucasus
+				any_vassal = {
+					has_title = title:k_caucasus
+				}
+			}
+		}
+		hidden_effect = { destroy_title = title:k_caucasus }
+	}
+	#Destroy k_caspian_steppe if within realm
+	if = {
+		limit = {
+			OR = {
+				has_title = title:k_caspian_steppe
+				any_vassal = {
+					has_title = title:k_caspian_steppe
+				}
+			}
+		}
+		hidden_effect = { destroy_title = title:k_caspian_steppe }
+	}	
+	#Resolve what happens to optional territories
+	if = {
+		limit = { completely_controls = title:d_kiev }
+		title:d_kiev = { set_de_jure_liege_title = title:k_mz_scythia }
+	}
+	else = { custom_tooltip = mz_expand_scythia_decision_effect_stretch_goals_kiev_tt }
+	if = {
+		limit = { completely_controls = title:d_pereyaslavl }
+		title:d_pereyaslavl = { set_de_jure_liege_title = title:k_mz_scythia }
+	}
+	else = { custom_tooltip = mz_expand_scythia_decision_effect_stretch_goals_pereyaslavl_tt }
+	if = {
+		limit = { completely_controls = title:d_voronezh }
+		title:d_voronezh = { set_de_jure_liege_title = title:k_mz_scythia }		
+	}
+	else = { custom_tooltip = mz_expand_scythia_decision_effect_stretch_goals_voronezh_tt }
+	if = {
+		limit = { completely_controls = title:d_khopyor }
+		title:d_khopyor = { set_de_jure_liege_title = title:k_mz_scythia }		
+	}
+	else = { custom_tooltip = mz_expand_scythia_decision_effect_stretch_goals_khopyor_tt }
+	#Add a large amount of Amazon favor if applicable
+	if = {
+		limit = {
+			mz_has_amazon_contact = yes
+			dynasty = { has_variable = mz_amazon_favor }
+		}
+		dynasty = {
+			change_variable = {
+				name = mz_amazon_favor
+				add = 1000
+			}
+		}
+	}
+}
+
+mz_form_amazonia_scripted_effect = { # Form Amazonia
+	if = {
+		limit = { has_dlc_feature = legends }
+		create_legend_seed = {
+			type = legitimizing
+			quality = illustrious
+			chronicle = new_title
+			properties = {
+				title = title:e_mz_amazonia
+				founder = root
+			}
+		}
+	}
+	custom_tooltip = mz_form_amazonia_scripted_effect.tt
+	custom_tooltip = mz_form_amazonia_scripted_effect.tt_1
+	custom_tooltip = mz_form_amazonia_scripted_effect.tt_2
+	#Grab scopes for loc and such.
+	save_scope_as = mz_scoped_ruler	
+	title:e_mz_amazonia = { save_scope_as = e_mz_amazonia }
+	#Hand over e_mz_amazonia.
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = change
+		add_claim_on_loss = no
+	}
+	title:e_mz_amazonia = {
+		change_title_holder = {
+			holder = root
+			change = scope:change
+		}
+	}
+	resolve_title_and_vassal_change = scope:change	
+	#Make this primary title
+	hidden_effect = {
+		set_primary_title_to = title:e_mz_amazonia
+		every_held_title = { #Should shift all dejure of all Empires owned at the time.
+			limit = { tier = tier_empire }
+			every_in_de_jure_hierarchy = {
+				limit = { tier = tier_kingdom }
+				set_de_jure_liege_title = title:e_mz_amazonia
+			}
+		}
+		every_held_title = { #All held kingdoms will dejure drift as well.
+			limit = { tier = tier_kingdom }
+			set_de_jure_liege_title = title:e_mz_amazonia
+		}		
+		every_kingdom = { #Completely controlled kingdoms drift into Empire even if we don't control the title
+			limit = {
+				root = { completely_controls = prev }
+				is_titular = no # Stops random populist kingdoms from drifting, can still dejure drift titular titles if they are created
+			}
+			set_de_jure_liege_title = title:e_mz_amazonia
+		}		
+	}
+	hidden_effect = {
+		every_held_title = { #Should destroy all other Empires owned at the time.
+			limit = {
+				tier = tier_empire
+				NOT = { this = title:e_mz_amazonia }
+			}
+			root = { destroy_title = prev }
+		}
+	}
+	if = { # If we didn't dejure drift Thrace into Themiscyra already, do so now
+		limit = { 
+			NOT = {
+				title:d_thrace = { de_jure_liege = title:k_mz_themiscyra } 
+			}
+		}
+		title:d_thrace = { set_de_jure_liege_title = title:k_mz_themiscyra }
+	}
+	if = { # If we didn't dejure drift Aegean into Themiscyra already, do so now
+		limit = { 
+			NOT = {
+				title:d_aegean_islands = { de_jure_liege = title:k_mz_themiscyra } 
+			}
+		}
+		title:d_aegean_islands = { set_de_jure_liege_title = title:k_mz_themiscyra }
+	}
+	# Krete has its own Kingdom so we'll just leave it alone
+	if = {
+		limit = { 
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_1 }
+		}
+		dynasty = { remove_dynasty_modifier = mz_amazon_alliance_rank_1 }
+	}	
+	if = {
+		limit = { 
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_2 }
+		}
+		dynasty = { remove_dynasty_modifier = mz_amazon_alliance_rank_2 }
+	}
+	if = {
+		limit = { 
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_3 }
+		}
+		dynasty = { remove_dynasty_modifier = mz_amazon_alliance_rank_3 }
+	}
+	if = {
+		limit = { 
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_4 }
+		}
+		dynasty = { remove_dynasty_modifier = mz_amazon_alliance_rank_4 }
+	}
+	if = {
+		limit = { 
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_5 }
+		}
+		dynasty = { remove_dynasty_modifier = mz_amazon_alliance_rank_5 }
+	}
+	if = {
+		limit = { 
+			NOT = {
+				dynasty ?= { has_dynasty_modifier = mz_permanent_amazon_alliance }
+			}
+		}
+		dynasty = { add_dynasty_modifier = mz_permanent_amazon_alliance }
+	}
+	if = {
+		limit = {
+			dynasty ?= { has_variable = mz_amazon_favor }
+		}
+		remove_variable = mz_amazon_favor
+	}
+	if = {
+		limit = { 
+			NOT = {
+				house ?= { has_house_modifier = mz_amazon_ruler_house_modifier }
+			}
+		}
+		house = { 
+			add_house_modifier = {
+				modifier = mz_amazon_ruler_house_modifier 
+				years = 200
+			}
+		}
+	}
+}
+
+mz_form_greater_scythia_scripted_effect = { # Form Greater Scythia
+	if = {
+		limit = { has_dlc_feature = legends }
+		create_legend_seed = {
+			type = legitimizing
+			quality = illustrious
+			chronicle = new_title
+			properties = {
+				title = title:e_mz_scythia
+				founder = root
+			}
+		}
+	}
+	custom_tooltip = mz_form_amazonia_scripted_effect.tt
+	custom_tooltip = mz_form_amazonia_scripted_effect.tt_1
+	custom_tooltip = mz_form_amazonia_scripted_effect.tt_2
+	#Grab scopes for loc and such.
+	save_scope_as = mz_scoped_ruler	
+	title:e_mz_scythia = { save_scope_as = e_mz_scythia }
+	#Hand over e_mz_scythia.
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = change
+		add_claim_on_loss = no
+	}
+	title:e_mz_scythia = {
+		change_title_holder = {
+			holder = root
+			change = scope:change
+		}
+	}
+	resolve_title_and_vassal_change = scope:change	
+	#Make this primary title
+	hidden_effect = {
+		set_primary_title_to = title:e_mz_scythia
+		every_held_title = { #Should shift all dejure of all Empires owned at the time.
+			limit = { tier = tier_empire }
+			every_in_de_jure_hierarchy = {
+				limit = { tier = tier_kingdom }
+				set_de_jure_liege_title = title:e_mz_scythia
+			}
+		}
+		every_held_title = { #All held kingdoms will dejure drift as well.
+			limit = { tier = tier_kingdom }
+			set_de_jure_liege_title = title:e_mz_scythia
+		}		
+		every_kingdom = { #Completely controlled kingdoms drift into Empire even if we don't control the title
+			limit = {
+				root = { completely_controls = prev }
+				is_titular = no # Stops random populist kingdoms from drifting, can still dejure drift titular titles if they are created
+			}
+			set_de_jure_liege_title = title:e_mz_scythia
+		}
+	}
+	hidden_effect = {
+		every_held_title = { #Should destroy all other Empires owned at the time.
+			limit = {
+				tier = tier_empire
+				NOT = { this = title:e_mz_scythia }
+			}
+			root = { destroy_title = prev }
+		}
+	}
+	if = { # If we didn't dejure drift d_kiev into Scythia already, do so now
+		limit = { 
+			NOT = {
+				title:d_kiev = { de_jure_liege = title:k_mz_scythia } 
+			}
+		}
+		title:d_kiev = { set_de_jure_liege_title = title:k_mz_scythia }
+	}
+	if = { # If we didn't dejure drift d_pereyaslavl into Scythia already, do so now
+		limit = { 
+			NOT = {
+				title:d_pereyaslavl = { de_jure_liege = title:k_mz_scythia } 
+			}
+		}
+		title:d_pereyaslavl = { set_de_jure_liege_title = title:k_mz_scythia }
+	}
+	if = { # If we didn't dejure drift d_voronezh into Scythia already, do so now
+		limit = { 
+			NOT = {
+				title:d_voronezh = { de_jure_liege = title:k_mz_scythia } 
+			}
+		}
+		title:d_voronezh = { set_de_jure_liege_title = title:k_mz_scythia }
+	}
+	if = { # If we didn't dejure drift d_khopyor into Scythia already, do so now
+		limit = { 
+			NOT = {
+				title:d_khopyor = { de_jure_liege = title:k_mz_scythia } 
+			}
+		}
+		title:d_khopyor = { set_de_jure_liege_title = title:k_mz_scythia }
+	}			
+	if = {
+		limit = { 
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_1 }
+		}
+		dynasty = { remove_dynasty_modifier = mz_amazon_alliance_rank_1 }
+	}	
+	if = {
+		limit = { 
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_2 }
+		}
+		dynasty = { remove_dynasty_modifier = mz_amazon_alliance_rank_2 }
+	}
+	if = {
+		limit = { 
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_3 }
+		}
+		dynasty = { remove_dynasty_modifier = mz_amazon_alliance_rank_3 }
+	}
+	if = {
+		limit = { 
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_4 }
+		}
+		dynasty = { remove_dynasty_modifier = mz_amazon_alliance_rank_4 }
+	}
+	if = {
+		limit = { 
+			dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_5 }
+		}
+		dynasty = { remove_dynasty_modifier = mz_amazon_alliance_rank_5 }
+	}
+	if = {
+		limit = { 
+			NOT = {
+				dynasty ?= { has_dynasty_modifier = mz_permanent_amazon_alliance }
+			}
+		}
+		dynasty = { add_dynasty_modifier = mz_permanent_amazon_alliance }
+	}
+	if = {
+		limit = {
+			dynasty ?= { has_variable = mz_amazon_favor }
+		}
+		remove_variable = mz_amazon_favor
+	}
+	if = {
+		limit = { 
+			NOT = {
+				house ?= { has_house_modifier = mz_amazon_ruler_house_modifier }
+			}
+		}
+		house = { 
+			add_house_modifier = {
+				modifier = mz_amazon_ruler_house_modifier 
+				years = 200
+			}
+		}
+	}
+}
+
+mz_establish_scythian_capital_scripted_effect = { # Establish Scythian capital
+	capital_county = {
+		## If holder has an Amazonian culture and the local culture doesn't match, shift culture
+		if = {
+			limit = { 
+				holder.culture = { mz_is_amazonian_culture = yes }
+				NOT = { culture = holder.culture }
+		 	}
+			set_county_culture = holder.culture
+		}
+		#Boost local development a few levels; majority of development gain is handled in the modifiers now.
+		if = {
+			limit = { development_level < 5 }
+			change_development_level = {
+				value = 5
+				subtract = development_level
+			}
+		}
+		else_if = {
+			limit = { development_level < 8 }
+			change_development_level = {
+				value = 8
+				subtract = development_level
+			}
+		}
+		else_if = {
+			limit = { development_level < 12 }
+			change_development_level = {
+				value = 12
+				subtract = development_level
+			}
+		}		
+		#If control is less than full, boost it to full.
+		if = {
+			limit = { county_control < full_county_control }
+			change_county_control = 100
+		}
+		#Add county modifier giving solid opinion for a decent chunk of time.
+		add_county_modifier = {
+			modifier = mz_scythian_capital_opinion_modifier
+			years = 20
+		}
+		#Add county modifier giving intense benefits for a century.
+		add_county_modifier = {
+			modifier = mz_scythian_capital_misc_modifier
+			years = 100
+		}	
+	}
+}
+
+## Amazon faith decision effects
+mz_generic_find_amazon_faith_effect = {
+	$FAITH$ = { save_scope_as = mz_chosen_faith }
+	set_character_faith_with_conversion = scope:mz_chosen_faith
+	hidden_effect = {
+		set_global_variable = {
+			name = mz_amazon_global_faith
+			value = scope:mz_chosen_faith
+		}
+		if = {
+			limit = { 
+				exists = global_var:mz_amazon_global_faith
+			}
+			every_courtier = {
+				limit = { 
+					mz_amazon_character_trigger = yes 
+					NOT = {
+						faith = global_var:mz_amazon_global_faith
+					}
+				}
+				set_character_faith = global_var:mz_amazon_global_faith
+			}
+			every_courtier_away = {
+				limit = { 
+					mz_amazon_character_trigger = yes 
+					NOT = {
+						faith = global_var:mz_amazon_global_faith
+					}
+				}
+				set_character_faith = global_var:mz_amazon_global_faith	
+			}
+			every_vassal_or_below = {
+				if = {
+					limit = {
+						culture = { mz_is_amazonian_culture = yes }
+						NOT = {
+							faith = global_var:mz_amazon_global_faith
+						}
+					}
+					set_character_faith = global_var:mz_amazon_global_faith
+				}
+				every_courtier = {
+					limit = { 
+						mz_amazon_character_trigger = yes 
+						NOT = {
+							faith = global_var:mz_amazon_global_faith
+						}
+					}
+					set_character_faith = global_var:mz_amazon_global_faith
+				}
+				every_courtier_away = {
+					limit = { 
+						mz_amazon_character_trigger = yes 
+						NOT = {
+							faith = global_var:mz_amazon_global_faith
+						}
+					}
+					set_character_faith = global_var:mz_amazon_global_faith		
+				}
+			}
+			every_sub_realm_county = {
+				limit = {
+					culture = { mz_is_amazonian_culture = yes }
+					NOT = {
+						faith = global_var:mz_amazon_global_faith
+					}
+				}
+				set_county_faith = global_var:mz_amazon_global_faith
+			}			
+		}
+	}
+}
+
+mz_living_faith_amazon_adoption_effect = {
+	$FAITH$ = { save_scope_as = mz_chosen_faith }
+	custom_tooltip = mz_living_faith_amazon_adoption_effect_tt
+	hidden_effect = {
+		if = { # Gender law
+			limit = {
+				scope:mz_chosen_faith = { has_doctrine = doctrine_gender_male_dominated }
+			}
+			scope:mz_chosen_faith = { remove_doctrine = doctrine_gender_male_dominated }
+			scope:mz_chosen_faith = { add_doctrine = doctrine_gender_equal }
+		}
+		if = { # Female adultery
+			limit = {
+				scope:mz_chosen_faith = { has_doctrine = doctrine_adultery_women_crime }
+			}
+			scope:mz_chosen_faith = { remove_doctrine = doctrine_adultery_women_crime }
+			scope:mz_chosen_faith = { add_doctrine = doctrine_adultery_women_shunned }
+		}
+		else_if = {
+			limit = {
+				scope:mz_chosen_faith = { has_doctrine = doctrine_adultery_women_shunned }
+			}
+			scope:mz_chosen_faith = { remove_doctrine = doctrine_adultery_women_shunned }
+			scope:mz_chosen_faith = { add_doctrine = doctrine_adultery_women_accepted }		
+		}
+		if = { # Clerical Gender
+			limit = {
+				scope:mz_chosen_faith = { has_doctrine = doctrine_clerical_gender_male_only }
+			}
+			scope:mz_chosen_faith = { remove_doctrine = doctrine_clerical_gender_male_only }
+			scope:mz_chosen_faith = { add_doctrine = doctrine_clerical_gender_either }
+		}
+	}
+	scope:mz_chosen_faith = {
+		change_fervor = {
+			value = -25
+			desc = fervour_loss_temporal_meddling
+		}
+	}
+}
+
+mz_dead_faith_amazon_adoption_effect = {
+	$FAITH$ = { save_scope_as = mz_chosen_faith }
+	custom_tooltip = mz_dead_faith_amazon_adoption_effect_tt
+	custom_tooltip = mz_dead_faith_amazon_adoption_effect_tt2
+	hidden_effect = {
+		if = { # Gender Law
+			limit = {
+				scope:mz_chosen_faith = { has_doctrine = doctrine_gender_male_dominated }
+			}
+			scope:mz_chosen_faith = { remove_doctrine = doctrine_gender_male_dominated }
+			scope:mz_chosen_faith = { add_doctrine = doctrine_gender_equal }
+		}
+		else_if = {
+			limit = {
+				scope:mz_chosen_faith = { has_doctrine = doctrine_gender_equal }
+			}
+			scope:mz_chosen_faith = { remove_doctrine = doctrine_gender_equal }
+			scope:mz_chosen_faith = { add_doctrine = doctrine_gender_female_dominated }		
+		}
+		if = { # Clerical Gender
+			limit = {
+				scope:mz_chosen_faith = { has_doctrine = doctrine_clerical_gender_male_only }
+			}
+			scope:mz_chosen_faith = { remove_doctrine = doctrine_clerical_gender_male_only }
+			scope:mz_chosen_faith = { add_doctrine = doctrine_clerical_gender_either }
+		}
+		else_if = {
+			limit = {
+				scope:mz_chosen_faith = { has_doctrine = doctrine_clerical_gender_either }
+			}
+			scope:mz_chosen_faith = { remove_doctrine = doctrine_clerical_gender_either }
+			scope:mz_chosen_faith = { add_doctrine = doctrine_clerical_gender_female_only }		
+		}
+		if = { # Female adultery
+			limit = {
+				scope:mz_chosen_faith = { has_doctrine = doctrine_adultery_women_crime }
+			}
+			scope:mz_chosen_faith = { remove_doctrine = doctrine_adultery_women_crime }
+			scope:mz_chosen_faith = { add_doctrine = doctrine_adultery_women_accepted }
+		}
+		else_if = {
+			limit = {
+				scope:mz_chosen_faith = { has_doctrine = doctrine_adultery_women_shunned }
+			}
+			scope:mz_chosen_faith = { remove_doctrine = doctrine_adultery_women_shunned }
+			scope:mz_chosen_faith = { add_doctrine = doctrine_adultery_women_accepted }		
+		}
+		if = { # Witchcraft
+			limit = {
+				scope:mz_chosen_faith = { has_doctrine = doctrine_witchcraft_crime }
+			}
+			scope:mz_chosen_faith = { remove_doctrine = doctrine_witchcraft_crime }
+			scope:mz_chosen_faith = { add_doctrine = doctrine_witchcraft_accepted }
+		}
+		else_if = {
+			limit = {
+				scope:mz_chosen_faith = { has_doctrine = doctrine_witchcraft_shunned }
+			}
+			scope:mz_chosen_faith = { remove_doctrine = doctrine_witchcraft_shunned }
+			scope:mz_chosen_faith = { add_doctrine = doctrine_witchcraft_accepted }		
+		}
+		if = { # Lesbian doctrine
+			limit = {
+				OR = {
+					faith = { exists = var:mz_lesbian_revelation_variable } # Activated by lesbian revelation...
+					faith = { has_doctrine_parameter = mz_lesbian_marriage_parameter } # ...or already having a lesbian marriage doctrine.
+				}
+			}
+			scope:mz_chosen_faith = { add_doctrine = mz_doctrine_lesbian_marriage }
+		}
+	}
+}
+
+## For opposing the Great Khan
+mz_spawn_anti_khan_army_effect = {
+	### Find three baronies in counties adjacent to the Mongol Empire and save them
+	if = {
+		limit = {
+			any_sub_realm_county = {
+				any_neighboring_county = {
+					holder.top_liege = title:e_mongol_empire.holder
+				}
+			}
+		}
+		random_sub_realm_county = {
+			limit = {
+				any_neighboring_county = {
+					holder.top_liege = title:e_mongol_empire.holder
+				}				
+			}
+			random_county_province = { save_scope_as = mz_province_1 }
+		}
+	}
+	else = {
+		capital_province = { save_scope_as = mz_province_1 }
+	}
+	if = {
+		limit = {
+			any_sub_realm_county = {
+				any_neighboring_county = {
+					holder.top_liege = title:e_mongol_empire.holder
+				}
+				any_county_province = { 
+					NOT = { this = scope:mz_province_1 }
+				}
+			}
+		}
+		random_sub_realm_county = {
+			limit = {
+				any_neighboring_county = {
+					holder.top_liege = title:e_mongol_empire.holder
+				}
+				any_county_province = { 
+					NOT = { this = scope:mz_province_1 }
+				}				
+			}
+			random_county_province = { 
+				limit = {
+					NOT = { this = scope:mz_province_1 }
+				}
+				save_scope_as = mz_province_2
+			}
+		}
+	}
+	else = {
+		capital_province = { save_scope_as = mz_province_2 }
+	}
+	if = {
+		limit = {
+			any_sub_realm_county = {
+				any_neighboring_county = {
+					holder.top_liege = title:e_mongol_empire.holder
+				}
+				any_county_province = { 
+					NOR = { 
+						this = scope:mz_province_1 
+						this = scope:mz_province_2
+					}
+				}
+			}
+		}
+		random_sub_realm_county = {
+			limit = {
+				any_neighboring_county = {
+					holder.top_liege = title:e_mongol_empire.holder
+				}
+				any_county_province = { 
+					NOR = { 
+						this = scope:mz_province_1 
+						this = scope:mz_province_2
+					}
+				}				
+			}
+			random_county_province = { 
+				limit = {
+					NOR = { 
+						this = scope:mz_province_1 
+						this = scope:mz_province_2
+					}
+				}
+				save_scope_as = mz_province_2
+			}
+		}
+	}
+	else = {
+		capital_province = { save_scope_as = mz_province_3 }
+	}
+
+	if = {
+		limit = { exists = scope:attacker }
+		scope:attacker = { save_scope_as = mz_army_owner }
+	}
+	else = {
+		root = { save_scope_as = mz_army_owner }
+	}
+	if = {
+		limit = {
+			OR = {
+				has_title = title:k_mz_scythia
+				has_title = title:e_mz_scythia
+			}
+		}
+
+		if = {
+			limit = {
+				has_global_variable = mz_amazon_kingdom_expanded
+				has_global_variable = mz_amazon_empire_founded
+			}
+			custom_tooltip = mz_amazon_antikhan_army_tt_3
+		}
+		else_if = {
+			limit = { has_global_variable = mz_amazon_kingdom_expanded }
+			custom_tooltip = mz_amazon_antikhan_army_tt_2
+		}
+		else = { custom_tooltip = mz_amazon_antikhan_army_tt_1 }
+
+		hidden_effect = {
+			spawn_army = {
+				men_at_arms = {
+					type = mz_amazon_hetairoi
+					stacks = mz_amazon_hetairoi_mongol_war_value
+				}
+				men_at_arms = {
+					type = mz_amazon_peltast
+					stacks = mz_amazon_peltast_mongol_war_value
+				}
+				men_at_arms = {
+					type = mz_amazon_toxotai
+					stacks = mz_amazon_toxotai_mongol_war_value
+				}
+				men_at_arms = {
+					type = mz_amazon_hippotoxotai
+					stacks = mz_amazon_hoplite_mongol_war_value
+				}
+				war = scope:war
+				inheritable = yes
+				uses_supply = no
+				location = scope:mz_province_1
+				origin = capital_province
+				name = mz_amazonian_army
+			}
+		}
+		if = {
+			limit = { has_global_variable = mz_amazon_kingdom_expanded }
+			hidden_effect = {
+				spawn_army = {
+					men_at_arms = {
+						type = mz_amazon_hetairoi
+						stacks = mz_amazon_hetairoi_mongol_war_value
+					}
+					men_at_arms = {
+						type = mz_amazon_peltast
+						stacks = mz_amazon_peltast_mongol_war_value
+					}
+					men_at_arms = {
+						type = mz_amazon_toxotai
+						stacks = mz_amazon_toxotai_mongol_war_value
+					}
+					men_at_arms = {
+						type = mz_amazon_hippotoxotai
+						stacks = mz_amazon_hoplite_mongol_war_value
+					}
+					war = scope:war
+					inheritable = yes
+					uses_supply = no
+					location = scope:mz_province_2
+					origin = capital_province
+					name = mz_amazonian_army
+				}
+			}
+		}
+		if = {
+			limit = { has_global_variable = mz_amazon_empire_founded }
+			hidden_effect = {
+				spawn_army = {
+					men_at_arms = {
+						type = mz_amazon_hetairoi
+						stacks = mz_amazon_hetairoi_mongol_war_value
+					}
+					men_at_arms = {
+						type = mz_amazon_peltast
+						stacks = mz_amazon_peltast_mongol_war_value
+					}
+					men_at_arms = {
+						type = mz_amazon_toxotai
+						stacks = mz_amazon_toxotai_mongol_war_value
+					}
+					men_at_arms = {
+						type = mz_amazon_hippotoxotai
+						stacks = mz_amazon_hoplite_mongol_war_value
+					}
+					war = scope:war
+					inheritable = yes
+					uses_supply = no
+					location = scope:mz_province_3
+					origin = capital_province
+					name = mz_amazonian_army
+				}
+			}
+		}	
+	}
+	else = {
+		custom_tooltip = mz_amazon_antikhan_army_tt_1
+		hidden_effect = {
+			spawn_army = {
+				men_at_arms = {
+					type = mz_amazon_hetairoi
+					stacks = mz_amazon_hetairoi_mongol_war_value
+				}
+				men_at_arms = {
+					type = mz_amazon_peltast
+					stacks = mz_amazon_peltast_mongol_war_value
+				}
+				men_at_arms = {
+					type = mz_amazon_toxotai
+					stacks = mz_amazon_toxotai_mongol_war_value
+				}
+				men_at_arms = {
+					type = mz_amazon_hoplites
+					stacks = mz_amazon_hoplite_mongol_war_value
+				}
+				war = scope:war
+				inheritable = yes
+				uses_supply = no
+				location = scope:mz_province_1
+				origin = capital_province
+				name = mz_amazonian_army
+			}
+		}
+		if = {
+			limit = { has_global_variable = mz_amazon_kingdom_expanded }
+			custom_tooltip = mz_amazon_antikhan_army_tt_2
+			hidden_effect = {
+				spawn_army = {
+					men_at_arms = {
+						type = mz_amazon_hetairoi
+						stacks = mz_amazon_hetairoi_mongol_war_value
+					}
+					men_at_arms = {
+						type = mz_amazon_peltast
+						stacks = mz_amazon_peltast_mongol_war_value
+					}
+					men_at_arms = {
+						type = mz_amazon_toxotai
+						stacks = mz_amazon_toxotai_mongol_war_value
+					}
+					men_at_arms = {
+						type = mz_amazon_hoplites
+						stacks = mz_amazon_hoplite_mongol_war_value
+					}
+					war = scope:war
+					inheritable = yes
+					uses_supply = no
+					location = scope:mz_province_2
+					origin = capital_province
+					name = mz_amazonian_army
+				}
+			}
+		}
+		if = {
+			limit = { has_global_variable = mz_amazon_empire_founded }
+			custom_tooltip = mz_amazon_antikhan_army_tt_3
+			hidden_effect = {
+				spawn_army = {
+					men_at_arms = {
+						type = mz_amazon_hetairoi
+						stacks = mz_amazon_hetairoi_mongol_war_value
+					}
+					men_at_arms = {
+						type = mz_amazon_peltast
+						stacks = mz_amazon_peltast_mongol_war_value
+					}
+					men_at_arms = {
+						type = mz_amazon_toxotai
+						stacks = mz_amazon_toxotai_mongol_war_value
+					}
+					men_at_arms = {
+						type = mz_amazon_hoplites
+						stacks = mz_amazon_hoplite_mongol_war_value
+					}
+					war = scope:war
+					inheritable = yes
+					uses_supply = no
+					location = scope:mz_province_3
+					origin = capital_province
+					name = mz_amazonian_army
+				}
+			}
+		}
+	}	
+}
+
+## Add genetics
+mz_copy_dynastic_genetics = {
+	root.dynasty = {
+		random_dynasty_member = {
+			weight = {
+				base = 100
+				modifier = {
+					add = 100
+					dynasty = { has_dynasty_perk = blood_legacy_2 }
+					dynasty = { has_dynasty_modifier = strong_blood }
+					num_of_good_genetic_traits >= 3
+				}
+				modifier = {
+					add = 100
+					dynasty = { has_dynasty_perk = blood_legacy_2 }
+					num_of_good_genetic_traits >= 2
+				}
+				modifier = {
+					add = 100
+					dynasty = { has_dynasty_perk = blood_legacy_1 }
+					dynasty = { has_dynasty_modifier = strong_blood }
+					num_of_good_genetic_traits >= 2
+				}
+				modifier = {
+					add = 100
+					dynasty = { has_dynasty_perk = blood_legacy_1 }
+					num_of_good_genetic_traits >= 1
+				}
+				modifier = {
+					add = 100
+					dynasty = { has_dynasty_modifier = strong_blood }
+					num_of_good_genetic_traits >= 1
+				}
+			}
+			save_scope_as = mz_random_dynasty_member
+		}
+	}
+	## First, let's do leveled genetics
+	# Beauty Good
+	if = {
+		limit = {
+			scope:mz_random_dynasty_member = { has_trait = beauty_good }
+		}
+		if = {
+			limit = {
+				scope:mz_random_dynasty_member = { has_trait = beauty_good_3 }
+			}
+			random_list = {
+				50 = { add_trait = beauty_good_3 }
+				50 = {
+					add_trait = beauty_good_2
+					modifier = {
+						root.dynasty = { has_dynasty_perk = blood_legacy_1 }
+						add = -10
+					}
+					modifier = {
+						root.dynasty = { has_dynasty_perk = blood_legacy_2 }
+						add = -20
+					}
+					modifier = {
+						root.dynasty = { has_dynasty_modifier = strong_blood }
+						add = -20
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				scope:mz_random_dynasty_member = { has_trait = beauty_good_2 }
+			}
+			random_list = {
+				50 = { add_trait = beauty_good_2 }
+				50 = {
+					add_trait = beauty_good_1
+					modifier = {
+						root.dynasty = { has_dynasty_perk = blood_legacy_1 }
+						add = -10
+					}
+					modifier = {
+						root.dynasty = { has_dynasty_perk = blood_legacy_2 }
+						add = -20
+					}
+					modifier = {
+						root.dynasty = { has_dynasty_modifier = strong_blood }
+						add = -20
+					}
+				}
+			}
+		}
+		else = {
+			random = {	
+				chance = {
+					value = 50
+					if = {
+						limit = { 
+							root.dynasty = { has_dynasty_perk = blood_legacy_1 }
+						}
+						add = 10
+					}
+					if = {
+						limit = { 
+							root.dynasty = { has_dynasty_perk = blood_legacy_2 }
+						}
+						add = 20
+					}
+					if = {
+						limit = { 
+							root.dynasty = { has_dynasty_modifier = strong_blood }
+						}
+						add = 10
+					}
+				}
+				add_trait = beauty_good_1
+			}
+		}
+	}
+	# Intellect Good
+	if = {
+		limit = {
+			scope:mz_random_dynasty_member = { has_trait = intellect_good }
+		}
+		if = {
+			limit = {
+				scope:mz_random_dynasty_member = { has_trait = intellect_good_3 }
+			}
+			random_list = {
+				50 = { add_trait = intellect_good_3 }
+				50 = {
+					add_trait = intellect_good_2
+					modifier = {
+						root.dynasty = { has_dynasty_perk = blood_legacy_1 }
+						add = -10
+					}
+					modifier = {
+						root.dynasty = { has_dynasty_perk = blood_legacy_2 }
+						add = -20
+					}
+					modifier = {
+						root.dynasty = { has_dynasty_modifier = strong_blood }
+						add = -20
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				scope:mz_random_dynasty_member = { has_trait = intellect_good_2 }
+			}
+			random_list = {
+				50 = { add_trait = intellect_good_2 }
+				50 = {
+					add_trait = intellect_good_1
+					modifier = {
+						root.dynasty = { has_dynasty_perk = blood_legacy_1 }
+						add = -10
+					}
+					modifier = {
+						root.dynasty = { has_dynasty_perk = blood_legacy_2 }
+						add = -20
+					}
+					modifier = {
+						root.dynasty = { has_dynasty_modifier = strong_blood }
+						add = -20
+					}
+				}
+			}
+		}
+		else = {
+			random = {	
+				chance = {
+					value = 50
+					if = {
+						limit = { 
+							root.dynasty = { has_dynasty_perk = blood_legacy_1 }
+						}
+						add = 10
+					}
+					if = {
+						limit = { 
+							root.dynasty = { has_dynasty_perk = blood_legacy_2 }
+						}
+						add = 20
+					}
+					if = {
+						limit = { 
+							root.dynasty = { has_dynasty_modifier = strong_blood }
+						}
+						add = 10
+					}
+				}
+				add_trait = intellect_good_1
+			}
+		}
+	}
+	# Physique Good
+	if = {
+		limit = {
+			scope:mz_random_dynasty_member = { has_trait = physique_good }
+		}
+		if = {
+			limit = {
+				scope:mz_random_dynasty_member = { has_trait = physique_good_3 }
+			}
+			random_list = {
+				50 = { add_trait = physique_good_3 }
+				50 = {
+					add_trait = physique_good_2
+					modifier = {
+						root.dynasty = { has_dynasty_perk = blood_legacy_1 }
+						add = -10
+					}
+					modifier = {
+						root.dynasty = { has_dynasty_perk = blood_legacy_2 }
+						add = -20
+					}
+					modifier = {
+						root.dynasty = { has_dynasty_modifier = strong_blood }
+						add = -20
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				scope:mz_random_dynasty_member = { has_trait = physique_good_2 }
+			}
+			random_list = {
+				50 = { add_trait = physique_good_2 }
+				50 = {
+					add_trait = physique_good_1
+					modifier = {
+						root.dynasty = { has_dynasty_perk = blood_legacy_1 }
+						add = -10
+					}
+					modifier = {
+						root.dynasty = { has_dynasty_perk = blood_legacy_2 }
+						add = -20
+					}
+					modifier = {
+						root.dynasty = { has_dynasty_modifier = strong_blood }
+						add = -20
+					}
+				}
+			}
+		}
+		else = {
+			random = {	
+				chance = {
+					value = 50
+					if = {
+						limit = { 
+							root.dynasty = { has_dynasty_perk = blood_legacy_1 }
+						}
+						add = 10
+					}
+					if = {
+						limit = { 
+							root.dynasty = { has_dynasty_perk = blood_legacy_2 }
+						}
+						add = 20
+					}
+					if = {
+						limit = { 
+							root.dynasty = { has_dynasty_modifier = strong_blood }
+						}
+						add = 10
+					}
+				}
+				add_trait = physique_good_1
+			}
+		}
+	}
+	## Add other genetics
+	mz_add_genetic_trait_good = { TRAIT = fecund }
+	mz_add_genetic_trait_good = { TRAIT = pure_blooded }
+	mz_add_genetic_trait_bad = { TRAIT = clubfooted }
+	mz_add_genetic_trait_bad = { TRAIT = hunchbacked }
+	mz_add_genetic_trait_bad = { TRAIT = lisping }
+	mz_add_genetic_trait_bad = { TRAIT = stuttering }
+	mz_add_genetic_trait_bad = { TRAIT = dwarf }
+	mz_add_genetic_trait_bad = { TRAIT = giant }
+	mz_add_genetic_trait_bad = { TRAIT = inbred }
+	mz_add_genetic_trait_bad = { TRAIT = spindly }
+	mz_add_genetic_trait_bad = { TRAIT = scaly }
+	mz_add_genetic_trait_bad = { TRAIT = albino }
+	mz_add_genetic_trait_bad = { TRAIT = wheezing }
+	mz_add_genetic_trait_bad = { TRAIT = bleeder }
+	mz_add_genetic_trait_bad = { TRAIT = infertile }
+	mz_add_genetic_trait_bad = { TRAIT = possessed_genetic }
+	mz_add_genetic_trait_bad = { TRAIT = lunatic_genetic }
+	mz_add_genetic_trait_bad = { TRAIT = depressed_genetic }
+	mz_add_genetic_trait_bad = { TRAIT = beauty_bad_1 }
+	mz_add_genetic_trait_bad = { TRAIT = beauty_bad_2 }
+	mz_add_genetic_trait_bad = { TRAIT = beauty_bad_3 }
+	mz_add_genetic_trait_bad = { TRAIT = intellect_bad_1 }
+	mz_add_genetic_trait_bad = { TRAIT = intellect_bad_2 }
+	mz_add_genetic_trait_bad = { TRAIT = intellect_bad_3 }
+	mz_add_genetic_trait_bad = { TRAIT = physique_bad_1 }
+	mz_add_genetic_trait_bad = { TRAIT = physique_bad_2 }
+	mz_add_genetic_trait_bad = { TRAIT = physique_bad_3 }
+}
+
+## These effects work by first checking if the random dynasty member has the trait
+## If so, there is a chance for the generated character to inherit the trait
+## The chance is modified by blood legacies and the strong blood modifier
+mz_add_genetic_trait_good = {
+	if = {
+		limit = { 
+			scope:mz_random_dynasty_member = { has_trait = $TRAIT$ }
+		}
+		random = {	
+			chance = {
+				value = 50
+				if = {
+					limit = { 
+						root.dynasty = { has_dynasty_perk = blood_legacy_1 }
+					}
+					add = 10
+				}
+				if = {
+					limit = { 
+						root.dynasty = { has_dynasty_perk = blood_legacy_2 }
+					}
+					add = 20
+				}
+				if = {
+					limit = { 
+						root.dynasty = { has_dynasty_modifier = strong_blood }
+					}
+					add = 20
+				}
+			}
+			add_trait = $TRAIT$
+		}
+	}
+}
+
+mz_add_genetic_trait_bad = {
+	if = {
+		limit = { 
+			scope:mz_random_dynasty_member = { has_trait = $TRAIT$ }
+		}
+		random = {	
+			chance = {
+				value = 50
+				if = {
+					limit = { 
+						root.dynasty = { has_dynasty_perk = blood_legacy_3 }
+					}
+					add = -30
+				}
+			}
+			add_trait = $TRAIT$
+		}
+	}
+}
+
+mz_adoption_cost_effect = {
+	$CHILD$ = { save_scope_as = mz_child }
+	if = {
+		limit = {
+			NOR = {
+				culture = { has_cultural_parameter = free_adoption }
+				has_game_rule = adoption_always_allowed
+			}
+		}
+
+		add_prestige = { # Prestige value always kicks in unless we have the Free Adoptions culture tradition or Game Rule
+			value = {
+				add = medium_prestige_value
+				multiply = -1
+			}
+		}
+
+		if = { # Renown cost is waived if we're in a same-sex marriage
+			limit = {
+				OR = {
+					AND = {
+						exists = primary_spouse
+						primary_spouse = { sex_opposite_of = root }
+					}
+					any_spouse = { sex_opposite_of = root }
+				}
+			}
+			dynasty = { 
+				add_dynasty_prestige = {
+					value = {
+						add = medium_dynasty_prestige_value
+						multiply = -1						
+					}
+				}
+			}
+		}
+
+		if = { # Piety cost only applied if child is of a hostile/astray faith
+			limit = {
+				root.faith = {
+					faith_hostility_level = {
+						target = scope:mz_child.faith
+						value > faith_hostile_level
+					}
+				}
+			}
+			add_piety = {
+				value = {
+					add = medium_piety_value
+					multiply = -1
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				root.faith = {
+					faith_hostility_level = {
+						target = scope:mz_child.faith
+						value > faith_astray_level
+					}
+				}
+			}
+			add_piety = {
+				value = {
+					add = minor_piety_value
+					multiply = -1
+				}
+			}	
+		}
+	}
+}

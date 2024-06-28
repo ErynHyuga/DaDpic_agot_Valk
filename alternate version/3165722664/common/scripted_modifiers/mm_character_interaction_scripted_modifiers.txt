@@ -1,0 +1,240 @@
+﻿### Scripted Modifiers used for Character Interactions
+
+## Eternal Devotion stuff
+# Accept Eternal Devotion
+
+mz_swear_eternal_devotion_interaction_accept_modifier = {
+	# Actual opinion gives our base.
+	opinion_modifier = {
+		who = scope:recipient
+		opinion_target = scope:actor
+		desc = AI_OPINION_REASON
+	}
+	# Weight up for personality values.
+	ai_value_modifier = {
+		who = scope:recipient
+		ai_zeal = {
+			if = {
+				limit = {
+					scope:recipient = {
+						NOT = { ai_zeal = 0 }
+					}
+				}
+				value = 0.5 # Zeal is relevant because only religions where this trait is valued enable this interaction.
+			}
+		}
+		ai_honor = {
+			if = {
+				limit = {
+					scope:recipient = {
+						NOT = { ai_honor = 0 }
+					}
+				}
+				value = 0.5 # Honor is relevant because it's an oath.
+			}
+		}
+		ai_greed = {
+			if = {
+				limit = {
+					scope:recipient = {
+						NOT = { ai_greed = 0 }
+					}
+				}
+				value = -0.5 # Greed is relevant because they don't want to have just one...
+			}			
+		}
+	}
+	# Compatibility
+	compatibility_modifier = {
+		who = scope:recipient
+		compatibility_target = scope:actor
+		min = -50
+		max = 50
+		multiplier = 2
+	}
+	# Apply tier differences.
+	## King -> Baron.
+	modifier = {
+		desc = AI_REFUSAL_RANK_DIFFERENCE
+		scope:actor = {
+			tier_difference = {
+				target = scope:recipient
+				value >= 4
+			}
+		}
+		add = 75
+	}
+	## Duke -> Baron.
+	modifier = {
+		desc = AI_REFUSAL_RANK_DIFFERENCE
+		scope:actor = {
+			tier_difference = {
+				target = scope:recipient
+				value = 3
+			}
+		}
+		add = 50
+	}
+	## Count -> Baron.
+	modifier = {
+		desc = AI_REFUSAL_RANK_DIFFERENCE
+		scope:actor = {
+			tier_difference = {
+				target = scope:recipient
+				value = 2
+			}
+		}
+		add = 25
+	}
+	## King <- Baron.
+	modifier = {
+		desc = AI_REFUSAL_RANK_DIFFERENCE
+		scope:actor = {
+			tier_difference = {
+				target = scope:recipient
+				value = -2
+			}
+		}
+		add = -100
+	}
+	## Duke <- Baron.
+	modifier = {
+		desc = AI_REFUSAL_RANK_DIFFERENCE
+		scope:actor = {
+			tier_difference = {
+				target = scope:recipient
+				value = -3
+			}
+		}
+		add = -75
+	}
+	## Count <- Baron.
+	modifier = {
+		desc = AI_REFUSAL_RANK_DIFFERENCE
+		scope:actor = {
+			tier_difference = {
+				target = scope:recipient
+				value <= -4
+			}
+		}
+		add = -50
+	}
+	## Other Soulmates
+	modifier = {
+		desc = MZ_ALREADY_HAS_SOULMATE
+		scope:recipient = {
+			any_relation = {
+				type = soulmate
+				NOT = { this = scope:actor }
+			}
+		}
+	}
+	# Specific trait preferences.
+	## Disloyal is unlikely to want to do this.
+	modifier = {
+		add = -20
+		has_trait = disloyal
+		desc = MZ_PROPOSE_ETERNAL_DEVOTION_OPINION_TRAIT_DISLOYAL
+	}
+	## Arbitrary doesn't like this level of commitment. 
+	modifier = {
+		add = -20
+		has_trait = arbitrary
+		desc = MZ_PROPOSE_ETERNAL_DEVOTION_OPINION_TRAIT_ARBITRARY
+	}
+	## Lustful doesn't like exclusivity.
+	modifier = {
+		add = -30
+		has_trait = lustful
+		desc = MZ_PROPOSE_ETERNAL_DEVOTION_OPINION_TRAIT_LUSTFUL
+	}
+	## Loyal characters are likely to agree.
+	modifier = {
+		add = 20
+		has_trait = loyal
+		desc = MZ_PROPOSE_ETERNAL_DEVOTION_OPINION_TRAIT_LOYAL
+	}
+	## Ditto Just.
+	modifier = {
+		add = 5
+		has_trait = just
+		desc = MZ_PROPOSE_ETERNAL_DEVOTION_OPINION_TRAIT_JUST
+	}
+	## Chaste loves this.
+	modifier = {
+		add = 30
+		has_trait = chaste
+		desc = MZ_PROPOSE_ETERNAL_DEVOTION_OPINION_TRAIT_CHASTE
+	}
+	## Special blockers! If they're suspicious, this is a lot less likely. If they know of your infidelity, it's impossible.
+	# Suspicion
+	modifier = {
+		add = -200
+		scope:recipient = {
+			has_opinion_modifier = { 
+				target = scope:actor 
+				modifier = suspicion_opinion
+			}
+		}
+		desc = MZ_ADULTERY_SUSPICION
+	}
+
+	# Any form of infidelity or betrayal
+	modifier = {
+		factor = 0
+		OR = {
+			scope:recipient = {
+				has_opinion_modifier = { 
+					target = scope:actor 
+					modifier = betrayed_our_promise
+				}
+			}
+			scope:recipient = {
+				has_opinion_modifier = { 
+					target = scope:actor 
+					modifier = unfaithful_spouse_exposed_opinion
+				}
+			}
+			scope:recipient = {
+				has_opinion_modifier = { 
+					target = scope:actor 
+					modifier = unfaithful_spouse_discovered_opinion
+				}
+			}
+			scope:recipient = {
+				has_opinion_modifier = {
+					target = scope:actor
+					modifier = lover_breakup_opinion
+				}
+			}
+		}
+		desc = MZ_BETRAYED_OUR_PROMISE
+	}
+}
+
+mz_swear_eternal_devotion_interaction_ai_chance_modifier = {
+	# Traits improve this somewhat.
+	modifier = {
+		add = 25
+		has_trait = loyal
+	}
+	# Factor for opinion.
+	modifier = {
+		add = 50
+		scope:actor = {
+			opinion = {
+				target = scope:recipient
+				value >= medium_positive_opinion
+			}
+		}
+	}
+	modifier = {
+		add = 50
+		scope:actor = {
+			opinion = {
+				target = scope:recipient
+				value >= very_high_positive_opinion
+			}
+		}
+	}
+}

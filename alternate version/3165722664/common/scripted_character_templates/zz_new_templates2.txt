@@ -1,0 +1,778 @@
+﻿qss_debutante_character = {
+	age = { 16 32 }
+	gender_female_chance = {
+		add = 40
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+}
+
+qss_prostitute = {
+	age = { 21 26 }
+	gender_female_chance = {
+		add = 100
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+	trait = origin_prostitute
+	trait = lustful
+	random_traits_list = {
+		count = 1
+		deceitful = {}
+		ambitious = {}
+		greedy = {}
+	}
+	random_traits_list = {
+		count = 1
+		beauty_good_3 = {}
+		beauty_good_2 = {}
+		beauty_good_1 = {}
+	}
+	random_traits_list = {
+		count = 1
+		lovers_pox = {}
+		pregnant = {}
+		depressed_genetic = {}
+		infertile = {}
+		adulterer = {}
+	}
+	random_traits_list = {
+		count = 1
+		education_intrigue_1 = {}
+		education_intrigue_2 = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+		}
+	}
+}
+
+qss_educated_deficient = {
+	age = { 28 58 }
+	gender_female_chance = {
+		add = 10
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+	trait = origin_educated_deficient
+	random_traits_list = {
+		count = 1
+		education_diplomacy_4 = {}
+		education_intrigue_4 = {}
+		education_martial_4 = {}
+		education_stewardship_4 = {}
+		education_learning_4 = {}
+	}
+	random_traits_list = {
+		count = 1
+		beauty_bad_3 = {}
+		beauty_bad_2 = {}
+		beauty_bad_1 = {}
+		physique_bad_1 = {}
+		physique_bad_2 = {}
+		physique_bad_3 = {}
+		hunchbacked = {}
+		weak = {}
+		spindly = {}
+		dwarf = {}
+		possessed_genetic = {}
+		lunatic_genetic = {}
+	}	
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+		}
+	}
+}
+
+qss_wandering_monk = {
+	age = { 26 56 }
+	gender_female_chance = {
+		add = 0
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+	trait = origin_wandering_monk
+	trait = pilgrim
+	trait = lifestyle_traveler
+	random_traits_list = {
+		count = 2
+		humble = {}
+		content = {}
+		temperate = {}
+		zealous = {}
+		calm = {}
+		compassionate = {}
+		honest = {}
+		chaste = {}
+		just = {}
+		generous = {}
+		patient = {}
+	}
+	random_traits_list = {
+		count = 1
+		celibate = {}
+		heresiarch = {}
+		intellect_good_1 = {}
+		shrewd = {}
+		scarred = {}
+	}
+	random_traits_list = {
+		count = 1
+		education_learning_3 = {}
+		education_learning_4 = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+			flag = peasant_outfit
+		}
+	}
+}
+
+qss_young_prodigy = {
+	age = { 6 14 }
+	gender_female_chance = {
+		add = 40
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+	trait = origin_young_prodigy
+	random_traits_list = {
+		count = 1
+		intellect_good_1 = {}
+		intellect_good_2 = {}
+		intellect_good_3 = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+		}
+	}
+}
+
+qss_strongman = {
+	age = { 16 26 }
+	gender_female_chance = {
+		add = 0
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+	trait = origin_strongman
+	trait = strong
+	random_traits_list = {
+		count = 1
+		physique_good_1 = {}
+		physique_good_2 = {}
+		physique_good_3 = {}
+	}
+	random_traits_list = {
+		count = 1
+		education_martial_1 = {}
+		education_martial_2 = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+		}
+	}
+}
+
+qss_witchwoman = {
+	age = { 26 56 }
+	gender_female_chance = {
+		add = 100
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+	trait = origin_witchwoman
+	trait = witch
+	trait = lifestyle_herbalist
+	random_traits_list = {
+		count = 3
+		cynical = {}
+		sadistic = {}
+		callous = {}
+		arbitrary = {}
+		deceitful = {}
+		vengeful = {}
+		greedy = {}
+		ambitious = {}
+		wrathful = {}
+		lustful = {}
+		paranoid = {}
+	}
+	random_traits_list = {
+		count = 1
+		education_intrigue_3 = {}
+		education_intrigue_4 = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+		}
+	}
+}
+
+qss_criminal = {
+	age = { 24 54 }
+	gender_female_chance = {
+		add = 40
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+	trait = origin_criminal
+	random_traits_list = {
+		count = 1
+		deviant = {}
+		kinslayer_1 = {}
+		kinslayer_2 = {}
+		kinslayer_3 = {}
+		incestuous = {}
+		sodomite = {}
+		murderer = {}
+	}
+	random_traits_list = {
+		count = 1
+		education_intrigue_3 = {}
+		education_intrigue_4 = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+		}
+	}
+}
+
+qss_warveteran = {
+	age = { 36 56 }
+	gender_female_chance = {
+		add = 0
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+	trait = origin_warveteran
+	random_traits_list = {
+		count = 1
+		scarred = {}
+		one_eyed = {}
+		one_legged = {}
+	}
+	random_traits_list = {
+		count = 3
+		aggressive_attacker = {}
+		flexible_leader = {}
+		logistician = {}
+		holy_warrior = {}
+		military_engineer = {}
+		organizer = {}
+		unyielding_defender = {}
+		forest_fighter = {}
+		open_terrain_expert = {}
+		rough_terrain_expert = {}
+		desert_warrior = {}
+		jungle_stalker = {}
+		winter_soldier = {}
+		lifestyle_blademaster = {}
+	}
+	random_traits_list = {
+		count = 1
+		education_martial_3 = {}
+		education_martial_4 = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+			flag = need_military_outfit
+		}
+	}
+}
+
+qss_loyalist = {
+	age = { 24 41 }
+	gender_female_chance = {
+		add = 30
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+	trait = origin_loyalist
+	trait = loyal
+	trait = trusting
+	random_traits_list = {
+		count = 1
+		honest = {}
+		calm = {}
+		humble = {}
+		content = {}
+		temperate = {}
+		just = {}
+		generous = {}
+		forgiving = {}
+		compassionate = {}
+	}
+	random_traits_list = {
+		count = 1
+		education_stewardship_3 = {}
+		education_stewardship_4 = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+		}
+	}
+}
+
+qss_revolutionary = {
+	age = { 21 41 }
+	gender_female_chance = {
+		add = 30
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+	trait = origin_revolutionary
+	trait = disloyal
+	trait = peasant_leader
+	random_traits_list = {
+		count = 1
+		arrogant = {}
+		ambitious = {}
+		arbitrary = {}
+		stubborn = {}
+		paranoid = {}
+	}
+	random_traits_list = {
+		count = 1
+		education_diplomacy_3 = {}
+		education_diplomacy_4 = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+			flag = peasant_outfit
+		}
+	}
+}
+
+qss_adventurer = {
+	age = { 21 41 }
+	gender_female_chance = {
+		add = 30
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+	trait = origin_adventurer
+	random_traits_list = {
+		count = 1
+		adventurer = {}
+		lifestyle_reveler = {}
+		lifestyle_hunter = {}
+		lifestyle_mystic = {}
+	}
+	random_traits_list = {
+		count = 3
+		arrogant = {}
+		ambitious = {}
+		arbitrary = {}
+		gregarious = {}
+		greedy = {}
+		fickle = {}
+		brave = {}
+		cynical = {}
+		honest = {}
+		lustful = {}
+		scarred = {}
+		deviant = {}
+	}
+	random_traits_list = {
+		count = 1
+		education_diplomacy_3 = {}
+		education_diplomacy_4 = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+		}
+	}
+}
+
+qss_court_slave = {
+	age = { 8 12 }
+	gender_female_chance = {
+		add = 60
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+	trait = origin_court_slave
+	trait = shrewd
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+			flag = peasant_outfit
+		}
+	}
+}
+
+qss_foreingner = {
+	age = { 26 46 }
+	gender_female_chance = {
+		add = 0
+	}
+	random_traits = yes
+ 	dynasty = none
+ #	faith = random #error
+ #	culture = random #error
+	trait = origin_foreingner
+	trait = lifestyle_traveler
+	trait = content
+	random_traits_list = {
+		count = 1
+		journaller = {}
+		poet = {}
+		pilgrim = {}
+	}
+	random_traits_list = {
+		count = 1
+		education_learning_3 = {}
+		education_learning_4 = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+			flag = need_priest_outfit
+		}
+	}
+}
+
+qss_disgracednoble = {
+	age = { 8 21 }
+	gender_female_chance = {
+		add = 50
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+	trait = origin_disgracednoble
+	random_traits_list = {
+		count = 1
+		bastard = {}
+		child_of_concubine = {}
+		disinherited = {}
+		disputed_heritage = {}
+		denounced = {}
+		disfigured = {}
+	}
+	random_traits_list = {
+		count = 1
+		drunkard = {}
+		flagellant = {}
+		comfort_eater = {}
+		contrite = {}
+		improvident = {}
+		inappetetic = {}
+		reclusive = {}
+		irritable = {}
+		hashishiyah = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+		}
+	}
+}
+
+qss_traumatized = {
+	age = { 26 46 }
+	gender_female_chance = {
+		add = 50
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+	trait = origin_traumatized
+	random_traits_list = {
+		count = 1
+		paranoid = {}
+		callous = {}
+		shy = {}
+		lazy = {}
+		craven = {}
+	}
+	random_traits_list = {
+		count = 1
+		drunkard = {}
+		flagellant = {}
+		comfort_eater = {}
+		contrite = {}
+		improvident = {}
+		inappetetic = {}
+		reclusive = {}
+		irritable = {}
+		hashishiyah = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+		}
+	}
+}
+
+qss_diseased = {
+	age = { 16 36 }
+	gender_female_chance = {
+		add = 50
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+	trait = origin_diseased
+	random_traits_list = {
+		count = 2
+		shy = {}
+		craven = {}
+		humble = {}
+		content = {}
+		forgiving = {}
+		honest = {}
+		just = {}
+		trusting = {}
+	}
+	random_traits_list = {
+		count = 1
+		bubonic_plague = {}
+		consumption = {}
+		leper = {}
+		great_pox = {}
+		smallpox = {}
+		pneumonic = {}
+		cancer = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+		}
+	}
+}
+
+
+
+# Slaves
+
+qss_slave_virgin = {
+	age = { 16 21 }
+	gender_female_chance = {
+		add = 100
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+ #	trait = origin_slave_virgin
+	trait = pure_blooded
+	random_traits_list = {
+		count = 1
+		craven = {}
+		shy = {}
+		chaste = {}
+	}
+	random_traits_list = {
+		count = 1
+		beauty_good_1 = {}
+		beauty_good_2 = {}
+		beauty_good_3 = {}
+	}
+	random_traits_list = {
+		count = 1
+		education_intrigue_1 = {}
+		education_diplomacy_1 = {}
+		education_learning_1 = {}
+		education_stewardship_1 = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+			flag = peasant_outfit
+		}
+	}
+}
+
+qss_slave_warrior = {
+	age = { 16 26 }
+	gender_female_chance = {
+		add = 0
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+ #	trait = origin_slave_warrior
+	trait = lifestyle_blademaster
+	random_traits_list = {
+		count = 2
+		honest = {}
+		diligent = {}
+		content = {}
+		brave = {}
+		patient = {}
+		temperate = {}
+		humble = {}
+	}
+	random_traits_list = {
+		count = 1
+		education_martial_3 = {}
+		education_martial_4 = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+			flag = need_military_outfit
+		}
+	}
+}
+
+qss_exotic_slave = {
+	age = { 16 26 }
+	gender_female_chance = {
+		add = 50
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+ #	trait = origin_exotic_slave
+	random_traits_list = {
+		count = 1
+		albino = {}
+		dwarf = {}
+		scaly = {}
+		giant = {}
+	}
+	random_traits_list = {
+		count = 1
+		education_intrigue_1 = {}
+		education_diplomacy_1 = {}
+		education_learning_1 = {}
+		education_stewardship_1 = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+			flag = need_slave_outfit
+		}
+	}
+}
+
+qss_child_slave = {
+	age = { 5 10 }
+	gender_female_chance = {
+		add = 50
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+ #	trait = origin_child_slave
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+			flag = peasant_outfit
+		}
+	}
+}
+
+qss_young_slave = {
+	age = { 16 21 }
+	gender_female_chance = {
+		add = 50
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+ #	trait = origin_young_slave
+	random_traits_list = {
+		count = 1
+		education_stewardship_1 = {}
+		education_stewardship_2 = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+			flag = need_slave_outfit
+		}
+	}
+}
+
+qss_adult_slave = {
+	age = { 26 46 }
+	gender_female_chance = {
+		add = 30
+	}
+	random_traits = yes
+ 	dynasty = none
+	faith = root.faith
+	culture = root.culture
+ #	trait = origin_adult_slave
+	random_traits_list = {
+		count = 1
+		education_stewardship_3 = {}
+		education_stewardship_4 = {}
+	}
+	after_creation = {
+		set_interesting_traits_and_modifiers_effect = yes
+		add_character_flag = {
+			flag = mbti_origin_lowborn_flag
+			flag = need_slave_outfit
+		}
+	}
+}

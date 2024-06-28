@@ -1,0 +1,297 @@
+﻿## Edited triggers below
+# Can marry same-sex 
+allowed_to_marry_same_sex_trigger = {
+	OR = {
+		AND = { # Game rule enables as usual
+			has_game_rule = accepted_same_sex_marriage
+			OR = {
+				faith = { # With this game rule homosexuality accepted enables for both men and women
+					NOR = {
+						has_doctrine_parameter = homosexuality_shunned 
+						has_doctrine_parameter = homosexuality_illegal
+					} 
+				}
+				AND = {
+					is_female = yes
+					faith = { has_doctrine_parameter = mz_lesbian_marriage_parameter } # Lesbian doctrines are only for women still
+				}	
+			}
+		}
+		AND = { # Non-females can same-sex marriage / concubinage with proper doctrine
+			has_game_rule = default_same_sex_marriage
+			is_female = no
+			faith = { has_doctrine_parameter = mz_homosexuality_embraced }
+		}	
+		AND = { # Females need lesbian divinity for same-sex marriage / concubinage
+			has_game_rule = default_same_sex_marriage
+			is_female = yes
+			faith = { has_doctrine_parameter = mz_lesbian_marriage_parameter }
+		}
+		culture = { has_cultural_parameter = mz_samesex_marriage_tradition_parameter } # Cultural tradition allows regardless of game rule or gender
+	}
+}
+
+#Concubine trigger
+can_become_concubine_of_character_trigger = {
+	is_hostage = no
+	trigger_if = {
+		limit = {
+			$CHARACTER$.culture = { has_cultural_tradition = tradition_monogamous }
+		}
+		$CHARACTER$ = { allowed_to_marry_same_sex_trigger = yes } # Only allow concubines to be selected for monogamous-culture characters if same-sex marriage allowed.
+	}
+	trigger_if = {
+		limit = {
+			NOT = { is_imprisoned_by = $CHARACTER$ }
+		}
+		is_married = no
+		is_betrothed = no
+		is_concubine = no
+		number_of_concubines = 0
+	}
+	trigger_if = {
+		limit = {
+			is_imprisoned_by = $CHARACTER$
+			is_married = yes
+		}
+		NOT = { is_spouse_of = $CHARACTER$ }
+	}
+	trigger_if = { # Only opposite-sex concubines for those with monogamy as a result of faith/culture
+		limit = { 
+			$CHARACTER$ = { mz_has_monogamy_trigger = yes }
+		} 
+		sex_opposite_of = $CHARACTER$
+	}
+	NOR = {
+		is_concubine_of = $CHARACTER$
+		has_character_flag = has_been_offered_as_concubine
+	}
+	is_ruler = no
+	is_landed = no
+	is_adult = yes
+	could_marry_character_trigger = { CHARACTER = $CHARACTER$ } #Gender, recent divorce, allowed to marry, no illegal incest etc.
+}
+
+### New triggers below
+# Trigger to determine eligibility for lesbian marriages via on_action
+mz_lesbian_marriage_pulse_trigger = { # Used to find candidates, scope:mz_root must exist
+	NOT = { this = scope:mz_root }
+	is_hostage = no
+	is_ai = yes
+	is_female = yes
+	is_adult = yes
+	is_imprisoned = no
+	allowed_to_marry_same_sex_trigger = yes # Saves some performance.
+	can_marry_common_trigger = yes # This trigger ignores current marriage/concubine status.
+	is_betrothed = no # For the sake of simplicity
+	in_diplomatic_range = scope:mz_root
+	OR = {
+		is_married = no
+		mz_has_expected_num_wives_trigger = no # Do they have the right number of wives? Slightly different check for polygamy.
+	}
+	faith = { # Don't bother getting candidates whose faith is too hostile
+		faith_hostility_level = {
+			target = scope:mz_root.faith
+			value < faith_hostility_prevents_marriage_level
+		}
+	}
+	trigger_if = { # Don't take courtiers from non-AI.
+		limit = { 
+			exists = court_owner
+			court_owner = { is_ai = no }
+			is_courtier = yes
+		}
+		is_courtier = no
+	}
+}
+
+# These triggers have been repurposed into general-use marriage triggers to determine the nature of marriage/concubines for a given character.
+mz_has_monogamy_trigger = {
+	OR = {
+		culture = { has_cultural_tradition = tradition_monogamous }
+		AND = {
+			faith = { has_doctrine = doctrine_monogamy }
+			NOR = {
+				culture = { has_cultural_tradition = tradition_concubines }
+				culture = { has_cultural_tradition = tradition_polygamous }
+			}
+		}
+	}
+}
+
+mz_has_polygamy_trigger = {
+	OR = {
+		culture = { has_cultural_tradition = tradition_polygamous }
+		AND = {
+			faith = { has_doctrine = doctrine_polygamy }
+			NOR = {
+				culture = { has_cultural_tradition = tradition_concubines }
+				culture = { has_cultural_tradition = tradition_monogamous }
+			}
+		}
+	}
+}
+
+mz_has_concubines_trigger = {
+	OR = {
+		culture = { has_cultural_tradition = tradition_concubines }
+		AND = {
+			faith = { has_doctrine = doctrine_concubines }
+			NOR = {
+				culture = { has_cultural_tradition = tradition_polygamous }
+				culture = { has_cultural_tradition = tradition_monogamous }
+			}
+		}
+	}
+}
+
+# Do we have enough wives?
+mz_has_expected_num_wives_trigger = {
+	trigger_if = { # Polygamy expects multiple spouses depending on tier to avoid piety penalty. This check wants to make sure landed rulers have at least one female spouse.
+		limit = { mz_has_polygamy_trigger = yes }
+		OR = { # For AI we're going to only use the on_action pulse to pair up the minimum number of wives.
+			AND = {
+				highest_held_title_tier <= tier_county
+				any_spouse = { is_female = yes } # Countesses (and below) need one spouse.
+			} # This also serves to prevent grabbing unlanded characters for marriage if they're already married to a woman.
+			AND = {
+				highest_held_title_tier = tier_duchy
+				any_spouse = {
+					count >= 1
+					is_female = yes # Duchesses need two spouses.
+				}
+			}
+			AND = {
+				highest_held_title_tier = tier_kingdom
+				any_spouse = {
+					count >= 2
+					is_female = yes # Queens need three spouses.
+				}
+			}
+			AND = {
+				highest_held_title_tier >= tier_empire
+				any_spouse = {
+					count >= 3
+					is_female = yes # Empresses need four spouses.
+				}
+			}
+		}
+	}
+	trigger_else = { # Monogamy and Concubines just want one spouse
+		any_spouse = { is_female = yes }
+	}
+}
+
+# Do we have enough spouses? Unlike the above, this is not expected to check for an endless loop.
+mz_has_expected_num_samesex_consorts_trigger = {
+	save_temporary_scope_as = mz_this_character
+	trigger_if = { 
+		limit = { mz_has_polygamy_trigger = yes }
+		OR = { # For AI we're going to only use the on_action pulse to pair up the minimum number of wives.
+			AND = {
+				highest_held_title_tier <= tier_county
+				any_spouse = { sex_same_as = scope:mz_this_character } # Counts need one same-sex spouse.
+			} # This also serves to prevent grabbing unlanded characters for marriage if they're already married to a woman.
+			AND = {
+				highest_held_title_tier = tier_duchy
+				any_spouse = {
+					count >= 1
+					sex_same_as = scope:mz_this_character # Dukes also need one same-sex spouse.
+				}
+			}
+			AND = {
+				highest_held_title_tier = tier_kingdom
+				any_spouse = {
+					count >= 2
+					sex_same_as = scope:mz_this_character
+				}
+			}
+			AND = {
+				highest_held_title_tier >= tier_empire
+				any_spouse = {
+					count >= 3
+					sex_same_as = scope:mz_this_character
+				}
+			}
+		}
+	}
+	trigger_else_if = {
+		limit = { mz_has_concubines_trigger = yes }
+		OR = { # Counts and dukes want 1 same-sex concubine, kings and emperors want 2 same-sex concubines. Barons and below don't get the extra bonus.
+			AND = {
+				highest_held_title_tier > tier_barony
+				highest_held_title_tier <= tier_duchy
+				any_spouse = { sex_same_as = scope:mz_this_character } # Spouse is same-sex
+				any_concubine = { sex_same_as = scope:mz_this_character } # One concubine is same-sex
+			}			
+			AND = {
+				highest_held_title_tier >= tier_kingdom
+				any_spouse = { sex_same_as = scope:mz_this_character } # Spouse is same-sex
+				any_concubine = { # Two concubines are same-sex
+					count > 1
+					sex_same_as = scope:mz_this_character 
+				}		
+			}
+		}
+	}
+	trigger_else = { # Monogamy and Concubines just want one spouse
+		any_spouse = { sex_same_as = scope:mz_this_character }
+	}
+}
+
+# How many same-sex concubines do we want? Used for ai_make_concubine_interaction interaction
+mz_has_desired_num_samesex_concubines = {
+	mz_has_concubines_trigger = yes
+	allowed_to_marry_same_sex_trigger = yes		
+	trigger_if = {
+		limit = { 
+			highest_held_title_tier > tier_barony
+			highest_held_title_tier <= tier_duchy
+		}
+		any_concubine = {
+			count >= 1
+			sex_same_as = scope:actor
+		}		
+	}
+	trigger_else_if = {
+		limit = { 
+			highest_held_title_tier >= tier_kingdom
+		}
+		any_concubine = {
+			count >= 2
+			sex_same_as = scope:actor
+		}			
+	}
+	trigger_else = { always = yes }
+}
+
+# New version of is_struggle_parameter_active_interfaith_marriages_available_between_involved_characters_trigger for lesbian marriage. Need to replace actor with mz_root.
+mz_is_struggle_parameter_active_interfaith_marriages_available_between_involved_characters_trigger = {
+	scope:mz_root = {
+		any_character_struggle = {
+			involvement = involved
+			has_struggle_phase_parameter = interfaith_marriages_available_between_involved_characters
+			save_temporary_scope_as = struggle_temp
+			scope:mz_spouse = {
+				any_character_struggle = {
+					involvement = involved
+					this = scope:struggle_temp
+				}
+			}
+		}
+	}
+}
+
+# Do we want a grand wedding?
+mz_desires_grand_wedding = {
+	has_dlc_feature = tours_and_tournaments
+	has_dlc_feature = advanced_activities
+	highest_held_title_tier >= tier_county
+	NOR = {
+		has_variable = promised_grand_wedding_marriage_countdown
+		has_trait = humble
+		has_trait = content
+	}
+	ai_sociability > 0
+	short_term_gold >= ai_wedding_promise_gold_actor
+}

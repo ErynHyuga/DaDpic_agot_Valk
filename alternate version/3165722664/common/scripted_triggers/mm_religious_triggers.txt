@@ -1,0 +1,139 @@
+﻿mz_lesbian_faith = { # Used in faith scope. Identifies faiths that consider lesbians sacred.
+	OR = {
+		has_doctrine_parameter = mz_lesbian_devotion_parameter # For Lesbian Divinity
+		has_doctrine_parameter = mz_piety_gain_for_conversions # For Sapphic Exaltation
+	}
+} # Lesbian Marriage doctrine not included because though it does allow for lesbian marriage it doesn't emphasize it as much as the other two
+
+mz_lesbian_faith_devotee = { # Trigger to identify "lesbian faith followers", used in character scope
+	is_female = yes
+	faith = { mz_lesbian_faith = yes }
+}
+
+# Sacred same-sex marriage, should be used from the character scope
+mz_sacred_same_sex_marriage = {
+	OR = {
+		AND = {
+			is_female = no
+			faith = { has_doctrine_parameter = mz_homosexual_consorts_parameter }
+		}
+		AND = {
+			is_female = yes
+			faith = { has_doctrine_parameter = mz_lesbian_consorts_parameter }
+		}
+	}
+}
+
+mz_dead_faith_trigger = { # Use from Faith scope. Triggers true if there are no rulers or counties following this faith.
+	any_faith_ruler = {
+		count < 1
+		faith = prev
+	}
+	any_county = {
+		count < 1
+		faith = prev
+	}
+}
+
+mz_acceptable_amazon_faith_trigger = { # Use from faith scope. Determines whether or not a faith is palatable to the Amazons.
+	NOR = {
+		has_doctrine_parameter = male_dominated_law # Amazons will not submit to men.
+		has_doctrine_parameter = adultery_female_crime # Amazons strongly embrace sexual freedom.
+		has_doctrine_parameter = clergy_must_be_male # Amazons will not submit to men.
+		has_doctrine_parameter = holy_wars_forbidden # Amazons are not pacifists
+	}
+}
+
+can_be_combatant_based_on_gender_trigger = {
+	custom_description = {
+		text = "can_be_combatant_based_on_gender"
+		object = this
+		subject = $ARMY_OWNER$
+		# Priests only fight if faith has war priests
+		trigger_if = {
+			limit = {
+				OR = {
+					has_trait = devoted
+					is_clergy = yes
+				}
+			}
+			OR = {
+				faith = { has_doctrine_parameter = clergy_can_fight }
+				culture = { has_cultural_parameter = culture_clergy_can_fight }
+				AND = {
+					$ARMY_OWNER$.culture = {
+						has_cultural_parameter = high_prowess_ignores_knight_restrictions
+					}
+					prowess >= 10
+				}
+			}
+		}
+		OR = {
+			trigger_if = { # Has the Royal Court and thus can modify pillars
+				limit = {
+					has_dlc_feature = diverge_culture # Can modify pillars
+				}
+				OR = {
+					$ARMY_OWNER$ = { culture = { has_cultural_parameter = martial_custom_equal_combatant } }
+					AND = {
+						$ARMY_OWNER$ = { culture = { has_cultural_parameter = martial_custom_male_only_combatant } }
+						is_male = yes
+					}
+					AND = {
+						$ARMY_OWNER$ = { culture = { has_cultural_parameter = martial_custom_female_only_combatant } }
+						is_female = yes
+					}
+				}
+			}
+			trigger_else = { # Does not have the Royal Court and thus combatant is governed by faith
+				OR = {
+					$ARMY_OWNER$ = { faith = { has_doctrine_parameter = combatant_can_be_either_gender_if_no_roco } }
+					AND = {
+						$ARMY_OWNER$ = { faith = { has_doctrine_parameter = combatant_must_be_male_if_no_roco } }
+						is_male = yes
+					}
+					AND = {
+						$ARMY_OWNER$ = { faith = { has_doctrine_parameter = combatant_must_be_female_if_no_roco } }
+						is_female = yes
+					}
+				}
+			}
+			AND = { # Edited to allow characters with the Amazon trait to serve regardless of other factors, if shieldmaidens or Amazons are culturally relevant
+				$ARMY_OWNER$ = {
+					OR = {
+						culture = { has_cultural_parameter = has_access_to_shieldmaidens }
+						culture = { has_cultural_parameter = mz_recruit_amazons_enabled }
+					}
+				}
+				# No need to gender diversify this: if they're a right-gender shieldperson of the culture, then they've already got permission to fight from the previous AND conditions.
+				OR = {
+					has_trait = shieldmaiden
+					has_trait = mz_amazonian_warrior
+				}
+			}
+			AND = { # Amazons can also serve women who have Amazon contact
+				$ARMY_OWNER$ = { 
+					is_female = yes
+					mz_has_amazon_contact = yes
+				}
+				has_trait = mz_amazonian_warrior
+			}
+			# Event-based special exceptions
+			has_character_modifier = ignores_gender_army_rules
+			AND = {
+				$ARMY_OWNER$ = { culture = { has_cultural_parameter = high_prowess_ignores_knight_restrictions } }
+				NOT = { $ARMY_OWNER$ = { culture = { has_cultural_parameter = minimum_prowess_for_knights } } }
+				prowess >= 10
+			}
+			AND = {
+				$ARMY_OWNER$ = {
+					culture = {
+						has_cultural_parameter = high_prowess_ignores_knight_restrictions
+						has_cultural_parameter = minimum_prowess_for_knights
+					}
+				}
+				prowess >= 12
+			}
+		}
+	}
+}

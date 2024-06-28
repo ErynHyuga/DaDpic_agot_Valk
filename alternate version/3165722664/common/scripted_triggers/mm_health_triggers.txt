@@ -1,0 +1,43 @@
+﻿### Some misc triggers
+mz_has_any_illness_trigger = {
+	OR = {
+		has_std_trigger = yes
+		has_epidemic_disease_trigger = yes		
+		has_trait = ill 
+		has_trait = pneumonic
+		has_trait = leper
+ 		has_trait = consumption
+		has_trait = cancer
+		has_trait = typhus
+		has_trait = sickly
+		has_trait = wheezing
+	}
+}
+
+mz_has_disease_or_permanent_injury_or_poor_health_trigger = {
+	OR = {
+		health < 1
+		has_trait_rank = {
+			trait = wounded
+			rank >= 2
+		}
+		mz_has_any_illness_trigger = yes
+		has_trait = maimed
+		has_trait = one_legged
+		has_trait = disfigured
+		has_trait = blind
+		has_trait = eunuch
+		has_trait = bleeder
+	}
+}
+
+mz_has_unattractive_trait = {
+	OR = {
+		has_trait = beauty_bad
+		has_trait = weak
+		has_trait = physique_bad
+		has_trait = spindly
+		has_trait = scaly
+		has_trait = inbred
+	}
+}

@@ -1,0 +1,504 @@
+# Standard Values
+@pos_compat_high = 30
+@pos_compat_medium = 15
+@pos_compat_low = 5
+
+@neg_compat_high = -30
+@neg_compat_medium = -15
+@neg_compat_low = -5
+
+# Total: 12
+
+##men
+
+ordinary_tribesman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 20	
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntribal.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_ordinarytribesman_character_desc
+			}
+			desc = trait_ordinary_tribesman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+charismatic_tribesman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	negate_diplomacy_penalty_add = 4
+	vassal_opinion = -10
+	opinion_of_liege = 20	
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntribal.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_charismatictribesman_character_desc
+			}
+			desc = trait_charismatic_tribesman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+resourceful_tribesman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	negate_stewardship_penalty_add = 4
+	vassal_opinion = -10
+	opinion_of_liege = 20		
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntribal.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_resourcefultribesman_character_desc
+			}
+			desc = trait_resourceful_tribesman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+cunning_tribesman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	negate_intrigue_penalty_add = 4
+	vassal_opinion = -10
+	opinion_of_liege = 20		
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntribal.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_cunningtribesman_character_desc
+			}
+			desc = trait_cunning_tribesman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+renowned_tribesman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	negate_martial_penalty_add = 4
+	vassal_opinion = -10
+	opinion_of_liege = 20		
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntribal.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_renownedtribesman_character_desc
+			}
+			desc = trait_renowned_tribesman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+wise_tribesman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	negate_learning_penalty_add = 4
+	vassal_opinion = -10
+	opinion_of_liege = 20	
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntribal.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_wisetribesman_character_desc
+			}
+			desc = trait_wise_tribesman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+##woman
+
+ordinary_tribeswoman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	vassal_opinion = -10
+	opinion_of_liege = 20		
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntribal.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_ordinary_tribeswoman_character_desc
+			}
+			desc = trait_ordinary_tribeswoman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+charismatic_tribeswoman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	negate_diplomacy_penalty_add = 4
+	vassal_opinion = -10
+	opinion_of_liege = 20		
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntribal.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_charismatic_tribeswoman_character_desc
+			}
+			desc = trait_charismatic_tribeswoman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+resourceful_tribeswoman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	negate_stewardship_penalty_add = 4
+	vassal_opinion = -10
+	opinion_of_liege = 20	
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntribal.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_resourceful_tribeswoman_character_desc
+			}
+			desc = trait_resourceful_tribeswoman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+cunning_tribeswoman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	negate_intrigue_penalty_add = 4
+	vassal_opinion = -10
+	opinion_of_liege = 20	
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntribal.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_cunning_tribeswoman_character_desc
+			}
+			desc = trait_cunning_tribeswoman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+renowned_tribeswoman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	negate_martial_penalty_add = 4
+	vassal_opinion = -10
+	opinion_of_liege = 20	
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntribal.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_renowned_tribeswoman_character_desc
+			}
+			desc = trait_renowned_tribeswoman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+wise_tribeswoman = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	negate_learning_penalty_add = 4
+	vassal_opinion = -10
+	opinion_of_liege = 20		
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntribal.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_wise_tribeswoman_character_desc
+			}
+			desc = trait_wise_tribeswoman_character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}
+
+zzzzzzzz = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	opposites = {
+	}
+
+	
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	icon = lowborntribal.png
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait__desc
+			}
+			desc = trait__character_desc
+		}
+	}
+
+	compatibility = {
+	}
+}

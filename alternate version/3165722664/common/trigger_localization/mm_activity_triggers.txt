@@ -1,0 +1,11 @@
+﻿mz_host_lesorgy_custom_decision_std = {
+	global_not = MZ_MUST_NOT_HAVE_CONTAGIOUS_DISEASE
+}
+
+mz_lesorgy_must_have_positive_health = {
+	global_not = MZ_MUST_HAVE_POSITIVE_HEALTH
+}
+
+mz_lesorgy_disfiguring_trait = {
+	global_not = MZ_HAS_DISFIGURING_TRAIT
+}

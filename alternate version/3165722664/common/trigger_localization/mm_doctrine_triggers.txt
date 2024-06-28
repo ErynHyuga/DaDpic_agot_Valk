@@ -1,0 +1,19 @@
+﻿mz_incompatible_doctrine_clerical_gender_male_only_trigger = {
+	global_not = MZ_INCOMPATIBLE_DOCTRINE_CLERICAL_GENDER_MALE_ONLY
+}
+
+mz_requires_doctrine_female_dominated_trigger = {
+	global_not = MZ_REQUIRES_DOCTRINE_FEMALE_DOMINATED
+}
+
+mz_requires_doctrine_female_adultery_accepted_trigger = {
+	global_not = MZ_REQUIRES_DOCTRINE_FEMALE_ADULTERY_ACCEPTED
+}
+
+mz_requires_tenet_carnal_exaltation_or_hedonistic_trigger = {
+	global_not = MZ_REQUIRES_TENET_CARNAL_EXALTATION_OR_HEDONISTIC
+}
+
+mz_cannot_be_male_dominated_trigger = {
+	global_not = MZ_INCOMPATIBLE_DOCTRINE_MALE_DOMINATED
+}

@@ -1,0 +1,2380 @@
+﻿#portrait_poverty_robes_trigger = {
+#    exists = this
+#    OR = {
+#        has_character_flag = need_slave_outfit
+#        AND = {
+#            has_character_modifier = vow_of_poverty_modifier
+#            # Should still wear armor when going to war
+#            NOT = { portrait_wear_armor_trigger = yes }
+#	        portrait_ep2_wedding_clothes_trigger = no
+#        }
+#    }
+#}
+
+#gpt_traditions_rule_trigger = {
+#    has_game_rule = GPT_culture_enabled
+#}
+
+gpt_trade_power_trigger_lv1 = {
+
+            is_ai = no
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 2
+	calc_true_if = {
+		amount <= 3
+     #   is_ai = yes
+        is_independent_ruler = yes
+        has_character_flag = gpt_trade_medit
+        highest_held_title_tier >= 3
+		highest_held_title_tier >= 4
+        highest_held_title_tier >= 5
+        culture = { has_cultural_tradition = tradition_innovative_trade }
+        culture = { has_cultural_tradition = tradition_maritime_mercantilism }
+        culture = { has_cultural_tradition = tradition_seafaring }
+        NOT = { government_has_flag = government_is_tribal }
+        government_has_flag = government_is_republic
+        has_character_modifier = gpt_trade_power
+        has_character_modifier = gpt_allow_slave_trading
+        has_character_modifier = gpt_import_resources
+        has_character_modifier = gpt_market_speculation
+        has_character_modifier = gpt_allow_all_missionaries
+        has_character_modifier = gpt_trade_power
+        has_character_modifier = gpt_allow_slave_trading
+        has_character_modifier = gpt_import_resources
+        has_character_modifier = gpt_market_speculation
+        has_character_modifier = gpt_allow_all_missionaries
+        sub_realm_size > 20
+        sub_realm_size > 40
+        sub_realm_size > 80
+        sub_realm_size > 120
+        capital_province.county = { development_level >= 15 }
+        capital_province.county = { development_level >= 25 }
+        capital_province.county = { development_level >= 35 }
+        has_realm_law = crown_authority_2
+        has_realm_law = crown_authority_3
+        has_realm_law = realm_administration_law_2
+        has_realm_law = realm_administration_law_3
+    }
+}
+gpt_trade_power_trigger_lv2 = {
+
+            is_ai = no
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 2
+	calc_true_if = {
+		amount >= 4
+     #   is_ai = yes
+        is_independent_ruler = yes
+        has_character_flag = gpt_trade_medit
+        highest_held_title_tier >= 3
+		highest_held_title_tier >= 4
+        highest_held_title_tier >= 5
+        culture = { has_cultural_tradition = tradition_innovative_trade }
+        culture = { has_cultural_tradition = tradition_maritime_mercantilism }
+        culture = { has_cultural_tradition = tradition_seafaring }
+        NOT = { government_has_flag = government_is_tribal }
+        government_has_flag = government_is_republic
+        has_character_modifier = gpt_trade_power
+        has_character_modifier = gpt_allow_slave_trading
+        has_character_modifier = gpt_import_resources
+        has_character_modifier = gpt_market_speculation
+        has_character_modifier = gpt_allow_all_missionaries
+        has_character_modifier = gpt_trade_power
+        has_character_modifier = gpt_allow_slave_trading
+        has_character_modifier = gpt_import_resources
+        has_character_modifier = gpt_market_speculation
+        has_character_modifier = gpt_allow_all_missionaries
+        sub_realm_size > 20
+        sub_realm_size > 40
+        sub_realm_size > 80
+        sub_realm_size > 120
+        capital_province.county = { development_level >= 15 }
+        capital_province.county = { development_level >= 25 }
+        capital_province.county = { development_level >= 35 }
+        has_realm_law = crown_authority_2
+        has_realm_law = crown_authority_3
+        has_realm_law = realm_administration_law_2
+        has_realm_law = realm_administration_law_3
+    }
+}
+gpt_trade_power_trigger_lv3 = {
+
+            is_ai = no
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 2
+	calc_true_if = {
+		amount >= 7
+     #   is_ai = yes
+        is_independent_ruler = yes
+        has_character_flag = gpt_trade_medit
+        highest_held_title_tier >= 3
+		highest_held_title_tier >= 4
+        highest_held_title_tier >= 5
+        culture = { has_cultural_tradition = tradition_innovative_trade }
+        culture = { has_cultural_tradition = tradition_maritime_mercantilism }
+        culture = { has_cultural_tradition = tradition_seafaring }
+        NOT = { government_has_flag = government_is_tribal }
+        government_has_flag = government_is_republic
+        has_character_modifier = gpt_trade_power
+        has_character_modifier = gpt_allow_slave_trading
+        has_character_modifier = gpt_import_resources
+        has_character_modifier = gpt_market_speculation
+        has_character_modifier = gpt_allow_all_missionaries
+        has_character_modifier = gpt_trade_power
+        has_character_modifier = gpt_allow_slave_trading
+        has_character_modifier = gpt_import_resources
+        has_character_modifier = gpt_market_speculation
+        has_character_modifier = gpt_allow_all_missionaries
+        sub_realm_size > 20
+        sub_realm_size > 40
+        sub_realm_size > 80
+        sub_realm_size > 120
+        capital_province.county = { development_level >= 15 }
+        capital_province.county = { development_level >= 25 }
+        capital_province.county = { development_level >= 35 }
+        has_realm_law = crown_authority_2
+        has_realm_law = crown_authority_3
+        has_realm_law = realm_administration_law_2
+        has_realm_law = realm_administration_law_3
+    }
+}
+gpt_trade_power_trigger_lv4 = {
+
+            is_ai = no
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 2
+	calc_true_if = {
+		amount >= 9
+     #   is_ai = yes
+        is_independent_ruler = yes
+        has_character_flag = gpt_trade_medit
+        highest_held_title_tier >= 3
+		highest_held_title_tier >= 4
+        highest_held_title_tier >= 5
+        culture = { has_cultural_tradition = tradition_innovative_trade }
+        culture = { has_cultural_tradition = tradition_maritime_mercantilism }
+        culture = { has_cultural_tradition = tradition_seafaring }
+        NOT = { government_has_flag = government_is_tribal }
+        government_has_flag = government_is_republic
+        has_character_modifier = gpt_trade_power
+        has_character_modifier = gpt_allow_slave_trading
+        has_character_modifier = gpt_import_resources
+        has_character_modifier = gpt_market_speculation
+        has_character_modifier = gpt_allow_all_missionaries
+        has_character_modifier = gpt_trade_power
+        has_character_modifier = gpt_allow_slave_trading
+        has_character_modifier = gpt_import_resources
+        has_character_modifier = gpt_market_speculation
+        has_character_modifier = gpt_allow_all_missionaries
+        sub_realm_size > 20
+        sub_realm_size > 40
+        sub_realm_size > 80
+        sub_realm_size > 120
+        capital_province.county = { development_level >= 15 }
+        capital_province.county = { development_level >= 25 }
+        capital_province.county = { development_level >= 35 }
+        has_realm_law = crown_authority_2
+        has_realm_law = crown_authority_3
+        has_realm_law = realm_administration_law_2
+        has_realm_law = realm_administration_law_3
+    }
+}
+gpt_trade_power_trigger_lv5 = {
+
+            is_ai = no
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 2
+	calc_true_if = {
+		amount >= 13
+     #   is_ai = yes
+        is_independent_ruler = yes
+        has_character_flag = gpt_trade_medit
+        highest_held_title_tier >= 3
+		highest_held_title_tier >= 4
+        highest_held_title_tier >= 5
+        culture = { has_cultural_tradition = tradition_innovative_trade }
+        culture = { has_cultural_tradition = tradition_maritime_mercantilism }
+        culture = { has_cultural_tradition = tradition_seafaring }
+        NOT = { government_has_flag = government_is_tribal }
+        government_has_flag = government_is_republic
+        has_character_modifier = gpt_trade_power
+        has_character_modifier = gpt_allow_slave_trading
+        has_character_modifier = gpt_import_resources
+        has_character_modifier = gpt_market_speculation
+        has_character_modifier = gpt_allow_all_missionaries
+        has_character_modifier = gpt_trade_power
+        has_character_modifier = gpt_allow_slave_trading
+        has_character_modifier = gpt_import_resources
+        has_character_modifier = gpt_market_speculation
+        has_character_modifier = gpt_allow_all_missionaries
+        sub_realm_size > 20
+        sub_realm_size > 40
+        sub_realm_size > 80
+        sub_realm_size > 120
+        capital_province.county = { development_level >= 15 }
+        capital_province.county = { development_level >= 25 }
+        capital_province.county = { development_level >= 35 }
+        has_realm_law = crown_authority_2
+        has_realm_law = crown_authority_3
+        has_realm_law = realm_administration_law_2
+        has_realm_law = realm_administration_law_3
+    }
+}
+
+
+
+
+gpt_combat_piracy_trigger_lv1 = {
+
+            is_ai = no
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 2
+	calc_true_if = {
+		amount = 1
+     #   is_ai = yes
+        highest_held_title_tier <= 3
+        has_character_modifier = gpt_combat_piracy
+        has_character_modifier = gpt_military_ships
+        has_character_modifier = gpt_allow_privateers
+        has_realm_law = crown_authority_2
+        has_realm_law = crown_authority_3
+        has_character_flag = gpt_trade_power_flag_lv1
+        has_character_flag = gpt_trade_power_flag_lv2
+        culture = { has_cultural_tradition = tradition_fp1_coastal_warriors }
+    }
+}
+gpt_combat_piracy_trigger_lv2 = {
+
+            is_ai = no
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 2
+	calc_true_if = {
+		amount = 2
+     #   is_ai = yes
+        highest_held_title_tier <= 3
+        has_character_modifier = gpt_combat_piracy
+        has_character_modifier = gpt_military_ships
+        has_character_modifier = gpt_allow_privateers
+        has_realm_law = crown_authority_2
+        has_realm_law = crown_authority_3
+        has_character_flag = gpt_trade_power_flag_lv1
+        has_character_flag = gpt_trade_power_flag_lv2
+        culture = { has_cultural_tradition = tradition_fp1_coastal_warriors }
+    }
+}
+gpt_combat_piracy_trigger_lv3 = {
+
+            is_ai = no
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 2
+	calc_true_if = {
+		amount >= 3
+     #   is_ai = yes
+        highest_held_title_tier <= 3
+        has_character_modifier = gpt_combat_piracy
+        has_character_modifier = gpt_military_ships
+        has_character_modifier = gpt_allow_privateers
+        has_realm_law = crown_authority_2
+        has_realm_law = crown_authority_3
+        has_character_flag = gpt_trade_power_flag_lv1
+        has_character_flag = gpt_trade_power_flag_lv2
+        culture = { has_cultural_tradition = tradition_fp1_coastal_warriors }
+    }
+}
+
+
+
+
+
+gpt_power_projection_trigger_lv1 = {
+
+            has_game_rule = GPT_trade_enabled
+            is_ai = no
+            highest_held_title_tier >= 2
+	calc_true_if = {
+		amount <= 2
+        is_independent_ruler = yes
+        martial >= 20
+        martial >= 30
+        days_of_continuous_war >= 700
+        days_of_continuous_war >= 1400
+        days_of_continuous_war >= 2100
+        days_of_continuous_war >= 2800
+        is_at_war_as_attacker = yes
+        is_at_war_as_attacker = yes
+        is_commanding_army = yes
+        is_commanding_army = yes   
+        highest_held_title_tier >= 3
+		highest_held_title_tier >= 4
+        highest_held_title_tier >= 5
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 2
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 2
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 4
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 4
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 5
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 5
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 4
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 4
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 5
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 5
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 4
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 4
+                count >= 2
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 5
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 5
+                count >= 2
+            }
+        }
+        any_ally = {
+            count >= 1
+            highest_held_title_tier > root.highest_held_title_tier
+            is_independent_ruler = yes
+        }
+        any_ally = {
+            count >= 2
+            highest_held_title_tier > root.highest_held_title_tier
+            is_independent_ruler = yes
+        }
+        any_ally = {
+            count >= 1
+            highest_held_title_tier >= 4
+            is_independent_ruler = yes
+        }
+        any_ally = {
+            count >= 2
+            highest_held_title_tier >= 4
+            is_independent_ruler = yes
+        }
+        sub_realm_size > 40
+        sub_realm_size > 80
+        sub_realm_size > 120
+        sub_realm_size > 160
+        sub_realm_size > 200
+        has_realm_law = crown_authority_2
+        has_realm_law = crown_authority_3
+        has_realm_law = realm_administration_law_2
+        has_realm_law = realm_administration_law_3
+    }
+}
+gpt_power_projection_trigger_lv2 = {
+
+            has_game_rule = GPT_trade_enabled
+            is_ai = no
+            highest_held_title_tier >= 2
+	calc_true_if = {
+		amount >= 3
+        is_independent_ruler = yes
+        martial >= 20
+        martial >= 30
+        days_of_continuous_war >= 700
+        days_of_continuous_war >= 1400
+        days_of_continuous_war >= 2100
+        days_of_continuous_war >= 2800
+        is_at_war_as_attacker = yes
+        is_at_war_as_attacker = yes
+        is_commanding_army = yes
+        is_commanding_army = yes       
+        highest_held_title_tier >= 3
+		highest_held_title_tier >= 4
+        highest_held_title_tier >= 5
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 2
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 2
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 4
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 4
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 5
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 5
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 4
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 4
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 5
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 5
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 4
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 4
+                count >= 2
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 5
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 5
+                count >= 2
+            }
+        }
+        any_ally = {
+            count >= 1
+            highest_held_title_tier > root.highest_held_title_tier
+            is_independent_ruler = yes
+        }
+        any_ally = {
+            count >= 2
+            highest_held_title_tier > root.highest_held_title_tier
+            is_independent_ruler = yes
+        }
+        any_ally = {
+            count >= 1
+            highest_held_title_tier >= 4
+            is_independent_ruler = yes
+        }
+        any_ally = {
+            count >= 2
+            highest_held_title_tier >= 4
+            is_independent_ruler = yes
+        }
+        sub_realm_size > 40
+        sub_realm_size > 80
+        sub_realm_size > 120
+        sub_realm_size > 160
+        sub_realm_size > 200
+        has_realm_law = crown_authority_2
+        has_realm_law = crown_authority_3
+        has_realm_law = realm_administration_law_2
+        has_realm_law = realm_administration_law_3
+    }
+}
+gpt_power_projection_trigger_lv3 = {
+
+            has_game_rule = GPT_trade_enabled
+            is_ai = no
+            highest_held_title_tier >= 2
+	calc_true_if = {
+		amount >= 5
+        is_independent_ruler = yes
+        martial >= 20
+        martial >= 30
+        days_of_continuous_war >= 700
+        days_of_continuous_war >= 1400
+        days_of_continuous_war >= 2100
+        days_of_continuous_war >= 2800
+        is_at_war_as_attacker = yes
+        is_at_war_as_attacker = yes
+        is_commanding_army = yes
+        is_commanding_army = yes   
+        highest_held_title_tier >= 3
+		highest_held_title_tier >= 4
+        highest_held_title_tier >= 5
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 2
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 2
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 4
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 4
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 5
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 5
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 4
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 4
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 5
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 5
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 4
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 4
+                count >= 2
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 5
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 5
+                count >= 2
+            }
+        }
+        any_ally = {
+            count >= 1
+            highest_held_title_tier > root.highest_held_title_tier
+            is_independent_ruler = yes
+        }
+        any_ally = {
+            count >= 2
+            highest_held_title_tier > root.highest_held_title_tier
+            is_independent_ruler = yes
+        }
+        any_ally = {
+            count >= 1
+            highest_held_title_tier >= 4
+            is_independent_ruler = yes
+        }
+        any_ally = {
+            count >= 2
+            highest_held_title_tier >= 4
+            is_independent_ruler = yes
+        }
+        sub_realm_size > 40
+        sub_realm_size > 80
+        sub_realm_size > 120
+        sub_realm_size > 160
+        sub_realm_size > 200
+        has_realm_law = crown_authority_2
+        has_realm_law = crown_authority_3
+        has_realm_law = realm_administration_law_2
+        has_realm_law = realm_administration_law_3
+    }
+}
+gpt_power_projection_trigger_lv4 = {
+
+            has_game_rule = GPT_trade_enabled
+            is_ai = no
+            highest_held_title_tier >= 2
+	calc_true_if = {
+		amount >= 7
+        is_independent_ruler = yes
+        martial >= 20
+        martial >= 30
+        days_of_continuous_war >= 700
+        days_of_continuous_war >= 1400
+        days_of_continuous_war >= 2100
+        days_of_continuous_war >= 2800
+        is_at_war_as_attacker = yes
+        is_at_war_as_attacker = yes
+        is_commanding_army = yes
+        is_commanding_army = yes   
+        highest_held_title_tier >= 3
+		highest_held_title_tier >= 4
+        highest_held_title_tier >= 5
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 2
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 2
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 4
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 4
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 5
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 5
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 4
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 4
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 5
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 5
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 4
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 4
+                count >= 2
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 5
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 5
+                count >= 2
+            }
+        }
+        any_ally = {
+            count >= 1
+            highest_held_title_tier > root.highest_held_title_tier
+            is_independent_ruler = yes
+        }
+        any_ally = {
+            count >= 2
+            highest_held_title_tier > root.highest_held_title_tier
+            is_independent_ruler = yes
+        }
+        any_ally = {
+            count >= 1
+            highest_held_title_tier >= 4
+            is_independent_ruler = yes
+        }
+        any_ally = {
+            count >= 2
+            highest_held_title_tier >= 4
+            is_independent_ruler = yes
+        }
+        sub_realm_size > 40
+        sub_realm_size > 80
+        sub_realm_size > 120
+        sub_realm_size > 160
+        sub_realm_size > 200
+        has_realm_law = crown_authority_2
+        has_realm_law = crown_authority_3
+        has_realm_law = realm_administration_law_2
+        has_realm_law = realm_administration_law_3
+    }
+}
+gpt_power_projection_trigger_lv5 = {
+
+            has_game_rule = GPT_trade_enabled
+            is_ai = no
+            highest_held_title_tier >= 2
+	calc_true_if = {
+		amount >= 10
+        is_independent_ruler = yes
+        martial >= 20
+        martial >= 30
+        days_of_continuous_war >= 700
+        days_of_continuous_war >= 1400
+        days_of_continuous_war >= 2100
+        days_of_continuous_war >= 2800
+        is_at_war_as_attacker = yes
+        is_at_war_as_attacker = yes
+        is_commanding_army = yes
+        is_commanding_army = yes   
+        highest_held_title_tier >= 3
+		highest_held_title_tier >= 4
+        highest_held_title_tier >= 5
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier > root.highest_held_title_tier
+                count >= 2
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= root.highest_held_title_tier
+                count >= 2
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 4
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 4
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 5
+                count >= 1
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 5
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 4
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 4
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 5
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 5
+                count >= 1
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 4
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 4
+                count >= 2
+            }
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 5
+                count >= 3
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 5
+                count >= 2
+            }
+        }
+        any_ally = {
+            count >= 1
+            highest_held_title_tier > root.highest_held_title_tier
+            is_independent_ruler = yes
+        }
+        any_ally = {
+            count >= 2
+            highest_held_title_tier > root.highest_held_title_tier
+            is_independent_ruler = yes
+        }
+        any_ally = {
+            count >= 1
+            highest_held_title_tier >= 4
+            is_independent_ruler = yes
+        }
+        any_ally = {
+            count >= 2
+            highest_held_title_tier >= 4
+            is_independent_ruler = yes
+        }
+        sub_realm_size > 40
+        sub_realm_size > 80
+        sub_realm_size > 120
+        sub_realm_size > 160
+        sub_realm_size > 200
+        has_realm_law = crown_authority_2
+        has_realm_law = crown_authority_3
+        has_realm_law = realm_administration_law_2
+        has_realm_law = realm_administration_law_3
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Main Demand: Wage War as Attacker. Warlike Court Type. 4 Council Positions.
+#General Demand: Powerful Glory Hounds positive opinion (0+)
+#Secondary Demands: Military decrees, policies and directives (decisions). Join a Faction. Powerful Rivals. High Martial. High Prowess Knights. Manor Circuit Realm Law.
+###################
+gpt_glory_hound_demands_pos = {
+
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 3
+            # vassal_count >= 10
+	calc_true_if = {
+		amount >= 5
+        martial >= 20
+        is_ai = yes
+        primary_title = {
+            tier >= 4
+            has_title_law = gpt_autocratic_succession_law
+        }
+        any_held_title = {
+            tier >= 4
+            has_title_law = gpt_autocratic_succession_law
+        }
+        has_court_type = court_warlike
+        has_court_type = court_warlike
+        is_a_faction_member = yes
+        is_at_war_as_attacker = yes
+        is_at_war_as_attacker = yes
+        is_at_war_as_attacker = yes
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = glory_hound
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = glory_hound
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 3
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 3
+                count >= 1
+            }
+        }
+        any_knight = {
+            count >= 3
+            prowess >= 16
+        }
+        any_powerful_vassal = {
+            percent = 1
+            has_vassal_stance = glory_hound
+            opinion = {
+                target = root
+                value >= 0
+            }
+        }
+        has_character_modifier = gpt_combat_piracy
+        has_character_modifier = gpt_military_ships
+        has_character_modifier = gpt_edicts_military_modifier_1
+        has_character_modifier = gpt_edicts_military_modifier_2
+        has_character_modifier = gpt_edicts_military_modifier_3
+        has_character_modifier = legacy_marshal10_modifier
+        has_realm_law = realm_administration_law_1
+    }
+}
+
+gpt_glory_hound_demands_dem = {
+
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 3
+            # vassal_count >= 10
+	calc_true_if = {
+		amount >= 3
+        martial >= 20
+        is_ai = yes
+        primary_title = {
+            tier >= 4
+            has_title_law = gpt_autocratic_succession_law
+        }
+        any_held_title = {
+            tier >= 4
+            has_title_law = gpt_autocratic_succession_law
+        }
+        has_court_type = court_warlike
+        has_court_type = court_warlike
+        is_a_faction_member = yes
+        is_at_war_as_attacker = yes
+        is_at_war_as_attacker = yes
+        is_at_war_as_attacker = yes
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = glory_hound
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = glory_hound
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 3
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 3
+                count >= 1
+            }
+        }
+        any_knight = {
+            count >= 3
+            prowess >= 16
+        }
+        any_powerful_vassal = {
+            percent = 1
+            has_vassal_stance = glory_hound
+            opinion = {
+                target = root
+                value >= 0
+            }
+        }
+        has_character_modifier = gpt_combat_piracy
+        has_character_modifier = gpt_military_ships
+        has_character_modifier = gpt_edicts_military_modifier_1
+        has_character_modifier = gpt_edicts_military_modifier_2
+        has_character_modifier = gpt_edicts_military_modifier_3
+        has_character_modifier = legacy_marshal10_modifier
+        has_realm_law = realm_administration_law_1
+    }
+}
+
+gpt_glory_hound_demands_neg = {
+
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 3
+            # vassal_count >= 10
+	calc_true_if = {
+		amount <= 2
+        martial >= 20
+        is_ai = yes
+        primary_title = {
+            tier >= 4
+            has_title_law = gpt_autocratic_succession_law
+        }
+        any_held_title = {
+            tier >= 4
+            has_title_law = gpt_autocratic_succession_law
+        }
+        has_court_type = court_warlike
+        has_court_type = court_warlike
+        is_a_faction_member = yes
+        is_at_war_as_attacker = yes
+        is_at_war_as_attacker = yes
+        is_at_war_as_attacker = yes
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = glory_hound
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = glory_hound
+        }
+        OR = {
+            any_relation = {
+                type = rival
+                highest_held_title_tier >= 3
+                count >= 2
+            }
+            any_relation = {
+                type = nemesis
+                highest_held_title_tier >= 3
+                count >= 1
+            }
+        }
+        any_knight = {
+            count >= 3
+            prowess >= 16
+        }
+        any_powerful_vassal = {
+            percent = 1
+            has_vassal_stance = glory_hound
+            opinion = {
+                target = root
+                value >= 0
+            }
+        }
+        has_character_modifier = gpt_combat_piracy
+        has_character_modifier = gpt_military_ships
+        has_character_modifier = gpt_edicts_military_modifier_1
+        has_character_modifier = gpt_edicts_military_modifier_2
+        has_character_modifier = gpt_edicts_military_modifier_3
+        has_character_modifier = legacy_marshal10_modifier
+        has_realm_law = realm_administration_law_1
+    }
+}
+
+#Main Demand: Low Crown Authority. Administrative Court Type. 4 Council Positions.
+#General Demand: Powerful Parochials positive opinion (0+)
+#Secondary Demands: Stewardship decrees, policies and directives (decisions). No Wars. Positive Popular Opinion. High Stewardship and Gold Reserves. Capital Special Building. Low Dread. Capital City Realm Law. Powerful Parochial Vassal with March Contract.
+###################
+gpt_parochial_demands_pos = {
+
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 3
+            # vassal_count >= 10
+	calc_true_if = {
+		amount >= 7
+        is_ai = yes
+        primary_title = {
+            tier >= 4
+            has_title_law = gpt_republican_succession_law
+        }
+        any_held_title = {
+            tier >= 4
+            has_title_law = gpt_republican_succession_law
+        }
+        dread <= 10
+        stewardship >= 20
+        gold > 1000
+        has_court_type = court_administrative
+        has_court_type = court_administrative
+        is_at_war = no
+        is_at_war = no
+        is_at_war = no
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = parochial
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = parochial
+        }
+        any_powerful_vassal = {
+            has_vassal_stance = parochial
+            vassal_contract_has_flag = has_march_contract   #  has_palatinate_contract has_scutage_contract
+        }
+        capital_province = {
+            is_county_capital = yes
+            has_special_building = yes
+        }
+        any_held_county = {
+            percent >= 1
+            county_opinion_target = {
+                target = root
+                value >= 0
+            }
+        }
+        any_held_county = {
+            percent >= 1
+            county_opinion_target = {
+                target = root
+                value >= 0
+            }
+        }
+        any_powerful_vassal = {
+            percent = 1
+            has_vassal_stance = parochial
+            opinion = {
+                target = root
+                value >= 0
+            }
+        }
+        has_character_modifier = gpt_trade_power
+        has_character_modifier = gpt_allow_slave_trading
+        has_character_modifier = gpt_edicts_economy_modifier_1
+        has_character_modifier = gpt_edicts_economy_modifier_2
+        has_character_modifier = gpt_edicts_economy_modifier_3
+        has_character_modifier = legacy_steward10_modifier
+        has_realm_law = crown_authority_0
+        has_realm_law = crown_authority_0
+        has_realm_law = crown_authority_1
+        has_realm_law = realm_administration_law_2
+    }
+}
+
+gpt_parochial_demands_dem = {
+
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 3
+            # vassal_count >= 10
+	calc_true_if = {
+		amount >= 5
+        is_ai = yes
+        primary_title = {
+            tier >= 4
+            has_title_law = gpt_republican_succession_law
+        }
+        any_held_title = {
+            tier >= 4
+            has_title_law = gpt_republican_succession_law
+        }
+        dread <= 10
+        stewardship >= 20
+        gold > 1000
+        has_court_type = court_administrative
+        has_court_type = court_administrative
+        is_at_war = no
+        is_at_war = no
+        is_at_war = no
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = parochial
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = parochial
+        }
+        any_powerful_vassal = {
+            has_vassal_stance = parochial
+            vassal_contract_has_flag = has_march_contract   #  has_palatinate_contract has_scutage_contract
+        }
+        capital_province = {
+            is_county_capital = yes
+            has_special_building = yes
+        }
+        any_held_county = {
+            percent >= 1
+            county_opinion_target = {
+                target = root
+                value >= 0
+            }
+        }
+        any_held_county = {
+            percent >= 1
+            county_opinion_target = {
+                target = root
+                value >= 0
+            }
+        }
+        any_powerful_vassal = {
+            percent = 1
+            has_vassal_stance = parochial
+            opinion = {
+                target = root
+                value >= 0
+            }
+        }
+        has_character_modifier = gpt_trade_power
+        has_character_modifier = gpt_allow_slave_trading
+        has_character_modifier = gpt_edicts_economy_modifier_1
+        has_character_modifier = gpt_edicts_economy_modifier_2
+        has_character_modifier = gpt_edicts_economy_modifier_3
+        has_character_modifier = legacy_steward10_modifier
+        has_realm_law = crown_authority_0
+        has_realm_law = crown_authority_0
+        has_realm_law = crown_authority_1
+        has_realm_law = realm_administration_law_2
+    }
+}
+
+gpt_parochial_demands_neg = {
+
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 3
+            # vassal_count >= 10
+	calc_true_if = {
+		amount <= 4
+        is_ai = yes
+        primary_title = {
+            tier >= 4
+            has_title_law = gpt_republican_succession_law
+        }
+        any_held_title = {
+            tier >= 4
+            has_title_law = gpt_republican_succession_law
+        }
+        dread <= 10
+        stewardship >= 20
+        gold > 1000
+        has_court_type = court_administrative
+        has_court_type = court_administrative
+        is_at_war = no
+        is_at_war = no
+        is_at_war = no
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = parochial
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = parochial
+        }
+        any_powerful_vassal = {
+            has_vassal_stance = parochial
+            vassal_contract_has_flag = has_march_contract   #  has_palatinate_contract has_scutage_contract
+        }
+        capital_province = {
+            is_county_capital = yes
+            has_special_building = yes
+        }
+        any_held_county = {
+            percent >= 1
+            county_opinion_target = {
+                target = root
+                value >= 0
+            }
+        }
+        any_held_county = {
+            percent >= 1
+            county_opinion_target = {
+                target = root
+                value >= 0
+            }
+        }
+        any_powerful_vassal = {
+            percent = 1
+            has_vassal_stance = parochial
+            opinion = {
+                target = root
+                value >= 0
+            }
+        }
+        has_character_modifier = gpt_trade_power
+        has_character_modifier = gpt_allow_slave_trading
+        has_character_modifier = gpt_edicts_economy_modifier_1
+        has_character_modifier = gpt_edicts_economy_modifier_2
+        has_character_modifier = gpt_edicts_economy_modifier_3
+        has_character_modifier = legacy_steward10_modifier
+        has_realm_law = crown_authority_0
+        has_realm_law = crown_authority_0
+        has_realm_law = crown_authority_1
+        has_realm_law = realm_administration_law_2
+    }
+}
+
+#Main Demand: High Crown Authority. Diplomatic Court Type. 4 Council Positions.
+#General Demand: Powerful Parochials positive opinion (0+)
+#Secondary Demands: Diplomacy decrees, policies and directives (decisions). High Diplomacy, Prestige Level and Court Grandeur above expected. Powerful Allies. Palatial Court Realm Law. Imperial Liege. Powerful Courtly Vassal with Palatinate Contract.
+###################
+gpt_courtly_demands_pos = {
+
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 3
+            # vassal_count >= 10
+	calc_true_if = {
+		amount >= 5
+        is_ai = yes
+        primary_title = {
+            tier >= 4
+            has_title_law = gpt_aristocratic_succession_law
+        }
+        any_held_title = {
+            tier >= 4
+            has_title_law = gpt_aristocratic_succession_law
+        }
+        diplomacy >= 20
+        dynasty.dynasty_prestige_level >= 7
+        has_court_type = court_diplomatic
+        has_court_type = court_diplomatic
+        court_grandeur_current_level > court_grandeur_minimum_expected_level
+        liege.highest_held_title_tier = 5
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = courtly
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = courtly
+        }
+        any_powerful_vassal = {
+            has_vassal_stance = courtly
+            vassal_contract_has_flag = has_palatinate_contract
+        }
+        any_ally = {
+            count >= 2
+            highest_held_title_tier >= 3
+        }
+        any_ally = {
+            count >= 1
+            highest_held_title_tier >= 4
+        }
+        has_character_modifier = gpt_allow_slave_trading
+        has_character_modifier = gpt_edicts_political_modifier_1
+        has_character_modifier = gpt_edicts_political_modifier_2
+        has_character_modifier = gpt_edicts_political_modifier_3
+        has_character_modifier = legacy_chancellor10_modifier
+        has_realm_law = crown_authority_3
+        has_realm_law = crown_authority_3
+        has_realm_law = crown_authority_2
+        has_realm_law = realm_administration_law_3
+    }
+}
+
+gpt_courtly_demands_dem = {
+
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 3
+            # vassal_count >= 10
+	calc_true_if = {
+		amount >= 3
+        is_ai = yes
+        primary_title = {
+            tier >= 4
+            has_title_law = gpt_aristocratic_succession_law
+        }
+        any_held_title = {
+            tier >= 4
+            has_title_law = gpt_aristocratic_succession_law
+        }
+        diplomacy >= 20
+        dynasty.dynasty_prestige_level >= 7
+        has_court_type = court_diplomatic
+        has_court_type = court_diplomatic
+        court_grandeur_current_level > court_grandeur_minimum_expected_level
+        liege.highest_held_title_tier = 5
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = courtly
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = courtly
+        }
+        any_powerful_vassal = {
+            has_vassal_stance = courtly
+            vassal_contract_has_flag = has_palatinate_contract
+        }
+        any_ally = {
+            count >= 2
+            highest_held_title_tier >= 3
+        }
+        any_ally = {
+            count >= 1
+            highest_held_title_tier >= 4
+        }
+        has_character_modifier = gpt_allow_slave_trading
+        has_character_modifier = gpt_edicts_political_modifier_1
+        has_character_modifier = gpt_edicts_political_modifier_2
+        has_character_modifier = gpt_edicts_political_modifier_3
+        has_character_modifier = legacy_chancellor10_modifier
+        has_realm_law = crown_authority_3
+        has_realm_law = crown_authority_3
+        has_realm_law = crown_authority_2
+        has_realm_law = realm_administration_law_3
+    }
+}
+
+gpt_courtly_demands_neg = {
+
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 3
+            # vassal_count >= 10
+	calc_true_if = {
+		amount <= 2
+        is_ai = yes
+        primary_title = {
+            tier >= 4
+            has_title_law = gpt_aristocratic_succession_law
+        }
+        any_held_title = {
+            tier >= 4
+            has_title_law = gpt_aristocratic_succession_law
+        }
+        diplomacy >= 20
+        dynasty.dynasty_prestige_level >= 7
+        has_court_type = court_diplomatic
+        has_court_type = court_diplomatic
+        court_grandeur_current_level > court_grandeur_minimum_expected_level
+        liege.highest_held_title_tier = 5
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = courtly
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = courtly
+        }
+        any_powerful_vassal = {
+            has_vassal_stance = courtly
+            vassal_contract_has_flag = has_palatinate_contract
+        }
+        any_ally = {
+            count >= 2
+            highest_held_title_tier >= 3
+        }
+        any_ally = {
+            count >= 1
+            highest_held_title_tier >= 4
+        }
+        has_character_modifier = gpt_allow_slave_trading
+        has_character_modifier = gpt_edicts_political_modifier_1
+        has_character_modifier = gpt_edicts_political_modifier_2
+        has_character_modifier = gpt_edicts_political_modifier_3
+        has_character_modifier = legacy_chancellor10_modifier
+        has_realm_law = crown_authority_3
+        has_realm_law = crown_authority_3
+        has_realm_law = crown_authority_2
+        has_realm_law = realm_administration_law_3
+    }
+}
+
+#Main Demand: Religious War. Scholarly Court Type. 4 Council Positions.
+#General Demand: Powerful Zealots positive opinion (0+)
+#Secondary Demands: Learning decrees, policies and directives (decisions). High Learning. High Religious Head and Chaplain Opinion. High Piety Level. Virtuous Traits. Holy Order Patronage.
+###################
+gpt_zealot_demands_pos = {
+
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 3
+            # vassal_count >= 10
+	calc_true_if = {
+		amount >= 5
+        is_ai = yes
+        primary_title = {
+            tier >= 4
+            has_title_law = gpt_theocratic_succession_law
+        }
+        any_held_title = {
+            tier >= 4
+            has_title_law = gpt_theocratic_succession_law
+        }
+        learning >= 20
+        piety_level >= 4
+        num_virtuous_traits >= 1
+        num_virtuous_traits >= 2
+        has_court_type = court_scholarly
+        has_court_type = court_scholarly
+        cp:councillor_court_chaplain = {
+            opinion = {
+                target = root
+                value >= 50
+            }
+        }
+        faith.religious_head = {
+            opinion = {
+                target = root
+                value >= 50
+            }
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = zealot
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = zealot
+        }
+       any_sub_realm_barony = {
+			is_under_holy_order_lease = yes
+		}
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_powerful_vassal = {
+            percent = 1
+            has_vassal_stance = zealot
+            opinion = {
+                target = root
+                value >= 0
+            }
+        }
+        has_character_modifier = gpt_allow_all_missionaries
+        has_character_modifier = gpt_edicts_political_modifier_1
+        has_character_modifier = gpt_edicts_political_modifier_2
+        has_character_modifier = gpt_edicts_political_modifier_3
+        has_character_modifier = legacy_chaplain10_modifier
+    }
+}
+
+gpt_zealot_demands_dem = {
+
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 3
+            # vassal_count >= 10
+	calc_true_if = {
+		amount >= 3
+        is_ai = yes
+        primary_title = {
+            tier >= 4
+            has_title_law = gpt_theocratic_succession_law
+        }
+        any_held_title = {
+            tier >= 4
+            has_title_law = gpt_theocratic_succession_law
+        }
+        learning >= 20
+        piety_level >= 4
+        num_virtuous_traits >= 1
+        num_virtuous_traits >= 2
+        has_court_type = court_scholarly
+        has_court_type = court_scholarly
+        cp:councillor_court_chaplain = {
+            opinion = {
+                target = root
+                value >= 50
+            }
+        }
+        faith.religious_head = {
+            opinion = {
+                target = root
+                value >= 50
+            }
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = zealot
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = zealot
+        }
+       any_sub_realm_barony = {
+			is_under_holy_order_lease = yes
+		}
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_powerful_vassal = {
+            percent = 1
+            has_vassal_stance = zealot
+            opinion = {
+                target = root
+                value >= 0
+            }
+        }
+        has_character_modifier = gpt_allow_all_missionaries
+        has_character_modifier = gpt_edicts_political_modifier_1
+        has_character_modifier = gpt_edicts_political_modifier_2
+        has_character_modifier = gpt_edicts_political_modifier_3
+        has_character_modifier = legacy_chaplain10_modifier
+    }
+}
+
+gpt_zealot_demands_neg = {
+
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 3
+            # vassal_count >= 10
+	calc_true_if = {
+		amount <= 2
+        is_ai = yes
+        primary_title = {
+            tier >= 4
+            has_title_law = gpt_theocratic_succession_law
+        }
+        any_held_title = {
+            tier >= 4
+            has_title_law = gpt_theocratic_succession_law
+        }
+        learning >= 20
+        piety_level >= 4
+        num_virtuous_traits >= 1
+        num_virtuous_traits >= 2
+        has_court_type = court_scholarly
+        has_court_type = court_scholarly
+        cp:councillor_court_chaplain = {
+            opinion = {
+                target = root
+                value >= 50
+            }
+        }
+        faith.religious_head = {
+            opinion = {
+                target = root
+                value >= 50
+            }
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = zealot
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            has_vassal_stance = zealot
+        }
+       any_sub_realm_barony = {
+			is_under_holy_order_lease = yes
+		}
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_powerful_vassal = {
+            percent = 1
+            has_vassal_stance = zealot
+            opinion = {
+                target = root
+                value >= 0
+            }
+        }
+        has_character_modifier = gpt_allow_all_missionaries
+        has_character_modifier = gpt_edicts_political_modifier_1
+        has_character_modifier = gpt_edicts_political_modifier_2
+        has_character_modifier = gpt_edicts_political_modifier_3
+        has_character_modifier = legacy_chaplain10_modifier
+    }
+}
+
+#Main Demand: Hostile/Murder Scheme. Intrigue Court Type. 4+ Council Positions.
+#General Demand: Powerful Minority/Barons positive opinion (0+)
+#Secondary Demands: Intrigue decrees, policies and directives (decisions). High Intrigue, Dread and Dynasty Splendor. Some Tyranny. has murdered a rival. Powerful Vassal with Scutage Contract.
+###################
+gpt_minority_demands_pos = {
+
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 3
+            # vassal_count >= 10
+	calc_true_if = {
+		amount >= 5
+        is_ai = yes
+        primary_title = {
+            tier >= 4
+            has_title_law = gpt_democratic_succession_law
+        }
+        any_held_title = {
+            tier >= 4
+            has_title_law = gpt_democratic_succession_law
+        }
+        intrigue >= 20
+        dread >= 60
+        tyranny >= 5
+        prestige_level >= 4
+        has_court_type = court_intrigue
+        has_court_type = court_intrigue
+        any_scheme = {
+            is_hostile = yes
+        }
+        any_scheme = {
+            scheme_type = murder
+            is_hostile = yes
+        }
+        any_killed_character = {
+            OR = {
+                has_relation_rival = root
+                has_relation_nemesis = root
+            }
+        }
+        any_powerful_vassal = {
+            OR = {
+                has_vassal_stance = minority
+            }
+            vassal_contract_has_flag = has_scutage_contract
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            OR = {
+                has_vassal_stance = minority
+            }
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            OR = {
+                has_vassal_stance = minority
+            }
+        }
+       any_sub_realm_barony = {
+			is_under_holy_order_lease = yes
+		}
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_powerful_vassal = {
+            percent = 1
+            OR = {
+                has_vassal_stance = minority
+            }
+            opinion = {
+                target = root
+                value >= 0
+            }
+        }
+        has_character_modifier = gpt_allow_all_missionaries
+        has_character_modifier = gpt_edicts_political_modifier_1
+        has_character_modifier = gpt_edicts_political_modifier_2
+        has_character_modifier = gpt_edicts_political_modifier_3
+        has_character_modifier = legacy_chaplain10_modifier
+    }
+}
+
+gpt_minority_demands_dem = {
+
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 3
+            # vassal_count >= 10
+	calc_true_if = {
+		amount >= 3
+        is_ai = yes
+        primary_title = {
+            tier >= 4
+            has_title_law = gpt_democratic_succession_law
+        }
+        any_held_title = {
+            tier >= 4
+            has_title_law = gpt_democratic_succession_law
+        }
+        intrigue >= 20
+        dread >= 60
+        tyranny >= 5
+        prestige_level >= 4
+        has_court_type = court_scholarly
+        has_court_type = court_scholarly
+        any_scheme = {
+            is_hostile = yes
+        }
+        any_scheme = {
+            scheme_type = murder
+            is_hostile = yes
+        }
+        any_killed_character = {
+            OR = {
+                has_relation_rival = root
+                has_relation_nemesis = root
+            }
+        }
+        any_powerful_vassal = {
+            OR = {
+                has_vassal_stance = minority
+            }
+            vassal_contract_has_flag = has_scutage_contract
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            OR = {
+                has_vassal_stance = minority
+            }
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            OR = {
+                has_vassal_stance = minority
+            }
+        }
+       any_sub_realm_barony = {
+			is_under_holy_order_lease = yes
+		}
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_powerful_vassal = {
+            percent = 1
+            OR = {
+                has_vassal_stance = minority
+            }
+            opinion = {
+                target = root
+                value >= 0
+            }
+        }
+        has_character_modifier = gpt_allow_all_missionaries
+        has_character_modifier = gpt_edicts_political_modifier_1
+        has_character_modifier = gpt_edicts_political_modifier_2
+        has_character_modifier = gpt_edicts_political_modifier_3
+        has_character_modifier = legacy_chaplain10_modifier
+    }
+}
+
+gpt_minority_demands_neg = {
+
+            has_game_rule = GPT_trade_enabled
+            highest_held_title_tier >= 3
+            # vassal_count >= 10
+	calc_true_if = {
+		amount <= 2
+        is_ai = yes
+        primary_title = {
+            tier >= 4
+            has_title_law = gpt_democratic_succession_law
+        }
+        any_held_title = {
+            tier >= 4
+            has_title_law = gpt_democratic_succession_law
+        }
+        intrigue >= 20
+        dread >= 60
+        tyranny >= 5
+        prestige_level >= 4
+        has_court_type = court_scholarly
+        has_court_type = court_scholarly
+        any_scheme = {
+            is_hostile = yes
+        }
+        any_scheme = {
+            scheme_type = murder
+            is_hostile = yes
+        }
+        any_killed_character = {
+            OR = {
+                has_relation_rival = root
+                has_relation_nemesis = root
+            }
+        }
+        any_powerful_vassal = {
+            OR = {
+                has_vassal_stance = minority
+            }
+            vassal_contract_has_flag = has_scutage_contract
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            OR = {
+                has_vassal_stance = minority
+            }
+        }
+        any_councillor = {
+            highest_held_title_tier >= 2
+            count >= 3
+            OR = {
+                has_vassal_stance = minority
+            }
+        }
+       any_sub_realm_barony = {
+			is_under_holy_order_lease = yes
+		}
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_primary_war_enemy = {
+            NOT = { faith = root.faith }
+        }
+        any_powerful_vassal = {
+            percent = 1
+            OR = {
+                has_vassal_stance = minority
+                has_vassal_stance = barons_and_minor_landholders
+            }
+            opinion = {
+                target = root
+                value >= 0
+            }
+        }
+        has_character_modifier = gpt_allow_all_missionaries
+        has_character_modifier = gpt_edicts_political_modifier_1
+        has_character_modifier = gpt_edicts_political_modifier_2
+        has_character_modifier = gpt_edicts_political_modifier_3
+        has_character_modifier = legacy_chaplain10_modifier
+    }
+}

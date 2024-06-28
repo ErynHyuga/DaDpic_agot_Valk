@@ -1,0 +1,119 @@
+﻿might_cheat_on_partner_trigger = {
+	trigger_if = {
+		limit = { is_ai = no }
+		# Players always have the option to cheat - we check this here so that we don't constantly need to OR it when using might_cheat_on_every_partner_trigger.
+		always = yes
+	}
+	trigger_else_if = {
+		limit = {
+			# If $PARTNER$ isn't actually my partner, it's not cheating!
+			OR = {
+				has_relation_lover = $PARTNER$
+				is_consort_of = $PARTNER$ # Includes both spouses and concubines
+			}
+
+			# Additionally, in faiths with the Polyamory doctrine, extramarital relationships aren't considered to be cheating on partners.
+			NOT = { faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active } }
+		}
+		
+		NOT = { has_trait = loyal } # Loyal people never cheat
+
+		# Soulmates never cheat, unless they're Lustful/Seducer and have low Honor
+		trigger_if = {
+			limit = { has_relation_soulmate = $PARTNER$ }
+			ai_honor <= medium_negative_ai_value
+			calc_true_if = {
+				amount >= 2
+				has_trait = lustful
+				has_trait = seducer
+				has_focus = intrigue_temptation_focus
+				AND = { # Homosexual or bisexual female followers of lesbian faiths are almost always willing to cheat on male partners
+					mz_lesbian_faith_devotee = yes
+					$PARTNER$ = { is_male = yes }
+					is_attracted_to_women = yes
+				}				
+			}
+		}
+		# Non-soulmates have slightly more complex criteria
+		trigger_else = {
+			OR = {
+				# Having one of these things that makes characters always willing to cheat:
+				OR = {
+					has_trait = lustful
+					has_trait = seducer
+					has_focus = intrigue_temptation_focus
+					AND = { # Homosexual or bisexual female followers of lesbian faiths are almost always willing to cheat on male partners
+						mz_lesbian_faith_devotee = yes
+						$PARTNER$ = { is_male = yes }
+						is_attracted_to_women = yes
+					}					
+					# Dishonorable and callous enough to not care about current partners (regardless of opinion).
+					AND = {
+						ai_compassion <= high_negative_ai_value
+						ai_honor <= high_negative_ai_value 
+					}
+					# Needs aren't getting met.
+					AND = {
+						is_deviant_trigger = yes
+						$PARTNER$ = { is_deviant_trigger = no }
+					}
+					# Rakish character that's about to have a mental breakdown.
+					AND = {
+						has_trait = rakish
+						stress_level >= 2
+					}
+				}
+
+				# Calc for honour.
+				## Characters with really lacking honour might cheat even at decently opinion positive levels.
+				trigger_if = {
+					limit = { ai_honor <= high_negative_ai_value }
+					# Consorts (spouses, concubines).
+					trigger_if = {
+						limit = { is_consort_of = $PARTNER$ }
+						opinion = {
+							target = $PARTNER$
+							value <= medium_positive_opinion
+						}
+					}
+					# Lovers.
+					trigger_else = {
+						opinion = {
+							target = $PARTNER$
+							value <= high_positive_opinion
+						}
+					}
+				}
+				## Characters with at least some honour require much less happy relationships.
+				trigger_else_if = {
+					limit = { ai_honor <= medium_positive_ai_value }
+					# Consorts (spouses, concubines).
+					trigger_if = {
+						limit = { is_consort_of = $PARTNER$ }
+						# Consorts (spouses, concubines) 
+						opinion = {
+							target = $PARTNER$
+							value <= neutral_opinion
+						}
+					}
+					# Lovers.
+					trigger_else = {
+						opinion = {
+							target = $PARTNER$
+							value <= low_positive_opinion # 80 for lovers
+						}
+					}
+				}
+				## Finally, characters might also cheat if they just dislike their partner enough, regardless of honor.
+				trigger_else = {
+					opinion = {
+						target = $PARTNER$
+						value <= high_negative_opinion
+					}
+				}
+			}
+		}
+	}
+	# Having an extramarital relationship with someone else would not count as cheating on this person.
+	trigger_else = { always = yes }
+}

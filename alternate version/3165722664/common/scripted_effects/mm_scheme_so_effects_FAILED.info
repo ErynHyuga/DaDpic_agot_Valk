@@ -1,0 +1,2495 @@
+﻿# This whole song and dance seems unnecessarily complex, but it was the only way I could get the proper messages to generate. The message kept referecing the wrong trait before.
+
+mz_scheme_so_replace_trait_effect = {
+	if = {
+		limit = { 
+			mz_has_negative_lifestyle_trait_trigger = { OWNER = scope:owner } 
+		}
+		#mz_scheme_so_replace_lifestyle_trait_effect = yes
+	}
+	else_if = {
+		limit = { 
+			mz_has_negative_personality_trait_trigger = { OWNER = scope:owner }
+		}
+		#mz_scheme_so_replace_personality_trait_effect = yes
+	}
+}
+
+mz_scheme_so_remove_lifestyle_trait_effect = {
+	random_list = {
+		40 = {
+			trigger = {
+				has_trait = rakish
+				NOT = { scope:owner.faith = { trait_is_virtue = lustful } }
+			}
+			remove_trait = rakish
+		}
+		40 = {
+			trigger = {
+				has_trait = drunkard
+				NOR = { scope:owner.faith = { trait_is_virtue = reveler_1 } }
+			}
+			remove_trait = drunkard
+		}
+		40 = {
+			trigger = {
+				has_trait = irritable
+				NOR = { 
+					scope:owner.faith = { trait_is_virtue = wrathful }
+					scope:owner.faith = { trait_is_virtue = irritable } 
+				}
+			}
+			remove_trait = irritable
+		}
+		40 = {
+			trigger = {
+				has_trait = hashishiyah
+				scope:owner.faith = { trait_is_virtue = temperate }
+				NOT = { scope:owner.faith = { trait_is_virtue = hashishiyah } }
+			}
+			remove_trait = hashishiyah
+		}
+	}
+}
+
+mz_scheme_so_remove_personality_trait_effect = {
+	random_list = {
+		20 = {
+			trigger = {
+				has_trait = gluttonous
+				NOT = { scope:owner.faith = { trait_is_virtue = gluttonous } }
+			}
+			remove_trait = gluttonous
+		}	
+		20 = {
+			trigger = {
+				has_trait = lustful
+				scope:owner.faith = { trait_is_sin = lustful }
+			}
+			remove_trait = lustful
+		}	
+		20 = {
+			trigger = {
+				has_trait = chaste
+				scope:owner.faith = { trait_is_sin = chaste }
+			}
+			remove_trait = chaste
+		}	
+		20 = {
+			trigger = {
+				has_trait = content
+				scope:owner.faith = { trait_is_sin = content }
+			}
+			remove_trait = content
+		}	
+		20 = {
+			trigger = {
+				has_trait = ambitious
+				scope:owner.faith = { trait_is_sin = ambitious }
+			}
+			remove_trait = ambitious
+		}
+		20 = {
+			trigger = {
+				has_trait = fickle
+				scope:owner.faith = { trait_is_sin = fickle }
+			}
+			remove_trait = fickle
+		}
+		20 = {
+			trigger = {
+				has_trait = stubborn
+				scope:owner.faith = { trait_is_sin = stubborn }
+			}
+			remove_trait = stubborn
+		}
+		20 = {
+			trigger = {
+				has_trait = paranoid
+				NOT = { scope:owner.faith = { trait_is_virtue = paranoid } }
+			}
+			remove_trait = paranoid
+		}
+		20 = {
+			trigger = {
+				has_trait = lazy
+				NOT = { scope:owner.faith = { trait_is_virtue = lazy } }
+			}
+			remove_trait = lazy
+		}
+		20 = {
+			trigger = {
+				has_trait = craven
+				NOT = { scope:owner.faith = { trait_is_virtue = craven } }
+			}
+			remove_trait = craven
+		}
+		20 = {
+			trigger = {
+				has_trait = sadistic
+				NOT = { scope:owner.faith = { trait_is_virtue = sadistic } }
+			}
+			remove_trait = sadistic
+		}
+		20 = {
+			trigger = {
+				has_trait = impatient
+				scope:owner.faith = { trait_is_sin = impatient }
+			}
+			remove_trait = impatient
+		}
+		20 = {
+			trigger = {
+				has_trait = arbitrary
+				NOT = { scope:owner.faith = { trait_is_virtue = arbitrary } }
+			}
+			remove_trait = arbitrary
+		}
+		20 = {
+			trigger = {
+				has_trait = vengeful
+				NOT = { scope:owner.faith = { trait_is_virtue = vengeful } }
+			}
+			remove_trait = vengeful
+		}
+		20 = {
+			trigger = {
+				has_trait = arrogant
+				scope:owner.faith = { trait_is_sin = arrogant }
+			}
+			remove_trait = arrogant
+		}
+		20 = {
+			trigger = {
+				has_trait = deceitful
+				scope:owner.faith = { trait_is_sin = deceitful }
+			}
+			remove_trait = deceitful
+		}
+		20 = {
+			trigger = {
+				has_trait = greedy
+				scope:owner.faith = { trait_is_sin = greedy }
+			}
+			remove_trait = greedy
+		}
+		20 = {
+			trigger = {
+				has_trait = wrathful
+				scope:owner.faith = { trait_is_sin = wrathful }
+			}
+			remove_trait = wrathful
+		}
+	}
+}
+
+mz_scheme_so_replace_lifestyle_trait_effect = {
+	random_list = {
+		10 = {
+			trigger = { 
+				NOT = { has_trait = athletic }
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_lifestyle_trait_effect = yes
+						add_trait = athletic
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:target = {
+					OR = {
+						has_focus = learning_medicine_focus
+						has_trait = whole_of_body
+					}
+				}
+				add = 20
+			}
+			modifier = {
+				scope:target = {
+					has_focus_martial = yes
+				}
+				add = 20
+			}
+		}
+		10 = {
+			trigger = { 
+				NOT = { has_trait = journaller }
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_lifestyle_trait_effect = yes
+						add_trait = journaller
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:target = {
+					has_focus_learning = yes
+				}
+				add = 20
+			}
+			modifier = {
+				scope:target = {
+					OR = { 
+						has_trait = poet
+						has_trait = scholar
+					}
+				}
+				add = 20
+			}				
+		}
+		10 = {
+			trigger = { 
+				NOT = { has_trait = confider }
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_lifestyle_trait_effect = yes
+						add_trait = confider
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:target = {
+					has_focus_diplomacy = yes
+				}
+				add = 20
+			}
+			modifier = {
+				scope:target = {
+					num_of_relation_friend > 1
+				}
+				add = 20
+			}
+		}
+		5 = {
+			trigger = { 
+				NOT = { has_trait = lifestyle_herbalist }
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_lifestyle_trait_effect = yes
+						add_trait = lifestyle_herbalist
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:target = {
+					is_witch_trigger = yes
+				}
+				add = 5
+			}
+		}
+		5 = {
+			trigger = { 
+				NOT = { has_trait = poet }
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_lifestyle_trait_effect = yes
+						add_trait = poet
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				OR = {
+					scope:owner.faith = { trait_is_virtue = poet }
+					scope:owner.culture = { has_cultural_parameter = poet_trait_gives_bonuses }
+				}
+				add = 5
+			}
+		}
+		5 = {
+			trigger = {
+				NOT = { has_trait = lifestyle_gardener }
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_lifestyle_trait_effect = yes
+						add_trait = lifestyle_gardener
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				OR = {
+					scope:target = { has_focus_learning = yes }
+					scope:owner.culture = { has_cultural_parameter = can_recruit_gardeners }
+				}
+				add = 5
+			}
+		}
+	}
+}
+
+mz_scheme_so_replace_personality_trait_effect_working = {
+	random_list = {
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = brave
+					has_trait = craven
+					scope:owner.faith = { trait_is_sin = brave }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = brave
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.culture = { has_cultural_parameter = trait_county_opinion_modifiers }
+				add = 20
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = brave }
+				add = 20
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = calm
+					has_trait = wrathful
+					scope:owner.faith = { trait_is_sin = calm }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = calm
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = brave }
+				add = 20
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = calm
+					has_trait = wrathful
+					scope:owner.faith = { trait_is_sin = wrathful }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = wrathful
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = wrathful }
+				add = 20
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = chaste
+					has_trait = lustful
+					has_trait = seducer
+					has_focus = intrigue_temptation_focus
+					scope:owner.faith = { trait_is_sin = chaste }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = chaste
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = chaste }
+				add = 20
+			}
+			modifier = {
+				scope:target = { num_of_relation_lover <= 0 }
+				add = 20
+			}
+			modifier = {
+				scope:target = { num_of_relation_lover > 1 }
+				add = -40
+			}
+			modifier = {
+				scope:target = { has_trait = celibate } 
+				add = 40
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = lustful
+					has_trait = chaste
+					has_trait = celibate
+					scope:owner.faith = { trait_is_sin = lustful }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = lustful
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = lustful }
+				add = 20
+			}
+			modifier = {
+				scope:target = { num_of_relation_lover > 3 }
+				add = 20
+			}
+			modifier = {
+				OR = {
+					scope:target = { has_trait = seducer }
+					scope:target = { has_focus = intrigue_temptation_focus }
+				}
+				add = 40
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = gregarious
+					has_trait = shy
+					scope:owner.faith = { trait_is_sin = gregarious }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = gregarious
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = gregarious }
+				add = 20
+			}
+			modifier = {
+				scope:target = { ai_sociability > 50 }
+				add = 20
+			}
+			modifier = {
+				scope:target = { has_trait = lifestyle_reveler } 
+				add = 40
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = content
+					has_trait = ambitious
+					scope:owner.faith = { trait_is_sin = ambitious }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = ambitious
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = ambitious }
+				add = 20
+			}
+			modifier = {
+				scope:target = { exists = dynasty }
+				scope:target.dynasty = { dynasty_prestige_level >= 2 }
+				add = 20
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = content
+					has_trait = ambitious
+					scope:owner.faith = { trait_is_sin = content }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = content
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = content }
+				add = 20
+			}
+			modifier = {
+				scope:target = { is_lowborn = yes }
+				add = 20
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = diligent
+					has_trait = lazy
+					scope:owner.faith = { trait_is_sin = diligent }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = diligent
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = diligent }
+				add = 20
+			}
+			modifier = {
+				scope:target = { ai_energy > 50 }
+				add = 20
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = fickle
+					has_trait = stubborn
+					scope:owner.faith = { trait_is_sin = fickle }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = fickle
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = fickle }
+				add = 20
+			}
+			modifier = {
+				scope:target = { ai_rationality < 50 }
+				add = 20
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = fickle
+					has_trait = stubborn
+					scope:owner.faith = { trait_is_sin = stubborn }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = stubborn
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = stubborn }
+				add = 20
+			}
+			opinion_modifier = {
+				who = scope:target
+				opinion_target = scope:owner
+				multiplier = -0.25
+				min = 0
+				max = 20
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = forgiving
+					has_trait = vengeful
+					scope:owner.faith = { trait_is_sin = forgiving }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = forgiving
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = forgiving }
+				add = 20
+			}
+			modifier = {
+				scope:target = { ai_compassion > 50 }
+				add = 20
+			}
+		}
+		20 = {
+			trigger = {
+				scope:owner.faith = { trait_is_virtue = vengeful }
+				NOR = { 
+					has_trait = forgiving
+					has_trait = vengeful
+					scope:owner.faith = { trait_is_sin = vengeful }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = vengeful
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:target = { ai_vengefulness > 50 }
+				add = 20
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = generous
+					has_trait = greedy
+					scope:owner.faith = { trait_is_sin = generous }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = generous
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = generous }
+				add = 20
+			}
+			modifier = {
+				scope:target = { ai_greed < 50 }
+				add = 20
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = honest
+					has_trait = deceitful
+					scope:owner.faith = { trait_is_sin = honest }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = honest
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = honest }
+				add = 20
+			}
+			modifier = {
+				scope:target = { has_trait = trusting }
+				add = 20
+			}
+		}
+		20 = {
+			trigger = {
+				scope:owner.faith = { trait_is_virtue = deceitful }
+				NOR = { 
+					has_trait = honest
+					has_trait = deceitful
+					scope:owner.faith = { trait_is_sin = deceitful }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = deceitful
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:target = { intrigue > 15 }
+				add = 20
+			}
+			modifier = {
+				OR = {
+					scope:target = { has_trait = schemer }
+					scope:target = { has_focus = intrigue_skulduggery_focus }
+				}
+				add = 40
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = humble
+					has_trait = arrogant
+					scope:owner.faith = { trait_is_sin = humble }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = humble
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = humble }
+				add = 20
+			}
+			modifier = {
+				scope:target = { has_trait = content }
+				add = 20
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = humble
+					has_trait = arrogant
+					scope:owner.faith = { trait_is_sin = arrogant }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = arrogant
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = arrogant }
+				add = 20
+			}
+			modifier = {
+				scope:target = { has_trait = ambitious }
+				add = 20
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = just
+					has_trait = arbitrary
+					scope:owner.faith = { trait_is_sin = just }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = just
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = just }
+				add = 20
+			}
+			modifier = {
+				scope:target = { ai_rationality > 50 }
+				add = 20
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = patient
+					has_trait = impatient
+					scope:owner.faith = { trait_is_sin = patient }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = patient
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = patient }
+				add = 20
+			}
+			modifier = {
+				scope:target = { ai_energy < 50 }
+				add = 20
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = temperate
+					has_trait = gluttonous
+					scope:owner.faith = { trait_is_sin = temperate }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = temperate
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = temperate }
+				add = 20
+			}
+			modifier = {
+				scope:target = { has_trait = content }
+				add = 20
+			}
+		}
+		20 = {
+			trigger = {
+				NOR = { 
+					has_trait = compassionate
+					has_trait = callous
+					has_trait = sadistic
+					scope:owner.faith = { trait_is_sin = compassionate }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = compassionate
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = compassionate }
+				add = 20
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_sin = callous }
+				add = 20
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_sin = sadistic }
+				add = 20
+			}
+			modifier = {
+				scope:target = { ai_compassion > 50 }
+				add = 20
+			}
+		}
+		10 = {
+			trigger = {
+				NOR = { 
+					has_trait = zealous
+					has_trait = cynical
+					scope:owner.faith = { trait_is_sin = zealous }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = zealous
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = zealous }
+				add = 10
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_sin = cynical }
+				add = 10
+			}
+			modifier = {
+				scope:target = { piety_level > 2 }
+				add = 10
+			}
+		}
+		10 = {
+			trigger = {
+				NOR = { 
+					has_trait = zealous
+					has_trait = cynical
+					scope:owner.faith = { trait_is_sin = cynical }
+				}
+			}
+			scope:owner = {
+				send_interface_message = {
+					type = sway_good_message
+					title = mz_scheme_so_success_t
+					left_icon = scope:target
+					scope:target = {
+						mz_scheme_so_remove_personality_trait_effect = yes
+						add_trait = cynical
+						add_opinion = {
+							target = scope:owner
+							modifier = mz_scheme_straighten_out_opinion
+							opinion = -15
+						}
+					}
+				}
+			}
+			modifier = {
+				scope:owner.faith = { trait_is_virtue = cynical }
+				add = 10
+			}
+			modifier = {
+				scope:target = { ai_zeal < 50 }
+				add = 10
+			}
+		}
+	}
+}
+
+mz_scheme_so_replace_personality_trait_effect_defunct = {
+	scope:owner = {
+		send_interface_message = {
+			type = sway_good_message
+			title = mz_scheme_so_success_t
+			left_icon = scope:target
+			scope:target = {
+				mz_scheme_so_remove_personality_trait_effect = yes
+				random_list = {
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = brave
+								has_trait = craven
+								scope:owner.faith = { trait_is_sin = brave }
+							}
+						}
+						add_trait = brave
+						modifier = {
+							scope:owner.culture = { has_cultural_parameter = trait_county_opinion_modifiers }
+							add = 20
+						}
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = brave }
+							add = 20
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = calm
+								has_trait = wrathful
+								scope:owner.faith = { trait_is_sin = calm }
+							}
+						}
+						add_trait = calm
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = brave }
+							add = 20
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = calm
+								has_trait = wrathful
+								scope:owner.faith = { trait_is_sin = wrathful }
+							}
+						}
+						add_trait = wrathful
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = wrathful }
+							add = 20
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = chaste
+								has_trait = lustful
+								has_trait = seducer
+								has_focus = intrigue_temptation_focus
+								scope:owner.faith = { trait_is_sin = chaste }
+							}
+						}
+						add_trait = chaste
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = chaste }
+							add = 20
+						}
+						modifier = {
+							scope:target = { num_of_relation_lover <= 0 }
+							add = 20
+						}
+						modifier = {
+							scope:target = { num_of_relation_lover > 1 }
+							add = -40
+						}
+						modifier = {
+							scope:target = { has_trait = celibate } 
+							add = 40
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = lustful
+								has_trait = chaste
+								has_trait = celibate
+								scope:owner.faith = { trait_is_sin = lustful }
+							}
+						}
+						add_trait = lustful
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = lustful }
+							add = 20
+						}
+						modifier = {
+							scope:target = { num_of_relation_lover > 3 }
+							add = 20
+						}
+						modifier = {
+							OR = {
+								scope:target = { has_trait = seducer }
+								scope:target = { has_focus = intrigue_temptation_focus }
+							}
+							add = 40
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = gregarious
+								has_trait = shy
+								scope:owner.faith = { trait_is_sin = gregarious }
+							}
+						}
+						add_trait = gregarious
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = gregarious }
+							add = 20
+						}
+						modifier = {
+							scope:target = { ai_sociability > 50 }
+							add = 20
+						}
+						modifier = {
+							scope:target = { has_trait = lifestyle_reveler } 
+							add = 40
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = content
+								has_trait = ambitious
+								scope:owner.faith = { trait_is_sin = ambitious }
+							}
+						}
+						add_trait = ambitious
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = ambitious }
+							add = 20
+						}
+						modifier = {
+							scope:target = { exists = dynasty }
+							scope:target.dynasty = { dynasty_prestige_level >= 2 }
+							add = 20
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = content
+								has_trait = ambitious
+								scope:owner.faith = { trait_is_sin = content }
+							}
+						}
+						add_trait = content
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = content }
+							add = 20
+						}
+						modifier = {
+							scope:target = { is_lowborn = yes }
+							add = 20
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = diligent
+								has_trait = lazy
+								scope:owner.faith = { trait_is_sin = diligent }
+							}
+						}
+						add_trait = diligent
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = diligent }
+							add = 20
+						}
+						modifier = {
+							scope:target = { ai_energy > 50 }
+							add = 20
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = fickle
+								has_trait = stubborn
+								scope:owner.faith = { trait_is_sin = fickle }
+							}
+						}
+						add_trait = fickle
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = fickle }
+							add = 20
+						}
+						modifier = {
+							scope:target = { ai_rationality < 50 }
+							add = 20
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = fickle
+								has_trait = stubborn
+								scope:owner.faith = { trait_is_sin = stubborn }
+							}
+						}
+						add_trait = stubborn
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = stubborn }
+							add = 20
+						}
+						opinion_modifier = {
+							who = scope:target
+							opinion_target = scope:owner
+							multiplier = -0.25
+							min = 0
+							max = 20
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = forgiving
+								has_trait = vengeful
+								scope:owner.faith = { trait_is_sin = forgiving }
+							}
+						}
+						add_trait = forgiving
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = forgiving }
+							add = 20
+						}
+						modifier = {
+							scope:target = { ai_compassion > 50 }
+							add = 20
+						}
+					}
+					20 = {
+						trigger = {
+							scope:owner.faith = { trait_is_virtue = vengeful }
+							NOR = { 
+								has_trait = forgiving
+								has_trait = vengeful
+								scope:owner.faith = { trait_is_sin = vengeful }
+							}
+						}
+						add_trait = vengeful
+						modifier = {
+							scope:target = { ai_vengefulness > 50 }
+							add = 20
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = generous
+								has_trait = greedy
+								scope:owner.faith = { trait_is_sin = generous }
+							}
+						}
+						add_trait = generous
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = generous }
+							add = 20
+						}
+						modifier = {
+							scope:target = { ai_greed < 50 }
+							add = 20
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = honest
+								has_trait = deceitful
+								scope:owner.faith = { trait_is_sin = honest }
+							}
+						}
+						add_trait = honest
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = honest }
+							add = 20
+						}
+						modifier = {
+							scope:target = { has_trait = trusting }
+							add = 20
+						}
+					}
+					20 = {
+						trigger = {
+							scope:owner.faith = { trait_is_virtue = deceitful }
+							NOR = { 
+								has_trait = honest
+								has_trait = deceitful
+								scope:owner.faith = { trait_is_sin = deceitful }
+							}
+						}
+						add_trait = deceitful
+						modifier = {
+							scope:target = { intrigue > 15 }
+							add = 20
+						}
+						modifier = {
+							OR = {
+								scope:target = { has_trait = schemer }
+								scope:target = { has_focus = intrigue_skulduggery_focus }
+							}
+							add = 40
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = humble
+								has_trait = arrogant
+								scope:owner.faith = { trait_is_sin = humble }
+							}
+						}
+						add_trait = humble
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = humble }
+							add = 20
+						}
+						modifier = {
+							scope:target = { has_trait = content }
+							add = 20
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = humble
+								has_trait = arrogant
+								scope:owner.faith = { trait_is_sin = arrogant }
+							}
+						}
+						add_trait = arrogant
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = arrogant }
+							add = 20
+						}
+						modifier = {
+							scope:target = { has_trait = ambitious }
+							add = 20
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = just
+								has_trait = arbitrary
+								scope:owner.faith = { trait_is_sin = just }
+							}
+						}
+						add_trait = just
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = just }
+							add = 20
+						}
+						modifier = {
+							scope:target = { ai_rationality > 50 }
+							add = 20
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = patient
+								has_trait = impatient
+								scope:owner.faith = { trait_is_sin = patient }
+							}
+						}
+						add_trait = patient
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = patient }
+							add = 20
+						}
+						modifier = {
+							scope:target = { ai_energy < 50 }
+							add = 20
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = temperate
+								has_trait = gluttonous
+								scope:owner.faith = { trait_is_sin = temperate }
+							}
+						}
+						add_trait = temperate
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = temperate }
+							add = 20
+						}
+						modifier = {
+							scope:target = { has_trait = content }
+							add = 20
+						}
+					}
+					20 = {
+						trigger = {
+							NOR = { 
+								has_trait = compassionate
+								has_trait = callous
+								has_trait = sadistic
+								scope:owner.faith = { trait_is_sin = compassionate }
+							}
+						}
+						add_trait = compassionate
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = compassionate }
+							add = 20
+						}
+						modifier = {
+							scope:owner.faith = { trait_is_sin = callous }
+							add = 20
+						}
+						modifier = {
+							scope:owner.faith = { trait_is_sin = sadistic }
+							add = 20
+						}
+						modifier = {
+							scope:target = { ai_compassion > 50 }
+							add = 20
+						}
+					}
+					10 = {
+						trigger = {
+							NOR = { 
+								has_trait = zealous
+								has_trait = cynical
+								scope:owner.faith = { trait_is_sin = zealous }
+							}
+						}
+						add_trait = zealous
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = zealous }
+							add = 10
+						}
+						modifier = {
+							scope:owner.faith = { trait_is_sin = cynical }
+							add = 10
+						}
+						modifier = {
+							scope:target = { piety_level > 2 }
+							add = 10
+						}
+					}
+					10 = {
+						trigger = {
+							NOR = { 
+								has_trait = zealous
+								has_trait = cynical
+								scope:owner.faith = { trait_is_sin = cynical }
+							}
+						}
+						add_trait = cynical
+						modifier = {
+							scope:owner.faith = { trait_is_virtue = cynical }
+							add = 10
+						}
+						modifier = {
+							scope:target = { ai_zeal < 50 }
+							add = 10
+						}
+					}
+				}
+				add_opinion = {
+					target = scope:owner
+					modifier = mz_scheme_straighten_out_opinion
+					opinion = -15
+				}
+			}
+		}
+	}
+}
+
+mz_scheme_so_set_variable_trait_effect = {
+	# Remove triat and set a variable
+	if = {
+		limit = { 
+			mz_has_negative_lifestyle_trait_trigger = { OWNER = scope:owner } 
+		}
+		mz_scheme_so_remove_lifestyle_trait_effect = yes
+		random_list = { # Set variable
+			10 = {
+				trigger = { 
+					NOT = { has_trait = athletic }
+				}
+				scope:target = {
+					set_variable = {
+						name = mz_trait_variable
+						value = 90 # athletic
+					}
+				}
+				modifier = {
+					scope:target = {
+						OR = {
+							has_focus = learning_medicine_focus
+							has_trait = whole_of_body
+						}
+					}
+					add = 20
+				}
+				modifier = {
+					scope:target = {
+						has_focus_martial = yes
+					}
+					add = 20
+				}
+			}
+			10 = {
+				trigger = { 
+					NOT = { has_trait = journaller }
+				}
+				scope:target = {
+					set_variable = {
+						name = mz_trait_variable
+						value = 91 # journaller
+					}
+				}
+				modifier = {
+					scope:target = {
+						has_focus_learning = yes
+					}
+					add = 20
+				}
+				modifier = {
+					scope:target = {
+						OR = { 
+							has_trait = poet
+							has_trait = scholar
+						}
+					}
+					add = 20
+				}				
+			}
+			10 = {
+				trigger = { 
+					NOT = { has_trait = confider }
+				}
+				scope:target = {
+					set_variable = {
+						name = mz_trait_variable
+						value = 92 # confider
+					}
+				}
+				modifier = {
+					scope:target = {
+						has_focus_diplomacy = yes
+					}
+					add = 20
+				}
+				modifier = {
+					scope:target = {
+						num_of_relation_friend > 1
+					}
+					add = 20
+				}
+			}
+			5 = {
+				trigger = { 
+					NOT = { has_trait = lifestyle_herbalist }
+				}
+				scope:target = {
+					set_variable = {
+						name = mz_trait_variable
+						value = 93 # lifestyle_herbalist
+					}
+				}
+				modifier = {
+					scope:target = {
+						is_witch_trigger = yes
+					}
+					add = 5
+				}
+			}
+			5 = {
+				trigger = { 
+					NOT = { has_trait = poet }
+				}
+				scope:target = {
+					set_variable = {
+						name = mz_trait_variable
+						value = 94 # poet
+					}
+				}
+				modifier = {
+					OR = {
+						scope:owner.faith = { trait_is_virtue = poet }
+						scope:owner.culture = { has_cultural_parameter = poet_trait_gives_bonuses }
+					}
+					add = 5
+				}
+			}
+			5 = {
+				trigger = {
+					NOT = { has_trait = lifestyle_gardener }
+				}
+				scope:target = {
+					set_variable = {
+						name = mz_trait_variable
+						value = 95 # lifestyle_gardener
+					}
+				}
+				modifier = {
+					OR = {
+						scope:target = { has_focus_learning = yes }
+						scope:owner.culture = { has_cultural_parameter = can_recruit_gardeners }
+					}
+					add = 5
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = { 
+			mz_has_negative_personality_trait_trigger = { OWNER = scope:owner }
+		}
+		mz_scheme_so_remove_personality_trait_effect = yes
+		random_list = {
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = brave
+						has_trait = craven
+						scope:owner.faith = { trait_is_sin = brave }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 1
+				} #add_trait = brave
+				modifier = {
+					scope:owner.culture = { has_cultural_parameter = trait_county_opinion_modifiers }
+					add = 20
+				}
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = brave }
+					add = 20
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = calm
+						has_trait = wrathful
+						scope:owner.faith = { trait_is_sin = calm }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 2
+				} #add_trait = calm
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = brave }
+					add = 20
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = calm
+						has_trait = wrathful
+						scope:owner.faith = { trait_is_sin = wrathful }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 3
+				} #add_trait = wrathful
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = wrathful }
+					add = 20
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = chaste
+						has_trait = lustful
+						has_trait = seducer
+						has_focus = intrigue_temptation_focus
+						scope:owner.faith = { trait_is_sin = chaste }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 4
+				} #add_trait = chaste
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = chaste }
+					add = 20
+				}
+				modifier = {
+					scope:target = { num_of_relation_lover <= 0 }
+					add = 20
+				}
+				modifier = {
+					scope:target = { num_of_relation_lover > 1 }
+					add = -40
+				}
+				modifier = {
+					scope:target = { has_trait = celibate } 
+					add = 40
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = lustful
+						has_trait = chaste
+						has_trait = celibate
+						scope:owner.faith = { trait_is_sin = lustful }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 5
+				} #add_trait = lustful
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = lustful }
+					add = 20
+				}
+				modifier = {
+					scope:target = { num_of_relation_lover > 3 }
+					add = 20
+				}
+				modifier = {
+					OR = {
+						scope:target = { has_trait = seducer }
+						scope:target = { has_focus = intrigue_temptation_focus }
+					}
+					add = 40
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = gregarious
+						has_trait = shy
+						scope:owner.faith = { trait_is_sin = gregarious }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 6
+				} #add_trait = gregarious
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = gregarious }
+					add = 20
+				}
+				modifier = {
+					scope:target = { ai_sociability > 50 }
+					add = 20
+				}
+				modifier = {
+					scope:target = { has_trait = lifestyle_reveler } 
+					add = 40
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = content
+						has_trait = ambitious
+						scope:owner.faith = { trait_is_sin = ambitious }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 7
+				} #add_trait = ambitious
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = ambitious }
+					add = 20
+				}
+				modifier = {
+					scope:target = { exists = dynasty }
+					scope:target.dynasty = { dynasty_prestige_level >= 2 }
+					add = 20
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = content
+						has_trait = ambitious
+						scope:owner.faith = { trait_is_sin = content }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 8
+				} #add_trait = content
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = content }
+					add = 20
+				}
+				modifier = {
+					scope:target = { is_lowborn = yes }
+					add = 20
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = diligent
+						has_trait = lazy
+						scope:owner.faith = { trait_is_sin = diligent }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 9
+				} #add_trait = diligent
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = diligent }
+					add = 20
+				}
+				modifier = {
+					scope:target = { ai_energy > 50 }
+					add = 20
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = fickle
+						has_trait = stubborn
+						scope:owner.faith = { trait_is_sin = fickle }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 10
+				} #add_trait = fickle
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = fickle }
+					add = 20
+				}
+				modifier = {
+					scope:target = { ai_rationality < 50 }
+					add = 20
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = fickle
+						has_trait = stubborn
+						scope:owner.faith = { trait_is_sin = stubborn }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 11
+				} #add_trait = stubborn
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = stubborn }
+					add = 20
+				}
+				opinion_modifier = {
+					who = scope:target
+					opinion_target = scope:owner
+					multiplier = -0.25
+					min = 0
+					max = 20
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = forgiving
+						has_trait = vengeful
+						scope:owner.faith = { trait_is_sin = forgiving }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 12
+				} #add_trait = forgiving
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = forgiving }
+					add = 20
+				}
+				modifier = {
+					scope:target = { ai_compassion > 50 }
+					add = 20
+				}
+			}
+			20 = {
+				trigger = {
+					scope:owner.faith = { trait_is_virtue = vengeful }
+					NOR = { 
+						has_trait = forgiving
+						has_trait = vengeful
+						scope:owner.faith = { trait_is_sin = vengeful }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 13
+				} #add_trait = vengeful
+				modifier = {
+					scope:target = { ai_vengefulness > 50 }
+					add = 20
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = generous
+						has_trait = greedy
+						scope:owner.faith = { trait_is_sin = generous }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 14
+				} #add_trait = generous
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = generous }
+					add = 20
+				}
+				modifier = {
+					scope:target = { ai_greed < 50 }
+					add = 20
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = honest
+						has_trait = deceitful
+						scope:owner.faith = { trait_is_sin = honest }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 15
+				} #add_trait = honest
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = honest }
+					add = 20
+				}
+				modifier = {
+					scope:target = { has_trait = trusting }
+					add = 20
+				}
+			}
+			20 = {
+				trigger = {
+					scope:owner.faith = { trait_is_virtue = deceitful }
+					NOR = { 
+						has_trait = honest
+						has_trait = deceitful
+						scope:owner.faith = { trait_is_sin = deceitful }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 16
+				} #add_trait = deceitful
+				modifier = {
+					scope:target = { intrigue > 15 }
+					add = 20
+				}
+				modifier = {
+					OR = {
+						scope:target = { has_trait = schemer }
+						scope:target = { has_focus = intrigue_skulduggery_focus }
+					}
+					add = 40
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = humble
+						has_trait = arrogant
+						scope:owner.faith = { trait_is_sin = humble }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 17
+				} #add_trait = humble
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = humble }
+					add = 20
+				}
+				modifier = {
+					scope:target = { has_trait = content }
+					add = 20
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = humble
+						has_trait = arrogant
+						scope:owner.faith = { trait_is_sin = arrogant }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 18
+				} #add_trait = arrogant
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = arrogant }
+					add = 20
+				}
+				modifier = {
+					scope:target = { has_trait = ambitious }
+					add = 20
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = just
+						has_trait = arbitrary
+						scope:owner.faith = { trait_is_sin = just }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 19
+				} #add_trait = just
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = just }
+					add = 20
+				}
+				modifier = {
+					scope:target = { ai_rationality > 50 }
+					add = 20
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = patient
+						has_trait = impatient
+						scope:owner.faith = { trait_is_sin = patient }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 20
+				} #add_trait = patient
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = patient }
+					add = 20
+				}
+				modifier = {
+					scope:target = { ai_energy < 50 }
+					add = 20
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = temperate
+						has_trait = gluttonous
+						scope:owner.faith = { trait_is_sin = temperate }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 21
+				} #add_trait = temperate
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = temperate }
+					add = 20
+				}
+				modifier = {
+					scope:target = { has_trait = content }
+					add = 20
+				}
+			}
+			20 = {
+				trigger = {
+					NOR = { 
+						has_trait = compassionate
+						has_trait = callous
+						has_trait = sadistic
+						scope:owner.faith = { trait_is_sin = compassionate }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 22
+				} #add_trait = compassionate
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = compassionate }
+					add = 20
+				}
+				modifier = {
+					scope:owner.faith = { trait_is_sin = callous }
+					add = 20
+				}
+				modifier = {
+					scope:owner.faith = { trait_is_sin = sadistic }
+					add = 20
+				}
+				modifier = {
+					scope:target = { ai_compassion > 50 }
+					add = 20
+				}
+			}
+			10 = {
+				trigger = {
+					NOR = { 
+						has_trait = zealous
+						has_trait = cynical
+						scope:owner.faith = { trait_is_sin = zealous }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 23
+				} #add_trait = zealous
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = zealous }
+					add = 10
+				}
+				modifier = {
+					scope:owner.faith = { trait_is_sin = cynical }
+					add = 10
+				}
+				modifier = {
+					scope:target = { piety_level > 2 }
+					add = 10
+				}
+			}
+			10 = {
+				trigger = {
+					NOR = { 
+						has_trait = zealous
+						has_trait = cynical
+						scope:owner.faith = { trait_is_sin = cynical }
+					}
+				}
+				set_variable = { 
+					name = mz_trait_variable
+					value = 24
+				} #add_trait = cynical
+				modifier = {
+					scope:owner.faith = { trait_is_virtue = cynical }
+					add = 10
+				}
+				modifier = {
+					scope:target = { ai_zeal < 50 }
+					add = 10
+				}
+			}
+		}
+	}
+	# Finally assign trait
+	if = {
+		limit = { scope:target.var:mz_trait_variable = 90 }
+		add_trait = athletic
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 91 }
+		add_trait = journaller		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 92 }
+		add_trait = confider		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 93 }
+		add_trait = lifestyle_herbalist		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 94 }
+		add_trait = poet		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 95 }
+		add_trait = lifestyle_gardener		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 1 }
+		add_trait = brave		
+	}	
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 2 }
+		add_trait = calm		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 3 }
+		add_trait = wrathful		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 4 }
+		add_trait = chaste		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 5 }
+		add_trait = lustful		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 6 }
+		add_trait = gregarious		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 7 }
+		add_trait = ambitious		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 8 }
+		add_trait = content		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 9 }
+		add_trait = diligent		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 10 }
+		add_trait = fickle		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 11 }
+		add_trait = stubborn		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 12 }
+		add_trait = forgiving		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 13 }
+		add_trait = vengeful		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 14 }
+		add_trait = generous		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 15 }
+		add_trait = honest		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 16 }
+		add_trait = deceitful		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 17 }
+		add_trait = humble		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 18 }
+		add_trait = arrogant		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 19 }
+		add_trait = just		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 20 }
+		add_trait = patient		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 21 }
+		add_trait = temperate		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 22 }
+		add_trait = compassionate		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 23 }
+		add_trait = zealous		
+	}
+	else_if = {
+		limit = { scope:target.var:mz_trait_variable = 24 }
+		add_trait = cynical		
+	}
+}

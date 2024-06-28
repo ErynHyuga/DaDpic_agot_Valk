@@ -1,0 +1,54 @@
+﻿mz_no_hof_unreformed_or_tribal_gender_equality_decisison_requirement = {
+	global = MZ_HAS_NO_POWERFUL_VASSAL_FOLLOWING_OWN_FAITH
+}
+
+mz_no_powerful_female_vassal_with_negative_opinion = {
+	global = MZ_I_HAVE_POWERFUL_FEMALE_VASSAL_WITH_NEGATIVE_OPINION
+}
+
+mz_lovers_pox_treatment_decision_requirements = {
+	first = mz_lovers_pox_treatment_decision_requirements
+}
+
+mz_same_location_as_consort = {
+	first = MZ_I_AM_IN_CONSORT_LOCATION
+	first_not = MZ_I_AM_NOT_IN_CONSORT_LOCATION
+	global = MZ_I_AM_IN_CONSORT_LOCATION
+	global_not = MZ_I_AM_NOT_IN_CONSORT_LOCATION
+}
+
+mz_fertility_trigger = {
+	global_not = MZ_YOU_ARE_INFERTILE
+}
+
+mz_has_contagious_disease_trigger = {
+	global = MZ_HAS_CONTAGIOUS_DISEASE_TRIGGER
+}
+
+mz_amazon_alliance_cooldown = {
+	global_not = MZ_AA_COOLDOWN
+}
+
+mz_adopt_amazon_faith_decision_requirements = {
+	global = mz_adopt_amazon_faith_decision_requirements
+}
+
+mz_at_least_6_amazonian_counties_tt = {
+	global = mz_at_least_6_amazonian_counties_tt
+}
+
+mz_champion_amazonian_faith_requirement = {
+	global = mz_champion_amazonian_faith_requirement
+}
+
+mz_fewer_than_two_sons_trigger = {
+	global = mz_fewer_than_two_sons_trigger
+}
+
+mz_fewer_than_two_daughters_trigger = {
+	global = mz_fewer_than_two_daughters_trigger
+}
+
+mz_fewer_than_two_children_trigger = {
+	global = mz_fewer_than_two_children_trigger
+}

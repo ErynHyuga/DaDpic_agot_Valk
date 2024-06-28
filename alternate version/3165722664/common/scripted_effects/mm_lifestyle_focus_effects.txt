@@ -1,0 +1,262 @@
+﻿# Lesbian orgy lifestyle trait rank ups
+mz_lifestyle_lesorgy_points_gain_effect = {
+	if = {
+		limit = { NOT = { has_variable = mz_lifestyle_lesorgy_progress } }
+		set_variable = {
+			name = mz_lifestyle_lesorgy_progress
+			value = $CHANGE$
+		}
+	}
+	else = {
+		change_variable = {
+			name = mz_lifestyle_lesorgy_progress
+			add = $CHANGE$
+		}
+	}
+	#Random chance of additional increase to increase unpredictability
+	random = {
+		chance = 50
+		change_variable = {
+			name = mz_lifestyle_lesorgy_progress
+			add = $RANDOM_CHANGE$
+		}
+	}
+	#Extra Random chance with the Festivities Tradition
+	if = {
+		limit = { 
+			culture = { has_cultural_parameter = reveler_traits_more_common }
+		} 
+		random = {
+			chance = 75
+			change_variable = {
+				name = mz_lifestyle_lesorgy_progress
+				add = 1
+			}
+		}
+	}
+	# Activity Options can give even more points!
+	if = {
+		limit = { 
+			scope:activity ?= {
+				has_activity_type = mz_activity_lesorgy
+				has_activity_option = {
+					category = mz_lesorgy_option_entertainment
+					option = mz_lesorgy_entertainment_good
+				}
+			}
+		}
+		random = {
+			chance = 50
+			change_variable = {
+				name = mz_lifestyle_lesorgy_progress
+				add = 1
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			scope:activity ?= {
+				has_activity_type = mz_activity_lesorgy
+				has_activity_option = {
+					category = mz_lesorgy_option_entertainment
+					option = mz_lesorgy_entertainment_normal
+				}
+			} 
+		}
+		random = {
+			chance = 20
+			change_variable = {
+				name = mz_lifestyle_lesorgy_progress
+				add = 1
+			}
+		}
+	}
+	if = {
+		limit = {
+			scope:activity ?= {
+				has_activity_type = mz_activity_lesorgy
+				has_activity_option = {
+					category = mz_lesorgy_option_luxuries
+					option = mz_lesorgy_luxuries_good
+				}
+			} 
+		}
+		random = {
+			chance = 50
+			change_variable = {
+				name = mz_lifestyle_lesorgy_progress
+				add = 1
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			scope:activity ?= {
+				has_activity_type = mz_activity_lesorgy
+				has_activity_option = {
+					category = mz_lesorgy_option_luxuries
+					option = mz_lesorgy_luxuries_normal
+				}
+			} 
+		}
+		random = {
+			chance = 20
+			change_variable = {
+				name = mz_lifestyle_lesorgy_progress
+				add = 1
+			}
+		}
+	}
+}
+
+mz_lifestyle_lesorgy_rank_up_check_effect = {
+	if = {
+		limit = {
+			NOT = { has_trait = mz_lifestyle_lesorgy }
+		}
+		random = {
+			chance = 15
+			modifier = {
+				add = -10
+				faith = { trait_is_sin = lustful }
+			}
+			modifier = {
+				add = 10
+				faith = { trait_is_virtue = mz_lifestyle_lesorgy }
+			}
+			modifier = {
+				add = -5
+				has_trait = chaste
+			}
+			modifier = {
+				add = -5
+				has_trait = shy
+			}
+			modifier = {
+				add = -5
+				has_trait = reclusive
+			}
+			modifier = {
+				add = -10
+				has_trait = paranoid
+			}
+			modifier = {
+				add = 10
+				culture = { has_cultural_parameter = reveler_traits_more_valued }
+			}
+			modifier = {
+				add = 5
+				has_trait = lustful
+			}
+			modifier = {
+				add = 5
+				has_trait = rakish
+			}
+			modifier = {
+				add = 5
+				has_trait = gregarious
+			}
+			modifier = {
+				add = 15
+				exists = var:mz_lifestyle_lesorgy_progress
+				var:mz_lifestyle_lesorgy_progress >= 7
+			}
+			modifier = {
+				add = 15
+				exists = var:mz_lifestyle_lesorgy_progress
+				var:mz_lifestyle_lesorgy_progress >= 5
+			}
+			modifier = {
+				add = 15
+				exists = var:mz_lifestyle_lesorgy_progress
+				var:mz_lifestyle_lesorgy_progress >= 3
+			}
+			modifier = {
+				scope:activity ?= {
+					has_activity_type = mz_activity_lesorgy
+					has_activity_option = {
+						category = mz_lesorgy_option_luxuries
+						option = mz_lesorgy_luxuries_normal
+					}
+				}
+				add = 5
+			}
+			modifier = {
+				scope:activity ?= {
+					has_activity_type = mz_activity_lesorgy
+					has_activity_option = {
+						category = mz_lesorgy_option_luxuries
+						option = mz_lesorgy_luxuries_good
+					}
+				}
+				add = 10
+			}
+			modifier = {
+				scope:activity ?= {
+					has_activity_type = mz_activity_lesorgy
+					has_activity_option = {
+						category = mz_lesorgy_option_entertainment
+						option = mz_lesorgy_entertainment_normal
+					}
+				}
+				add = 5
+			}
+			modifier = {
+				scope:activity ?= {
+					has_activity_type = mz_activity_lesorgy
+					has_activity_option = {
+						category = mz_lesorgy_option_entertainment
+						option = mz_lesorgy_entertainment_good
+					}
+				}
+				add = 10
+			}
+			trigger_event = mz_lesorgy.0050
+			show_as_tooltip = {
+				add_trait = mz_lifestyle_lesorgy
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				exists = var:mz_lifestyle_lesorgy_progress
+				var:mz_lifestyle_lesorgy_progress >= mz_lesorgy_rank_up_3_threshold
+			}
+			add_trait_xp = {
+				trait = mz_lifestyle_lesorgy
+				value = 10
+			}
+		}
+		else_if = {
+			limit = {
+				exists = var:mz_lifestyle_lesorgy_progress
+				var:mz_lifestyle_lesorgy_progress >= mz_lesorgy_rank_up_2_threshold
+			}
+			add_trait_xp = {
+				trait = mz_lifestyle_lesorgy
+				value = 5
+			}
+		}
+		else_if = {
+			limit = {
+				exists = var:mz_lifestyle_lesorgy_progress
+				var:mz_lifestyle_lesorgy_progress >= mz_lesorgy_rank_up_1_threshold
+			}
+			add_trait_xp = {
+				trait = mz_lifestyle_lesorgy
+				value = 3
+			}
+		}
+		else = {
+			add_trait_xp = {
+				trait = mz_lifestyle_lesorgy
+				value = 1
+			}
+		}
+		set_variable = {
+			name = mz_lifestyle_lesorgy_progress
+			value = 0
+		}
+	}
+}

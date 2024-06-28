@@ -1,0 +1,318 @@
+﻿mz_lovers_pox_free_treatment_effect = { # Free treatment offers good temporary relief with a skilled physician, but there's a decent chance of resurgance
+	$TREATMENT_PICKER$ = { save_scope_as = treatment_picker }
+	$PATIENT$ = {
+		custom_tooltip = mz_lovers_pox_free_treatment.tt
+		save_scope_as = sick_character
+		save_scope_value_as = {
+			name = mz_treatment_type
+			value = flag:free
+		}
+
+		hidden_effect = {
+			save_court_physician_as_effect = { SCOPE_NAME = physician }
+
+			if = {
+				limit = {
+					exists = scope:physician
+					court_physician_available_trigger = yes
+				}
+
+				#Physician skill up
+				scope:physician = {
+					random_list = {
+						90 = {  #physician
+							trigger = {
+								NAND = {
+									has_trait = lifestyle_physician
+									has_trait_xp = {
+										trait = lifestyle_physician
+										value >= 100
+									}
+								}
+							}
+							physician_level_up_chance_effect = { CHANCE = 10 }
+						}
+						10 = { #Mystic
+							trigger = {
+								NOR = {
+									AND = {
+										has_trait = lifestyle_mystic
+										has_trait_xp = {
+											trait = lifestyle_mystic
+											value >= 100
+										}
+									}
+									AND = { #Because then this would be the only option which is weird
+										has_trait = lifestyle_physician
+										has_trait_xp = {
+											trait = lifestyle_physician
+											value >= 100
+										}
+									}
+								}
+								OR = {
+									NAND = { #Either, this is my first rank up
+										has_trait = lifestyle_physician
+										has_trait = lifestyle_mystic
+									}
+									has_trait = lifestyle_mystic #I have already chosen this path
+								}
+							}
+							modifier = {
+								has_trait = lifestyle_mystic
+								factor = 2
+							}
+							modifier = {
+								ai_zeal >= medium_positive_ai_value
+								factor = 0
+							}
+							mystic_level_up_chance_effect = { CHANCE = 10 }
+						}
+					}
+				}
+
+				# OUTCOME RANDOMIZATION
+				random_list = {
+					1 = { #Success
+						modifier = {
+							scope:physician = {
+								learning >= mediocre_skill_rating
+								learning < medium_skill_rating
+							}
+							factor = 2
+						}
+						modifier = {
+							scope:physician = {
+								learning >= medium_skill_rating
+								learning < decent_skill_rating
+							}
+							factor = 4
+						}
+						modifier = {
+							scope:physician = {
+								learning >= decent_skill_rating
+								learning < high_skill_rating
+							}
+							factor = 7
+						}
+						modifier = {
+							scope:physician = {
+								learning >= high_skill_rating
+							}
+							factor = 10
+						}
+						modifier = {
+							scope:physician = { 
+								has_trait = lifestyle_physician 
+								has_trait_xp = {
+									trait = lifestyle_physician
+									value >= 100
+								}
+							}
+							factor = 10
+						}
+						modifier = {
+							scope:physician = { 
+								has_trait = lifestyle_physician 
+								has_trait_xp = {
+									trait = lifestyle_physician
+									value < 100
+								}
+								has_trait_xp = {
+									trait = lifestyle_physician
+									value >= 50
+								}
+							}
+							factor = 5
+						}
+						modifier = {
+							scope:physician = { 
+								has_trait = lifestyle_physician 
+								has_trait_xp = {
+									trait = lifestyle_physician
+									value < 50
+								}
+							}
+							factor = 2
+						}
+						modifier = {
+							scope:sick_character = { has_trait = early_great_pox } #Doomed to failure if Great Pox
+							factor = 0
+						}
+						modifier = { # Liege Perk bonus
+							exists = scope:physician.liege
+							scope:physician.liege = {
+								has_perk = anatomical_studies_perk
+							}
+							factor = 2
+						}
+						trigger_event = {
+							id = mz_health.2002 # Success (temporary relief)
+							days = { 3 5 }
+						}
+					}
+					10 = { #Failure
+						trigger_event = {
+							id = mz_health.2003 # Failure
+							days = { 3 5 }
+						}
+					}
+					5 = { #Failure on purpose
+						trigger = {
+							scope:physician = {
+								dread_modified_ai_boldness = {
+									dreaded_character = scope:sick_character
+									value > 0
+								}
+							}
+							OR = {
+								reverse_opinion = {
+									target = scope:physician
+									value < 0
+								}
+								has_relation_rival = scope:physician
+								has_relation_potential_rival = scope:physician
+							}
+						}
+						modifier = {	
+							OR = {
+								has_relation_rival = scope:physician
+								reverse_opinion = {
+									target = scope:physician
+									value <= -20
+								}
+							}
+							factor = 2
+						}
+						trigger_event = {
+							id = mz_health.2003 # Failure
+							days = { 3 5 }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+mz_lovers_pox_paid_treatment_effect = { # Paid treatment has better effects and has an even better chance of preventing resurgance
+	$TREATMENT_PICKER$ = { save_scope_as = treatment_picker }
+	$PATIENT$ = {
+		custom_tooltip = mz_lovers_pox_paid_treatment.tt
+		save_scope_as = sick_character
+		save_scope_value_as = {
+			name = mz_treatment_type
+			value = flag:paid
+		}
+
+		hidden_effect = {
+			save_court_physician_as_effect = { SCOPE_NAME = physician }
+
+			if = {
+				limit = {
+					exists = scope:physician
+					court_physician_available_trigger = yes
+				}
+
+				#Physician skill up
+				scope:physician = {
+					random_list = {
+						90 = {  #physician
+							trigger = {
+								NAND = {
+									has_trait = lifestyle_physician
+									has_trait_xp = {
+										trait = lifestyle_physician
+										value >= 100
+									}
+								}
+							}
+							physician_level_up_chance_effect = { CHANCE = 10 }
+						}
+						10 = { #Mystic
+							trigger = {
+								NOR = {
+									AND = {
+										has_trait = lifestyle_mystic
+										has_trait_xp = {
+											trait = lifestyle_mystic
+											value >= 100
+										}
+									}
+									AND = { #Because then this would be the only option which is weird
+										has_trait = lifestyle_physician
+										has_trait_xp = {
+											trait = lifestyle_physician
+											value >= 100
+										}
+									}
+								}
+								OR = {
+									NAND = { #Either, this is my first rank up
+										has_trait = lifestyle_physician
+										has_trait = lifestyle_mystic
+									}
+									has_trait = lifestyle_mystic #I have already chosen this path
+								}
+							}
+							modifier = {
+								has_trait = lifestyle_mystic
+								factor = 2
+							}
+							modifier = {
+								ai_zeal >= medium_positive_ai_value
+								factor = 0
+							}
+							mystic_level_up_chance_effect = { CHANCE = 10 }
+						}
+					}
+				}
+				random_list = { # OUTCOME RANDOMIZATION
+					70 = { # Success
+						modifier = {
+							factor = scope:physician.physician_safe_treatment_skill_factor
+							# 1 for an average learning skill character without traits
+							# 0.2 min for low learning
+							# ~3 for high skill character without traits
+							# ~12 for high skill character with best trait (physician_3)
+						}
+						modifier = {
+							scope:sick_character = { has_trait = early_great_pox } #Doomed to failure if Great Pox
+							factor = 0
+						}
+						trigger_event = {
+							id = mz_health.2002 # Success (temporary relief)
+							days = { 3 5 }
+						}
+					}
+					30 = { # Failure
+						trigger_event = {
+							id = mz_health.2003 # Failure
+							days = { 3 5 }
+						}
+					}
+					70 = { # Failure on purpose
+						trigger = {
+							court_physician_can_fail_on_purpose_trigger = yes
+						}
+						opinion_modifier = {
+							who = scope:physician
+							opinion_target = scope:sick_character
+							multiplier = -1 # Adds 100 for -100 opinion
+						}
+						modifier = {
+							factor = { #To keep it scaling with success
+								add = scope:physician.physician_safe_treatment_skill_factor
+								divide = 2
+							}
+						}
+						trigger_event = {
+							id = mz_health.2003 # Failure
+							days = { 3 5 }
+						}
+					}	
+				}
+			}
+		}
+	}
+}

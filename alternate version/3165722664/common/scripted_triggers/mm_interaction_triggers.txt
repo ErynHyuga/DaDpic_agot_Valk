@@ -1,0 +1,64 @@
+﻿### Overwrite these triggers to remove tyranny from title and vassal revocations for Absolute Gynarchy
+title_revocation_is_tyrannical_trigger = {
+	NOR = {
+		AND = {
+			is_female = yes
+			exists = dynasty
+			dynasty = { has_dynasty_perk = mz_matriarchy_legacy_5 }
+			scope:recipient = { is_female = no }
+		}
+		has_revoke_title_reason = scope:recipient
+		has_claim_on = scope:landed_title
+		faith = {
+			scope:recipient = {
+				NOT = { vassal_contract_has_flag = religiously_protected}
+			}
+			OR = {
+				AND = {								
+					has_doctrine_parameter = pluralism_righteous_revocation_tyranny_reduced
+					faith_hostility_level = {
+						target = scope:recipient.faith
+						value = faith_evil_level
+					}
+				}
+				AND = {								
+					has_doctrine_parameter = pluralism_fundamentalist_revocation_tyranny_minimal
+					faith_hostility_level = {
+						target = scope:recipient.faith
+						value >= faith_hostile_level
+					}
+				}
+			}
+		}
+	}
+}
+
+vassal_revocation_is_tyrannical_trigger = {
+	NOR = {
+		AND = {
+			is_female = yes
+			exists = dynasty
+			dynasty = { has_dynasty_perk = mz_matriarchy_legacy_5 }
+			scope:recipient = { is_female = no }
+		}
+		has_revoke_title_reason = scope:recipient
+		faith = {
+			OR = {
+				AND = {								
+					has_doctrine_parameter = pluralism_righteous_revocation_tyranny_reduced
+					faith_hostility_level = {
+						target = scope:recipient.faith
+						value = faith_evil_level
+					}
+				}
+				AND = {								
+					has_doctrine_parameter = pluralism_fundamentalist_revocation_tyranny_minimal
+					faith_hostility_level = {
+						target = scope:recipient.faith
+						value >= faith_hostile_level
+					}
+				}
+			}
+		}
+	}
+}

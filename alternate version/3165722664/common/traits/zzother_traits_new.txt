@@ -1,0 +1,2412 @@
+﻿
+# Standard Values
+@pos_compat_high = 10
+@pos_compat_medium = 5
+@pos_compat_low = 2.5
+
+@neg_compat_high = -10
+@neg_compat_medium = -5
+@neg_compat_low = -2.5
+
+
+
+gpt_absent = {
+
+	monthly_prestige_gain_mult = -0.2
+	monthly_lifestyle_xp_gain_mult = 0.2
+	dread_baseline_add = -10
+	
+	shown_in_ruler_designer = no
+	
+ 	incapacitating = yes
+	
+ #	can_have_children = no
+
+ 	disables_combat_leadership = yes
+
+	desc = {
+		desc = trait_gpt_absent_desc
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+Local_Preacher = {
+	category = fame
+	holy_order_hire_cost_mult = -0.5
+	faith_conversion_piety_cost_mult = -0.5
+	faith_creation_piety_cost_mult = -0.5
+	
+	shown_in_ruler_designer = no
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_Local_Preacher_desc
+			}
+			desc = trait_Local_Preacher_character_desc
+		}
+	}
+}
+
+Local_Saint = {
+	category = fame
+	holy_order_hire_cost_mult = -0.75
+	faith_conversion_piety_cost_mult = -0.75
+	faith_creation_piety_cost_mult = -0.75
+
+	
+	shown_in_ruler_designer = no
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_Local_Saint_desc
+			}
+			desc = trait_Local_Saint_character_desc
+		}
+	}
+}
+
+Local_Prophet = {
+	category = fame
+	holy_order_hire_cost_mult = -1
+	faith_conversion_piety_cost_mult = -1
+	faith_creation_piety_cost_mult = -1
+
+	
+	shown_in_ruler_designer = no
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_Local_Prophet_desc
+			}
+			desc = trait_Local_Prophet_character_desc
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+dread_buff_lustful_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	diplomacy = 4
+	intrigue = 4
+	fertility = 0.15
+	seduce_scheme_power_add = 20
+	courtier_and_guest_opinion = 15
+
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_lustful_trait_desc
+			}
+			desc = trait_dread_buff_lustful_trait_character_desc
+		}
+	}
+	compatibility = {
+		lustful = @pos_compat_high
+		temperate = @neg_compat_medium
+		diligent = @neg_compat_low
+		calm = @neg_compat_high
+		impatient = @pos_compat_high
+		humble = @pos_compat_low
+		deceitful = @pos_compat_medium
+		craven = @pos_compat_low
+		gregarious = @pos_compat_high
+		ambitious = @pos_compat_medium
+		arbitrary = @pos_compat_low
+		cynical = @neg_compat_low
+		trusting = @neg_compat_low
+		compassionate = @pos_compat_low
+		stubborn = @neg_compat_medium
+		vengeful = @pos_compat_medium
+	}
+}
+
+dread_buff_greedy_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	stewardship = 4
+	martial = 4
+	monthly_income = 3
+	monthly_war_income_mult = 0.10
+	glory_hound_opinion = 10
+	
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_greedy_trait_desc
+			}
+			desc = trait_dread_buff_greedy_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @neg_compat_medium
+		temperate = @pos_compat_medium
+		generous = @neg_compat_medium
+		diligent = @pos_compat_high
+		calm = @pos_compat_low
+		patient = @pos_compat_medium
+		arrogant = @pos_compat_medium
+		honest = @pos_compat_low
+		brave = @pos_compat_medium
+		shy = @neg_compat_low
+		gregarious = @neg_compat_low
+		ambitious = @pos_compat_medium
+		arbitrary = @neg_compat_high
+		zealous = @pos_compat_low
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_high
+		fickle = @neg_compat_high
+		forgiving = @neg_compat_medium
+	}
+}
+
+dread_buff_ambitious_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	stewardship = 4
+	intrigue = 4
+	monthly_county_control_growth_factor = -0.2
+	men_at_arms_maintenance = -0.20
+	mercenary_hire_cost_mult = -0.20
+	
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_ambitious_trait_desc
+			}
+			desc = trait_dread_buff_ambitious_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @pos_compat_low
+		temperate = @pos_compat_low
+		greedy = @pos_compat_medium
+		lazy = @neg_compat_high
+		wrathful = @pos_compat_low
+		impatient = @pos_compat_high
+		humble = @neg_compat_medium
+		deceitful = @neg_compat_low
+		craven = @neg_compat_medium
+		shy = @neg_compat_medium
+		ambitious = @pos_compat_high
+		arbitrary = @neg_compat_medium
+		zealous = @pos_compat_medium
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_medium
+		stubborn = @pos_compat_medium
+		forgiving = @neg_compat_low
+	}
+}
+
+dread_buff_gluttonous_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	stewardship = 4
+	intrigue = 4
+	monthly_county_control_growth_factor = -0.20
+	county_opinion_add = -10
+	court_grandeur_baseline_add = 8
+	courtier_and_guest_opinion = 10
+	courtly_opinion = 10
+	
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_gluttonous_trait_desc
+			}
+			desc = trait_dread_buff_gluttonous_trait_character_desc
+		}
+	}
+	compatibility = {
+		lustful = @pos_compat_low
+		gluttonous = @pos_compat_low
+		greedy = @neg_compat_medium
+		diligent = @pos_compat_medium
+		wrathful = @pos_compat_low
+		patient = @pos_compat_low
+		gregarious = @pos_compat_high
+		ambitious = @pos_compat_medium
+		arbitrary = @neg_compat_high
+		cynical = @neg_compat_medium
+		trusting = @neg_compat_low
+		compassionate = @pos_compat_medium
+		callous = @neg_compat_low
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_low
+		forgiving = @pos_compat_medium
+	}
+}
+
+dread_buff_arbitrary_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	prowess = 12
+	same_culture_mercenary_hire_cost_mult = -0.50
+	mercenary_hire_cost_mult = -0.20
+	
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_arbitrary_trait_desc
+			}
+			desc = trait_dread_buff_arbitrary_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @neg_compat_high
+		temperate = @neg_compat_high
+		greedy = @pos_compat_medium
+		diligent = @pos_compat_low
+		calm = @neg_compat_medium
+		impatient = @pos_compat_high
+		arrogant = @pos_compat_medium
+		craven = @neg_compat_high
+		shy = @neg_compat_high
+		content = @neg_compat_medium
+		just = @neg_compat_medium
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_medium
+		sadistic = @pos_compat_low
+		fickle = @pos_compat_low
+		forgiving = @neg_compat_low
+	}
+}
+
+dread_buff_cynical_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	learning = 4
+	intrigue = 4
+	clergy_opinion = 10
+	county_opinion_add = 20
+	monthly_county_control_growth_factor = 0.20
+	levy_reinforcement_rate_same_faith = 0.20
+	monthly_piety = 1.5
+	
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_cynical_trait_desc
+			}
+			desc = trait_dread_buff_cynical_trait_character_desc
+		}
+	}
+	compatibility = {
+		lustful = @pos_compat_low
+		generous = @pos_compat_low
+		calm = @neg_compat_low
+		patient = @neg_compat_low
+		humble = @neg_compat_low
+		honest = @neg_compat_low
+		brave = @pos_compat_low
+		shy = @neg_compat_high
+		content = @neg_compat_medium
+		arbitrary = @neg_compat_medium
+		zealous = @pos_compat_medium
+		trusting = @neg_compat_medium
+		compassionate = @neg_compat_low
+		sadistic = @neg_compat_medium
+		fickle = @pos_compat_medium
+		vengeful = @neg_compat_low
+	}
+}
+
+dread_buff_deceitful_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	diplomacy = 4
+	intrigue = 4
+	max_hostile_schemes_add = 1
+	owned_hostile_scheme_success_chance_add = 5
+
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_deceitful_trait_desc
+			}
+			desc = trait_dread_buff_deceitful_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @pos_compat_low
+		generous = @pos_compat_high
+		diligent = @pos_compat_medium
+		calm = @pos_compat_medium
+		patient = @neg_compat_low
+		humble = @pos_compat_medium
+		honest = @pos_compat_low
+		brave = @neg_compat_low
+		shy = @pos_compat_high
+		ambitious = @pos_compat_low
+		just = @pos_compat_high
+		cynical = @neg_compat_medium
+		compassionate = @pos_compat_high
+		sadistic = @neg_compat_high
+		fickle = @pos_compat_low
+		forgiving = @pos_compat_medium
+	}
+}
+
+dread_buff_callous_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	stewardship = 4
+	intrigue = 4
+	clergy_opinion = -10
+	build_gold_cost = -0.4
+	holding_build_gold_cost = -0.4
+	build_prestige_cost = -0.4
+	build_speed = 0.2
+	
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_callous_trait_desc
+			}
+			desc = trait_dread_buff_callous_trait_character_desc
+		}
+	}
+	compatibility = {
+		lustful = @neg_compat_low
+		gluttonous = @neg_compat_low
+		greedy = @pos_compat_low
+		diligent = @pos_compat_high
+		calm = @pos_compat_low
+		patient = @pos_compat_medium
+		arrogant = @pos_compat_medium
+		honest = @pos_compat_medium
+		shy = @pos_compat_medium
+		ambitious = @pos_compat_low
+		zealous = @neg_compat_low
+		fickle = @neg_compat_medium
+	}
+}
+
+dread_buff_sadistic_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	learning = 8
+	positive_inactive_inheritance_chance = 0.5
+	negative_inactive_inheritance_chance = 0.5
+	positive_random_genetic_chance = 0.5
+	negative_random_genetic_chance = -0.5
+	genetic_trait_strengthen_chance = 0.5
+	inbreeding_chance = -1
+	
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_sadistic_trait_desc
+			}
+			desc = trait_dread_buff_sadistic_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @neg_compat_low
+		gluttonous = @pos_compat_low
+		generous = @pos_compat_high
+		lazy = @pos_compat_medium
+		calm = @pos_compat_low
+		impatient = @pos_compat_low
+		humble = @pos_compat_medium
+		honest = @pos_compat_medium
+		brave = @pos_compat_low
+		shy = @pos_compat_medium
+		content = @pos_compat_low
+		just = @pos_compat_high
+		trusting = @pos_compat_low
+		compassionate = @pos_compat_medium
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_medium
+	}
+}
+
+dread_buff_arrogant_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	intrigue = 4
+	prowess = 6
+	knight_effectiveness_mult = 0.3
+	monthly_prestige = 2.5
+	county_opinion_add = 15
+
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_arrogant_trait_desc
+			}
+			desc = trait_dread_buff_arrogant_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @pos_compat_low
+		temperate = @pos_compat_low
+		greedy = @pos_compat_medium
+		lazy = @neg_compat_high
+		wrathful = @pos_compat_low
+		impatient = @pos_compat_high
+		humble = @neg_compat_medium
+		deceitful = @neg_compat_low
+		craven = @neg_compat_medium
+		shy = @neg_compat_medium
+		ambitious = @pos_compat_high
+		arbitrary = @neg_compat_medium
+		zealous = @pos_compat_medium
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_medium
+		stubborn = @pos_compat_medium
+		forgiving = @neg_compat_low
+	}
+}
+
+dread_buff_vengeful_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	martial = 8
+	close_relative_opinion = -15
+	councillor_opinion = -10
+	intimidated_vassal_tax_contribution_mult = 0.10
+	cowed_vassal_tax_contribution_mult = 0.20
+	dread_per_tyranny_add = 0.5
+	monthly_county_control_growth_factor = 0.25
+
+	
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_vengeful_trait_desc
+			}
+			desc = trait_dread_buff_vengeful_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @pos_compat_medium
+		temperate = @pos_compat_medium
+		greedy = @pos_compat_medium
+		lazy = @neg_compat_high
+		calm = @pos_compat_medium
+		patient = @pos_compat_low
+		humble = @neg_compat_low
+		honest = @pos_compat_high
+		craven = @neg_compat_low
+		gregarious = @neg_compat_medium
+		ambitious = @pos_compat_medium
+		just = @pos_compat_medium
+		cynical = @pos_compat_low
+		paranoid = @pos_compat_medium
+		compassionate = @neg_compat_medium
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_high
+		vengeful = @neg_compat_low
+		forgiving = @neg_compat_low
+	}
+}
+
+dread_buff_lazy_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	diplomacy = 4
+	martial = 4
+	councillor_opinion = 15
+	happy_powerful_vassal_tax_contribution_mult = -0.1
+	happy_powerful_vassal_levy_contribution_mult = 0.2
+	
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_lazy_trait_desc
+			}
+			desc = trait_dread_buff_lazy_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @neg_compat_medium
+		greedy = @neg_compat_low
+		calm = @pos_compat_medium
+		arrogant = @neg_compat_medium
+		brave = @neg_compat_low
+		shy = @pos_compat_medium
+		content = @pos_compat_medium
+		just = @pos_compat_low
+		zealous = @pos_compat_low
+		trusting = @neg_compat_medium
+		compassionate = @pos_compat_medium
+		fickle = @pos_compat_medium
+		forgiving = @pos_compat_low
+	}
+}
+
+dread_buff_educate_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	learning = 4
+	intrigue = 4
+	long_reign_bonus_mult = 0.5
+	monthly_dynasty_prestige = 1.5
+	monthly_dynasty_prestige_mult = 0.25
+	
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_educate_trait_desc
+			}
+			desc = trait_dread_buff_educate_trait_character_desc
+		}
+	}
+	compatibility = {
+		lustful = @neg_compat_low
+		gluttonous = @neg_compat_low
+		greedy = @pos_compat_low
+		diligent = @pos_compat_high
+		calm = @pos_compat_low
+		patient = @pos_compat_medium
+		arrogant = @pos_compat_medium
+		honest = @pos_compat_medium
+		shy = @pos_compat_medium
+		ambitious = @pos_compat_low
+		zealous = @neg_compat_low
+		fickle = @neg_compat_medium
+	}
+}
+
+dread_buff_intimidate_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	martial = 4
+	intrigue = 4
+	close_relative_opinion = -10
+	dread_gain_mult = 0.20
+	dread_loss_mult = -0.20
+	men_at_arms_maintenance_per_dread_mult = -0.002
+	knight_effectiveness_per_dread = 0.005
+
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_intimidate_trait_desc
+			}
+			desc = trait_dread_buff_intimidate_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @neg_compat_medium
+		temperate = @pos_compat_medium
+		generous = @neg_compat_medium
+		diligent = @pos_compat_high
+		calm = @pos_compat_low
+		patient = @pos_compat_medium
+		arrogant = @pos_compat_medium
+		honest = @pos_compat_low
+		brave = @pos_compat_medium
+		shy = @neg_compat_low
+		gregarious = @neg_compat_low
+		ambitious = @pos_compat_medium
+		arbitrary = @neg_compat_high
+		zealous = @pos_compat_low
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_high
+		fickle = @neg_compat_high
+		forgiving = @neg_compat_medium
+	}
+}
+
+dread_buff_centralize_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	stewardship = 4
+	martial = 4
+	domain_limit = 2
+	character_capital_county_monthly_development_growth_add = 0.1
+	
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_centralize_trait_desc
+			}
+			desc = trait_dread_buff_centralize_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @pos_compat_medium
+		temperate = @pos_compat_medium
+		greedy = @pos_compat_medium
+		lazy = @neg_compat_high
+		calm = @pos_compat_medium
+		patient = @pos_compat_low
+		humble = @neg_compat_low
+		honest = @pos_compat_high
+		craven = @neg_compat_low
+		gregarious = @neg_compat_medium
+		ambitious = @pos_compat_medium
+		just = @pos_compat_medium
+		cynical = @pos_compat_low
+		paranoid = @pos_compat_medium
+		compassionate = @neg_compat_medium
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_high
+		vengeful = @neg_compat_low
+		forgiving = @neg_compat_low
+	}
+}
+
+dread_buff_absurd_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	learning = 4
+	diplomacy = 4
+	vassal_levy_contribution_mult = 0.10
+	vassal_tax_contribution_mult = 0.10
+	vassal_limit = 10
+	
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_absurd_trait_desc
+			}
+			desc = trait_dread_buff_absurd_trait_character_desc
+		}
+	}
+	compatibility = {
+		lustful = @pos_compat_medium
+		temperate = @neg_compat_medium
+		generous = @pos_compat_low
+		diligent = @neg_compat_medium
+		calm = @neg_compat_medium
+		patient = @neg_compat_medium
+		humble = @pos_compat_medium
+		honest = @pos_compat_low
+		craven = @neg_compat_low
+		shy = @neg_compat_high
+		ambitious = @pos_compat_low
+		just = @pos_compat_medium
+		trusting = @pos_compat_medium
+		compassionate = @pos_compat_medium
+		callous = @neg_compat_medium
+		sadistic = @neg_compat_medium
+		fickle = @pos_compat_medium
+		vengeful = @pos_compat_low
+	}
+}
+
+dread_buff_madness_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	intrigue = 4
+	stewardship = 4
+	monthly_lifestyle_xp_gain_mult = -0.15
+	scheme_discovery_chance_mult = 0.25
+	tyranny_gain_mult = -0.30
+	court_grandeur_baseline_add = -4
+	
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_madness_trait_desc
+			}
+			desc = trait_dread_buff_madness_trait_character_desc
+		}
+	}
+	compatibility = {
+		temperate = @pos_compat_low
+		generous = @neg_compat_low
+		diligent = @pos_compat_low
+		calm = @pos_compat_low
+		impatient = @pos_compat_medium
+		humble = @pos_compat_low
+		honest = @pos_compat_medium
+		gregarious = @neg_compat_medium
+		content = @neg_compat_medium
+		arbitrary = @pos_compat_low
+		cynical = @neg_compat_low
+		paranoid = @pos_compat_medium
+		callous = @pos_compat_low
+		stubborn = @pos_compat_low
+		vengeful = @pos_compat_low
+	}
+}
+
+dread_buff_steal_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	learning = 4
+	intrigue = 4
+	cultural_head_fascination_mult = 0.25
+	monthly_lifestyle_xp_gain_mult = 0.20
+	court_grandeur_baseline_add = 4
+	independent_ruler_opinion = -10
+
+	
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_steal_trait_desc
+			}
+			desc = trait_dread_buff_steal_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @pos_compat_low
+		temperate = @pos_compat_low
+		greedy = @pos_compat_medium
+		lazy = @neg_compat_high
+		wrathful = @pos_compat_low
+		impatient = @pos_compat_high
+		humble = @neg_compat_medium
+		deceitful = @neg_compat_low
+		craven = @neg_compat_medium
+		shy = @neg_compat_medium
+		ambitious = @pos_compat_high
+		arbitrary = @neg_compat_medium
+		zealous = @pos_compat_medium
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_medium
+		stubborn = @pos_compat_medium
+		forgiving = @neg_compat_low
+	}
+}
+
+dread_buff_artisans_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	martial = 4
+	intrigue = 4
+	monthly_prestige = 5
+	monthly_dynasty_prestige = 2.5
+	monthly_piety = -2
+	clergy_opinion = -15
+	
+	opinion_of_liege = -10
+	tribal_government_opinion = 10
+	dread_baseline_add = 20
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_artisans_trait_desc
+			}
+			desc = trait_dread_buff_artisans_trait_character_desc
+		}
+	}
+	compatibility = {
+		lustful = @pos_compat_high
+		temperate = @neg_compat_medium
+		diligent = @neg_compat_low
+		calm = @neg_compat_high
+		impatient = @pos_compat_high
+		humble = @pos_compat_low
+		deceitful = @pos_compat_medium
+		craven = @pos_compat_low
+		gregarious = @pos_compat_high
+		ambitious = @pos_compat_medium
+		arbitrary = @pos_compat_low
+		cynical = @neg_compat_low
+		trusting = @neg_compat_low
+		compassionate = @pos_compat_low
+		stubborn = @neg_compat_medium
+		vengeful = @pos_compat_medium
+	}
+}
+
+dread_buff_murder_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	martial = 8
+	knight_effectiveness_per_tyranny = 0.02
+	
+	dread_baseline_add = 100
+	general_opinion = -10
+	character_travel_safety = -10
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_dread.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_murder_trait_desc
+			}
+			desc = trait_dread_buff_murder_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @pos_compat_medium
+		gluttonous = @neg_compat_low
+		generous = @neg_compat_low
+		lazy = @neg_compat_high
+		impatient = @pos_compat_high
+		brave = @pos_compat_low
+		gregarious = @neg_compat_medium
+		ambitious = @pos_compat_low
+		arbitrary = @pos_compat_high
+		cynical = @pos_compat_low
+		trusting = @neg_compat_low
+		callous = @pos_compat_medium
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_high
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+dread_buff_chaste_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	learning = 2
+	diplomacy = 2
+	court_grandeur_baseline_add = 4
+	
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_chaste_trait_desc
+			}
+			desc = trait_dread_buff_chaste_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @pos_compat_low
+		temperate = @pos_compat_low
+		generous = @pos_compat_medium
+		diligent = @pos_compat_medium
+		calm = @pos_compat_medium
+		patient = @pos_compat_medium
+		arrogant = @neg_compat_low
+		humble = @pos_compat_high
+		deceitful = @neg_compat_low
+		craven = @neg_compat_low
+		gregarious = @neg_compat_low
+		content = @pos_compat_low
+		just = @pos_compat_medium
+		cynical = @neg_compat_medium
+		paranoid = @neg_compat_medium
+		compassionate = @pos_compat_medium
+		callous = @neg_compat_medium
+		sadistic = @neg_compat_high
+		stubborn = @pos_compat_medium
+		forgiving = @pos_compat_low
+	}
+}
+
+dread_buff_generous_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	
+	diplomacy = 2
+	learning = 2
+	domain_tax_mult = -0.10
+	levy_size = 0.25
+
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_generous_trait_desc
+			}
+			desc = trait_dread_buff_generous_trait_character_desc
+		}
+	}
+	compatibility = {
+		lustful = @pos_compat_low
+		gluttonous = @pos_compat_low
+		generous = @pos_compat_high
+		diligent = @pos_compat_low
+		calm = @pos_compat_medium
+		impatient = @neg_compat_low
+		honest = @pos_compat_medium
+		brave = @pos_compat_medium
+		gregarious = @pos_compat_medium
+		just = @pos_compat_medium
+		cynical = @neg_compat_medium
+		paranoid = @neg_compat_low
+		callous = @neg_compat_high
+		sadistic = @neg_compat_medium
+		stubborn = @pos_compat_medium
+		vengeful = @neg_compat_medium
+	}
+}
+
+dread_buff_content_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	
+	stewardship = 2
+	learning = 2
+	domain_tax_mult = -0.10
+	county_opinion_add = 20
+	monthly_county_control_growth_factor = 0.25
+
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_content_trait_desc
+			}
+			desc = trait_dread_buff_content_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @pos_compat_medium
+		temperate = @pos_compat_medium
+		greedy = @pos_compat_medium
+		lazy = @neg_compat_high
+		calm = @pos_compat_medium
+		patient = @pos_compat_low
+		humble = @neg_compat_low
+		honest = @pos_compat_high
+		craven = @neg_compat_low
+		gregarious = @neg_compat_medium
+		ambitious = @pos_compat_medium
+		just = @pos_compat_medium
+		cynical = @pos_compat_low
+		paranoid = @pos_compat_medium
+		compassionate = @neg_compat_medium
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_high
+		vengeful = @neg_compat_low
+		forgiving = @neg_compat_low
+	}
+}
+
+dread_buff_temperate_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+	
+	stewardship = 2
+	martial = 2
+	army_maintenance_mult = -0.1
+	levy_toughness = 1
+
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_temperate_trait_desc
+			}
+			desc = trait_dread_buff_temperate_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @neg_compat_low
+		gluttonous = @pos_compat_low
+		generous = @pos_compat_high
+		lazy = @pos_compat_medium
+		calm = @pos_compat_low
+		impatient = @pos_compat_low
+		humble = @pos_compat_medium
+		honest = @pos_compat_medium
+		brave = @pos_compat_low
+		shy = @pos_compat_medium
+		content = @pos_compat_low
+		just = @pos_compat_high
+		trusting = @pos_compat_low
+		compassionate = @pos_compat_medium
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_medium
+	}
+}
+
+dread_buff_just_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	stewardship = 2
+	martial = 2
+	tyranny_gain_mult = -0.15
+	tyranny_loss_mult = 0.2
+	
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_just_trait_desc
+			}
+			desc = trait_dread_buff_just_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @pos_compat_low
+		generous = @pos_compat_high
+		diligent = @pos_compat_medium
+		calm = @pos_compat_medium
+		patient = @neg_compat_low
+		humble = @pos_compat_medium
+		honest = @pos_compat_low
+		brave = @neg_compat_low
+		shy = @pos_compat_high
+		ambitious = @pos_compat_low
+		just = @pos_compat_high
+		cynical = @neg_compat_medium
+		compassionate = @pos_compat_high
+		sadistic = @neg_compat_high
+		fickle = @pos_compat_low
+		forgiving = @pos_compat_medium
+	}
+}
+
+dread_buff_zealous_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	learning = 2
+	martial = 2
+	zealot_opinion = 10
+	monthly_piety = 1.5
+	holy_order_hire_cost_mult = -0.2
+
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_zealous_trait_desc
+			}
+			desc = trait_dread_buff_zealous_trait_character_desc
+		}
+	}
+	compatibility = {
+		lustful = @pos_compat_low
+		gluttonous = @pos_compat_low
+		greedy = @neg_compat_medium
+		diligent = @pos_compat_medium
+		wrathful = @pos_compat_low
+		patient = @pos_compat_low
+		gregarious = @pos_compat_high
+		ambitious = @pos_compat_medium
+		arbitrary = @neg_compat_high
+		cynical = @neg_compat_medium
+		trusting = @neg_compat_low
+		compassionate = @pos_compat_medium
+		callous = @neg_compat_low
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_low
+		forgiving = @pos_compat_medium
+	}
+}
+
+dread_buff_honest_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	diplomacy = 2
+	martial = 2
+	opinion_of_liege = 20
+	opinion_of_vassal = 20
+	liege_opinion = 10
+	vassal_opinion = 10
+	
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_honest_trait_desc
+			}
+			desc = trait_dread_buff_honest_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @neg_compat_medium
+		temperate = @pos_compat_medium
+		generous = @neg_compat_medium
+		diligent = @pos_compat_high
+		calm = @pos_compat_low
+		patient = @pos_compat_medium
+		arrogant = @pos_compat_medium
+		honest = @pos_compat_low
+		brave = @pos_compat_medium
+		shy = @neg_compat_low
+		gregarious = @neg_compat_low
+		ambitious = @pos_compat_medium
+		arbitrary = @neg_compat_high
+		zealous = @pos_compat_low
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_high
+		fickle = @neg_compat_high
+		forgiving = @neg_compat_medium
+	}
+}
+
+dread_buff_compassionate_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	diplomacy = 4
+	independent_ruler_opinion = 15
+	clergy_opinion = 10
+	monthly_war_income_mult = -0.10
+	monthly_piety_gain_mult = 0.25
+	owned_personal_scheme_success_chance_add = 10
+	
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_compassionate_trait_desc
+			}
+			desc = trait_dread_buff_compassionate_trait_character_desc
+		}
+	}
+	compatibility = {
+		lustful = @pos_compat_medium
+		temperate = @neg_compat_medium
+		generous = @pos_compat_low
+		diligent = @neg_compat_medium
+		calm = @neg_compat_medium
+		patient = @neg_compat_medium
+		humble = @pos_compat_medium
+		honest = @pos_compat_low
+		craven = @neg_compat_low
+		shy = @neg_compat_high
+		ambitious = @pos_compat_low
+		just = @pos_compat_medium
+		trusting = @pos_compat_medium
+		compassionate = @pos_compat_medium
+		callous = @neg_compat_medium
+		sadistic = @neg_compat_medium
+		fickle = @pos_compat_medium
+		vengeful = @pos_compat_low
+	}
+}
+
+dread_buff_humble_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	diplomacy = 2
+	learning = 2
+	max_personal_schemes_add = 1
+
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_humble_trait_desc
+			}
+			desc = trait_dread_buff_humble_trait_character_desc
+		}
+	}
+	compatibility = {
+		lustful = @neg_compat_low
+		gluttonous = @neg_compat_low
+		greedy = @pos_compat_low
+		diligent = @pos_compat_high
+		calm = @pos_compat_low
+		patient = @pos_compat_medium
+		arrogant = @pos_compat_medium
+		honest = @pos_compat_medium
+		shy = @pos_compat_medium
+		ambitious = @pos_compat_low
+		zealous = @neg_compat_low
+		fickle = @neg_compat_medium
+	}
+}
+
+dread_buff_forgiving_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	diplomacy = 2
+	stewardship = 2
+	dynasty_opinion = 10
+	dynasty_house_opinion = 10
+	close_relative_opinion = 10
+	
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_forgiving_trait_desc
+			}
+			desc = trait_dread_buff_forgiving_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @pos_compat_low
+		temperate = @pos_compat_low
+		greedy = @pos_compat_medium
+		lazy = @neg_compat_high
+		wrathful = @pos_compat_low
+		impatient = @pos_compat_high
+		humble = @neg_compat_medium
+		deceitful = @neg_compat_low
+		craven = @neg_compat_medium
+		shy = @neg_compat_medium
+		ambitious = @pos_compat_high
+		arbitrary = @neg_compat_medium
+		zealous = @pos_compat_medium
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_medium
+		stubborn = @pos_compat_medium
+		forgiving = @neg_compat_low
+	}
+}
+
+dread_buff_diligent_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	stewardship = 4
+	development_growth_factor = 0.4
+	
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_dread_buff_diligent_trait_desc
+			}
+			desc = trait_dread_buff_diligent_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @neg_compat_high
+		temperate = @neg_compat_high
+		greedy = @pos_compat_medium
+		diligent = @pos_compat_low
+		calm = @neg_compat_medium
+		impatient = @pos_compat_high
+		arrogant = @pos_compat_medium
+		craven = @neg_compat_high
+		shy = @neg_compat_high
+		content = @neg_compat_medium
+		just = @neg_compat_medium
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_medium
+		sadistic = @pos_compat_low
+		fickle = @pos_compat_low
+		forgiving = @neg_compat_low
+	}
+}
+
+virtuous_buff_educate_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	learning = 4
+	cultural_head_fascination_mult = 0.2
+	learn_language_scheme_power_mult = 0.5
+	long_reign_bonus_mult = 0.5
+	
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_virtuous_buff_educate_trait_desc
+			}
+			desc = trait_virtuous_buff_educate_trait_character_desc
+		}
+	}
+	compatibility = {
+		temperate = @pos_compat_low
+		generous = @neg_compat_low
+		diligent = @pos_compat_low
+		calm = @pos_compat_low
+		impatient = @pos_compat_medium
+		humble = @pos_compat_low
+		honest = @pos_compat_medium
+		gregarious = @neg_compat_medium
+		content = @neg_compat_medium
+		arbitrary = @pos_compat_low
+		cynical = @neg_compat_low
+		paranoid = @pos_compat_medium
+		callous = @pos_compat_low
+		stubborn = @pos_compat_low
+		vengeful = @pos_compat_low
+	}
+}
+
+virtuous_buff_intimidate_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	diplomacy = 4
+	vassal_levy_contribution_add = 0.1
+	vassal_tax_contribution_mult = 0.1
+	
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_virtuous_buff_intimidate_trait_desc
+			}
+			desc = trait_virtuous_buff_intimidate_trait_character_desc
+		}
+	}
+	compatibility = {
+		lustful = @pos_compat_high
+		temperate = @neg_compat_medium
+		diligent = @neg_compat_low
+		calm = @neg_compat_high
+		impatient = @pos_compat_high
+		humble = @pos_compat_low
+		deceitful = @pos_compat_medium
+		craven = @pos_compat_low
+		gregarious = @pos_compat_high
+		ambitious = @pos_compat_medium
+		arbitrary = @pos_compat_low
+		cynical = @neg_compat_low
+		trusting = @neg_compat_low
+		compassionate = @pos_compat_low
+		stubborn = @neg_compat_medium
+		vengeful = @pos_compat_medium
+	}
+}
+
+virtuous_buff_centralize_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	diplomacy = 4
+	vassal_levy_contribution_add = -0.1
+	vassal_tax_contribution_mult = -0.1
+	courtly_opinion = 5
+	parochial_opinion = 15
+	glory_hound_opinion = 10
+	zealot_opinion = 10
+	minority_opinion = 20
+	barons_and_minor_landholders_opinion = 20
+	
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_virtuous_buff_centralize_trait_desc
+			}
+			desc = trait_virtuous_buff_centralize_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @pos_compat_medium
+		gluttonous = @neg_compat_low
+		generous = @neg_compat_low
+		lazy = @neg_compat_high
+		impatient = @pos_compat_high
+		brave = @pos_compat_low
+		gregarious = @neg_compat_medium
+		ambitious = @pos_compat_low
+		arbitrary = @pos_compat_high
+		cynical = @pos_compat_low
+		trusting = @neg_compat_low
+		callous = @pos_compat_medium
+		sadistic = @neg_compat_low
+		stubborn = @pos_compat_high
+	}
+}
+
+virtuous_buff_absurd_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	martial = 4
+	additional_fort_level = 1
+	garrison_size = 0.25
+	levy_reinforcement_rate = 0.35
+	
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_virtuous_buff_absurd_trait_desc
+			}
+			desc = trait_virtuous_buff_absurd_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @pos_compat_low
+		temperate = @pos_compat_low
+		greedy = @pos_compat_medium
+		lazy = @neg_compat_high
+		wrathful = @pos_compat_low
+		impatient = @pos_compat_high
+		humble = @neg_compat_medium
+		deceitful = @neg_compat_low
+		craven = @neg_compat_medium
+		shy = @neg_compat_medium
+		ambitious = @pos_compat_high
+		arbitrary = @neg_compat_medium
+		zealous = @pos_compat_medium
+		paranoid = @pos_compat_low
+		compassionate = @neg_compat_medium
+		stubborn = @pos_compat_medium
+		forgiving = @neg_compat_low
+	}
+}
+
+virtuous_buff_steal_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	learning = 4
+	court_grandeur_baseline_add = 4
+	ignore_negative_opinion_of_culture = 15
+	cultural_head_acceptance_gain_mult = 0.25
+	
+	
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_virtuous_buff_steal_trait_desc
+			}
+			desc = trait_virtuous_buff_steal_trait_character_desc
+		}
+	}
+	compatibility = {
+		temperate = @pos_compat_low
+		generous = @neg_compat_low
+		diligent = @pos_compat_low
+		calm = @pos_compat_low
+		impatient = @pos_compat_medium
+		humble = @pos_compat_low
+		honest = @pos_compat_medium
+		gregarious = @neg_compat_medium
+		content = @neg_compat_medium
+		arbitrary = @pos_compat_low
+		cynical = @neg_compat_low
+		paranoid = @pos_compat_medium
+		callous = @pos_compat_low
+		stubborn = @pos_compat_low
+		vengeful = @pos_compat_low
+	}
+}
+
+virtuous_buff_artisans_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	martial = 4
+	county_opinion_add = 20
+	monthly_county_control_growth_factor = -0.2
+	men_at_arms_recruitment_cost = -0.2
+	
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_virtuous_buff_artisans_trait_desc
+			}
+			desc = trait_virtuous_buff_artisans_trait_character_desc
+		}
+	}
+	compatibility = {
+		lustful = @pos_compat_medium
+		temperate = @neg_compat_medium
+		generous = @pos_compat_low
+		diligent = @neg_compat_medium
+		calm = @neg_compat_medium
+		patient = @neg_compat_medium
+		humble = @pos_compat_medium
+		honest = @pos_compat_low
+		craven = @neg_compat_low
+		shy = @neg_compat_high
+		ambitious = @pos_compat_low
+		just = @pos_compat_medium
+		trusting = @pos_compat_medium
+		compassionate = @pos_compat_medium
+		callous = @neg_compat_medium
+		sadistic = @neg_compat_medium
+		fickle = @pos_compat_medium
+		vengeful = @pos_compat_low
+	}
+}
+
+virtuous_buff_murder_trait = {
+	category = lifestyle
+	shown_in_ruler_designer = no
+
+	prowess = 6
+	knight_limit = 2
+	knight_effectiveness_mult = 0.15
+
+	dread_baseline_add = -10
+	general_opinion = 10
+	travel_danger = -5
+
+ #	ai_boldness = 0
+ #	ai_compassion = 0
+ #	ai_sociability = 0
+ #	ai_rationality = 0
+ #	ai_greed = 0
+ #	ai_energy = 0
+ #	ai_honor = 0
+ #	ai_vengefulness = 0
+ #	ai_zeal = 0
+
+	ruler_designer_cost = 80
+
+	icon = mbti_virtuous.dds
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_virtuous_buff_murder_trait_desc
+			}
+			desc = trait_virtuous_buff_murder_trait_character_desc
+		}
+	}
+	compatibility = {
+		chaste = @neg_compat_medium
+		greedy = @neg_compat_low
+		calm = @pos_compat_medium
+		arrogant = @neg_compat_medium
+		brave = @neg_compat_low
+		shy = @pos_compat_medium
+		content = @pos_compat_medium
+		just = @pos_compat_low
+		zealous = @pos_compat_low
+		trusting = @neg_compat_medium
+		compassionate = @pos_compat_medium
+		fickle = @pos_compat_medium
+		forgiving = @pos_compat_low
+	}
+}

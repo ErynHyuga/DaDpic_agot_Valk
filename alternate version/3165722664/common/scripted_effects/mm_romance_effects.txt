@@ -1,0 +1,86 @@
+﻿court_success_prestige_effect = {
+	if = {
+		limit = { court_love_is_shunned_or_criminal_trigger = no }  #Only if it's not a taboo courtship
+
+		#Whose tier matters?
+		if = {
+			limit = {
+				scope:target = {
+					is_ruler = no
+					exists = liege
+					OR = {
+						is_spouse_of = this.liege
+						is_close_or_extended_family_of = this.liege
+					}
+				}
+			}
+			scope:target = { liege = { save_scope_as = prestige_comparison } }
+		}
+		else = {
+			scope:target = { save_scope_as = prestige_comparison }
+		}
+
+		#Epic
+		if = {
+			limit = {
+				#They are at least two levels above you or empire level
+				OR = {
+					tier_difference = {
+						target = scope:prestige_comparison
+						value <= -2
+					}
+					scope:prestige_comparison.highest_held_title_tier = tier_empire
+				}
+			}
+			add_prestige = massive_prestige_gain
+		}
+		#Great
+		else_if = {
+			limit = {
+				OR = {
+					#They are one level above you or kingdom level
+					tier_difference = {
+						target = scope:prestige_comparison
+						value = -1
+					}
+					scope:prestige_comparison.highest_held_title_tier = tier_kingdom
+				}
+			}
+			add_prestige = major_prestige_gain
+		}	
+		#Good
+		else_if = {
+			limit = {
+				#They're your level or duchy level
+				OR = {
+					scope:prestige_comparison.highest_held_title_tier = this.highest_held_title_tier
+					scope:prestige_comparison.highest_held_title_tier = tier_duchy
+				}
+			}
+			add_prestige = medium_prestige_value
+		}
+		#Okay
+		else_if = {
+			limit = {
+				#They're at least county level
+				scope:prestige_comparison.highest_held_title_tier >= tier_county
+			}
+			add_prestige = minor_prestige_value
+		}
+		#Everything else (everyone targeting barons/unlanded)
+		else = {
+			add_prestige = miniscule_prestige_value
+		}
+		#Add Piety for tenet
+		if = {
+			limit = {
+				is_female = yes
+				scope:target = { is_female = yes }
+				faith = {
+					has_doctrine_parameter = mz_piety_gain_for_conversions
+				}
+			}
+			add_piety = minor_piety_gain
+		}	
+	}
+}

@@ -1,0 +1,135 @@
+﻿## Added the following exceptions:
+# Equal inheritance cultures can appoint any gender as chancellor/steward/marshal
+# Female inheritance cultures can appoint women as chancellor/steward/marshal even with male dominated faith
+# Female matriarchal dynasty members can always appoint women of their own dynasty as chancellor/steward/marshal as well
+
+can_be_chancellor_trigger = {
+	can_be_councillor_basics_trigger = yes
+	NAND = {
+		has_council_position = councillor_court_chaplain
+		faith = { has_doctrine_parameter = clerical_appointment_fixed }
+	}
+	NOT = {
+		OR = { 
+			has_council_position = councillor_spouse
+			AND = {
+				this = liege.diarch
+				liege = { has_diarchy_active_parameter = diarchy_is_vizierate }
+			}
+		}
+	}
+	OR = {
+		is_ruler = yes
+		AND = {
+			is_female = yes
+			$COURT_OWNER$.faith = { NOT = { has_doctrine_parameter = male_dominated_council } }
+		}
+		AND = {
+			is_male = yes
+			$COURT_OWNER$.faith = { NOT = { has_doctrine_parameter = female_dominated_council } }
+		}
+		AND = {
+			is_female = yes
+			$COURT_OWNER$.culture = { has_cultural_parameter = female_preference_inheritance }
+		}
+		AND = {
+			is_female = yes
+			$COURT_OWNER$ = { is_female = yes }
+			exists = dynasty
+			exists = $COURT_OWNER$.dynasty
+			dynasty = $COURT_OWNER$.dynasty
+			dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+		}
+	}
+}
+
+can_be_steward_trigger = {
+	can_be_councillor_basics_trigger = yes
+	NAND = {
+		has_council_position = councillor_court_chaplain
+		faith = { has_doctrine_parameter = clerical_appointment_fixed }
+	}
+	NOT = {
+		OR = { 
+			has_council_position = councillor_spouse
+			AND = {
+				this = liege.diarch
+				liege = { has_diarchy_active_parameter = diarchy_is_vizierate }
+			}
+		}
+	}
+	OR = {
+		is_ruler = yes
+		AND = {
+			is_female = yes
+			$COURT_OWNER$.faith = { NOT = { has_doctrine_parameter = male_dominated_council } }
+		}
+		AND = {
+			is_male = yes
+			$COURT_OWNER$.faith = { NOT = { has_doctrine_parameter = female_dominated_council } }
+		}
+		AND = {
+			is_female = yes
+			$COURT_OWNER$.culture = { has_cultural_parameter = female_preference_inheritance }
+		}
+		AND = {
+			is_female = yes
+			$COURT_OWNER$ = { is_female = yes }
+			exists = dynasty
+			exists = $COURT_OWNER$.dynasty
+			dynasty = $COURT_OWNER$.dynasty
+			dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+		}
+	}
+}
+
+can_be_marshal_trigger = {
+	can_be_councillor_basics_trigger = yes
+	is_hostage = no	
+	NAND = {
+		has_council_position = councillor_court_chaplain
+		faith = { has_doctrine_parameter = clerical_appointment_fixed }
+	}
+	NOT = {
+		OR = { 
+			has_council_position = councillor_spouse
+			AND = {
+				this = liege.diarch
+				liege = { has_diarchy_active_parameter = diarchy_is_vizierate }
+			}
+		}
+	}
+	OR = {
+		is_ruler = yes
+		AND = {
+			is_female = yes
+			$COURT_OWNER$.faith = { NOT = { has_doctrine_parameter = male_dominated_council } }
+		}
+		AND = {
+			is_male = yes
+			$COURT_OWNER$.faith = { NOT = { has_doctrine_parameter = female_dominated_council } }
+		}
+		AND = {
+			OR = {
+				has_trait = mz_amazonian_warrior
+				has_trait = shieldmaiden
+			}
+			OR = {
+				$COURT_OWNER$.culture = { has_cultural_parameter = has_access_to_shieldmaidens }
+				$COURT_OWNER$.culture = { has_cultural_parameter = mz_recruit_amazons_enabled }
+			}	
+		}
+		AND = {
+			is_female = yes
+			$COURT_OWNER$.culture = { has_cultural_parameter = female_preference_inheritance }
+		}
+		AND = {
+			is_female = yes
+			$COURT_OWNER$ = { is_female = yes }
+			exists = dynasty
+			exists = $COURT_OWNER$.dynasty
+			dynasty = $COURT_OWNER$.dynasty
+			dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+		}
+	}
+}

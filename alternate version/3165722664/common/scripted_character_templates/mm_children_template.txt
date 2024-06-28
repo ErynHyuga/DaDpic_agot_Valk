@@ -1,0 +1,10 @@
+﻿# Generated child for adoption
+mz_orphan_child = {
+	age = { 0 12 }
+	dynasty = generate
+	gender_female_chance = mz_root_succession_law_gender_female_chance
+	faith = root.faith
+	culture = root.culture
+	random_traits = yes
+	
+}

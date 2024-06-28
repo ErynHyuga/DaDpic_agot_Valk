@@ -1,0 +1,39 @@
+﻿### Search for consort triggers
+mz_viable_consort_trigger = {
+	is_adult = yes
+	is_married = no
+	is_betrothed = no
+	is_imprisoned = no
+	mz_has_disease_or_permanent_injury_or_poor_health_trigger = no
+	mz_has_unattractive_trait = no
+	fertility >= 0.4
+	age < 30
+}
+
+mz_consort_lowtier_trigger = {
+	mz_viable_consort_trigger = yes
+	OR = {
+		is_lowborn = yes
+		AND = {
+			exists = dynasty
+			dynasty.dynasty_prestige_level < 2
+		}
+	}
+	num_of_good_genetic_traits <= 1
+	num_of_bad_genetic_traits <= 0
+}
+
+mz_consort_midtier_trigger = {
+	mz_viable_consort_trigger = yes
+	is_lowborn = no
+	num_of_good_genetic_traits >= 1
+	num_of_good_genetic_traits <= 2
+	num_of_bad_genetic_traits <= 0
+}
+
+mz_consort_hightier_trigger = {
+	mz_viable_consort_trigger = yes
+	is_lowborn = no
+	num_of_good_genetic_traits >= 3
+	num_of_bad_genetic_traits <= 0
+}

@@ -1,0 +1,28 @@
+﻿# Can we appoint eunuchs? 
+mz_can_appoint_eunuchs_trigger = {
+	OR = {
+		AND = {
+			culture = { has_cultural_parameter = can_appoint_chief_eunuch } # Culture that has eunuchs
+			highest_held_title_tier >= tier_kingdom # Culture allows this at Kingdom rank
+		}
+		AND = {
+			is_landed = yes
+			dynasty ?= { has_dynasty_perk = mz_matriarchy_legacy_3 } # Or matriarchy legacy 3
+			highest_held_title_tier >= tier_duchy # Legacy perk unlocks this at duchy tier
+		}
+		AND = {
+			is_landed = yes
+			exists = liege
+			liege.dynasty ?= { has_dynasty_perk = mz_matriarchy_legacy_3 } # Or vassal of matriarch
+			highest_held_title_tier >= tier_duchy # Legacy perk unlocks this at duchy tier
+		}
+	}
+}
+
+# Is this character a court eunuch?
+mz_is_court_eunuch_trigger = {
+	has_trait = eunuch
+	is_female = no
+	has_any_court_position = yes
+	mz_can_appoint_eunuchs_trigger = yes
+}

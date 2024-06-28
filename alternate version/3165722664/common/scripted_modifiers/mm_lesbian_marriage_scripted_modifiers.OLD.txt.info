@@ -1,0 +1,1180 @@
+﻿mz_lesbian_marriage_pulse_accept_modifier = { ###MARRIAGE SCRIPTED MODIFIERS### search for #mz_tag to see where Medieval Matriarchs makes changes/additions
+	##############################################
+	# ALLIANCE/HOSTILITY Fmz_rootS ("REALPOLITIK") #
+	##############################################
+	modifier = {
+		add = {
+			value = 40
+			if = {
+				limit = {
+					scope:mz_root = {
+						tier_difference = {
+							target = scope:mz_spouse
+							value = -1
+						}
+					}
+				}
+				subtract = 10
+			}
+			else_if = {
+				limit = {
+					scope:mz_root = {
+						tier_difference = {
+							target = scope:mz_spouse
+							value = -2
+						}
+					}
+				}
+				subtract = 30
+			}
+			if = {
+				limit = {
+					scope:mz_root = {
+						any_ally = {
+							NOR = {
+    							target_is_liege_or_above = scope:mz_root
+    							target_is_vassal_or_below = scope:mz_root
+							}
+							count >= 2
+						}
+					}
+				}
+				scope:mz_root = {
+					every_ally = {
+						limit = {
+							NOR = {
+    							target_is_liege_or_above = scope:mz_root
+    							target_is_vassal_or_below = scope:mz_root
+							}
+						}
+						multiply = 0.5
+					}
+				}
+			}
+		}
+		scope:mz_spouse = {
+			NOR = {
+				is_allied_to = scope:mz_root
+				scope:mz_root = { # Emperors do not care for Counts at all
+					tier_difference = {
+						target = scope:mz_spouse
+						value <= -3
+					}
+				}
+			}
+			OR = {
+				ai_diplomacy_stance = {
+					target = scope:mz_root
+					stance = neutral
+				}
+				ai_diplomacy_stance = {
+					target = scope:mz_root
+					stance = threat
+				}
+			}
+			yields_alliance = {
+				candidate = scope:mz_spouse
+				target = scope:mz_root
+				target_candidate = scope:mz_root
+			}
+		}
+		OR = {
+			scope:mz_root = {
+				is_independent_ruler = yes
+			}
+			scope:mz_spouse = {
+				is_independent_ruler = yes
+			}
+			scope:mz_spouse.liege = scope:mz_root.liege
+		}
+		
+		desc = DESIRES_ALLIANCE
+	}
+	modifier = {
+		add = {
+			value = 100
+			if = {
+				limit = {
+					scope:mz_root = {
+						any_ally = {
+							NOR = {
+    							target_is_liege_or_above = scope:mz_root
+    							target_is_vassal_or_below = scope:mz_root
+							}
+							count >= 2
+						}
+					}
+				}
+				scope:mz_root = {
+					every_ally = {
+						limit = {
+							NOR = {
+    							target_is_liege_or_above = scope:mz_root
+    							target_is_vassal_or_below = scope:mz_root
+							}
+						}
+						multiply = 0.5
+					}
+				}
+			}
+		}
+		scope:mz_spouse = {
+			NOT = { is_allied_to = scope:mz_root }
+			ai_diplomacy_stance = {
+				target = scope:mz_root
+				stance = friend
+			}
+			yields_alliance = {
+				candidate = scope:mz_spouse
+				target = scope:mz_root
+				target_candidate = scope:mz_root
+			}
+		}
+		desc = DESIRES_ALLIANCE
+	}
+	modifier = {
+		add = -100
+		scope:mz_spouse = {
+			NOT = { is_allied_to = scope:mz_root }
+			ai_diplomacy_stance = {
+				target = scope:mz_root
+				stance = enemy
+			}
+			yields_alliance = {
+				candidate = scope:mz_spouse
+				target = scope:mz_root
+				target_candidate = scope:mz_root
+			}
+		}
+		desc = DOES_NOT_WANT_ALLIANCE
+	}
+	modifier = {
+		add = {
+			scope:mz_root = {
+				every_ally = {
+					limit = {
+						NOR = {
+    						target_is_liege_or_above = scope:mz_root
+    						target_is_vassal_or_below = scope:mz_root
+						}
+					}
+					add = -15
+				}
+			}
+		}
+		scope:mz_root = {
+			any_ally = {
+				NOR = {
+					target_is_vassal_or_below = scope:mz_root
+					target_is_liege_or_above = scope:mz_root
+				}
+				count >= 2
+			}
+		}
+		scope:mz_spouse = {
+			NOR = {
+				is_allied_to = scope:mz_root
+				target_is_vassal_or_below = scope:mz_root
+				target_is_liege_or_above = scope:mz_root
+			}
+			yields_alliance = {
+				candidate = scope:mz_spouse
+				target = scope:mz_root
+				target_candidate = scope:mz_root
+			}
+		}
+		desc = YOU_HAVE_TOO_MANY_ALLIANCES
+	}
+
+	####################
+	# TIER DIFFERENCES #
+	####################
+	modifier = {
+		tier_difference = {
+			target = scope:mz_spouse
+			value >= 1
+		}
+		add = {
+			value = scope:mz_root.highest_held_title_tier
+			subtract = scope:mz_spouse.highest_held_title_tier
+			multiply = 30
+		}
+		desc = MARRYING_UP_REASON
+	}
+	
+	modifier = {
+		tier_difference = {
+			target = scope:mz_spouse
+			value <= -1
+		}
+		add = {
+			value = scope:mz_root.highest_held_title_tier
+			subtract = scope:mz_spouse.highest_held_title_tier
+			if = {
+				limit = { scope:mz_root.highest_held_title_tier = tier_kingdom }
+				multiply = 30
+			}
+			else = {
+				multiply = 40
+			}
+		}
+		desc = MARRYING_DOWN_REASON
+	}
+	
+	modifier = {
+		NOR = {
+			scope:mz_root = {
+				tier_difference = {
+					target = scope:mz_spouse
+					value >= 0
+				}
+			}
+			AND = {
+				exists = scope:mz_root.father
+				scope:mz_root.father = {
+					tier_difference = {
+						target = scope:mz_spouse
+						value >= 0
+					}
+				}
+			}
+			AND = {
+				exists = scope:mz_root.mother
+				scope:mz_root.mother = {
+					tier_difference = {
+						target = scope:mz_spouse
+						value >= 0
+					}
+				}
+			}
+		}
+		add = {
+			value = 0
+			if = {
+				limit = {
+					scope:mz_root = {
+						exists = father.primary_title
+						trigger_if = {
+							limit = {
+								exists = mother.primary_title
+							}
+							father.primary_title.tier >= mother.primary_title.tier
+						}
+					}
+				}
+				add = scope:mz_root.father.highest_held_title_tier
+				subtract = scope:mz_spouse.highest_held_title_tier
+				if = {
+					limit = { scope:mz_root.father.highest_held_title_tier = tier_kingdom }
+					multiply = 30
+				}
+				else = {
+					multiply = 40
+				}
+			}
+			else_if = {
+				limit = {
+					scope:mz_root = {
+						exists = mother.primary_title
+						trigger_if = {
+							limit = {
+								exists = father.primary_title
+							}
+							mother.primary_title.tier >= father.primary_title.tier
+						}
+					}
+				}
+				add = scope:mz_root.mother.highest_held_title_tier
+				subtract = scope:mz_spouse.highest_held_title_tier
+				if = {
+					limit = { scope:mz_root.mother.highest_held_title_tier = tier_kingdom }
+					multiply = 30
+				}
+				else = {
+					multiply = 40
+				}
+			}
+			else = {
+				add = scope:mz_root.highest_held_title_tier
+				subtract = scope:mz_spouse.highest_held_title_tier
+				if = {
+					limit = { scope:mz_root.highest_held_title_tier = tier_kingdom }
+					multiply = 30
+				}
+				else = {
+					multiply = 40
+				}
+			}
+			
+		}
+		desc = MARRYING_DOWN_REASON
+	}
+
+	############
+	# OPINIONS #
+	############
+	opinion_modifier = { # A lot more likely if mz_spouse likes mz_root
+		who = scope:mz_spouse
+		opinion_target = scope:mz_root
+		multiplier = 0.75
+		desc = AI_OPINION_REASON
+	}
+	modifier = { # mz_spouse wants to marry their lovers
+		add = 25
+		scope:mz_spouse = {
+			has_relation_lover = scope:mz_root
+			NOT = { has_relation_soulmate = scope:mz_root }
+			# If it's a secret relation we know of it
+			trigger_if = {
+				limit = {
+					any_secret = {
+						secret_type = secret_lover
+						secret_target = scope:mz_root
+					}
+				}
+				any_secret = {
+					secret_type = secret_lover
+					secret_target = scope:mz_root
+					any_secret_knower = {
+						this = scope:mz_root
+					}
+				}
+			}
+		}
+		desc = ARE_LOVERS_REASON
+	}
+
+	modifier = { # mz_spouse wants to marry their soulmates
+		add = 100
+		scope:mz_spouse = {
+			has_relation_soulmate = scope:mz_root
+			# If it's a secret relation we know of it
+			trigger_if = {
+				limit = {
+					any_secret = {
+						secret_type = secret_lover
+						secret_target = scope:mz_root
+					}
+				}
+				any_secret = {
+					secret_type = secret_lover
+					secret_target = scope:mz_root
+					any_secret_knower = {
+						this = scope:mz_root
+					}
+				}
+			}
+		}
+		desc = ARE_SOULMATES_REASON
+	}
+	
+	modifier = { # Same language
+		add = 5
+		desc = speaks_same_language_interaction_reason
+		trigger = {
+			scope:mz_root = {
+				knows_language_of_culture = scope:mz_spouse.culture
+			}
+		}
+	}
+	
+	modifier = { # Shared Court Language (non-spoken)
+		add = 5
+		desc = foreign_realm_court_language_non_spoken_interaction_reason
+		trigger = {
+			scope:mz_root = {
+				has_royal_court = yes
+				NOT = { knows_court_language_of = this }
+			}
+			NOT = {
+				scope:mz_root.top_liege = scope:mz_spouse.top_liege
+			}
+			OR = {
+				AND = {
+					scope:mz_spouse = {
+						has_royal_court = yes
+					}
+					scope:mz_root = { # You share Court Language
+						has_same_court_language = scope:mz_spouse
+					}
+				}
+				
+				scope:mz_spouse = { # The mz_spouse doesn't have a royal court, but their liege does
+					is_independent_ruler = no
+					is_pool_character = no
+					has_royal_court = no
+					exists = liege 
+					liege = {
+						has_royal_court = yes
+						has_same_court_language = scope:mz_root
+					}
+				}
+				scope:mz_spouse = { # The mz_spouse doesn't have a royal court, but their liege's liege does, while their liege doesn't have a royal court
+					is_independent_ruler = no
+					is_pool_character = no
+					has_royal_court = no
+					exists = liege.liege
+					liege = {
+						is_independent_ruler = no
+						has_royal_court = no
+					}
+					liege.liege = {
+						has_royal_court = yes
+						has_same_court_language = scope:mz_root
+					}
+				}
+				scope:mz_spouse = { # The mz_spouse doesn't have a royal court, but their liege's liege's liege does, while their liege doesn't have a royal court
+					is_independent_ruler = no
+					is_pool_character = no
+					has_royal_court = no
+					exists = liege.liege
+					exists = liege.liege.liege
+					liege = {
+						is_independent_ruler = no
+						has_royal_court = no
+					}
+					liege.liege = {
+						is_independent_ruler = no
+						has_royal_court = no
+					}
+					liege.liege.liege = {
+						has_royal_court = yes
+						has_same_court_language = scope:mz_root
+					}
+				}
+				scope:mz_spouse = { # The mz_spouse doesn't have a royal court, but their liege's liege's liege's liege does, while their liege doesn't have a royal court
+					is_independent_ruler = no
+					is_pool_character = no
+					has_royal_court = no
+					exists = liege.liege
+					exists = liege.liege.liege
+					exists = liege.liege.liege.liege
+					liege = {
+						is_independent_ruler = no
+						has_royal_court = no
+					}
+					liege.liege = {
+						is_independent_ruler = no
+						has_royal_court = no
+					}
+					liege.liege.liege = {
+						is_independent_ruler = no
+						has_royal_court = no
+					}
+					liege.liege.liege.liege = {
+						has_royal_court = yes
+						has_same_court_language = scope:mz_root
+					}
+				}
+			}
+		}
+	}
+	
+	modifier = { # Shared Court Language (spoken)
+		add = 15
+		desc = foreign_realm_court_language_spoken_interaction_reason
+		trigger = {
+			scope:mz_root = {
+				has_royal_court = yes
+				knows_court_language_of = this
+			}
+			NOT = {
+				scope:mz_root.top_liege = scope:mz_spouse.top_liege
+			}
+			OR = {
+				AND = {
+					scope:mz_spouse = {
+						has_royal_court = yes
+					}
+					scope:mz_root = { # You share Court Language
+						has_same_court_language = scope:mz_spouse
+					}
+				}
+				
+				scope:mz_spouse = { # The mz_spouse doesn't have a royal court, but their liege does
+					is_independent_ruler = no
+					is_pool_character = no
+					has_royal_court = no
+					exists = liege 
+					liege = {
+						has_royal_court = yes
+						has_same_court_language = scope:mz_root
+					}
+				}
+				scope:mz_spouse = { # The mz_spouse doesn't have a royal court, but their liege's liege does, while their liege doesn't have a royal court
+					is_independent_ruler = no
+					is_pool_character = no
+					has_royal_court = no
+					exists = liege.liege
+					liege = {
+						is_independent_ruler = no
+						has_royal_court = no
+					}
+					liege.liege = {
+						has_royal_court = yes
+						has_same_court_language = scope:mz_root
+					}
+				}
+				scope:mz_spouse = { # The mz_spouse doesn't have a royal court, but their liege's liege's liege does, while their liege doesn't have a royal court
+					is_independent_ruler = no
+					is_pool_character = no
+					has_royal_court = no
+					exists = liege.liege
+					exists = liege.liege.liege
+					liege = {
+						is_independent_ruler = no
+						has_royal_court = no
+					}
+					liege.liege = {
+						is_independent_ruler = no
+						has_royal_court = no
+					}
+					liege.liege.liege = {
+						has_royal_court = yes
+						has_same_court_language = scope:mz_root
+					}
+				}
+				scope:mz_spouse = { # The mz_spouse doesn't have a royal court, but their liege's liege's liege's liege does, while their liege doesn't have a royal court
+					is_independent_ruler = no
+					is_pool_character = no
+					has_royal_court = no
+					exists = liege.liege
+					exists = liege.liege.liege
+					exists = liege.liege.liege.liege
+					liege = {
+						is_independent_ruler = no
+						has_royal_court = no
+					}
+					liege.liege = {
+						is_independent_ruler = no
+						has_royal_court = no
+					}
+					liege.liege.liege = {
+						is_independent_ruler = no
+						has_royal_court = no
+					}
+					liege.liege.liege.liege = {
+						has_royal_court = yes
+						has_same_court_language = scope:mz_root
+					}
+				}
+			}
+		}
+	}
+	
+	###########################
+	# DYNASTY PRESTIGE LEVELS #
+	###########################
+	modifier = {
+		scope:mz_root = { has_dynasty = no }
+		add = {
+			value = -20 # AI really doesn't like marrying lowborn courtiers.
+			if = {
+				limit = { # Especially not if they're not lowborn themselves
+					scope:mz_spouse = { has_dynasty = yes }
+				}
+				multiply = 6
+			}
+		}
+		desc = AI_DYNASTY_PRESTIGE_REASON_LOWBORN
+	}
+	modifier = {
+		scope:mz_root = { has_dynasty = yes }
+		NOT = { scope:mz_root.dynasty = { dynasty_prestige_level = 1 } } #Would equal a value of 0, so we hide it
+		add = {
+			value = scope:mz_root.dynasty.dynasty_prestige_level
+			multiply = 5
+			subtract = 5 #At 0 dynasty prestige level, there should be a penalty
+		}
+		desc = AI_DYNASTY_PRESTIGE_REASON_SECONDARY
+	}
+
+	#########
+	# FAITH #
+	#########
+	modifier = { # A mz_spouse will be reluctant (to differing degrees) to agree to marriages sent from an mz_root of a different faith
+		add = {
+			value = -10
+			if = {
+				limit = {					
+					NOR = {
+						# Exempt certain struggle phases.
+						mz_is_struggle_parameter_active_interfaith_marriages_available_between_involved_characters_trigger = yes
+						# Exempt Conciliation struggle resolution
+						AND = {
+							has_global_variable = fp2_struggle_conciliation_ending
+							fp2_struggle_conciliation_special_cultural_rules_trigger = { C1 = scope:mz_spouse C2 = scope:mz_root }
+						}
+					}
+				}
+				if = {
+					limit = {
+						scope:mz_spouse.faith = {
+							faith_hostility_level = {
+								target = scope:mz_root.faith
+								value > faith_astray_level
+							}
+						}
+					}
+					subtract = 15
+				}
+				if = {
+					limit = {
+						scope:mz_spouse.faith = {
+							faith_hostility_level = {
+								target = scope:mz_root.faith
+								value >= faith_hostility_prevents_marriage_level
+							}
+						}
+					}
+					subtract = 975
+				}
+			}
+		}
+
+		scope:mz_spouse.faith = {
+			faith_hostility_level = {
+				target = scope:mz_root.faith
+				value > faith_fully_accepted_level
+			}
+		}
+		desc = MARRY_DIFFERENT_FAITH_REASON
+	}
+
+	modifier = { # Polygamy not supported
+		add = -1000
+		desc = DIVORCE_POLYGAMY
+
+		scope:mz_root = { 
+			is_married = yes 
+		}
+		AND = {
+			scope:mz_spouse.culture = { NOT = { has_cultural_tradition = tradition_polygamous } }
+			scope:mz_spouse.faith = { NOT = { has_doctrine = doctrine_polygamy } }
+		}
+	}
+
+	modifier = { # Same-sex marriage not supported in mz_spouse's faith
+		add = -100
+		desc = SAME_SEX_MARRIAGE_FAITH_REASON
+
+		scope:mz_spouse = {
+			sex_same_as = scope:mz_root
+			allowed_to_marry_same_sex_trigger = no
+		} # Not insurmountable but large penalty
+	}
+
+
+	#########
+	# LIEGE #
+	#########
+	modifier = { # A mz_spouse is more likely to agree to a marriage with their liege.
+		add = 60
+		
+		scope:mz_spouse = {
+			target_is_liege_or_above = scope:mz_root
+		}
+		desc = LIEGE_REASON
+	}
+
+	#############
+	# CLAIMANTS #
+	#############
+	modifier = { # Don't agree to marry off Claimants to inconsequential courtiers
+		add = -50
+		scope:mz_spouse = {
+			is_claimant = yes
+			NOT = {
+				any_claim = {
+					holder = scope:mz_spouse
+				}
+			}
+			NOR = {
+				this = scope:mz_spouse
+				is_close_or_extended_family_of = scope:mz_spouse
+			}
+		}
+		scope:mz_root = {
+			is_landed = no
+			NOT = { is_close_or_extended_family_of = scope:mz_spouse }
+		}
+		desc = VALUABLE_CLAIMANT
+	}
+	
+	modifier = { # Reluctance in marrying off Claimants to my own titles, if I am not related to the mz_spouse. I'd rather keep the claimants under lock and key!
+		add = -50
+		scope:mz_spouse = {
+			any_claim = {
+				holder = scope:mz_spouse
+			}
+			NOT = { is_close_or_extended_family_of = scope:mz_spouse }
+		}
+		desc = CLAIMANT_TO_MY_TITLES
+	}
+
+	#########
+	# DREAD #
+	#########
+	#More likely to accept a preposition that doesn't include them if they fear you
+	modifier = {
+		add = intimidated_marriage_reason_value
+		scope:mz_spouse = {
+			NOT = { this = scope:mz_spouse }
+			target_is_liege_or_above = scope:mz_root
+			has_dread_level_towards = {
+				target = scope:mz_root
+				level = 1
+			}
+		}
+		desc = INTIMIDATED_REASON
+	}
+	modifier = {
+		add = cowed_marriage_reason_value
+		scope:mz_spouse = {
+			NOT = { this = scope:mz_spouse }
+			target_is_liege_or_above = scope:mz_root
+			has_dread_level_towards = {
+				target = scope:mz_root
+				level = 2
+			}
+		}
+		desc = COWED_REASON
+	}
+	
+	modifier = {
+		add = intimidated_marriage_external_reason_value
+		scope:mz_spouse = {
+			NOT = { this = scope:mz_spouse }
+			NOT = { target_is_liege_or_above = scope:mz_root }
+			has_dread_level_towards = {
+				target = scope:mz_root
+				level = 1
+			}
+		}
+		desc = INTIMIDATED_REASON
+	}
+	modifier = {
+		add = cowed_marriage_external_reason_value
+		scope:mz_spouse = {
+			NOT = { this = scope:mz_spouse }
+			NOT = { target_is_liege_or_above = scope:mz_root }
+			has_dread_level_towards = {
+				target = scope:mz_root
+				level = 2
+			}
+		}
+		desc = COWED_REASON
+	}
+	#Less likely to accept a marriage with someone they are scared off
+	modifier = {
+		add = -50
+		scope:mz_spouse = {
+			this = scope:mz_spouse
+			target_is_liege_or_above = scope:mz_root
+			has_dread_level_towards = {
+				target = scope:mz_root
+				level = 1
+			}
+		}
+		desc = INTIMIDATED_REASON
+	}
+	modifier = {
+		add = -75
+		scope:mz_spouse = {
+			this = scope:mz_spouse
+			target_is_liege_or_above = scope:mz_root
+			has_dread_level_towards = {
+				target = scope:mz_root
+				level = 2
+			}
+		}
+		desc = COWED_REASON
+	}
+	
+	modifier = {
+		add = -75
+		scope:mz_spouse = {
+			this = scope:mz_spouse
+			NOT = { target_is_liege_or_above = scope:mz_root }
+			has_dread_level_towards = {
+				target = scope:mz_root
+				level = 1
+			}
+		}
+		desc = INTIMIDATED_REASON
+	}
+	modifier = {
+		add = -150
+		scope:mz_spouse = {
+			this = scope:mz_spouse
+			NOT = { target_is_liege_or_above = scope:mz_root }
+			has_dread_level_towards = {
+				target = scope:mz_root
+				level = 2
+			}
+		}
+		desc = COWED_REASON
+	}
+
+	### FAMILY CONSIDERATIONS
+	modifier = {
+		add = -1000
+		scope:mz_spouse.faith = {
+			NOT = {
+				faith_allows_marriage_consanguinity_trigger = { CHARACTER_1 = scope:mz_spouse CHARACTER_2 = scope:mz_root }
+			}
+		}
+		desc = MARRY_CONSANGUINITY_REASON
+	}
+	
+	modifier = {
+		trigger = {
+			scope:mz_spouse = {
+				age > 20
+				OR = {
+					dynasty = scope:mz_spouse.dynasty
+					is_close_or_extended_family_of = scope:mz_spouse
+				}
+			}
+		}
+		add = {
+			value = scope:mz_spouse.age
+			subtract = 20
+		}
+		desc = MARRIAGE_DESPERATION
+	}
+
+	modifier = { #The mz_root's spouse has boosted the AI's willingness to marry the heir
+		add = 75
+		scope:mz_root = {
+			exists = player_heir
+			player_heir = scope:mz_root
+		}
+		scope:mz_root = {
+			has_character_modifier = heir_easier_to_marry_off_modifier
+		}
+		desc = MARRIAGE_SPOUSE_COUNCILLOR_BOOST_HEIR
+	}
+	modifier = {
+		add = 50
+		scope:mz_root = {
+			is_child_of = scope:mz_root
+			has_character_modifier = child_easier_to_marry_off_modifier
+		}
+		desc = MARRIAGE_SPOUSE_COUNCILLOR_BOOST_CHILD
+	}
+
+
+	################
+	# INSPIRATIONS #
+	################
+
+	modifier = { # Inspired people will be _very_ hesitant
+		exists = scope:mz_spouse.inspiration
+		has_completed_inspiration = no
+		add = -100
+		desc = IS_FOCUSING_ON_INSPIRATION_MODIFIER
+	}
+
+	##################
+	# COURT GRANDEUR #
+	##################
+
+	modifier = { # Court grandeur level above expected level gives a boost 
+		add = {
+			value = 0
+			add = scope:mz_root.court_grandeur_current_level
+			subtract = scope:mz_root.court_grandeur_minimum_expected_level
+			if = {
+				limit = {
+					scope:mz_spouse.faith = {
+						faith_hostility_level = {
+							target = scope:mz_root.faith
+							value = faith_astray_level
+						}
+					}
+				}
+				divide = 2
+			}
+			else_if = {
+				limit = {
+					scope:mz_spouse.faith = {
+						faith_hostility_level = {
+							target = scope:mz_root.faith
+							value = faith_hostile_level
+						}
+					}
+				}
+				divide = 3
+			}
+			else_if = {
+				limit = {
+					scope:mz_spouse.faith = {
+						faith_hostility_level = {
+							target = scope:mz_root.faith
+							value = faith_evil_level
+						}
+					}
+				}
+				divide = 4
+			}
+		}
+		desc = COURT_GRANDEUR_LEVEL_MARRIAGE_ACCEPTANCE_BOOST_MODIFIER
+		scope:mz_root = {
+			has_royal_court = yes
+			court_grandeur_current_level > court_grandeur_minimum_expected_level
+		}
+	}
+
+	modifier = { # Court grandeur level below expected level gives a penalty 
+		add = {
+			value = 0
+			add = scope:mz_root.court_grandeur_current_level
+			subtract = scope:mz_root.court_grandeur_minimum_expected_level
+			multiply = 10
+		}
+		desc = COURT_GRANDEUR_LEVEL_MARRIAGE_ACCEPTANCE_PENALTY_MODIFIER
+		scope:mz_root = {
+			has_royal_court = yes
+			court_grandeur_current_level < court_grandeur_minimum_expected_level
+		}
+	}
+	
+	################
+	#  TRADITIONS  #
+	################
+	modifier = { # Wedding Ceremonies
+		scope:mz_root.culture = { has_cultural_parameter = marriage_acceptance_bonus }
+		add = 10
+		desc = TRADITION_BONUS_WEDDING_CEREMONIES
+	}
+	modifier = {
+		add = -50
+		scope:mz_spouse = {
+			culture = {
+				has_cultural_parameter = dislikes_marrying_outside_of_culture
+			}
+		}
+		NOT = {
+			scope:mz_spouse.culture = scope:mz_root.culture
+		}
+		desc = TRADITION_PENALTY_ISOLATIONIST
+	}
+
+	################
+	#  STRUGGLES   #
+	################
+	modifier = {
+		add = 25
+		desc = STRUGGLE_MARRIAGE_ACCEPTANCE_BOTH_INVOLVED_BONUS
+		scope:mz_root = {
+			any_character_struggle = {
+				involvement = involved
+				is_struggle_parameter_active_secondary_character_involvement_involved_trigger = {
+					PARAMETER = involved_form_alliances_with_each_other_easier
+					CHAR = scope:mz_spouse
+				}
+			}
+		}
+	}
+	# We add some hidden reluctance for the AI selecting/accepting marriages from outside a struggle they're involved in unless a player is taking part.
+	## Involved struggle characters will seek to avoid marrying anyone outside the struggle who isn't already quite powerful.
+	modifier = {
+		factor = {
+			value = 0
+			if = {
+				limit = {
+					scope:mz_root = {
+						is_ai = yes
+						any_character_struggle = {
+							involvement = involved
+							phase_has_catalyst = catalyst_forming_alliance_with_major_uninvolved_power
+						}
+					}
+				}
+				if = {
+					limit = {
+						scope:mz_spouse = {
+							is_ai = yes
+							realm_size <= medium_realm_size
+						}
+					}
+					add = 0.2
+				}
+				else_if = {
+					limit = {
+						scope:mz_spouse = {
+							is_ai = yes
+							any_character_struggle = {
+								involvement = involved
+								phase_has_catalyst = catalyst_forming_alliance_with_major_uninvolved_power
+							}
+						}
+						scope:mz_root = {
+							is_ai = yes
+							realm_size <= medium_realm_size
+						}
+					}
+					add = 0.2
+				}
+			}
+		}
+		OR = {
+			AND = {
+				# The actor is involved and try to marry with someone outside of it
+				scope:mz_root = {
+					is_ai = yes
+					any_character_struggle = {
+						involvement = involved
+						is_secondary_character_involvement_neither_trigger = { CHAR = scope:mz_spouse }
+					}
+				}
+				scope:mz_spouse = {
+					is_ai = yes
+				}
+			}
+			AND = {
+				# The actor is not involved and try to marry with someone inside of it
+				scope:mz_spouse = {
+					is_ai = yes
+					any_character_struggle = {
+						involvement = involved
+						is_secondary_character_involvement_neither_trigger = { CHAR = scope:mz_root }
+					}
+				}
+				scope:mz_root = {
+					is_ai = yes
+				}
+			}
+		}
+	}
+	## And heavily weight down interlopers and powerful uninvolved because they're strange and foreign.
+	modifier = {
+		factor = 0.5
+		OR = {
+			AND = {
+				scope:mz_root = {
+					is_ai = yes
+					any_character_struggle = {
+						involvement = involved
+						is_secondary_character_involvement_interloper_trigger = { CHAR = scope:mz_spouse }
+					}
+				}
+				scope:mz_spouse = { is_ai = yes }
+			}
+			AND = {
+				scope:mz_spouse = {
+					is_ai = yes
+					any_character_struggle = {
+						involvement = involved
+							is_secondary_character_involvement_interloper_trigger = { CHAR = scope:mz_root }
+					}
+				}
+				scope:mz_root = { is_ai = yes }
+			}
+		}
+	}
+
+	################
+	#  DIARCHIES   #
+	################
+	# Temporary or designated regents.
+	modifier = {
+		add = 10
+		scope:mz_spouse = {
+			OR = {
+				AND = {
+					designated_diarch ?= scope:mz_root
+					# Otherwise designated diarchs that become entrenched regents'll still this bonus.
+					NOT = { exists = diarch }
+				}
+				AND = {
+					diarch ?= scope:mz_root
+					has_diarchy_active_parameter = diarchy_type_is_temporary_regency
+				}
+			}
+		}
+		desc = DIARCHY_TEMPORARY_OR_DESIGNATED_REGENT_WEDDING_ACCEPTANCE
+	}
+	# Entrenched regents.
+	modifier = {
+		add = {
+			value = scope:mz_spouse.diarchy_swing
+			multiply = 0.5
+		}
+		scope:mz_spouse = {
+			diarch ?= scope:mz_root
+			has_diarchy_active_parameter = diarchy_type_is_entrenched_regency
+		}
+		desc = DIARCHY_ENTRENCHED_REGENT_WEDDING_ACCEPTANCE
+	}
+
+	###########
+	#  FEUD   #
+	###########
+	modifier = {
+		add = -25
+		scope:mz_spouse = {
+			exists = house
+			house.house_head = {
+				house_feud_target_house_trigger = { HOUSE = scope:mz_root.house }
+			}
+		}
+		desc = MARRY_FAMILY_FEUD_REASON
+	}
+
+	#################
+	# GRAND WEDDING #
+	#################
+	modifier = {
+		# Being offered a Grand Wedding increases acceptance
+		add = 40
+		scope:grand_wedding_promise = yes
+
+		desc = GRAND_WEDDING_PROMISE_REASON_1
+	}
+	# Having already organized a good Grand Wedding increases acceptance
+	modifier = {
+		has_character_modifier = gwedding_magnificent_host_modifier
+		add = 25
+		desc = GRAND_WEDDING_MAGNIFICENT_HOST_REASON
+	}
+	# Don't offer the same (or parallel) Grand Wedding when a betrothal is already ongoing
+	modifier = {
+		add = -5000
+		OR = {
+			scope:secondary_actor = { has_been_promised_grand_wedding = yes }
+			scope:secondary_recipient = { has_been_promised_grand_wedding = yes }
+		}
+	}
+	# 
+	modifier = {
+		add = ep2_activities_legacy_2_grand_weddings_acceptance_boost_value
+		scope:mz_root.dynasty ?= { has_dynasty_perk = ep2_activities_legacy_2  }
+		desc = GRAND_WEDDING_DYNASTY_LEGACY_BONUS
+	}
+
+	#######################
+	#  #mz_tag additions  #
+	#######################
+	modifier = { # Less willing if serving liege in some capacity
+		exists = scope:mz_spouse.liege
+		scope:mz_spouse = {
+			is_councillor_of = scope:mz_spouse.liege
+			is_knight = yes
+			has_any_court_position = yes
+		}
+		add = -25
+	}
+
+	modifier = { # Even more less willing to break marriages to liege's heirs
+		exists = scope:mz_spouse.liege
+		any_spouse = {
+			player_heir_position = { #0, 1, 2 = the first three player heirs in succession line.
+				value <= 2
+				target = scope:mz_spouse.liege
+			}	
+		}
+		add = -50
+	}
+}

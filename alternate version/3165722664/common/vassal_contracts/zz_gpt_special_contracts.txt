@@ -1,0 +1,173 @@
+﻿@ai_standard_liege_desire = 2
+@ai_standard_vassal_desire = 1
+# Everything below this line is 'Fine Print'
+
+fortification_rights = {
+	display_mode = checkbox
+ #	is_shown = {
+ #		scope:liege.culture = {
+ #			has_innovation = innovation_battlements
+ #		}
+ #	}
+	obligation_levels = {
+		fortification_rights_none = {
+			default = yes
+			position = { 0 0 }
+
+			ai_liege_desire = @ai_standard_liege_desire
+			ai_vassal_desire = 0
+		}
+		fortification_rights_granted = {
+		 #	is_valid = {
+		 #		scope:liege.culture = {
+		 #			has_innovation = innovation_battlements
+		 #		}
+		 #	}
+			parent = fortification_rights_none
+			position = { 1 0 }
+
+		 	flag = gpt_fortification_rights
+
+		 	tax_factor = -0.10
+		 	vassal_opinion = 5
+
+			liege_modifier = {
+				monthly_county_control_growth_add = -0.1
+				tyranny_loss_mult = 0.05
+			}
+
+			vassal_modifier = {
+				castle_holding_build_gold_cost = -0.15
+				castle_holding_holding_build_gold_cost = -0.50
+				domain_limit = 1
+				fellow_vassal_opinion = -10
+			}
+
+			ai_liege_desire = 0
+			ai_vassal_desire = @ai_standard_vassal_desire
+		}
+	}
+}
+
+coinage_rights = {
+	display_mode = checkbox
+ #	is_shown = {
+ #		scope:liege.culture = {
+ #			has_innovation = innovation_currency_02
+ #		}
+ #	}
+	obligation_levels = {
+		coinage_rights_none = {
+			default = yes
+			position = { 0 0 }
+
+			ai_liege_desire = @ai_standard_liege_desire
+			ai_vassal_desire = 0
+		}
+		coinage_rights_granted = {
+		 #	is_valid = {
+		 #		scope:liege.culture = {
+		 #			has_innovation = innovation_currency_02
+		 #		}
+		 #	}
+
+		 	flag = gpt_coinage_rights
+		 #  	tax_factor = -0.20
+			vassal_opinion = 10
+
+			parent = coinage_rights_none
+			position = { 1 0 }
+
+			liege_modifier = {
+				character_capital_county_monthly_development_growth_add = -0.1
+			}
+			vassal_modifier = {
+				character_capital_county_monthly_development_growth_add = 0.5
+			}
+
+			ai_liege_desire = 0
+			ai_vassal_desire = @ai_standard_vassal_desire
+		}
+	}
+}
+
+succession_rights = {
+	display_mode = checkbox
+	is_shown = {
+		scope:vassal = {
+			can_have_confederate_partition_succession_law_trigger = yes
+		}
+	}
+	obligation_levels = {
+		succession_rights_default = {
+			default = yes
+			position = { 0 0 }
+
+			ai_liege_desire = 0
+			ai_vassal_desire = @ai_standard_vassal_desire
+		}
+		succession_rights_forced_partition = {
+			is_valid = {
+				scope:vassal = {
+					can_have_confederate_partition_succession_law_trigger = yes
+				}
+			}
+			score = -1
+			parent = succession_rights_default
+			position = { 1 0 }
+
+			levies_factor = 0.20
+			tax_factor = 0.20
+			vassal_opinion = -15
+
+			liege_modifier = {
+				monthly_prestige_gain_mult = 0.05
+				tyranny_gain_mult = 0.05
+			}
+			vassal_modifier = {
+				monthly_prestige_gain_mult = -0.25
+				fellow_vassal_opinion = 10
+			}
+
+			flag = locked_to_partition
+
+			ai_liege_desire = @ai_standard_liege_desire
+			ai_vassal_desire = 0
+		}
+	}
+}
+
+war_declaration_rights = {
+	display_mode = checkbox
+	obligation_levels = {
+		war_declaration_rights_default = {
+			default = yes
+			position = { 0 0 }
+
+			ai_liege_desire = @ai_standard_liege_desire
+			ai_vassal_desire = 0
+		}
+		war_declaration_rights_allowed = {
+			parent = war_declaration_rights_default
+			position = { 1 0 }
+
+		 	levies_factor = -0.10
+			vassal_opinion = 5
+
+			liege_modifier = {
+				men_at_arms_recruitment_cost = 0.05
+				dread_baseline_add = -5
+			}
+			vassal_modifier = {
+				men_at_arms_recruitment_cost = -0.30
+				dread_baseline_add = 15
+				fellow_vassal_opinion = -10
+			}
+
+			flag = vassal_contract_war_override
+
+			ai_liege_desire = 0
+			ai_vassal_desire = @ai_standard_vassal_desire
+		}
+	}
+}

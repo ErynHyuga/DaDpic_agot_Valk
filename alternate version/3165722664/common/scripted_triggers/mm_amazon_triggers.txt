@@ -1,0 +1,129 @@
+﻿### All triggers related to the Amazons
+
+## For recruiting Amazon champions
+mz_amazon_champion_candidate_trigger = {
+	age >= 20
+	age < 60
+	martial >= decent_skill_rating
+	prowess >= decent_skill_rating
+	mz_amazon_character_trigger = yes # Only recruit actual Amazons
+	opinion = { # Just to make sure you don't pull in rivals or similar
+		value >= -30
+		target = $HOST$
+	}
+	NOT = { is_in_list = mz_potential_recruits }
+	mz_has_disease_or_permanent_injury_or_poor_health_trigger = no
+}
+
+## Identifies Amazon warrior for certain events
+mz_amazon_warrior_trigger = {
+	is_capable_adult = yes
+	mz_has_disease_or_permanent_injury_or_poor_health_trigger = no
+	mz_has_any_illness_trigger = no
+	has_trait = mz_amazonian_warrior
+	is_female = yes
+	culture = { mz_is_amazonian_culture = yes } # Only select actual Amazons
+}
+
+## Identifies a courtier suitable for training
+mz_amazon_trainee = {
+	NOT = { has_character_flag = mz_amazon_event_fired_recently } # Try to stop events from targeting the same character over and over
+	is_capable_adult = yes
+	is_female = yes
+	mz_has_any_illness_trigger = no
+	mz_has_disease_or_permanent_injury_or_poor_health_trigger = no
+	NOR = {
+		has_trait = physique_bad
+		has_trait = spindly
+		has_trait = denounced
+	}
+	dynasty ?= root.dynasty # Same dynasty
+	is_courtier_of = root # Courtier
+}
+
+## Evaluating Dynasty's relation with Amazons, character scope
+mz_has_amazon_contact = {
+	OR = {
+		dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_1 }
+		dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_2 }
+		dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_3 }
+		dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_4 }
+		dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_5 }
+		dynasty ?= { has_dynasty_modifier = mz_permanent_amazon_alliance }
+	}
+}
+
+mz_has_amazon_rank_2 = {
+	OR = {
+		dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_2 }
+		dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_3 }
+		dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_4 }
+		dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_5 }
+		dynasty ?= { has_dynasty_modifier = mz_permanent_amazon_alliance }
+	}
+}
+
+mz_has_amazon_rank_3 = {
+	OR = {
+		dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_3 }
+		dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_4 }
+		dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_5 }
+		dynasty ?= { has_dynasty_modifier = mz_permanent_amazon_alliance }
+	}
+}
+
+mz_has_amazon_rank_4 = {
+	OR = {
+		dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_4 }
+		dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_5 }
+		dynasty ?= { has_dynasty_modifier = mz_permanent_amazon_alliance }
+	}
+}
+
+mz_has_amazon_rank_5 = {
+	OR = {
+		dynasty ?= { has_dynasty_modifier = mz_amazon_alliance_rank_5 }
+		dynasty ?= { has_dynasty_modifier = mz_permanent_amazon_alliance }
+	}
+}
+
+## Is character an Amazon? Sounds a bit silly but is used to distinguish actual Amazon characters rather than just characters that have the Amazon Warrior trait. Culture is the main factor.
+mz_amazon_character_trigger = {
+	is_female = yes
+	culture = { mz_is_amazonian_culture = yes }
+	has_trait = mz_amazonian_warrior
+}
+
+## Is this an Amazon ruler?
+mz_amazon_ruler_trigger = {
+	is_female = yes # Only women are considered
+	OR = { # Has one of the Amazon kingdoms or empires
+		has_title = title:k_mz_themiscyra
+		has_title = title:e_mz_amazonia
+		has_title = title:k_mz_scythia
+		has_title = title:e_mz_scythia
+	}
+	OR = { # And...
+		is_independent_ruler = yes # Independent
+		OR = { # Liege has one of the empire titles
+			liege = { has_title = title:e_mz_amazonia }
+			liege = { has_title = title:e_mz_scythia }
+		}
+	}
+}
+
+mz_is_amazonian_culture = { # This is used from the culture scope
+	OR = {
+		this = culture:mz_amazonian # Base Amazonian culture is always acceptable as a fallback
+		AND = { # Other cultures may be considered Amazonian if:
+			has_cultural_parameter = mz_recruit_amazons_enabled # Can recruit Amazons
+			has_cultural_parameter = mz_mandatory_female_only # one of the Amazon Matriarchy traditions
+			NOR = { 
+				has_cultural_pillar = martial_custom_male_only  # Martial custom cannot be only men
+				has_cultural_parameter = reduced_cost_for_conversion_to_pacifist_faith # Amazon culture cannot be Pacifists
+				has_cultural_parameter = cannot_hunt # No Vegetarian
+			}
+			any_parent_culture_or_above = { this = culture:mz_amazonian } # Diverged/hybrid from Amazonian
+		}
+	}
+}

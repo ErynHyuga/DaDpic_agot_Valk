@@ -1,0 +1,465 @@
+﻿mz_spiritual_hof_change_gender_view_effect = {
+	if = {
+		limit = {
+			faith = { has_doctrine = doctrine_gender_male_dominated }
+		}
+		faith = {
+			remove_doctrine = doctrine_gender_male_dominated
+			add_doctrine = doctrine_gender_equal
+		}
+	}
+	if = {
+		limit = {
+			faith.religious_head = {
+				exists = this
+				opinion = {
+					target = root
+					value < high_positive_opinion
+				}
+			}
+			OR = {
+				has_hook = faith.religious_head
+				has_strong_usable_hook = faith.religious_head
+			}
+		}
+		use_hook = faith.religious_head
+	}
+}
+
+mz_convocation_change_doctrine_effect = {
+	if = {
+		limit = {
+			faith = { has_doctrine = doctrine_gender_male_dominated }
+		}
+		faith = {
+			remove_doctrine = doctrine_gender_male_dominated
+			add_doctrine = doctrine_gender_equal
+		}
+	}
+}
+
+
+#### Effects than handle Lesbian Divinity's character modifiers,
+mz_remove_every_lesdivinity_soulmate_bonus_modifier_effect = { # Used from character scope, no scopes needed
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_single_soulmate_diplomacy_modifier }
+		remove_character_modifier = mz_lesdivinity_single_soulmate_diplomacy_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_single_soulmate_martial_modifier }
+		remove_character_modifier = mz_lesdivinity_single_soulmate_martial_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_single_soulmate_stewardship_modifier }
+		remove_character_modifier = mz_lesdivinity_single_soulmate_stewardship_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_single_soulmate_intrigue_modifier }
+		remove_character_modifier = mz_lesdivinity_single_soulmate_intrigue_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_single_soulmate_learning_modifier }
+		remove_character_modifier = mz_lesdivinity_single_soulmate_learning_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_diplomacy_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_diplomacy_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_martial_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_martial_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_stewardship_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_stewardship_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_intrigue_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_intrigue_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_learning_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_learning_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_martial_diplomacy_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_martial_diplomacy_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_martial_martial_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_martial_martial_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_martial_stewardship_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_martial_stewardship_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_martial_intrigue_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_martial_intrigue_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_martial_learning_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_martial_learning_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_stewardship_diplomacy_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_stewardship_diplomacy_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_stewardship_martial_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_stewardship_martial_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_stewardship_stewardship_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_stewardship_stewardship_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_stewardship_intrigue_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_stewardship_intrigue_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_stewardship_learning_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_stewardship_learning_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_intrigue_diplomacy_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_intrigue_diplomacy_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_intrigue_martial_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_intrigue_martial_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_intrigue_stewardship_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_intrigue_stewardship_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_intrigue_intrigue_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_intrigue_intrigue_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_intrigue_learning_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_intrigue_learning_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_learning_diplomacy_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_learning_diplomacy_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_learning_martial_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_learning_martial_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_learning_stewardship_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_learning_stewardship_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_learning_intrigue_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_learning_intrigue_modifier
+	}
+	if = {
+		limit = { has_character_modifier = mz_lesdivinity_double_soulmate_learning_learning_modifier }
+		remove_character_modifier = mz_lesdivinity_double_soulmate_learning_learning_modifier
+	}
+}
+
+mz_lesdivinity_soulmate_interaction_actual_effect = { # Used in interaction, needs scope:actor and scope:recipient
+	if = {
+		limit = { always = scope:mz_soulmate_bonus_actor }
+		mz_lesdivinity_soulmate_interaction_bonus_individual_effect = {
+			SENIOR_CHARACTER = scope:actor
+			JUNIOR_CHARACTER = scope:recipient
+		}
+	}
+	if = {
+		limit = { always = scope:mz_soulmate_bonus_recipient }
+		mz_lesdivinity_soulmate_interaction_bonus_individual_effect = {
+			SENIOR_CHARACTER = scope:recipient
+			JUNIOR_CHARACTER = scope:actor
+		}
+	}
+	if = {
+		limit = { always = scope:mz_soulmate_bonus_mixed }
+		mz_lesdivinity_soulmate_interaction_bonus_combined_effect = {
+			SENIOR_CHARACTER = scope:actor
+			JUNIOR_CHARACTER = scope:recipient
+		}
+	}
+}
+
+mz_lesdivinity_soulmate_interaction_bonus_individual_effect = { # Set JUNIOR_CHARACTER and SENIOR_CHARACTER
+	$SENIOR_CHARACTER$ = {
+		# Diplomacy education.
+		if = {
+			limit = { has_trait = education_diplomacy }
+			add_character_modifier = mz_lesdivinity_single_soulmate_diplomacy_modifier
+			$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_single_soulmate_diplomacy_modifier }
+		}
+		# Martial education.
+		if = {
+			limit = { has_trait = education_martial }
+			add_character_modifier = mz_lesdivinity_single_soulmate_martial_modifier
+			$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_single_soulmate_martial_modifier }
+		}
+		# Stewardship education.
+		if = {
+			limit = { has_trait = education_stewardship }
+			add_character_modifier = mz_lesdivinity_single_soulmate_stewardship_modifier
+			$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_single_soulmate_stewardship_modifier }
+		}
+		# Intrigue education.
+		if = {
+			limit = { has_trait = education_intrigue }
+			add_character_modifier = mz_lesdivinity_single_soulmate_intrigue_modifier
+			$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_single_soulmate_intrigue_modifier }
+		}
+		# Learning education.
+		if = {
+			limit = { has_trait = education_learning }
+			add_character_modifier = mz_lesdivinity_single_soulmate_learning_modifier
+			$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_single_soulmate_learning_modifier }
+		}
+	}
+}
+
+mz_lesdivinity_soulmate_interaction_bonus_combined_effect = { # Set JUNIOR_CHARACTER and SENIOR_CHARACTER
+	$SENIOR_CHARACTER$ = {
+		# Diplomacy combi-synergies.
+		if = {
+			limit = { has_trait = education_diplomacy }
+			# Diplomacy-Diplomacy
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_diplomacy }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_diplomacy_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_diplomacy_modifier }
+			}
+			# Diplomacy-Martial
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_martial }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_martial_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_martial_modifier }
+			}
+			# Diplomacy-Stewardship
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_stewardship }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_stewardship_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_stewardship_modifier }
+			}
+			# Diplomacy-Intrigue
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_intrigue }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_intrigue_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_intrigue_modifier }
+			}
+			# Diplomacy-Learning
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_learning }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_learning_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_diplomacy_learning_modifier }
+			}
+		}
+		# Martial combi-synergies.
+		if = {
+			limit = { has_trait = education_martial }
+			# Martial-Diplomacy
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_diplomacy }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_martial_diplomacy_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_martial_diplomacy_modifier }
+			}
+			# Martial-Martial
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_martial }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_martial_martial_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_martial_martial_modifier }
+			}
+			# Martial-Stewardship
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_stewardship }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_martial_stewardship_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_martial_stewardship_modifier }
+			}
+			# Martial-Intrigue
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_intrigue }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_martial_intrigue_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_martial_intrigue_modifier }
+			}
+			# Martial-Learning
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_learning }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_martial_learning_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_martial_learning_modifier }
+			}
+		}
+		# Stewardship combi-synergies.
+		if = {
+			limit = { has_trait = education_stewardship }
+			# Stewardship-Diplomacy
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_diplomacy }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_stewardship_diplomacy_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_stewardship_diplomacy_modifier }
+			}
+			# Stewardship-Martial
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_martial }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_stewardship_martial_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_stewardship_martial_modifier }
+			}
+			# Stewardship-Stewardship
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_stewardship }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_stewardship_stewardship_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_stewardship_stewardship_modifier }
+			}
+			# Stewardship-Intrigue
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_intrigue }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_stewardship_intrigue_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_stewardship_intrigue_modifier }
+			}
+			# Stewardship-Learning
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_learning }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_stewardship_learning_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_stewardship_learning_modifier }
+			}
+		}
+		# Intrigue combi-synergies.
+		if = {
+			limit = { has_trait = education_intrigue }
+			# Intrigue-Diplomacy
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_diplomacy }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_intrigue_diplomacy_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_intrigue_diplomacy_modifier }
+			}
+			# Intrigue-Martial
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_martial }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_intrigue_martial_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_intrigue_martial_modifier }
+			}
+			# Intrigue-Stewardship
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_stewardship }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_intrigue_stewardship_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_intrigue_stewardship_modifier }
+			}
+			# Intrigue-Intrigue
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_intrigue }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_intrigue_intrigue_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_intrigue_intrigue_modifier }
+			}
+			# Intrigue-Learning
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_learning }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_intrigue_learning_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_intrigue_learning_modifier }
+			}
+		}
+		# Learning combi-synergies.
+		if = {
+			limit = { has_trait = education_learning }
+			# Learning-Diplomacy
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_diplomacy }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_learning_diplomacy_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_learning_diplomacy_modifier }
+			}
+			# Learning-Martial
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_martial }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_learning_martial_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_learning_martial_modifier }
+			}
+			# Learning-Stewardship
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_stewardship }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_learning_stewardship_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_learning_stewardship_modifier }
+			}
+			# Learning-Intrigue
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_intrigue }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_learning_intrigue_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_learning_intrigue_modifier }
+			}
+			# Learning-Learning
+			if = {
+				limit = {
+					$JUNIOR_CHARACTER$ = { has_trait = education_learning }
+				}
+				add_character_modifier = mz_lesdivinity_double_soulmate_learning_learning_modifier
+				$JUNIOR_CHARACTER$ = { add_character_modifier = mz_lesdivinity_double_soulmate_learning_learning_modifier }
+			}
+		}
+	}
+}
+
+mz_add_lesdivinity_soulmate_trait_effect = { # Used from character scope, no scopes needed
+	if = {
+		limit = { 
+			NOT = { has_trait = mz_lesbian_divinity_trait }
+		}
+		add_trait = mz_lesbian_divinity_trait
+	}
+}
+
+mz_remove_all_lesdivinity_bonuses_effect = { # Used from character scop, no scopes needed
+	mz_remove_every_lesdivinity_soulmate_bonus_modifier_effect = yes
+	if = {
+		limit = { has_trait = mz_lesbian_divinity_trait }
+		remove_trait = mz_lesbian_divinity_trait
+	}
+}

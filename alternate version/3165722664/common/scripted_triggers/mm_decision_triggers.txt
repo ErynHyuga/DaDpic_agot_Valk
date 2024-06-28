@@ -1,0 +1,84 @@
+﻿## For the conceive child decisions, root is ruler
+mz_recommends_more_children_decision_trigger = {
+	OR = { # Will recommend more children if has gender preference law and number of matching children is less than two
+		AND = { # Check for male preference and male children
+			OR = {
+				primary_title = { has_title_law = male_only_law }
+				primary_title = { has_title_law = male_preference_law }
+				has_realm_law = male_preference_law
+				has_realm_law = male_only_law
+			}
+			any_child = {
+				count < 2
+				is_male = yes
+			}
+		}
+		AND = { # Check for female preference and female children
+			OR = {
+				primary_title = { has_title_law = female_only_law }
+				primary_title = { has_title_law = female_preference_law }
+				has_realm_law = female_only_law
+				has_realm_law = female_preference_law		
+			}
+			any_child = {
+				count < 2
+				is_female = yes
+			}
+		}
+		AND = { # Check for equal and all children, in this case recommends three children of any gender
+			OR = {
+				has_realm_law = equal_law
+				primary_title = { has_title_law = equal_law }
+			}
+			any_child = {
+				count < 3
+			}
+		}
+	}
+}
+
+## For recalling family members, check whether or not they should return. We're going to be pretty lenient here as this is a player-only decision.
+mz_can_return_to_court = {
+	is_ruler = no
+	is_diarch = no
+	is_imprisoned = no
+	has_contagious_deadly_disease_trigger = no
+	has_any_court_position = no
+	NOR = {
+		AND = {
+			exists = this.liege
+			is_player_heir_of_trigger = { CHARACTER = this.liege }
+		}
+		is_courtier_of = root
+		has_trait = devoted
+		has_trait = order_member
+		has_trait = incapable
+		any_spouse = { is_ruler = yes }
+	}
+}
+
+## For identifying children within your dynasty for adoption
+mz_adoption_decision_trigger = {					
+	# Children only
+	is_adult = no
+	# Landless only (ruler used to catch edge-cases of landless HoF children)
+	is_ruler = no
+	# Don't get imprisoned children and so on
+	is_available = yes
+	# None of their close relatives are rulers
+	NOT = {
+		any_close_or_extended_family_member = { is_ruler = yes }
+	}
+	# Don't adopt your own grandkids
+	NOT = {
+		any_ancestor = { this = root }
+	}
+	# Don't steal the King of France's great nephew
+	NOT = {
+		any_liege_or_above = { prev.dynasty = dynasty }
+	}
+	# Orphans only
+	NOT = {
+		any_parent = { is_alive = yes }
+	}
+}

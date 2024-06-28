@@ -1,0 +1,303 @@
+﻿mz_amazonian_warrior = {
+	category = fame
+	martial = 2
+	prowess = 3
+	mz_amazonian_opinion = 20
+	tourney_participant_xp_gain_mult = 0.25
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 40
+	valid_sex = female
+
+	flag = lower_chance_of_dying_in_combat
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mz_amazonian_warrior_desc
+			}
+			desc = trait_mz_amazonian_warrior_character_desc
+		}
+	}
+	
+	ai_energy = low_positive_ai_value
+	ai_boldness = low_positive_ai_value
+}
+
+mz_amazon_queen = {
+	category = fame
+	monthly_prestige = 1
+	legitimacy_gain_mult = 0.25
+	prowess_per_prestige_level = 1
+	glory_hound_opinion = 10
+
+	shown_in_ruler_designer = yes
+	ruler_designer_cost = 120
+	valid_sex = female	
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_mz_amazon_queen
+			}
+			triggered_desc = {
+				trigger = { title:e_mz_scythia.holder = this }
+				desc = trait_mz_amazon_queen_scythia
+			}
+			desc = trait_mz_amazon_queen_amazonia
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mz_amazon_queen_desc
+			}
+			desc = trait_mz_amazon_queen_character_desc
+		}
+	}
+
+	ai_energy = low_positive_ai_value
+	ai_boldness = low_positive_ai_value	
+}
+
+mz_lifestyle_lesorgy = {
+	category = lifestyle
+	opposites = {
+		celibate
+	}
+	minimum_age = 18 #Not sure if this is even needed but putting it there
+
+	diplomacy = 1
+	owned_personal_scheme_success_chance_add = 10
+	stress_loss_mult = 0.10
+	stress_gain_mult = -0.10
+	same_opinion = 20
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 25
+	valid_sex = female
+
+	culture_modifier = {
+		parameter = reveler_traits_more_valued
+		monthly_prestige = 0.25
+	}
+
+	# AI Values
+	ai_boldness = low_positive_ai_value
+	ai_sociability = low_positive_ai_value
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = mz_lifestyle_lesorgy
+						value >= 100
+					}
+				}
+				desc = trait_mz_lifestyle_lesorgy_3
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = mz_lifestyle_lesorgy
+						value >= 50
+					}
+				}
+				desc = trait_mz_lifestyle_lesorgy_2
+			}
+			desc = trait_mz_lifestyle_lesorgy_1
+		}
+	}
+
+	desc = {
+		first_valid = {
+			#Character
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = mz_lifestyle_lesorgy
+						value >= 100
+					}
+				}
+				desc = trait_mz_lifestyle_character_lesorgy_3_desc
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = mz_lifestyle_lesorgy
+						value >= 50
+					}
+				}
+				desc = trait_mz_lifestyle_character_lesorgy_2_desc
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
+				}
+				desc = trait_mz_lifestyle_character_lesorgy_1_desc
+			}
+			#Generic (will always be level 1)
+			desc = trait_mz_lifestyle_lesorgy_1_desc
+		}
+	}	
+	
+	track = {
+		50 = {
+			intrigue = 1
+			owned_personal_scheme_success_chance_add = 5
+			stress_loss_mult = 0.05
+			stress_gain_mult = -0.05
+		}
+		100 = {
+			diplomacy = 1
+			intrigue = 1
+			owned_personal_scheme_success_chance_add = 5
+			stress_loss_mult = 0.05
+			stress_gain_mult = -0.05
+		}
+	}
+}
+
+mz_lesbian_divinity_trait = {
+	category = fame
+	minimum_age = 16 #Not sure if this is even needed but putting it there
+
+	spouse_opinion = 20
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 25
+	valid_sex = female	
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mz_lesbian_divinity_trait_desc
+			}
+			desc = trait_mz_lesbian_divinity_trait_character_desc
+		}
+	}
+}
+
+mz_education_matriarchy_1 = { # WIP future education trait associated with Sapphic Scholasticate
+	minimum_age = 16
+	#education = yes
+
+	diplomacy = 1
+	learning = 1
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 0
+	valid_sex = female
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mz_education_matriarchy_1_desc
+			}
+			desc = trait_mz_education_matriarchy_1_character_desc
+		}
+	}
+
+	group = mz_education_matriarchy
+	level = 1
+}
+
+mz_education_matriarchy_2 = {
+	minimum_age = 16
+	#education = yes
+
+	diplomacy = 2
+	learning = 2
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 20
+	valid_sex = female
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mz_education_matriarchy_2_desc
+			}
+			desc = trait_mz_education_matriarchy_2_character_desc
+		}
+	}
+
+	group = mz_education_matriarchy
+	level = 2
+}
+
+mz_education_matriarchy_3 = {
+	minimum_age = 16
+	#education = yes
+
+	diplomacy = 3
+	learning = 3
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 40
+	valid_sex = female
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mz_education_matriarchy_3_desc
+			}
+			desc = trait_mz_education_matriarchy_3_character_desc
+		}
+	}
+
+	group = mz_education_matriarchy
+	level = 3
+}
+
+mz_education_matriarchy_4 = {
+	minimum_age = 16
+	#education = yes
+
+	diplomacy = 4
+	learning = 4
+
+	shown_in_ruler_designer = no
+	ruler_designer_cost = 80
+	valid_sex = female
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mz_education_matriarchy_4_desc
+			}
+			desc = trait_mz_education_matriarchy_4_character_desc
+		}
+	}
+
+	group = mz_education_matriarchy
+	level = 4
+}

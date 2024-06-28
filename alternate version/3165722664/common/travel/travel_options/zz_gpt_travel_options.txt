@@ -1,0 +1,154 @@
+﻿hire_experienced_mercenaries_option = {
+	is_shown = {
+   		is_ruler = yes
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = available_mercenary.tt
+			any_mercenary_company = {
+				is_mercenary_in_hire_range = root
+				mercenary_company_leader = {
+					is_travelling = no
+					is_at_war = no
+					is_in_army = no
+					NOT = {
+						any_courtier = {
+							is_in_army = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	cost = {
+		gold = {
+			add = {
+				value = high_travel_option_cost
+				if = {
+					limit = {
+						any_directly_owned_province = {
+							has_building_or_higher = gpt_mercenary_01
+						}
+					}
+					divide = 4
+				}
+				desc = hire_experienced_mercenaries_option
+			}
+		}
+	}
+	
+	travel_modifier = {
+		travel_speed = 10
+		travel_safety = 20
+	}
+	
+	on_applied_effect = {
+		hidden_effect = {
+			random_mercenary_company = {
+				limit = {
+					is_mercenary_in_hire_range = root
+					mercenary_company_leader = {
+						is_travelling = no
+						is_at_war = no
+						is_in_army = no
+						NOT = {
+							any_courtier = {
+								is_in_army = yes
+							}
+						}
+					}
+				}
+				mercenary_company_leader = {
+					save_scope_as = mercenary_leader
+				}
+			}
+			
+			scope:mercenary_leader = {
+				add_gold = root.high_travel_option_cost
+			}
+			
+			if = { # No reason to steal too many Mercenaries away for travels; players and AI kings+ only
+				limit = {
+					OR = {
+						is_ai = no
+						highest_held_title_tier >= tier_kingdom
+					}
+				}
+				send_interface_toast = {
+					title = mercenary_leader.t
+					left_icon = scope:mercenary_leader
+					root.current_travel_plan ?= {
+						add_companion = scope:mercenary_leader
+					}
+				}
+			}
+		}
+		custom_tooltip = mercenary_leader_recruited.tt
+	}
+	
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				any_future_path_location = {
+					count >= 50
+				}
+			}
+			add = {
+				value = 100
+			}
+		}
+		if = {
+			limit = {
+				travel_plan_owner.gold <= travel_plan_owner.minor_gold_value
+			}
+			add = {
+				value = -500
+			}
+		}
+	}
+}
+
+gpt_courtesans = {
+	is_shown = {
+		has_game_rule = GPT_buildings_enabled
+		primary_title.tier >= tier_duchy
+	}
+
+	is_valid = {
+		any_directly_owned_province = {
+			has_building_or_higher = gpt_pleasure_01
+		}
+		NOR = {
+			has_trait = chaste
+			has_trait = temperate
+			has_trait = diligent
+			has_trait = impatient
+		}
+	}
+
+	cost = {
+		gold = {
+			add = {
+				value = medium_travel_option_cost #low_
+				desc = experienced_captains_option
+			}
+		}
+	}
+
+	travel_modifier = {
+		travel_speed_mult = -0.5
+	}
+
+	owner_modifier = {
+		travel_companion_opinion = 20
+		stress_loss_mult = 0.20
+		stress_gain_mult = -0.40
+	}
+
+	ai_will_do = {
+		value = 90
+	}
+}

@@ -1,0 +1,119 @@
+## LIFESTYLES BCK ###################################
+
+gpt_homelander = {
+    category = lifestyle
+    name = trait_gpt_homelander
+
+    martial = 2
+    levy_attack = 1
+    levy_toughness = 1
+    controlled_province_advantage = 4
+
+    ruler_designer_cost = 50
+
+    desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = {
+                    NOT = { exists = this }
+                }
+                desc = trait_gpt_homelander_desc
+            }
+            desc = trait_gpt_homelander_character_desc
+        }
+    }
+}
+
+gpt_wordly = {
+    category = lifestyle
+    name = trait_gpt_wordly
+
+    cultural_head_acceptance_gain_mult = 0.20
+    travel_companion_opinion = 10
+    general_opinion = 5
+
+    ruler_designer_cost = 50
+
+    desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = {
+                    NOT = { exists = this }
+                }
+                desc = trait_gpt_wordly_desc
+            }
+            desc = trait_gpt_wordly_character_desc
+        }
+    }
+}
+
+gpt_founder = {
+    category = lifestyle
+    name = trait_gpt_founder
+
+    stewardship = 2
+    dynasty_opinion = 10
+    monthly_dynasty_prestige = 1
+    
+    ruler_designer_cost = 50
+
+    desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = {
+                    NOT = { exists = this }
+                }
+                desc = trait_gpt_founder_desc
+            }
+            desc = trait_gpt_founder_character_desc
+        }
+    }
+}
+
+gpt_deceiver = {
+    category = lifestyle
+    name = trait_gpt_deceiver
+
+    intrigue = 2
+    tyranny_gain_mult = -0.10
+	tyranny_loss_mult = 0.05
+    happy_powerful_vassal_tax_contribution_mult = 0.10
+    happy_powerful_vassal_levy_contribution_mult = 0.10
+
+    ruler_designer_cost = 50
+
+    desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = {
+                    NOT = { exists = this }
+                }
+                desc = trait_gpt_deceiver_desc
+            }
+            desc = trait_gpt_deceiver_character_desc
+        }
+    }
+}
+
+gpt_cosmopolitan = {
+    category = lifestyle
+    name = trait_gpt_cosmopolitan
+
+    republic_government_tax_contribution_mult = 0.20
+    city_holding_build_gold_cost = -0.20
+    domain_tax_mult = 0.05
+
+    ruler_designer_cost = 50
+
+    desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = {
+                    NOT = { exists = this }
+                }
+                desc = trait_gpt_cosmopolitan_desc
+            }
+            desc = trait_gpt_cosmopolitan_character_desc
+        }
+    }
+}

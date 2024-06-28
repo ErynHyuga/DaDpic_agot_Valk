@@ -1,0 +1,965 @@
+﻿# Beautiful courtesan
+mz_beautiful_young_lady = {
+	age = { 18 26 }
+	gender_female_chance = 100
+	dynasty = none
+	random_traits = no
+	faith = this.faith
+	culture = this.culture
+	diplomacy = { min_template_decent_skill max_template_decent_skill }
+	martial = { min_template_low_skill max_template_average_skill }
+	stewardship = { min_template_average_skill max_template_average_skill }
+	intrigue = { min_template_average_skill max_template_decent_skill }
+	learning = { min_template_low_skill max_template_average_skill }
+	prowess = { min_template_low_skill max_template_average_skill }
+	#Genetic
+	random_traits_list = {
+		count = 1
+		beauty_good_2 = {}
+		beauty_good_3 = {}
+	}
+	random_traits_list = {
+		count = { 0 1 }
+		fecund = {}
+		physique_good_1 = {}
+		intellect_good_1 = {}
+	}
+
+	#Personality trait 1 (main)
+	random_traits_list = {
+		count = 1
+		lustful = {}
+		gregarious = {}
+		content = {}
+	}
+	#Personality trait 2-3
+	random_traits_list = {
+		count = 2
+		honest = {}
+		deceitful = {}
+		brave = {}
+		craven = {}
+		gluttonous = {}
+		temperate = {}
+		greedy = {}
+		generous = {}
+		lazy = {}
+		diligent = {}
+		wrathful = {}
+		calm = {}
+		patient = {}
+		impatient = {}
+		arbitrary = {}
+		just = {}
+		paranoid = {}
+		trusting = {}
+		forgiving = {}
+		vengeful = {}
+		stubborn = {}
+		compassionate = {}
+		callous = {}
+	}
+	#Education Trait
+	random_traits_list = {
+		count = { 0 1 }
+		education_diplomacy_2 = {}
+		education_intrigue_2 = {}
+		education_stewardship_2 = {}
+	}
+	#Lifestyle Traits 
+	random_traits_list = {
+		count = { 0 3 }
+		lifestyle_gardener = {}
+		lifestyle_herbalist = {}
+		lifestyle_traveler = {}
+		pilgrim = {}
+		lifestyle_reveler = {}
+		lifestyle_hunter = {}
+		lifestyle_mystic = {}
+	}
+	random_traits_list = {
+		count = { 0 1 }
+		seducer = {}
+		whole_of_body = {}
+		shrewd = {}
+	}
+	#Other Traits
+	random_traits_list = {
+		count = { 0 2 }
+		athletic = {}
+		drunkard = {}
+		hashishiyah = {}
+		journaller = {}
+		loyal = {}
+		disloyal = {}
+	}
+	after_creation = { # After creation, make them a bit more interesting
+		while = {
+			limit = { number_of_personality_traits < personality_trait_standard }
+			if = {
+				limit = { 
+					NOT = { has_trait = lustful }
+				}
+				add_trait = lustful
+			}
+			else_if = {
+				limit = { 
+					NOT = { has_trait = gregarious }
+				}
+				add_trait = gregarious
+			}
+			else_if = { 
+				limit = { 
+					NOT = { has_trait = content }
+				}
+				add_trait = content 
+			}
+			else = { add_trait = humble }
+		}
+		if = {
+			limit = {
+				NOR = {
+					has_sexuality = bisexual
+					has_sexuality = homosexual
+				}
+			}
+			random_list = {
+				2 = { set_sexuality = bisexual }
+				1 = { set_sexuality = homosexual }
+			}
+		}
+		random = {
+			chance = 10
+			give_deviant_secret_or_trait_effect = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = lifestyle_mystic
+					has_trait = lifestyle_herbalist
+				}
+			}
+			random = { 
+				chance = 20
+				give_witch_secret_or_trait_effect = yes 
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					has_trait = education_diplomacy_2
+					has_trait = education_intrigue_2
+					has_trait = education_stewardship_2
+				}
+			}
+			set_to_lowborn = yes
+		}
+		else = {
+			random = {
+				chance = 50
+				set_to_lowborn = yes
+			}
+		}
+		if = {
+			limit = {
+				culture = { has_cultural_parameter = strong_traits_more_common }
+			}
+			random = {
+				chance = 10
+				add_trait = strong
+			}
+		}		
+		mz_trait_track_give_random_xp_effect = yes
+	}
+}
+
+# Clever courtesan
+mz_clever_courtesan = {
+	age = { 18 26 }
+	gender_female_chance = 100
+	dynasty = none
+	random_traits = no
+	faith = this.faith
+	culture = this.culture
+	diplomacy = { min_template_decent_skill max_template_decent_skill }
+	martial = { min_template_low_skill max_template_average_skill }
+	stewardship = { min_template_average_skill max_template_average_skill }
+	intrigue = { min_template_average_skill max_template_decent_skill }
+	learning = { min_template_average_skill max_template_average_skill }
+	prowess = { min_template_low_skill max_template_average_skill }
+	#Genetic
+	random_traits_list = {
+		count = 1
+		beauty_good_1 = {}
+		beauty_good_2 = {}
+		beauty_good_3 = {}
+	}
+	random_traits_list = {
+		count = { 0 1 }
+		intellect_good_2 = {}
+		intellect_good_1 = {}
+	}
+
+	#Personality trait 1 (main)
+	random_traits_list = {
+		count = 1
+		lustful = {}
+		deceitful = {}
+		ambitious = {}
+	}
+	#Personality trait 2-3
+	random_traits_list = {
+		count = 2
+		gregarious = {}
+		brave = {}
+		craven = {}
+		gluttonous = {}
+		temperate = {}
+		greedy = {}
+		generous = {}
+		lazy = {}
+		diligent = {}
+		wrathful = {}
+		calm = {}
+		patient = {}
+		impatient = {}
+		arbitrary = {}
+		stubborn = {}
+		callous = {}
+	}
+	#Education Trait
+	random_traits_list = {
+		count = 1
+		education_intrigue_3 = {}
+		education_intrigue_4 = {}
+	}
+	#Lifestyle Traits 
+	random_traits_list = {
+		count = { 1 2 }
+		seducer = {}
+		schemer = {}
+	}
+	random_traits_list = {
+		count = { 0 2 }
+		lifestyle_gardener = {}
+		lifestyle_herbalist = {}
+		lifestyle_traveler = {}
+		lifestyle_reveler = {}
+		lifestyle_mystic = {}
+	}
+	#Other Traits
+	random_traits_list = {
+		count = { 0 1 }
+		athletic = {}
+		drunkard = {}
+		hashishiyah = {}
+		journaller = {}
+	}
+	random_traits_list = {
+		count = { 0 1 }
+		shrewd = {}
+		fecund = {}
+	}
+	after_creation = { # After creation, make them a bit more interesting
+		if = {
+			limit = { number_of_personality_traits < personality_trait_standard }
+			if = {
+				limit = { 
+					NOT = { has_trait = deceitful }
+				}
+				add_trait = deceitful
+			}
+			else_if = {
+				limit = { 
+					NOT = { has_trait = lustful }
+				}
+				add_trait = gregarious
+			}
+			else_if = { 
+				limit = { 
+					NOT = { has_trait = ambitious }
+				}
+				add_trait = ambitious 
+			}
+			else = { add_trait = vengeful }
+		}
+		if = {
+			limit = {
+				NOR = {
+					has_sexuality = bisexual
+					has_sexuality = homosexual
+				}
+			}
+			random_list = {
+				1 = { set_sexuality = bisexual }
+				4 = { set_sexuality = homosexual }
+			}
+		}
+		random = {
+			chance = 10
+			give_deviant_secret_or_trait_effect = yes
+		}
+		random = { 
+			chance = 25
+			give_witch_secret_or_trait_effect = yes 
+		}
+		random = {
+			chance = 50
+			set_to_lowborn = yes
+		}
+		if = {
+			limit = {
+				culture = { has_cultural_parameter = strong_traits_more_common }
+			}
+			random = {
+				chance = 10
+				add_trait = strong
+			}
+		}		
+		mz_trait_track_give_random_xp_effect = yes
+	}
+}
+
+# Amazon warrior
+mz_amazon_woman = {
+	age = { 18 35 }
+	gender_female_chance = 100
+	dynasty = none
+	culture = culture:mz_amazonian
+	faith = faith:mz_amazon_pagan
+	random_traits = no
+	diplomacy = { min_template_average_skill max_template_decent_skill }
+	martial = { min_template_average_skill max_template_decent_skill }
+	stewardship = { min_template_low_skill max_template_average_skill }
+	intrigue = { min_template_low_skill max_template_average_skill }
+	learning = { min_template_average_skill max_template_decent_skill }
+	prowess = { min_template_low_skill max_template_decent_skill } # Prowess and martial should be boosted a lot by traits anyway, so we're not putting them too high
+
+	#Genetic
+	random_traits_list = {
+		count = 1
+		physique_good_2 = { weight = { base = 60 } }
+		physique_good_3 = { weight = { base = 40 } }
+	}
+	random_traits_list = {
+		count = { 0 1 }
+		intellect_good_1 = { weight = { base = 60 } }
+		intellect_good_2 = { weight = { base = 40 } }
+	}
+	random_traits_list = {
+		count = { 0 1 }
+		beauty_good_1 = { weight = { base = 50 } }
+		beauty_good_2 = { weight = { base = 30 } }
+		beauty_good_3 = { weight = { base = 20 } }
+	}
+	#Education
+	random_traits_list = {
+		count = 1
+		education_martial_3 = { weight = { base = 60 } }
+		education_martial_4 = { weight = { base = 40 } }
+	}
+	#Personality trait 1 (main)
+	random_traits_list = {
+		count = 1
+		brave = { weight = { base = 50 } }
+		diligent = { weight = { base = 30 } }
+		ambitious = { weight = { base = 20 } }
+	}
+	#Personality traits 2-3 (secondary)
+	random_traits_list = {
+		count = 2
+		lustful = {}
+		deceitful = {}
+		gregarious = {}
+		vengeful = {}
+		gluttonous = {}
+		temperate = {}
+		greedy = {}
+		generous = {}
+		wrathful = {}
+		calm = {}
+		patient = {}
+		impatient = {}
+		arrogant = {}
+		honest = {}
+		just = {}
+		trusting = {}
+		compassionate = {}
+		forgiving = {}
+		sadistic = {}
+		callous = {}
+	}
+	#Other Traits
+	random_traits_list = {
+		count = { 1 2 }
+		lifestyle_hunter = {}
+		lifestyle_blademaster = {}
+		tourney_participant = {}
+	}
+	random_traits_list = {
+		count = { 1 3 }
+		strong = { weight = { base = 50 } }
+		athletic = { weight = { base = 50 } }
+		shrewd = { weight = { base = 20 } }
+		fecund = { weight = { base = 20 } }
+		scarred = { weight = { base = 30 } }
+		lifestyle_herbalist = { weight = { base = 30 } }
+		lifestyle_traveler = { weight = { base = 30 } }
+		loyal = { weight = { base = 30 } }
+	}
+	random_traits_list = {
+		count = { 0 1 }
+		gallant = { weight = { base = 50 } }
+		strategist = { weight = { base = 30 } }
+		whole_of_body = { weight = { base = 20 } }
+	}
+	#Other Additions
+	after_creation = {
+		add_trait = mz_amazonian_warrior
+		# Normally these characters just have the Amazonian culture, but in some cases, we may change it.
+		if = {
+			limit = {
+				court_owner ?= { # If the court owner...
+					culture = { mz_is_amazonian_culture = yes } # ...is a member of an divergent/hybrid Amazonian culture...
+					any_held_title = { # ...and owns at least one county of the culture...
+						tier = tier_county
+						county.culture = holder.culture
+					}
+				}
+			}
+			set_culture = court_owner.culture # ...then change the Amazon's culture to the culture of the court owner.
+		}
+		# Faith is handled in a similar manner, based on whether the Herionism faith has been reformed or if the Find a Faith for the Amazons decision has been used
+		if = { # If Amazons have found a new faith via decision and court owner has a faith in the same religion, Amazon courtier gets that faith
+			limit = {
+				exists = court_owner
+				exists = global_var:mz_amazon_global_faith # This will only be applicable if the "Find a New Faith for the Amazons" decision has been used
+				court_owner.faith = { mz_acceptable_amazon_faith_trigger = yes } # Court owner's faith must be acceptable.
+				OR = {
+					global_var:mz_amazon_global_faith ?= court_owner.faith # This is the easy option, BUT:
+					court_owner.faith.religion = global_var:mz_amazon_global_faith.religion # Amazons are flexible enough; if the religions are the same and the faith is acceptable, they'll embrace that.
+				}
+			}
+			set_character_faith = court_owner.faith
+		}
+		else_if = { # Otherwise, f Amazons have found a new faith via decision, set it to that faith
+			limit = { # This will only be applicable if the "Find a New Faith for the Amazons" decision has been used
+				exists = global_var:mz_amazon_global_faith 
+				global_var:mz_amazon_global_faith = { mz_acceptable_amazon_faith_trigger = yes } # If the doctrines of said faith have somehow changed to not be acceptable, this won't trigger
+			} 
+			set_character_faith = global_var:mz_amazon_global_faith 
+		}
+		else_if = { # Otherwise, if Heraionism has been reformed or has a new religion in the same group, set it to that as long as it's the court owner's faith
+			limit = {
+				exists = court_owner
+				court_owner.faith.religion = religion:mz_heraionism_religion # Pelasgian
+				court_owner.faith = { mz_acceptable_amazon_faith_trigger = yes } # Acceptable Amazon faith
+			}
+			set_character_faith = court_owner.faith
+		} # If none of those things are true it will stay "old" Heraionic
+		if = {
+			limit = { has_trait = education_martial_3 }
+			add_trait = education_martial_prowess_3
+		}
+		else_if = {
+			limit = { has_trait = education_martial_4 }
+			add_trait = education_martial_prowess_4			
+		}
+		if = {
+			limit = {
+				NOR = {
+					has_sexuality = bisexual
+					has_sexuality = homosexual
+				}
+			}
+			random_list = {
+				1 = { set_sexuality = bisexual }
+				1 = { set_sexuality = homosexual }
+			}
+		}
+		if = {
+			limit = { number_of_personality_traits < personality_trait_standard }
+			if = {
+				limit = { 
+					NOT = { has_trait = brave }
+				}
+				add_trait = brave
+			}
+			else_if = {
+				limit = { 
+					NOT = { has_trait = diligent }
+				}
+				add_trait = diligent
+			}
+			else_if = { 
+				limit = { 
+					NOT = { has_trait = humble }
+				}
+				add_trait = humble 
+			}
+			else = { add_trait = fickle }
+		}
+		if = {
+			limit = { has_trait = tourney_participant }
+			mz_tourney_participant_trait_xp_randomizer_effect = yes
+		}
+		if = {
+			limit = { number_of_commander_traits < 2 }
+			random = {
+				chance = 80
+				give_random_commander_trait_effect = yes
+			}
+		}
+		if = {
+			limit = { number_of_commander_traits < 2 }
+			random = {
+				chance = 20
+				give_random_commander_trait_effect = yes
+			}
+		}
+		set_to_lowborn = yes
+		mz_trait_track_give_random_xp_effect = yes
+		if = { # Sometimes the prowess values on the Amazons get out of hand. Gonna reduce that a bit if they're above 30.
+			limit = { prowess >= 40 }
+			mz_reduce_prowess_effect = yes
+		}
+		if = {
+			limit = { prowess >= 30 }
+			mz_reduce_prowess_effect = yes
+		}
+	}
+}
+
+# Consort option: lusty lowbown
+mz_consort_lusty_lowborn = {
+	age = { 18 24 }
+	dynasty = none
+	random_traits = no
+	diplomacy = { min_template_low_skill max_template_average_skill } # We want fairly low stats on consorts so they aren't super useful for everything
+	martial = { min_template_low_skill max_template_average_skill }
+	stewardship = { min_template_low_skill max_template_average_skill }
+	intrigue = { min_template_low_skill max_template_average_skill }
+	learning = { min_template_low_skill max_template_average_skill }
+	prowess = { min_template_low_skill max_template_average_skill }
+	faith = root.faith
+	culture = root.culture
+
+	#Personality trait 1 (main)
+	random_traits_list = {
+		count = 1
+		lustful = {
+			weight = { base = 50 }
+		}
+		gregarious = {
+			weight = { base = 25 }
+		}
+		content = {
+			weight = { base = 25 }
+		}
+	}
+	#Personality trait 2-3
+	random_traits_list = {
+		count = 2
+		honest = {}
+		deceitful = {}
+		craven = {}
+		gluttonous = {}
+		greedy = {}
+		lazy = {}
+		wrathful = {}
+		calm = {}
+		patient = {}
+		impatient = {}
+		arbitrary = {}
+		paranoid = {}
+		trusting = {}
+		vengeful = {}
+		stubborn = {}
+		callous = {}
+	}
+	#Other Traits
+	random_traits_list = {
+		count = { 0 1 }
+		drunkard = {}
+		hashishiyah = {}
+		lifestyle_traveler = {}
+	}
+	after_creation = { # After creation, make them a bit more interesting
+		if = {
+			limit = { number_of_personality_traits < personality_trait_standard }
+			if = {
+				limit = { 
+					NOT = { has_trait = lustful }
+				}
+				add_trait = lustful
+			}
+			else_if = {
+				limit = { 
+					NOT = { has_trait = gregarious }
+				}
+				add_trait = gregarious
+			}
+			else_if = { 
+				limit = { 
+					NOT = { has_trait = content }
+				}
+				add_trait = content 
+			}
+			else = { add_trait = humble }
+		}
+		random_list = {
+			2 = { set_sexuality = bisexual }
+			1 = { set_sexuality = heterosexual }
+		}
+		random = {
+			chance = 10
+			give_deviant_secret_or_trait_effect = yes
+		}
+		set_to_lowborn = yes
+		mz_trait_track_give_random_xp_effect = yes
+	}
+}
+
+# Consort option: fine specimen
+mz_consort_fine_specimen = {
+	age = { 18 24 }
+	dynasty = none
+	random_traits = no
+	diplomacy = { min_template_low_skill max_template_average_skill }
+	martial = { min_template_low_skill max_template_average_skill }
+	stewardship = { min_template_low_skill max_template_average_skill }
+	intrigue = { min_template_low_skill max_template_average_skill }
+	learning = { min_template_low_skill max_template_average_skill }
+	prowess = { min_template_low_skill max_template_average_skill }
+	faith = root.faith
+	culture = root.culture
+
+	#Personality trait 1 (main)
+	random_traits_list = {
+		count = 1
+		lustful = {
+			weight = { base = 60 }
+		}
+		gregarious = {
+			weight = { base = 20 }
+		}
+		content = {
+			weight = { base = 20 }
+		}
+	}
+	#Personality trait 2-3
+	random_traits_list = {
+		count = 2
+		honest = {}
+		deceitful = {}
+		brave = {}
+		craven = {}
+		gluttonous = {}
+		temperate = {}
+		greedy = {}
+		generous = {}
+		lazy = {}
+		diligent = {}
+		wrathful = {}
+		calm = {}
+		patient = {}
+		impatient = {}
+		arbitrary = {}
+		just = {}
+		paranoid = {}
+		trusting = {}
+		forgiving = {}
+		vengeful = {}
+		stubborn = {}
+		compassionate = {}
+		callous = {}
+	}
+	#Genetic Traits 
+	random_traits_list = {
+		count = 1
+		intellect_good_1 = {
+			weight = { base = 2 }
+		}
+		intellect_good_2 = {
+			weight = { base = 1 }
+		}
+		physique_good_2 = {
+			weight = { base = 2 }
+		}
+		physique_good_1 = {
+			weight = { base = 3 }
+		}
+		beauty_good_1 = {
+			weight = { base = 4 }
+		}
+		beauty_good_2 = {
+			weight = { base = 2 }
+		}
+	}
+	#Education Trait
+	random_traits_list = {
+		count = 1
+		education_diplomacy_1 = {}
+		education_diplomacy_2 = {}
+		education_intrigue_1 = {}
+		education_intrigue_2 = {}
+		education_stewardship_1 = {}
+		education_stewardship_2 = {}
+	}
+	#Lifestyle Traits 
+	random_traits_list = {
+		count = { 0 1 }
+		lifestyle_reveler = {}
+		lifestyle_hunter = {}
+		lifestyle_mystic = {}
+	}
+	random_traits_list = {
+		count = { 0 1 }
+		lifestyle_herbalist = {}
+		seducer = {}
+		whole_of_body = {}
+	}
+	#Other Traits
+	random_traits_list = {
+		count = { 0 1 }
+		athletic = {}
+		drunkard = {}
+		hashishiyah = {}
+		journaller = {}
+		lifestyle_traveler = {}
+	}	
+	after_creation = { # After creation, make them a bit more interesting
+		if = {
+			limit = { number_of_personality_traits < personality_trait_standard }
+			if = {
+				limit = { 
+					NOT = { has_trait = lustful }
+				}
+				add_trait = lustful
+			}
+			else_if = {
+				limit = { 
+					NOT = { has_trait = gregarious }
+				}
+				add_trait = gregarious
+			}
+			else_if = { 
+				limit = { 
+					NOT = { has_trait = content }
+				}
+				add_trait = content 
+			}
+			else = { add_trait = humble }
+		}
+		random = {
+			chance = 50
+			random_list = {
+				1 = {
+					if = {
+						limit = { 
+							NOT = { has_trait = intellect_good_1 }
+						}
+						add_trait = intellect_good_1
+					}
+					else = { add_trait = beauty_good_1 }	
+				}
+				1 = {
+					if = {
+						limit = { 
+							NOT = { has_trait = physique_good_1 }
+						}
+						add_trait = physique_good_1
+					}
+					else = { add_trait = beauty_good_1 }	
+				}
+				1 = {
+					if = {
+						limit = { 
+							NOT = { has_trait = physique_good_1 }
+						}
+						add_trait = physique_good_1
+					}
+					else = { add_trait = beauty_good_1 }	
+				}
+			}
+		}
+		random_list = {
+			2 = { set_sexuality = bisexual }
+			1 = { set_sexuality = heterosexual }
+		}
+		random = {
+			chance = 10
+			give_deviant_secret_or_trait_effect = yes
+		}
+		random = {
+			chance = 50
+			set_to_lowborn = yes
+		}
+		mz_trait_track_give_random_xp_effect = yes
+	}
+}
+
+# Consort option: only the best
+mz_consort_best_option = {
+	age = { 18 24 }
+	dynasty = none
+	random_traits = no
+	diplomacy = { min_template_low_skill max_template_average_skill }
+	martial = { min_template_low_skill max_template_average_skill }
+	stewardship = { min_template_low_skill max_template_average_skill }
+	intrigue = { min_template_low_skill max_template_average_skill }
+	learning = { min_template_low_skill max_template_average_skill }
+	prowess = { min_template_low_skill max_template_average_skill }
+	faith = root.faith
+	culture = root.culture
+
+	#Personality trait 1 (main)
+	random_traits_list = {
+		count = 1
+		lustful = {
+			weight = { base = 60 }
+		}
+		gregarious = {
+			weight = { base = 20 }
+		}
+		content = {
+			weight = { base = 20 }
+		}
+	}
+	#Personality trait 2-3
+	random_traits_list = {
+		count = 2
+		honest = {}
+		deceitful = {}
+		brave = {}
+		craven = {}
+		temperate = {}
+		greedy = {}
+		generous = {}
+		diligent = {}
+		calm = {}
+		patient = {}
+		impatient = {}
+		just = {}
+		trusting = {}
+		forgiving = {}
+		vengeful = {}
+		stubborn = {}
+		compassionate = {}
+		callous = {}
+	}
+	#Education Trait
+	random_traits_list = {
+		count = 1
+		education_diplomacy_3 = {}
+		education_diplomacy_4 = {}
+		education_intrigue_3 = {}
+		education_intrigue_4 = {}
+		education_stewardship_3 = {}
+		education_stewardship_4 = {}
+		education_learning_3 = {}
+		education_learning_4 = {}
+	}
+	#Genetic
+	random_traits_list = {
+		count = 1
+		physique_good_3 = {}
+		beauty_good_3 = {}
+	}
+	random_traits_list = {
+		count = 1
+		intellect_good_2 = {}
+		intellect_good_1 = {}
+	}
+	#Lifestyle Traits 
+	random_traits_list = {
+		count = { 0 1 }
+		lifestyle_reveler = {}
+		lifestyle_hunter = {}
+		lifestyle_mystic = {}
+	}
+	random_traits_list = {
+		count = { 0 1 }
+		lifestyle_herbalist = {}
+		lifestyle_gardener = {}
+		seducer = {}
+		whole_of_body = {}
+	}
+	#Other Traits
+	random_traits_list = {
+		count = { 0 2 }
+		athletic = {}
+		drunkard = {}
+		hashishiyah = {}
+		journaller = {}
+		lifestyle_physician = {}
+		lifestyle_traveler = {}
+	}
+	after_creation = { # After creation, make them a bit more interesting
+		if = {
+			limit = { number_of_personality_traits < personality_trait_standard }
+			if = {
+				limit = { 
+					NOT = { has_trait = lustful }
+				}
+				add_trait = lustful
+			}
+			else_if = {
+				limit = { 
+					NOT = { has_trait = gregarious }
+				}
+				add_trait = gregarious
+			}
+			else_if = { 
+				limit = { 
+					NOT = { has_trait = content }
+				}
+				add_trait = content 
+			}
+			else = { add_trait = humble }
+		}
+		random_list = {
+			2 = { set_sexuality = bisexual }
+			1 = { set_sexuality = heterosexual }
+		}
+		random = {
+			chance = 10
+			give_deviant_secret_or_trait_effect = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = lifestyle_mystic
+					has_trait = lifestyle_herbalist
+				}
+			}
+			random = { 
+				chance = 20
+				give_witch_secret_or_trait_effect = yes 
+			}
+		}
+		if = {
+			limit = { 
+				NOT = { has_trait = physique_good_3 }
+			}
+			random_list = {
+				1 = { add_trait = physique_good_2 }
+				3 = { add_trait = physique_good_1 }
+			}
+		}
+		if = {
+			limit = { 
+				NOT = { has_trait = beauty_good_3 }
+			}
+			random_list = {
+				1 = { add_trait = beauty_good_2 }
+				3 = { add_trait = beauty_good_1 }
+			}
+		}
+		random = {
+			chance = 20
+			add_trait = fecund
+		}
+		mz_trait_track_give_random_xp_effect = yes
+	}
+}

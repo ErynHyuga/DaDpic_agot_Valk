@@ -1,0 +1,139 @@
+﻿owner_seduce_outcome_become_lovers_option_effects = { #mz_tag overwrite to apply piety from Sapphic Exaltation
+	show_as_tooltip = { set_relation_lover = scope:target }
+	add_character_flag = { #to assure that this is when the relationship is set
+		flag = consummation_and_relationship
+		days = 10
+	}
+
+	reverse_add_opinion = {
+		target = scope:target
+		modifier = romance_opinion
+		opinion = 20
+	}
+
+	if = {
+		limit = {
+			faith = {
+				has_doctrine_parameter = piety_gain_from_successful_intrigue_schemes
+			}	
+		}
+		add_piety = minor_piety_gain
+	}
+
+	if = {
+		limit = {
+			is_female = yes
+			scope:target = { is_female = yes }
+			faith = {
+				has_doctrine_parameter = mz_piety_gain_for_conversions
+			}
+		}
+		add_piety = minor_piety_gain
+	}	
+
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = {
+				has_dynasty_perk = fp1_adventure_legacy_2
+			}	
+		}
+		add_prestige = fp1_adventure_legacy_2_prestige_value
+	}
+
+	if = {
+		limit = {
+			is_close_family_of = scope:target
+		}
+		create_character_memory = {
+			type = seduced_family
+			
+			participants = {
+				family_member = scope:target
+			}
+		}
+	}
+
+	owner_seduce_outcome_success_send_discovery_event_effect = yes
+
+	if = { # Trigger change sexuality even when seducing a woman as a straight/asexual woman.
+		limit = {
+			is_ai = no # AI doesn't seduce outside its own sexuality anyway, but we'll add this check to be sure.
+			is_female = yes
+			sex_same_as = scope:target
+			OR = {
+				has_sexuality = heterosexual
+				has_sexuality = asexual
+			}
+			NOT = {
+				has_character_flag = mz_had_event_seduce_outcome_9001 # Can't receive this event for 20 years after receiving it once.
+			}
+		}
+		hidden_effect = {
+			trigger_event = {
+				days = { 5 7 }
+				id = mz_seduce_outcome.9001
+			}
+		}
+	}
+}
+
+owner_seduce_outcome_just_sex_effects = { #mz_tag ditto
+	reverse_add_opinion = {
+		target = scope:target
+		modifier = romance_opinion
+		opinion = 20
+	}
+
+	if = {
+		limit = {
+			faith = {
+				has_doctrine_parameter = piety_gain_from_successful_intrigue_schemes
+			}	
+		}
+		add_piety = minor_piety_gain
+	}
+	if = {
+		limit = {
+			is_female = yes
+			scope:target = { is_female = yes }
+			faith = {
+				has_doctrine_parameter = mz_piety_gain_for_conversions
+			}
+		}
+		add_piety = minor_piety_gain
+	}	
+
+	if = {
+		limit = {
+			exists = dynasty
+			dynasty = {
+				has_dynasty_perk = fp1_adventure_legacy_2
+			}	
+		}
+		add_prestige = fp1_adventure_legacy_2_prestige_value
+	}
+
+	owner_seduce_outcome_success_send_discovery_event_effect = yes
+
+	if = { # Trigger change sexuality even when seducing a woman as a straight/asexual woman.
+		limit = {
+			is_ai = no # AI doesn't seduce outside its own sexuality anyway, but we'll add this check to be sure.
+			is_female = yes
+			sex_same_as = scope:target
+			OR = {
+				has_sexuality = heterosexual
+				has_sexuality = asexual
+			}
+			NOT = {
+				has_character_flag = mz_had_event_seduce_outcome_9001 # Can't receive this event for 20 years after receiving it once.
+			}
+		}
+		hidden_effect = {
+			trigger_event = {
+				days = { 5 7 }
+				id = mz_seduce_outcome.9001
+			}
+		}
+	}	
+}

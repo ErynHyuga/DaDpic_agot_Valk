@@ -1,0 +1,6 @@
+﻿l_english:
+  MZ_INCOMPATIBLE_DOCTRINE_CLERICAL_GENDER_MALE_ONLY:0 "Incompatible with the the $doctrine_clerical_gender_name$ [doctrine|E] [GetFaithDoctrine('doctrine_clerical_gender_male_only').GetName( GetPlayer.GetFaith )]"
+  MZ_REQUIRES_DOCTRINE_FEMALE_DOMINATED:0 "Requires the $doctrine_gender_name$ [doctrine|E] [GetFaithDoctrine('doctrine_gender_female_dominated').GetName( GetPlayer.GetFaith )]"
+  MZ_REQUIRES_DOCTRINE_FEMALE_ADULTERY_ACCEPTED:0 "Incompatible with any [doctrine|E] that makes $doctrine_adultery_women_name$ [shunned|E] or [criminal|E]"
+  MZ_REQUIRES_TENET_CARNAL_EXALTATION_OR_HEDONISTIC:0 "Requires either the [core_tenet|E] [GetFaithDoctrine('tenet_carnal_exaltation').GetName( GetPlayer.GetFaith )] or [core_tenet|E] [GetFaithDoctrine('tenet_hedonistic').GetName( GetPlayer.GetFaith )]"
+  MZ_INCOMPATIBLE_DOCTRINE_MALE_DOMINATEd:0 ""Incompatible with the the $doctrine_gender$ [doctrine|E] [GetFaithDoctrine('doctrine_gender_male_dominated').GetName( GetPlayer.GetFaith )]""

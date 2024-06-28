@@ -1,0 +1,283 @@
+﻿l_english:
+
+ force_diplomatic_hook_on_vassal:0 "Disband Faction"
+ force_diplomatic_hook_on_vassal_desc:0 "If [recipient.GetShortUINameNoTooltip|U] is a faction leader, he/she can be persuaded to swear fealty in exchange for a generous compensation. If you are sucessfull, [recipient.GetShortUINameNoTooltip|U] will give you a loyalti hook (strong), and the faction against you will be disbanded. AI will also try to disband dangerous factions."
+diplomatic_hook_notification:0 "Dangerous Faction Disbanded!"
+diplomatic_hook_notification_tooltip:0 "A faction leader was successful persuaded to swear fealty."
+
+ scorched_earth_interaction:0 "Scorched Earth Tactics"
+ scorched_earth_interaction_desc:0 "Sinse you are at war with [recipient.GetShortUINameNoTooltip|U], and you have a dreadful reputation, you can organize soldiers, mercenaries and criminals, sending then to pillage and terrorize villages under [recipient.GetShortUINameNoTooltip|U]'s protection, as a way to harm his war efforts against you. Be aware that the clergy members will denounce your treacherous and evil acts! Ai Sinful rulers will use this tactic."
+scorch_earth_notification:0 "Villagers are under attack!"
+scorch_earth_notification_tooltip:0 "Clergy members are horrorized by the violence against innocent people!"
+
+ guerrilla_warfare_interaction:0 "Irregular War Tactics"
+ guerrilla_warfare_interaction_desc:0 "Sinse you are at war with [recipient.GetShortUINameNoTooltip|U], and you have a dreadful reputation, you can organize small bands of soldiers, peasants and mercenaries, in order to inflict heavy damage to the supply lines and to hunt down enemy scouts, while avoiding a full scale battle with [recipient.GetShortUINameNoTooltip|U]'s invading army, as a way to harm his war efforts against you. Be aware that the chivalry nobility will denounce your dishonored and coward acts! Ai dishonored rulers will use this tactic."
+guerrilla_warfare_notification:0 "Supply Wagons are under attack!"
+guerrilla_warfare_notification_tooltip:0 "Nobles are horrirized by the lack of honor and courage of this war!"
+
+ demand_troops:0 "Demand Troops"
+ demand_troops_desc:0 "If you are at war, and you have a dreadful reputation, and [recipient.GetShortUINameNoTooltip|U] is a powerful vassal, you can temporarily demand all the troops at his disposal to join your war efforts. [recipient.GetShortUINameNoTooltip|U] will be much more vulnerable to internal coups without his troops. He wont be abble to reject your order, but will hate you for this, and your other powerful vassals will look down upon you. Watch your back!"
+demand_troops_notification:0 "Reinforcements are arriving!"
+demand_troops_notification_tooltip:0 "Your messenger says that [recipient.GetShortUINameNoTooltip|U] is extremely angry with you..."
+
+ spread_lies:0 "Spread Lies"
+ spread_lies_desc:0 "Your high intrigue skills allows you to dedicate a few years of your life to the effort of spreading lies about [recipient.GetShortUINameNoTooltip|U] in the neighboring courts, seriously harming his reputation. [recipient.GetShortUINameNoTooltip|U] will became your rival. Ai will also do this at a more random basis. AI will use this interaction when they have -25 opinion of any fellow vassal or neighboring duke or above rank. AI will became a rival of the target, while player became a nemesis, and will also lose a piety level. The Suffering from Lies modifier raises claimant faction joining chance and lowers the call to war acceptance."
+spread_lies_notification:0 "Lies are being spread!"
+spread_lies_notification_tooltip:0 "A well elaborated defamation campaign is in course."
+
+ denounce_liege:0 "Denounce Liege"
+ denounce_liege_desc:0 "If you hate your liege [recipient.GetShortUINameNoTooltip|U], you can dedicate the next few years to the effort of denouncing his acts of tyranny in your fellow vassal's courts, as a legitimate act of protest. [recipient.GetShortUINameNoTooltip|U] will receive less taxes and will loss monthly renown for the next 3 years. AI will use this interaction when they have -100 opinion of its liege (-200 opinion will give a stronger modifier). Only the player will lose a piety level and became nemesis of their liege. The Denounced Liege modifier raises claimant faction joining chance and lowers the call to war acceptance."
+denounce_liege_notification:0 "A Powerful Vassal is protesting!"
+denounce_liege_notification_tooltip:0 "The vassal's discontent will continue until his opinion changes."
+
+ trade_interaction_2:0 "Trade Agreement"
+ trade_agreement_desc_2:0 "Try to estabilish a profitable trade agreement with [recipient.GetShortUINameNoTooltip|U], so much that it will cost a lot for both of you to break this deal, encouraging long term peace by a also pactued truce. Ai will also do this at a more random basis, targeting neighboring kingdoms that can be a threat."
+trade_agrrement_notification_2:0 "A new Trade Route was estabilished!"
+trade_agrrement_notification_tooltip_2:0 "Goods and luxuries are blooming, and people are migrating to the capital."
+
+ demand_tribute:0 "Demand Tribute"
+ demand_tribute_desc:0 "Try to compele [recipient.GetShortUINameNoTooltip|U] to "voluntarily" cooperate with your war effort, by paying monthly tributes to you. This "voluntary" gest of cooperation will result in 5 Years Truce between you and [recipient.GetShortUINameNoTooltip|U]. Declining the tribute request will result in a bitter rivalry. Ai will also request tributes at a more random basis, targeting weaker neighboring realms."
+demand_tribute_notification:0 "A Tributary Contract was Estabilished!"
+demand_tribute_tooltip:0 "For the next 5 Years, monthly tributes will be sent to your realm's Capital"
+
+ offer_tribute:0 "Offer Tribute"
+ offer_tribute_desc:0 "If you belive [recipient.GetShortUINameNoTooltip|U] is a threat to you, try offer monthly tributes to appease him, as a "voluntary" cooperation with his war effort. This "voluntary" gest of cooperation will result in 5 Years Truce between you and [recipient.GetShortUINameNoTooltip|U]. Ai wont offer tributes. This is just for the player.."
+offer_tribute_notification:0 "A Tributary Contract was Estabilished!"
+offer_tribute_tooltip:0 "For the next 5 Years, monthly tributes will be sent to target's realm's Capital"
+
+ force_white_peace:0 "Peace of God!"
+ force_white_peace_desc:0 "Your high learning skills allows you to appeal to the high clergy members as an effort to stop the madness of [recipient.GetShortUINameNoTooltip|U], convincing him to end the war he launched against you, as long as both of you share the same religion. This will cost you a lot religious influence, and your enemy will be praised by the clergy for his act of merciful."
+force_peace_notification:0 "Praise God! The war is over!"
+force_peace_notification_tooltip:0 "High clergy members successfully forced a peace treaty."
+
+ intelectual_friendship:0 "Intelectual Friendship"
+ intelectual_friendship_desc:0 "If both you and [recipient.GetShortUINameNoTooltip|U] have high learning and share the same faith, a mutual intelectual friendship can easily be estabilished by exchanging letters about theology and philosophy."
+intelectual_friendship_notification:0 "Praise God! The war is over!"
+intelectual_friendship_notification_tooltip:0 "High clergy members successfully forced a peace treaty."
+
+ stop_attacker_vassal_war_interaction:0 "Stop Vassal's War"
+ stop_defender_vassal_war_interaction:0 "Stop Vassal's War"
+ stop_vassal_war_interaction_desc:0 "As the realm ruler, you can demand [recipient.GetShortUINameNoTooltip|U] to immediately end his war effort agaist a fellow vassal. This decision will have a small tyranny cost. If the vassals really hate each other, they will probably restart the war in a few months. To stop all vassals wars, you still need to raise the Crown Authority."
+force_peace_vassal_notification:0 "Stop this foolishness righ now!"
+force_peace_vassal_notification_tooltip:0 "War between vassals was stopped by realm ruler's intervention."
+
+ force_renounce_claims:0 "Intimidate Claimant"
+ force_renounce_claims_desc:0 "Try to ntimidate [recipient.GetShortUINameNoTooltip|U], convincing him/her to renounce all his/her pressed and unpressed claims to your primary titles. You will have to pay a compensation to [recipient.GetShortUINameNoTooltip|U], will lose some influence with the nobles and the clergy, and will gain a dreadful reputation. Ai will do this when threatened by a faction."
+intimidate_claimant_notification:0 "A royal claimant renounced his claims!"
+intimidate_claimant_notification_tooltip:0 "People are saying that he/she was forced to do it by intimidation."
+
+ raiding_interaction:0 "Pass Raiding Laws"
+ raiding_interaction_desc:0 "Some warmonger nobles and ambicious knighs are asking for your permission to recruit soldiers and form a private army in order to raid neighoring realms, and to engage in skirmish battles. They promisse that part of the plunder and ransom's gold will be shared with you, and that your name will not be associated with them."
+goraid_notification:0 "A mob of ruffians are banding togheter!"
+goraid_notification_tooltip:0 "But they are being lidered by renowned knights and nobles?"
+
+demanding_tributes:0 "Collecting Tributes"
+demanding_tributes_desc:0 "This ruler is receiving monthly tributes in the form of "cooperation" from a neighboring realm, which is likely compelled to provide them due to thi ruler's position of power and influence."
+offering_tributes:0 "Providing Tributes"
+offering_tributes_desc:0 "This ruler is offering monthly tributes in the form of "cooperation" to a dominant neighboring realm, which often acts as an oppressive force, coercing thi ruler into making these payments."
+
+
+trade_agrrement:0 "Established Trade Agreement"
+trade_agrrement_desc:0 "This ruler has successfully negotiated and established a strategically important trade agreement with one of their neighboring realms, fostering economic cooperation and mutual benefits."
+sabotaged_interaction:0 "Villages Targeted by Enemy Attacks"
+sabotaged_interaction_desc:0 "This ruler is facing internal pressure as their war enemies ruthlessly target defenseless villages, aiming to provoke a misstep and weaken their position."
+terrorized_interaction:0 "Disruption of Army Supply Lines"
+terrorized_interaction_desc:0 "This ruler is constantly facing covert and cowardly attacks on their logistical lines and the civilian escorts of their army, causing disruption and challenges."
+is_sabotaging_interaction:0 "Employing Sinister War Tactics"
+is_sabotaging_interaction_desc:0 "This ruler has ordered their forces to engage in looting, pillaging, and razing enemy villages during the war, aiming to force a decisive battle."
+is_terrorizing_interaction:0 "Utilizing Dishonorable War Tactics"
+is_terrorizing_interaction_desc:0 "This ruler has authorized sneaky and ruthless attacks on the logistical lines and the civilian population accompanying the armies of their war enemies."
+demanded_interaction:0 "Strained Manpower"
+demanded_interaction_desc:0 "This powerful vassal has been compelled to commit a significant portion of their army to support their liege's war effort, which compromises their own defensive capabilities."
+is_demanding_interaction:0 "Exerting Pressure for Troop Commitment"
+is_demanding_interaction_desc:0 "This ruler is exerting forceful demands on one of their powerful vassals, urging them to dedicate a substantial portion of their army to support their own war campaign, raising concerns among other vassals."
+spreading_lies:0 "Propagation of Falsehoods"
+spreading_lies_desc:0 "This ruler is actively spreading false information and fabricating lies about one of their enemies, aiming to tarnish their reputation among the nobility."
+suffering_from_lies:0 "Target of Defamation"
+suffering_from_lies_desc:0 "This ruler is the victim of a malicious smear campaign orchestrated by one of their rivals. While many are aware of the truth, some individuals believe or pretend to believe in these false allegations."
+denouncing_liege:0 "Protesting against Liege's Actions"
+denouncing_liege_desc:0 "This vassal is engaged in active conspiracy against their liege, encouraging other vassals to suspend their duties until their grievances are addressed and demands are met."
+denounced_liege:0 "Denounced by a Vassal"
+denounced_liege_desc:0 "This ruler is being openly denounced by one of their vassals, whose animosity towards the ruler seems to surpass their concern for their own safety."
+denounced_liege_2:0 "Despised by a Vassal"
+denounced_liege_2_desc:0 "This ruler is being openly denounced by one of their vassals, whose intense hatred towards the ruler appears to outweigh their regard for personal safety."
+realm_warden_appointment:0 "Realm Warden Appointment"
+realm_warden_appointment_desc:0 "As a loyal subject, this vassal has been appointed as the guardian of the realm, taking an oath to protect and support their liege, even in aggressive wars."
+council_warden_appointment:0 "Council Warden Appointment"
+council_warden_appointment_desc:0 "As a dedicated councilor, this vassal has been appointed as the guardian of the council, taking an oath to protect and support the realm, even in aggressive wars."
+house_warden_appointment:0 "House Warden Appointment"
+house_warden_appointment_desc:0 "In the name of their Dynasty, this vassal has been appointed as the guardian of the house, taking an oath to protect and support the realm, even in aggressive wars."
+holy_warden_appointment:0 "Holy Warden Appointment"
+holy_warden_appointment_desc:0 "By the divine grace of God, this vassal has been appointed as the guardian of the faith, taking an oath to protect and support the realm, even in aggressive wars."
+incited_to_revolt:0 "Incitement to Rebellion"
+incited_to_revolt_desc:0 "This vassal, known for their rebellious tendencies, is suspected of receiving external assistance in fomenting a revolt against their liege's rule."
+incite_rebellion:0 "Supporting Rebellion"
+incite_rebellion_desc:0 "This ruler is allegedly providing financial support to a rebellion in a neighboring realm, causing concern and unease among other rulers."
+
+#WARDEN_desc:0 "This character is a Warden, therefore, will rarely refuse a call to join war as long an Alliance exists."
+WARDEN_REASON:0 "Is a Warden: $VALUE|=+0$"
+ALLY_REASON:0 "Is a Formal Ally: $VALUE|=+0$"
+NOT_ALLY_REASON:0 "Is NOT a Formal Ally: $VALUE|=+0$"
+
+# found custom kingdom decision
+found_kingdom_piety:0 "Religious Icon (Piety Level 5)"
+found_kingdom_prestige:0 "Living Legend (Prestige Level 5)"
+
+#perk_alliance_interaction:0 "Diplomatic Alliance"
+
+AI_VASSAL_LIMIT_REASON:0 "Less than 50 Vassal Limit: $VALUE|=+0$"
+IS_RIGHT_LIEGE_REASON:0 "Is Rightful Liege: $VALUE|=+0$"
+
+SAME_CULTURE_DISCOUNT:0 "Same Cultural Heritage: $VALUE|=+0$"
+
+LIEGE_TREMBLING_TRAITS:0 "Trembling Liege: $VALUE|=+0$"
+LIEGE_UNWAVERING_TRAITS:0 "Unwavering Liege: $VALUE|=+0$"
+LIEGE_FAVORABLE_TRAITS:0 "Respectable Liege: $VALUE|=+0$"
+LIEGE_DESFAVORABLE_TRAITS:0 "Uncourtly Liege: $VALUE|=+0$"
+VASSAL_FAVORABLE_TRAITS:0 "Respectable Vassal: $VALUE|=+0$"
+VASSAL_DESFAVORABLE_TRAITS:0 "Uncourtly Vassal: $VALUE|=+0$"
+
+LIEGE_INSUPORTABLE_TRAITS:0 "Insuportable Liege: $VALUE|=+0$"
+LIEGE_REASONABLE_TRAITS:0 "Reasonable Liege: $VALUE|=+0$"
+LIEGE_POWER_HUNGER_TRAITS:0 "Powermonger Liege: $VALUE|=+0$"
+
+VASSAL_POWER_HUNGER_TRAITS:0 "Powerhungry Vassal: $VALUE|=+0$"
+VASSAL_INSUPORTABLE_TRAITS:0 "Insuportable Vassal: $VALUE|=+0$"
+VASSAL_REASONABLE_TRAITS:0 "Reasonable Vassal: $VALUE|=+0$"
+
+# SUBREALM_SIZE_REASON:0 "Realm Size Difference: $VALUE|=+0$"
+
+VASSAL_SUBREALMSIZE_REASON:0 "Target's Realm Size: $VALUE|=+0$"
+LIEGE_SUBREALMSIZE_REASON:0 "Your Realm Size: $VALUE|=+0$"
+VASSAL_SUBREALMSIZE_REASON_2:0 "Target's Realm Size: $VALUE|=+0$"
+LIEGE_SUBREALMSIZE_REASON_2:0 "Your Realm Size: $VALUE|=+0$"
+SUBREALM_DIFFERENCE:0 "Realm Size Difference: $VALUE|=+0$"
+
+IS_NOT_NEIGHBOR:0 "Target is not a Neighbor: $VALUE|=+0$"
+TRIBUTES_EMPIRE_DUKE:0 "Empires should tribute Kings: $VALUE|=+0$"
+
+AI_SAME_CULTURE_REASON:0 "Same Culture: $VALUE|=+0$"
+AI_CULTURE_ACCEPTANCE_REASON:0 "Cultural Acceptance: $VALUE|=+0$"
+IS_SAME_DYNASTY_REASON:0 "Same Dynasty: $VALUE|=+0$"
+IS_EMPEROR_BONUS:0 "Liege is a Emperor: $VALUE|=+0$"
+IS_EMPEROR_BONUS_2:0 "You are a Emperor: $VALUE|=+0$"
+LIEGE_PIETY_LEVEL:0 "Piety Level: $VALUE|=+0$"
+LIEGE_PRESTIGE_LEVEL:0 "Prestige Level: $VALUE|=+0$"
+
+IS_EXTENDED_FAMILY:0 "Same Family: $VALUE|=+0$"
+IS_CLOSE_FAMILY:0 "Close Family: $VALUE|=+0$"
+IS_NOT_COUNCILOR:0 "Not in the Council: $VALUE|=+0$"
+IS_COUNCILOR:0 "Is in the Council: $VALUE|=+0$"
+IS_KING_MALUS:0 "Vassal is a King: $VALUE|=+0$"
+IS_KING_MALUS_2:0 "Target is a King: $VALUE|=+0$"
+IS_EMPEROR_MALUS:0 "Target is a Emperor: $VALUE|=+0$"
+#IS_HOUSE_HEAD:0 "Target is a House Head: $VALUE|=+0$"
+
+I_AM_COUNT:0 "Rank Difference: $VALUE|=+0$"
+I_AM_DUKE:0 "Rank Difference: $VALUE|=+0$"
+NOT_A_KING:0 "You are not a King: $VALUE|=+0$"
+
+LIES_AND_DENOUNCE:0 "Bad Reputation: $VALUE|=+0$"
+AI_FACTION_LEADER:0 "Target is a Faction Leader: $VALUE|=+0$"
+PRESTIGE_LEVEL_DESC:0 "Prestige Level: $VALUE|=+0$"
+
+AI_ACTOR_DREAD:0 "Your Dread: $VALUE|=+0$"
+AI_RECIPIENT_DREAD:0 "Target Dread: $VALUE|=+0$"
+AI_ACTOR_MARTIAL:0 "Your Martial: $VALUE|=+0$"
+AI_RECIPIENT_MARTIAL:0 "Target Martial: $VALUE|=+0$"
+AI_ACTOR_STEWARD:0 "Your Stewardship: $VALUE|=+0$"
+AI_RECIPIENT_STEWARD:0 "Target Stewardship: $VALUE|=+0$"
+AI_ACTOR_DIPLOMACY:0 "Your Diplomacy: $VALUE|=+0$"
+AI_RECIPIENT_DIPLOMACY:0 "Target Diplomacy: $VALUE|=+0$"
+AI_ACTOR_LEARNING:0 "Your Learning: $VALUE|=+0$"
+AI_RECIPIENT_LEARNING:0 "Target Learning: $VALUE|=+0$"
+AI_ACTOR_INTRIGUE:0 "Your Intrigue: $VALUE|=+0$"
+AI_RECIPIENT_INTRIGUE:0 "Target Intrigue: $VALUE|=+0$"
+AI_RECIPIENT_BOLDNESS:0 "Target Boldness: $VALUE|=+0$"
+dread_alliance:0 "Supported Rebellion: $VALUE|=+0$"
+same_court_language_reason:0 "Same Court Language: $VALUE|=+0$"
+IS_CLAIMANT_OF_RECIPIENT:0 "You are a Claimant: $VALUE|=+0$"
+AI_RATIONAL:0 "Target's Rationality: $VALUE|=+0$"
+AI_GREEDY:0 "Target's Greed: $VALUE|=+0$"
+AI_ZEAL:0 "Target's Zeal: $VALUE|=+0$"
+AI_HONOR:0 "Target's Honor: $VALUE|=+0$"
+AI_ENERGY:0 "Target's Energy: $VALUE|=+0$"
+AI_SOCIABILITY:0 "Target's Sociability: $VALUE|=+0$"
+AI_BOLDNESS:0 "Target's Boldness: $VALUE|=+0$"
+
+HAS_DEFENSIVE_NEGOTIATIONS_PERK:0 "Defensive Negotiations Perk: $VALUE|=+0$"
+
+REALM_CAPITALS_DISTANCE:0 "Realm's Capital distance: $VALUE|=+0$"
+
+VASSAL_VIRTUES:0 "Target's Virtues: $VALUE|=+0$"
+LIEGE_VIRTUES:0 "Your's Virtues: $VALUE|=+0$"
+VASSAL_SINS:0 "Target's Sins: $VALUE|=+0$"
+LIEGE_SINS:0 "Your's Sins: $VALUE|=+0$"
+
+not_speaks_same_language_interaction_reason:0 "Not speak target's language: $VALUE|=+0$"
+
+ATTACKER_IN_WAR:0 "Already in a Offeensive War: $VALUE|=+0$"
+DEFENDER_IN_WAR:0 "Already in a Defensive War: $VALUE|=+0$"
+NOT_IN_WAR:0 "Ally is Ready for War: $VALUE|=+0$"
+INTERNAL_THREAT:0 "Ally Threatened by Factions: $VALUE|=+0$"
+INDEBTD_REASON:0 "You are Indebted: $VALUE|=+0$"
+ALLY_INDEBTD_REASON:0 "Ally is Indebted: $VALUE|=+0$"
+
+IS_ALREADY_WARDEN:0 "Active Warden Contract: $VALUE|=+0$"
+
+already_offering_demanding_tributes:0 "Already offering or demanding tributes"
+
+dynastic_negotiated_alliance_opinion:0 "Dynastic Alliance"
+diplomatic_negotiated_alliance_opinion:0 "Diplomatic Alliance"
+dread_negotiated_alliance_opinion:0 "Dreadful Alliance"
+realm_warden_negotiated_alliance_opinion:0 "Realm Warden"
+holy_warden_negotiated_alliance_opinion:0 "Holy Warden"
+council_warden_negotiated_alliance_opinion:0 "Council Warden"
+house_warden_negotiated_alliance_opinion:0 "House Warden"
+
+#negotiate_alliance_interaction:0 "Dynastic Alliance"
+incite_rebelion_interaction:0 "Support Rebellion"
+
+denounced_liege_opinion:0 "Denounced Tyranny"
+spreading_lies_from:0 "Defamation Victim"
+receiving_tribute:0 "Offering Tributes"
+
+### Opinion modifiers war
+war_threat:0 "War Threat: $VALUE|=+0$"
+war_exaustion:0 "War Exaustion: $VALUE|=+0$"
+liege_lose_war:0 "War Defeat: $VALUE|=+0$"
+
+LOW_PRESTIGE_LIEGE:0 "Low Prestige Liege: $VALUE|=+0$"
+NOMADIC_DREAD:0 "Nomadic Confederation: $VALUE|=+0$"
+TRIBAL_DREAD:0 "Tribal Confederation: $VALUE|=+0$"
+interaction_nonfeudal:0 "Incompatible Governments: $VALUE|=+0$"
+COURT_ACCEPTANCE_INCREASE_REASON:0 "Your Court Grandeur's Splendor: $VALUE|=+0$"
+#INTERACTION_DECEITFUL:0 "You are Deceitful: $VALUE|=+0$"
+#INTERACTION_HUMBLE:0 "Humble: $VALUE|=+0$"
+TAKE_THE_VOWS_CRAVEN:0 "Craven: $VALUE|=+0$"
+TAKE_THE_VOWS_BRAVE:0 "Brave: $VALUE|=+0$"
+INTERACTION_WRATHFUL:0 "You are Wrathful: $VALUE|=+0$"
+INTERACTION_SADISTIC:0 "You are Sadistic: $VALUE|=+0$"
+
+DUKE_LOCAL_SUPERPOWER:0 "No Neighboring Kingdoms: $VALUE|=+0$"
+
+## Religious head resistance to conversion's influence
+SPIRITUAL_HEAD_FAITH:0 "Spiritual Head: $VALUE|=+0$"
+TEMPORAL_HEAD_FAITH:0 "Temporal Head: $VALUE|=+0$"
+LAY_CLERGY_FAITH:0 "Lay Clergy: $VALUE|=+0$"
+
+
+
+
+ #Defile from Legacy
+ start_defile_interaction1:0 "Defile" 
+ legacy_defile_desc:0 "Defile and impregnate your prisoner. You will receive the Deviant Secret."
+
+ legacy.defile1:0 "Defile Event Title"
+ legacy.defile1.desc:0 "Defile Event Description"
+
+ legacy_defile1_name:0 "Defile option 1"
+ legacy_defile1_tooltip:0 "Defile Tooltip"
+
+ legacy_defiled_modifier:0 "Recently Defiled"
+ legacy_defiled_modifier_desc:0 "Recently Defiled Description"

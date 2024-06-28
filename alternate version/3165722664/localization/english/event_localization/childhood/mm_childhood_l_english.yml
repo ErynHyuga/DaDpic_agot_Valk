@@ -1,0 +1,21 @@
+﻿l_english:
+	mz_childhood.2001.t:0 "Childhood Curiosity"
+	mz_childhood.2001.desc:0 "My [mz_child.Custom2('ComplimentAdjective', ROOT.Char)] [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('mz_child'))], [mz_child.GetFirstNameNoTooltip], has come to me with questions about the teachings of [mz_child.GetFaith.HighGodName]. Specifically, [mz_child.GetSheHe] seems curious about the core tenets of [ROOT.Char.GetFaith.GetName], which proclaim the righteousness of lesbian love. Little [mz_child.GetFirstNameNoTooltip] has never felt this way, and seems concerned about the implications."
+	mz_childhood.2001.a:0 "I shall educate [mz_child.GetHerHim] on this matter myself."
+	mz_childhood.2001.b:0 "I shall provide [mz_child.GetHerHim] with the best resources for self-study."
+	mz_childhood.2001.success:0 "[mz_child.GetShortUINameNoTooltip] is interested"
+	mz_childhood.2001.success_tt:0 "[mz_child.GetShortUINameNoTooltip] decides she is interested in women."
+	mz_childhood.2001.failure:0 "[mz_child.GetShortUINameNoTooltip] is not interested"
+	mz_childhood.2001.failure_tt:0 "[mz_child.GetShortUINameNoTooltip] decides she is not interested in women."
+	mz_childhood.2001.c:0 "[mz_child.GetShortUINameNoTooltip] must learn on [mz_child.GetHerHis] own."
+
+	mz_childhood.education_result_success:0 "[mz_child.GetShortUINameNoTooltip] was very interested!"
+	mz_childhood.education_result_failure:0 "[mz_child.GetShortUINameNoTooltip] was not at all interested."
+	mz_childhood.education_result_homosexual:0 "[mz_child.GetShortUINameNoTooltip] realized that [mz_child.GetSheHe] is [homosexual|E]."
+	mz_childhood.education_result_bisexual:0 "[mz_child.GetShortUINameNoTooltip] realized [mz_child.GetSheHe] is [bisexual|E]."
+
+	mz_childhood.2501.t:0 "Childhood Curiosity"
+	mz_childhood.2501.desc:0 "I went to my [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('mz_mother'))], [mz_mother.GetTitledFirstName], and asked [mz_mother.GetHerHim] some questions about the teachings of [mz_mother.GetFaith.FertilityGodName]. It seems that love between women is especially favored, and I have never felt that way before. [mz_mother.GetFirstNameNoTooltip] provides me with a wealth of study materials, and talks me through the doctrines of [mz_mother.GetFaith.GetName], explaining to the best of [mz_mother.GetHerHis] ability.""
+	mz_childhood.2501.a:0 "[mz_mother.GetShortUINameNoTooltip] is right, girls really are divine!"
+	mz_childhood.2501.b:0 "Girls are lovely, but I think I like boys too."
+	mz_childhood.2501.c:0 "I remain unconvinced."

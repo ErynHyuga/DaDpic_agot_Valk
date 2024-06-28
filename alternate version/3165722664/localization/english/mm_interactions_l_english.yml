@@ -1,0 +1,103 @@
+﻿l_english:
+	mz_debug_test_interaction:0 "MM Debug Test"
+	mz_debug_test_interaction_desc:0 "MM Debut Test Description"
+
+	mz_convert_interaction:0 "Convert #weak (Scheme)#!"
+	mz_convert_interaction_notification:0 "Conversion"
+	 
+	MZ_I_AM_BLOCKED_FROM_CONVERTING_THIS_CHARACTER:0 "[TARGET_CHARACTER.GetShortUIName|U] has made [TARGET_CHARACTER.GetHerHis] disdain for your inquiries clear enough already"
+	MZ_CONVERT_COOLDOWN_TRIGGER:0 "You cannot try to convert [TARGET_CHARACTER.GetShortUIName] again for a while"
+
+	mz_ban_from_marriage_bed_interaction:0 "Ban from Marriage Bed"
+	mz_ban_from_marriage_bed_interaction_desc:0 "With the realm's sucession secured, I no longer need welcome just anyone into my bed."
+	mz_ban_from_marriage_bed_interaction_requirements:0 "Your [player_heir|E] must be your [child|E]."
+	mz_ban_from_marriage_bed_interaction_notification:0 "Rejected from Bed"
+
+	mz_welcome_to_marriage_bed_interaction:0 "Welcome Back to Marriage Bed"
+	mz_welcome_to_marriage_bed_interaction_desc:0 "[recipient.GetShortUINameNoTooltip] will again be welcome in my bedchamber."
+	mz_welcome_to_marriage_bed_interaction_notification:0 "No Longer Rejected from Bed"
+	mz_welcome_to_marriage_bed_interaction_requirements:0 "Your spouse has a contagious disease."
+
+	mz_desginate_heir_matriarchal_interaction:0 "Designate Heir (Matriarchy)"
+	mz_desginate_heir_matriarchal_interaction_desc:0 "Choose [recipient.GetShortUINameNoTooltip] as your [designated_heir|E]."
+
+	mz_matriarchy_claim_interaction:0 "Claim Title (Matriarchy)"
+	mz_matriarchy_claim_interaction_desc:0 "Pay [prestige|E] to claim a title owned by this male ruler."
+	MZ_ALREADY_BOUGHT_LIFETIME_KINGDOM_CLAIM:0 "You can only buy one [kingdom|E] [claim|E] per lifetime"
+	MZ_EMPEROR_CANNOT_BUY_EMPIRE_CLAIM:0 "You cannot buy a [claim|E] on an [empire|E] if you already are an [emperor|E]"
+
+	mz_send_to_amazon_training_interaction:0 "Send to Train with Amazons"
+	mz_send_to_amazon_training_interaction_desc:0 "[recipient.GetShortUINameNoTooltip] will receive training from your allies among the Amazons."
+	mz_send_to_amazon_training_interaction_toast:0 "Amazonian Training"
+	mz_send_to_amazon_training_interaction_toast_desc:0 "[recipient.GetShortUINameNoTooltip] has departed to train with your Amazonian allies."
+	AMAZON_TRAINING_EFFECTS:0 "May gain the [trait|E] #V[GetTrait('mz_amazonian_warrior').GetName( GetNullCharacter )]\nThis character will be sent to a hidden Amazonian enclave to receive training from your allies. Her [skills|E] may improve, and she may gain new [traits|E]. #X Her training will be interrupted if she gains a [title|El], becomes [imprisoned|El], or if her [health|El] gets too low! #!"
+
+	mz_female_succession_forced_interaction:0 "Force Female-Favored Succession"
+	mz_female_succession_forced_interaction_desc:0 "Force [recipient.GetShortUINameNoTooltip] to adopt your realm $succession_gender_laws$."
+
+	mz_straighten_out_scheme_interaction:0 "Straighten Out Descendant #weak (Scheme)#!"
+	mz_straighten_out_scheme_interaction_notification:0 "Straighten Out"
+
+	mz_make_eunuch_interaction:0 "Make Eunuch"
+	mz_make_chief_eunuch_interaction_notification:0 "Chief Eunuch Appointed"
+	mz_make_eunuch_interaction_notification:0 "Eunuch Appointed"
+	mz_make_eunuch_interaction_desc:0 "Castrate [recipient.GetShortUINameNoTooltip]. If you have an open position for a $chief_eunuch_court_position$, [recipient.GetShortUINameNoTooltip] will be appointed as such. Otherwise, this interaction can only be used on men who already hold court positions."
+	mz_not_heir_to_any_title_text:0 "[recipient.GetShortUINameNoTooltip] is an heir"
+
+	mz_offer_eunuch_interaction:0 "Offer Eunuch"
+	mz_offer_eunuch_interaction_desc:0 "Offer a courtier to serve as a court eunuch to another ruler. If the offer is accepted, the character you offer will be castrated if not already a eunuch."
+	mz_offer_eunuch_failure_desc:0 "You have no eligible men in your court"
+	actor_secondary_mz_offer_eunuch_interaction:0 "Eunuch Candidate"
+	mz_offer_eunuch_interaction_tt:0 "Offer [secondary_actor.GetShortUINameNoTooltip] to [recipient.GetShortUINameNoTooltip] to serve as a $chief_eunuch_court_position$ or another court position. [secondary_actor.GetShortUINameNoTooltip] will be castrated if accepted."
+
+	mz_recipient_hates_secondary_actor_desc:0 "This character despises the offered character"
+	mz_recipient_faith_hostility_desc:0 "This character's faith is hostile towards either your faith or the eunuch's faith"
+
+	mz_make_spouse_into_concubine:0 "Make Consort"
+	mz_make_spouse_into_concubine_desc:0 "Because of my [faith|E], I can declare my husband to be my consort instead."
+
+	MZ_PROPOSE_ETERNAL_DEVOTION_OPINION_TRAIT_DISLOYAL:0 "[GetTrait('disloyal').GetName(recipient.Self)] is wary of Eternal Devotion: $VALUE|=+0$"
+	MZ_PROPOSE_ETERNAL_DEVOTION_OPINION_TRAIT_ARBITRARY:0 "[GetTrait('arbitrary').GetName(recipient.Self)] is nervous of Eternal Devotion: $VALUE|=+0$"
+	MZ_PROPOSE_ETERNAL_DEVOTION_OPINION_TRAIT_LUSTFUL:0 "[GetTrait('lustful').GetName(recipient.Self)] is hesitant of Eternal Devotion: $VALUE|=+0$"
+	MZ_PROPOSE_ETERNAL_DEVOTION_OPINION_TRAIT_LOYAL:0 "[GetTrait('loyal').GetName(recipient.Self)] approves of Eternal Devotion: $VALUE|=+0$"
+	MZ_PROPOSE_ETERNAL_DEVOTION_OPINION_TRAIT_JUST:0 "[GetTrait('just').GetName(recipient.Self)] approves of Eternal Devotion: $VALUE|=+0$"
+	MZ_PROPOSE_ETERNAL_DEVOTION_OPINION_TRAIT_CHASTE:0 "[GetTrait('chaste').GetName(recipient.Self)] approves of Eternal Devotion: $VALUE|=+0$"
+	MZ_ADULTERY_SUSPICION:0 "[recipient.GetShortUINameNoTooltip] is suspicious about your faithfulness: $VALUE|=+0$"
+	MZ_BETRAYED_OUR_PROMISE:0 "You betrayed our promise: #N -1000#!"
+	MZ_ALREADY_HAS_SOULMATE:0 "Existing Relations"
+
+	MZ_PROPOSE_ETERNAL_DEVOTION_NOTIFICATION:0 "[recipient.GetFirstNameNoTooltip], my dear [recipient.Custom('RomanticComplimentNoun')], would you swear your devotion to me and me alone, in this life and all others?"
+
+	mz_swear_eternal_devotion_interaction:0 "Swear Eternal Devotion"
+	mz_swear_eternal_devotion_interaction_desc:0 "Swear an oath of Eternal Devotion to [recipient.GetShortUINameNoTooltip]. You and the target will gain the [GetTrait('mz_lesbian_divinity_trait').GetName(actor.Self)] trait."
+	mz_swear_eternal_devotion_interaction.accept.actor.tt:0 "[recipient.GetShortUINameNoTooltip] accepts your oath!"
+	mz_swear_eternal_devotion_interaction.accept.recipient.tt:0 "[actor.GetShortUINameNoTooltip] accepts your oath!"
+	mz_swear_eternal_devotion_interaction.decline.actor.tt:0 "[recipient.GetShortUINameNoTooltip] declines to swear an oath."
+	mz_swear_eternal_devotion_interaction.decline.recipient.tt:0 "[actor.GetShortUINameNoTooltip] was hurt by your rejection."
+	mz_swear_eternal_devotion_decline_summary:0 "I don't believe I'm ready for that level of commitment, my [recipient.Custom('RomanticComplimentNoun')]. I hope you understand."
+
+	MZ_BREAK_ETERNAL_DEVOTION_NOTIFICATION:0 "With the betrayal of my trust comes the end of our oath. I'm sorry it had to end this way, [recipient.Custom('RomanticComplimentNoun')]."
+
+	mz_break_eternal_devotion_interaction:0 "Break Eternal Devotion"
+	mz_break_eternal_devotion_interaction_desc:0 "As [recipient.GetShortUINameNoTooltip] has violated your sworn promise, you may break your oath of Eternal Devotion whenever you please."
+	mz_break_eternal_devotion_interaction.accept.actor.tt:0 "Eternal Devotion Ended"
+	mz_break_eternal_devotion_interaction.accept.recipient.tt:0 "$mz_swear_eternal_devotion_interaction.accept.actor.tt$"	
+
+	MZ_SYNERGIZE_ETERNAL_DEVOTION_NOTIFICATION:0 "Shall we strengthen the bonds of our oath, my dear [recipient.Custom('RomanticComplimentAdjective')] [recipient.GetFirstNameNoTooltip]? Let us work together, depend on each other, and guide one another forevermore"
+
+	mz_synergize_eternal_devotion_interaction:0 "Synergize Eternal Devotion"
+	mz_synergize_eternal_devotion_interaction_desc:0 "Synergize your oath of Eternal Devotion to [recipient.GetShortUINameNoTooltip], pledging to support one another in all things."
+	mz_synergize_eternal_devotion_interaction.accept.actor.tt:0 "[recipient.GetShortUINameNoTooltip] agrees to work together!"
+	mz_synergize_eternal_devotion_interaction.accept.recipient.tt:0 "[actor.GetShortUINameNoTooltip] agrees to work together!"
+	mz_synergize_eternal_devotion_interaction.decline.actor.tt:0 "[recipient.GetShortUINameNoTooltip] politely declines."
+	mz_synergize_eternal_devotion_interaction.decline.recipient.tt:0 "[actor.GetShortUINameNoTooltip] was hurt by your rejection."
+
+	mz_not_attracted_to_women:0 "[recipient.GetShortUINameNoTooltip] is attracted to women"
+	mz_actor_broken_promise:0 "$betrayed_our_promise$"
+	mz_devotion_oath_soulmate:0 "[CHARACTER.GetShortUINameNoTooltip|U] and [TARGET_CHARACTER.GetShortUINameNoTooltip] swore an oath of Eternal Devotion"
+
+	mz_lover.0100.opening:0 "To the treacherous [ROOT.Char.GetFirstNameNoTooltip],"
+	mz_lover.0100.desc:0 "Your betrayal of our sacred promise cannot be tolerated. I have spoken to the [mz_dumper.GetFaith.PriestNeuterPlural], and our oath is annuled. It's over, my dear."
+	mz_lover.0100.a:0 "But... [mz_dumper.GetFirstNameNoTooltip], please...!"
+	
+

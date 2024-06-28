@@ -1,0 +1,61 @@
+﻿l_english:
+    mz_matriarchy_modifier:0 "Matriarchy"
+    mz_matriarchy_modifier_desc:0 "Can enact the #high $female_preference_law$#! [gender_law|E] and the #high $female_only_law$#! [gender_law|E] with only Limited Authority\nWomen of this [dynasty|E] can be granted [titles|E] and appointed as [councillors|E] in defiance of $doctrine_gender_name$ [doctrine|E]\nThis [dynasty|E] gains [dynasty_prestige|E] whenever a female [dynasty|E] member gains a title of a tier she has never held\nA female [dynast|E] with a female-favored $succession_gender_laws$ realm law can pay [prestige|E] to force her [dynasty|E] members to adopt the same laws\nFemale rulers of this dynasty gain #N -20%#! less monthly [piety_i][piety|E] and #N -20%#! less [legitimacy_i][legitimacy] when following a faith with the [GetFaithDoctrine('doctrine_gender_male_dominated').GetBaseName] [doctrine|E]\nAllows selection of Matriarchy [dynasty_perks|E]"
+
+    mz_matriarchy_male_dominated_modifier:0 "Heretical Matriarch"
+    mz_matriarchy_male_dominated_modifier_desc:0 "This character rules in defiance of $doctrine_gender_name$ [doctrine|E]"
+
+    mz_amazon_bodyguards_modifier:0 "Amazonian Retinue"
+    mz_amazon_bodyguards_modifier_desc:0 "A retinue of Amazonian warriors accompanies this character wherever they go."
+
+    mz_aspiring_amazon_warrior:0 "Aspiring Amazonian Warrior"
+    mz_aspiring_amazon_warrior_desc:0 "This character aspires to one day be trained as an Amazonian Warrior."
+
+    mz_amazon_alliance_rank_1:0 "Amazon Contact"
+    mz_amazon_alliance_rank_1_desc:0 "This dynasty is in contact with the reclusive Amazons.\nWomen of this dynasty may use a [decision|E] to recruit Amazon warriors to serve as [knights|E] or [commanders|E]"
+
+    mz_amazon_alliance_rank_2:0 "Amazon Negotiations"
+    mz_amazon_alliance_rank_2_desc:0 "This dynasty is negotiating with the mysterious Amazons.\nWomen of this dynasty may use a [decision|E] to recruit Amazon warriors to serve as [knights|E] or [commanders|E]\nWomen of this dynasty may receive training from Amazons in their court"
+
+    mz_amazon_alliance_rank_3:0 "Amazon Settlements"
+    mz_amazon_alliance_rank_3_desc:0 "Women of this dynasty accept Amazonian warriors into their retinues.\nWomen of this dynasty may use a [decision|E] to recruit Amazon warriors to serve as [knights|E] or [commanders|E]\nWomen of this dynasty may receive training from Amazons in their court\nUnlocks the $mz_tradition_amazonian_enclaves_name$ [tradition|E] for women of this dynasty, and unique [casus_belli|E] to reclaim the Amazonian homelands for the Amazons"
+
+    mz_amazon_alliance_rank_4:0 "Amazon Integration"
+    mz_amazon_alliance_rank_4_desc:0 "Many women of this dynasty are integrating Amazonian populations into their lands.\nWomen of this dynasty may use a [decision|E] to recruit Amazon warriors to serve as [knights|E] or [commanders|E]\nWomen of this dynasty may receive training from Amazons in their court\nUnlocks the $mz_tradition_amazonian_enclaves_name$ [tradition|E] for women of this dynasty, and unique [casus_belli|E] to reclaim the Amazonian homelands for the Amazons\nThis dynasty can recruit [GetMaA('mz_amazon_hetairoi').GetName] as [men_at_arms|E] #weak(Only one regiment of $mz_amazon_hetairoi$ can be recruited, up to Size 6)#!"
+
+    mz_amazon_alliance_rank_5:0 "Amazon Alliance"
+    mz_amazon_alliance_rank_5_desc:0 "This dynasty has established an alliance with the Amazons.\nWomen of this dynasty may use a [decision|E] to recruit Amazon warriors to serve as [knights|E] or [commanders|E]\nWomen of this dynasty may receive training from Amazons in their court\nUnlocks the $mz_tradition_amazonian_enclaves_name$ [tradition|E] for women of this dynasty, and unique [casus_belli|E] to reclaim the Amazonian homelands for the Amazons\nThis dynasty can recruit [GetMaA('mz_amazon_hetairoi').GetName] as [men_at_arms|E] #weak (Only one regiment of $mz_amazon_hetairoi$ can be recruited, up to Size 6) #!\nWomen of this dynasty can, once per lifetime, use a unqiue [decision|E] to call upon their alliance for various benefits"
+
+    mz_permanent_amazon_alliance:0 "Permanent Amazon Alliance"
+    mz_permanent_amazon_alliance_desc:0 "This dynasty has established a permanent alliance with the Amazons.\nWomen of this dynasty may use a [decision|E] to recruit Amazon warriors to serve as [knights|E] or [commanders|E]\nWomen of this dynasty may receive training from Amazons in their court\nUnlocks the $mz_tradition_amazonian_enclaves_name$ [tradition|E] for women of this dynasty, and unique [casus_belli|E] to reclaim the Amazonian homelands for the Amazons\nThis dynasty can recruit [GetMaA('mz_amazon_hetairoi').GetName] as [men_at_arms|E] #weak (Only one regiment of $mz_amazon_hetairoi$ can be recruited, up to Size 6)#!\nWomen of this dynasty can, once per lifetime, use a unqiue [decision|E] to call upon their alliance for various benefits"   
+
+    mz_amazon_ruler_house_modifier:0 "Rightful Rulers of the Amazons"
+    mz_amazon_ruler_house_modifier_desc:0 "This house established the Amazonian empire, and is thus recognized as the rightful rulers of the Amazons.\nThe #V $mz_recruit_amazon_warrior_decision$#! [decision|E] costs no [gold_i][gold|E]\nBetter results when #V Training#! with the Amazons"
+
+    mz_amazon_cb_modifier:0 "Pledged to Amazonian Conquest"
+    mz_amazon_cb_modifier_desc:0 "This character has promised to declare a great war to claim a homeland for the Amazons."
+
+    mz_amazon_conquest_cb_modifier:0 "Amazonian Sappers"
+
+    mz_amazon_conquerer_modifier:0 "Amazonian Conquerer"
+
+    mz_amazon_settlements_modifier:0 "Amazon Settlements"
+    mz_amazon_settlements_modifier_desc:0 "The Amazons are settling these lands."
+
+    mz_amazon_overhunting_modifier:0 "Overhunting"
+    mz_amazon_overhunting_modifier_desc:0 "Overhunting in this county has stifled development."
+
+    mz_scythian_capital_opinion_modifier:0 "A Growing Capital"
+    mz_scythian_capital_opinion_modifier_desc:0 "The people of this county have been whipped into a fervor with the recent declaration."
+
+    mz_scythian_capital_misc_modifier:0 "Scythian Capital"
+    mz_scythian_capital_misc_modifier_desc:0 "A massive influx of Amazonian settlers has revitalized the settlemnet, bringing in massive horse herds, weaponry, and game. Local merchants and traders are eager to take advantage of the situation as well."
+
+    mz_champion_of_hera:0 "Champion of Hera"
+    mz_champion_of_hera_desc:0 "This character is held in awe by the devout of Hera, a fearless visionary who brought glory to their ancient faith."
+    
+    mz_friend_of_hera:0 "Friend of Hera"
+    mz_friend_of_hera_desc:0 "This character is known as a friend to the Heraionists, a controversial figure that revitalized worship in a long-forgotten faith."
+    
+    mz_amazon_enclave_county_modifier:0 "Amazon Enclaves"
+    mz_amazon_enclave_county_modifier_desc:0 "The Amazons are setting up enclaves in these lands, causing slight disruptions in the everyday lives of locals."

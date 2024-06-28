@@ -1,0 +1,6 @@
+﻿l_english:
+	mz_seduce_outcome.9001.t:0 "Sapphic Seduction: Introspection"
+	mz_seduce_outcome.9001.desc:0 "My recent bedding of [target.GetShortUINameNoTooltip] despite my previous inclinations has given me pause. Whatever my reasons for doing so, I should now consider whether or not the experience has awakened any latent desires that I may have suppressed until now..."
+	mz_seduce_outcome.9001.a:0 "No, I remain as I have been."
+	mz_seduce_outcome.9001.b:0 "I believe I am open to new experiences..."
+	mz_seduce_outcome.9001.c:0 "This is what I've been missing! I am a new woman!"

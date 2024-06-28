@@ -1,0 +1,63 @@
+﻿l_english:
+# \regiment_types
+loyal_army:0 "Loyalist Army"
+
+ducal_army:0 "Ducal Army"
+ducal_Army_decision_title:0 "Create a Ducal Army"
+ducal_Army_decision_desc:0 "Prestigious [duke|E] have enough political, military and popular support to have an entire [army|E] of loyal subjects at their disposal."
+ducal_Army_decision_tooltip:0 "This maintenance free [army|E] is shown as "Special Soldiers", scales with [court|E] Grandeur and [realm_size|E], and will stand down on sucession and cannot replenish."
+ducal_Army_decision_confirm:0 "Create a Ducal Army"
+
+ducal_army_notification:0 "Ducal Army"
+ducal_army_tooltip1:0 "The [army|E] is maintenance free, cannot replenish and is nonheritable"
+ducal_army_tooltip2:0 "The [army|E] is composed by low tier [men_at_arms|E] and [levies|E]"
+ducal_army_tooltip3:0 "The [army|E] size scales with [realm_size|E] and [court|E] Grandeur Level"
+ducal_army_tooltip4:0 "The [army|E] will be immediately assembled at the [county_capital|E]"
+
+royal_army:0 "Royal Army"
+kingsguard_decision_title:0 "Create a Royal Army"
+kingsguard_decision_desc:0 "Prestigious kings have enough political, military and popular support to have an entire [army|E] of loyal subjects at their disposal."
+kingsguard_decision_tooltip:0 "This maintenance free [army|E] is shown as "Special Soldiers", scales with Court Grandeur and Sub Realm Size, and will stand down on sucession and cannot replenish."
+kingsguard_decision_confirm:0 "Create a Royal Army"
+
+kingsguard_notification:0 "Royal Army"
+kingsguard_tooltip1:0 "The [army|E] is maintenance free, cannot replenish and is nonheritable"
+kingsguard_tooltip2:0 "The [army|E] is composed by mid tier [men_at_arms|E] and [levies|E]"
+kingsguard_tooltip3:0 "The [army|E] size scales with [realm_size|E] and [court|E] Grandeur Level"
+kingsguard_tooltip4:0 "The [army|E] will be immediately assembled at the [county_capital|E]"
+
+imperial_army:0 "Imperial Army"
+imperial_army_decision_title:0 "Create a Imperial Army"
+imperial_army_decision_desc:0 "Prestigious emperors have enough political, military and popular support to have an entire [army|E] of loyal subjects at their disposal."
+imperial_army_decision_tooltip:0 "This maintenance free [army|E] is shown as "Special Soldiers", scales with Court Grandeur and Sub Realm Size, and will stand down on sucession and cannot replenish."
+imperial_army_decision_confirm:0 "Create a Imperial Army"
+
+imperial_army_notification:0 "Imperial Army"
+imperial_army_tooltip1:0 "The [army|E] is maintenance free, cannot replenish and is nonheritable"
+imperial_army_tooltip2:0 "The [army|E] is composed by high tier [men_at_arms|E] and [levies|E]"
+imperial_army_tooltip3:0 "The [army|E] size scales with [realm_size|E] and [court|E] Grandeur Level"
+imperial_army_tooltip4:0 "The [army|E] will be immediately assembled at the [county_capital|E]"
+
+tribal_army:0 "Tribal Army"
+tribal_Army_decision_title:0 "Create a Tribal Army"
+tribal_Army_decision_desc:0 "Prestigious tribal leaders have enough political, military and popular support to have an entire [army|E] of loyal subjects at their disposal."
+tribal_Army_decision_tooltip:0 "This maintenance free [army|E] is shown as "Special Soldiers", scales with Court Grandeur and Sub Realm Size, and will stand down on sucession and cannot replenish."
+tribal_Army_decision_confirm:0 "Create a Tribal Army"
+
+tribal_army_notification:0 "Tribal Army"
+tribal_army_tooltip1:0 "The [army|E] is maintenance free, cannot replenish and is nonheritable"
+tribal_army_tooltip2:0 "The [army|E] is composed by [skirmishers|E], [light_cavalry|E] and [levies|E]"
+tribal_army_tooltip3:0 "The [army|E] size scales with [realm_size|E] and [court|E] Grandeur Level"
+tribal_army_tooltip4:0 "The [army|E] will be immediately assembled at the [county_capital|E]"
+
+nomadic_army:0 "Nomadic Army"
+nomadic_Army_decision_title:0 "Create a Nomadic Army"
+nomadic_Army_decision_desc:0 "Prestigious nomadic leaders have enough political, military and popular support to have an entire [army|E] of loyal subjects at their disposal."
+nomadic_Army_decision_tooltip:0 "This maintenance free [army|E] is shown as "Special Soldiers", scales with Court Grandeur and Sub Realm Size, and will stand down on sucession and cannot replenish."
+nomadic_Army_decision_confirm:0 "Create a Nomadic Army"
+
+nomadic_army_notification:0 "Nomadic Army"
+nomadic_army_tooltip1:0 "The [army|E] is maintenance free, cannot replenish and is nonheritable"
+nomadic_army_tooltip2:0 "The [army|E] is composed by [archer_cavalry|E] and inexperienced [levies|E]"
+nomadic_army_tooltip3:0 "The [army|E] size scales with [realm_size|E] and [court|E] Grandeur Level"
+nomadic_army_tooltip4:0 "The [army|E] will be immediately assembled at the [county_capital|E]"

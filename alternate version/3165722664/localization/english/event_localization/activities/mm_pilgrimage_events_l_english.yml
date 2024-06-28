@@ -1,0 +1,7 @@
+﻿l_english:
+  mz_pilgrimage.0001.t:0 "$pilgrimage_header$ Realization? "
+  mz_pilgrimage.0001.desc:0 "In this most holy place, I can feel the presence of [ROOT.Char.GetFaith.HighGodName] most clearly. There are other women here, and I can see how their love for one another strengthens their connection to the divine. Perhaps... could this mean...?"
+  mz_pilgrimage.0001.a:0 "I have more important things to ponder."
+  mz_pilgrimage.0001.a_tt:0 "Your sexuality will not change."
+  mz_pilgrimage.0001.b:0 "I have seen the light!"
+  mz_pilgrimage.0001.b.become_homosexual:0 "A Sudden Realization"

@@ -1,0 +1,8 @@
+﻿l_english:
+    MZ_I_HAVE_POWERFUL_FEMALE_VASSAL_WITH_NEGATIVE_OPINION:2 "None of your female [powerful_vassals|E] have a negative opinion of you."
+    MZ_REQUIRES_CROWN_TRIBAL_AUTHORITY_2:2 "I need either $crown_authority_1$ [crown_authority|E] or $tribal_authority_1$ [tribal_authority|E]"
+
+    MZ_I_AM_IN_CONSORT_LOCATION:0 "I am at the same location as my consort"
+    MZ_I_AM_NOT_IN_CONSORT_LOCATION:0 "I am not at the same location as my consort"
+
+    MZ_AA_COOLDOWN:0 "Your standing with the Amazons recently changed"

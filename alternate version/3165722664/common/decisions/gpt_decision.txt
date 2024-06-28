@@ -1,0 +1,956 @@
+﻿gpt_pass_edicts_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_unite_the_spanish_thrones.dds"
+	title = gpt_pass_edicts_decision_title
+ 	major = yes
+    desc = gpt_pass_edicts_decision_desc
+    selection_tooltip = gpt_pass_edicts_decision_tooltip
+    confirm_text = gpt_pass_edicts_decision_confirm_text
+
+	cooldown = { 
+		years = 5
+	}
+
+	is_shown = {
+		highest_held_title_tier >= 3
+		has_game_rule = GPT_decisions_enabled
+		NOT = {	government_has_flag = government_is_tribal }
+	}
+
+	effect = {
+
+		custom_tooltip = gpt_pass_edicts_decision_tooltip_1
+		custom_tooltip = gpt_pass_edicts_decision_tooltip_2
+		custom_tooltip = gpt_pass_edicts_decision_tooltip_3
+		custom_tooltip = gpt_pass_edicts_decision_tooltip_4
+
+		if = {
+			limit = {
+				is_ai = no
+			}
+			add_stress = 30
+			stress_impact = {
+				diligent = -60
+				paranoid = -60
+			}
+		}
+
+		trigger_event = {
+			id = murden_gravitas_events.0009
+		}
+	}
+	
+	is_valid = {
+		is_independent_ruler = yes
+		is_at_war = no
+		is_adult = yes
+		custom_description = {
+			text = "gpt_vassals"
+			vassal_count >= 8
+		}
+		custom_description = {
+			text = "gpt_no_low_opinion_powerful_vassals"
+			NOT = {
+				any_powerful_vassal = {
+					count >= 1
+					opinion = {
+						target = root
+						value < 0
+					}
+				}
+			}
+		}
+	 	OR = {
+	 		Diplomacy >= 16
+	 		Stewardship >= 16
+	 		Martial >= 16
+	 		Intrigue >= 16
+	 		Learning >= 16
+	 		Prowess >= 16	
+	 	}
+	 #	OR = {
+	 #		has_realm_law = crown_authority_1
+	 #		has_realm_law = crown_authority_2
+	 #		has_realm_law = crown_authority_3
+	 #	}
+	}
+
+	ai_check_interval = 8
+
+	ai_potential = {
+		NOT = {	government_has_flag = government_is_tribal }
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+use_your_gravitas_decision_3 = {
+	picture = "gfx/interface/illustrations/decisions/decision_found_kingdom.dds"
+	title = cppg_decision_title_3
+ 	major = yes
+    desc = cppg_decision_desc_3
+    selection_tooltip = cppg_decision_tooltip_3
+    confirm_text = cppg_decision_confirm_text_3
+
+	cooldown = { 
+		years = 5
+	}
+
+	is_shown = {
+		highest_held_title_tier >= 3
+		has_game_rule = GPT_decisions_enabled
+	}
+
+	effect = {
+
+		custom_tooltip = realm_management_tooltip_desc
+		custom_tooltip = realm_management_tooltip_desc2
+		custom_tooltip = realm_management_tooltip_desc3
+
+		if = {
+			limit = {
+				is_ai = no
+			}
+			add_stress = 25
+			stress_impact = {
+				diligent = -50
+				paranoid = -50
+			}
+		}
+
+		trigger_event = {
+			id = murden_gravitas_events.0003
+		}
+	}
+	
+	is_valid = {
+		is_independent_ruler = yes
+		is_at_war = no
+		is_adult = yes
+		sub_realm_size >= 16
+		custom_description = {
+			text = "gpt_no_low_opinion_councillors"
+			NOT = {
+				any_councillor = {
+					count >= 1
+					opinion = {
+						target = root
+						value < 0
+					}
+				}
+			}
+		}
+	  	OR = {
+	 		Diplomacy >= 12
+	 		Stewardship >= 12
+	 		Martial >= 12
+			Intrigue >= 12
+	 		Learning >= 12
+	 		Prowess >= 12
+	 	}
+	}
+
+	ai_check_interval = 8
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+use_your_gravitas_decision_4 = {
+	picture = "gfx/interface/illustrations/decisions/decision_formalise_the_daneland.dds"
+	title = cppg_decision_title_4
+ 	major = yes
+    desc = cppg_decision_desc_4
+    selection_tooltip = cppg_decision_tooltip_4
+    confirm_text = cppg_decision_confirm_text_4
+
+	cooldown = { 
+		years = 5
+	}
+
+	is_shown = {
+		has_game_rule = GPT_decisions_enabled
+		highest_held_title_tier >= 2
+	}
+
+	effect = {	
+
+		custom_tooltip = realm_management_tooltip_desc
+		custom_tooltip = realm_management_tooltip_desc2
+		custom_tooltip = realm_management_tooltip_desc3
+
+		if = {
+			limit = {
+				is_ai = no
+			}
+			add_stress = 20
+			stress_impact = {
+				diligent = -40
+				paranoid = -40
+			}
+		}
+
+		trigger_event = {
+			id = murden_gravitas_events.0004
+		}
+	}
+	
+	is_valid = {
+		is_at_war = no
+		is_adult = yes
+		custom_description = {
+			text = "gpt_domains"
+			domain_size >= 4
+		}
+		custom_description = {
+			text = "gpt_no_low_opinion_county"
+			NOT = {
+				any_held_county = {
+					count >= 1
+					county_opinion_target = {
+						target = root
+						value < 0
+					}
+				}
+			}
+		}
+
+	 	OR = {
+	 		Diplomacy >= 8
+	 		Stewardship >= 8
+	 		Martial >= 8
+	 		Intrigue >= 8
+	 		Learning >= 8
+	 		Prowess >= 8
+	 	}
+	}
+
+	ai_check_interval = 8
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+use_your_gravitas_decision_5 = {
+	picture = "gfx/interface/illustrations/decisions/decision_order_mass_eviction.dds"
+	title = cppg_decision_title_5
+ 	major = yes
+    desc = cppg_decision_desc_5
+    selection_tooltip = cppg_decision_tooltip_5
+    confirm_text = cppg_decision_confirm_text_5
+
+	cooldown = { 
+		years = 5
+	}
+
+	is_shown = {
+		has_game_rule = GPT_decisions_enabled
+		highest_held_title_tier >= 2
+	}
+
+	effect = {	
+
+		custom_tooltip = realm_management_tooltip_desc
+		custom_tooltip = realm_management_tooltip_desc2
+		custom_tooltip = realm_management_tooltip_desc3
+
+		if = {
+			limit = {
+				is_ai = no
+			}
+			add_stress = 15
+			stress_impact = {
+				diligent = -30
+				paranoid = -30
+			}
+		}
+
+		trigger_event = {
+			id = murden_gravitas_events.0005
+		}
+	}
+	
+	is_valid = {
+		is_at_war = no
+		is_adult = yes
+		custom_description = {
+			text = "gpt_no_low_opinion_family"
+			NOT = {
+				any_close_family_member = {
+					count >= 1
+					opinion = {
+						target = root
+						value < 0
+					}
+				}
+			}
+		}
+
+	 	OR = {
+	 		Diplomacy >= 4
+	 		Stewardship >= 4
+	 		Martial >= 4
+	 		Intrigue >= 4
+	 		Learning >= 4
+	 		Prowess >= 4
+	  	}
+	}
+
+	ai_check_interval = 8
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+gpt_sponsor_expedition = {
+	picture = "gfx/interface/illustrations/decisions/decision_negotiate_the_danelaw_integrate_duchies.dds"
+	title = gpt_sponsor_expedition_title
+ 	major = no
+    desc = gpt_sponsor_expedition_desc
+    selection_tooltip = gpt_sponsor_expedition_tooltip
+    confirm_text = gpt_sponsor_expedition_confirm_text
+
+  #	cooldown = { years = 1 }
+
+	is_shown = {
+		is_ai = no
+		is_landed = yes
+		highest_held_title_tier >= 3
+		has_game_rule = GPT_decisions_enabled
+		NOT = {	government_has_flag = government_is_tribal }
+		has_dynasty = yes
+		exists = house
+	}
+
+	cost = {
+		prestige = {
+			value = 0
+			if = { limit = { highest_held_title_tier = 5 NOT = { has_character_flag = any_expedition } } add = 350 }
+			if = { limit = { highest_held_title_tier = 4 NOT = { has_character_flag = any_expedition } } add = 250 }
+			if = { limit = { highest_held_title_tier = 3 NOT = { has_character_flag = any_expedition } } add = 150 }
+		}
+		gold = {
+			value = 0
+			if = { limit = { highest_held_title_tier = 5 NOT = { has_character_flag = any_expedition } } add = 150 }
+			if = { limit = { highest_held_title_tier = 4 NOT = { has_character_flag = any_expedition } } add = 100 }
+			if = { limit = { highest_held_title_tier = 3 NOT = { has_character_flag = any_expedition } } add = 50 }
+		}	
+	}
+
+	effect = {
+
+		custom_tooltip = gpt_sponsor_expedition_tip_1
+		custom_tooltip = gpt_sponsor_expedition_tip_2
+		custom_tooltip = gpt_sponsor_expedition_tip_3
+
+		trigger_event = {
+			id = murden_gravitas_events.0028
+		}
+	}
+	
+	is_valid = {
+		is_at_war = no
+		is_adult = yes
+		is_house_head = yes
+		NOR = {
+			has_trait = craven
+			has_trait = impatient
+			has_trait = fickle
+		}
+		OR = {
+			diplomacy >= 8
+			stewardship >= 8
+			martial >= 8
+			intrigue >= 8
+			learning >= 8
+			prowess >= 12
+		}
+	}
+	ai_check_interval = 0
+}
+
+
+gpt_skill_quest = {
+	picture = "gfx/interface/illustrations/decisions/decision_stress_loss_athletic.dds"
+	title = gpt_skill_quest_title
+ 	major = no
+    desc = gpt_skill_quest_desc
+    selection_tooltip = gpt_skill_quest_tooltip
+    confirm_text = gpt_skill_quest_confirm_text
+
+  #	cooldown = { years = 1 }
+
+	is_shown = {
+		is_ai = no
+		is_landed = yes
+		highest_held_title_tier >= 2
+		has_game_rule = GPT_decisions_enabled
+		NOT = {	government_has_flag = government_is_tribal }
+	}
+
+	effect = {
+
+		custom_tooltip = gpt_skill_quest_tip_1
+		custom_tooltip = gpt_skill_quest_tip_2
+		custom_tooltip = gpt_skill_quest_tip_3
+		custom_tooltip = gpt_skill_quest_tip_4
+		custom_tooltip = gpt_skill_quest_tip_5
+		custom_tooltip = gpt_skill_quest_tip_6
+
+		trigger_event = {
+			id = murden_gravitas_events.0030
+		}
+		stress_impact = {
+			craven = 25
+			arrogant = 25
+			impatient = 25
+			diligent = 25
+			lazy = 25
+		}
+	}
+
+	cost = {
+		prestige = {
+			value = 0
+			if = { limit = { highest_held_title_tier = 5 NOT = { has_trait = gpt_absent } } add = 600 }
+			if = { limit = { highest_held_title_tier = 4 NOT = { has_trait = gpt_absent } } add = 450 }
+			if = { limit = { highest_held_title_tier = 3 NOT = { has_trait = gpt_absent } } add = 300 }
+			if = { limit = { highest_held_title_tier = 2 NOT = { has_trait = gpt_absent } } add = 150 }
+		}
+		gold = {
+			value = 0
+			if = { limit = { highest_held_title_tier = 5 NOT = { has_trait = gpt_absent } } add = 200 }
+			if = { limit = { highest_held_title_tier = 4 NOT = { has_trait = gpt_absent } } add = 150 }
+			if = { limit = { highest_held_title_tier = 3 NOT = { has_trait = gpt_absent } } add = 100 }
+			if = { limit = { highest_held_title_tier = 2 NOT = { has_trait = gpt_absent } } add = 50 }
+		}	
+	}
+	
+	is_valid = {
+		is_at_war = no
+		is_adult = yes
+		custom_description = {
+			text = "gpt_absent_health"
+			health >= 3.5
+		}
+		NOR = {
+			has_trait = stubborn
+			has_trait = greedy
+			has_trait = ambitious
+			has_trait = paranoid
+		}
+		OR = {
+			diplomacy >= 8
+			stewardship >= 8
+			martial >= 8
+			intrigue >= 8
+			learning >= 8
+			prowess >= 12
+		}
+	}
+	ai_check_interval = 0
+}
+
+
+gpt_buying_resources = {
+	picture = "gfx/interface/illustrations/decisions/decision_borrow_from_holy_order.dds"
+	title = gpt_buying_resources_title
+ 	major = no
+    desc = gpt_buying_resources_desc
+    selection_tooltip = gpt_buying_resources_tooltip
+    confirm_text = gpt_buying_resources_confirm_text
+
+ #	cooldown = { years = 1 }
+
+	is_shown = {
+		is_ai = no
+		is_landed = yes
+		highest_held_title_tier >= 3
+		has_game_rule = GPT_decisions_enabled
+		gold > 0
+		NOR = {
+			# faith = { has_doctrine_parameter = unreformed }
+			government_has_flag = government_is_tribal
+		 	culture = { has_cultural_tradition = tradition_horse_lords }
+		}
+	}
+
+	effect = {
+
+		custom_tooltip = gpt_buying_resources_tip_1
+		custom_tooltip = gpt_buying_resources_tip_2
+
+		trigger_event = {
+			id = murden_gravitas_events.0034
+		}
+	}
+	
+	is_valid = {
+		is_at_war = no
+		is_adult = yes
+		NOR = {
+			has_trait = honest
+			has_trait = content
+			has_trait = lazy
+		}
+		OR = {
+			intrigue >= 12
+			cp:councillor_spymaster.intrigue >= 16
+		}
+	}
+
+	ai_check_interval = 0
+}
+
+gpt_buying_resources_tribal = {
+	picture = "gfx/interface/illustrations/decisions/decision_borrow_from_holy_order.dds"
+	title = gpt_buying_resources_title
+ 	major = no
+    desc = gpt_buying_resources_desc
+    selection_tooltip = gpt_buying_resources_tooltip
+    confirm_text = gpt_buying_resources_confirm_text
+
+ #	cooldown = { years = 1 }
+
+	is_shown = {
+		is_ai = no
+		is_landed = yes
+		highest_held_title_tier >= 3
+		has_game_rule = GPT_decisions_enabled
+		gold > 0
+		OR = {
+			# faith = { has_doctrine_parameter = unreformed }
+			government_has_flag = government_is_tribal
+		 	culture = { has_cultural_tradition = tradition_horse_lords }
+		}
+	}
+
+	effect = {
+
+		custom_tooltip = gpt_buying_resources_tip_1
+		custom_tooltip = gpt_buying_resources_tip_2
+
+		trigger_event = {
+			id = murden_gravitas_events.0033
+		}
+	}
+	
+	is_valid = {
+		is_at_war = no
+		is_adult = yes
+		NOR = {
+			has_trait = honest
+			has_trait = content
+			has_trait = lazy
+		}
+		OR = {
+			intrigue >= 12
+			cp:councillor_spymaster.intrigue >= 16
+		}
+	}
+
+	ai_check_interval = 0
+}
+
+
+gpt_Tyranny_resources = {
+	picture = "gfx/interface/illustrations/decisions/decision_strengthen_bloodline.dds"
+	title = gpt_tyranny_resources_title
+ 	major = no
+    desc = gpt_tyranny_resources_desc
+    selection_tooltip = gpt_tyranny_resources_tooltip
+    confirm_text = gpt_tyranny_resources_confirm_text
+
+ #	cooldown = { years = 1 }
+
+	is_shown = {
+		is_ai = no
+		is_landed = yes
+		highest_held_title_tier >= 3
+		has_game_rule = GPT_decisions_enabled
+		NOR = {
+			# faith = { has_doctrine_parameter = unreformed }
+			government_has_flag = government_is_tribal
+		 	culture = { has_cultural_tradition = tradition_horse_lords }
+		}
+	}
+
+	effect = {
+
+		custom_tooltip = gpt_tyranny_resources_tip_1
+		custom_tooltip = gpt_tyranny_resources_tip_2
+
+		trigger_event = {
+			id = murden_gravitas_events.0032
+		}
+	}
+	
+	is_valid = {
+		is_at_war = no
+		is_adult = yes
+		NOR = {
+			has_trait = compassionate
+			has_trait = humble
+			has_trait = just
+		}
+		OR = {
+			intrigue >= 12
+			cp:councillor_spymaster.intrigue >= 16
+		}
+	}
+
+	ai_check_interval = 0
+}
+
+gpt_Tyranny_resources_tribal = {
+	picture = "gfx/interface/illustrations/decisions/decision_strengthen_bloodline.dds"
+	title = gpt_tyranny_resources_title
+ 	major = no
+    desc = gpt_tyranny_resources_desc
+    selection_tooltip = gpt_tyranny_resources_tooltip
+    confirm_text = gpt_tyranny_resources_confirm_text
+
+ #	cooldown = { years = 1 }
+
+	is_shown = {
+		is_ai = no
+		is_landed = yes
+		highest_held_title_tier >= 3
+		has_game_rule = GPT_decisions_enabled
+		OR = {
+			# faith = { has_doctrine_parameter = unreformed }
+			government_has_flag = government_is_tribal
+		 	culture = { has_cultural_tradition = tradition_horse_lords }
+		}
+	}
+
+	effect = {
+
+		custom_tooltip = gpt_tyranny_resources_tip_1
+		custom_tooltip = gpt_tyranny_resources_tip_2
+
+		trigger_event = {
+			id = murden_gravitas_events.0031
+		}
+	}
+	
+	is_valid = {
+		is_at_war = no
+		is_adult = yes
+		NOR = {
+			has_trait = compassionate
+			has_trait = humble
+			has_trait = just
+		}
+		OR = {
+			intrigue >= 12
+			cp:councillor_spymaster.intrigue >= 16
+		}
+	}
+
+	ai_check_interval = 0
+}
+
+
+gpt_trading = {
+	picture = "gfx/interface/illustrations/decisions/decision_assimilate_local_traditions.dds"
+	title = gpt_trading_title
+ 	major = yes
+    desc = gpt_trading_desc
+    selection_tooltip = gpt_trading_tooltip
+    confirm_text = gpt_trading_confirm_text
+
+ #	cooldown = { 
+ #		years = 5
+ #	}
+
+	is_shown = {
+		is_ai = no
+		highest_held_title_tier >= 2
+		has_game_rule = GPT_trade_enabled
+		any_sub_realm_county = {
+			count >= 1
+			is_coastal_county = yes
+			any_county_province = {
+				OR = {
+					has_building_or_higher = common_tradeport_01
+				}
+			}
+		}
+	}
+
+	effect = {
+
+	 #	custom_tooltip = gpt_trading_tooltip_1
+		custom_tooltip = gpt_trading_tooltip_2
+		custom_tooltip = gpt_trading_tooltip_3
+		custom_tooltip = gpt_trading_tooltip_4
+		custom_tooltip = gpt_trading_tooltip_5
+		custom_tooltip = gpt_trading_tooltip_6
+		custom_tooltip = gpt_trading_tooltip_7
+
+		if = {
+			limit = {
+				is_ai = no
+			}
+			stress_impact = {
+				lazy = 25
+				shy = 12
+			}
+		}
+
+		trigger_event = {
+			id = murden_gravitas_events.0040
+		}
+	}
+
+	cost = {
+		prestige = {
+			value = 0
+			if = { limit = { highest_held_title_tier = 5 } add = 250 }
+			if = { limit = { highest_held_title_tier = 4 } add = 200 }
+			if = { limit = { highest_held_title_tier = 3 } add = 150 }
+			if = { limit = { highest_held_title_tier = 2 } add = 100 }
+		}
+		gold = {
+			value = 0
+			if = { limit = { highest_held_title_tier = 5 } add = 100 }
+			if = { limit = { highest_held_title_tier = 4 } add = 75 }
+			if = { limit = { highest_held_title_tier = 3 } add = 50 }
+			if = { limit = { highest_held_title_tier = 2 } add = 25 }
+		}	
+	}
+	
+	is_valid = {
+		is_at_war = no
+		is_adult = yes
+	 #	is_independent_ruler = yes
+	 #	has_active_diarchy = no
+	 	OR = {
+			is_independent_ruler = yes
+			is_powerful_vassal = yes
+		}
+		custom_description = {
+			text = "gpt_2_knights"
+			number_of_knights >= 2
+		}
+		custom_description = {
+			text = "gpt_not_hated_by_knights"
+			NOT = {
+				any_knight = {
+					count >= 1
+					opinion = {
+						target = root
+						value <= -50
+					}
+				}
+			}
+		}
+	}
+
+	ai_check_interval = 100
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+gpt_trading_ai = {
+	picture = "gfx/interface/illustrations/decisions/decision_assimilate_local_traditions.dds"
+	title = gpt_trading_title
+ 	major = yes
+    desc = gpt_trading_desc
+    selection_tooltip = gpt_trading_tooltip
+    confirm_text = gpt_trading_confirm_text
+
+ #	cooldown = { 
+ #		years = 5
+ #	}
+
+	is_shown = {
+		is_ai = yes
+		highest_held_title_tier >= 2
+		has_game_rule = GPT_trade_enabled
+		any_sub_realm_county = {
+			count >= 1
+			is_coastal_county = yes
+			any_county_province = {
+				OR = {
+					has_building_or_higher = common_tradeport_01
+				}
+			}
+		}
+	}
+
+	effect = {
+
+	 #	custom_tooltip = gpt_trading_tooltip_1
+		custom_tooltip = gpt_trading_tooltip_2
+		custom_tooltip = gpt_trading_tooltip_3
+		custom_tooltip = gpt_trading_tooltip_4
+		custom_tooltip = gpt_trading_tooltip_5
+		custom_tooltip = gpt_trading_tooltip_6
+		custom_tooltip = gpt_trading_tooltip_7
+
+		if = {
+			limit = {
+				is_ai = no
+			}
+			stress_impact = {
+				lazy = 25
+				shy = 12
+			}
+		}
+
+		trigger_event = {
+			id = murden_gravitas_events.0040
+		}
+	}
+
+	cost = {
+		prestige = {
+			value = 0
+			if = { limit = { highest_held_title_tier = 5 } add = 250 }
+			if = { limit = { highest_held_title_tier = 4 } add = 200 }
+			if = { limit = { highest_held_title_tier = 3 } add = 150 }
+			if = { limit = { highest_held_title_tier = 2 } add = 100 }
+		}
+		gold = {
+			value = 0
+			if = { limit = { highest_held_title_tier = 5 } add = 100 }
+			if = { limit = { highest_held_title_tier = 4 } add = 75 }
+			if = { limit = { highest_held_title_tier = 3 } add = 50 }
+			if = { limit = { highest_held_title_tier = 2 } add = 25 }
+		}	
+	}
+	
+	is_valid = {
+		is_ai = yes
+		is_at_war = no
+		is_adult = yes
+	 	OR = {
+			is_independent_ruler = yes
+			is_powerful_vassal = yes
+		}
+		custom_description = {
+			text = "gpt_2_knights"
+			number_of_knights >= 2
+		}
+	}
+
+	ai_check_interval = 12
+
+	ai_potential = {
+		NOT = { has_character_flag = gpt_combat_piracy_trigger_lv3 }
+		NOT = { has_character_flag = gpt_trade_power_flag_lv4 }
+		NOT = { has_character_flag = gpt_trade_power_flag_lv5 }
+		OR = {
+			highest_held_title_tier >= 4
+			has_character_flag = gpt_trade_power_flag_lv3
+			AND = {
+				highest_held_title_tier > 2
+				monthly_character_income > 8
+				prestige > 750
+			}
+			AND = {
+				highest_held_title_tier = 3
+				has_character_flag = gpt_trade_power_flag_lv1
+				prestige > 500
+			}
+		}
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+
+gpt_war_taxes = {
+	picture = "gfx/interface/illustrations/decisions/decision_repay_loan.dds"
+	title = gpt_war_taxes_title
+ 	major = yes
+    desc = gpt_war_taxes_desc
+    selection_tooltip = gpt_war_taxes_tooltip
+    confirm_text = gpt_war_taxes_confirm_text
+
+ #	cooldown = { 
+ #		years = 5
+ #	}
+
+	is_shown = {
+		has_game_rule = GPT_decisions_enabled
+		number_of_powerful_vassals >= 3
+		#OR = {
+		#	domain_size >= 4
+		#	number_of_powerful_vassals >= 4
+		#}
+		NOR = {
+			has_character_modifier = gpt_low_war_tax 
+			has_character_modifier = gpt_medium_war_tax 
+			has_character_modifier = gpt_high_war_tax 
+		}
+	}
+
+	effect = {
+
+		custom_tooltip = gpt_war_taxes_tooltip_1
+		custom_tooltip = gpt_war_taxes_tooltip_2
+		custom_tooltip = gpt_war_taxes_tooltip_3
+
+		trigger_event = {
+			id = murden_gravitas_events.0041
+		}
+	}
+
+	cost = {
+		piety = {
+			value = 0
+			if = { limit = { is_at_war_as_attacker = no highest_held_title_tier = 5 } add = 350 }
+			if = { limit = { is_at_war_as_attacker = no highest_held_title_tier = 4 } add = 250 }
+			if = { limit = { is_at_war_as_attacker = no highest_held_title_tier = 3 } add = 150 }
+			if = { limit = { is_at_war_as_attacker = no highest_held_title_tier = 2 } add = 100 }
+			if = { limit = { is_at_war_as_attacker = yes highest_held_title_tier = 5 } add = 700 }
+			if = { limit = { is_at_war_as_attacker = yes highest_held_title_tier = 4 } add = 500 }
+			if = { limit = { is_at_war_as_attacker = yes highest_held_title_tier = 3 } add = 300 }
+			if = { limit = { is_at_war_as_attacker = yes highest_held_title_tier = 2 } add = 200 }
+			if = { limit = { is_at_war_as_attacker = no is_ai = yes piety < 1000 } add = -100 }
+			if = { limit = { is_at_war_as_attacker = yes is_ai = yes piety < 1000 } add = -200 }
+		}
+	}	
+
+	is_valid = {
+		is_at_war = yes
+		is_adult = yes
+	 #	has_active_diarchy = no
+	}
+
+	ai_check_interval = 3
+
+	ai_potential = {
+		is_at_war_as_defender = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}

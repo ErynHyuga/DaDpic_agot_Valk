@@ -1,0 +1,863 @@
+﻿mz_ban_from_marriage_bed_interaction = { # This has been expanded to allow anyone allowed to do same-sex marriage to ban consorts from bed
+	icon = mz_ban_bed_interaction
+	category = interaction_category_hostile
+	common_interaction = yes
+	interface_priority = 90
+
+	desc = mz_ban_from_marriage_bed_interaction_desc
+
+	ai_target_quick_trigger = {
+		adult = yes
+		owner_attracted = no
+	}
+	ai_targets = { 
+		ai_recipients = spouses
+		ai_recipients = courtiers
+	}
+	ai_frequency = 36 #Tri-yearly check
+	ai_potential = {
+		is_landed = yes
+		allowed_to_marry_same_sex_trigger = yes
+	}
+	ai_will_do = {
+		base = 0
+		modifier = {
+			scope:actor = {
+				any_child = { count >= 5 }
+			}
+			NOT = { is_attracted_to_gender_of = scope:recipient } # For the AI, we only trigger this if we're not attracted.
+			add = 100
+		}
+		modifier = { # Some additional provisions to let the AI generate a few more heirs than it needs; just in case something happens to the others.
+			OR = {
+				scope:actor = { has_realm_law = male_preference_law }
+				scope:actor = { has_realm_law = male_only_law }
+			}
+			scope:actor = {
+				any_child = {
+					count < 3
+					is_male = yes
+				}
+			}
+			add = -100
+		}
+		modifier = {
+			OR = {
+				scope:actor = { has_realm_law = female_preference_law }
+				scope:actor = { has_realm_law = female_only_law }
+			}
+			scope:actor = {
+				any_child = {
+					count < 3
+					is_female = yes
+				}
+			}
+			add = -100
+		}
+	}
+
+	is_shown = {
+		OR = { # Needs some form of authority in the arrangement
+			scope:recipient = { is_concubine_of = scope:actor } # Concubinst can always force concubines out of bed
+			AND = { # For marriage the dominant partner is the only one who can use this interaction
+				scope:actor = { is_female = yes }
+				scope:recipient = {
+					matrilinear_marriage = yes
+					is_spouse_of = scope:actor 
+				}
+			}
+			AND = {
+				scope:actor = { is_female = no }
+				scope:recipient = { 
+					matrilinear_marriage = no
+					is_spouse_of = scope:actor 
+				}
+			}
+		}
+		scope:actor = { allowed_to_marry_same_sex_trigger = yes } # Unlocked by same-sex marriage
+		scope:recipient = { # For concubines and spouses of the actor
+			is_consort_of = scope:actor
+			sex_opposite_of = scope:actor
+			NOT = { has_character_modifier = rejected_from_marriage_bed_modifier }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_tooltip = { # Only other requirement is that the player heir is a child of the actor
+			text = mz_ban_from_marriage_bed_interaction_requirements
+			#exists = scope:actor.player_heir # Don't think this is necessary but will test.
+			scope:actor = { 
+				player_heir ?= { is_child_of = scope:actor }
+			}
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:actor = {
+			send_interface_toast = {
+				title = mz_ban_from_marriage_bed_interaction_notification
+				left_icon = scope:actor					
+				right_icon = scope:recipient
+				scope:recipient = {
+					add_character_modifier = {
+						modifier = rejected_from_marriage_bed_modifier
+					}
+					add_opinion = {
+						target = scope:actor
+						modifier = refusal_opinion
+						opinion = -20
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			scope:recipient = {
+				send_interface_toast = {
+					title = mz_ban_from_marriage_bed_interaction_notification
+					left_icon = scope:recipient				
+					right_icon = scope:actor
+					show_as_tooltip = {
+						add_character_modifier = {
+							modifier = rejected_from_marriage_bed_modifier
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+mz_welcome_to_marriage_bed_interaction = { # If want to undo the above
+	icon = mz_bed_interaction
+	category = interaction_category_friendly
+	common_interaction = yes
+	interface_priority = 20
+
+	desc = mz_welcome_to_marriage_bed_interaction_desc
+
+	ai_target_quick_trigger = { adult = yes }
+	ai_targets = { 
+		ai_recipients = spouses
+		ai_recipients = courtiers
+	}
+	ai_frequency = 12 #Check every year
+	ai_potential = { 
+		is_landed = yes
+		allowed_to_marry_same_sex_trigger = yes
+	}
+	ai_will_do = { # The checks for this are a bit more basic. Welcome our target back if we want more children.
+		base = 0
+		modifier = {
+			scope:actor = {
+				any_child = { count < 5 }
+			}
+			add = 100
+		}		
+		modifier = {
+			OR = {
+				scope:actor = { has_realm_law = male_preference_law }
+				scope:actor = { has_realm_law = male_only_law }
+			}
+			scope:actor = {
+				any_child = {
+					count < 3
+					is_male = yes
+				}
+			}
+			add = 100
+		}
+		modifier = {
+			OR = {
+				scope:actor = { has_realm_law = female_preference_law }
+				scope:actor = { has_realm_law = female_only_law }
+			}
+			scope:actor = {
+				any_child = {
+					count < 3
+					is_female = yes
+				}
+			}
+			add = 100	
+		}
+	}
+
+	is_shown = {
+		scope:actor = { allowed_to_marry_same_sex_trigger = yes }
+		scope:recipient = { 
+			is_consort_of = scope:actor
+			has_character_modifier = rejected_from_marriage_bed_modifier
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = mz_welcome_to_marriage_bed_interaction_requirements
+			scope:recipient = {
+				has_contagious_deadly_disease_trigger = no
+				has_std_trigger = no
+			}
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:actor = {
+			send_interface_toast = {
+				title = mz_welcome_to_marriage_bed_interaction_notification
+				left_icon = scope:actor					
+				right_icon = scope:recipient
+				scope:recipient = { remove_character_modifier = rejected_from_marriage_bed_modifier }
+			}
+		}
+		hidden_effect = {
+			scope:recipient = {
+				add_character_flag = {
+					flag = mz_recent_welcome_back_flag
+					days = 5
+				}
+				send_interface_toast = {
+					title = mz_welcome_to_marriage_bed_interaction_notification
+					left_icon = scope:recipient				
+					right_icon = scope:actor
+					show_as_tooltip = { remove_character_modifier = rejected_from_marriage_bed_modifier }
+				}
+			}
+		}
+	}
+}
+
+mz_make_spouse_into_concubine = { # Turn your spouse into a concubine.
+	category = interaction_category_diplomacy
+	icon = concubine_icon
+	desc = mz_make_spouse_into_concubine_desc
+	ai_frequency = 0 # AI can do this as part of the lesbian marriage on_action.
+
+	is_shown = {
+		scope:actor = { # For characters that considered same-sex marriage sacred.
+			mz_sacred_same_sex_marriage = yes
+			allowed_more_concubines = yes # We need to have room for more concubines.
+		}
+		scope:recipient = { # Targets an opposite-sex spouse that is not the dominant partner in the marriage.
+			sex_opposite_of = scope:actor
+			is_spouse_of = scope:actor
+			trigger_if = {
+				limit = { scope:actor = { is_female = yes } }
+				matrilinear_marriage = yes
+			}
+			trigger_else = {
+				matrilinear_marriage = no
+			}
+		}
+	}
+
+	is_valid = {
+		scope:recipient = { is_ruler = no } # You can't just make a ruler into your concubine, silly.
+	}
+
+	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = mz_not_heir_to_any_title_text
+			scope:recipient = { 
+				NOT = { any_heir_title = {} } # Not an heir
+			}
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		hidden_effect = {
+			divorce_effect = { # Divorce the target.
+				DIVORCER = scope:actor
+				DIVORCEE = scope:recipient
+			}
+		}
+		show_as_tooltip = { 
+			scope:actor = {
+				make_concubine = scope:recipient # Make them into a concubine.
+				if = { # If possible, appoint them as court consort.
+					limit = {
+						NOT = { employs_court_position = mz_court_consort_court_position }
+						can_appoint_char_to_court_position = {
+							CHAR = scope:recipient
+							COURT_POS = mz_court_consort_court_position
+						}
+					}
+					appoint_court_position = {
+						recipient = scope:recipient
+						court_position = mz_court_consort_court_position
+					}
+				}	
+			}		
+		}
+		scope:actor = {
+			hidden_effect = { # Send a toast to inform the ruler of what we just did.
+				send_interface_toast = {
+					type = event_generic_neutral
+					title = msg_concubine_taken_title
+					right_icon = scope:recipient
+					make_concubine = scope:recipient
+					if = {
+						limit = {
+							NOT = { employs_court_position = mz_court_consort_court_position }
+							can_appoint_char_to_court_position = {
+								CHAR = scope:recipient
+								COURT_POS = mz_court_consort_court_position
+							}
+						}
+						appoint_court_position = {
+							recipient = scope:recipient
+							court_position = mz_court_consort_court_position
+						}
+					}					
+				}
+			}
+		}
+	}
+}
+
+mz_swear_eternal_devotion_interaction = { # Swear eternal devotion.
+	icon = icon_scheme_romance
+	category = interaction_category_friendly
+	desc = mz_swear_eternal_devotion_interaction_desc
+	common_interaction = yes
+	interface_priority = 30
+
+	greeting = positive
+	notification_text = MZ_PROPOSE_ETERNAL_DEVOTION_NOTIFICATION
+	popup_on_receive = yes
+
+	cooldown = { years = 10 }
+	cooldown_against_recipient = { years = 20 }
+
+	ai_frequency = 36
+	ai_potential = { is_imprisoned = no }
+	ai_targets = { 
+		ai_recipients = spouses 
+		ai_recipients = scripted_relations
+	}
+	ai_target_quick_trigger = {	
+		adult = yes
+		owner_attracted = yes
+	}
+
+	is_shown = {
+		scope:actor = {
+			is_female = yes # Woman
+			faith = { has_doctrine_parameter = mz_lesbian_devotion_parameter } # Has Lesbian Divinity
+			is_spouse_of = scope:recipient # Targets spouses
+			sex_same_as = scope:recipient # Same-sex spouse
+			NOT = { has_variable = mz_eternal_devotion } # This shouldn't even be possible, but if you somehow end up with multiple wife soulmates...
+		}
+		scope:recipient = { 
+			NOT = { has_variable = mz_eternal_devotion } # This shouldn't even be possible, but if you somehow end up with multiple wife soulmates...
+		}
+	}
+
+	is_valid = {
+		scope:recipient = {
+			faith = scope:actor.faith # Same faith, this is a partially religious rite
+			custom_tooltip = {
+				text = mz_not_attracted_to_women
+				is_attracted_to_women = yes
+			}
+		}
+		trigger_if = { # If you have a soulmate, the recipient must be your soulmate
+			limit = { 
+				scope:actor = {
+					any_relation ={
+						type = soulmate
+						count > 0
+					}
+				}
+			}
+			scope:actor = {
+				has_relation_soulmate = scope:recipient
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = { 
+			is_imprisoned = no
+			is_capable_adult = yes
+			is_alive = yes
+			NOT = { has_character_modifier = mz_lesdivinity_broken_promise_modifier }
+		}
+		scope:recipient = { 
+			is_imprisoned = no
+			is_capable_adult = yes
+			is_alive = yes
+			NOT = { has_character_modifier = mz_lesdivinity_broken_promise_modifier }
+		}
+	}
+
+	on_accept = {
+		# First, we send out some notifications.
+		scope:actor = {
+			send_interface_toast = {
+				title = mz_swear_eternal_devotion_interaction.accept.actor.tt
+				left_icon = scope:recipient
+				reverse_add_opinion = {
+					target = scope:recipient
+					modifier = romance_opinion
+					opinion = 50
+				}
+				## Hidden effect so that the modifiers don't show twice in the UI.
+				hidden_effect = {
+					show_as_tooltip = {
+						scope:actor = { mz_add_lesdivinity_soulmate_trait_effect = yes } 
+						scope:recipient = { mz_add_lesdivinity_soulmate_trait_effect = yes } 
+						if = {
+							limit = {
+								NOT = { 
+									scope:actor = { 
+										has_relation_soulmate = scope:recipient
+									}
+								}
+							}
+							scope:actor = { set_relation_soulmate = scope:recipient } 
+						}
+					}
+				}
+			}
+		}
+		scope:recipient = {
+			send_interface_toast = {
+				title = mz_swear_eternal_devotion_interaction.accept.recipient.tt
+				left_icon = scope:actor
+				# Pretty happy about the reaffirmation.
+				reverse_add_opinion = {
+					target = scope:actor
+					modifier = romance_opinion
+					opinion = 50
+				}
+				# Show the bonuses.
+				## Hidden effect so that the modifiers don't show twice in the UI.
+				hidden_effect = {
+					show_as_tooltip = {
+						scope:actor = { mz_add_lesdivinity_soulmate_trait_effect = yes } 
+						scope:recipient = { mz_add_lesdivinity_soulmate_trait_effect = yes } 
+						if = {
+							limit = {
+								NOT = { 
+									scope:recipient = { 
+										has_relation_soulmate = scope:actor
+									}
+								}
+							}
+							scope:recipient = { set_relation_soulmate = scope:actor } 
+						}
+					}
+				}
+			}
+		}
+		# Add the trait.
+		scope:actor = { mz_add_lesdivinity_soulmate_trait_effect = yes } 
+		scope:recipient = { mz_add_lesdivinity_soulmate_trait_effect = yes } 
+		if = {
+			limit = {
+				NOT = { 
+					scope:actor = { 
+						has_relation_soulmate = scope:recipient
+					}
+				}
+			}
+			scope:actor = {
+				set_relation_soulmate = {
+					reason = mz_devotion_oath_soulmate
+					target = scope:recipient
+				}
+			}
+		}
+		hidden_effect = { # For various tracking purposes.
+			scope:actor = {
+				set_variable = {
+					name = mz_eternal_devotion
+					value = scope:recipient
+				}
+			}
+			scope:recipient = {
+				set_variable = {
+					name = mz_eternal_devotion
+					value = scope:actor
+				}
+				every_relation = {
+					type = soulmate
+					limit = { 
+						NOT = { this = scope:actor }
+					}
+					scope:recipient = {
+						remove_lover_or_soulmate_relation_effect = { CHARACTER = prev }
+					}
+				}
+			}
+		}
+	}
+
+	on_decline = {
+		# Scope:actor gains some stress over the whole ordeal.
+		scope:actor = {
+			send_interface_toast = {
+				title = mz_swear_eternal_devotion_interaction.decline.actor.tt
+				left_icon = scope:recipient
+				add_stress = minor_stress_gain
+			}
+		}
+		# Scope:actor loses opinion of scope:recipient.
+		scope:recipient = {
+			send_interface_toast = {
+				title = mz_swear_eternal_devotion_interaction.decline.recipient.tt
+				left_icon = scope:actor
+				reverse_add_opinion = {
+					target = scope:actor
+					modifier = hurt_opinion
+					opinion = -50
+				}
+			}
+		}
+	}	
+
+	ai_accept = {
+		# Try to make it 0 for most interactions
+		base = 0
+
+		mz_swear_eternal_devotion_interaction_accept_modifier = yes
+	}
+	
+	ai_will_do = {
+		base = -50
+		
+		mz_swear_eternal_devotion_interaction_ai_chance_modifier = yes
+	}	
+}
+
+mz_break_eternal_devotion_interaction = { # Break oath of eternal devotion. Only possible while having an unfaithfulness opinion towards the recipient.
+	icon = icon_scheme_romance
+	category = interaction_category_hostile
+	desc = mz_swear_eternal_devotion_interaction_desc
+	common_interaction = yes
+	interface_priority = 30
+
+	ignores_pending_interaction_block = yes
+
+	ai_frequency = 12
+	ai_potential = { 
+		is_imprisoned = no 
+		has_variable = mz_eternal_devotion
+	}
+	ai_targets = { 
+		ai_recipients = spouses 
+		ai_recipients = scripted_relations
+	}
+	ai_target_quick_trigger = {	adult = yes }
+
+	is_shown = {
+		scope:actor = { # First, we need to have the trait and the right opinion modifier.
+			var:mz_eternal_devotion ?= scope:recipient # Are we targeting the right person?
+			OR = {
+				has_opinion_modifier = { 
+					target = scope:recipient 
+					modifier = betrayed_our_promise
+				}
+				has_opinion_modifier = { 
+					target = scope:recipient 
+					modifier = unfaithful_spouse_exposed_opinion
+				}
+				has_opinion_modifier = { 
+					target = scope:recipient 
+					modifier = unfaithful_spouse_discovered_opinion
+				}
+				has_opinion_modifier = {
+					target = scope:recipient
+					modifier = lover_breakup_opinion
+				}
+			}
+			NOT = {
+				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active } # Even if you somehow got an opinion, we disable in this case.
+			}		
+		}
+		scope:recipient = { 
+			var:mz_eternal_devotion ?= scope:actor
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = { 
+			is_imprisoned = no
+			is_capable_adult = yes
+			is_alive = yes
+		}
+		scope:recipient = { 
+			is_imprisoned = no
+			is_capable_adult = yes
+			is_alive = yes
+		}
+	}
+
+	on_accept = {
+		# Triggers event for the recipient. Effects are actually resolved there, but a toast is sent to the actor showing what the effects are.
+		scope:actor = {
+			save_scope_as = mz_dumper # This scope is used in the triggered event.
+			send_interface_toast = {
+				title = mz_break_eternal_devotion_interaction.accept.actor.tt
+				left_icon = scope:recipient
+				reverse_add_opinion = {
+					target = scope:recipient
+					modifier = rejected_opinion
+				}
+				## Hidden effect so that the modifiers don't show twice in the UI.
+				hidden_effect = {
+					show_as_tooltip = {
+						scope:actor = { 
+							mz_remove_all_lesdivinity_bonuses_effect = yes
+							if = {
+								limit = { 
+									OR = {
+										has_relation_soulmate = scope:recipient
+										has_relation_lover = scope:recipient
+									}
+								}
+								remove_lover_or_soulmate_relation_effect = { CHARACTER = scope:recipient }
+							}
+						} 
+						scope:recipient = { 
+							add_piety_level = -1
+							mz_remove_all_lesdivinity_bonuses_effect = yes 
+							add_character_modifier = {
+								modifier = mz_lesdivinity_broken_promise_modifier # Modifier prevents from using getting another bond for 20 years.
+								years = 20 # Recipient is blocked because they're the one that cheated.
+							}
+						}  
+					}
+				}
+			}			
+		}
+		scope:recipient = {
+			trigger_event = mz_lover.0100
+		}
+	}
+
+	auto_accept = yes # This is not an interaction you can decline.
+	
+	ai_will_do = {
+		base = 100
+		# Actual opinion gives our base.
+		opinion_modifier = {
+			who = scope:recipient
+			opinion_target = scope:actor
+			multiplier = -0.25
+			desc = AI_OPINION_REASON
+		}
+		# Landed
+		modifier = {
+			scope:recipient = {
+				NOT = { is_courtier_of = scope:actor }
+			}
+			add = 50
+		}
+		# Rank difference
+		## King -> Baron.
+		modifier = {
+			desc = AI_REFUSAL_RANK_DIFFERENCE
+			scope:actor = {
+				tier_difference = {
+					target = scope:recipient
+					value >= 4
+				}
+			}
+			add = -75
+		}
+		## Duke -> Baron.
+		modifier = {
+			desc = AI_REFUSAL_RANK_DIFFERENCE
+			scope:actor = {
+				tier_difference = {
+					target = scope:recipient
+					value = 3
+				}
+			}
+			add = -50
+		}
+		## Count -> Baron.
+		modifier = {
+			desc = AI_REFUSAL_RANK_DIFFERENCE
+			scope:actor = {
+				tier_difference = {
+					target = scope:recipient
+					value = 2
+				}
+			}
+			add = -25
+		}
+		## King <- Baron.
+		modifier = {
+			desc = AI_REFUSAL_RANK_DIFFERENCE
+			scope:actor = {
+				tier_difference = {
+					target = scope:recipient
+					value = -2
+				}
+			}
+			add = 100
+		}
+		## Duke <- Baron.
+		modifier = {
+			desc = AI_REFUSAL_RANK_DIFFERENCE
+			scope:actor = {
+				tier_difference = {
+					target = scope:recipient
+					value = -3
+				}
+			}
+			add = 75
+		}
+		## Count <- Baron.
+		modifier = {
+			desc = AI_REFUSAL_RANK_DIFFERENCE
+			scope:actor = {
+				tier_difference = {
+					target = scope:recipient
+					value <= -4
+				}
+			}
+			add = 50
+		}	
+	}
+}
+
+mz_synergize_eternal_devotion_interaction = { # Synergize eternal devotion.
+	icon = icon_scheme_romance
+	category = interaction_category_friendly
+	desc = mz_synergize_eternal_devotion_interaction_desc
+	common_interaction = yes
+	interface_priority = 30
+
+	greeting = positive
+	notification_text = MZ_SYNERGIZE_ETERNAL_DEVOTION_NOTIFICATION
+	popup_on_receive = yes
+
+	cooldown = { years = 10 }
+	cooldown_against_recipient = { years = 20 }
+
+	ai_frequency = 36
+	ai_potential = { is_imprisoned = no }
+	ai_targets = { 
+		ai_recipients = spouses 
+		ai_recipients = scripted_relations
+	}
+	ai_target_quick_trigger = {	
+		adult = yes
+		owner_attracted = yes
+	}
+
+	is_shown = {
+		scope:actor = {
+			is_female = yes # Woman
+			faith = { has_doctrine_parameter = mz_lesbian_synergy_parameter } # Has Lesbian Divinity
+			NOT = {
+				faith = { has_doctrine_parameter = no_unfaithfulness_penalty_active }
+			} # Polyamory doesn't get this interaction, but they get other benefits instead.
+			is_spouse_of = scope:recipient # Targets spouses
+			sex_same_as = scope:recipient # Same-sex spouse
+			has_trait = mz_lesbian_divinity_trait # Trait required
+			var:mz_eternal_devotion ?= scope:recipient # Are we targeting the right person?
+		}
+	}
+
+	is_valid = {
+		scope:recipient = {
+			faith = scope:actor.faith # Same faith, this is a partially religious rite
+			has_relation_soulmate = scope:actor # Soulmate
+			has_trait = mz_lesbian_divinity_trait # Trait required
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = { 
+			is_imprisoned = no
+			is_capable_adult = yes
+			is_alive = yes
+			NOT = { has_character_modifier = mz_lesdivinity_broken_promise_modifier }
+		}
+		scope:recipient = { 
+			is_imprisoned = no
+			is_capable_adult = yes
+			is_alive = yes
+			NOT = { has_character_modifier = mz_lesdivinity_broken_promise_modifier }
+		}
+	}
+
+	# Synergy Types
+	## Scope:actor's education
+	send_option = {
+		flag = mz_soulmate_bonus_actor
+		localization = "SYNERGY_BONUS_ACTOR"
+	}
+	## Scope:recipient's education
+	send_option = {
+		flag = mz_soulmate_bonus_recipient
+		is_valid = {
+			custom_description = {
+				text = synergise_friendship_interaction_cannot_share_education
+				NOT = {
+					characters_have_same_education_group_trigger = {
+						CHARACTER_1 = scope:actor
+						CHARACTER_2 = scope:recipient
+					}
+				}
+			}
+		}
+		localization = "SYNERGY_BONUS_RECIPIENT"
+	}
+	## Scope:a mix of both educations
+	send_option = {
+		flag = mz_soulmate_bonus_mixed
+		localization = "SYNERGY_BONUS_MIXED"
+	}	
+
+	on_accept = {
+		# First, we send out some notifications.
+		scope:actor = {
+			send_interface_toast = {
+				title = mz_swear_eternal_devotion_interaction.accept.actor.tt
+				left_icon = scope:recipient
+				## Hidden effect so that the modifiers don't show twice in the UI.
+				hidden_effect = {
+					show_as_tooltip = { mz_lesdivinity_soulmate_interaction_actual_effect = yes }
+				}
+			}
+		}
+		scope:recipient = {
+			send_interface_toast = {
+				title = synergise_friendship_interaction.accept.recipient.tt
+				left_icon = scope:actor
+				## Hidden effect so that the modifiers don't show twice in the UI.
+				hidden_effect = {
+					show_as_tooltip = { mz_lesdivinity_soulmate_interaction_actual_effect = yes }
+				}
+			}
+		}
+		# Remove other modifiers.
+		scope:actor = { mz_remove_every_lesdivinity_soulmate_bonus_modifier_effect = yes } 
+		scope:recipient = { mz_remove_every_lesdivinity_soulmate_bonus_modifier_effect = yes }
+		# Finally, run the effect.
+		mz_lesdivinity_soulmate_interaction_actual_effect = yes
+	}
+
+	ai_accept = {
+		# Try to make it 0 for most interactions
+		base = 0
+
+		mz_swear_eternal_devotion_interaction_accept_modifier = yes
+	}
+	
+	ai_will_do = {
+		base = -50
+		
+		mz_swear_eternal_devotion_interaction_ai_chance_modifier = yes
+	}	
+}

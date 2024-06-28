@@ -1,0 +1,15 @@
+﻿##############################
+### SAPPHIC DEBAUCHE THEME ###
+##############################
+
+mz_lesorgy_activity = {
+	icon = {
+		reference = "gfx/interface/icons/event_types/mz_type_lesorgy.dds" # should go unused, but just in case
+	}
+	sound = {
+		reference = "event:/SFX/Events/Themes/sfx_event_theme_type_seduction"
+	}
+	background = {
+		reference = mz_outdoor_lesorgy
+	}
+}

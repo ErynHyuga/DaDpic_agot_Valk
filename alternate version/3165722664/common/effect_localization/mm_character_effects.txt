@@ -1,0 +1,47 @@
+﻿mz_court_consort.1001.a_tt  = {
+	first = mz_court_consort.1001.a_tt 
+}
+
+mz_court_consort.1001.b_tt  = {
+	first = mz_court_consort.1001.b_tt 
+}
+
+mz_court_consort.1001.c_tt  = {
+	first = mz_court_consort.1001.c_tt 
+}
+
+mz_court_consort.2100.a_tt = {
+	first = mz_court_consort.2100.a_tt
+}
+
+mz_court_consort.2100.b_tt = {
+	first = mz_court_consort.2100.b_tt
+}
+
+mz_court_consort.2100.c_tt = {
+	first = mz_court_consort.2100.c_tt
+}
+
+mz_court_consort.2100.a_incest_warning = {
+	first = mz_court_consort.2100.a_incest_warning
+}
+
+mz_court_consort.2100.b_incest_warning = {
+	first = mz_court_consort.2100.b_incest_warning
+}
+
+mz_court_consort.2100.c_incest_warning = {
+	first = mz_court_consort.2100.c_incest_warning
+}
+
+mz_scheme_so_invalidated_dead = {
+	first = mz_scheme_so_invalidated_dead
+}
+
+mz_scheme_so_invalidated_war = {
+	first = mz_scheme_so_invalidated_war
+}
+
+mz_eunuch_educates_children = {
+	first = mz_eunuch_educates_children
+}

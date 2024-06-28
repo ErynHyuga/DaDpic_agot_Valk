@@ -1,0 +1,34 @@
+﻿NAI = {
+	MURDER_BASE_CHANCE = 30		# Chance of the AI starting a murder scheme against a valid target
+}
+
+NCulture = {
+	MINIMUM_INNOVATIONS_TO_NEXT_ERA = 0.6	 # from 0.5
+}
+
+NDomain = {
+	STEWARDSHIP_SKILL_FOR_DOMAIN_LIMIT_INCREASE = 12
+}
+
+NCharacterOpinion = {
+	SKILL_DIPLOMACY_MULT = 0.6   # from 1
+	DE_JURE_COUNTY = -10
+	DE_JURE_DUCHY = -20
+	DE_JURE_KINGDOM = -30
+	COUNT_LIEGE_HOLDS_MY_DUCHY = -20
+	HOLDS_CLAIMED_TITLE = -15
+}
+
+NCombat = {
+	LEVY_TOUGHNESS = 12			# From 10
+	LEVY_ATTACK = 12
+}
+
+NRaid = {
+	MONTHS_OF_RAID_LOOT = 15  # From 12
+}
+
+#NMercenary = {
+#	ALLOWED_DEBT_MONTHS = 60				# (24)
+#}
+

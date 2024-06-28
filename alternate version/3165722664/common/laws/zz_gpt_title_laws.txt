@@ -1,0 +1,312 @@
+title_succession_laws = {
+	#clan elective
+	clan_elective_succession_law = {
+		can_have = {
+			government_has_flag = government_is_clan
+			highest_held_title_tier >= 4
+			NOT = { culture = { has_cultural_tradition = tradition_horse_lords } }
+			NOT = { faith = { has_doctrine_parameter = unreformed } }
+		 #AGOT Disabled	
+		 #	NOR = { #Cultures have their special flavor.
+		 #		culture = { has_cultural_parameter = witenagemot_succession_enabled }
+		 #		culture = { has_cultural_parameter = scandinavian_elective_enabled }
+		 #		culture = { has_cultural_parameter = tribal_elective_enabled } #FP3 addition
+		 #	}
+		}
+		can_pass = {
+			can_change_title_law_trigger = yes 
+		}
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+		}
+		succession = {
+			order_of_succession = election
+			election_type = clan_elective
+		}
+		flag = elective_succession_law
+		title_allegiance_opinion = 10
+		revoke_cost = {
+			prestige = change_title_succession_law_prestige_cost
+		}
+		pass_cost = {
+			prestige = change_title_succession_law_prestige_cost
+		}
+	}
+	#confederate elective
+	confederate_elective_succession_law = {
+		can_have = {
+			highest_held_title_tier >= 4
+		}
+		can_pass = {
+			can_change_title_law_trigger = yes 
+			culture = { has_cultural_tradition = tradition_horse_lords }
+		}
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+		}
+		succession = {
+			order_of_succession = election
+			election_type = confederate_elective
+		}
+		flag = elective_succession_law
+		title_allegiance_opinion = 10
+		revoke_cost = {
+			prestige = change_title_succession_law_prestige_cost
+		}
+		pass_cost = {
+			prestige = change_title_succession_law_prestige_cost
+		}
+	}
+	gpt_tribal_elective_succession_law = {
+		can_have = {
+			highest_held_title_tier >= 4
+			government_has_flag = government_is_tribal
+			NOT = { culture = { has_cultural_tradition = tradition_horse_lords } }
+		 #AGOT Disabled	
+		 #	NOR = { #Cultures have their special flavor.
+		 #		culture = { has_cultural_parameter = witenagemot_succession_enabled }
+		 #		culture = { has_cultural_parameter = scandinavian_elective_enabled }
+		 #		culture = { has_cultural_parameter = tribal_elective_enabled } #FP3 addition
+		 #	}
+		}
+		can_pass = {
+			can_change_title_law_trigger = yes 
+		}
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+		}
+		succession = {
+			order_of_succession = election
+			election_type = confederate_elective_2
+		}
+		flag = elective_succession_law
+		title_allegiance_opinion = 10
+		revoke_cost = {
+			prestige = change_title_succession_law_prestige_cost
+		}
+		pass_cost = {
+			prestige = change_title_succession_law_prestige_cost
+		}
+	}
+
+
+
+
+
+
+	gpt_republican_succession_law = {
+		can_have = {
+			NOR = { 
+				government_has_flag = government_is_tribal
+				government_has_flag = government_is_theocracy
+				government_has_flag = government_is_republic
+			}
+			NOT = { culture = { has_cultural_tradition = tradition_horse_lords } }
+			NOT = { faith = { has_doctrine_parameter = unreformed } }
+			highest_held_title_tier >= 4
+		}
+		can_pass = {
+			can_change_title_law_trigger = yes
+			custom_description = {
+				text = gpt_paroquial_dominant
+				OR = {
+					has_character_modifier = gpt_parochials_dem
+					has_character_modifier = gpt_parochials_sup
+					has_character_modifier = gpt_parochials_neg
+				}
+			}
+		}
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+		}
+		succession = {
+			order_of_succession = election
+			election_type = gpt_republican_elective
+		}
+		flag = elective_succession_law
+		modifier = {
+			parochial_opinion = 10
+			domain_tax_mult = 0.10
+			character_capital_county_monthly_development_growth_add = 0.1
+			dread_baseline_add = -10
+		}
+		revoke_cost = {
+			prestige = 5000
+		}
+		pass_cost = {
+			prestige = 5000
+		}
+	}
+	gpt_theocratic_succession_law = {
+		can_have = {
+			NOR = { 
+				government_has_flag = government_is_tribal
+				government_has_flag = government_is_theocracy
+				government_has_flag = government_is_republic
+			}
+			NOT = { culture = { has_cultural_tradition = tradition_horse_lords } }
+			NOT = { faith = { has_doctrine_parameter = unreformed } }
+			highest_held_title_tier >= 4
+		}
+		can_pass = {
+			can_change_title_law_trigger = yes 
+			custom_description = {
+				text = gpt_zealot_dominant
+				OR = {
+					has_character_modifier = gpt_zealot_dem
+					has_character_modifier = gpt_zealot_sup
+					has_character_modifier = gpt_zealot_neg
+				}
+			}
+		}
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+		}
+		succession = {
+			order_of_succession = election
+			election_type = gpt_theocratic_elective
+		}
+		flag = elective_succession_law
+		modifier = {
+			zealot_opinion = 10
+			monthly_piety_gain_mult = 0.10
+			clergy_opinion = 10
+			mercenary_hire_cost_mult = 0.10
+		}
+		revoke_cost = {
+			prestige = 5000
+		}
+		pass_cost = {
+			prestige = 5000
+		}
+	}
+	gpt_autocratic_succession_law = {
+		can_have = {
+			NOR = { 
+				government_has_flag = government_is_tribal
+				government_has_flag = government_is_theocracy
+				government_has_flag = government_is_republic
+			}
+			NOT = { culture = { has_cultural_tradition = tradition_horse_lords } }
+			NOT = { faith = { has_doctrine_parameter = unreformed } }
+			highest_held_title_tier >= 4
+		}
+		can_pass = {
+			can_change_title_law_trigger = yes
+			custom_description = {
+				text = gpt_glory_hound_dominant
+				OR = {
+					has_character_modifier = gpt_glory_hounds_dem
+					has_character_modifier = gpt_glory_hounds_sup
+					has_character_modifier = gpt_glory_hounds_neg
+				}
+			}
+		}
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+		}
+		succession = {
+			order_of_succession = election
+			election_type = gpt_autocratic_elective
+		}
+		flag = elective_succession_law
+		modifier = {
+			glory_hound_opinion = 10
+			dread_baseline_add = 10
+			monthly_prestige_gain_mult = 0.10
+			monthly_piety_gain_mult = -0.10
+		}
+		revoke_cost = {
+			prestige = 5000
+		}
+		pass_cost = {
+			prestige = 5000
+		}
+	}
+	gpt_aristocratic_succession_law = {
+		can_have = {
+			NOR = { 
+				government_has_flag = government_is_tribal
+				government_has_flag = government_is_theocracy
+				government_has_flag = government_is_republic
+			}
+			NOT = { culture = { has_cultural_tradition = tradition_horse_lords } }
+			NOT = { faith = { has_doctrine_parameter = unreformed } }
+			highest_held_title_tier >= 4
+		}
+		can_pass = {
+			can_change_title_law_trigger = yes
+			custom_description = {
+				text = gpt_courtly_dominant
+				OR = {
+					has_character_modifier = gpt_courtly_dem
+					has_character_modifier = gpt_courtly_sup
+					has_character_modifier = gpt_courtly_neg
+				}
+			}
+		}
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+		}
+		succession = {
+			order_of_succession = election
+			election_type = gpt_aristocratic_elective
+		}
+		flag = elective_succession_law
+		modifier = {
+			courtly_opinion = 10
+			monthly_dynasty_prestige = 0.5
+			court_grandeur_baseline_add = 4
+			monthly_war_income_mult = -0.05
+		}
+		revoke_cost = {
+			prestige = 5000
+		}
+		pass_cost = {
+			prestige = 5000
+		}
+	}
+	gpt_democratic_succession_law = {
+		can_have = {
+			NOR = { 
+				government_has_flag = government_is_tribal
+				government_has_flag = government_is_theocracy
+				government_has_flag = government_is_republic
+			}
+			NOT = { culture = { has_cultural_tradition = tradition_horse_lords } }
+			NOT = { faith = { has_doctrine_parameter = unreformed } }
+			highest_held_title_tier >= 4
+		}
+		can_pass = {
+			can_change_title_law_trigger = yes
+			custom_description = {
+				text = gpt_minority_dominant
+				OR = {
+					has_character_modifier = gpt_minority_dem
+					has_character_modifier = gpt_minority_sup
+					has_character_modifier = gpt_minority_neg
+				}
+			}
+		}
+		can_title_have = {
+			can_title_have_law_general_trigger = yes
+		}
+		succession = {
+			order_of_succession = election
+			election_type = gpt_democratic_elective
+		}
+		flag = elective_succession_law
+		modifier = {
+			minority_opinion = 10
+			county_opinion_add = 10
+			vassal_tax_contribution_mult = -0.10
+			vassal_levy_contribution_mult = 0.10
+		}
+		revoke_cost = {
+			prestige = 5000
+		}
+		pass_cost = {
+			prestige = 5000
+		}
+	}
+}		

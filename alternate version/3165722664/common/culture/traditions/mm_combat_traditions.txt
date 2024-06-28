@@ -1,0 +1,447 @@
+﻿##############################
+# COMBAT CULTURAL TRADITIONS #
+##############################
+
+mz_tradition_amazonian_enclaves = {
+	category = combat
+	# This culture lives side-by-side with amazon warriors.
+	layers = {
+		0 = martial
+		1 = mediterranean
+		4 = bow.dds
+	}
+
+	is_shown = {
+		NOR = { 
+			has_game_rule = inversed_gender_equality 
+			this = culture:mz_amazonian
+			any_parent_culture_or_above = { this = culture:mz_amazonian }
+		}	
+		scope:character = { mz_has_amazon_rank_3 = yes } # Unlocked by rank 3 Amazon alliance
+	}
+
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+		custom_tooltip = {
+			text = mz_cannot_have_mz_tradition_amazon_warriors
+			NOT = { culture_tradition:mz_tradition_amazon_warriors = { is_in_list = traits } }
+		}
+		custom_tooltip = {
+			text = mz_cannot_have_mz_tradition_amazon_war_riders
+			NOT = { culture_tradition:mz_tradition_amazon_war_riders = { is_in_list = traits } }
+		}
+		custom_tooltip = {
+			text = cannot_have_tradition_vegetarianism
+			NOT = { culture_tradition:tradition_vegetarianism = { is_in_list = traits } }
+		}
+	}
+	
+	parameters = {
+		#mz_unlock_amazon_maa = yes
+		mz_unlock_maa_toxotai = yes
+		mz_unlock_maa_peltast = yes
+		mz_recruit_amazons_enabled = yes
+		hunting_archery_building_bonuses = yes
+	}
+
+	county_modifier = {
+		development_growth_factor = -0.05
+	}
+
+	province_modifier = {
+		travel_danger = -20
+		epidemic_resistance = 10
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			# Ethos requirement.
+			# Need bellicose stoic or communal
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}					
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_stoic_or_communal_desc
+				}
+			}
+			# Need Matriarchal dynasty to avoid surcharge.
+			if = {
+				limit = {
+					NAND = {
+						scope:character = { exists = dynasty }
+						scope:character = { 
+							dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = mz_amazon_matriarchy_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 1000
+		if = { # AI will only pick if matriarchal dynasty
+			limit = {
+				NOT = { 
+					scope:character = { exists = dynasty }
+				}
+			}
+			multiply = 0
+		}
+		else_if = {
+			limit = { 
+				scope:character = { exists = dynasty }
+				NOR = {
+					scope:character = { 
+						dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+					}
+					scope:character = { 
+						dynasty = { has_dynasty_perk = mz_matriarchy_legacy_4 }
+					}					
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+mz_tradition_amazon_warriors = {
+	category = combat
+	# For Amazon cultures.
+	layers = {
+		0 = martial
+		1 = mediterranean
+		4 = shieldmaiden.dds
+	}
+
+	is_shown = {
+		NOT = { has_game_rule = inversed_gender_equality }
+		OR = {
+			this = culture:mz_amazonian
+			any_parent_culture_or_above = { this = culture:mz_amazonian }
+		}
+	}
+
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+		custom_tooltip = {
+			text = mz_cannot_have_tradition_only_the_strong
+			NOT = { culture_tradition:tradition_only_the_strong = { is_in_list = traits } }
+		}
+		custom_tooltip = {
+			text = mz_cannot_have_mz_tradition_amazonian_enclaves
+			NOT = { culture_tradition:mz_tradition_amazonian_enclaves = { is_in_list = traits } }
+		}
+		custom_tooltip = {
+			text = mz_tradition_amazonian_matriarchy_requirement
+			NOT = { has_cultural_pillar = martial_custom_male_only }
+		}
+		custom_tooltip = {
+			text = cannot_have_tradition_vegetarianism
+			NOT = { culture_tradition:tradition_vegetarianism = { is_in_list = traits } }
+		}	
+	}
+	
+	parameters = {
+		#mz_unlock_amazon_maa = yes
+		mz_unlock_maa_toxotai = yes
+		mz_unlock_maa_peltast = yes	
+		mz_recruit_amazons_enabled = yes
+		minimum_prowess_for_knights = yes
+		better_knights_from_decision = yes
+	}
+	province_modifier = {
+		levy_size = -0.35
+	}	
+	character_modifier = {
+		hard_casualty_modifier = -0.2
+		knight_effectiveness_mult = 0.5
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			# Ethos requirement.
+			# Need bellicose stoic or communal
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}					
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_stoic_or_communal_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 1000 # Should be a high priority pick if they meet the requirements
+		if = {
+			limit = { 
+				scope:character = { is_female = no }
+			}
+			multiply = 0
+		}
+	}
+}
+
+mz_tradition_amazon_war_riders = {
+	category = combat
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = rider.dds
+	}
+
+	is_shown = {
+		NOT = { has_game_rule = inversed_gender_equality }
+		global_var:mz_amazon_kingdom_founded ?= flag:mz_scythia
+		OR = {
+			this = culture:mz_amazonian
+			any_parent_culture_or_above = { this = culture:mz_amazonian }
+		}
+	}
+
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+		custom_tooltip = {
+			text = mz_must_have_mz_tradition_amazon_warriors_or_enclaves
+			OR = {
+				culture_tradition:mz_tradition_amazon_warriors = { is_in_list = traits }
+				culture_tradition:mz_tradition_amazonian_enclaves = { is_in_list = traits }
+			}
+		}
+		custom_tooltip = {
+			text = mz_tradition_amazonian_matriarchy_requirement
+			NOT = { has_cultural_pillar = martial_custom_male_only }
+		}
+		custom_tooltip = {
+			text = cannot_have_tradition_vegetarianism
+			NOT = { culture_tradition:tradition_vegetarianism = { is_in_list = traits } }
+		}
+		custom_description = {
+			text = culture_in_steppe_desc
+			any_culture_county = {
+				percent >= 0.4
+				any_county_province = {
+					geographical_region = world_steppe
+				}
+			}
+		}
+	}
+
+	parameters = {
+		culture_can_raid_over_land_even_if_feudal_no_restrictions = yes	
+		mz_unlock_maa_hippotoxotai = yes
+		unlock_horse_pastures_building = yes
+		steppe_hunt_success_chance = yes
+	}
+	character_modifier = {
+		steppe_cancel_negative_supply = yes
+		supply_duration = 1
+		movement_speed = 0.1
+		character_travel_speed_mult = 0.2
+		character_travel_safety_mult = 0.2
+		steppe_travel_danger = steppe_high_danger_reduction
+		movement_speed_land_raiding = 0.3
+		hostile_county_attrition_raiding = -0.5
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			# Ethos requirement.
+			# Need bellicose stoic or communal
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}					
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_stoic_or_communal_desc
+				}
+			}
+		}
+	}
+
+	ai_will_do = {
+		value = 1000 # Should be a high priority pick if they meet the requirements
+		if = {
+			limit = { 
+				scope:character = { is_female = no }
+			}
+			multiply = 0
+		}
+	}	
+}
+
+mz_tradition_amazon_mountaineers = {
+	category = combat
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = mountain.dds
+	}
+
+	is_shown = {
+		NOT = { has_game_rule = inversed_gender_equality }
+		global_var:mz_amazon_kingdom_founded ?= flag:mz_themiscyra
+		OR = {
+			this = culture:mz_amazonian
+			any_parent_culture_or_above = { this = culture:mz_amazonian }
+		}
+	}
+
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+		custom_tooltip = {
+			text = mz_must_have_mz_tradition_amazon_warriors_or_enclaves
+			OR = {
+				culture_tradition:mz_tradition_amazon_warriors = { is_in_list = traits }
+				culture_tradition:mz_tradition_amazonian_enclaves = { is_in_list = traits }
+			}
+		}
+		custom_tooltip = {
+			text = mz_tradition_amazonian_matriarchy_requirement
+			NOT = { has_cultural_pillar = martial_custom_male_only }
+		}
+		custom_tooltip = {
+			text = cannot_have_tradition_vegetarianism
+			NOT = { culture_tradition:tradition_vegetarianism = { is_in_list = traits } }
+		}
+	}
+	
+	parameters = {
+		mz_unlock_maa_hoplites = yes
+		quarries_building_bonuses = yes
+		hill_farms_building_bonuses = yes
+		hill_trait_bonuses = yes
+		mountains_hunt_success_chance = yes
+	}
+
+	character_modifier = {
+		mountains_travel_danger = mountains_high_danger_reduction
+		hills_travel_danger = hills_high_danger_reduction
+	}
+
+	county_modifier = {
+		hills_development_growth_factor = 0.15
+		mountains_development_growth_factor = 0.25
+		mountains_supply_limit_mult = 0.25
+		hills_supply_limit_mult = 0.25
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_stoic_or_communal_desc
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						any_culture_county = {
+							percent >= 0.3
+							any_county_province = {
+								OR = {
+									terrain = hills
+									terrain = mountains
+									terrain = desert_mountains
+								}
+							}
+						}
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = mz_hills_mountain_percentage_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 1000 # Should be a high priority pick if they meet the requirements
+		if = {
+			limit = { 
+				scope:character = { is_female = no }
+			}
+			multiply = 0
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					scope:character = {
+						any_sub_realm_county = {
+							culture = scope:character.culture
+							any_county_province = {
+								OR = {
+									terrain = hills
+									terrain = mountains
+									terrain = desert_mountains
+								}
+							}
+						}
+					}
+				}
+			}
+			multiply = 0
+		}
+	}
+}

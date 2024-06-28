@@ -1,0 +1,589 @@
+﻿# Chief Eunuch position (overwrite)
+chief_eunuch_court_position = {
+	max_available_positions = 1
+	category = court_position_category_special
+	minimum_rank = duchy # Changed from base game
+	skill = diplomacy
+
+	opinion = {
+		value = regular_court_position_opinion
+	}
+	
+	# How high the aptitude has to be to reach the 5 different modifier levels
+	aptitude_level_breakpoints = { 20 40 60 80 }
+
+	# How good is this character in this position? root scope is the holder of the court position
+	aptitude = {
+		value = 1
+		add = {
+			value = diplomacy
+			multiply = 0.75
+			max = 15
+			desc = court_position_skill_diplomacy
+		}
+		add = {
+			value = intrigue
+			multiply = 0.75
+			max = 15
+			desc = court_position_skill_intrigue
+		}
+		add = {
+			value = stewardship
+			multiply = 0.75
+			max = 15
+			desc = court_position_skill_stewardship
+		}
+		add = {
+			value = learning
+			multiply = 0.75
+			max = 15
+			desc = court_position_skill_learning
+		}
+		#if = { # Used for "offer eunuch interaction" to assess aptitude
+		#	limit = {
+		#		exists = scope:recipient
+		#		exists = scope:recipient.dynasty
+		#		NOT = { this = scope:recipient }
+		#		exists = dynasty
+		#		dynasty = scope:recipient.dynasty
+		#		dynasty.dynasty_prestige_level >= 1
+		#	}
+		#	add = {
+		#		value = dynasty.dynasty_prestige_level
+		#		multiply = 5
+		#		desc = mz_court_position_dynasty_prestige_level
+		#	}
+		#}
+		if = { # Level of splendour value is halved if dynasty of eunuch and liege is the same
+			limit = { 
+				exists = dynasty
+				exists = liege
+				exists = liege.dynasty
+				dynasty = liege.dynasty
+				dynasty.dynasty_prestige_level >= 1
+			}
+			add = {
+				value = dynasty.dynasty_prestige_level
+				multiply = 5
+				desc = mz_court_position_dynasty_prestige_level
+			}
+		}
+		else_if = { # Full value if dynasty is different from liege dynasty
+			limit = { 
+				exists = dynasty 
+				dynasty.dynasty_prestige_level >= 1
+			}
+			add = {
+				value = dynasty.dynasty_prestige_level
+				multiply = 10
+				desc = mz_court_position_dynasty_prestige_level
+			}
+		}
+		else_if = { # Dynasties with low level of splendour are bad
+			limit = { 
+				exists = dynasty 
+				dynasty.dynasty_prestige_level < 1
+			}
+			add = {
+				value = -20
+				desc = mz_court_position_base_origins_penalty
+			}
+		}
+		else_if = { # Lowborns are even worse
+			limit = { 
+				NOT = { exists = dynasty }
+			}
+			add = {
+				value = -50
+				desc = mz_court_position_lowborn_penalty
+			}
+		}
+		if = {
+			limit = {
+				is_landed = yes
+			}
+			add = {
+				value = -20
+				desc = court_position_landed_penalty
+			}
+		}		
+		if = {
+			limit = { has_trait = blind }
+			add = {
+				value = -50
+				desc = court_position_blind_trait
+			}
+		}
+		if = {
+			limit = { has_trait = infirm }
+			add = {
+				value = -75
+				desc = court_position_infirm_trait
+			}
+		}
+		add = court_position_aptitude_family_business_value
+	}
+
+	# Is this an available position for this court? (root is court owner)
+	is_shown = {
+		mz_can_appoint_eunuchs_trigger = yes
+	}
+	
+	valid_position = {
+		OR = {
+			AND = {
+				is_female = yes # Only for women
+				dynasty ?= { has_dynasty_perk = mz_matriarchy_legacy_3 } # A Woman's Court
+				highest_held_title_tier >= tier_duchy
+			}
+			AND = {
+				is_landed = yes
+				exists = liege
+				liege.dynasty ?= { has_dynasty_perk = mz_matriarchy_legacy_3 } # Or vassal of matriarch
+				highest_held_title_tier >= tier_duchy # Legacy perk unlocks this at duchy tier
+			}
+			highest_held_title_tier >= tier_kingdom
+		}
+	}
+
+	is_shown_character = {
+		scope:employee = {
+			is_courtier_of = scope:liege
+			is_imprisoned = no
+		}
+	}
+
+	valid_character = {
+		scope:employee = {
+			has_trait = eunuch
+		}
+	}
+
+	revoke_cost = {
+		prestige =  {
+			value = major_court_position_prestige_revoke_cost
+
+			# Set to 0 with Dynasty Perk Inner Circle
+			if = {
+				limit = {
+					exists = dynasty
+					dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
+
+					employs_court_position = chief_eunuch_court_position
+					any_court_position_holder = {
+				        type = chief_eunuch_court_position
+						exists = dynasty
+						house = prev.house
+					}
+				}
+				multiply = 0
+			}
+			if = {
+				limit = {
+					exists = this
+					is_ai = yes
+				}
+				multiply = 0
+			}
+		}
+	}
+
+	salary = {
+		round = no
+		gold = {
+			value = minor_court_position_salary
+			# Set to 0 with Dynasty Perk Inner Circle
+			if = {
+				limit = {
+					scope:liege = {
+						exists = dynasty
+						dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
+
+						employs_court_position = chief_eunuch_court_position
+						any_court_position_holder = {
+					        type = chief_eunuch_court_position
+							exists = dynasty
+							house = prev.house
+						}
+					}
+				}
+				multiply = {
+					value = 0.0
+					desc = inner_circle_salary_mod
+					format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
+				}
+			}
+			if = {
+				limit = {
+					scope:liege = {
+						employs_court_position = chief_eunuch_court_position
+						any_court_position_holder = {
+					        type = chief_eunuch_court_position
+					        scope:liege = {
+								has_hook_of_type = {
+									type = obligation_hook
+									target = prev
+								}
+							}
+						}
+					}
+				}
+				multiply = {
+					value = 0.5
+					desc = obligation_hook_salary
+				}
+			}
+			if = { # Otherwise, Court Eunuchs have reduced salary with A Woman's Court
+				limit = {
+					scope:liege = {
+						dynasty ?= { has_dynasty_perk = mz_matriarchy_legacy_3 }
+					}
+				}
+				multiply = {
+					value = 0.5
+					desc = mz_womans_court_mod
+					format = "BASE_VALUE_FORMAT_DECIMALS_MINUS_POSITIVE"
+				}
+			}			
+		}
+	}
+
+	is_powerful_agent = yes
+
+	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
+	scaling_employer_modifiers = {
+		terrible = {
+			monthly_court_grandeur_change_mult = 0.05
+		}
+		poor = {
+			court_grandeur_baseline_add = 1
+			monthly_court_grandeur_change_mult = 0.05
+		}
+		average = {
+			court_grandeur_baseline_add = 1
+			monthly_court_grandeur_change_mult = 0.10
+		}
+		good = {
+			court_grandeur_baseline_add = 2
+			monthly_court_grandeur_change_mult = 0.10
+		}
+		excellent = {
+			court_grandeur_baseline_add = 2
+			monthly_court_grandeur_change_mult = 0.15
+		}
+	}
+
+	modifier = {
+		monthly_prestige = minor_court_position_prestige_salary
+	}
+
+	on_court_position_received = {
+		chief_eunuch_title_accepted_effect = yes
+	}
+	on_court_position_revoked = { 
+		chief_eunuch_title_revoked_effect = yes
+	}
+	on_court_position_invalidated = {
+		chief_eunuch_title_invalidated_effect = yes
+	}
+	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
+	candidate_score = {
+		value = 100
+		add = scope:base_value
+		add = court_position_candidate_score_base_value
+		add = court_position_debt_considerations_value
+	}
+}
+
+# Court Consort position
+mz_court_consort_court_position = {
+	max_available_positions = 1
+	category = court_position_category_special
+
+	opinion = { value = ceremonial_court_position_opinion }
+	
+	# How high the aptitude has to be to reach the 5 different modifier levels
+	aptitude_level_breakpoints = { 20 40 60 80 }
+
+	# How good is this character in this position? root scope is the holder of the court position
+	aptitude = {
+		value = 1
+		add = {
+			value = fertility
+			multiply = 50
+			max = 50
+			desc = mz_court_position_fertility
+		}
+		if = { # Special case -- don't drop aptitude to terrible just because we banned them from bed. Let's keep them around, just in case we need them later.
+			limit = { 
+				has_character_modifier = rejected_from_marriage_bed_modifier
+			}
+			add = {
+				value = 50
+				desc = mz_court_position_fertility
+			}
+		}
+		else_if = {
+			limit = { fertility <= 0.2 } 
+			add = {
+				value = -200
+				desc = mz_consort_low_fertility
+			}
+		}
+		else_if = {
+			limit = { fertility <= 0 } 
+			add = {
+				value = -5000
+				desc = mz_consort_no_fertility
+			}
+		}
+		if = { 
+			limit = { num_of_good_genetic_traits = 1 }
+			add = {
+				value = 10
+				desc = mz_consort_genetic_traits
+			}
+		}
+		else_if = { 
+			limit = { num_of_good_genetic_traits = 2 }
+			add = {
+				value = 25
+				desc = mz_consort_genetic_traits
+			}
+		}
+		else_if = { 
+			limit = { num_of_good_genetic_traits = 3 }
+			add = {
+				value = 45
+				desc = mz_consort_genetic_traits
+			}
+		}
+		else_if = { 
+			limit = { num_of_good_genetic_traits > 3 }
+			add = {
+				value = 75
+				desc = mz_consort_genetic_traits
+			}
+		}
+		if = { 
+			limit = { num_of_bad_genetic_traits = 1 }
+			add = {
+				value = -25
+				desc = mz_consort_genetic_traits
+			}
+		}
+		else_if = { 
+			limit = { num_of_bad_genetic_traits = 2 }
+			add = {
+				value = -75
+				desc = mz_consort_genetic_traits
+			}
+		}
+		else_if = { 
+			limit = { num_of_bad_genetic_traits > 2 }
+			add = {
+				value = -5000
+				desc = mz_consort_genetic_traits
+			}
+		}
+		if = {
+			limit = { has_trait = fecund }
+			add = {
+				value = 50
+				desc = mz_consort_fecund
+			}
+		}
+		if = {
+			limit = { has_std_trigger = yes }
+			add = {
+				value = -5000
+				desc = mz_consort_std
+			}
+		}
+		add = court_position_aptitude_low_penalty_value
+	}
+
+	is_shown = {
+		allowed_to_marry_same_sex_trigger = yes # Consorts are specifically meant for characters in realms with same-sex marriage
+	}
+
+	# Is this an available position for this court? (root is court owner)
+	valid_position = {
+		is_landed = yes
+	}
+
+	is_shown_character = {
+		scope:employee = {
+			NOT = { this = scope:liege.primary_spouse } # Not for the primary spouse.
+			is_courtier_of = scope:liege # Not landed spouses
+			is_consort_of = scope:liege
+			sex_opposite_of = scope:liege
+			OR = { # Marriage check: bypassed if consort of liege!
+				is_married = no
+				is_consort_of = scope:liege
+			}
+		}
+	}
+
+	valid_character = {
+		scope:employee = { 
+			is_imprisoned = no
+			is_consort_of = scope:liege
+			is_courtier_of = scope:liege # Not landed spouses
+			NOT = { this = scope:liege.primary_spouse } # Not for the primary spouse.
+			custom_tooltip = {
+				text = mz_consort_must_be_fertile
+				OR = {
+					fertility > 0
+					has_character_modifier = rejected_from_marriage_bed_modifier
+					has_character_flag = mz_recent_welcome_back_flag
+				}
+			}
+			trigger_if = {
+				limit = { 
+					scope:liege = { is_ai = yes } 
+				}
+				OR = {
+					fertility > 0.2
+					has_character_modifier = rejected_from_marriage_bed_modifier
+					has_character_flag = mz_recent_welcome_back_flag
+				}
+				has_std_trigger = no
+			}
+		}
+	}
+
+	revoke_cost = {
+		prestige =  {
+			value = minor_court_position_prestige_revoke_cost
+
+			# Set to 0 with Dynasty Perk Inner Circle
+			if = {
+				limit = {
+					exists = dynasty
+					dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
+
+					employs_court_position = mz_court_consort_court_position
+					any_court_position_holder = {
+				        type = mz_court_consort_court_position
+						exists = dynasty
+						house = prev.house
+					}
+				}
+				multiply = 0
+			}
+		}
+	}
+
+	salary = { gold = 0 }
+
+	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints) 
+	scaling_employer_modifiers = {
+		terrible = { 
+			monthly_prestige = 0.1
+		}
+		poor = {
+			monthly_prestige = 0.1
+			court_grandeur_baseline_add = 1
+		}
+		average = {
+			monthly_prestige = 0.2
+			court_grandeur_baseline_add = 1
+		}
+		good = {
+			monthly_prestige = 0.2
+			court_grandeur_baseline_add = 2
+		}
+		excellent = {
+			monthly_prestige = 0.3
+			court_grandeur_baseline_add = 2
+		}
+	}
+
+	custom_employer_modifier_description = mz_court_consort_employer_custom_effect_description
+
+	modifier = { monthly_prestige = minor_court_position_prestige_salary }
+
+	on_court_position_received = {
+		mz_consort_gained_position_effect = yes
+	}
+	on_court_position_revoked = { 
+		basic_revoked_court_position_effect = yes
+	}
+	on_court_position_invalidated = {
+		basic_invalidated_court_position_effect = yes
+	}
+
+	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
+	candidate_score = {
+        value = 150
+        add = scope:base_value
+        add = court_position_candidate_score_base_value
+        add = court_position_candidate_aptitude_value
+		# No debt considerations for Consorts, they are too important
+        # AI is less likely to fire the court consort, unless they have a better candidate.
+        if = {
+            limit = {
+                exists = scope:firing_court_position
+            }
+            add = 200
+            scope:employee = {
+                # Does the liege have a better candidate that they should be hiring instead?
+                if = {
+                    limit = {
+                        scope:highest_available_aptitude > scope:employee_aptitude
+                    }
+                    add = -150
+                }
+            }
+        }
+		# Don't bother swapping out existing court consorts if you're infertile.
+		if = {
+			limit = { 
+				scope:liege = {
+					fertility <= 0
+					employs_court_position = mz_court_consort_court_position
+					any_court_position_holder = { type = mz_court_consort_court_position }
+				}
+			}
+			if = {
+				limit = { scope:employee = { has_court_position = mz_court_consort_court_position } }
+				add = 100
+			}
+			else = { 
+				add = -100
+			}			
+		}
+		# If AI ruler has children with the current consort they get a small bonus.
+		if = {
+			limit = {
+				scope:liege = {
+					any_child = { 
+						count >= 3
+						is_child_of = scope:employee 
+					}
+				}
+			}
+			add = 50
+		}
+		else_if = {
+			limit = {
+				scope:liege = {
+					any_child = { 
+						count > 1
+						is_child_of = scope:employee 
+					}
+				}
+			}
+			add = 35
+		}
+		else_if = {
+			limit = {
+				scope:liege = {
+					any_child = { is_child_of = scope:employee }
+				}
+			}
+			add = 20
+		}
+    }
+}

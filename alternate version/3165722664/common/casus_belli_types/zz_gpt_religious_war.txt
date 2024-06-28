@@ -1,0 +1,618 @@
+﻿
+
+gpt_excommunication_war = {
+	icon = excommunication
+	group = religious
+	ai_only_against_neighbors = no
+	allow_hostages = yes
+
+	# Already defined in 00_casus_belli_groups.txt
+	# allowed_for_character = {}
+	
+	attacker_score_from_battles_scale = 150
+	defender_score_from_battles_scale = 150
+
+	allowed_for_character = {
+		scope:attacker = {
+			OR = {
+				has_game_rule = GPT_interactions_enabled
+				has_game_rule = GPT_trade_enabled
+			}
+			highest_held_title_tier >= 2
+		}
+	}
+
+	allowed_for_character_display_regardless = {
+		scope:attacker = {
+			is_adult = yes
+		 #	prestige_level >= 1
+		}
+	}
+
+	allowed_against_character = {
+		scope:attacker = {
+			NOR = {
+				liege = scope:defender
+			 #	liege = scope:defender.liege
+			}
+			OR = {
+				has_relation_rival = scope:defender
+				has_relation_nemesis = scope:defender
+				has_opinion_modifier = { target = scope:defender modifier = gpt_insulted_calm }
+				has_opinion_modifier = { target = scope:defender modifier = gpt_insulted_normal }
+				has_opinion_modifier = { target = scope:defender modifier = gpt_insulted_rage }
+			}
+		}
+		scope:defender = {
+			highest_held_title_tier >= 2
+		 #	scope:attacker = {
+		 #		any_neighboring_and_across_water_top_liege_realm_owner = {
+		 #			this = scope:defender
+		 #		}
+		 #	}
+		}
+		OR = {
+			AND = {
+				scope:attacker = { is_independent_ruler = yes }
+				scope:defender = { is_independent_ruler = yes }
+			}
+			AND = {
+				scope:attacker = { is_independent_ruler = no }
+				scope:defender = { is_independent_ruler = no }
+				scope:attacker.liege = scope:defender.liege
+			}
+		}
+	}
+
+	allowed_against_character_display_regardless = {
+		scope:defender = {
+			is_adult = yes
+		 #	prestige_level >= 1
+		}
+	}
+
+	target_de_jure_regions_above = yes
+
+	valid_to_start = {
+		always = yes
+	}
+
+	on_declaration = {
+		on_declared_war = yes
+	}
+
+	cost = {
+		piety = {
+			add = {
+				value = 30
+				desc = CB_BASE_COST
+			}
+			add = {
+				desc = GPT_CB_PIETY_1
+				value = 30
+				multiply = scope:defender.highest_held_title_tier
+			}
+			add = {
+				desc = GPT_CB_PIETY_2
+				value = 30
+				multiply = scope:defender.piety_level
+			}
+			add = {
+				desc = GPT_CB_PIETY_3
+				value = scope:defender.dread
+				multiply = -2
+			}
+			add = {
+				desc = GPT_CB_PIETY_4
+				value = scope:defender.tyranny
+				multiply = -8
+			}
+		}
+	}
+
+	on_victory_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:defender = { is_local_player = yes }
+				}
+				desc = gpt_excommunication_war_victory_desc_defender
+			}
+			desc = gpt_excommunication_war_victory_desc
+		}
+	}
+
+	on_victory = {
+		scope:attacker = { show_pow_release_message_effect = yes }
+
+		#EP2 Accolade glory gain from winning against higher ranked enemy
+		scope:attacker = { accolade_attacker_war_end_glory_gain_med_effect = yes }
+
+		# Prestige level progress for the attacker
+		scope:attacker = {
+			add_prestige_experience = {
+				value = medium_prestige_value
+				multiply = scope:defender.highest_held_title_tier
+			 	multiply = 2
+			}
+		}
+
+		# Prestige loss for the defender
+		scope:defender = {
+			add_prestige = {
+				value = medium_prestige_value
+				multiply = -1.0
+			}
+		}
+
+		# Allies on both sides get full prestige value for helping in the war, based on their war participation.
+		modify_allies_of_participants_fame_values = {
+			WINNER = scope:attacker
+			FAME_BASE = major_prestige_value
+			IS_RELIGIOUS_WAR = no
+			WINNER_ALLY_FAME_SCALE = 1
+			LOSER_ALLY_FAME_SCALE = 1
+		}
+
+		#This is ddown here in it's own section to control how the tooltips are ordered.
+		scope:defender = {
+			depose = yes
+		}
+
+		# Truce
+		add_truce_attacker_victory_effect = yes
+	}
+
+	on_white_peace_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:defender = { is_local_player = yes }
+				}
+				desc = excommunication_war_white_peace_desc_defender
+			}
+			desc = excommunication_war_white_peace_desc
+		}
+	}
+
+	on_white_peace = {
+		scope:attacker = { show_pow_release_message_effect = yes }
+
+		#EP2 Accolade glory gain for defender for being ok
+		scope:defender = { accolade_defender_war_end_glory_gain_low_effect = yes }
+
+		modify_allies_of_participants_fame_values = {
+			WINNER = scope:attacker # Not important as the scales are identical
+			FAME_BASE = minor_prestige_value
+			IS_RELIGIOUS_WAR = no
+			WINNER_ALLY_FAME_SCALE = 1
+			LOSER_ALLY_FAME_SCALE = 1
+		}
+
+		# Prestige loss for the attacker
+		scope:attacker = {
+			add_prestige = {
+				value = minor_prestige_value
+				multiply = -1.0
+			}
+			stress_impact = {
+				ambitious = medium_stress_impact_gain
+				arrogant = medium_stress_impact_gain
+			}
+		}
+
+		scope:defender = {
+			stress_impact = {
+				arrogant = medium_stress_impact_gain
+			}
+		}
+
+		# Truce
+		add_truce_white_peace_effect = yes
+	}
+
+	on_defeat_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:attacker = { is_local_player = yes }
+				}
+				desc = gpt_excommunication_war_defeat_desc_attacker
+			}
+			triggered_desc = {
+				trigger = {
+					scope:defender = { is_local_player = yes }
+				}
+				desc = gpt_excommunication_war_defeat_desc_defender
+			}
+			desc = gpt_excommunication_war_defeat_desc
+		}
+	}
+
+	on_defeat = {
+		scope:attacker = { show_pow_release_message_effect = yes }
+
+		#EP2 Accolade glory gain for winning against higher ranked enemy
+		scope:defender = { accolade_defender_war_end_glory_gain_med_effect = yes }
+
+
+		# Prestige loss for the attacker
+		scope:attacker = {
+			pay_short_term_gold_reparations_effect = {
+				GOLD_VALUE = 3
+			}
+			add_prestige = {
+				value = major_prestige_value
+				multiply = -1.0
+			}
+		}
+
+		# Prestige for the defender
+		scope:defender = {
+			add_prestige_war_defender_effect = {
+				PRESTIGE_VALUE = medium_prestige_value
+			}
+		}
+
+		# Allies on both sides get full prestige value for helping in the war, based on their war participation.
+		modify_allies_of_participants_fame_values = {
+			WINNER = scope:defender
+			FAME_BASE = major_prestige_value
+			IS_RELIGIOUS_WAR = no
+			WINNER_ALLY_FAME_SCALE = 1
+			LOSER_ALLY_FAME_SCALE = 1
+		}
+
+		# Truce
+		add_truce_attacker_defeat_effect = yes
+	}
+	
+	should_invalidate = {
+		scope:attacker = {
+			NOR = {
+				has_relation_rival = scope:defender
+				has_relation_nemesis = scope:defender
+				has_opinion_modifier = { target = scope:defender modifier = gpt_insulted_calm }
+				has_opinion_modifier = { target = scope:defender modifier = gpt_insulted_normal }
+				has_opinion_modifier = { target = scope:defender modifier = gpt_insulted_rage }
+			}
+		}
+	}
+
+	on_invalidated_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:attacker = {
+						NOR = {
+							has_relation_rival = scope:defender
+							has_relation_nemesis = scope:defender
+							has_opinion_modifier = { target = scope:defender modifier = gpt_insulted_calm }
+							has_opinion_modifier = { target = scope:defender modifier = gpt_insulted_normal }
+							has_opinion_modifier = { target = scope:defender modifier = gpt_insulted_rage }
+						}
+					}
+				}
+				desc = msg_excommunication_war_invalidation_trait_message
+			}
+			desc = msg_invalidate_war_title
+		}
+	}
+	
+	on_invalidated = {
+		scope:attacker = {
+			#Used for the piety_change scripted effect.
+			save_scope_as = winner
+		}
+
+		#Handle all piety gains/losses in scripted effects.
+		excommunication_cb_piety_change = {
+			WINNER = scope:attacker
+			LOSER = scope:defender
+		}
+
+		scope:defender = {
+
+			#Used for the piety_change scripted effect.
+			save_scope_as = loser
+		}
+	}
+
+	on_primary_attacker_death = invalidate
+	on_primary_defender_death = inherit
+
+	transfer_behavior = transfer
+
+	attacker_allies_inherit = yes
+	defender_allies_inherit = yes
+
+	war_name = "GPT_EXCOMMUNICATION_WAR_NAME"
+
+	interface_priority = 80
+
+	use_de_jure_wargoal_only = yes
+
+	attacker_wargoal_percentage = 0.8
+	
+	max_defender_score_from_occupation = 150
+	max_attacker_score_from_occupation = 150
+	max_attacker_score_from_battles = 100
+	max_defender_score_from_battles = 100
+
+	max_ai_diplo_distance_to_title = 250
+
+	ai_score_mult = {
+		value = 0
+		add = {
+			if = {
+				limit = {
+					scope:attacker = {
+						OR = {
+							has_trait = arrogant
+							has_trait = vengeful
+							has_trait = wrathful
+							has_trait = stubborn
+							has_trait = impatient
+						}
+					}
+				}
+				add = 1
+			}
+			if = {
+				limit = {
+					scope:attacker = {
+						has_relation_rival = scope:defender
+					}
+				}
+				add = 1
+			}
+			if = {
+				limit = {
+					scope:attacker = {
+						has_relation_nemesis = scope:defender
+					}
+				}
+				add = 2
+			}
+			if = {
+				limit = {
+					scope:attacker = {
+						OR = {
+							has_trait = humble
+							has_trait = forgiving
+							has_trait = calm
+							has_trait = patient
+						}
+					}
+				}
+				add = -1000
+			}
+		}
+	 #	add = {
+	 #		if = {
+	 #			limit = {
+	 #				scope:attacker = {
+	 #					faith = {
+	 #						faith_hostility_level = {
+	 #							target = scope:defender.faith
+	 #							value >= religious_cb_enabled_hostility_level
+	 #						}
+	 #					}
+	 #				}
+	 #			}
+	 #			add = -1000
+	 #		}
+	 #	}
+		# Holy War are limited to connected neighbour to limit big empire expansions over weak realms.
+	 #	add = {
+	 #		if = {
+	 #			limit = {  religious_war_vassals_constraints = yes }
+	 #			add = -1000
+	 #		}
+	 #	}
+	}
+}
+
+
+
+gpt_war_reparations_cb = {
+	group = religious
+	ai_only_against_neighbors = yes
+	defender_faith_can_join = yes
+	allow_hostages = no
+	
+	icon = request_mercenary
+	
+	allowed_for_character = {
+		highest_held_title_tier >= 3
+		NOT = { government_has_flag = government_is_tribal }
+		can_raid_trigger = no
+	}
+
+	valid_to_start = {
+		is_at_war = no
+		has_targeting_faction = no
+	}
+
+ #	should_invalidate = {
+ #		scope:attacker = {
+ #			any_primary_war_enemy = {
+ #				NOT = { this = scope:defender }
+ #			}
+ #		}
+ #	}
+	
+	allowed_against_character = {
+		highest_held_title_tier <= 3
+		NOR = {
+			faith = scope:attacker.faith
+			faith = {
+				faith_hostility_level = {
+					target = scope:attacker.faith
+					value <= faith_astray_level
+				}
+			}
+		}
+		faith = {
+			faith_hostility_level = {
+				target = scope:attacker.faith
+				value >= faith_hostile_level
+			}
+		}
+	}
+	
+	on_declaration = {
+		on_declared_war = yes
+		scope:attacker = {
+			stress_impact = {
+				compassionate = 25
+				just = 20
+				forgiving = 15
+				craven = 20
+			}
+			stress_impact = {
+				zealous = -25
+				arbitrary = -15
+				greedy = -20
+				brave = -15
+			}
+			spawn_army = {
+				name = event_troop_default_name
+				levies = 750
+				men_at_arms = {
+					type = pikemen_unit
+					stacks = 1
+				}
+				men_at_arms = {
+					type = bowmen
+					stacks = 1
+				}
+				men_at_arms = {
+					type = light_horsemen
+					stacks = 1
+				}
+				men_at_arms = {
+					type = light_footmen
+					stacks = 2
+				}
+				location = scope:attacker.capital_province
+				origin = scope:attacker.capital_province
+				uses_supply = no
+				war = scope:war
+				inheritable = no
+			}
+		}
+	}
+	
+	cost = {
+		piety = {
+			value = 0
+			if = { limit = { scope:defender.highest_held_title_tier = 2 } add = 150 }
+			if = { limit = { scope:defender.highest_held_title_tier = 3 } add = 300 }
+		}
+	}
+
+	on_victory_desc = {
+		desc = gpt_war_reparations_cb_victory_desc
+	}
+	
+	on_victory = {
+
+		scope:attacker = {
+			add_character_flag = { flag = gpt_war_for_gold_victory years = 6 }
+		}
+		
+		scope:defender = {
+			pay_short_term_income = {
+				years = 3
+				target = scope:attacker
+			}
+		}
+
+		random_list = {
+			10 = {
+				modifier = { add = 20 scope:attacker = { has_trait = lustful } }
+				modifier = { add = 20 scope:attacker = { has_trait = gluttonous } }
+				modifier = { scope:attacker.culture = { has_cultural_pillar = ethos_bellicose } add = 20 }
+				modifier = { scope:attacker.culture = { has_cultural_pillar = ethos_courtly } add = 20 }
+				scope:attacker.house = { add_house_modifier = { modifier = gpt_pleasure_slaves years = 5 } }
+			}
+			10 = {
+				modifier = { add = 20 scope:attacker = { has_trait = zealous } }
+				modifier = { add = 20 scope:attacker = { has_trait = compassionate } }
+				modifier = { scope:attacker.culture = { has_cultural_pillar = ethos_spiritual } add = 20 }
+				modifier = { scope:attacker.culture = { has_cultural_pillar = ethos_egalitarian } add = 20 }
+				scope:attacker.house = { add_house_modifier = { modifier = gpt_domestic_slaves years = 5 } }
+			}
+			10 = {
+				modifier = { add = 20 scope:attacker = { has_trait = diligent } }
+				modifier = { add = 20 scope:attacker = { has_trait = arrogant } }
+				modifier = { scope:attacker.culture = { has_cultural_pillar = ethos_bureaucratic } add = 20 }
+				modifier = { scope:attacker.culture = { has_cultural_pillar = ethos_stoic } add = 20 }
+				scope:attacker.house = { add_house_modifier = { modifier = gpt_labor_slaves years = 5 } }
+			}
+			10 = {
+				modifier = { add = 20 scope:attacker = { has_trait = brave } }
+				modifier = { add = 20 scope:attacker = { has_trait = arrogant } }
+				modifier = { scope:attacker.culture = { has_cultural_pillar = ethos_communal } add = 20 }
+				modifier = { scope:attacker.culture = { has_cultural_pillar = ethos_bellicose } add = 20 }
+				scope:attacker.house = { add_house_modifier = { modifier = gpt_war_spoils years = 5 } }
+			}
+		}
+
+
+		# Truce
+		add_truce_attacker_victory_effect = yes
+	}
+
+	on_white_peace_desc = {
+		desc = gpt_war_reparations_cb_white_peace_desc
+	}
+	
+	on_white_peace = {
+		scope:attacker = { show_pow_release_message_effect = yes }
+
+		# Truce
+		add_truce_white_peace_effect = yes
+	}
+
+	on_defeat_desc = {
+		desc = gpt_war_reparations_cb_defeat_desc
+	}
+	
+	on_defeat = {
+		scope:attacker = { 
+			pay_short_term_income = {
+				years = 3
+				target = scope:defender
+			} 
+		}
+
+		# Truce
+		add_truce_attacker_defeat_effect = yes
+	}
+	
+	on_invalidated = {
+	}
+	
+	on_invalidated_desc = {
+		desc = gpt_war_reparations_cb_invalidated_desc
+	}
+	on_primary_attacker_death = inherit
+	on_primary_defender_death = inherit
+	
+	transfer_behavior = transfer
+	
+	attacker_allies_inherit = yes
+	defender_allies_inherit = yes
+	
+	war_name = gpt_war_reparations_cb
+	cb_name_no_target = gpt_war_reparations_cb
+	
+	interface_priority = 0
+	
+	attacker_wargoal_percentage = 0.8
+	
+	should_show_war_goal_subview = no
+}
+

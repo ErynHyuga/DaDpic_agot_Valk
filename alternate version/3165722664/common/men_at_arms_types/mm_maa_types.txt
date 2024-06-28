@@ -1,0 +1,259 @@
+﻿@cultural_maa_extra_ai_score = 80 # Equivalent to having 8 extra regiments beyond what the code scoring would indicate (see NEGATIVE_SCORE_PER_EXISTING_REGIMENT)
+
+mz_amazon_toxotai = {
+	type = archers
+	icon = mz_amazon_toxotai
+
+	can_recruit = {
+		culture = { has_cultural_parameter = mz_unlock_maa_toxotai }
+	}
+	
+	damage = 44
+	toughness = 20
+	pursuit = 10
+	screen = 0
+	
+	terrain_bonus = {
+		hills = { damage = 22 }
+		forest = { damage = 11 }
+		taiga = { damage = 11 }
+		wetlands = { toughness = -10 }
+		desert = { toughness = -10 }
+	}
+
+	winter_bonus = {
+		harsh_winter = { damage = -11 pursuit = -10 }
+	}
+
+	counters = {
+		heavy_infantry = 1
+		heavy_cavalry = 2
+		elephant_cavalry = 2
+	}
+
+	buy_cost = { gold = mz_amazon_toxotai_recruitment_cost }
+	low_maintenance_cost = { gold = mz_amazon_toxotai_low_maint_cost }
+	high_maintenance_cost = { gold = mz_amazon_toxotai_high_maint_cost }
+
+	stack = 100
+	ai_quality = { value = @[cultural_maa_extra_ai_score + 20] }
+}
+
+mz_amazon_peltast = {
+	type = skirmishers
+	icon = mz_amazon_peltast
+
+	can_recruit = {
+		culture = { has_cultural_parameter = mz_unlock_maa_peltast }
+	}
+	
+	damage = 32
+	toughness = 28
+	pursuit = 40
+	screen = 25
+	
+	terrain_bonus = {
+		forest = { damage = 16 }
+		taiga = { damage = 16 }
+		hills = { damage = 24 }
+		mountains = { damage = 16 }
+		wetlands = { damage = -16 pursuit = -24 }
+		desert = { damage = -16 pursuit = -24 }
+	}
+
+	winter_bonus = {
+		harsh_winter = { pursuit = -30 }
+	}
+
+	counters = {
+		pikemen = 2
+		light_cavalry = 2
+	}
+
+	buy_cost = { gold = mz_amazon_peltast_recruitment_cost }
+	low_maintenance_cost = { gold = mz_amazon_peltast_low_maint_cost  }
+	high_maintenance_cost = { gold = mz_amazon_peltast_high_maint_cost }
+	
+	stack = 100
+	ai_quality = { value = @[cultural_maa_extra_ai_score + 20] }
+}
+
+mz_amazon_hoplites = {
+	type = pikemen
+	icon = mz_amazon_hoplites
+
+	can_recruit = {
+		culture = { has_cultural_parameter = mz_unlock_maa_hoplites }
+	}
+	
+	damage = 36
+	toughness = 40
+	pursuit = 0
+	screen = 20
+	
+	terrain_bonus = {
+		forest = { damage = 18 }
+		taiga = { damage = 18 }
+		hills = { damage = 27 }
+	}
+
+	winter_bonus = {
+		harsh_winter = { damage = -9 screen = -9 }
+	}
+
+	counters = {
+		archers = 1
+		light_cavalry = 2
+		archer_cavalry = 2.5
+	}
+
+	buy_cost = { gold = mz_amazon_hoplites_recruitment_cost }
+	low_maintenance_cost = { gold = mz_amazon_hoplites_low_maint_cost }
+	high_maintenance_cost = { gold = mz_amazon_hoplites_high_maint_cost }
+	
+	stack = 100
+	ai_quality = { value = @[cultural_maa_extra_ai_score + 20] }
+}
+
+mz_amazon_hippotoxotai = {
+	type = archer_cavalry
+	icon = mz_amazon_hippotoxotai
+
+	can_recruit = {
+		culture = { has_cultural_parameter = mz_unlock_maa_hippotoxotai }
+	}
+	
+	damage = 45
+	toughness = 20
+	pursuit = 40
+	screen = 30
+	
+	terrain_bonus = {
+		plains = { damage = 20 }
+		drylands = { damage = 20 }
+		steppe = { damage = 45 }
+		hills = { damage = 45 }
+		wetlands = { damage = -30 pursuit = -30 }
+		mountains = { damage = -15 pursuit = -30 }
+		desert_mountains = { damage = -30 pursuit = -30 }
+	}
+
+	counters = {
+		skirmishers = 2
+		pikemen = 2
+	}
+
+	winter_bonus = {
+		normal_winter = { damage = -10 toughness = -5 }
+		harsh_winter = { damage = -15 toughness = -10 }
+	}
+
+	buy_cost = { gold = mz_amazon_hippotoxotai_recruitment_cost }
+	low_maintenance_cost = { gold = mz_amazon_hippotoxotai_low_maint_cost }
+	high_maintenance_cost = { gold = mz_amazon_hippotoxotai_high_maint_cost }
+	
+	holy_order_fallback = no
+
+	stack = 100
+	ai_quality = { value = @[cultural_maa_extra_ai_score + 20] }
+}
+
+mz_amazon_hetairoi = {
+	type = heavy_cavalry
+	icon = mz_amazon_hetairoi
+
+	can_recruit = { # Rank 4 or higher
+		exists = dynasty
+		mz_has_amazon_rank_4 = yes 
+	}
+	
+	damage = 200
+	toughness = 70
+	pursuit = 60
+	screen = 0
+	
+	terrain_bonus = {
+		plains = { damage = 40 }
+		drylands = { damage = 40 }
+		forest = { damage = 20 }
+		desert = { damage = -50 toughness = -15 pursuit = -30 }
+		wetlands = { damage = -50 toughness = -15 pursuit = -30 }
+	}
+
+	counters = {
+		archers = 2
+		heavy_infantry = 2
+	}
+
+	winter_bonus = {
+		normal_winter = { damage = -20 toughness = -10 }
+		harsh_winter = { damage = -30 toughness = -20 }
+	}
+
+	buy_cost = { gold = mz_amazon_hetairoi_recruitment_cost }
+	low_maintenance_cost = { gold = mz_amazon_hetairoi_low_maint_cost }
+	high_maintenance_cost = { gold = mz_amazon_hetairoi_high_maint_cost }
+
+	holy_order_fallback = no
+	fallback_in_hired_troops_if_unlocked = no
+	allowed_in_hired_troops = no	
+
+	max_sub_regiments = 6
+	
+	stack = 50
+	ai_quality = {
+		value = culture_ai_weight_heavy_cavalry
+		add = 100
+	}
+}
+
+mz_accolade_maa_horse_archers = {
+	type = archer_cavalry
+	icon = mz_accolade_maa_horse_archers
+
+	can_recruit = {
+		any_active_accolade = {
+			primary_type = {
+				this = accolade_type:mz_horse_archer_attribute
+			}
+			accolade_rank >= 3
+		}
+	}
+	
+	damage = 180
+	toughness = 50
+	pursuit = 60
+	screen = 25
+	
+	terrain_bonus = {
+		plains = { damage = 40 }
+		drylands = { damage = 40 }
+		steppe = { damage = 75 }
+		hills = { damage = 75 }
+		wetlands = { damage = -75 pursuit = -45 }
+		mountains = { damage = -40 pursuit = -45 }
+		desert_mountains = { damage = -75 pursuit = -45 }
+	}
+
+	winter_bonus = {
+		normal_winter = { damage = -15 toughness = -5 }
+		harsh_winter = { damage = -30 toughness = -10 }
+	}
+
+	counters = {
+		skirmishers = 2
+		pikemen = 2
+	}
+
+	buy_cost = { gold = accolade_horse_archers_recruitment_cost }
+	low_maintenance_cost = { gold = horse_archers_low_maint_cost }
+	high_maintenance_cost = { gold = horse_archers_high_maint_cost }
+
+	max_sub_regiments = 6
+	
+	stack = 50
+	ai_quality = {
+		value = @cultural_maa_extra_ai_score
+		add = 100
+	}
+}

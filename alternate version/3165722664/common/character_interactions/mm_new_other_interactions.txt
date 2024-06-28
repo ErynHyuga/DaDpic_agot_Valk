@@ -1,0 +1,1411 @@
+﻿mz_convert_interaction = { # For sapphic conversion scheme
+	icon = mz_convert_interaction
+	category = interaction_category_friendly
+	interface_priority = 90
+	scheme = mz_convert
+
+	send_name = START_SCHEME
+	ignores_pending_interaction_block = yes
+	
+	ai_targets = { #AI will try to convert vassals, but this scheme is very rare outside of lesbian realms in general
+		ai_recipients = vassals
+		ai_recipients = peer_vassals
+		chance = 0.5
+	}
+	ai_targets = { # Otherwise mostly focuses on spouses, guests, and courtiers (concubines should be included under courtiers)
+		ai_recipients = spouses
+		ai_recipients = guests
+		ai_recipients = courtiers
+	}
+	
+	ai_target_quick_trigger = {
+		adult = yes
+		attracted_to_owner = no
+		owner_attracted = yes # Convert targets the owner is attracted to, that are not attracted to them
+	}
+
+	ai_potential = {
+		is_adult = yes
+		is_female = yes
+		OR = {
+			has_sexuality = homosexual
+			has_sexuality = bisexual
+		}
+		NOR = {
+			has_trait = celibate
+			has_trait = chaste
+			any_scheme = {
+				OR = {
+					scheme_type = befriend
+					scheme_type = sway
+					scheme_type = seduce
+					scheme_type = courting
+					scheme_type = elope
+					scheme_type = mz_convert
+					scheme_type = learn_language
+					scheme_type = mz_straighten_out
+				}
+			}
+			primary_title = { is_mercenary_company = yes }
+			AND = { # No one cares about City barons
+				is_lowborn = yes
+				primary_title.tier <= tier_barony
+			}
+		}
+		might_cheat_on_every_partner_trigger = yes
+	}
+	ai_frequency = 36 # Can try every 3 years, roughly the same as other schemes
+
+	ai_will_do = {
+		base = 0
+
+		modifier = { # Don't convert people with STDs
+			scope:recipient = { has_std_trigger = yes }
+			factor = 0 
+		}
+		
+		modifier = {
+			add = 5
+			scope:actor = { has_sexuality = bisexual }
+		}
+
+		modifier = {
+			add = 10
+			scope:actor = { has_sexuality = homosexual }
+		}
+
+		modifier = { #AI should try to convert its consorts, if applicable
+			add = 200
+			scope:recipient = { is_consort_of = scope:actor }
+		}
+		
+		modifier = {
+			add = -20
+			scope:recipient = { has_sexuality = asexual }
+		}
+
+		modifier = {
+			add = 10
+			scope:actor = { diplomacy >= high_skill_rating }
+		}
+
+		modifier = { #Let's not get too carried away
+			add = -50
+			scope:actor = { num_of_relation_lover >= 5 }
+		}
+
+		modifier = { #This is much safer if female adultery is allowed
+			add = 10
+			scope:actor = {
+				faith = { has_doctrine_parameter = adultery_female_accepted }
+			}
+		}
+
+		modifier = {
+			add = 15
+			scope:actor = {
+				is_independent_ruler = yes
+				faith = { has_doctrine_parameter = adultery_female_accepted }
+			}
+		}
+
+		modifier = {
+			add = 15
+			scope:actor = { is_independent_ruler = no }
+			scope:actor.liege = {
+				faith = { has_doctrine_parameter = adultery_female_accepted }
+			}
+		}
+	
+		modifier = {
+			add = -50
+			scope:actor = {
+				exists = primary_spouse
+				primary_spouse = { has_strong_hook = scope:actor }
+			}
+		}
+		
+		modifier = {
+			add = 10
+			scope:actor = {
+				has_focus = intrigue_temptation_focus
+			}
+		}
+		
+		modifier = { # Non-lustful clergy tend to not convert
+			add = -25
+			scope:actor = {
+				is_clergy = yes
+				faith = {
+					NOT = { has_doctrine_parameter = clergy_can_marry }
+				}
+				NOR = {
+					has_trait = lustful
+					has_focus = intrigue_temptation_focus
+				}
+			}
+		}
+		
+		modifier = {
+			add = 30
+			scope:actor = {
+				has_trait = lustful
+			}
+		}
+
+		modifier = { #Incest deviant
+			add = 20
+			scope:actor = {
+				is_close_or_extended_family_of = scope:recipient
+				is_deviant_trigger = yes
+			}
+			scope:recipient = {
+				OR = {
+					is_deviant_trigger = yes
+					has_trait = lustful
+				}
+			}
+		}
+		
+		modifier = {
+			add = 10
+			scope:actor = {
+				is_close_or_extended_family_of = scope:recipient
+				is_deviant_trigger = yes
+			}
+			scope:recipient = {
+				NOR = {
+					is_deviant_trigger = yes
+					has_trait = lustful
+				}
+			}
+		}
+		
+		modifier = { # Converting the spouse of your rival is good drama...
+			add = 10
+			scope:recipient = {
+				exists = primary_spouse
+				primary_spouse = {
+					OR = {
+						has_relation_rival = scope:actor
+						has_relation_nemesis = scope:actor
+					}
+				}
+			}
+		}
+		
+		modifier = {
+			add = -20
+			scope:actor = {
+				NOR = {
+					has_trait = lustful
+					has_trait = arbitrary
+					is_deviant_trigger = yes
+					faith = { has_doctrine_parameter = divine_marriage_piety_gain_active }
+					has_perk = subtle_desire_perk
+				}
+			}
+			scope:recipient = {
+				is_close_family_of = scope:actor
+			}
+		}
+		
+		modifier = { #Converting someone's spouse is not a clever prospect for most characters, so lowering the attractiveness a bit
+			add = -20
+			scope:recipient = {
+				is_married = yes
+				NOT = {
+					primary_spouse = scope:actor
+				}
+			}
+			scope:actor = {
+				NOR = {
+					has_trait = lustful
+					has_focus = intrigue_temptation_focus
+				}
+			}
+		}
+		
+		modifier = { # Try to avoid agressive conversion unless you're geared for it
+			add = -10
+			scope:actor = {
+				NOR = {
+					attraction >= medium_positive_attraction
+					diplomacy >= high_skill_rating
+				}
+			}
+			scope:recipient = {
+				is_lowborn = no
+				NOT = { is_pool_guest_of = scope:actor }
+			}
+		}
+
+		modifier = { #Personality traits increase chance of success drastically
+			factor = 1.25
+			scope:recipient = {
+				number_of_personality_traits_in_common = {
+					target = scope:actor
+					value >= 1
+				}
+			}
+		}
+
+		modifier = {
+			factor = 1.5
+			scope:recipient = {
+				number_of_personality_traits_in_common = {
+					target = scope:actor
+					value >= 2
+				}
+			}
+		}
+
+		modifier = {
+			factor = 2
+			scope:recipient = {
+				number_of_personality_traits_in_common = {
+					target = scope:actor
+					value >= 3
+				}
+			}
+		}
+
+		modifier = {
+			factor = 0.1
+			scope:recipient = {
+				number_of_opposing_personality_traits = {
+					target = scope:actor
+					value >= 1
+				}
+			}
+		}
+
+		modifier = { #Landed characters make for better targets than wanderers or guests
+			factor = 1.5
+			scope:recipient = {
+				is_landed = yes
+			}
+		}
+
+		modifier = { # Never target player
+			factor = 0
+			scope:recipient = { is_ai = no }
+		}
+
+		modifier = {
+			factor = 1.25
+			scope:recipient = {
+				OR = {
+					has_trait = lustful
+					has_trait = beauty_good
+				}
+			}
+		}
+		
+		modifier = { # Try to avoid 0% success chance
+			factor = {
+				value = 0.1
+				if = {
+					limit = {
+						scope:recipient = {
+							opinion = {
+								target = scope:actor
+								value < -15
+							}
+						}
+					}
+					value = 0
+				}
+			}
+			scope:recipient = {
+				opinion = {
+					target = scope:actor
+					value < -5
+				}
+			}
+		}
+
+		modifier = {
+			factor = 0.75
+			scope:recipient = {
+				is_lowborn = yes
+				NOT = { is_consort_of = scope:actor }
+			}
+		}
+		
+		modifier = { # Barons tend to not convert anyone landed above them
+			factor = 0.1
+			scope:actor = {
+				is_landed = yes
+				primary_title = {
+					tier = tier_barony
+				}
+			}
+			scope:recipient = {
+				OR = {
+					AND = {
+						is_landed = yes
+						primary_title = {
+							tier > tier_barony
+						}
+					}
+					any_spouse = {
+						is_landed = yes
+						primary_title = {
+							tier > tier_barony
+						}
+					}
+				}
+			}
+		}
+
+		modifier = { #Very rare in non-sapphic realms
+			factor = 0.2
+			scope:actor = { mz_lesbian_faith_devotee = no }
+		}
+		
+		modifier = {
+			factor = 0.25
+			scope:recipient = {
+				any_targeting_scheme = {
+					scheme_type = mz_convert
+				}
+			}
+		}
+		
+		modifier = { #Chaste individuals are hard cases and should be avoided
+			factor = 0.1
+			scope:recipient = {
+				has_trait = chaste
+			}
+		}
+
+		modifier = { #Don't try to convert people with soulmates
+			factor = 0
+			scope:recipient = { num_of_relation_soulmate > 0 }
+		}
+	}
+
+	is_shown = {
+		NOT = { scope:actor = scope:recipient }
+		scope:recipient = { 
+			is_female = yes
+			is_adult = yes
+			OR = {
+				has_sexuality = heterosexual
+				has_sexuality = asexual
+			}
+		}
+		scope:actor = { 
+			is_female = yes
+			is_adult = yes 
+			OR = {
+				has_sexuality = homosexual
+				has_sexuality = bisexual
+			}
+		}
+
+		trigger_if = { # Avoid converting lowborn nobodies in foreign courts
+			limit = {
+				scope:actor = { is_ai = yes }
+			}
+			NOT = {
+				scope:recipient = {
+					is_lowborn = yes
+					is_landed = no
+					NOR = {
+						is_courtier_of = scope:actor
+						is_foreign_court_or_pool_guest_of = scope:actor
+					}
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			NOT = { is_at_war_with = scope:recipient }
+			can_start_scheme = {
+				type = mz_convert
+				target = scope:recipient
+			}
+		}
+		trigger_if = {
+			limit = {
+				scope:recipient = { exists = primary_spouse }
+			}
+			scope:recipient = { primary_spouse = { NOT = { has_strong_hook = scope:actor } } }
+		}
+	}
+
+	desc = mz_convert_interaction_tt_convert_approved
+
+	on_accept = {
+		mz_convert_interaction_stress_effect = yes
+
+		hidden_effect = {
+			scope:actor = {
+				send_interface_toast = {
+					title = mz_convert_interaction_notification
+
+					left_icon = scope:actor					
+					right_icon = scope:recipient
+
+					start_scheme = {
+						type = mz_convert
+						target = scope:recipient
+					}
+
+					show_as_tooltip = { mz_convert_interaction_stress_effect = yes }
+				}
+			}
+		}
+	}	
+	auto_accept = yes
+}
+
+mz_desginate_heir_matriarchal_interaction = { # For matriarchal dynasty
+	category = interaction_category_diplomacy
+	icon = mz_matriarchy_interaction
+	desc = mz_desginate_heir_matriarchal_interaction_desc
+
+	is_shown = {
+		scope:recipient = {
+			is_female = yes
+			is_child_of = scope:actor
+			exists = dynasty
+		}
+		scope:actor = {	
+			is_female = yes
+			dynasty ?= { has_dynasty_perk = mz_matriarchy_legacy_2 }
+			NAND = {
+				primary_title = {
+					has_title_law_flag = elective_succession_law
+				}
+				dynasty = primary_heir.dynasty
+				primary_heir = { is_female = yes }
+			}
+			NAND = { # Don't bother showing to players if can designate heirs normally
+				has_realm_law_flag = can_designate_heirs
+				is_ai = no
+			}
+		}
+		NOR = {
+			scope:recipient = scope:actor.designated_heir
+			scope:recipient = scope:actor.player_heir
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		trigger_if = {
+			limit = { 
+				scope:actor = { has_government = tribal_government }
+			}
+			scope:actor = { prestige >= 250 }
+		}
+		trigger_else = {
+			scope:actor = { prestige >= 1000 }
+		}
+	}
+
+	on_auto_accept = {
+		scope:recipient = {
+			trigger_event = char_interaction.0120
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+			send_interface_toast = {
+				title = designate_heir_interaction_notification
+
+				left_icon = scope:actor					
+				right_icon = scope:recipient
+
+				set_designated_heir = scope:recipient
+				if = {
+					limit = {
+						scope:actor = { has_government = tribal_government }
+					}
+					add_prestige = { subtract = 250 }
+				}
+				else = {
+					add_prestige = { subtract = 1000 }
+				}
+			}
+		}
+	}
+
+	auto_accept = yes
+	# AI stuff
+	ai_targets = { ai_recipients = children }
+	ai_frequency = 60 # Five years
+	ai_potential = { # AI should only bother if primary heir is not female
+		exists = primary_heir
+		primary_heir = { is_female = no }
+		any_child = {
+			is_female = yes
+			dynasty = root.dynasty
+		}
+	}
+	ai_will_do = {
+		base = 0
+		modifier = { # This is a basic filter, will only bother for same-dynasty children
+			add = 100
+			scope:recipient = { dynasty = scope:actor.dynasty }
+		}
+		opinion_modifier = { # Opinion matters
+			opinion_target = scope:recipient
+		}
+		modifier = { # Good genes are good
+			factor = 10
+			scope:recipient = { num_of_good_genetic_traits > 0 }
+		}
+		modifier = { # Bad genes are bad
+			factor = 0.1
+			scope:recipient = { num_of_bad_genetic_traits > 0 }
+		}
+	}
+}
+
+mz_matriarchy_claim_interaction = { # For matriarchal dynasty legacy perk
+	category = interaction_category_diplomacy
+	icon = mz_matriarch_claim_title
+	desc = mz_matriarchy_claim_interaction_desc
+	target_type = title
+	target_filter = recipient_domain_titles
+	ignores_pending_interaction_block = yes
+
+	is_shown = {
+		scope:actor = {
+			exists = dynasty
+			dynasty = {
+				has_dynasty_perk = mz_matriarchy_legacy_5
+			}
+			is_female = yes
+		}
+		NOT = {
+			scope:actor = scope:recipient
+			AND = {
+				scope:recipient = scope:actor.faith.religious_head
+				scope:actor.faith = {
+					NOT = { has_doctrine = doctrine_theocracy_temporal }
+				}
+			}
+		}
+		scope:recipient = {
+			is_landed = yes
+			primary_title.tier > tier_barony
+			is_female = no
+			NAND = {
+				exists = dynasty
+				dynasty = scope:actor.dynasty
+			}
+		}
+	}
+
+	can_be_picked_title = {
+		scope:target = { tier >= tier_county }
+	}
+	
+	is_valid_showing_failures_only = {
+		trigger_if = { # Can't request on titles you already have a claim on
+			limit = {
+				exists = scope:target
+				scope:actor = {
+					has_claim_on = scope:target
+				}
+			}
+			custom_description = {
+				text = buy_claim_has_pressed_claim_already
+				always = no
+			}
+		}
+		trigger_if = { # Can't request claims on baronies
+			limit = {
+				exists = scope:target
+				scope:target = {
+					tier = tier_barony
+				}
+			}
+			custom_description = {
+				text = "hof_ask_for_claim_no_baronies"
+				always = no
+			}
+		}
+		trigger_if = { # Can only buy one Kingdom claim per lifetime
+			limit = {
+				exists = scope:target
+				scope:target = {
+					tier = tier_kingdom
+				}
+				scope:actor = { has_character_flag = mz_claimed_kingdom_title_lifetime }
+			}
+			custom_description = {
+				text = mz_already_bought_kingdom_claim
+				always = no
+			}
+		}
+		trigger_if = { # Can't buy Emperor Claims if you're already an Emperor
+			limit = {
+				exists = scope:target
+				scope:target = {
+					tier = tier_empire
+				}
+				scope:actor.highest_held_title_tier >= tier_empire
+			}
+			custom_description = {
+				text = mz_emperor_cant_buy_empire
+				always = no
+			}
+		}
+		trigger_if = { # Can't buy claims on head of faith titles
+			limit = {
+				exists = scope:target
+				scope:target = { is_head_of_faith = yes }
+			}
+			custom_description = {
+				text = buy_claim_no_religious_titles
+				always = no
+			}
+		}
+		scope:actor = { # Variable prestige cost depending on tier
+			trigger_if = {
+				limit = {
+					exists = scope:target
+					scope:target = {
+						tier = tier_county
+					}
+				}
+				prestige >= mz_minor_matriarchy_claim_prestige_value
+			}
+			trigger_if = {
+				limit = {
+					exists = scope:target
+					scope:target = {
+						tier = tier_duchy
+					}
+				}
+				prestige >= mz_medium_matriarchy_claim_prestige_value
+			}
+			trigger_if = {
+				limit = {
+					exists = scope:target
+					scope:target = {
+						tier = tier_kingdom
+					}
+				}
+				prestige >= mz_major_matriarchy_claim_prestige_value
+			}
+			trigger_if = {
+				limit = {
+					exists = scope:target
+					scope:target = {
+						tier = tier_empire
+					}
+				}
+				prestige >= mz_massive_matriarchy_claim_prestige_value
+			}
+		}
+		scope:recipient = { NOT = { has_strong_hook = scope:actor } }
+	}
+	
+	auto_accept = yes
+	
+	on_accept = {
+		scope:actor = {
+			send_interface_toast = {
+				title = buy_claim_interaction.message
+				left_icon = scope:actor
+				right_icon = scope:recipient
+				if = {
+					limit = {
+						scope:target = {
+							tier = tier_county
+						}
+					}
+					add_prestige = mz_minor_matriarchy_claim_prestige_loss
+				}
+				if = {
+					limit = {
+						scope:target = {
+							tier = tier_duchy
+						}
+					}
+					add_prestige = mz_medium_matriarchy_claim_prestige_loss
+				}
+				if = {
+					limit = {
+						scope:target = {
+							tier = tier_kingdom
+						}
+					}
+					add_prestige = mz_major_matriarchy_claim_prestige_loss
+					add_character_flag = mz_claimed_kingdom_title_lifetime
+				}
+				if = {
+					limit = {
+						scope:target = {
+							tier = tier_empire
+						}
+					}
+					add_prestige = mz_massive_matriarchy_claim_prestige_loss
+				}
+				add_unpressed_claim = scope:target
+			}
+			stress_impact = {
+				content = medium_stress_impact_gain
+			}
+		}
+		scope:recipient = {
+			add_opinion = {
+				target = scope:actor
+				modifier = claimed_my_title_opinion
+				opinion = -40
+			}
+			trigger_event = perk_interaction.0002
+		}
+	}
+}
+
+mz_female_succession_forced_interaction = { # Force dynastic vassal to adopt female succession
+	category = interaction_category_diplomacy
+	interface_priority = 60
+	icon = mz_matriarchy_interaction
+	desc = mz_female_succession_forced_interaction_desc
+	use_diplomatic_range = no
+	
+	is_shown = {
+		NOT = { scope:recipient = scope:actor }
+
+		scope:actor = {
+			OR = {
+				is_dynast = yes
+				is_liege_or_above_of = scope:recipient
+			}
+			dynasty = scope:recipient.dynasty
+			is_female = yes
+			dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+			OR = {
+				has_realm_law = female_only_law
+				has_realm_law = female_preference_law
+			}
+		}
+		scope:recipient = {
+			highest_held_title_tier >= tier_county
+			OR = {
+				has_government = tribal_government
+				has_government = feudal_government
+				has_government = clan_government
+			}
+			OR = {
+				NOR = {
+					has_realm_law = female_only_law
+					has_realm_law = female_preference_law
+				}
+				any_held_title = {
+					OR = {
+						has_title_law = male_only_law
+						has_title_law = male_preference_law
+						has_title_law = equal_law
+					}
+					NOT = { is_landless_type_title = yes }
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = { is_at_war = no }
+		scope:recipient = { is_at_war = no }
+		scope:recipient = { NOT = { has_strong_hook = scope:actor } }
+		trigger_if = {
+			limit = {
+				scope:recipient = {
+					NOR = {
+						is_child_of = scope:actor
+						is_grandchild_of = scope:actor
+						is_great_grandchild_of = scope:actor
+					}
+				}
+			}
+			custom_description = {
+				scope:recipient.top_liege = scope:actor.top_liege
+				text = "same_realm_as"
+			}
+		}
+	}
+
+	cost = {
+		prestige = {
+			value = {
+				add = 0
+				if = {
+					limit = {
+						scope:recipient = { highest_held_title_tier = tier_county }
+					}
+					add = minor_prestige_value
+				}
+				if = {
+					limit = {
+						scope:recipient = { highest_held_title_tier = tier_duchy }
+					}
+					add = medium_prestige_value
+				}
+				if = {
+					limit = {
+						scope:recipient = { highest_held_title_tier = tier_kingdom }
+					}
+					add = major_prestige_value
+				}
+				if = {
+					limit = {
+						scope:recipient = { highest_held_title_tier = tier_empire }
+					}
+					add = massive_prestige_value
+				}
+				if = { 
+					limit = {
+						scope:actor = { has_government = tribal_government }
+					}
+					multiply = 0.5
+				}
+			}
+		}
+	}
+
+	auto_accept = yes
+	on_accept = {
+		scope:recipient = {
+			if = {
+				limit = {
+					scope:actor = { has_realm_law = female_only_law }
+					scope:recipient = { 
+						NOT = { has_realm_law = female_only_law }
+					}
+				}
+				add_realm_law_skip_effects = female_only_law
+			}
+			else_if = {
+				if = {
+					limit = {
+						scope:actor = { has_realm_law = female_preference_law }
+						scope:recipient = { 
+							NOT = { has_realm_law = female_preference_law }
+						}
+					}
+					add_realm_law_skip_effects = female_preference_law
+				}
+			}
+			every_held_title = {
+				if = { 
+					limit = { 
+						OR = { 
+							has_title_law = male_only_law
+							has_title_law = male_preference_law
+							has_title_law = equal_law
+						}
+						NOT = { is_landless_type_title = yes }
+					}
+					clear_title_laws = yes # For some reason remove_title_law didn't seem to be working, so while this is not ideal we're using it
+				}
+			}
+			if = {
+				limit = {
+					scope:recipient = { is_female = no }
+				}
+				scope:recipient = {
+					add_opinion = {
+						modifier = angry_opinion
+						target = scope:actor
+						opinion = -25
+					}
+				}
+			}
+			add_character_flag = { # Put a blocker that prevents changing to male or equal law for 20 years
+				flag = mz_succession_law_blocker
+				years = 20
+			}
+		}
+	}
+
+	ai_potential = {
+		is_at_war = no
+	}
+	
+	ai_targets = {
+		ai_recipients = dynasty
+		max = 20
+	}
+	
+	ai_frequency = 60
+	
+	ai_will_do = {
+		base = 0
+		
+		modifier = {
+			add = 100
+			scope:actor = {
+				is_female = yes
+				exists = dynasty
+				dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+			}
+		}
+	}
+}
+
+mz_straighten_out_scheme_interaction = { # For matriarchal dynasty legacy perk
+	icon = mz_so_scheme_interaction
+	category = interaction_category_friendly
+	interface_priority = 120
+	scheme = mz_straighten_out
+
+	send_name = START_SCHEME
+	ignores_pending_interaction_block = yes
+
+	ai_targets = { ai_recipients = children }
+	ai_potential = {
+		is_female = yes
+		is_adult = yes
+		exists = dynasty
+		dynasty = { has_dynasty_perk = mz_matriarchy_legacy_1 }
+	}
+	ai_frequency = 36 # Can try every 3 years, roughly the same as other schemes
+	ai_will_do = {
+		base = 50
+
+		ai_value_modifier = { # +50 to -50
+			who = scope:actor
+			ai_compassion = 0.5
+		}
+		opinion_modifier = { # Opinion Factor
+			who = scope:actor
+			opinion_target = scope:recipient
+			multiplier = 0.25
+		}
+		modifier = {
+			OR = {
+				has_focus = diplomacy_family_focus
+				has_trait = family_first
+			}
+			add = 50
+		}
+		modifier = { # This can really stress the AI out, so don't do it if current stress is too high
+			OR = {
+				scope:actor = { stress >= 50 }
+				scope:recipient = { stress >= 60 }
+			}
+			factor = 0
+		}
+	}
+
+	is_shown = {
+		NOT = { scope:actor = scope:recipient } # Doubt this could ever happen, but just in case. You are your own grandmother joke here.
+		scope:actor = {
+			is_adult = yes
+			is_female = yes
+			exists = dynasty
+			dynasty = { has_dynasty_perk = mz_matriarchy_legacy_1 }
+		}
+		OR = {
+			scope:recipient = { is_child_of = scope:actor }
+			scope:recipient = { is_grandchild_of = scope:actor }
+			scope:recipient = { is_great_grandchild_of = scope:actor }
+		}
+		scope:recipient = { 
+			is_ai = yes
+			#is_female = yes
+			mz_has_valid_negative_trait_trigger = { OWNER = scope:actor }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			NOT = { is_at_war_with = scope:recipient }
+			can_start_scheme = {
+				type = mz_straighten_out
+				target = scope:recipient
+			}
+			is_imprisoned = no
+		}
+		scope:recipient = {
+			age >= 10
+			is_imprisoned = no
+		}
+	}
+
+	desc = mz_straighten_out_character_inreaction_tt
+
+	on_accept = {
+		hidden_effect = {
+			scope:actor = {
+				send_interface_toast = {
+					title = mz_straighten_out_scheme_interaction_notification
+
+					left_icon = scope:actor					
+					right_icon = scope:recipient
+
+					start_scheme = {
+						type = mz_straighten_out
+						target = scope:recipient
+					}
+				}
+			}
+		}
+	}
+	auto_accept = yes
+}
+
+mz_make_eunuch_interaction = { # Make target a eunuch
+	icon = mz_icon_eunuch
+	category = interaction_category_diplomacy
+	ai_min_reply_days = 1
+	ai_max_reply_days = 4
+
+	desc = mz_make_eunuch_interaction_desc
+	is_shown = {
+		NOT = { scope:actor = scope:recipient }
+		scope:actor = {
+			is_adult = yes
+			mz_can_appoint_eunuchs_trigger = yes
+		}
+		scope:recipient = {
+			is_male = yes
+			is_adult = yes
+			is_courtier_of = scope:actor
+			NOR = { 
+				has_trait = eunuch 
+				is_spouse_of = scope:actor
+				is_concubine_of = scope:actor
+			}
+		}
+		OR = {
+			AND = { # Either we have an opening for a chief eunuch...
+				scope:actor = { can_employ_court_position_type = chief_eunuch_court_position }
+				scope:actor = {
+					any_court_position_holder = {
+						type = chief_eunuch_court_position
+						count < 1
+					}					
+				}
+			}
+			AND = { # ...or they hold another court position already.
+				scope:recipient = { liege = scope:actor }
+				scope:recipient = { has_any_court_position = yes }
+			}
+		}
+		trigger_if = {
+			limit = { exists = scope:actor.faith.religious_head }
+			NOT = { scope:actor.faith.religious_head = scope:recipient } # As amusing as this seems, let's not. No idea what problems it could cause.
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = { is_imprisoned = no }
+		scope:recipient = { is_imprisoned = no }
+		scope:recipient = { is_married = no }
+		custom_description = {
+			text = "mz_not_heir_to_any_title_text"
+			scope:recipient = { 
+				NOT = { any_heir_title = {} }
+			}
+		}
+	}
+
+	auto_accept = yes
+	on_accept = {
+		scope:recipient = {
+			hidden_effect = { 
+				add_trait = eunuch 
+				add_character_modifier = {
+					modifier = recently_castrated
+					years = 1
+				}
+				add_character_flag = {
+					flag = mz_recently_made_eunuch
+					years = 1
+				}
+				if = {
+					limit = { exists = betrothed }
+					break_betrothal = betrothed
+				}
+			}
+		}
+		if = {
+			limit = {
+				scope:actor = { 
+					can_employ_court_position_type = chief_eunuch_court_position 
+					any_court_position_holder = {
+						type = chief_eunuch_court_position
+						count < 1
+					}
+				}
+			}
+			scope:actor = {
+				send_interface_toast = {
+					title = mz_make_chief_eunuch_interaction_notification				
+					left_icon = scope:recipient
+					show_as_tooltip = { 
+						scope:recipient = { add_trait_force_tooltip = eunuch }
+						add_character_modifier = {
+							modifier = recently_castrated
+							years = 1
+						}
+					}
+					appoint_court_position = {
+						recipient = scope:recipient
+						court_position = chief_eunuch_court_position
+					}
+				}
+			}
+		}
+		else = {
+			scope:actor = { 
+				send_interface_toast = {
+					title = mz_make_eunuch_interaction_notification				
+					left_icon = scope:recipient
+					show_as_tooltip = { 
+						scope:recipient = { add_trait_force_tooltip = eunuch }
+						add_character_modifier = {
+							modifier = recently_castrated
+							years = 1
+						}
+					}
+				}		
+			}	
+		}
+	}
+
+	ai_targets = { ai_recipients = courtiers }
+	ai_target_quick_trigger = { adult = yes }
+	ai_frequency = 12
+	ai_potential = {
+		short_term_gold > 0 # Don't do this if in debt
+		is_at_war = no # AI is bad with money when it comes to war. Wait until later.
+	}
+	ai_will_do = {
+		base = 0
+
+		modifier = {
+			scope:recipient = { exists = dynasty }
+			add = {
+				value = scope:recipient.dynasty.dynasty_prestige_level
+				multiply = 20
+			}
+		}
+
+		modifier = { # Don't members of your own dynasty into your eunuchs. Offer them to other rulers instead.
+			scope:recipient = { exists = dynasty }
+			scope:actor = { exists = dynasty }
+			scope:actor.dynasty = scope:recipient.dynasty
+			factor = 0
+		}
+	}
+}
+
+mz_offer_eunuch_interaction = { # Offer eunuch as courtier to someone else
+	category = interaction_category_diplomacy
+	desc = mz_offer_eunuch_interaction_desc
+	icon = mz_icon_eunuch
+
+	needs_recipient_to_open = yes
+	cooldown_against_recipient = { years = 5 }
+
+	ai_targets = { ai_recipients = neighboring_rulers }
+	ai_targets = { ai_recipients = liege }
+	ai_targets = { 
+		ai_recipients = peer_vassals 
+		max = 10
+	}
+	ai_targets = { 
+		ai_recipients = sub_realm_characters 
+		max = 10
+	}
+	ai_target_quick_trigger = { adult = yes }
+	ai_frequency = 12
+	ai_potential = {
+		exists = dynasty
+		any_courtier = {
+			exists = dynasty
+			dynasty = prev.dynasty # AI should offer eunuchs only if they're of the same dynasty. Don't bother otherwise.
+			is_male = yes
+			is_adult = yes
+			any_heir_title = {} # Not heir to anything
+			trigger_if = {
+				limit = { exists = scope:actor.faith.religious_head }
+				NOT = { this = scope:actor.faith.religious_head } # As amusing as this seems, let's not. No idea what problems it could cause.
+			}
+		}
+	}
+
+	populate_actor_list = {
+		scope:actor = {
+			every_courtier = {
+				limit = {
+					is_married = no
+					is_male = yes
+					is_adult = yes
+					NOT = { # Not heir to anything
+						any_heir_title = {} 
+					}
+					trigger_if = {
+						limit = { exists = scope:actor.faith.religious_head }
+						NOT = { this = scope:actor.faith.religious_head } # As amusing as this seems, let's not. No idea what problems it could cause.
+					}
+					NOR = { 
+						is_spouse_of = scope:actor
+						is_concubine_of = scope:actor
+					}
+				}
+				add_to_list = characters
+			}
+		}
+	}
+
+	is_shown = {
+		NOT = { scope:actor = scope:recipient }
+		scope:actor = {
+			is_adult = yes
+			is_landed = yes
+			mz_can_appoint_eunuchs_trigger = yes
+		}
+		scope:recipient = {
+			is_ai = yes
+			is_adult = yes
+			is_landed = yes
+			highest_held_title_tier >= tier_county
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = { is_imprisoned = no }
+		scope:recipient = { is_imprisoned = no }
+		custom_description = {
+			text = mz_offer_eunuch_failure_desc
+			scope:actor = {
+				any_courtier = {
+					is_married = no
+					is_male = yes
+					is_adult = yes
+					NOT = { # Not heir to anything
+						any_heir_title = {} 
+					}
+					trigger_if = {
+						limit = { exists = scope:actor.faith.religious_head }
+						NOT = { this = scope:actor.faith.religious_head } # As amusing as this seems, let's not. No idea what problems it could cause.
+					}	
+				}
+			}
+		}
+		custom_description = {
+			text = mz_recipient_faith_hostility_desc
+			OR = {
+				scope:recipient.faith = {
+					faith_hostility_level = {
+						target = scope:actor.faith
+						value < faith_hostile_level
+					}				
+				}
+				scope:actor.faith = {
+					faith_hostility_level = {
+						target = scope:recipient.faith
+						value < faith_hostile_level
+					}		
+				}
+			}
+		}
+	}
+
+	can_be_picked = { 
+		is_adult = yes 
+		scope:recipient = {
+			opinion = {
+				target = prev
+				value > -20
+			}
+		}
+	}
+	#Use hook
+	send_option = {
+		is_valid = {
+			scope:actor = { has_usable_hook = scope:recipient }
+		}
+		flag = hook	
+		localization = GENERIC_SPEND_A_HOOK
+	}
+	should_use_extra_icon = {
+		scope:actor = { has_usable_hook = scope:recipient }
+	}
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"	
+	send_options_exclusive = no
+
+	can_send = {
+		scope:secondary_actor = {
+			is_married = no
+			is_male = yes
+			is_adult = yes
+			NOT = { # Not heir to anything
+				any_heir_title = {} 
+			}
+			trigger_if = {
+				limit = { exists = scope:actor.faith.religious_head }
+				NOT = { this = scope:actor.faith.religious_head } # As amusing as this seems, let's not. No idea what problems it could cause.
+			}	
+		}
+	}
+
+	auto_accept = yes # Refusal comes in the triggered letter event.
+	on_accept = {
+		scope:actor = {
+			custom_tooltip = mz_offer_eunuch_interaction_tt
+		}
+		show_as_tooltip = {
+			scope:secondary_actor = {
+				if = {
+					limit = { 
+						NOT = { has_trait = eunuch }
+					}
+					add_trait = eunuch 
+					add_character_modifier = {
+						modifier = recently_castrated
+						years = 1
+					}
+				}
+			}
+		}
+		scope:recipient = { trigger_event = mz_court_eunuch.0101 }
+	}
+
+	ai_will_do = {
+		base = 0
+
+		modifier = { # Basic filtering. We want the AI to do this in order to try and get its dynasty members as eunuchs in other courts to earn renown.
+			add = 100
+			scope:actor = { exists = dynasty }
+			scope:secondary_actor = { exists = dynasty }
+			OR = {
+				NOT = { exists = scope:recipient.dynasty }
+				NOT = { scope:actor.dynasty = scope:recipient.dynasty }
+			}
+			scope:actor.dynasty = scope:secondary_actor.dynasty
+		}
+
+		modifier = { # Lieges are good candidates
+			scope:actor = {
+				any_liege_or_above = { this = scope:recipient }
+			}
+			factor = 1.5
+		}
+
+		modifier = { # Court eunuchs are not as valuable a position. Prefer chief eunuchs.
+			scope:recipient = { highest_held_title_tier < tier_kingdom }
+			add = -20
+		}
+
+		modifier = {
+			scope:actor = { is_ai = yes }
+			scope:secondary_actor = { has_any_court_position = yes }
+			factor = 0
+		}
+	}
+}

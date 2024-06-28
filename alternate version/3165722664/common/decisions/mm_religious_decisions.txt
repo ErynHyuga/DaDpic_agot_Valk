@@ -1,0 +1,172 @@
+﻿### Decisions related to changing doctrines
+mz_spiritual_hof_change_to_equal_genderview_decision = { # Challenge Spiritual Head of Faith to debate for Gender Equality
+	picture = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
+	major = yes
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		highest_held_title_tier >= 3
+		is_female = yes
+		is_adult = yes
+		faith = { has_doctrine = doctrine_gender_male_dominated }
+		faith = { has_doctrine = doctrine_spiritual_head }
+		exists = faith.religious_head
+		faith.religious_head = {
+			NOT = { has_character_flag = had_mz_religious_special_this_lifetime }
+		}
+	}
+
+	is_valid = {
+		OR = {
+			faith.religious_head = {
+				opinion = {
+					target = root
+					value >= high_positive_opinion
+				}
+			}
+			root = { has_strong_usable_hook = faith.religious_head }
+			root = { has_hook = faith.religious_head }
+		}
+		piety_level >= 4
+		piety >= 1000
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+	}
+
+	effect = {
+		trigger_event = mz_religious_special.1001
+		show_as_tooltip = {
+			custom_tooltip = mz_convince_hof_gender_equality_custom_desc
+		}
+	}
+	
+	ai_check_interval = 0
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+mz_no_hof_unreformed_or_tribal_gender_equality_decisison = { # Call Convocation to establish Gender Equality
+	picture = "gfx/interface/illustrations/decisions/decision_major_religion.dds"
+	major = yes
+	# cooldown = { days = 3650 }
+
+	is_shown = {
+		highest_held_title_tier >= 3
+		# is_female = yes 
+		is_adult = yes
+		faith = { has_doctrine = doctrine_gender_male_dominated }
+		OR = {
+			faith = { has_doctrine = unreformed_faith_doctrine }
+			has_government = tribal_government
+		}
+		NOR = { 
+			has_character_flag = had_mz_religious_special2_this_lifetime
+			exists = faith.religious_head 
+		}
+	}
+
+	is_valid = {
+		prestige_level >= 4 
+		piety_level >= 4
+		piety >= 1000
+		exists = cp:councillor_court_chaplain
+		custom_description = {
+			text = mz_no_hof_unreformed_or_tribal_gender_equality_decisison_requirement
+
+			trigger_if = {
+				limit = {
+					any_vassal = {
+						is_powerful_vassal = yes
+						faith = root.faith
+					}
+				}
+				any_vassal = {
+					count <= 1
+					is_powerful_vassal = yes
+					NOT = { faith = root.faith } 
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		trigger_event = mz_religious_special.2001
+		show_as_tooltip = {
+			custom_tooltip = mz_convocation_gender_equality_custom_desc
+		}
+	}
+	
+	ai_check_interval = 0
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+
+mz_lesbian_relevation_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	major = yes
+
+	is_shown = {
+		is_adult = yes
+		is_female = yes
+		is_attracted_to_women = yes
+		NOR = {
+			has_character_flag = mz_lesbian_revelation_triggered # Don't repeat this event.
+			faith = { has_doctrine_parameter = mz_lesbian_marriage_parameter } # We don't need a revelation if our faith already accepts lesbian marriage.
+			faith = { exists = var:mz_lesbian_revelation_variable } # Or if the faith already has a revelation associated with it.
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		OR = {
+			custom_tooltip = {
+				text = mz_lesbian_relevation_decision_requirements_tt
+				any_memory = { # We did actually have sex with a woman.
+					has_memory_type = had_sex
+					any_memory_participant = { 
+						NOT = { this = root }
+						is_female = yes 
+					}
+				}
+			}
+			custom_tooltip = {
+				text = mz_lesbian_relevation_decision_requirements_tt_2
+				any_relation = {
+					type = lover
+					is_female = yes
+				}
+			}
+		}
+	}
+
+	effect = { 
+		trigger_event = mz_lesbian_revelation.0001
+		show_as_tooltip = { custom_tooltip = mz_lesbian_relevation_decision_effect_tt }
+	}
+
+	ai_check_interval = 0
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}

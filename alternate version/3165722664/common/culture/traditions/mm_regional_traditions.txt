@@ -1,0 +1,101 @@
+﻿################################
+# REGIONAL CULTURAL TRADITIONS #
+################################
+
+tradition_nubian_warrior_queens = {  # Overwrite existing tradition.
+	category = regional
+	#mz_tag We are making this cost less if you have a dynastic matriarchy.
+	layers = {
+		0 = intrigue
+		1 = mediterranean
+		4 = crown.dds
+	}
+
+	is_shown = {
+		NOT = { has_game_rule = inversed_gender_equality }
+		any_parent_culture_or_above = {
+			OR = {
+				this = culture:nubian
+				this = culture:daju
+			}
+		}
+	}
+	can_pick = {
+		any_parent_culture_or_above = {
+			OR = {
+				this = culture:nubian
+				this = culture:daju
+			}
+		}
+	}
+
+	parameters = {
+		gender_equal_inheritance = yes
+		female_only_inheritance = yes
+		female_preference_inheritance = yes
+		prowess_from_martial_education = yes
+	}
+
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOT = {
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_egalitarian_desc
+				}
+			}
+			if = {
+				limit = {
+					trigger_if = {
+						limit = {
+							scope:character = {
+								is_ai = no
+							}
+						}
+						NAND = {
+							scope:character = { exists = dynasty }
+							scope:character = { 
+								dynasty = { has_dynasty_modifier = mz_matriarchy_modifier } 
+							}
+						}
+						NAND = {
+							any_ruler = {
+								count >= 3
+								culture = prev
+								primary_title.tier > tier_barony
+								is_male = yes
+							}
+							any_ruler = {
+								count >= 3
+								culture = prev
+								primary_title.tier > tier_barony
+								is_female = yes
+							}
+						}
+					}
+					trigger_else = {
+						always = yes
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = mz_three_gender_rulers_or_matriarchal_dynasty_desc
+				}
+			}
+
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = { value = 100 }
+} 

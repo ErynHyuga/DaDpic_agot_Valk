@@ -1,0 +1,520 @@
+﻿#############################
+# REALM CULTURAL TRADITIONS #
+#############################
+
+tradition_female_only_inheritance = { # Overwrite existing tradition
+	category = realm
+
+	layers = {
+		0 = learning
+		1 = indian
+		4 = crown.dds
+	}
+
+	is_shown = {
+		NOT = { has_game_rule = inversed_gender_equality }
+	}
+	
+	can_pick = {
+		custom_tooltip = {
+			NOT = { has_cultural_tradition = tradition_nubian_warrior_queens }
+			OR = {
+				has_cultural_pillar = heritage_senegambian
+				has_cultural_pillar = heritage_akan
+				has_cultural_pillar = heritage_west_african
+				has_cultural_pillar = heritage_yoruba
+				has_cultural_pillar = heritage_valyrian
+				any_parent_culture_or_above = {
+					OR = {
+						this = culture:nubian
+						this = culture:daju
+					}
+				}
+				scope:character.faith = {
+					has_doctrine_parameter = female_dominated_law
+				}
+				AND = {
+					scope:character = { exists = dynasty }
+					scope:character = { 
+						dynasty = { has_dynasty_modifier = mz_matriarchy_modifier } # Having the modifier unlocks, but perk will reduce cost.
+					}
+				}
+			}
+			text = mz_tradition_female_only_inheritance_requirements
+		}
+		scope:character = {
+			primary_title = {
+				NOR = {
+					has_title_law = male_only_law
+					has_title_law = male_preference_law
+				}
+			}
+			NOR = {
+				has_realm_law = male_only_law
+				has_realm_law = male_preference_law
+			}
+		}
+	}
+	
+	parameters = {
+		female_only_inheritance = yes
+		female_preference_inheritance = yes
+	}
+	character_modifier = {
+		opinion_of_female_rulers = 10
+		opinion_of_male_rulers = -10
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						has_game_rule = inversed_gender_equality
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_egalitarian_desc
+				}
+			}
+			if = {
+				limit = {
+					trigger_if = {
+						limit = {
+							scope:character = {
+								is_ai = no
+							}
+						}
+						NAND = {
+							scope:character = { exists = dynasty }
+							scope:character = { 
+								dynasty = { has_dynasty_perk = mz_matriarchy_legacy_2 } # Divine Matriarchs
+							}
+						}
+						NOT = {
+							any_ruler = {
+								count >= 5
+								culture = prev
+								primary_title.tier >= tier_county
+								is_female = yes
+							}
+						}
+					}
+					trigger_else = {
+						always = no
+					}
+				}
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = mz_five_female_rulers_or_divine_matriachs_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 25
+		if = {
+			limit = {
+				NOT = {
+					scope:character = {
+						is_female = yes
+					}
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+mz_tradition_amazonian_matriarchy = {
+	category = realm
+	# This culture practices the Amazonian way of rule.
+	layers = {
+		0 = learning
+		1 = mediterranean
+		4 = crown.dds
+	}
+
+	is_shown = {
+		NOT = { has_game_rule = inversed_gender_equality }
+		OR = {
+			this = culture:mz_amazonian
+			has_cultural_pillar = heritage_valyrian
+			any_parent_culture_or_above = { this = culture:mz_amazonian }
+		}
+	}
+	
+	can_pick = { # Has very strict and specific requirements.
+		scope:character = { has_government = tribal_government }
+		culture_not_pacifistic_trigger = yes
+		custom_description = {
+			text = culture_not_egalitarian
+			NOT = { # Egalitarian is not supported
+				culture_pillar:ethos_stoic = { is_in_list = traits }
+			}
+		}
+		custom_tooltip = {
+			text = mz_tradition_amazonian_matriarchy_requirement
+			NOT = { has_cultural_pillar = martial_custom_male_only }
+		}
+		custom_tooltip = {
+			text = cannot_have_tradition_vegetarianism
+			NOT = { culture_tradition:tradition_vegetarianism = { is_in_list = traits } }
+		}
+		custom_tooltip = {
+			text = mz_cannot_have_tradition_bellicose_matriarchy
+			NOT = { culture_tradition:mz_tradition_bellicose_matriarchy = { is_in_list = traits } }
+		}
+		custom_tooltip = {
+			text = mz_cannot_have_tradition_stoic_matriarchy
+			NOT = { culture_tradition:mz_tradition_stoic_matriarchy = { is_in_list = traits } }
+		}
+		custom_tooltip = {
+			text = mz_cannot_have_tradition_communal_matriarchy
+			NOT = { culture_tradition:mz_tradition_communal_matriarchy = { is_in_list = traits } }
+		}
+	}
+	
+	parameters = {
+		female_preference_inheritance = yes
+		female_only_inheritance = yes
+		mz_mandatory_female_only = yes
+		has_access_to_trials_by_combat = yes
+		strong_traits_more_common = yes
+		strong_traits_more_valued = yes
+	}
+	character_modifier = {
+		cultural_head_fascination_mult = -0.1
+		opinion_of_female_rulers = 10
+		opinion_of_male_rulers = -50
+		ai_honor = 20
+	}
+	province_modifier = {
+		epidemic_resistance = 10
+	}	
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			# Need bellicose stoic or communal
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}					
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_stoic_or_communal_desc
+				}
+			}
+			# We have an extra charge if returning to old ways
+			if = {
+				limit = { has_global_variable = mz_amazon_culture_reformed }
+				add = {
+					value = tradition_unfulfilled_criteria_penalty
+					desc = mz_amazon_reformation_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 1000 # Seems very unlikely they'll ever meet the prerequisites, but if so, go for it.
+		if = {
+			limit = {
+				scope:character = { is_female = no }
+			}
+			multiply = 0
+		}
+	}
+}
+
+mz_tradition_bellicose_matriarchy = { # Replaces Amazonian Matriarchy for Warlike Amazons
+	category = realm
+	# Very warlike Amazons.
+	layers = {
+		0 = martial
+		1 = mediterranean
+		4 = fight.dds
+	}
+
+	is_shown = {
+		NOT = { has_game_rule = inversed_gender_equality }
+		OR = {
+			this = culture:mz_amazonian
+			has_cultural_pillar = heritage_valyrian
+			any_parent_culture_or_above = { this = culture:mz_amazonian }
+		}
+		global_var:mz_amazon_culture_reformed ?= flag:bellicose
+	}
+	
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+		custom_description = {
+			text = culture_not_egalitarian
+			NOT = { # Egalitarian is not supported
+				culture_pillar:ethos_egalitarian = { is_in_list = traits }
+			}
+		}
+		custom_tooltip = {
+			text = mz_tradition_amazonian_matriarchy_requirement
+			NOT = { has_cultural_pillar = martial_custom_male_only }
+		}
+		custom_tooltip = {
+			text = cannot_have_tradition_vegetarianism
+			NOT = { culture_tradition:tradition_vegetarianism = { is_in_list = traits } }
+		}
+	}
+	
+	parameters = {
+		female_preference_inheritance = yes
+		female_only_inheritance = yes
+		mz_mandatory_female_only = yes
+		has_access_to_trials_by_combat = yes
+		strong_traits_more_common = yes
+		strong_traits_more_valued = yes
+		culture_can_raid_over_land_even_if_feudal_no_restrictions = yes
+		can_use_conquest_cbs = yes
+	}
+	character_modifier = {
+		monthly_county_control_growth_factor = -0.25
+		cultural_head_fascination_mult = -0.15
+		opinion_of_female_rulers = 10
+		opinion_of_male_rulers = -100
+
+		ai_war_chance = 0.5
+		ai_war_cooldown = -0.25
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			# Bellicose only
+			if = {
+				limit = {
+					NOT = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+					}					
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_bellicose_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 1000 # Seems very unlikely they'll ever meet the prerequisites, but if so, go for it.
+		if = {
+			limit = {
+				scope:character = { is_female = no }
+			}
+			multiply = 0
+		}
+	}
+}
+
+mz_tradition_communal_matriarchy = { # Replaces Amazonian Matriarchy for Communal Amazons
+	category = realm
+	# This culture practices the Amazonian way of rule.
+	layers = {
+		0 = martial
+		1 = mediterranean
+		4 = crown.dds
+	}
+
+	is_shown = {
+		NOT = { has_game_rule = inversed_gender_equality }
+		OR = {
+			this = culture:mz_amazonian
+			has_cultural_pillar = heritage_valyrian
+			any_parent_culture_or_above = { this = culture:mz_amazonian }
+		}
+		global_var:mz_amazon_culture_reformed ?= flag:communal
+	}
+	
+	can_pick = { # Slightly loosened requirements compared to other cultures.
+		custom_tooltip = {
+			text = mz_tradition_amazonian_matriarchy_requirement
+			NOT = { has_cultural_pillar = martial_custom_male_only }
+		}
+		custom_tooltip = {
+			text = cannot_have_tradition_vegetarianism
+			NOT = { culture_tradition:tradition_vegetarianism = { is_in_list = traits } }
+		}
+	}
+	
+	parameters = {
+		female_preference_inheritance = yes
+		female_only_inheritance = yes
+		mz_mandatory_female_only = yes
+		strong_traits_more_common = yes
+		strong_traits_more_valued = yes
+		doesnt_care_about_culture_faith_in_factions = yes
+		wants_to_learn_liege_language = yes
+	}
+	character_modifier = {
+		opinion_of_female_rulers = 10
+		opinion_of_male_rulers = -50
+		different_culture_opinion = 10
+		ignore_negative_opinion_of_culture = yes		
+		ai_honor = 20
+	}
+	culture_modifier = {
+		cultural_acceptance_gain_mult = 0.25
+	}	
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			# Need communal
+			if = {
+				limit = {
+					NOT = {
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_communal_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 1000 # Seems very unlikely they'll ever meet the prerequisites, but if so, go for it.
+		if = {
+			limit = {
+				scope:character = { is_female = no }
+			}
+			multiply = 0
+		}
+	}
+}
+
+mz_tradition_stoic_matriarchy = { # Replaces Amazonian Matriarchy for Stoic Amazons
+	category = realm
+	# This culture practices the Amazonian way of rule.
+	layers = {
+		0 = learning
+		1 = mediterranean
+		4 = crown.dds
+	}
+
+	is_shown = {
+		NOT = { has_game_rule = inversed_gender_equality }
+		OR = {
+			this = culture:mz_amazonian
+			has_cultural_pillar = heritage_valyrian
+			any_parent_culture_or_above = { this = culture:mz_amazonian }
+		}
+		global_var:mz_amazon_culture_reformed ?= flag:stoic
+	}
+	
+	can_pick = { # Has very strict and specific requirements.
+		culture_not_pacifistic_trigger = yes
+		custom_description = {
+			text = culture_not_egalitarian
+			NOT = { # Egalitarian is not supported
+				culture_pillar:ethos_egalitarian = { is_in_list = traits }
+			}
+		}
+		custom_tooltip = {
+			text = mz_tradition_amazonian_matriarchy_requirement
+			NOT = { has_cultural_pillar = martial_custom_male_only }
+		}
+		custom_tooltip = {
+			text = cannot_have_tradition_vegetarianism
+			NOT = { culture_tradition:tradition_vegetarianism = { is_in_list = traits } }
+		}
+	}
+	
+	parameters = {
+		female_preference_inheritance = yes
+		female_only_inheritance = yes
+		mz_mandatory_female_only = yes
+		strong_traits_more_common = yes
+		strong_traits_more_valued = yes
+		vassals_more_likely_accept_punishments = yes
+		better_disease_resistance = yes
+		blademaster_traits_give_learning = yes
+	}
+	character_modifier = {
+		cultural_head_fascination_mult = 0.05
+		army_toughness_mult = 0.1
+		opinion_of_female_rulers = 10
+		opinion_of_male_rulers = -50
+		ai_honor = 20
+	}
+	province_modifier = {
+		travel_danger = -20
+		epidemic_resistance = 10
+	}
+	
+	cost = {
+		prestige = {
+			add = {
+				value = tradition_base_cost
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			# Need stoic
+			if = {
+				limit = {
+					NOT = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = tradition_incompatible_ethos_penalty
+					desc = not_stoic_desc
+				}
+			}
+			
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+	
+	ai_will_do = {
+		value = 1000 # Seems very unlikely they'll ever meet the prerequisites, but if so, go for it.
+		if = {
+			limit = {
+				scope:character = { is_female = no }
+			}
+			multiply = 0
+		}
+	}
+}

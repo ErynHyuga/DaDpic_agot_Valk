@@ -1,0 +1,638 @@
+﻿
+
+
+
+
+gpt_edicts_economy_modifier_1 = {
+	icon = economy_positive
+	stewardship = 2
+	intrigue = 2
+	monthly_income_mult = 0.05
+	owned_scheme_secrecy_add = 6
+	development_growth_factor = 0.10
+	parochial_opinion = 5
+	barons_and_minor_landholders_opinion = 5
+}
+gpt_edicts_economy_modifier_2 = {
+	icon = economy_positive
+	stewardship = 3
+	intrigue = 3
+	monthly_income_mult = 0.10
+	owned_scheme_secrecy_add = 12
+	development_growth_factor = 0.20
+	parochial_opinion = 10
+	barons_and_minor_landholders_opinion = 10
+}
+gpt_edicts_economy_modifier_3 = {
+	icon = economy_positive
+	stewardship = 4
+	intrigue = 4
+	monthly_income_mult = 0.15
+	owned_scheme_secrecy_add = 18
+	development_growth_factor = 0.30
+	parochial_opinion = 15
+	barons_and_minor_landholders_opinion = 15
+}
+
+gpt_edicts_political_modifier_1 = {
+	icon = diplomacy_positive
+	diplomacy = 2
+	learning = 2
+	monthly_piety_gain_mult = 0.10
+	cultural_head_fascination_mult = 0.10
+	short_reign_duration_mult = -0.10
+	long_reign_bonus_mult = 0.10
+	courtly_opinion = 5
+	minority_opinion = 5
+}
+gpt_edicts_political_modifier_2 = {
+	icon = diplomacy_positive
+	diplomacy = 3
+	learning = 3
+	monthly_piety_gain_mult = 0.20
+	cultural_head_fascination_mult = 0.20
+	short_reign_duration_mult = -0.20
+	long_reign_bonus_mult = 0.20
+	courtly_opinion = 10
+	minority_opinion = 10
+}
+gpt_edicts_political_modifier_3 = {
+	icon = diplomacy_positive
+	diplomacy = 4
+	learning = 4
+	monthly_piety_gain_mult = 0.30
+	cultural_head_fascination_mult = 0.30
+	short_reign_duration_mult = -0.30
+	long_reign_bonus_mult = 0.30
+	courtly_opinion = 15
+	minority_opinion = 15
+}
+
+gpt_edicts_military_modifier_1 = {
+	icon = martial_positive
+	martial = 2
+	prowess = 2
+	men_at_arms_recruitment_cost = -0.10
+	monthly_prestige_gain_mult = 0.10
+	garrison_size = 0.10
+	hostile_raid_time = 0.10
+	glory_hound_opinion = 5
+	zealot_opinion = 5
+}
+gpt_edicts_military_modifier_2 = {
+	icon = martial_positive
+	martial = 3
+	prowess = 3
+	men_at_arms_recruitment_cost = -0.20
+	monthly_prestige_gain_mult = 0.20
+	garrison_size = 0.20
+	hostile_raid_time = 0.20
+	glory_hound_opinion = 10
+	zealot_opinion = 10
+}
+gpt_edicts_military_modifier_3 = {
+	icon = martial_positive
+	martial = 4
+	prowess = 4
+	men_at_arms_recruitment_cost = -0.30
+	monthly_prestige_gain_mult = 0.30
+	garrison_size = 0.30
+	hostile_raid_time = 0.30
+	glory_hound_opinion = 15
+	zealot_opinion = 15
+}
+
+
+
+gpt_edicts_failure_economy_modifier_1 = {
+	icon = economy_negative
+	stewardship = -1
+	intrigue = -1
+	monthly_income_mult = -0.025
+	owned_scheme_secrecy_add = -3
+	development_growth_factor = -0.05
+}
+gpt_edicts_failure_economy_modifier_2 = {
+	icon = economy_negative
+	stewardship = -2
+	intrigue = -2
+	monthly_income_mult = -0.05
+	owned_scheme_secrecy_add = -6
+	development_growth_factor = -0.10
+	parochial_opinion = -5
+	barons_and_minor_landholders_opinion = -5
+}
+gpt_edicts_failure_economy_modifier_3 = {
+	icon = economy_negative
+	stewardship = -3
+	intrigue = -3
+	monthly_income_mult = -0.075
+	owned_scheme_secrecy_add = -9
+	development_growth_factor = -0.15
+	parochial_opinion = -10
+	barons_and_minor_landholders_opinion = -10
+}
+
+gpt_edicts_failure_political_modifier_1 = {
+	icon = diplomacy_negative
+	diplomacy = -1
+	learning = -1
+	monthly_piety_gain_mult = -0.05
+	cultural_head_fascination_mult = -0.05
+	short_reign_duration_mult = 0.05
+	long_reign_bonus_mult = -0.05
+}
+gpt_edicts_failure_political_modifier_2 = {
+	icon = diplomacy_negative
+	diplomacy = -2
+	learning = -2
+	monthly_piety_gain_mult = -0.10
+	cultural_head_fascination_mult = -0.10
+	short_reign_duration_mult = 0.10
+	long_reign_bonus_mult = -0.10
+	courtly_opinion = -5
+	minority_opinion = -5
+}
+gpt_edicts_failure_political_modifier_3 = {
+	icon = diplomacy_negative
+	diplomacy = -3
+	learning = -3
+	monthly_piety_gain_mult = -0.15
+	cultural_head_fascination_mult = -0.15
+	short_reign_duration_mult = 0.15
+	long_reign_bonus_mult = -0.15
+	courtly_opinion = -10
+	minority_opinion = -10
+}
+
+gpt_edicts_failure_military_modifier_1 = {
+	icon = martial_negative
+	martial = -1
+	prowess = -1
+	men_at_arms_recruitment_cost = 0.05
+	monthly_prestige_gain_mult = -0.05
+	garrison_size = -0.05
+	hostile_raid_time = -0.05
+}
+gpt_edicts_failure_military_modifier_2 = {
+	icon = martial_negative
+	martial = -2
+	prowess = -2
+	men_at_arms_recruitment_cost = 0.10
+	monthly_prestige_gain_mult = -0.10
+	garrison_size = -0.10
+	hostile_raid_time = -0.10
+	glory_hound_opinion = -5
+	zealot_opinion = -5
+}
+gpt_edicts_failure_military_modifier_3 = {
+	icon = martial_negative
+	martial = -3
+	prowess = -3
+	men_at_arms_recruitment_cost = 0.15
+	monthly_prestige_gain_mult = -0.15
+	garrison_size = -0.15
+	hostile_raid_time = -0.15
+	glory_hound_opinion = -10
+	zealot_opinion = -10
+}
+
+
+#### CHANCELLOR MODDIFIERS ####
+
+legacy_chancellor10_modifier = {
+	icon = diplomacy_positive
+	diplomacy = 3
+	monthly_prestige_gain_mult = 0.15
+	liege_opinion = 20
+	fellow_vassal_opinion = 10
+	barons_and_minor_landholders_opinion = -10
+	minority_opinion = 30
+	courtly_opinion = 15
+	glory_hound_opinion = 5
+	parochial_opinion = 10
+	zealot_opinion = 5
+}
+
+
+#### STEWARD MODDIFIERS ####
+
+legacy_steward10_modifier = {
+	icon = stewardship_positive
+	stewardship = 3
+	build_gold_cost = -0.20
+	holding_build_gold_cost = -0.20
+	build_prestige_cost = -0.20
+	build_piety_cost = -0.20
+	character_travel_speed = 10
+	barons_and_minor_landholders_opinion = 10
+}
+
+#### CHAPLAIN MODDIFIERS ####
+
+legacy_chaplain10_modifier = {
+	icon = learning_positive
+	learning = 3
+	monthly_piety_gain_mult = 0.15
+	same_faith_opinion = 10
+	levy_reinforcement_rate_same_faith = 0.25
+	tolerance_advantage_mod = 5
+	character_travel_speed_mult = 0.10
+}
+
+#### SPYMASTER MODDIFIERS ####
+
+legacy_spymaster10_modifier = {
+	icon = intrigue_positive
+	intrigue = 3
+	monthly_income_mult = -0.05
+	dread_baseline_add = 15
+	owned_personal_scheme_success_chance_add = 10
+	owned_hostile_scheme_success_chance_add = 10
+	hostile_scheme_resistance_add = 10
+	personal_scheme_resistance_add = 10
+	travel_danger = -10
+}
+
+#### MARSHAL MODDIFIERS ####
+
+legacy_marshal10_modifier = {
+	icon = martial_positive
+	martial = 3
+	levy_toughness = 2
+	levy_attack = 2
+	army_maintenance_mult = 0.15
+	glory_hound_opinion = 10
+}
+
+#### Prowess MODDIFIERS ####
+
+legacy_prowess10_modifier = {
+	icon = prowess_positive
+	prowess = 3
+	knight_effectiveness_mult = 0.2
+	monthly_dynasty_prestige_mult = 0.2
+	attraction_opinion = 10
+	travel_companion_opinion = 10
+	garrison_size = 0.30
+}
+
+
+
+#################################################
+
+
+
+#### CHANCELLOR MODDIFIERS ####
+
+legacy_chancellor9_modifier = {
+	icon = diplomacy_positive
+	diplomacy = 2
+	county_opinion_add_even_if_baron = 25
+	levy_size = 0.10
+	domain_tax_mult = -0.10
+}
+
+#### STEWARD MODDIFIERS ####
+
+legacy_steward9_modifier = {
+	icon = stewardship_positive
+	stewardship = 2
+	domain_tax_mult = 0.10
+	county_opinion_add_even_if_baron = -15
+}
+
+#### CHAPLAIN MODDIFIERS ####
+
+legacy_chaplain9_modifier = {
+	icon = learning_positive
+	learning = 2
+	cultural_head_fascination_mult = 0.15
+	monthly_lifestyle_xp_gain_mult = 0.20
+	learn_language_scheme_power_mult = 0.25
+	councillor_opinion = -5
+}
+
+#### SPYMASTER MODDIFIERS ####
+
+legacy_spymaster9_modifier = {
+	icon = intrigue_positive
+	intrigue = 2
+	travel_danger = -10
+	minority_opinion = -10
+	dread_baseline_add = 10
+	intimidated_vassal_tax_contribution_mult = 0.15
+	intimidated_vassal_levy_contribution_mult = 0.15
+	hostile_scheme_resistance_mult = -0.2
+}
+
+#### MARSHAL MODDIFIERS ####
+
+legacy_marshal9_modifier = {
+	icon = martial_positive
+	martial = 2
+	garrison_size = 0.25
+	controlled_province_advantage = 5
+	fort_level = 1
+	supply_capacity_mult = 0.25
+}
+
+#### Prowess MODDIFIERS ####
+
+legacy_prowess9_modifier = {
+	icon = prowess_positive
+	prowess = 2
+	dynasty_opinion = 10
+	court_grandeur_baseline_add = 8
+	courtier_and_guest_opinion = 10
+}
+
+
+#################################################
+
+
+legacy_chancellor8_modifier = {
+	icon = diplomacy_positive
+	diplomacy = 1
+	stress_loss_mult = 0.15
+	stress_gain_mult = -0.15
+	close_relative_opinion = 10
+	fertility = 0.15
+}
+
+legacy_steward8_modifier = {
+	icon = stewardship_positive
+	stewardship = 1
+	character_capital_county_monthly_development_growth_add = 0.2
+	councillor_opinion = 5
+	stress_loss_mult = -0.15
+}
+
+legacy_chaplain8_modifier = {
+	icon = learning_positive
+	learning = 1
+	health = -0.25
+	tyranny_gain_mult = -0.10
+	tyranny_loss_mult = 0.10
+}
+
+legacy_spymaster8_modifier = {
+	icon = intrigue_positive
+	intrigue = 1
+	enemy_personal_scheme_success_chance_add = -15
+	enemy_hostile_scheme_success_chance_add = -15
+}
+
+legacy_marshal8_modifier = {
+	icon = martial_positive
+	martial = 1
+	counter_efficiency = 0.10
+	pursue_efficiency = 0.10
+	max_combat_roll = 10
+	min_combat_roll = -5
+}
+
+
+legacy_prowess8_modifier = {
+	icon = prowess_positive
+	prowess = 1
+	life_expectancy = 5
+	health = 0.25
+	negate_health_penalty_add = 0.25
+}
+
+
+
+
+
+
+#### Level MODDIFIERS ####
+
+legacy_piety_modifier_good = {
+	icon = piety_positive
+	clergy_opinion = 25
+	same_faith_opinion = 10
+	different_faith_opinion = -10
+	knight_limit = 4
+	monthly_income = -10
+	stress_gain_mult = 0.20
+}
+
+legacy_prestige_modifier_good = {
+	icon = prestige_positive
+	general_opinion = 10
+	short_reign_duration_mult = -1
+	domain_limit = 2
+	vassal_limit = 20
+	monthly_income = -10
+	stress_gain_mult = 0.20
+}
+
+legacy_dynasty_modifier_good = {
+	icon = family_positive
+	dynasty_opinion = 50
+ #	random_skills_per_child = 2
+	positive_random_genetic_chance = 1
+	negative_random_genetic_chance = -1
+	monthly_income = -10
+	stress_gain_mult = 0.20
+}
+
+legacy_piety_modifier_bad = {
+	icon = piety_negative
+	clergy_opinion = -100
+	same_faith_opinion = -20
+	stress_gain_mult = 0.25
+	monthly_income = 15
+}
+
+legacy_prestige_modifier_bad = {
+	icon = prestige_negative
+	general_opinion = -20
+	short_reign_duration_mult = 1
+	stress_gain_mult = 0.25
+	monthly_income = 15
+}
+
+legacy_dynasty_modifier_bad = {
+	icon = family_negative
+	dynasty_opinion = -100
+	long_reign_bonus_mult = -1
+	stress_gain_mult = 0.25
+	monthly_income = 15
+}
+
+
+major_war_prestige = {
+	icon = type_war
+
+	independent_ruler_opinion = -100
+	army_maintenance_mult = -1
+	attacker_advantage = 25
+	vassal_levy_contribution_mult = 1
+	levy_size = 0.5
+	monthly_war_income_mult = -0.30
+	powerful_vassal_opinion = 30
+
+	ai_war_chance = 100
+	ai_war_cooldown = -100
+}
+
+major_war_piety = {
+	icon = type_war
+
+	different_faith_opinion = -100
+	army_maintenance_mult = -1
+	vassal_levy_contribution_mult = 1
+	levy_size = 0.5
+	tolerance_advantage_mod = 25
+	monthly_war_income_mult = -0.30
+	powerful_vassal_opinion = 30
+
+	ai_war_chance = 100
+	ai_war_cooldown = -100
+}
+
+
+legacy_dishonor_modifier = {
+	icon = health_negative
+	monthly_prestige_gain_mult = -0.4
+	monthly_dynasty_prestige_mult = -0.1
+}
+
+legacy_treated_wounds_modifier = {
+	icon = health_negative
+	health = -0.25
+}
+
+legacy_defiled_modifier = {
+	icon = health_negative
+	life_expectancy = -5
+	attraction_opinion = -20
+	health = -0.15
+	stress_loss_mult = -0.25
+}
+
+
+
+
+
+
+
+realm_management_bad_1 = {
+	icon = diplomacy_negative
+    diplomacy = -3
+    vassal_opinion = -5
+    court_grandeur_baseline_add = -4
+}
+realm_management_bad_2 = {
+	icon = stewardship_negative
+    stewardship = -3
+    monthly_income_mult = -0.05
+    court_grandeur_baseline_add = -4
+}
+realm_management_bad_3 = {
+	icon = martial_negative
+    martial = -3
+    army_maintenance_mult = 0.10
+    court_grandeur_baseline_add = -4
+}
+realm_management_bad_4 = {
+	icon = intrigue_negative
+    intrigue = -3
+    dread_baseline_add = -10
+    court_grandeur_baseline_add = -4
+}
+realm_management_bad_5 = {
+	icon = learning_negative
+    learning = -3
+    clergy_opinion = -10
+    court_grandeur_baseline_add = -4
+}
+realm_management_bad_6 = {
+	icon = prowess_negative
+    prowess = -3
+    knight_limit = -1
+    court_grandeur_baseline_add = -4
+}
+
+
+holding_management_bad_1 = {
+	icon = diplomacy_negative
+    diplomacy = -2
+    county_opinion_add = -15
+    different_faith_county_opinion_mult = 0.25
+}
+holding_management_bad_2 = {
+	icon = stewardship_negative
+    stewardship = -2
+    domain_tax_mult = -0.1
+    development_growth_factor = -0.10
+}
+holding_management_bad_3 = {
+	icon = martial_negative
+    martial = -2
+    levy_reinforcement_rate = -0.20
+    garrison_size = -0.20
+}
+holding_management_bad_4 = {
+	icon = intrigue_negative
+    intrigue = -2
+    monthly_county_control_growth_factor = -0.20
+    travel_danger = 10
+}
+holding_management_bad_5 = {
+	icon = learning_negative
+    learning = -2
+    levy_size = -0.1
+    build_speed = 0.10
+}
+holding_management_bad_6 = {
+	icon = prowess_negative
+    prowess = -2
+    hostile_raid_time = -0.15
+    character_travel_speed_mult = -0.15
+}
+
+
+
+
+personal_management_bad_1 = {
+	icon = diplomacy_negative
+    diplomacy = -1
+    health = -0.25
+    councillor_opinion = -10
+}
+personal_management_bad_2 = {
+	icon = stewardship_negative
+    stewardship = -1
+    monthly_dynasty_prestige_mult = -0.10
+    dynasty_opinion = -10	
+}
+personal_management_bad_3 = {
+	icon = martial_negative
+    martial = -1
+	monthly_prestige_gain_mult = -0.10
+    general_opinion = -5
+	dread_baseline_add = 10
+}
+personal_management_bad_4 = {
+	icon = intrigue_negative
+    intrigue = -1
+	dread_baseline_add = -10
+    courtier_and_guest_opinion = -5
+}
+personal_management_bad_5 = {
+	icon = learning_negative
+    learning = -1
+    monthly_piety_gain_mult = -0.10
+    close_relative_opinion = -10
+}
+personal_management_bad_6 = {
+	icon = prowess_negative
+    prowess = -1
+    stress_gain_mult = 0.05
+    stress_loss_mult = -0.05
+    attraction_opinion = -10
+}
+

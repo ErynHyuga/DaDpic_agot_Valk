@@ -1,0 +1,95 @@
+﻿## Debug Interaction for testing
+mz_debug_test_interaction = {
+	category = interaction_category_diplomacy
+	desc = mz_debug_test_interaction_desc
+	ignores_pending_interaction_block = yes
+	is_shown = {
+		debug_only = yes
+		scope:recipient = scope:actor
+	}
+
+	ai_frequency = 0
+	auto_accept = yes
+	on_accept = {
+		scope:actor = { 
+			trigger_event = { id = mz_test.7001 }
+		}
+	}
+}
+
+## Remove title laws (for AI)
+mz_remove_title_laws = {
+	category = interaction_category_vassal
+	ignores_pending_interaction_block = yes
+	is_shown = {
+		scope:recipient = scope:actor
+		scope:recipient = {
+			is_ai = yes
+			highest_held_title_tier >= tier_duchy
+			OR = {
+				has_government = tribal_government
+				has_government = feudal_government
+				has_government = clan_government
+			}
+			exists = dynasty
+			dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+			is_female = yes
+			any_held_title = {
+				OR = {
+					has_title_law = male_only_law
+					has_title_law = male_preference_law
+					has_title_law = equal_law
+				}
+				NOT = { is_landless_type_title = yes }
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor = { is_at_war = no }
+	}
+	
+	on_accept = {
+		scope:recipient = {
+			every_held_title = {
+				if = { 
+					limit = { 
+						OR = { 
+							has_title_law = male_only_law
+							has_title_law = male_preference_law
+							has_title_law = equal_law
+						}
+						NOT = { is_landless_type_title = yes }
+					}
+					clear_title_laws = yes # For some reason remove_title_law didn't seem to be working, so while this is not ideal we're using it
+				}
+			}
+		}
+	}
+
+	ai_potential = {
+		is_at_war = no
+		highest_held_title_tier >= tier_duchy
+		OR = {
+			has_government = tribal_government
+			has_government = feudal_government
+			has_government = clan_government
+		}
+		exists = dynasty
+		dynasty = { has_dynasty_modifier = mz_matriarchy_modifier }
+		is_female = yes
+		any_held_title = {
+			OR = {
+				has_title_law = male_only_law
+				has_title_law = male_preference_law
+				has_title_law = equal_law
+			}
+			NOT = { is_landless_type_title = yes }
+		}
+	}
+	
+	ai_targets = { ai_recipients = self }
+	ai_frequency = 12 # yearly
+	ai_will_do = { base = 100 }
+	auto_accept = yes
+}

@@ -1,0 +1,165 @@
+﻿
+
+gpt_traits_game_rule = {
+	default = GPT_all_traits
+
+	GPT_all_traits = {
+		flag = GG_can_change_rule
+	}
+
+	GPT_few_traits = {
+		flag = GG_can_change_rule
+	}
+	
+	GPT_no_traits = {
+		flag = GG_can_change_rule
+	}
+}
+
+gpt_events_game_rule = {
+	default = GPT_all_events
+
+	GPT_all_events = {
+		flag = GG_can_change_rule
+	}
+
+	GPT_few_events = {
+		flag = GG_can_change_rule
+	}
+
+ 	GPT_even_few_events = {
+ 		flag = GG_can_change_rule
+ 	}
+	
+	GPT_no_events = {
+		flag = GG_can_change_rule
+	}
+}
+
+gpt_decisions_game_rule = {
+	default = GPT_decisions_enabled
+
+	GPT_decisions_enabled = {
+		flag = GG_can_change_rule
+	}
+	
+	GPT_decisions_disabled = {
+		flag = GG_can_change_rule
+	}
+}
+
+gpt_interactions_game_rule = {
+	default = GPT_interactions_enabled
+
+	GPT_interactions_enabled = {
+		flag = GG_can_change_rule
+	}
+	
+	GPT_interactions_disabled = {
+		flag = GG_can_change_rule
+	}
+}
+
+gpt_character_spawn_game_rule = {
+	default = GPT_spawn_enabled
+
+	GPT_spawn_enabled = {
+		flag = GG_can_change_rule
+	}
+
+	GPT_friendsfoes_disabled = {
+		flag = GG_can_change_rule
+	}
+	
+	GPT_spawn_disabled = {
+		flag = GG_can_change_rule
+	}
+}
+
+gpt_culture_game_rule = {
+	default = GPT_culture_enabled
+
+	GPT_culture_enabled = {
+		flag = GG_can_change_rule
+	}
+	
+	GPT_culture_disabled = {
+		flag = GG_can_change_rule
+	}
+}
+
+gpt_realm_laws_game_rule = {
+	default = GPT_realm_laws_enabled
+
+	GPT_realm_laws_enabled = {
+		flag = GG_can_change_rule
+	}
+	
+	GPT_realm_laws_disabled = {
+		flag = GG_can_change_rule
+	}
+}
+
+gpt_buildings_game_rule = {
+	default = GPT_buildings_enabled
+
+	GPT_buildings_enabled = {
+		flag = GG_can_change_rule
+	}
+	
+	GPT_buildings_disabled = {
+		flag = GG_can_change_rule
+	}
+}
+
+gpt_trade_game_rule = {
+	default = GPT_trade_enabled
+
+	GPT_trade_enabled = {
+		flag = GG_can_change_rule
+	}
+	
+	GPT_trade_disabled = {
+		flag = GG_can_change_rule
+	}
+}
+
+gpt_headstart_game_rule = {
+	default = GPT_headstart_enabled
+
+	GPT_headstart_enabled = {
+		flag = GG_can_change_rule
+	}
+	
+	GPT_headstart_disabled = {
+		flag = GG_can_change_rule
+	}
+}
+
+gpt_micro_game_rule = {
+	default = GPT_micro_enabled
+
+	GPT_micro_enabled = {
+		flag = GG_can_change_rule
+	}
+
+	GPT_micro_land_disabled = {
+		flag = GG_can_change_rule
+	}
+	
+	GPT_micro_disabled = {
+		flag = GG_can_change_rule
+	}
+}
+
+gpt_balance_game_rule = {
+	default = GPT_balance_enabled
+
+	GPT_balance_enabled = {
+		flag = GG_can_change_rule
+	}
+	
+	GPT_balance_disabled = {
+		flag = GG_can_change_rule
+	}
+}

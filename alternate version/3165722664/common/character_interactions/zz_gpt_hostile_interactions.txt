@@ -1,0 +1,1094 @@
+﻿##############################################################################################################################
+# Medievel Thievery Mod
+# Developed by DevZero (some code taken from pdx) - the mod has thievery in the name after all...
+# Notes: for AI inclusion, look at ai in diarch_interactions > syphon -- ai greed, boldness, honor for base, then modifiers
+##############################################################################################################################
+# Reworked by One Proud Brasilian
+
+gpt_mt_steal_gold_interaction = {
+	icon = cautious
+	common_interaction = yes
+	interface_priority = 12
+	category = interaction_category_hostile
+	desc = gpt_mt_steal_gold_interaction_desc
+	cooldown = { years = 1 }
+	cooldown_against_recipient = { years = 3 }
+
+	is_shown = {
+		has_game_rule = GPT_interactions_enabled
+		NOT = { scope:recipient = scope:actor }
+		NOT = { scope:actor = { is_allied_to = scope:recipient } }
+
+		scope:actor = {
+			OR = {
+				any_neighboring_and_across_water_top_liege_realm_owner = {
+					this = scope:recipient
+				}
+				liege = scope:recipient
+				scope:actor.liege = scope:recipient.liege
+				any_vassal = {
+					this = scope:recipient
+				}
+			}
+		}
+
+		NAND = { # Game Rules!
+			has_game_rule = no_players_multiplayer_murder_schemes
+			scope:actor = {
+				is_ai = no
+			}
+			scope:recipient = {
+				is_ai = no
+			}
+		}
+
+		NAND = {
+			has_game_rule = no_player_families_multiplayer_murder_schemes
+			scope:actor = {
+				is_ai = no
+			}
+			scope:recipient = {
+				OR = {
+					is_ai = no
+					any_close_family_member = {
+						AND = {
+							is_ai = no
+							NOT = { this = scope:actor }
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient.highest_held_title_tier >= 2
+		scope:actor.highest_held_title_tier >= 2
+		scope:recipient = { NOT = { has_strong_hook = scope:actor } }
+		NOT = { scope:recipient.gold < 50 }
+		scope:actor = {
+			intrigue >= 12
+		}
+		custom_description = {
+			text = "gpt_opinion_not_high_enough"
+			scope:recipient = {
+				opinion = {
+					value >= -40
+					target = scope:actor
+				}
+			}
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+			duel = {
+				skill = intrigue
+				target = scope:recipient
+				50 = {
+					desc = gpt_mt_steal_gold_interaction_tt.success
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 3.5
+						min = -20
+					}
+
+					send_interface_toast = {
+						title = gpt_mt_steal_gold_interaction_tt.success2
+						left_icon = scope:recipient
+
+						give_or_update_embezzler_secret_effect = {
+							TARGET = scope:recipient
+							STAKE = gpt_mt_steal_gold_value
+						}
+
+						show_as_tooltip = {
+							scope:actor = {
+								add_gold = gpt_mt_steal_gold_value
+							}
+						}
+					}
+
+						show_as_tooltip = {
+							scope:recipient = {
+								remove_short_term_gold = gpt_mt_steal_gold_value
+							}
+						}
+
+					hidden_effect = {
+						scope:recipient = {
+							pay_short_term_gold = {
+								target = scope:actor
+								gold = gpt_mt_steal_gold_value
+							}
+						}
+					}					
+				}
+				
+				50 = {
+					desc = gpt_mt_steal_gold_interaction_tt.failure.actor
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -3.5
+						min = -20
+					}
+					
+					send_interface_toast = {
+						title = gpt_mt_steal_gold_interaction_tt.failure.actor2
+						left_icon = scope:recipient
+
+						scope:recipient = {
+							# Greedy characters will not forgive this slight if they can help it.
+							if = {
+								limit = {
+									OR = {
+										has_trait = diligent
+										has_trait = greedy
+										has_trait = wrathful
+									}
+									NOR = {
+										has_trait = craven
+										has_trait = lazy
+										has_trait = forgiving
+									}
+									can_set_relation_rival_trigger = { CHARACTER = scope:actor }
+								}
+								Scope:actor = {
+									set_relation_rival = {
+										target = scope:recipient
+									 	reason = rival_tried_to_embezzle
+									}
+								}
+							}
+							# Forgiving characters lose a little less.
+							else_if = {
+								limit = { has_trait = forgiving }
+								add_opinion = {
+									target = scope:actor
+									modifier = disappointed_opinion
+									opinion = -15
+								}
+							}
+							# Otherwise, folks do be mad.
+							else = {
+								add_opinion = {
+									target = scope:actor
+									modifier = trust_opinion
+									opinion = -30
+								}
+							}
+
+						}
+
+					}
+
+					Scope:actor = {
+						add_character_modifier = { modifier = gpt_failed_seizure years = 3 }
+					}
+
+				}
+			}
+		}
+	}
+	
+	ai_potential = {
+		always = no
+	}
+
+	auto_accept = yes
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+gpt_propose_trade = {
+	icon = gpt_stewardship
+	common_interaction = yes
+	interface_priority = 60
+	category = interaction_category_diplomacy
+	desc = gpt_propose_trade_desc
+	ai_min_reply_days = 0
+	ai_max_reply_days = 0
+
+ #	cooldown = { days = 7 }
+ 	cooldown_against_recipient = { years = 5 }
+
+	is_shown = {
+		has_game_rule = GPT_trade_enabled
+	 #	scope:actor = { is_ai = no }
+		NOT = { scope:recipient = scope:actor }
+
+	 	scope:actor = {
+			has_dynasty = yes
+			exists = house
+			OR = {
+				AND = {
+					is_ai = no
+					highest_held_title_tier >= 2
+				}
+				AND = {
+					is_ai = yes
+					highest_held_title_tier >= 2
+					sub_realm_size >= 4
+				}
+			}
+			tier_difference = {
+				target = scope:recipient
+				value <= 2
+			}
+		}
+		scope:recipient = {
+			highest_held_title_tier >= 2
+		 #	sub_realm_size >= 4
+		}
+
+	 #	NOT = { scope:recipient = { is_vassal_or_below_of = scope:actor } }
+	}
+
+	is_valid = {
+	 	custom_description = {
+	 		text = gpt_seller_too_small
+	 		scope:recipient = { sub_realm_size >= 4 }
+	 	}
+	}
+
+	is_valid_showing_failures_only = {
+	 #	scope:actor = { is_house_head = yes }
+		scope:actor = { is_at_war = no }
+		scope:recipient = { is_at_war = no }
+		custom_description = {
+			text = gpt_low_trade_power
+			OR = {
+				scope:actor = { any_neighboring_top_liege_realm_owner = { this = scope:recipient } }
+				scope:actor.liege = scope:recipient
+				scope:actor.top_liege = scope:recipient
+				scope:actor.liege = scope:recipient.liege
+				scope:actor = { any_vassal_or_below = { this = scope:recipient } }
+				scope:actor = { has_character_flag = gpt_trade_power_flag_lv4 }
+				scope:actor = { has_character_flag = gpt_trade_power_flag_lv5 }
+				AND = {
+					scope:actor = {
+						any_sub_realm_county = {
+							is_coastal_county = yes
+						}
+					}
+					scope:recipient = {
+						is_independent_ruler = yes
+						any_sub_realm_county = {
+							is_coastal_county = yes
+						}
+					}
+					OR = {
+						AND = {
+							scope:actor = { has_character_flag = gpt_trade_power_flag_lv1 }
+							scope:recipient.highest_held_title_tier <= 2
+						}
+						AND = {
+							scope:actor = { has_character_flag = gpt_trade_power_flag_lv2 }
+							scope:recipient.highest_held_title_tier <= 3
+						}
+						AND = {
+							scope:actor = { has_character_flag = gpt_trade_power_flag_lv3 }
+							scope:recipient.highest_held_title_tier <= 4
+						}
+					}
+				}
+			}
+		}
+		custom_description = {
+			text = gpt_high_tier_diff
+			scope:actor = { tier_difference = { target = scope:recipient value <= 2 } }
+		}
+	}
+
+	on_auto_accept = {
+		scope:recipient = {
+			trigger_event = char_interaction.0234
+		}
+	}
+
+	#Use hook
+	send_option = {
+		is_valid = {
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+		}
+		flag = hook	
+		localization = GENERIC_SPEND_A_HOOK
+	}
+	should_use_extra_icon = {
+		scope:actor = { has_usable_hook = scope:recipient }
+	}
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+
+	on_accept = {
+		scope:actor = { save_scope_as = gpt_buyer }
+		scope:recipient = { save_scope_as = gpt_seller }
+		scope:actor = {
+			trigger_event = {
+				id = gpt_event_trade.0001
+			}
+		}
+
+		show_as_tooltip = {
+			scope:gpt_buyer = {
+				custom_tooltip = { text = gpt_trade_options2 }
+				custom_tooltip = { text = gpt_trade_gold_value_tip }
+				remove_short_term_gold = gpt_trade_gold_lose
+				custom_tooltip = { text = gpt_trade_options3 }
+				pay_short_term_gold = {
+					target = scope:gpt_seller
+					gold = gpt_trade_gold_pay
+				}
+				custom_tooltip = { text = gpt_trade_options4 }
+			}
+		}
+		if = {
+			limit = {
+				scope:actor = {
+					tier_difference = {
+						target = scope:recipient
+						value = 1
+					}
+				}
+			}
+			scope:actor = { add_prestige = -75 custom_tooltip = { text = gpt_prestige_loss_tier_diff } }
+		}
+		if = {
+			limit = {
+				scope:actor = {
+					tier_difference = {
+						target = scope:recipient
+						value = 2
+					}
+				}
+			}
+			scope:actor = { add_prestige = -150 custom_tooltip = { text = gpt_prestige_loss_tier_diff } }
+		}
+		if = {
+			limit = { scope:actor = { NOR = { is_allied_to = scope:recipient is_vassal_or_below_of = scope:recipient is_liege_or_above_of = scope:recipient } } }
+			show_as_tooltip = {
+				scope:actor = {
+					add_truce_both_ways = {
+						character = scope:recipient
+						years = 5
+						name = TRUCE_ENFORCE_TRUCE
+					}
+				}
+			}
+		}
+		custom_tooltip = { text = gpt_trade_options }
+		custom_tooltip = { text = gpt_get_house }
+	 #	custom_tooltip = { text = gpt_trade_options5 }
+		if = {
+			limit = {
+				scope:gpt_seller = {
+					highest_held_title_tier >= 2
+					sub_realm_size >= 4
+					OR = {
+						highest_held_title_tier = 5
+						AND = {
+							sub_realm_size <= 8
+							any_sub_realm_county = {
+								percent >= 0.30
+								any_county_province = {
+									OR = {
+										terrain = farmlands
+										terrain = floodplains
+										terrain = oasis
+									}
+								}
+							}
+						}
+						AND = {
+							sub_realm_size <= 16
+							any_sub_realm_county = {
+								percent >= 0.20
+								any_county_province = {
+									OR = {
+										terrain = farmlands
+										terrain = floodplains
+										terrain = oasis
+									}
+								}
+							}
+						}
+						AND = {
+							sub_realm_size >= 32
+							any_sub_realm_county = {
+								percent >= 0.10
+								any_county_province = {
+									OR = {
+										terrain = farmlands
+										terrain = floodplains
+										terrain = oasis
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_grain_wine years = 5 } } } }
+		}
+		if = {
+			limit = {
+				scope:gpt_seller = {
+					highest_held_title_tier >= 2
+					sub_realm_size >= 4
+					OR = {
+						AND = {
+							sub_realm_size <= 8
+							any_sub_realm_county = {
+								percent >= 0.70
+								any_county_province = {
+									OR = {
+										terrain = steppe
+										terrain = plains
+									}
+								}
+							}
+						}
+						AND = {
+							sub_realm_size <= 16
+							any_sub_realm_county = {
+								percent >= 0.60
+								any_county_province = {
+									OR = {
+										terrain = steppe
+										terrain = plains
+									}
+								}
+							}
+						}
+						AND = {
+							sub_realm_size >= 32
+							any_sub_realm_county = {
+								percent >= 0.50
+								any_county_province = {
+									OR = {
+										terrain = steppe
+										terrain = plains
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_war_horses years = 5 } } } }
+		}
+		if = {
+			limit = {
+				scope:gpt_seller = {
+					highest_held_title_tier >= 2
+					sub_realm_size >= 4
+					OR = {
+						AND = {
+							sub_realm_size <= 8
+							any_sub_realm_county = {
+								percent >= 0.70
+								any_county_province = {
+									OR = {
+										terrain = wetlands
+										terrain = forest
+										terrain = taiga
+										terrain = jungle
+									}
+								}
+							}
+						}
+						AND = {
+							sub_realm_size <= 16
+							any_sub_realm_county = {
+								percent >= 0.60
+								any_county_province = {
+									OR = {
+										terrain = wetlands
+										terrain = forest
+										terrain = taiga
+										terrain = jungle
+									}
+								}
+							}
+						}
+						AND = {
+							sub_realm_size >= 32
+							any_sub_realm_county = {
+								percent >= 0.50
+								any_county_province = {
+									OR = {
+										terrain = wetlands
+										terrain = forest
+										terrain = taiga
+										terrain = jungle
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_wood_peat years = 5 } } } }
+		}
+		if = {
+			limit = {
+				scope:gpt_seller = {
+					highest_held_title_tier >= 2
+					sub_realm_size >= 4
+					OR = {
+						AND = {
+							sub_realm_size <= 8
+							any_sub_realm_county = {
+								percent >= 0.70
+								any_county_province = {
+									OR = {
+										terrain = mountains
+										terrain = desert_mountains
+										terrain = hills
+									}
+								}
+							}
+						}
+						AND = {
+							sub_realm_size <= 16
+							any_sub_realm_county = {
+								percent >= 0.60
+								any_county_province = {
+									OR = {
+										terrain = mountains
+										terrain = desert_mountains
+										terrain = hills
+									}
+								}
+							}
+						}
+						AND = {
+							sub_realm_size >= 32
+							any_sub_realm_county = {
+								percent >= 0.50
+								any_county_province = {
+									OR = {
+										terrain = mountains
+										terrain = desert_mountains
+										terrain = hills
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_stone_metal years = 5 } } } }
+		}
+
+		if = {
+			limit = {
+				scope:gpt_seller = {
+					highest_held_title_tier <= 4
+					OR = {
+						government_has_flag = government_is_tribal
+						faith = { has_doctrine_parameter = unreformed }
+						faith = { faith_hostility_level = { target = scope:gpt_buyer.faith value > faith_astray_level } }
+						any_held_title = { recent_history = { type = conquest_holy_war years = 5 } }
+						has_character_flag = gpt_war_for_gold_victory
+					}
+					OR = {
+						culture = { has_cultural_pillar = ethos_courtly }
+						culture = { has_cultural_pillar = ethos_bellicose }
+					}
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_pleasure_slaves years = 5 } } } }
+		}
+		if = {
+			limit = {
+				scope:gpt_seller = {
+					highest_held_title_tier <= 4
+					OR = {
+						government_has_flag = government_is_tribal
+						faith = { has_doctrine_parameter = unreformed }
+						faith = { faith_hostility_level = { target = scope:gpt_buyer.faith value > faith_astray_level } }
+						any_held_title = { recent_history = { type = conquest_holy_war years = 5 } }
+						has_character_flag = gpt_war_for_gold_victory
+					}
+					OR = {
+						culture = { has_cultural_pillar = ethos_spiritual }
+						culture = { has_cultural_pillar = ethos_egalitarian }
+					}
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_domestic_slaves years = 5 } } } }
+		}
+		if = {
+			limit = {
+				scope:gpt_seller = {
+					highest_held_title_tier <= 4
+					OR = {
+						government_has_flag = government_is_tribal
+						faith = { has_doctrine_parameter = unreformed }
+						faith = { faith_hostility_level = { target = scope:gpt_buyer.faith value > faith_astray_level } }
+						any_held_title = { recent_history = { type = conquest_holy_war years = 5 } }
+						has_character_flag = gpt_war_for_gold_victory
+					}
+					OR = {
+						culture = { has_cultural_pillar = ethos_bureaucratic }
+						culture = { has_cultural_pillar = ethos_bellicose }
+					}
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_labor_slaves years = 5 } } } }
+		}
+		if = {
+			limit = {
+				scope:gpt_seller = {
+					highest_held_title_tier <= 4
+					OR = {
+						government_has_flag = government_is_tribal
+						faith = { has_doctrine_parameter = unreformed }
+						faith = { faith_hostility_level = { target = scope:gpt_buyer.faith value > faith_astray_level } }
+						any_held_title = { recent_history = { type = conquest_holy_war years = 5 } }
+						has_character_flag = gpt_war_for_gold_victory
+					}
+					OR = {
+						culture = { has_cultural_pillar = ethos_stoic }
+						culture = { has_cultural_pillar = ethos_communal }
+					}
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_war_spoils years = 5 } } } }
+		}
+
+		if = {
+			limit = {
+				scope:gpt_seller = {
+					OR = {
+						intrigue >= 24
+						any_vassal_or_below = {
+							highest_held_title_tier >= 2
+							intrigue >= 30
+						}
+					}
+					highest_held_title_tier >= 2
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_intel_reports years = 5 } } } }
+		}
+		if = {
+			limit = {
+				scope:gpt_seller = {
+					OR = {
+						stewardship >= 24
+						any_vassal_or_below = {
+							highest_held_title_tier >= 2
+							stewardship >= 30
+						}
+					}
+					highest_held_title_tier >= 2
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_strategic_goods years = 5 } } } }
+		}
+		if = {
+			limit = {
+				scope:gpt_seller = {
+					OR = {
+						diplomacy >= 24
+						any_vassal_or_below = {
+							highest_held_title_tier >= 2
+							diplomacy >= 30
+						}
+					}
+					highest_held_title_tier >= 2
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_consumer_goods years = 5 } } } }
+		}
+		if = {
+			limit = {
+				scope:gpt_seller = {
+					OR = {
+						martial >= 24
+						any_vassal_or_below = {
+							highest_held_title_tier >= 2
+							martial >= 30
+						}
+					}
+					highest_held_title_tier >= 2
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_army_goods years = 5 } } } }
+		}
+		if = {
+			limit = {
+				scope:gpt_seller = {
+					OR = {
+						learning >= 24
+						any_vassal_or_below = {
+							highest_held_title_tier >= 2
+							learning >= 30
+						}
+					}
+					highest_held_title_tier >= 2
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_books_relics years = 5 } } } }
+		}
+
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						scope:gpt_seller = {
+							NOT = { culture = { has_cultural_era_or_later = culture_era_high_medieval } }
+							capital_province.county = { development_level >= 20 }
+						}
+					}
+					AND = {
+						scope:gpt_seller = {
+							culture = { has_cultural_era_or_later = culture_era_high_medieval }
+							capital_province.county = { development_level >= 30 }
+						}
+					}
+					AND = {
+						scope:gpt_seller = {
+							culture = { has_cultural_era_or_later = culture_era_late_medieval }
+							capital_province.county = { development_level >= 40 }
+						}
+					}
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_luxury_goods years = 5 } } } }
+		}
+		if = {
+			limit = {
+				scope:gpt_seller = {
+					highest_held_title_tier = 5
+					any_sub_realm_county = {
+						count >= 1
+						is_coastal_county = yes
+					}
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_faraway_spices years = 5 } } } }
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						scope:gpt_seller = { culture = { has_cultural_era_or_later = culture_era_early_medieval } }
+						scope:gpt_buyer = { culture = { has_cultural_era_or_later = culture_era_tribal } }
+						NOT = { scope:gpt_buyer = { culture = { has_cultural_era_or_later = culture_era_early_medieval } } }
+					}
+					AND = {
+						scope:gpt_seller = { culture = { has_cultural_era_or_later = culture_era_high_medieval } }
+						scope:gpt_buyer = { culture = { has_cultural_era_or_later = culture_era_early_medieval } }
+						NOT = { scope:gpt_buyer = { culture = { has_cultural_era_or_later = culture_era_high_medieval } } }
+					}
+					AND = {
+						scope:gpt_seller = { culture = { has_cultural_era_or_later = culture_era_late_medieval } }
+						scope:gpt_buyer = { culture = { has_cultural_era_or_later = culture_era_high_medieval } }
+						NOT = { scope:gpt_buyer = { culture = { has_cultural_era_or_later = culture_era_late_medieval } } }
+					}
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_specialists years = 5 } } } }
+		}
+		if = {
+			limit = {
+				scope:gpt_seller = {
+					sub_realm_size >= 100
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_rare_materials years = 5 } } } }
+		}
+
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						scope:gpt_seller = {
+							employs_court_position = court_physician_court_position
+							any_court_position_holder = {
+								type = court_physician_court_position
+								aptitude:court_physician_court_position > 3
+							}
+						}
+					}
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_medicinal_herbs years = 5 } } } }
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						scope:gpt_seller = {
+							employs_court_position = master_of_hunt_court_position
+							any_court_position_holder = {
+								type = master_of_hunt_court_position
+								aptitude:master_of_hunt_court_position > 3
+							}
+						}
+					}
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_preserved_meat years = 5 } } } }
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						scope:gpt_seller = {
+							employs_court_position = travel_leader_court_position
+							any_court_position_holder = {
+								type = travel_leader_court_position
+								aptitude:travel_leader_court_position > 3
+							}
+						}
+					}
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_tools years = 5 } } } }
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						scope:gpt_seller = {
+							employs_court_position = court_artificer_court_position
+							any_court_position_holder = {
+								type = court_artificer_court_position
+								aptitude:court_artificer_court_position > 3
+							}
+						}
+					}
+				}
+			}
+			show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_crafts_arts years = 5 } } } }
+		}
+		show_as_tooltip = { scope:actor = { house = { add_house_modifier = { modifier = gpt_common_trade years = 5 } } } }
+
+		hidden_effect = {
+			if = {
+				limit = {
+					scope:actor = { is_ai = yes }
+				}
+			}
+			scope:actor = { add_gold = gpt_trade_gold_lose }
+		}
+	}
+
+	on_decline = {
+		scope:actor = {
+			add_prestige = 50
+			add_opinion = {
+				modifier = refused_trade_opinion
+				target = scope:recipient
+			}
+		}
+	}
+
+	auto_accept = {
+		custom_description = {
+			text = "spending_hook"
+			subject = scope:actor
+			object = scope:recipient
+			scope:hook = yes
+		}
+	}
+
+	ai_accept = {
+		base = -60
+		
+		opinion_modifier = { # Opinion Factor
+			who = scope:recipient
+			opinion_target = scope:actor
+			multiplier = 0.5
+			desc = AI_OPINION_REASON
+		}
+
+		modifier = { # Is the Rightful Liege of recipient
+			desc = offer_vassalization_interaction_aibehavior_rightfulliegetitleholder_tt
+			trigger = {
+				scope:actor = { is_rightful_liege_of = scope:recipient }
+			}
+			add = 25
+		}
+
+		modifier = { # They are my Rightful Liege
+			desc = offer_vassalization_interaction_aibehavior_rightfulvassaltitleholder_tt
+			trigger = {
+				scope:recipient = { is_rightful_liege_of = scope:actor }
+			}
+			add = 25
+		}
+
+		modifier = {
+			add = 10
+			scope:actor = {
+				NOT = {
+					is_liege_or_above_of = scope:recipient
+				}
+				tier_difference = {
+					target = scope:recipient
+					value = 1
+				}
+			}
+			desc = AI_RANK_DIFF
+		}
+
+		modifier = {
+			add = 20
+			scope:actor = {
+				NOT = {
+					is_liege_or_above_of = scope:recipient
+				}
+				tier_difference = {
+					target = scope:recipient
+					value = 2
+				}
+			}
+			desc = AI_RANK_DIFF
+		}
+
+		modifier = {
+			add = -15
+			scope:actor = {
+				NOT = {
+					is_vassal_or_below_of = scope:recipient
+				}
+				tier_difference = {
+					target = scope:recipient
+					value = -1
+				}
+			}
+			desc = AI_RANK_DIFF
+		}
+
+		modifier = {
+			add = -30
+			scope:actor = {
+				NOT = {
+					is_vassal_or_below_of = scope:recipient
+				}
+				tier_difference = {
+					target = scope:recipient
+					value = -2
+				}
+			}
+			desc = AI_RANK_DIFF
+		}
+
+		modifier = { # Same Dynasty modifier.
+			desc = offer_vassalization_interaction_aibehavior_dynasty_tt
+			trigger = {
+				scope:recipient = {
+					dynasty = scope:actor.dynasty
+				}
+			}
+			add = 10
+		}
+
+		modifier = { # Cultural Acceptance
+			add = -5
+			desc = cultural_acceptance_interaction_reason
+			trigger = {
+				scope:actor = {
+					NOT = { has_same_culture_as = scope:recipient }
+					culture = {
+						cultural_acceptance = { target = scope:recipient.culture value < 50 }
+					}
+				}
+			}
+		}
+
+		modifier = { # Same language
+			add = 5
+			desc = speaks_same_language_interaction_reason
+			trigger = {
+				scope:actor = {
+					knows_language_of_culture = scope:recipient.culture
+				}
+			}
+		}
+
+		modifier = { # Claimant modifier.
+			desc = offer_vassalization_interaction_aibehavior_claimant_tt
+			trigger = {
+				scope:actor.primary_title = {
+					scope:recipient = {
+						has_claim_on = prev
+					}
+				}
+			}
+			add = -15
+		}
+
+		modifier = {
+			scope:recipient = { ai_greed > 1 }
+			add = { 
+				value = scope:recipient.ai_greed
+				multiply = 0.5
+		 		min = 0
+				max = 50
+			}
+			desc = AI_GREEDY
+		}
+
+		modifier = {
+			scope:recipient = { ai_rationality > 1 }
+			add = { 
+				value = scope:recipient.ai_rationality
+				multiply = 0.50
+		 		min = 0
+				max = 50
+			}	
+			desc = AI_RATIONAL
+		}
+
+		modifier = {
+			scope:recipient = { ai_boldness < -1 }
+			NOR = {
+				scope:recipient = { is_vassal_or_below_of = scope:actor }
+				scope:actor = { is_liege_or_above_of = scope:recipient }
+			}
+			add = { 
+				value = scope:recipient.ai_boldness
+				multiply = -0.50
+		 		min = 0
+				max = 50
+			}	
+			desc = AI_COWARDNESS
+		}
+
+		modifier = {
+			scope:actor = { exists = cp:councillor_chancellor }
+			add = { 
+				value = scope:recipient.diplomacy
+				add = scope:recipient.cp:councillor_chancellor.diplomacy
+			}	
+			desc = AI_DIPLO_WEIGHT_GPT
+		}
+	}
+
+	ai_potential = {
+		is_at_war = no
+	}
+
+ 	ai_targets = {
+ 		ai_recipients = neighboring_rulers
+ 		ai_recipients = peer_vassals
+ 		ai_recipients = liege
+		ai_recipients = vassals
+ 	}
+
+ 	ai_frequency = 30
+
+	ai_will_do = { 
+		base = 100
+	}
+}

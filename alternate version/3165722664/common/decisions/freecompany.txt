@@ -1,0 +1,623 @@
+﻿
+@levies = 750
+@levies_realm_size_mult = 12
+@grandeur_1 = 3
+@grandeur_2 = 3
+@grandeur_trib_1 = 3
+@grandeur_trib_2 = 3
+
+
+ducal_Army_decision = {
+	picture = gfx/interface/illustrations/decisions/decision_unify_burgundy_kingdom.dds
+
+	title = ducal_Army_decision_title
+	desc = ducal_Army_decision_desc
+	selection_tooltip = ducal_Army_decision_tooltip
+	confirm_text = ducal_Army_decision_confirm
+	major = yes
+
+	is_shown = {
+	 #	has_royal_court = yes	
+		has_game_rule = GPT_decisions_enabled
+		highest_held_title_tier = 3
+	 	NOT = { has_character_flag = hired_private_army }
+		NOR = {
+			# faith = { has_doctrine_parameter = unreformed }
+			culture = { has_cultural_tradition = tradition_horse_lords }
+			government_has_flag = government_is_tribal
+		}
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_at_war = no
+		is_imprisoned = no
+		dread >= 40
+		prestige_level >= 3
+		custom_description = {
+			text = gpt_independent_or_military_rights
+			OR = {
+				is_independent_ruler = yes
+				AND = {
+					is_independent_ruler = no
+					vassal_contract_has_flag = vassal_contract_war_override
+				}
+			}
+		}
+	}
+	
+	cost = {
+		prestige = 2500
+		gold = 250
+	}
+
+	effect = {
+
+		if = {
+			limit = {
+				is_ai = no
+			}
+			add_stress = 50
+		}
+
+		add_character_flag = {
+			flag = hired_private_army
+		}
+		spawn_army = {
+			levies = {
+				add = {
+					value = @levies
+					add = {
+						value = sub_realm_size
+						multiply = @levies_realm_size_mult
+					}
+				}
+			}
+			men_at_arms = {
+				type = light_footmen
+				stacks = {
+					add = {
+						value = @grandeur_2
+						divide = 2
+					}
+				}
+			}
+			men_at_arms = {
+				type = pikemen_unit
+				stacks = {
+					add = {
+						value = @grandeur_2
+					#	divide = 3
+					}
+				}
+			}
+			men_at_arms = {
+				type = bowmen
+				stacks = {
+					add = {
+						value = @grandeur_2
+					#	divide = 2
+					}
+				}
+			}
+			men_at_arms = {
+				type = light_horsemen
+				stacks = {
+					add = {
+						value = @grandeur_2
+						divide = 3
+					}
+				}
+			}
+			location = root.capital_province
+			inheritable = no
+			name = ducal_army
+		}
+
+		custom_tooltip = ducal_army_tooltip1
+		custom_tooltip = ducal_army_tooltip2
+	 #	custom_tooltip = ducal_army_tooltip3
+
+		send_interface_toast = {
+			title = ducal_army_notification
+			custom_tooltip = ducal_army_tooltip4
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	ai_check_interval = 12
+
+#	cooldown = { 
+#		years = 20
+#	}
+}
+
+kingsguard_decision = {
+	picture = gfx/interface/illustrations/decisions/decision_reclaim_britannia.dds
+
+	title = kingsguard_decision_title
+	desc = kingsguard_decision_desc
+	selection_tooltip = kingsguard_decision_tooltip
+	confirm_text = kingsguard_decision_confirm
+	major = yes
+
+	is_shown = {
+		has_game_rule = GPT_decisions_enabled
+		highest_held_title_tier = 4
+	 	NOT = {
+	 		has_character_flag = hired_private_army
+	 	}
+		NOR = {
+			# faith = { has_doctrine_parameter = unreformed }
+			culture = { has_cultural_tradition = tradition_horse_lords }
+			government_has_flag = government_is_tribal
+		}
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_at_war = no
+		is_imprisoned = no
+		dread >= 40
+		prestige_level >= 3
+		custom_description = {
+			text = gpt_independent_or_military_rights
+			OR = {
+				is_independent_ruler = yes
+				AND = {
+					is_independent_ruler = no
+					vassal_contract_has_flag = vassal_contract_war_override
+				}
+			}
+		}
+	}
+	
+	cost = {
+		prestige = 3000
+		gold = 500
+	}
+
+	effect = {
+
+		if = {
+			limit = {
+				is_ai = no
+			}
+			add_stress = 50
+		}
+
+		add_character_flag = {
+			flag = hired_private_army
+		}
+		spawn_army = {
+			levies = {
+				add = {
+					value = @levies
+					add = {
+						value = sub_realm_size
+						multiply = @levies_realm_size_mult
+					}
+				}
+			}
+			men_at_arms = {
+				type = armored_footmen
+				stacks = {
+					add = {
+						value = @grandeur_2
+						divide = 2
+					}
+				}
+			}
+			men_at_arms = {
+				type = pikemen_unit
+				stacks = {
+					add = {
+						value = @grandeur_2
+					#	divide = 3
+					}
+				}
+			}
+			men_at_arms = {
+				type = crossbowmen
+				stacks = {
+					add = {
+						value = @grandeur_2
+						divide = 2
+					}
+				}
+			}
+			men_at_arms = {
+				type = light_horsemen
+				stacks = {
+					add = {
+						value = @grandeur_2
+					#	divide = 3
+					}
+				}
+			}
+			location = root.capital_province
+			inheritable = no
+			name = royal_army
+		}
+
+		custom_tooltip = kingsguard_tooltip1
+		custom_tooltip = kingsguard_tooltip2
+	 #	custom_tooltip = kingsguard_tooltip3
+
+		send_interface_toast = {
+			title = kingsguard_notification
+			custom_tooltip = kingsguard_tooltip4
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	ai_check_interval = 12
+
+#	cooldown = { 
+#		years = 20
+#	}
+}
+
+
+imperial_army_decision = {
+	picture = gfx/interface/illustrations/decisions/decision_set_capital_constantinople.dds
+
+	title = imperial_army_decision_title
+	desc = imperial_army_decision_desc
+	selection_tooltip = imperial_army_decision_tooltip
+	confirm_text = imperial_army_decision_confirm
+	major = yes
+
+	is_shown = {
+		has_game_rule = GPT_decisions_enabled
+		highest_held_title_tier = 5
+	 	NOT = {
+	 		has_character_flag = hired_private_army
+	 	}
+		NOR = {
+			# faith = { has_doctrine_parameter = unreformed }
+			culture = { has_cultural_tradition = tradition_horse_lords }
+			government_has_flag = government_is_tribal
+		}
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_at_war = no
+		is_imprisoned = no
+		is_independent_ruler = yes
+		dread >= 40
+		prestige_level >= 3
+	}
+	
+	cost = {
+		prestige = 3500
+		gold = 750
+	}
+
+	effect = {
+
+		if = {
+			limit = {
+				is_ai = no
+			}
+			add_stress = 50
+		}
+
+		add_character_flag = {
+			flag = hired_private_army
+		}
+		spawn_army = {
+			levies = {
+				add = {
+					value = @levies
+					add = {
+						value = sub_realm_size
+						multiply = @levies_realm_size_mult
+					}
+				}
+			}
+			men_at_arms = {
+				type = armored_footmen
+				stacks = {
+					add = {
+						value = @grandeur_2
+					#	divide = 2
+					}
+				}
+			}
+			men_at_arms = {
+				type = pikemen_unit
+				stacks = {
+					add = {
+						value = @grandeur_2
+					#	divide = 3
+					}
+				}
+			}
+			men_at_arms = {
+				type = crossbowmen
+				stacks = {
+					add = {
+						value = @grandeur_2
+						divide = 2
+					}
+				}
+			}
+			men_at_arms = {
+				type = armored_horsemen
+				stacks = {
+					add = {
+						value = @grandeur_2
+						divide = 2
+					}
+				}
+			}
+			location = root.capital_province
+			inheritable = no
+			name = imperial_army
+		}
+
+		custom_tooltip = imperial_army_tooltip1
+		custom_tooltip = imperial_army_tooltip2
+	 #	custom_tooltip = imperial_army_tooltip3
+
+		send_interface_toast = {
+			title = imperial_army_notification
+			custom_tooltip = imperial_army_tooltip4
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	ai_check_interval = 12
+
+#	cooldown = { 
+#		years = 20
+#	}
+}
+
+tribal_Army_decision = {
+	picture = gfx/interface/illustrations/decisions/decision_recruit_forest_specialist.dds
+
+	title = tribal_Army_decision_title
+	desc = tribal_Army_decision_desc
+	selection_tooltip = tribal_Army_decision_tooltip
+	confirm_text = tribal_Army_decision_confirm
+	major = yes
+
+	is_shown = {
+		has_game_rule = GPT_decisions_enabled
+	 #	has_royal_court = yes
+	 	OR = {
+			government_has_flag = government_is_tribal
+			# faith = { has_doctrine_parameter = unreformed }
+		}
+
+	 	NOT = {
+	 		has_character_flag = hired_private_army
+	 	}
+		NOT = {
+			culture = { has_cultural_tradition = tradition_horse_lords }
+		}
+	}
+
+	is_valid = {
+		highest_held_title_tier >= 3
+		is_adult = yes
+		is_at_war = no
+		is_imprisoned = no
+		prestige_level >= 2
+		dread >= 40
+		custom_description = {
+			text = gpt_independent_or_military_rights
+			OR = {
+				is_independent_ruler = yes
+				AND = {
+					is_independent_ruler = no
+					vassal_contract_has_flag = vassal_contract_war_override
+				}
+			}
+		}
+	}
+	
+	cost = {
+		prestige = 2000
+		gold = 250
+	}
+
+	effect = {
+
+		if = {
+			limit = {
+				is_ai = no
+			}
+			add_stress = 50
+		}
+
+		add_character_flag = {
+			flag = hired_private_army
+		}
+		spawn_army = {
+			levies = {
+				add = {
+					value = @levies
+					add = {
+						value = sub_realm_size
+						multiply = @levies_realm_size_mult
+					}
+				}
+			}
+			men_at_arms = {
+				type = light_footmen
+				stacks = {
+					add = {
+						value = @grandeur_trib_2
+						multiply = 2
+					}
+				}
+			}
+			men_at_arms = {
+				type = light_horsemen
+				stacks = {
+					add = {
+						value = @grandeur_trib_2
+					 #	multiply = 2
+					}
+				}
+			}
+			location = root.capital_province
+			inheritable = no
+			name = tribal_army
+		}
+
+		custom_tooltip = tribal_army_tooltip1
+		custom_tooltip = tribal_army_tooltip2
+	 #	custom_tooltip = tribal_army_tooltip3
+
+		send_interface_toast = {
+			title = tribal_army_notification
+			custom_tooltip = tribal_army_tooltip4
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	ai_check_interval = 12
+
+#	cooldown = { 
+#		years = 20
+#	}
+}
+
+nomadic_Army_decision = {
+	picture = gfx/interface/illustrations/decisions/decision_horse_archers_x.dds
+
+	title = nomadic_Army_decision_title
+	desc = nomadic_Army_decision_desc
+	selection_tooltip = nomadic_Army_decision_tooltip
+	confirm_text = nomadic_Army_decision_confirm
+	major = yes
+
+	is_shown = {
+		has_game_rule = GPT_decisions_enabled
+	 #	has_royal_court = yes
+	 	NOT = {
+	 		has_character_flag = hired_private_army
+	 	}
+		OR = {
+			culture = { has_cultural_tradition = tradition_horse_lords }
+		 #	has_government = nomadic_government
+		}
+	}
+
+	is_valid = {
+		highest_held_title_tier >= 3
+		is_adult = yes
+		is_at_war = no
+		is_imprisoned = no
+		prestige_level >= 3
+		dread >= 40
+		custom_description = {
+			text = gpt_independent_or_military_rights
+			OR = {
+				is_independent_ruler = yes
+				AND = {
+					is_independent_ruler = no
+					vassal_contract_has_flag = vassal_contract_war_override
+				}
+			}
+		}
+	}
+	
+	cost = {
+		prestige = 2500
+		gold = 350
+	}
+
+	effect = {
+
+		if = {
+			limit = {
+				is_ai = no
+			}
+			add_stress = 50
+		}
+
+		add_character_flag = {
+			flag = hired_private_army
+		}
+		spawn_army = {
+			levies = {
+				add = {
+					value = @levies
+					add = {
+						value = sub_realm_size
+						multiply = @levies_realm_size_mult
+					}
+				}
+			}
+			men_at_arms = {
+				type = horse_archers
+				stacks = {
+					add = {
+						value = @grandeur_trib_2
+						multiply = 3
+					}
+				}
+			}
+			location = root.capital_province
+			inheritable = no
+			name = nomadic_army
+		}
+
+		custom_tooltip = nomadic_army_tooltip1
+		custom_tooltip = nomadic_army_tooltip2
+	 #	custom_tooltip = nomadic_army_tooltip3
+
+		send_interface_toast = {
+			title = nomadic_army_notification
+			custom_tooltip = nomadic_army_tooltip4
+		}
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+
+	ai_check_interval = 12
+
+#	cooldown = { 
+#		years = 20
+#	}
+}

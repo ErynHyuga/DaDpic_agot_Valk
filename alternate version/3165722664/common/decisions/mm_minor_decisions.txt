@@ -1,0 +1,104 @@
+﻿## Conceive Child with court consort -- minor decision appears when you have an heir + a few spares, replacing the major decision which disappears
+mz_conceive_child_minor_decision = {
+	picture = "gfx/interface/illustrations/decisions/mz_decision_childbirth.dds"
+
+	desc = mz_conceive_child_decision_desc
+	selection_tooltip = mz_conceive_child_decision_tooltip
+
+	is_shown = {
+		employs_court_position = mz_court_consort_court_position
+		any_court_position_holder = {
+			type = mz_court_consort_court_position
+			NOT = { has_trait = pregnant }
+		}
+		mz_recommends_more_children_decision_trigger = no
+		exists = location
+	}
+
+	cooldown = { days = 300 }
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		custom_description = {
+			text = mz_fertility_trigger
+			fertility > 0
+		}
+		NOT = { has_trait = pregnant }
+		custom_description = {
+			text = mz_same_location_as_consort
+			any_court_position_holder = {
+				type = mz_court_consort_court_position
+				NOT = { has_trait = pregnant }
+				exists = location
+				location = prev.location
+			}
+		}
+		NOR = { 
+			has_character_modifier = rejected_from_marriage_bed_modifier 
+			court_position:mz_court_consort_court_position = { has_character_modifier = rejected_from_marriage_bed_modifier }
+		}
+	}
+
+	effect = {
+		trigger_event = { id = mz_court_consort.2001 }
+		custom_tooltip = mz_conceive_child_decision_effect_tooltip
+		if = {
+			limit = {
+				any_court_position_holder = {
+					type = mz_court_consort_court_position
+					is_close_or_extended_family_of = root
+					NOT = { has_trait = pure_blooded }
+				}
+			}
+			custom_tooltip = mz_conceive_child_decision_effect_inbred_warning
+		}
+	}
+
+	ai_check_interval = 36
+	ai_potential = {
+		is_landed = yes
+		is_available_ai_adult = yes
+		allowed_to_marry_same_sex_trigger = yes
+		employs_court_position = mz_court_consort_court_position
+		any_court_position_holder = {
+			type = mz_court_consort_court_position
+			is_available_ai_adult = yes
+			NOT = { has_trait = pregnant }
+		}
+		NOT = { has_trait = pregnant }
+		mz_recommends_more_children_decision_trigger = no 
+	}
+	ai_will_do = { 
+		base = 50 # AI should be more reluctant to use this than the alternative
+		modifier = {
+			add = -10
+			any_child = {
+				count > 4
+			}
+		}
+		modifier = {
+			add = -10
+			any_child = {
+				count > 5
+			}
+		}
+		modifier = {
+			add = -10
+			any_child = {
+				count > 6
+			}
+		}
+		modifier = {
+			add = -10
+			any_child = {
+				count > 7
+			}
+		}
+		modifier = {
+			factor = 0.1
+			any_child = {
+				count > 4
+			}
+		}
+	}
+}

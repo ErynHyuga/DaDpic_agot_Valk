@@ -1,0 +1,94 @@
+﻿# Destabilization Modifier for Player (Harsher)
+wd_modifier = {
+	icon = wd_modifiers
+	development_growth_factor = -0.20
+	monthly_county_control_growth_add = -0.2
+	build_speed = 0.15
+}
+wd_modifier_01 = {
+	icon = wd_modifiers
+	development_growth_factor = -0.25
+	monthly_county_control_growth_add = -0.4
+	build_speed = 0.30
+}
+wd_modifier_02 = {
+	icon = wd_modifiers
+	development_growth_factor = -0.30
+	monthly_county_control_growth_add = -0.6
+	build_speed = 0.45
+}
+wd_modifier_03 = {
+	icon = wd_modifiers
+	development_growth_factor = -0.35
+	monthly_county_control_growth_add = -0.8
+	build_speed = 0.60
+}
+wd_modifier_04 = {
+	icon = wd_modifiers
+	development_growth_factor = -0.40
+	monthly_county_control_growth_add = -1
+	build_speed = 0.75
+}
+# Destabilization Modifier for AI (Softer)
+wd_modifier_ai = {
+	icon = wd_modifiers
+	development_growth_factor = -0.10
+	monthly_county_control_growth_add = -0.1
+	build_speed = 0.10
+}
+wd_modifier_01_ai = {
+	icon = wd_modifiers
+	development_growth_factor = -0.15
+	monthly_county_control_growth_add = -0.1
+	build_speed = 0.20
+}
+wd_modifier_02_ai = {
+	icon = wd_modifiers
+	development_growth_factor = -0.20
+	monthly_county_control_growth_add = -0.2
+	build_speed = 0.30
+}
+wd_modifier_03_ai = {
+	icon = wd_modifiers
+	development_growth_factor = -0.25
+	monthly_county_control_growth_add = -0.25
+	build_speed = 0.40
+}
+wd_modifier_04_ai = {
+	icon = wd_modifiers
+	development_growth_factor = -0.30
+	monthly_county_control_growth_add = -0.3
+	build_speed = 0.50
+}
+#############################################################################
+# Sieged Modifier
+wd_sieged_modifier = {
+	icon = wd_sieged_modifier
+	county_opinion_add = -10
+	development_growth_factor = -0.15
+	build_speed = 0.15
+}
+wd_sieged_modifier_01 = {
+	icon = wd_sieged_modifier
+	county_opinion_add = -20
+	development_growth_factor = -0.30
+	build_speed = 0.30
+}
+wd_sieged_modifier_02 = {
+	icon = wd_sieged_modifier
+	county_opinion_add = -30
+	development_growth_factor = -0.45
+	build_speed = 0.45
+}
+wd_sieged_modifier_03 = {
+	icon = wd_sieged_modifier
+	county_opinion_add = -40
+	development_growth_factor = -0.60
+	build_speed = 0.60
+}
+wd_sieged_modifier_04 = {
+	icon = wd_sieged_modifier
+	county_opinion_add = -50
+	development_growth_factor = -0.75
+	build_speed = 0.75
+}

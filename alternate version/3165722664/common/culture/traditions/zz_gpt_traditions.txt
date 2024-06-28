@@ -1,0 +1,4310 @@
+﻿Valkyrie = {
+	category = ritual
+
+	layers = {
+		0 = martial
+		1 = mena
+		4 = temple.dds
+	}
+	parameters = {
+		gender_equal_inheritance = yes
+		female_only_inheritance = yes
+		female_preference_inheritance = yes
+		guardians_can_transfer_commander_traits = yes
+		better_spouses = yes
+		dislikes_marrying_outside_of_culture = yes
+		ai_doesnt_marry_outside_culture = yes
+		character_travel_safety_mult = -0.5
+		character_travel_speed_mult = 0.20
+		better_ward_education = yes
+		vassals_more_likely_accept_punishments = no
+		lustful_trait_more_common = yes
+		better_education_more_valued = yes
+		culture_can_raid_at_sea_even_if_feudal_no_restrictions = yes
+		expensive_convert_to_local_culture = yes
+		enable_garden_duchy_building = yes
+		can_appoint_court_gardener = yes
+		can_recruit_gardeners = yes
+		has_access_to_runestones = yes
+		unlock_maa_unicorn_riders = yes
+		number_of_spouses = 3
+		number_of_consorts = 3
+		can_have_paramours = yes
+		unlock_maa_holy_guard = yes
+		can_blind_prisoners = yes
+		can_castrate_prisoners = yes
+		can_travel_along_rivers = yes
+		more_expensive_weapon_inspiration = yes
+		physical_disfigurement_blocks_inheritance = yes
+		children_can_be_born_in_the_purple = yes
+		poorly_educated_leaders_distrusted = yes
+		hard_working_traits_more_valued = yes
+		castle_fortifications_increase = yes
+		weak_traits_looked_down_upon = yes
+		strong_traits_more_valued = yes
+		dumb_traits_looked_down_upon = yes
+		prowess_traits_more_valued = yes
+		can_host_joust_contests = yes
+		marriage_acceptance_bonus = yes
+		high_prowess_ignores_knight_restrictions = yes
+	}
+	culture_modifier = {
+		culture_tradition_max_add = 1000
+		mercenary_count_mult = 30
+	}
+	character_modifier = {
+		personal_scheme_power_mult = 0.2
+		fertility = 3
+		monthly_piety_gain_mult = -0.25
+		monthly_prestige_gain_mult = -0.25
+		opinion_of_different_faith = -10
+		ai_lust = 50
+		spouse_opinion = 10
+		movement_speed = 0.05
+		light_cavalry_damage_mult = -0.25
+		light_cavalry_toughness_mult = -0.25
+		light_cavalry_screen_mult = -0.25
+		dynasty_opinion = 75
+		dynasty_house_opinion = 50
+		short_reign_duration_mult = 0.5
+		tyranny_gain_mult = 0.25
+		tax_slot_add  = 1
+		tyranny_loss_msult = -0.5
+		opinion_of_female_rulers = 10
+		heavy_infantry_max_size_add = 2
+ 		heavy_cavalry_max_size_add = 2
+		levy_reinforcement_rate = -0.25
+		levy_size = -0.25
+		levy_attack = -0.05
+		knight_limit = 10
+		fellow_vassal_opinion = 10
+		dread_per_tyranny_add = 0.3
+		dread_decay_mult = -0.3
+		revolting_siege_morale_loss_mult = 0.25
+	}
+	county_modifier = {
+		forest_development_growth_factor = 0.05
+		taiga_development_growth_factor = -0.15
+		jungle_development_growth_factor = -0.15
+
+	}
+	can_pick = {
+		OR = {
+			has_cultural_pillar = heritage_valyrian
+		}
+	}
+	cost = {
+		prestige = 0
+	}
+	ai_will_do = {
+		value = 0
+	}
+}
+
+
+# not_bellicose_or_stoic_desc
+
+tradition_iron_will = {
+	category = combat			# combat realm societal ritual regional
+
+	layers = {
+	 	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = western
+		4 = shield.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		retreat_losses = -0.20
+		hard_casualty_modifier = 0.20
+		counter_resistance = 0.10
+	}
+	
+	parameters = {
+		wounds_and_scars_give_bonuses = yes
+		more_fame_for_successful_defensive_wars = yes
+		craven_and_content_traits_looked_down_upon = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+		NOT = { has_cultural_tradition = tradition_honorable_surrender }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bellicose_or_stoic_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+# not_bellicose_egalitarian_or_spiritual_desc
+
+tradition_war_phylosphy = {
+	category = combat
+
+	layers = {
+	 	0 = learning				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mena
+		4 = jirga.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		martial = 3
+		monthly_war_income_mult = -0.05
+		glory_hound_opinion = 5
+	}
+	
+	parameters = {
+		guardians_can_transfer_commander_traits = yes
+		martial_education_more_valued = yes
+		unlock_innovation_pike_columns = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+		NOT = { has_cultural_tradition = tradition_blissful_ignorance }
+		custom_tooltip = {
+			scope:character = {
+				OR = {
+					government_has_flag = government_is_feudal
+					government_has_flag = government_is_clan
+				}
+			}
+			text = must_be_feudal_or_clan
+		}
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bellicose_egalitarian_or_spiritual_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_temple_milit = {
+	category = combat
+
+	layers = {
+	 	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mena
+		4 = temple.dds
+	}
+
+	province_modifier = {
+		fort_level = 1
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		zealot_opinion = 10
+		theocracy_government_levy_contribution_mult = 0.20
+		levy_reinforcement_rate_same_faith = 0.20
+	}
+	
+	parameters = {
+	 #	prowess_from_religious_traits = yes
+		more_fervor_on_church_construction = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+		custom_tooltip = {
+			any_culture_county = {
+				percent >= 0.2
+				any_county_province = {
+					has_holding_type = church_holding
+				}
+			}
+			text = 20_percent_churches
+		}
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bellicose_egalitarian_or_spiritual_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_divine_armaments = {
+	category = combat
+
+	layers = {
+	 	0 = learning				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = indian
+		4 = fight.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		army_maintenance_mult = 0.10
+		mercenary_hire_cost_mult = 0.25
+		religious_head_opinion = 10
+	}
+	
+	parameters = {
+		more_expensive_weapon_inspiration = yes
+		improved_weapon_inspiration = yes
+	 	building_barracks_piety_bonuses = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bellicose_egalitarian_or_spiritual_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+# not_bellicose_or_bureaucratic_desc ++
+
+tradition_incentived_rivalry = {
+	category = societal
+
+	layers = {
+	 	0 = intrigue				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mediterranean
+		4 = swords.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		dread_baseline_add = 15
+		prowess_per_stress_level = 3
+		life_expectancy = -5
+		army_pursuit_mult = 0.10
+		owned_hostile_scheme_success_chance_add = 10
+	}
+	
+	parameters = {
+		can_duel_rivals = yes
+		vengeful_trait_more_common = yes
+		rivalries_more_common = yes
+		craven_and_content_traits_looked_down_upon = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+		NOT = { has_cultural_tradition = tradition_collective_prowess }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bellicose_or_bureaucratic_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_brewer_brigade = {
+	category = combat
+
+	layers = {
+	 	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = western
+		4 = viking.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		army_toughness_mult = 0.10
+		army_damage_mult = 0.10
+		army_pursuit_mult = -0.10
+		army_screen_mult = -0.10
+	}
+	
+	parameters = {
+		more_frequent_feasts = yes
+		reveler_traits_more_common = yes
+		reveler_traits_more_valued = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bellicose_or_bureaucratic_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_siege_engin = {
+	category = combat
+
+	layers = {
+	 	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mena
+		4 = board_gamers.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		army_siege_value_mult = 0.15
+		cultural_head_fascination_mult = 0.10
+		monthly_martial_lifestyle_xp_gain_mult = 0.20
+		supply_duration = -0.20
+	}
+	
+	parameters = {
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+		custom_tooltip = {
+			scope:character = {
+				OR = {
+					government_has_flag = government_is_feudal
+					government_has_flag = government_is_clan
+				}
+			}
+			text = must_be_feudal_or_clan
+		}
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bellicose_or_bureaucratic_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_contract_allegiance = {
+	category = combat
+
+	layers = {
+	 	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = western
+		4 = diplomat.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+		mercenary_count_mult = -1
+	}
+
+	character_modifier = {
+		mercenary_hire_cost_mult = 0.50
+		men_at_arms_maintenance = -0.20
+		men_at_arms_limit = 2
+		courtly_opinion = -10
+		glory_hound_opinion = 10
+	}
+	
+	parameters = {
+		disloyal_trait_more_common = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+		NOT = { has_cultural_tradition = tradition_backstabbers }
+		NOT = { has_cultural_tradition = tradition_bartering }
+		custom_tooltip = {
+			scope:character = {
+				OR = {
+					government_has_flag = government_is_feudal
+					government_has_flag = government_is_clan
+				}
+			}
+			text = must_be_feudal_or_clan
+		}
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bellicose_or_bureaucratic_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_cruel_masters = {
+	category = societal
+
+	layers = {
+	 	0 = steward				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mediterranean
+		4 = noble.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		domain_tax_mult = 0.20
+		county_opinion_add = -15
+		minority_different_culture_opinion = -20
+		different_culture_opinion = -10
+		guest_opinion = -10
+		dread_baseline_add = 15
+	}
+	
+	parameters = {
+		can_castrate_prisoners = yes
+		can_blind_prisoners = yes
+		disloyal_trait_more_common = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_benevolent_masters }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bellicose_or_bureaucratic_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_public_trials = {
+	category = ritual
+
+	layers = {
+	 	0 = diplo				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = western
+		4 = hostages.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		vassal_opinion = -10
+		county_opinion_add = -10
+		enemy_hostile_scheme_success_chance_add = 10
+	}
+	
+	parameters = {
+		peasant_and_populist_factions_less_common = yes
+		vassals_more_likely_accept_punishments = yes
+		vengeful_trait_more_common = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_concealed_trials }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bellicose_or_bureaucratic_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_exess_luxury = {
+	category = ritual
+
+	layers = {
+	 	0 = diplo				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mediterranean
+		4 = garden_architects.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		monthly_income_mult = -0.10
+		monthly_piety_gain_mult = -0.10
+		monthly_prestige_gain_mult = 0.10
+		clergy_opinion = -10
+		fertility = -0.25
+		stress_gain_mult = -0.25
+	}
+	
+	parameters = {
+		more_frequent_feasts = yes
+	 #	more_expensive_feasts = yes
+		number_of_spouses = 1
+		number_of_consorts = 6
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_minimalistics }
+		NOT = { has_cultural_tradition = tradition_chaste }
+		NOT = { has_cultural_tradition = tradition_detachment }
+		custom_tooltip = {
+			text = only_one_marriage_tradition_allowed
+			trigger_if = {
+				limit = {
+					OR = {
+						NOT = { exists = scope:replacing }
+						NOR = {
+							scope:replacing = culture_tradition:tradition_monogamous
+							scope:replacing = culture_tradition:tradition_polygamous
+							scope:replacing = culture_tradition:tradition_concubines
+						}
+					}
+				}
+				NOR = {
+					culture_tradition:tradition_monogamous = { is_in_list = traits }
+					culture_tradition:tradition_polygamous = { is_in_list = traits }
+					culture_tradition:tradition_concubines = { is_in_list = traits }
+				}
+			}
+		}
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bellicose_or_bureaucratic_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+# not_bellicose_or_communal_desc
+
+tradition_shilded_allegiance = {
+	category = combat
+
+	layers = {
+	 	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mena
+		4 = battle.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		opinion_of_same_culture = 10
+		hostile_county_attrition = -0.20
+	}
+	
+	parameters = {
+		prowess_traits_more_valued = yes
+		craven_and_content_traits_looked_down_upon = yes
+		cannot_attack_allies = yes
+		cannot_attack_truces = yes
+		loyal_trait_more_common = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+		NOT = { has_cultural_tradition = tradition_backstabbers }
+	 	NOT = { has_cultural_tradition = tradition_network_warfare }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bellicose_or_communal_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_roving_warbands = {
+	category = ritual
+
+	layers = {
+	 	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mena
+		4 = dismounted_warrior.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+		mercenary_count_mult = 0.25
+	}
+
+	character_modifier = {
+		prowess = 4
+		monthly_county_control_growth_factor = -0.25
+	}
+	
+	parameters = {
+		prowess_from_martial_education = yes
+		better_knights_from_decision = yes
+		commanders_likelier_to_gain_commander_traits = yes
+		weak_traits_looked_down_upon = yes
+		rowdy_trait_more_common = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+		NOT = { has_cultural_tradition = tradition_honor_duels }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bellicose_or_communal_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_blissful_ignorance = {
+	category = societal
+
+	layers = {
+	 #	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mena
+		4 = malleable_subjects.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		learning = -6
+		martial = 2
+		diplomacy = 2
+		stewardship = 2
+		monthly_lifestyle_xp_gain_mult = 0.10
+		attraction_opinion = 10
+	}
+	
+	parameters = {
+		rowdy_trait_more_common = yes
+		pensive_trait_less_common = yes
+		knights_slightly_more_prone_to_injury = yes
+		can_use_sparring_duel = yes
+		grants_to_lowborns_bonuses = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_war_phylosphy }
+		NOT = { has_cultural_tradition = tradition_advice_seekers }
+		NOT = { has_cultural_tradition = tradition_bookkeppers }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bellicose_or_communal_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_secular_idols = {
+	category = societal
+
+	layers = {
+	 #	0 = diplo				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mena
+		4 = fierce_independence.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		diplomacy_per_prestige_level = 1
+		martial_per_prestige_level = 1
+		prowess_per_prestige_level = 1
+		clergy_opinion = -15
+		monthly_piety_gain_mult = -0.10
+	}
+	
+	parameters = {
+		high_prowess_ignores_knight_restrictions = yes
+		trait_county_opinion_modifiers = yes
+		more_frequent_hunts = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bellicose_or_communal_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_collective_prowess = {
+	category = combat
+
+	layers = {
+	 	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mena
+		4 = ritualised_friendship.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		levy_attack = 2
+		levy_toughness = 2
+		army_maintenance_mult = 0.15
+		opinion_of_different_culture = -10
+	}
+	
+	parameters = {
+		strong_traits_more_common = yes
+		weak_traits_looked_down_upon = yes
+		can_host_joust_contests = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+		culture_not_pacifistic_trigger = yes
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_bellicose = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bellicose_or_communal_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+# not_stoic_or_bureaucratic_desc +
+
+tradition_contractualists = {
+	category = realm
+
+	layers = {
+	 	0 = steward				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mediterranean
+		4 = philosopher.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		stewardship = 3
+		monthly_county_control_growth_factor = 0.25
+		build_speed = 0.30
+		holding_build_speed = 0.30
+	}
+	
+	parameters = {
+		peasant_and_populist_factions_less_common = yes
+		expensive_convert_to_local_culture = yes
+		just_trait_more_common = yes
+		just_trait_gives_bonuses = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_bartering }
+		custom_tooltip = {
+			scope:character = {
+				OR = {
+					government_has_flag = government_is_feudal
+					government_has_flag = government_is_clan
+				}
+			}
+			text = must_be_feudal_or_clan
+		}
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_bureaucratic_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_mercenary_guilds = {
+	category = realm
+
+	layers = {
+	 	0 = steward				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mena
+		4 = soldiers.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+		mercenary_count_mult = 0.50
+	}
+
+	character_modifier = {
+		same_culture_mercenary_hire_cost_mult = -0.20
+		stewardship_scheme_power = 10
+		monthly_county_control_growth_factor = -0.20
+	}
+	
+	parameters = {
+		mercenary_courtiers_gain_extra_skills = yes
+		gain_gold_from_battles = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 	culture_not_pacifistic_trigger = yes
+		custom_tooltip = {
+			scope:character = {
+				OR = {
+					government_has_flag = government_is_feudal
+					government_has_flag = government_is_clan
+				}
+			}
+			text = must_be_feudal_or_clan
+		}
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_bureaucratic_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_innovative_trade = {
+	category = realm
+
+	layers = {
+	 	0 = steward				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = indian
+		4 = beacon_of_learning.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		monthly_income_mult = 0.05
+		monthly_war_income_mult = -0.25
+	}
+	
+	parameters = {
+		wanderers_gain_extra_economic_skills = yes
+		more_likely_to_leave_court = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_bartering }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_bureaucratic_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_silent_strategists = {
+	category = combat
+
+	layers = {
+	 	0 = intrigue				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = indian
+		4 = state_ransoming.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		intrigue = 3
+		counter_resistance = 0.20
+		counter_efficiency = 0.20
+		hostile_county_attrition = -0.20
+		monthly_war_income_mult = -0.10
+		glory_hound_opinion = -10
+		supply_duration = 0.25
+	}
+	
+	parameters = {
+		peasant_and_populist_factions_less_common = yes
+		less_prestige_from_battles = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_ceremonial_warfare }
+		NOT = { has_cultural_tradition = tradition_open_politics }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_bureaucratic_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_meritocracy = {
+	category = realm
+
+	layers = {
+	 	0 = diplo				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = western
+		4 = quill.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		courtier_and_guest_opinion = -10
+		stress_gain_mult = 0.20
+		martial = 2
+		diplomacy = 2
+		intrigue = 2
+		stewardship = 2
+		learning = 2
+	}
+	
+	parameters = {
+		diligent_trait_more_common = yes
+	 #	hard_working_traits_more_valued = yes
+		minimum_prowess_for_knights = yes
+		poorly_educated_leaders_distrusted = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+		NOT = { has_cultural_tradition = tradition_nepotists }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_bureaucratic = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_bureaucratic_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+# not_stoic_or_spiritual_desc //
+
+tradition_bartering = {
+	category = realm
+
+	layers = {
+	 	0 = steward				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mena
+		4 = conversation.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		domain_tax_mult = -0.10
+		vassal_tax_contribution_mult = -0.10
+		stress_gain_mult = -0.20
+		courtier_and_guest_opinion = 10
+		character_travel_speed_mult = 0.20
+	}
+	
+	parameters = {
+		can_recruit_prisoners_easily = yes
+		stubborn_trait_more_common = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_contractualists }
+		NOT = { has_cultural_tradition = tradition_contract_allegiance }
+		NOT = { has_cultural_tradition = tradition_zookeppers }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_spiritual_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_unpretentious = {
+	category = societal
+
+	layers = {
+	 	0 = learning				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = indian
+		4 = artisan.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		monthly_prestige_gain_mult = -0.20
+		monthly_piety_gain_mult = 0.10
+		owned_personal_scheme_success_chance_add = 10
+		dread_baseline_add = -10
+	}
+	
+	parameters = {
+		courtiers_and_guests_less_likely_to_join_schemes = yes
+		facilitate_alliance_acceptance = yes
+		ambitious_trait_penalty = yes
+		calm_trait_more_common = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_opulent_forts }
+	 	NOT = { has_cultural_tradition = tradition_exess_luxury }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_spiritual_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_chaste = {
+	category = societal
+
+	layers = {
+	 	0 = learning				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mena
+		4 = food.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		health = 0.25
+		life_expectancy = 5
+		stress_loss_mult = -0.25
+		courtier_and_guest_opinion = -10
+	}
+	
+	parameters = {
+		temperate_trait_more_common = yes # Synergy with Monastic Doctrines
+		temperate_trait_bonuses = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_spiritual_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+# not_stoic_or_communal_desc //
+
+tradition_honor_duels = {
+	category = ritual
+
+	layers = {
+	 	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mena
+		4 = rider.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		prowess = 2
+		advantage_against_coreligionists = 4
+		life_expectancy = -5
+
+	}
+	
+	parameters = {
+		blademaster_traits_more_common = yes
+		can_use_sparring_duel = yes
+		can_duel_rivals = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_roving_warbands }
+		NOT = { has_cultural_tradition = tradition_backstabbers }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_communal_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_minimalistics = {
+	category = realm
+
+	layers = {
+	 	0 = steward				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mena
+		4 = tools.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		holding_build_gold_cost = -0.20
+		build_gold_cost = -0.20
+		court_grandeur_baseline_add = -4
+	}
+	
+	parameters = {
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_exess_luxury }
+		NOT = { has_cultural_tradition = tradition_opulent_forts }
+		NOT = { has_cultural_tradition = tradition_refined_tastes }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_communal_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_concealed_trials = {
+	category = ritual
+
+	layers = {
+	 	0 = diplo				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = western
+		4 = council.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		vassal_opinion = 10
+		vassal_tax_contribution_mult = -0.10
+	}
+	
+	parameters = {
+		pardoning_gives_loyalty = yes
+		loyal_trait_more_common = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_public_trials }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_communal_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_rite_of_passage = {
+	category = ritual
+
+	layers = {
+	 #	0 = learning				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mena
+		4 = pragmatic_creed.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		title_creation_cost_mult = 0.25
+	}
+	
+	parameters = {
+		guardian_education_better_outcomes = yes
+		sacred_hunts = yes
+		can_enact_high_partition_succession_law = yes
+		marriage_acceptance_bonus = yes
+
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_blissful_ignorance }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_communal = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_communal_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+# not_stoic_or_egalitarian_desc
+
+tradition_pragmatism = {
+	category = realm
+
+	layers = {
+	 #	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = indian
+		4 = quill.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		tyranny_gain_mult = -0.25
+		stress_gain_mult = -0.10
+		build_speed = -0.10
+		holding_build_speed = -0.10
+		courtly_opinion = -10
+		barons_and_minor_landholders_opinion = 10
+	}
+	
+	parameters = {
+	 	more_parochial_vassals = yes
+	 #	city_buildings_more_county_opinion = yes
+	 #	grants_to_lowborns_bonuses = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_arbitrary_laws }
+		NOT = { has_cultural_tradition = tradition_exagerated_ettiquete }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_egalitarian_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_honorable_surrender = {
+	category = combat
+
+	layers = {
+	 	0 = diplo				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = indian
+		4 = ritualised_friendship.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		glory_hound_opinion = -10
+		parochial_opinion = 10
+		dread_baseline_add = -20
+		retreat_losses = 0.20
+		hard_casualty_modifier = -0.20
+	}
+	
+	parameters = {
+		can_end_defensive_wars_earlier = yes
+		less_prestige_from_battles = yes
+		facilitate_white_peace = yes
+		characters_more_likely_to_be_captured_in_sieges = yes
+	 #	can_demand_higher_ransoms_from_lower_tiers = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_iron_will }
+
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_egalitarian_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+# not_stoic_or_courtly_desc
+
+tradition_open_politics = {
+	category = realm
+
+	layers = {
+	 	0 = diplo				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mena
+		4 = diplomat.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		diplomacy = 3
+		general_opinion = 10
+		dread_baseline_add = -15
+		enemy_hostile_scheme_success_chance_add = 10
+		enemy_personal_scheme_success_chance_add = 10
+		owned_scheme_secrecy_add = -25
+		owned_personal_scheme_success_chance_add = 10
+	}
+	
+	parameters = {
+		honest_trait_more_common = yes
+		diplomacy_education_better_outcomes = yes
+		more_hostage_acceptance_for_vassals = yes
+		cannot_attack_allies = yes
+		cannot_attack_truces = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_secret_politics }
+		NOT = { has_cultural_tradition = tradition_backstabbers }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_courtly_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_ceremonial_warfare = {
+	category = combat
+
+	layers = {
+	 	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mediterranean
+		4 = knight.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		movement_speed = -0.25
+		advantage = -5
+		general_opinion = 5
+		accolade_glory_gain_mult = 0.25
+		knight_limit = 2
+	}
+	
+	parameters = {
+		knights_die_less_but_are_captured_more = yes
+		may_challenge_to_board_games = yes
+		powerful_foreign_knights_find_you_attractive = yes
+		cheaper_cbs = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_silent_strategists }
+	 	NOT = { has_cultural_tradition = tradition_network_warfare }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_courtly_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_opulent_forts = {
+	category = realm
+
+	layers = {
+	 	0 = diplo				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = indian
+		4 = city2.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		holding_build_gold_cost = 0.20
+		build_gold_cost = 0.20
+		build_speed = 0.20
+		holding_build_speed = 0.20
+		courtly_opinion = 5
+		parochial_opinion = 5
+	}
+	
+	parameters = {
+		architect_trait_prestige = yes
+		castle_grant_prestige = yes
+		renown_from_temple_construction = yes
+		city_buildings_more_powerful = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_detachment }
+		NOT = { has_cultural_tradition = tradition_minimalistics }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_stoic = { is_in_list = traits }
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_stoic_or_courtly_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+# not_communal_or_egalitarian_desc
+
+tradition_benevolent_masters = {
+	category = societal
+
+	layers = {
+	 	0 = learning				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = western
+		4 = ceremony.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		domain_tax_mult = -0.20
+		dread_baseline_add = -10
+		county_opinion_add = 10
+		different_culture_opinion = 10
+		glory_hound_opinion = -10
+	}
+	
+	parameters = {
+		cheaper_guest_recruitment = yes
+		more_hostage_acceptance = yes
+		compassionate_trait_more_common = yes
+		introverted_trait_bonuses = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_cruel_masters }
+
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_communal = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_communal_or_egalitarian_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_feminists = {
+	category = ritual
+
+	layers = {
+	 	0 = intrigue				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mediterranean
+		4 = artisan.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		opinion_of_female_rulers = 10
+		opinion_of_male_rulers = -10
+		spouse_opinion = 20
+	}
+	
+	parameters = {
+		better_spouses = yes
+		gender_equal_inheritance = yes
+		dislikes_marrying_outside_of_culture = yes
+		ai_doesnt_marry_outside_culture = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+		scope:character = {
+			primary_title = {
+				OR = {
+					has_title_law = male_only_law
+					has_title_law = male_preference_law
+				}
+			}
+			OR = {
+				has_realm_law = male_only_law
+				has_realm_law = male_preference_law
+			}
+		}
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_ortodoxy }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_communal = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_communal_or_egalitarian_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_network_warfare = {
+	category = combat
+
+	layers = {
+	 	0 = intrigue				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mena
+		4 = hunter.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		army_screen_mult = 0.10
+		army_toughness_mult = -0.10
+		men_at_arms_maintenance = 0.10
+		movement_speed = 0.10
+	}
+	
+	parameters = {
+		hunting_archery_building_bonuses = yes
+		hunting_traits_more_valued = yes
+		hunting_traits_more_common = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_ceremonial_warfare }
+	 	NOT = { has_cultural_tradition = tradition_shilded_allegiance }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_communal = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_communal_or_egalitarian_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_inclusive_guilds = {
+	category = realm
+
+	layers = {
+	 	0 = diplo				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mena
+		4 = philosopher.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		intrigue = -3
+		monthly_lifestyle_xp_gain_mult = 0.15
+		development_growth_factor = 0.10
+		advantage_against_coreligionists = -5
+	}
+	
+	parameters = {
+		courtiers_less_likely_to_leave_same_culture_court = yes
+		piety_from_language_schemes = yes
+		rulers_want_to_learn_languages_of_coreligionists = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_blissful_ignorance }
+		NOT = { has_cultural_tradition = tradition_shilded_allegiance }
+		custom_tooltip = {
+			scope:character = {
+				OR = {
+					government_has_flag = government_is_feudal
+					government_has_flag = government_is_clan
+				}
+			}
+			text = must_be_feudal_or_clan
+		}
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_communal = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_communal_or_egalitarian_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+# not_communal_or_courtly_desc
+
+tradition_child_mythos = {
+	category = ritual
+
+	layers = {
+	 #	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = indian
+		4 = mountain.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		close_relative_opinion = 10
+		travel_companion_opinion = 10
+		dread_baseline_add = -10
+	}
+	
+	parameters = {
+		hostile_scheme_success_chance_vs_spouse_penalty = yes
+		patient_trait_more_common = yes
+		tells_stories = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_communal = { is_in_list = traits }
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_communal_or_courtly_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_gallant_pua = {
+	category = societal
+
+	layers = {
+	 	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mena
+		4 = greeting.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		monthly_income_mult = -0.05
+		attraction_opinion = 10
+		fertility = 0.15
+	}
+	
+	parameters = {
+		ai_romance_scheme_increase = yes
+		poet_trait_romance_bonuses = yes
+		poet_trait_more_common = yes
+	 #	poet_trait_gives_bonuses = yes
+		martial_education_worse_outcomes = yes
+		charming_trait_more_common = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_chaste }
+		NOT = { has_cultural_tradition = tradition_detachment }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_communal = { is_in_list = traits }
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_communal_or_courtly_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_secret_politics = {
+	category = realm
+
+	layers = {
+	 	0 = intrigue				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mena
+		4 = council.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		intrigue = 3
+		hostile_scheme_resistance_mult = 0.10
+		owned_scheme_secrecy_add = 20
+		councillor_opinion = 10
+		general_opinion = -10
+		dread_baseline_add = 10
+	}
+	
+	parameters = {
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_secret_politics }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_communal = { is_in_list = traits }
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_communal_or_courtly_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+# not_communal_or_spiritual_desc
+
+tradition_detachment = {
+	category = ritual
+
+	layers = {
+	 	0 = learning				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = indian
+		4 = speech.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		martial_per_prestige_level = -1
+		stewardship_per_prestige_level = -1
+		diplomacy_per_prestige_level = -1
+		martial_per_piety_level = 1
+		stewardship_per_piety_level = 1
+		diplomacy_per_piety_level = 1
+		health = -0.25
+	}
+	
+	parameters = {
+		harder_to_hybridize = yes
+		content_trait_more_common = yes
+		cheaper_court_positions = yes
+		mendicant_mystics_may_appear = yes
+		ambitious_trait_penalty = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_gallant_pua }
+		NOT = { has_cultural_tradition = tradition_exess_luxury }
+		NOT = { has_cultural_tradition = tradition_opulent_forts }
+		NOT = { has_cultural_tradition = tradition_refined_tastes }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_communal = { is_in_list = traits }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_communal_or_spiritual_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+# not_spiritual_or_courtly_desc
+
+tradition_ortodoxy = {
+	category = societal
+
+	layers = {
+	 	0 = learning				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = western
+		4 = jirga.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		religious_head_opinion = 10
+		realm_priest_opinion = 10
+	}
+	
+	parameters = {
+		cannot_divorce = yes
+		adulterer_fornicator_penalties = yes
+		same_faith_inheritance_only = yes
+		zealous_trait_more_common = yes
+		harder_to_convert_character_faith = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+		NOT = { has_cultural_tradition = tradition_gnosticism }
+		NOT = { has_cultural_tradition = tradition_feminists }
+		NOT = { has_cultural_tradition = tradition_astronomers }
+	 #	culture_not_pacifistic_trigger = yes
+		custom_tooltip = {
+			scope:character = {
+				OR = {
+					government_has_flag = government_is_feudal
+					government_has_flag = government_is_clan
+				}
+			}
+			text = must_be_feudal_or_clan
+		}
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_spiritual_or_courtly_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_bookkeppers = {
+	category = ritual
+
+	layers = {
+	 	0 = learning				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mediterranean
+		4 = beacon_of_learning.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		learning = 3
+		learning_per_stress_level = -1
+		guest_opinion = 10
+		dread_baseline_add = -10
+	}
+	
+	parameters = {
+		devoted_trait_bonuses = yes
+		monastic_expectations = yes
+		innovation_from_learning_traits = yes
+		pensive_trait_more_common = yes
+		poorly_educated_leaders_distrusted = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_blissful_ignorance }
+		NOT = { has_cultural_tradition = tradition_bartering }
+		custom_tooltip = {
+			scope:character = {
+				OR = {
+					government_has_flag = government_is_feudal
+					government_has_flag = government_is_clan
+				}
+			}
+			text = must_be_feudal_or_clan
+		}
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_spiritual_or_courtly_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+# not_spiritual_or_egalitarian_desc
+
+tradition_advice_seekers = {
+	category = ritual
+
+	layers = {
+	 	0 = learning				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mena
+		4 = ceremony.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		intrigue_per_stress_level = -2
+		hostile_scheme_resistance_add = -10
+	}
+	
+	parameters = {
+		bonuses_from_patriarch_matriarch_trait = yes
+		wants_to_learn_liege_language = yes
+		extra_learn_language_success_chance_vs_liege = yes
+		humble_trait_more_common = yes
+		better_ward_education = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_blissful_ignorance }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_spiritual_or_egalitarian_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_gnosticism = {
+	category = societal
+
+	layers = {
+	 	0 = learning				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = indian
+		4 = beacon_of_learning.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		monthly_learning_lifestyle_xp_gain_mult = 0.25
+		faith_creation_piety_cost_mult = -0.30
+		religious_head_opinion = -10
+		realm_priest_opinion = -10
+		holy_order_hire_cost_mult = 0.25
+	}
+	
+	parameters = {
+		mystic_trait_more_common = yes
+		more_easily_converted = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+		NOT = { has_cultural_tradition = tradition_ortodoxy }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_spiritual_or_egalitarian_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_levy_tributes = {
+	category = realm
+
+	layers = {
+	 #	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = western
+		4 = soldiers4.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		vassal_levy_contribution_mult = 0.50
+		vassal_tax_contribution_mult = -0.50
+		zealot_opinion = 10
+		glory_hound_opinion = -10
+		parochial_opinion = 10
+		courtly_opinion = -10
+	}
+	
+	parameters = {
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 	culture_not_pacifistic_trigger = yes
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_spiritual_or_egalitarian_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+# not_egalitarian_or_courtly_desc
+
+tradition_backstabbers = {
+	category = societal
+
+	layers = {
+	 	0 = intrigue				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mediterranean
+		4 = musician.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		intrigue = 3
+		general_opinion = -10
+		owned_personal_scheme_success_chance_add = -20
+		owned_hostile_scheme_success_chance_add = 10
+	}
+	
+	parameters = {
+		city_buildings_less_control = yes
+		disloyal_trait_more_common = yes
+		disloyal_trait_less_spurned = yes
+	 #	herbalist_traits_more_common = yes
+		can_use_conquest_cbs = yes
+	 	cheaper_cbs = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+		NOT = { has_cultural_tradition = tradition_contract_allegiance }
+		NOT = { has_cultural_tradition = tradition_honor_duels }
+		NOT = { has_cultural_tradition = tradition_open_politics }
+		NOT = { has_cultural_tradition = tradition_shilded_allegiance }
+		
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_egalitarian_or_courtly_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_zookeppers = {
+	category = ritual
+
+	layers = {
+	 #	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = western
+		4 = elephant.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		dynasty_house_opinion = 10
+		monthly_dynasty_prestige = 0.05
+		court_grandeur_baseline_add = 4
+		monthly_income_mult = -0.10
+	}
+	
+	parameters = {
+		renown_from_temple_construction = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_minimalistics }
+		NOT = { has_cultural_tradition = tradition_bartering }
+		custom_tooltip = {
+			scope:character = {
+				OR = {
+					government_has_flag = government_is_feudal
+					government_has_flag = government_is_clan
+				}
+			}
+			text = must_be_feudal_or_clan
+		}
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_egalitarian_or_courtly_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_equestrian_elegance = {
+	category = ritual
+
+	layers = {
+	 #	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = indian
+		4 = horses.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		heavy_cavalry_toughness_mult = 0.10
+		archer_cavalry_toughness_mult = 0.10
+		light_cavalry_toughness_mult = 0.10
+		camel_cavalry_toughness_mult = 0.10
+		men_at_arms_maintenance = 0.10
+		build_speed = 0.15
+	}
+	
+	parameters = {
+		generous_trait_more_common = yes
+		more_gift_opinion = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+		custom_tooltip = {
+			text = culture_in_plains_or_steppe_terrain_desc
+			any_culture_county = {
+				percent >= 0.3
+				any_county_province = {
+					OR = {
+						terrain = plains
+						terrain = steppe
+						geographical_region = world_steppe
+					}
+				}
+			}
+		}
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_egalitarian_or_courtly_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_auxiliary_troops = {
+	category = combat
+
+	layers = {
+	 	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mediterranean
+		4 = shieldmaiden.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		opinion_of_different_culture = 10
+		men_at_arms_maintenance = -0.10
+		minority_opinion = 10
+		counter_efficiency = 0.10
+		monthly_county_control_growth_factor = -0.20
+		supply_duration = -0.20
+	}
+	
+	parameters = {
+		wanderers_gain_extra_combat_skills = yes
+		extra_language_cap_2 = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 	culture_not_pacifistic_trigger = yes
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+						culture_pillar:ethos_egalitarian = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_egalitarian_or_courtly_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+# not_bureaucratic_courtly_or_spiritual_desc
+
+tradition_arbitrary_laws = {
+	category = realm
+
+	layers = {
+	 	0 = intrigue				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mena
+		4 = quill.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		tyranny_gain_mult = 0.25
+		dread_baseline_add = 10
+		courtier_and_guest_opinion = -10
+		minority_opinion = -10
+	}
+	
+	parameters = {
+	 	cb_lower_prestige_level_requirement = yes
+		less_prestige_from_battles = yes
+		more_likely_to_leave_court = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_pragmatism }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bureaucratic_courtly_or_spiritual_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_refined_tastes = {
+	category = societal
+
+	layers = {
+	 #	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mena
+		4 = musician.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		monthly_prestige_gain_mult = 0.10
+		happy_powerful_vassal_tax_contribution_mult = 0.10
+		happy_powerful_vassal_levy_contribution_mult = 0.10
+		courtly_opinion = 10
+	}
+	
+	parameters = {
+		more_expensive_feasts = yes
+		refined_feasts = yes
+		martial_education_worse_outcomes = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+		NOT = { has_cultural_tradition = tradition_detachment }
+		NOT = { has_cultural_tradition = tradition_minimalistics }
+		NOT = { has_cultural_tradition = tradition_chaste }
+		custom_tooltip = {
+			scope:character = {
+				OR = {
+					government_has_flag = government_is_feudal
+					government_has_flag = government_is_clan
+				}
+			}
+			text = must_be_feudal_or_clan
+		}
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bureaucratic_courtly_or_spiritual_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_exagerated_ettiquete = {
+	category = ritual
+
+	layers = {
+	 #	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 #	1 = mena
+		4 = diplomat.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		courtier_and_guest_opinion = -10
+		court_grandeur_baseline_add = 8
+		monthly_court_grandeur_change_mult = 0.25
+		stress_gain_mult = 0.15
+	}
+	
+	parameters = {
+		expensive_convert_to_local_culture = yes
+		marriage_acceptance_bonus = yes
+		physical_disfigurement_blocks_inheritance = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+		NOT = { has_cultural_tradition = tradition_minimalistics }
+		NOT = { has_cultural_tradition = tradition_pragmatism }
+	 #	culture_not_pacifistic_trigger = yes
+		custom_tooltip = {
+			scope:character = {
+				OR = {
+					government_has_flag = government_is_feudal
+					government_has_flag = government_is_clan
+				}
+			}
+			text = must_be_feudal_or_clan
+		}
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bureaucratic_courtly_or_spiritual_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_astronomers = {
+	category = ritual
+
+	layers = {
+	 #	0 = martial				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mena
+		4 = ship.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		religious_head_opinion = -10
+		diplomatic_range_mult = 0.50
+		naval_movement_speed_mult = 0.10
+		opinion_of_different_faith = 10
+	}
+	
+	parameters = {
+		less_likely_to_force_conversion = yes
+	 #	coastal_holdings_give_defensive_bonus = yes
+	 #	coastal_holding_bonuses = yes
+	 	next_level_trade_ports = yes
+		trade_ports_enabled_for_tribals = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+	 	NOT = { has_cultural_tradition = tradition_blissful_ignorance }
+		NOT = { has_cultural_tradition = tradition_ortodoxy }
+		custom_description = {
+			text = culture_on_coast_desc
+			any_culture_county = {
+				any_county_province = {
+					is_coastal = yes
+				}
+			}
+		}
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bureaucratic_courtly_or_spiritual_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}
+
+tradition_nepotists = {
+	category = realm
+
+	layers = {
+	 	0 = intrigue				# diplo martial intrigue learning steward default2.dds default5.dds
+	 	1 = mediterranean
+		4 = noble.dds
+	}
+
+	province_modifier = {
+	}
+
+	culture_modifier = {
+	}
+
+	character_modifier = {
+		dynasty_house_opinion = 10
+		guest_opinion = -10
+	}
+	
+	parameters = {
+		cannot_disherit = yes
+		cultural_house_personal_scheme_success_chance = yes
+		landing_house_members_gives_renown = yes
+		penalty_for_revoking_titles_from_house_members = yes
+	}
+
+	is_shown = {
+		has_game_rule = GPT_culture_enabled
+	}
+
+	can_pick = {
+	 #	culture_not_pacifistic_trigger = yes
+		NOT = { has_cultural_tradition = tradition_meritocracy }
+	}
+	
+	cost = {
+		prestige = {
+			# Base cost.
+			add = {
+				value = 2500
+				desc = BASE
+				format = "BASE_VALUE_FORMAT"
+			}
+			if = {
+				limit = {
+					NOR = {
+						culture_pillar:ethos_courtly = { is_in_list = traits }
+						culture_pillar:ethos_spiritual = { is_in_list = traits }
+					}
+				}
+				add = {
+					value = 4000
+					desc = not_bureaucratic_courtly_or_spiritual_desc
+				}
+			}
+			multiply = tradition_replacement_cost_if_relevant
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				has_game_rule = GPT_culture_enabled
+			}
+			add = 50
+		}
+	}
+}

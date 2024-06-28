@@ -1,0 +1,88 @@
+Abdanken_decision =  {
+	picture = "gfx/interface/illustrations/decisions/decision_lose_weight.dds"
+	desc = Abdanken_desc
+	selection_tooltip = Abdanken_tooltip
+
+
+	is_shown = { 
+		highest_held_title_tier >= 2
+		has_game_rule = GPT_decisions_enabled
+	}
+
+	is_valid = {
+		NOT = { 
+			has_trait = lunatic
+			has_trait = greedy
+			has_trait = possessed
+			has_trait = diligent
+			has_trait = ambitious
+			has_trait = brave
+		}
+	}
+
+	effect = {
+		depose = yes
+		dynasty = { add_dynasty_prestige = -250 }
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = 100
+			OR = {
+				AND = {
+					stress_level >= 2
+					age >= 50
+				}
+				AND = {
+					health <= 1
+					age >= 50
+				}
+				has_trait = incapable
+			}
+		}
+	}
+}
+
+qs_invite_albino = {
+	picture = "gfx/interface/illustrations/decisions/decision_abandon_celibacy.dds"
+
+	ai_check_interval = 0
+
+	cooldown = { years = 3 }
+
+	is_shown = { 
+		highest_held_title_tier >= 2
+		has_game_rule = GPT_decisions_enabled
+	}
+	
+	desc = qs_invite_albino_desc
+	effect = {
+		trigger_event = {
+			id = qss_decisions.0007
+			days = { 10 20 }
+		}
+		custom_tooltip = qs_invite_albino_effect_tooltip
+	}
+	
+	is_valid = {
+		highest_held_title_tier >= 2
+	}
+	
+	cost = { 
+		prestige = 150
+		gold = 75
+	} 	
+
+	ai_potential = {
+		always = no
+	}
+	ai_will_do = {
+		base = 0
+	}
+}
+

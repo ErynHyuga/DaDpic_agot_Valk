@@ -1,0 +1,1243 @@
+﻿gpt_hook_interaction = {
+	icon = hook_icon
+	category = interaction_category_diplomacy
+	common_interaction = yes
+	interface_priority = 60
+	desc = threaten_interaction_desc
+
+	# cooldown = { years = 2 }
+
+	greeting = positive
+	notification_text = SEND_THREATEN_PROPOSAL
+
+	answer_accept_key = SEND_GIFT_ACCEPT
+	answer_reject_key = SEND_GIFT_REJECT
+
+	ai_targets = {
+		ai_recipients = vassals
+		max = 20
+	}
+	ai_target_quick_trigger = {
+		adult = yes
+	}
+	ai_frequency = 60
+
+	is_shown = {
+		has_game_rule = GPT_interactions_enabled
+		NOT = {
+			scope:recipient = scope:actor
+		}
+		scope:recipient = {
+			is_vassal_of = scope:actor
+		}
+		NOT = {
+			scope:actor = {
+				has_hook = scope:recipient
+			}
+		}
+
+		#AGOT Added, AI wildings and non-wildings shouldn't give gifts to each other
+		NAND = {
+			scope:actor = {
+				is_ai = yes
+				culture = { agot_is_wildling_culture = yes }
+			}
+			scope:recipient = {
+				culture = { agot_is_wildling_culture = no }
+			}
+		}
+		NAND = {
+			scope:actor = {
+				is_ai = yes
+				culture = { agot_is_wildling_culture = no }
+			}
+			scope:recipient = {
+				culture = { agot_is_wildling_culture = yes }
+			}
+		}
+
+		#AGOT Added, NW shouldn't give away gold
+		NOT = {
+			scope:actor = { has_trait = nightswatch }
+		}
+
+		#AGOT Added, no non-human interactions
+		scope:actor = { is_human = yes }
+		scope:recipient = { is_human = yes }
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor.prestige >= 150
+		scope:recipient = {
+			is_adult = yes
+			is_imprisoned = no
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+			add_hook = { 
+				type = favor_hook
+				target = scope:recipient
+			}
+			if = {
+				limit = {
+					is_ai = no
+				}
+				add_prestige = -150
+				add_tyranny = 8
+			}
+			else = { add_prestige = -50 add_tyranny = 6 }
+			stress_impact = {
+				just = 20
+				content = 10
+				honest = 10
+				forgiving = 15
+			}
+		}
+		scope:recipient = {
+			custom_tooltip = { text = gpt_ask_favor }
+			stress_impact = {
+				trusting = -20
+				vengeful = 20
+			}
+		}
+	}
+
+	on_decline = {
+		scope:recipient = {
+			if = {
+				limit = {
+					OR = {
+						has_trait = forgiving
+						has_trait = calm
+						has_trait = callous
+					}
+				}
+				add_opinion = {
+					modifier = gpt_insulted_calm
+					target = scope:actor
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_trait = wrathful
+						has_trait = arrogant
+						has_trait = paranoid
+					}
+				}
+				add_opinion = {
+					modifier = gpt_insulted_rage
+					target = scope:actor
+				}
+			}
+			else = {
+				add_opinion = {
+					modifier = gpt_insulted_normal
+					target = scope:actor
+				}
+			}
+		}
+		scope:actor = {
+			if = {
+				limit = {
+					OR = {
+						has_trait = forgiving
+						has_trait = calm
+						has_trait = callous
+					}
+				}
+				add_opinion = {
+					modifier = gpt_insulted_calm
+					target = scope:recipient
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_trait = wrathful
+						has_trait = arrogant
+						has_trait = paranoid
+					}
+				}
+				add_opinion = {
+					modifier = gpt_insulted_rage
+					target = scope:recipient
+				}
+			}
+			else = {
+				add_opinion = {
+					modifier = gpt_insulted_normal
+					target = scope:recipient
+				}
+			}
+		}
+	}
+	
+	ai_accept = {
+		base = -20
+		modifier = {
+			add = {
+				value = 0
+				add = scope:actor.dread
+				subtract = scope:recipient.dread
+				# divide = 2
+			}
+			desc = AI_INTIMIDATION_REASON_GPT
+		}
+		opinion_modifier = {
+			who = scope:recipient
+			opinion_target = scope:actor
+			multiplier = 0.2
+			desc = AI_OPINION_REASON
+		}
+		modifier = {
+			highest_held_title_tier = 3
+			add = -20
+			desc = AI_OPINION_DUKE_GPT
+		}
+		modifier = {
+			highest_held_title_tier = 4
+			add = -40
+			desc = AI_OPINION_KING_GPT
+		}
+		modifier = {
+			is_powerful_vassal = yes
+			add = -20
+			desc = AI_OPINION_POWERFUL_VASSAL_GPT
+		}
+		modifier = {
+			desc = gpt_loyal
+			add = 20
+			scope:recipient = {
+				has_trait = loyal
+			}
+		}
+		modifier = {
+			desc = gpt_disloyal
+			add = -20
+			scope:recipient = {
+				has_trait = disloyal
+			}
+		}
+		modifier = {
+			desc = fearhook
+			add = 20
+			scope:recipient = {
+				OR = {
+					has_trait = craven
+					has_trait = content
+					has_trait = humble
+					has_trait = generous
+					has_trait = just
+				}
+			}
+		}
+		modifier = {
+			desc = notfearhook
+			add = -20
+			scope:recipient = {
+				OR = {
+					has_trait = brave
+					has_trait = ambitious
+					has_trait = greedy
+					has_trait = arrogant
+					has_trait = arbitrary
+				}
+			}
+		}
+		modifier = {
+			add = -100
+			scope:actor.current_military_strength < scope:recipient.current_military_strength
+			desc = morestrongcharacter
+		}
+	}
+	
+	ai_potential = {
+		is_available_at_peace_ai_adult = yes
+		prestige > 500
+		dread > 50
+		NOR = {
+			has_trait = craven
+			has_trait = just
+			has_trait = content
+		}
+	}
+	
+	ai_min_reply_days = 5
+	ai_max_reply_days = 15
+	
+	ai_will_do = {
+		base = 25
+	}
+}
+
+
+#Give characters money to improve their opinion of you
+gpt_gift_interaction = {
+	icon = gpt_gift
+	category = interaction_category_friendly
+	common_interaction = yes
+	interface_priority = 60
+	desc = gpt_gift_interaction_desc
+
+	greeting = positive
+	notification_text = SEND_GIFT_PROPOSAL
+
+	answer_accept_key = SEND_GIFT_ACCEPT
+	answer_reject_key = SEND_GIFT_REJECT
+
+	ai_targets = {
+		ai_recipients = scripted_relations
+	}
+	ai_targets = {
+		ai_recipients = liege
+	}
+	ai_targets = {
+		ai_recipients = head_of_faith
+	}
+	ai_targets = {
+		ai_recipients = neighboring_rulers
+		ai_recipients = peer_vassals
+		max = 10
+	}
+	ai_targets = {
+		ai_recipients = vassals
+		max = 10
+	}
+	ai_target_quick_trigger = {
+		adult = yes
+	}
+	ai_frequency = 60
+
+	is_shown = {
+		NOT = {
+			scope:recipient = scope:actor
+		}
+
+		# Prioritize paying back loans first
+		scope:actor = {
+			trigger_if = {
+				limit = {
+					exists = var:loan_amount_owed
+					exists = var:loan_holder
+				}
+				NOT = { var:loan_holder = scope:recipient }
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor.piety >= gift_value
+		scope:recipient = { is_busy_in_events_localised = yes }
+	}
+
+	on_auto_accept = {
+		scope:recipient = {
+			trigger_event = char_interaction.0100
+		}
+	}
+
+	on_accept = {
+		scope:recipient = {
+			# Verify that they could become friend
+			if = {
+				limit = {
+					NAND = {
+						has_relation_friend = scope:actor
+						has_relation_lover = scope:actor
+						has_relation_soulmate = scope:actor
+						has_relation_best_friend = scope:actor
+					}
+				}
+				gifting_leads_towards_friendship_effect = yes
+			}
+		}
+
+		scope:actor = {
+			# Warning for multiple gifts
+			if = {
+				limit = {
+					scope:recipient = {
+						has_opinion_modifier = {
+							target = scope:actor
+							modifier = gpt_gift_opinion
+						}
+					}
+				}
+				custom_tooltip = ALREADY_SENT_GIFT_WARNING
+			}
+			
+			send_interface_message = {
+				type = event_generic_neutral
+				title = gpt_gift_interaction_notification
+				right_icon = scope:recipient
+			 #	pay_short_term_gold = {
+			 #		gold = gift_value
+			 #		target = scope:recipient
+			 #	}
+				add_piety = {
+					value = gift_value
+					multiply = -1
+				}
+				scope:recipient = {
+					add_piety = {
+						value = gift_value
+						multiply = 1
+					}
+				}
+				stress_impact = {
+					arrogant = 20
+				}
+				if = {
+					limit = {
+						scope:recipient = {
+							NOT = {
+								is_heir_of = scope:actor
+							}
+						}
+					}
+					stress_impact = {
+						humble = -15
+					}
+				}
+				
+				#FP3 Tenet Communal Possessions Perk - piety gain for gift giving. 
+				if = {
+					limit = {
+						scope:actor = {
+							faith = {
+					 			has_doctrine_parameter = piety_from_gifts_active
+					 		}
+					 	}
+					}
+					scope:actor = {
+						add_piety = minor_piety_gain
+					}
+				}
+				
+				# Check if the target already has been sent a gift or not. If not, apply the following effects
+				if = {
+					limit = {
+						NOT = {
+							scope:recipient = {
+								has_opinion_modifier = {
+									target = scope:actor
+									modifier = gpt_gift_opinion
+								}
+							}
+						}
+					}
+					
+					# Struggle Catalyst
+					if = {
+						limit = {
+							scope:actor = {
+								any_character_struggle = {
+									involvement = involved
+									phase_has_catalyst = catalyst_gift_independent_ruler
+									activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+										CATALYST = catalyst_gift_independent_ruler
+										CHAR = scope:recipient
+									}
+								}
+							}
+						}
+						hidden_effect = {
+							scope:actor = {
+								every_character_struggle = {
+									involvement = involved
+									limit = { phase_has_catalyst = catalyst_gift_independent_ruler }
+									activate_struggle_catalyst = {
+										catalyst = catalyst_gift_independent_ruler
+										character = scope:actor
+									}
+								}
+							}
+						}
+					}
+					#AGOT Disabled
+					# if = {
+					# 	limit = {
+					# 		fp3_struggle_involves_one_supporter_and_one_detractor = {
+					# 			FIRST = scope:actor
+					# 			SECOND = scope:recipient
+					# 		}
+					# 		scope:actor = {
+					# 			any_character_struggle = {
+					# 				#involvement = involved
+					# 				activate_struggle_catalyst_secondary_character_involvement_either_trigger = {
+					# 					CATALYST = catalyst_gift_supporter_detractor_ruler
+					# 					CHAR = scope:recipient
+					# 				}
+					# 			}
+					# 		}
+					# 	}
+					# 	hidden_effect = {
+					# 		scope:actor = {
+					# 			every_character_struggle = {
+					# 				#involvement = involved
+					# 				limit = {
+					# 					activate_struggle_catalyst_secondary_character_involvement_either_trigger = {
+					# 						CATALYST = catalyst_gift_supporter_detractor_ruler
+					# 						CHAR = scope:recipient
+					# 					}
+					# 				}
+					# 				activate_struggle_catalyst = {
+					# 					catalyst = catalyst_gift_supporter_detractor_ruler
+					# 					character = scope:actor
+					# 				}
+					# 				log_debug_variable_for_persian_struggle_effect = { VAR = concession_catalyst_gift_supporter_detractor_ruler }
+					# 			}
+					# 		}
+					# 	}
+					# }
+					
+					# FP2 Urbanism Legacy Perk 2: increase cultural acceptance when gifting a republican vassal
+					if = {
+						limit = {
+							scope:actor = {
+								exists = dynasty
+								dynasty = { has_dynasty_perk = fp2_urbanism_legacy_4 }
+							}
+							scope:recipient = {
+								AND = {
+									is_vassal_of = scope:actor
+									government_has_flag = government_is_republic
+								}
+							}
+							NOT = {
+								scope:actor.culture = scope:recipient.capital_province.county.culture
+							}
+						}
+						scope:recipient.capital_province.county.culture = {
+							change_cultural_acceptance = {
+								target = scope:actor.culture
+								value = {
+									value = 20
+									multiply = scope:recipient.capital_province.county.development_level
+									divide = 100
+								}
+								desc = cultural_acceptance_gain_gift_dynasty_perk
+							}
+						}
+					}
+				}
+				
+				# Let's apply the opinion modifier last, as to apply everything else correctly first
+				scope:recipient = {
+					add_opinion = {
+						target = scope:actor
+						modifier = gpt_gift_opinion
+						opinion = {
+							value = send_gift_opinion
+							divide = 2
+							if = { 
+								limit = {
+									scope:actor = {
+										highest_held_title_tier >= 3
+										any_directly_owned_province = {
+											has_building_or_higher = gpt_local_library_01
+										}
+									}
+								}
+								add = 10
+							}
+						}
+					}
+				}
+			}
+
+			if = { # for tutorial purposes
+				limit = {
+					is_ai = no
+					scope:recipient = { is_child_of = scope:actor }
+				}
+				add_character_flag = {
+					flag = tutorial_sent_gift
+					days = 200
+				}
+			}
+		}
+	}
+	
+	ai_accept = {
+		base = 0
+		modifier = {
+			add = 100
+			desc = GOLD_REASON
+		}
+
+		# Struggle motive
+		modifier = {
+			desc = AI_STRUGGLE_INTENT
+			scope:recipient = {
+				is_independent_ruler = yes
+				any_character_struggle = {
+					involvement = involved
+				}
+			}
+			add = {
+				value = 0
+				if = {
+					limit = {
+						scope:recipient = {
+							any_character_struggle = {
+								phase_has_catalyst = catalyst_gift_independent_ruler
+							}
+							has_character_flag = agenda_towards_escalation
+						}
+					}
+					add = -100
+				}
+				else_if = {
+					limit = {
+						scope:recipient = {
+							any_character_struggle = {
+								phase_has_catalyst = catalyst_gift_independent_ruler
+							}
+						}
+					}
+					add = 200
+				}
+			}
+		}
+	}
+	
+	ai_potential = {
+		is_available_at_peace_ai_adult = yes
+		ai_boldness < medium_positive_ai_value
+		piety >= gift_interaction_cutoff
+	 #	NOT = {
+	 #		has_trait = shy
+	 #	}
+	}
+	
+	auto_accept = {
+		custom_description = {
+			text = auto_accept_interaction_ai	
+			object = scope:recipient
+			scope:recipient = {
+				is_ai = yes
+			}
+		}
+	}
+	
+	ai_min_reply_days = 1
+	ai_max_reply_days = 1
+	
+	ai_will_do = {
+		base = 100
+		
+		modifier = { # Do not send double-gifts
+			factor = 0
+			scope:recipient = {
+				has_opinion_modifier = {
+					target = scope:actor
+					modifier = gpt_gift_opinion
+				}
+			}
+		}
+		
+		modifier = { # Basic Filtering
+			factor = 0
+			scope:recipient = {
+				NOR = {
+					AND = { # Bankrupt lovers, friends and a bankrupt liege should be considered
+						OR = {
+							scope:actor = {
+								any_liege_or_above = {
+									this = scope:recipient
+								}
+							}
+							has_secret_relation_lover = scope:actor
+							has_relation_lover = scope:actor
+							has_relation_soulmate = scope:actor
+							has_relation_friend = scope:actor
+							has_relation_best_friend = scope:actor
+						}
+						piety < 0
+					}
+					AND = { # Generous characters will give gifts to their friends/lovers
+						OR = {
+							has_secret_relation_lover = scope:actor
+							has_relation_lover = scope:actor
+							has_relation_soulmate = scope:actor
+							has_relation_friend = scope:actor
+							has_relation_best_friend = scope:actor
+						}
+						scope:actor = {
+							OR = {
+								ai_boldness <= high_negative_ai_value
+								AND = {
+									ai_boldness < 0
+									culture = {
+										has_cultural_parameter = gives_more_gifts
+									}
+								}
+							}
+						}
+					}
+					AND = { # Characters with the Generous Cultural Tradition will give gifts to more people
+						is_ruler = yes
+						OR = {
+							is_allied_to = scope:actor
+							is_close_or_extended_family_of = scope:actor
+						}
+						scope:actor = {
+							ai_boldness < 0
+							culture = {
+								has_cultural_parameter = gives_more_gifts
+							}
+						}
+					}
+					AND = { # Characters with the loyal trait more likely to give gifts to friends/lieges
+						OR = {
+							scope:actor.liege ?= this
+							has_relation_friend = scope:actor
+							has_relation_best_friend = scope:actor
+							is_allied_to = scope:actor
+							is_close_or_extended_family_of = scope:actor
+						}
+						scope:actor = {
+							ai_boldness <= 0
+							has_trait = loyal
+						}
+					}
+					#AGOT Disabled, no holy wars
+					# AND = { # Zealous characters want to support the defending side in GHW's
+					# 	gold < 200
+					# 	any_character_war = {
+					# 		OR = {
+					# 			using_cb = undirected_great_holy_war
+					# 			using_cb = directed_great_holy_war
+					# 		}
+					# 		primary_defender = scope:recipient
+					# 	}
+					# 	scope:actor = {
+					# 		ai_zeal >= 50
+					# 	}
+					# }
+					AND = { # Powerful vassals should be considered
+						is_powerful_vassal_of = scope:actor
+						opinion = {
+							target = scope:actor
+							value < 0
+						}
+						NOT ={
+							has_opinion_modifier = {
+								target = scope:actor
+								modifier = gpt_gift_opinion
+							}
+						}
+					}
+					AND = { # Factioneering vassals should be considered
+						is_vassal_of = scope:actor
+						is_a_faction_member = yes
+						NOT ={
+							has_opinion_modifier = {
+								target = scope:actor
+								modifier = gpt_gift_opinion
+							}
+						}
+					}
+					AND = { # Realm Priests should be considered
+						scope:actor = {
+							faith = { has_doctrine = doctrine_theocracy_temporal }
+							exists = cp:councillor_court_chaplain
+							cp:councillor_court_chaplain = scope:recipient
+						}
+						opinion = {
+							target = scope:actor
+							value <= 25
+						}
+						NOT = {
+							has_opinion_modifier = {
+								target = scope:actor
+								modifier = gpt_gift_opinion
+							}
+						}
+					}
+					AND = { # Rulers at war with your rivals deserve gold if they're bankrupt
+						piety < 0
+						is_at_war = yes
+						any_war_enemy = {
+							has_relation_rival = scope:actor
+						}
+					}
+					AND = { # Independent ruler within the struggle should be considered
+					 	any_character_struggle = {
+					 		phase_has_catalyst = catalyst_gift_independent_ruler
+					 	}
+					}
+				}
+			}
+		}
+
+		# Struggle
+		modifier = {
+			scope:recipient = {
+				any_character_struggle = {
+					involvement = involved
+					phase_has_catalyst = catalyst_gift_independent_ruler
+				}
+			}
+			scope:actor = {
+				any_character_struggle = {
+					involvement = involved
+					phase_has_catalyst = catalyst_gift_independent_ruler
+				}
+				NOT = {
+					has_relation_rival = scope:recipient
+				}
+			}
+			add = {
+				value = 0
+				if = {
+					limit = {
+						scope:actor = {
+							has_character_flag = agenda_towards_escalation
+						}
+					}
+					add = -100
+				}
+				else_if = {
+					limit = {
+						scope:actor = {
+							has_character_flag = agenda_towards_deescalation
+						}
+						scope:recipient = {
+							has_character_flag = agenda_towards_deescalation
+						}
+					}
+					add = {
+						value = 150
+						if = {
+							limit = { scope:recipient = { is_ai = no} }
+							add = 150 # higher for human player to Prioritize them
+						}
+						# Then lower the intent depending on the gold reserve
+						# Base value applied if the AI has 3x the gold cutoff
+						multiply = {
+							value = piety
+							divide = {
+								value = gift_interaction_cutoff
+								multiply = 3
+							}
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						scope:actor = {
+							has_character_flag = agenda_towards_deescalation
+						}
+					}
+					add = {
+						value = 25
+						if = {
+							limit = { scope:recipient = { is_ai = no} }
+							add = 150 # higher for human player to Prioritize them
+						}
+						# Then lower the intent depending on the gold reserve
+						# Base value applied if the AI has 3x the gold cutoff
+						multiply = {
+							value = piety
+							divide = {
+								value = gift_interaction_cutoff
+								multiply = 3
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 0.1
+			scope:recipient = {
+				opinion = {
+					target = scope:actor
+					value < 0
+				}
+				NAND = {
+					is_vassal_of = scope:actor
+					scope:actor = {
+						ai_rationality > 50
+					}
+				}
+			}
+		}
+		
+	 	#AGOT Disabled
+		# modifier = {
+		# 	add = 100
+		# 	scope:actor = {
+		# 		is_at_war = no
+		# 		has_trait = fp3_struggle_supporter
+		# 		any_character_struggle = { is_struggle_type = persian_struggle }
+		# 	}
+		# 	scope:recipient = {
+		# 		title:d_sunni.holder ?= this
+		# 		gold < 0
+		# 	}
+		# }
+		
+		modifier = {
+			factor = 0.1
+			scope:recipient = {
+				has_relation_rival = scope:actor
+			}
+		}
+	}
+}
+
+
+gpt_ask_for_conversion_interaction = {
+	icon = religious_claim
+	category = interaction_category_religion
+	# special_interaction = request_conversion_interaction
+	common_interaction = yes
+	popup_on_receive = yes
+
+	desc = gpt_ask_for_conversion_interaction_desc
+
+ #	hidden = yes
+	
+	is_shown = {
+		has_game_rule = GPT_buildings_enabled
+		scope:actor = { is_ai = no }
+		NOT = { scope:actor.faith = scope:recipient.faith }
+		NOT = { scope:recipient.liege = scope:actor }
+	 	scope:actor = { any_directly_owned_province = { has_building_or_higher = gpt_esoteric_01 } }
+	 	scope:actor.highest_held_title_tier >= 2
+	 	scope:recipient.highest_held_title_tier >= 2
+		OR = {
+			scope:recipient = { has_relation_friend = scope:actor }
+			scope:recipient = { has_relation_best_friend = scope:actor }
+			scope:recipient = { has_relation_lover = scope:actor }
+			scope:recipient = { has_relation_soulmate = scope:actor }
+			scope:recipient = { has_secret_relation_lover = scope:actor }
+			scope:recipient = { has_secret_relation_soulmate = scope:actor }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_description = {
+			text = gpt_need_more_piety
+			OR = {
+				AND = {
+					scope:recipient.highest_held_title_tier = 2
+					scope:actor = { piety >= 500 }
+				}
+				AND = {
+					scope:recipient.highest_held_title_tier = 3
+					scope:actor = { piety >= 1000 }
+				}
+				AND = {
+					scope:recipient.highest_held_title_tier = 4
+					scope:actor = { piety >= 2000 }
+				}
+				AND = {
+					scope:recipient.highest_held_title_tier = 5
+					scope:actor = { piety >= 4000 }
+				}
+			}
+		}
+	} 
+	
+	ai_accept = {
+		base = 0
+		opinion_modifier = {
+			opinion_target = scope:actor
+			who = scope:recipient
+			multiplier = 0.5
+			step = 5
+		}
+
+		modifier = { #Faith compatibility
+			scope:recipient.faith = {
+				faith_hostility_level = {
+					target = scope:actor.faith
+					value > faith_fully_accepted_level
+				}
+			}
+			NOT = {
+				scope:recipient.ai_zeal <= -50
+			}
+			add = {
+				value = -5
+				if = {
+					limit = {
+						# Exempt certain struggle phases.
+						# NOT = { is_struggle_parameter_active_interfaith_marriages_available_between_involved_characters_trigger = yes }
+						always = yes
+					}
+					if = {
+						limit = {
+							scope:recipient.faith = {
+								faith_hostility_level = {
+									target = scope:actor.faith
+									value >= faith_astray_level
+								}
+							}
+						}
+						subtract = 5
+					}
+					if = {
+						limit = {
+							scope:recipient.faith = {
+								faith_hostility_level = {
+									target = scope:actor.faith
+									value >= faith_hostile_level
+								}
+							}
+						}
+						subtract = 10
+					}
+					if = {
+						limit = {
+							scope:recipient.faith = {
+								faith_hostility_level = {
+									target = scope:actor.faith
+									value >= faith_evil_level
+								}
+							}
+						}
+						subtract = 15
+					}
+					if = {
+						limit = {
+							scope:recipient.ai_zeal <= -25
+						}
+						divide = 2
+					}
+				}
+			}
+			desc = MARRY_DIFFERENT_FAITH_REASON
+		}
+
+		modifier = {
+			desc = ASK_FOR_CONVERSION_RECIPIENT_LEARNING
+			add = {
+				value = scope:actor.learning
+				subtract = scope:recipient.learning
+			}
+		}
+		modifier = {
+			desc = SCHEME_WEAK_HOOK_USED
+			add = 50
+			scope:hook = yes
+		}
+		modifier = {
+			desc = RELIGIOUS_HEAD_INTERACTION_SAVIOR
+			add = 30
+			scope:actor = {
+				has_trait = savior
+			}
+		}
+		modifier = {
+			desc = RELIGIOUS_HEAD_INTERACTION_DIVINE_BLOOD
+			add = 15
+			scope:actor = {
+				has_trait = divine_blood
+			}
+		}
+		modifier = {
+			desc = ASK_FOR_CONVERSION_RECIPIENT_IS_STUBBORN
+			add = -15
+			scope:recipient = {
+				has_trait = stubborn
+			}
+		}
+		modifier = {
+			desc = ASK_FOR_CONVERSION_RECIPIENT_IS_FICKLE
+			add = 10
+			scope:recipient = {
+				has_trait = fickle
+			}
+		}
+		modifier = {
+			desc = ASK_FOR_CONVERSION_RECIPIENT_IS_ZEALOUS
+			add = -50
+			scope:recipient = {
+				has_trait = zealous
+			}
+		}
+		modifier = {
+			desc = ASK_FOR_CONVERSION_RECIPIENT_IS_CYNICAL
+			add = 30
+			scope:recipient = {
+				has_trait = cynical
+			}
+		}
+		modifier = {
+			desc = ASK_FOR_CONVERSION_RECIPIENT_IS_HERESIARCH
+			add = -100
+			scope:recipient = {
+				has_trait = heresiarch
+			}
+		}
+
+		modifier = {
+			desc = ASK_FOR_CONVERSION_RECIPIENT_FERVOR
+			scope:actor.faith.fervor != scope:recipient.faith.fervor
+			add = {
+				value = scope:actor.faith.fervor
+				subtract = scope:recipient.faith.fervor
+			}
+		}
+
+		modifier = {
+			desc = ASK_FOR_CONVERSION_ADAPTIVENESS
+			trigger = {
+				scope:recipient = {
+					target_is_liege_or_above = scope:actor
+				}
+				scope:recipient.faith = {
+					has_doctrine_parameter = tenet_adaptive_conversion_resistance
+				}
+			}
+			add = -20
+		}
+
+		modifier = {
+			desc = ASK_FOR_CONVERSION_DECLINING_IS_A_CRIME
+			trigger = {
+				scope:recipient = {
+					target_is_liege_or_above = scope:actor
+				}
+				scope:actor = {
+					refusing_conversion_is_crime_trigger = {
+						CHARACTER = scope:recipient
+					}
+				}
+			}
+			add = 50
+		}
+			
+		modifier = {
+			add = intimidated_halved_reason_value
+			scope:recipient = {
+				has_dread_level_towards = {
+					target = scope:actor
+					level = 1
+				}
+			}
+			desc = INTIMIDATED_REASON
+		}
+		modifier = {
+			add = cowed_halved_reason_value
+			scope:recipient = {
+				has_dread_level_towards = {
+					target = scope:actor
+					level = 2
+				}
+			}
+			desc = COWED_REASON
+		}
+
+		modifier = {
+			add = 50
+			scope:recipient = {
+				exists = dynasty
+				dynasty = { has_dynasty_perk = fp1_adventure_legacy_3 }
+			}
+			desc = FP1_ADVENTURE_LEGACY_3_REASON
+		}
+
+	 #AGOT Disabled	
+	 #	modifier = {
+	 #		add = 20
+	 #		scope:actor = {
+	 #			exists = dynasty
+	 #			dynasty = { has_dynasty_modifier = fp3_rekindler_of_iran_modifier }
+	 #		}
+	 #		desc = fp3_rekindler_of_iran_modifier_reason
+	 #	}
+
+		modifier = { # Cultural Tradition, harder to convert
+			add = -50
+			scope:recipient = {
+				culture = {
+					has_cultural_parameter = harder_to_convert_character_faith
+				}
+			}
+			desc = CULTURE_HARD_TO_CONVERT_REASON
+		}
+		modifier = {
+			add = {
+				value = scope:recipient.piety_level
+				multiply = 10
+			}
+			scope:recipient = {
+				piety_level > 1
+			}
+			desc = ASK_FOR_CONVERSION_RECIPIENT_IS_PIOUS
+		}
+	}
+	
+	ai_min_reply_days = 1
+	ai_max_reply_days = 5
+	
+	on_accept = {
+		new_faith_created_conversion_effect = yes
+
+		# If we're a clan this interaction affects unity
+		accept_faith_conversion_add_clan_unity_effect = yes
+
+		if = {
+			limit = {
+				scope:recipient.highest_held_title_tier = 2
+			}
+			scope:actor = { add_piety = -500 }
+		}
+		if = {
+			limit = {
+				scope:recipient.highest_held_title_tier = 3
+			}
+			scope:actor = { add_piety = -1000 }
+		}
+		if = {
+			limit = {
+				scope:recipient.highest_held_title_tier = 4
+			}
+			scope:actor = { add_piety = -2000 }
+		}
+		if = {
+			limit = {
+				scope:recipient.highest_held_title_tier = 5
+			}
+			scope:actor = { add_piety = -4000 }
+		}
+		scope:actor = {
+			send_interface_toast = {
+				title = gpt_conversion_toast
+				right_icon = scope:recipient
+				custom_tooltip = { text = gpt_faith_conversion }
+			}
+		}
+	}
+
+	on_decline = {
+		send_interface_message = {
+			type = event_generic_neutral
+			title = ask_for_conversion_decline_notification
+			right_icon = scope:recipient
+		}
+
+		# If we're a clan this interaction affects unity
+		refuse_faith_conversion_add_clan_unity_effect = yes
+	}
+
+	#Use hook
+	send_option = {
+		is_valid = {
+			always = no # Only here to ensure that religion_demand_conversion_default_modifier doesn't error
+		}
+		flag = hook
+		localization = SCHEME_HOOK
+	}
+	send_options_exclusive = no
+}

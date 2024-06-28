@@ -1,0 +1,870 @@
+﻿
+
+gpt_insult_interaction = {
+	category = interaction_category_hostile
+	desc = gpt_insult_interaction_desc
+    interface_priority = 1
+	auto_accept = yes
+	icon = rival
+
+	cooldown_against_recipient = { years = 5 }
+	cooldown = { years = 1 }
+
+	is_shown = {
+		OR = {
+			has_game_rule = GPT_interactions_enabled
+			has_game_rule = GPT_trade_enabled
+		}
+		scope:actor = { is_ai = no highest_held_title_tier >= 2 }
+		scope:recipient = { 
+			NOT = { this = scope:actor }
+			highest_held_title_tier >= 2
+		}
+	}
+
+	is_valid_showing_failures_only = {
+
+		custom_description = {
+			text = "gpt_only_independent"
+			OR = {
+				AND = {
+					scope:actor = { is_independent_ruler = yes }
+					scope:recipient = { is_independent_ruler = yes }
+				}
+				AND = {
+					scope:actor = { is_independent_ruler = no }
+					scope:recipient = { is_independent_ruler = no }
+					scope:actor.liege = scope:recipient.liege
+				}
+			}
+		}
+
+        NOT = { scope:recipient = { has_relation_rival = scope:actor } }
+
+		scope:actor = {
+			is_adult = yes
+			is_imprisoned = no
+		}
+
+		custom_description = {
+			text = "gpt_opinion_not_low_enough_insult"
+			scope:recipient = {
+				opinion = {
+					value <= 0
+					target = scope:actor
+				}
+			}
+		}
+	}
+
+	on_accept = {
+		scope:actor = { 
+
+			add_character_flag = { flag = gpt_has_insulted_someone years = 3 }
+
+			# Add/remove stress based on traits
+			stress_impact = {
+				# Penalties
+				forgiving = 12
+				calm = 12
+				craven = 12
+				humble = 12
+				patient = 12
+
+				# Bonuses
+				wrathful = -8
+				vengeful = -8
+				arrogant = -8
+				paranoid = -16
+				impatient = -8
+			}
+
+			# Add stress if the recipient is a child
+			if = {
+				limit = {
+					scope:recipient = { age < adulthood_start_age }
+				}
+
+				custom_tooltip = {
+					text = far_declare_rival_stress_gain_on_child
+					add_stress = 24
+				}
+			}
+
+			# Add/remove prestige based on the difference
+			# in tier between the two characters.
+			if = {
+				# If the recipient is a higher tier than the actor
+				# then the actor gains prestige.
+				limit = {
+					tier_difference = {
+						target = scope:recipient
+						value <= 0
+					}
+				}
+
+				add_prestige = {
+					value = 0
+					if = { limit = { scope:recipient.highest_held_title_tier = 5 } add = 175 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = 150 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = 125 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = 100 }
+				}
+				add_piety = {
+					value = -50
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 5 } add = -25 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = -50 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = -75 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = -100 }
+				}
+			}
+
+			if = {
+				# If the recipient is a lower tier than the actor
+				# then the actor loses prestige.
+				#
+				# It's easy to declare rivalry against the underdog, isn't it?
+				limit = {
+					tier_difference = {
+						target = scope:recipient
+						value >= 1
+					}
+				}
+
+				add_prestige = {
+					value = 0
+					if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = 75 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = 50 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = 25 }
+				}
+				add_piety = {
+					value = -50
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = -15 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = -30 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = -60 }
+				}
+			}
+
+			send_interface_message = {
+				type = event_gpt_liege_good_with_text
+				title = gpt_you_insulted_t
+				desc = gpt_you_insulted_d
+				left_icon = scope:recipient
+				show_as_tooltip = { custom_tooltip = { text = gpt_you_insulted_tip } }
+			}
+		}
+
+		scope:recipient = { 
+			if = {
+				limit = {
+					OR = {
+						has_trait = forgiving
+						has_trait = calm
+						has_trait = callous
+					}
+				}
+				add_opinion = {
+					modifier = gpt_insulted_calm
+					target = scope:actor
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_trait = wrathful
+						has_trait = arrogant
+						has_trait = paranoid
+					}
+				}
+				add_opinion = {
+					modifier = gpt_insulted_rage
+					target = scope:actor
+				}
+			}
+			else = {
+				add_opinion = {
+					modifier = gpt_insulted_normal
+					target = scope:actor
+				}
+			}
+
+			add_prestige = {
+				value = 0
+				if = { limit = { scope:recipient.highest_held_title_tier = 5 } add = -80 }
+				if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = -60 }
+				if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = -40 }
+				if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = -20 }
+			}
+
+			send_interface_message = {
+				type = event_gpt_liege_bad_with_text
+				title = gpt_i_insulted_t
+				desc = gpt_i_insulted_d
+				left_icon = scope:actor
+				show_as_tooltip = { 
+					custom_tooltip = { text = gpt_you_insulted_ploss_tip } custom_tooltip = { text = gpt_i_insulted_tip }
+				}
+			}
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+	 	base = 0
+	}
+}
+
+gpt_insult_interaction_ai = {
+	category = interaction_category_hostile
+	desc = gpt_insult_interaction_desc
+    interface_priority = 1
+	auto_accept = yes
+	icon = rival
+
+	cooldown_against_recipient = { years = 5 }
+	cooldown = { years = 1 }
+
+	is_shown = {
+		OR = {
+			has_game_rule = GPT_interactions_enabled
+			has_game_rule = GPT_trade_enabled
+		}
+		scope:actor = { is_ai = yes highest_held_title_tier >= 2 }
+		scope:recipient = { 
+			NOT = { this = scope:actor }
+			highest_held_title_tier >= 2
+		}
+	}
+
+	is_valid_showing_failures_only = {
+
+		custom_description = {
+			text = "gpt_only_independent"
+			OR = {
+				AND = {
+					scope:actor = { is_independent_ruler = yes }
+					scope:recipient = { is_independent_ruler = yes }
+				}
+				AND = {
+					scope:actor = { is_independent_ruler = no }
+					scope:recipient = { is_independent_ruler = no }
+					scope:actor.liege = scope:recipient.liege
+				}
+			}
+		}
+
+        NOT = { scope:recipient = { has_relation_rival = scope:actor } }
+
+		scope:actor = {
+			is_adult = yes
+			is_imprisoned = no
+		}
+
+		custom_description = {
+			text = "gpt_opinion_not_low_enough_insult"
+			scope:actor = {
+				opinion = {
+					value <= 0
+					target = scope:recipient 
+				}
+			}
+		}
+	}
+
+	on_accept = {
+		scope:actor = { 
+
+			add_character_flag = { flag = gpt_has_insulted_someone years = 3 }
+
+			# Add/remove prestige based on the difference
+			# in tier between the two characters.
+			if = {
+				# If the recipient is a higher tier than the actor
+				# then the actor gains prestige.
+				limit = {
+					tier_difference = {
+						target = scope:recipient
+						value <= 0
+					}
+				}
+
+				add_prestige = {
+					value = 0
+					if = { limit = { scope:recipient.highest_held_title_tier = 5 } add = 175 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = 150 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = 125 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = 100 }
+				}
+				add_piety = {
+					value = -50
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 5 } add = -25 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = -50 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = -75 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = -100 }
+				}
+			}
+
+			if = {
+				# If the recipient is a lower tier than the actor
+				# then the actor loses prestige.
+				#
+				# It's easy to declare rivalry against the underdog, isn't it?
+				limit = {
+					tier_difference = {
+						target = scope:recipient
+						value >= 1
+					}
+				}
+
+				add_prestige = {
+					value = 0
+					if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = 75 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = 50 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = 25 }
+				}
+				add_piety = {
+					value = -50
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = -15 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = -30 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = -60 }
+				}
+			}
+
+			send_interface_message = {
+				type = event_gpt_liege_good_with_text
+				title = gpt_you_insulted_t
+				desc = gpt_you_insulted_d
+				left_icon = scope:recipient
+				show_as_tooltip = { custom_tooltip = { text = gpt_you_insulted_tip } }
+			}
+		}
+
+		scope:recipient = { 
+			if = {
+				limit = {
+					OR = {
+						has_trait = forgiving
+						has_trait = calm
+						has_trait = callous
+					}
+				}
+				add_opinion = {
+					modifier = gpt_insulted_calm
+					target = scope:actor
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_trait = wrathful
+						has_trait = arrogant
+						has_trait = paranoid
+					}
+				}
+				add_opinion = {
+					modifier = gpt_insulted_rage
+					target = scope:actor
+				}
+			}
+			else = {
+				add_opinion = {
+					modifier = gpt_insulted_normal
+					target = scope:actor
+				}
+			}
+
+			add_prestige = {
+				value = 0
+				if = { limit = { scope:recipient.highest_held_title_tier = 5 } add = -80 }
+				if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = -60 }
+				if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = -40 }
+				if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = -20 }
+			}
+
+			send_interface_message = {
+				type = event_gpt_liege_bad_with_text
+				title = gpt_i_insulted_t
+				desc = gpt_i_insulted_d
+				left_icon = scope:actor
+				show_as_tooltip = { 
+					custom_tooltip = { text = gpt_you_insulted_ploss_tip } custom_tooltip = { text = gpt_i_insulted_tip }
+				}
+			}
+		}
+	}
+
+	ai_potential = {
+		is_at_war = no
+	}
+
+	ai_frequency = 24
+
+	ai_targets = {
+		ai_recipients = neighboring_rulers
+		max = 20
+	}
+
+	ai_targets = {
+		ai_recipients = peer_vassals
+		max = 20
+	}
+
+	ai_will_do = {
+	 	base = 0
+		modifier = {
+	 	 	add = 20
+			OR = {
+				has_trait = vengeful
+				has_trait = ambitious
+				has_trait = greedy
+				has_trait = sadistic
+				has_trait = wrathful
+				has_trait = arrogant
+				has_trait = brave
+				has_trait = arbitrary
+				has_trait = paranoid
+			}
+			NOR = { 
+				has_trait = craven
+				has_trait = forgiving
+				has_trait = calm
+			}
+	 	}
+		modifier = {
+	 	 	add = -100
+		 	scope:actor = {
+	 	 		opinion = {
+		 			value <= -40
+		 			target = scope:recipient
+	 	 		}
+	 	 	}
+	 	}
+		modifier = {
+	 	 	add = -100
+		 	scope:recipient = {
+				OR = {
+					highest_held_title_tier < scope:actor.highest_held_title_tier
+				}
+	 	 	}
+	 	}
+		modifier = {
+	 	 	add = -100
+			scope:actor = {
+				highest_held_title_tier = 2
+			}
+			scope:recipient = {
+				highest_held_title_tier >= 3
+			}
+	 	}
+		modifier = {
+	 	 	add = -100
+			scope:actor = {
+				highest_held_title_tier = 3
+			}
+			scope:recipient = {
+				highest_held_title_tier = 5
+			}
+	 	}
+	}
+}
+
+
+
+
+
+
+
+
+
+far_declare_rival_interaction = {
+	category = interaction_category_hostile
+	desc = far_declare_rival_interaction_desc
+    interface_priority = 1
+	auto_accept = yes
+	icon = rival
+
+	cooldown = { years = 5 }
+
+	is_shown = {
+		OR = {
+			has_game_rule = GPT_interactions_enabled
+			has_game_rule = GPT_trade_enabled
+		}
+		scope:actor = { is_ai = no highest_held_title_tier >= 2 }
+		scope:recipient = { 
+			NOT = { this = scope:actor }
+			highest_held_title_tier >= 2
+		}
+	}
+
+	is_valid_showing_failures_only = {
+
+		custom_description = {
+			text = "gpt_only_independent"
+			OR = {
+				AND = {
+					scope:actor = { is_independent_ruler = yes }
+					scope:recipient = { is_independent_ruler = yes }
+				}
+				AND = {
+					scope:actor = { is_independent_ruler = no }
+					scope:recipient = { is_independent_ruler = no }
+					scope:actor.liege = scope:recipient.liege
+				}
+			}
+		}
+        NOT = { scope:recipient = { has_relation_rival = scope:actor } }
+		
+		NOT = { scope:actor = { num_of_relation_rival >= 4 } }
+		NOT = { scope:recipient = { num_of_relation_rival >= 4 } }
+
+		scope:actor = {
+			is_adult = yes
+			is_imprisoned = no
+		}
+
+		custom_description = {
+			text = "gpt_opinion_not_low_enough"
+			scope:recipient = {
+				opinion = {
+					value <= medium_negative_opinion
+					target = scope:actor
+				}
+			}
+		}
+	}
+
+	on_accept = {
+		scope:actor = { 
+			set_relation_rival = scope:recipient
+
+			# Add/remove stress based on traits
+			stress_impact = {
+				# Penalties
+				forgiving = 24
+				calm = 24
+				craven = 24
+				humble = 24
+				patient = 24
+
+				# Bonuses
+				wrathful = -16
+				vengeful = -16
+				arrogant = -16
+				paranoid = -32
+				impatient = -16
+			}
+
+			# Add stress if the recipient is a child
+			if = {
+				limit = {
+					scope:recipient = { age < adulthood_start_age }
+				}
+
+				custom_tooltip = {
+					text = far_declare_rival_stress_gain_on_child
+					add_stress = medium_stress_gain
+				}
+			}
+
+			# Add/remove prestige based on the difference
+			# in tier between the two characters.
+			if = {
+				# If the recipient is a higher tier than the actor
+				# then the actor gains prestige.
+				limit = {
+					tier_difference = {
+						target = scope:recipient
+						value <= 0
+					}
+				}
+
+				add_prestige = {
+					value = 0
+					if = { limit = { scope:recipient.highest_held_title_tier = 5 } add = 250 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = 225 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = 175 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = 125 }
+				}
+				add_piety = {
+					value = -75
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 5 } add = -25 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = -50 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = -75 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = -100 }
+				}
+
+				# Add the 'Challenged Goliath' modifier
+				add_character_modifier = {
+					modifier = far_challenged_goliath
+					years = 5
+				}
+			}
+
+			if = {
+				# If the recipient is a lower tier than the actor
+				# then the actor loses prestige.
+				#
+				# It's easy to declare rivalry against the underdog, isn't it?
+				limit = {
+					tier_difference = {
+						target = scope:recipient
+						value >= 1
+					}
+				}
+
+				add_prestige = {
+					value = 0
+					if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = 125 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = 100 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = 75 }
+				}
+				add_piety = {
+					value = -75
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = -15 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = -30 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = -60 }
+				}
+
+				# Add the 'Agitator' modifier
+				add_character_modifier = {
+					modifier = far_agitator
+					years = 5
+				}
+			}
+
+			send_interface_message = {
+				type = event_gpt_liege_good_with_text
+				title = gpt_you_declared_rival_t
+				desc = gpt_you_declared_rival_d
+				left_icon = scope:recipient
+				show_as_tooltip = { custom_tooltip = { text = gpt_you_declared_rival_tip } }
+			}
+		}
+
+		scope:recipient = { 
+			send_interface_message = {
+				type = event_gpt_liege_bad_with_text
+				title = gpt_i_declared_rival_t
+				desc = gpt_i_declared_rival_d
+				left_icon = scope:actor
+				show_as_tooltip = { custom_tooltip = { text = gpt_i_declared_rival_tip } }
+			}
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+	 	base = 0
+	}
+}
+
+far_declare_rival_interaction_ai = {
+	category = interaction_category_hostile
+	desc = far_declare_rival_interaction_desc
+    interface_priority = 1
+	auto_accept = yes
+	icon = rival
+
+	cooldown = { years = 5 }
+	
+	is_shown = {
+		OR = {
+			has_game_rule = GPT_interactions_enabled
+			has_game_rule = GPT_trade_enabled
+		}
+		scope:actor = { is_ai = yes highest_held_title_tier >= 2 }
+		scope:recipient = { 
+			NOT = { this = scope:actor }
+			highest_held_title_tier >= 3
+		}
+	}
+
+	is_valid_showing_failures_only = {
+
+		custom_description = {
+			text = "gpt_only_independent"
+			OR = {
+				AND = {
+					scope:actor = { is_independent_ruler = yes }
+					scope:recipient = { is_independent_ruler = yes }
+				}
+				AND = {
+					scope:actor = { is_independent_ruler = no }
+					scope:recipient = { is_independent_ruler = no }
+					scope:actor.liege = scope:recipient.liege
+				}
+			}
+		}
+        NOT = { scope:recipient = { has_relation_rival = scope:actor } }
+		
+		NOT = { scope:actor = { num_of_relation_rival >= 4 } }
+		NOT = { scope:recipient = { num_of_relation_rival >= 4 } }
+
+		scope:actor = {
+			is_adult = yes
+			is_imprisoned = no
+		}
+
+		custom_description = {
+			text = "gpt_opinion_not_low_enough"
+			scope:actor = {
+				opinion = {
+					value <= medium_negative_opinion
+					target = scope:recipient
+				}
+			}
+		}
+	}
+
+	on_accept = {
+		scope:actor = { 
+			set_relation_rival = scope:recipient
+
+			# Add/remove prestige based on the difference
+			# in tier between the two characters.
+			if = {
+				# If the recipient is a higher tier than the actor
+				# then the actor gains prestige.
+				limit = {
+					tier_difference = {
+						target = scope:recipient
+						value <= 0
+					}
+				}
+
+				add_prestige = {
+					value = 0
+					if = { limit = { scope:recipient.highest_held_title_tier = 5 } add = 250 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = 225 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = 175 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = 125 }
+				}
+				add_piety = {
+					value = -75
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 5 } add = -25 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = -50 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = -75 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = -100 }
+				}
+
+				# Add the 'Challenged Goliath' modifier
+				add_character_modifier = {
+					modifier = far_challenged_goliath
+					years = 5
+				}
+			}
+
+			if = {
+				# If the recipient is a lower tier than the actor
+				# then the actor loses prestige.
+				#
+				# It's easy to declare rivalry against the underdog, isn't it?
+				limit = {
+					tier_difference = {
+						target = scope:recipient
+						value >= 1
+					}
+				}
+
+				add_prestige = {
+					value = 0
+					if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = 125 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = 100 }
+					if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = 75 }
+				}
+				add_piety = {
+					value = -75
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 4 } add = -15 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 3 } add = -30 }
+				 #	if = { limit = { scope:recipient.highest_held_title_tier = 2 } add = -60 }
+				}
+
+				# Add the 'Agitator' modifier
+				add_character_modifier = {
+					modifier = far_agitator
+					years = 5
+				}
+			}
+
+			send_interface_message = {
+				type = event_gpt_liege_good_with_text
+				title = gpt_you_declared_rival_t
+				desc = gpt_you_declared_rival_d
+				left_icon = scope:recipient
+				show_as_tooltip = { custom_tooltip = { text = gpt_you_declared_rival_tip } }
+			}
+		}
+
+		scope:recipient = { 
+			send_interface_message = {
+				type = event_gpt_liege_bad_with_text
+				title = gpt_i_declared_rival_t
+				desc = gpt_i_declared_rival_d
+				left_icon = scope:actor
+				show_as_tooltip = { custom_tooltip = { text = gpt_i_declared_rival_tip } }
+			}
+		}
+	}
+
+	ai_potential = {
+		is_at_war = no
+		is_independent_ruler = yes
+		highest_held_title_tier >= 3
+	}
+
+	ai_frequency = 24
+
+	ai_targets = {
+		ai_recipients = neighboring_rulers
+		max = 20
+	}
+
+	ai_will_do = {
+	 	base = 0
+		modifier = {
+	 	 	add = 25
+			OR = {
+				has_trait = vengeful
+				has_trait = ambitious
+				has_trait = greedy
+				has_trait = sadistic
+				has_trait = wrathful
+				has_trait = arrogant
+				has_trait = brave
+			}
+			NOR = { 
+				has_trait = craven
+				has_trait = forgiving
+				has_trait = calm
+				has_trait = compassionate
+				has_trait = humble
+			}
+	 	}
+		modifier = {
+	 	 	add = -100
+		 	scope:recipient = {
+				OR = {
+					highest_held_title_tier < scope:actor.highest_held_title_tier
+					is_independent_ruler = no
+					is_adult = no
+				}
+	 	 	}
+	 	}
+		modifier = {
+	 	 	add = -100
+			scope:actor = {
+				highest_held_title_tier = 3
+			}
+			scope:recipient = {
+				highest_held_title_tier = 5
+			}
+	 	}
+	}
+}

@@ -1,0 +1,33 @@
+﻿mz_call_upon_amazon_alliance_decision_effect_0 = {
+	global = mz_call_upon_amazon_alliance_decision_effect_0
+	first = mz_call_upon_amazon_alliance_decision_effect_0
+}
+
+mz_call_upon_amazon_alliance_decision_effect_warning = {
+	global = mz_call_upon_amazon_alliance_decision_effect_warning
+	first = mz_call_upon_amazon_alliance_decision_effect_warning	
+}
+
+mz_amazon_cb_adventure_decision_effect_warning = {
+	global = mz_amazon_cb_adventure_decision_effect_warning
+	first = mz_amazon_cb_adventure_decision_effect_warning
+}
+
+mz_find_new_amazonian_faith_decision_effect_desc = {
+	global = mz_find_new_amazonian_faith_decision_effect_desc
+	first = mz_find_new_amazonian_faith_decision_effect_desc
+}
+
+remove_culture_tradition = {
+	global = REMOVE_CULTURAL_TRADITION
+	global_past = MZ_REMOVE_CULTURAL_TRADITION_PAST
+	third = REMOVE_CULTURAL_TRADITION_THIRD
+	third_past = MZ_REMOVE_CULTURAL_TRADITION_THIRD_PAST
+}
+
+add_culture_tradition = {
+	global = ADD_CULTURAL_TRADITION
+	global_past = MZ_ADD_CULTURAL_TRADITION_PAST
+	third = ADD_CULTURAL_TRADITION_THIRD
+	third_past = MZ_ADD_CULTURAL_TRADITION_THIRD_PAST
+}

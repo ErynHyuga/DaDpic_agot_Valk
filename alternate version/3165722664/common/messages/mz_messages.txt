@@ -1,0 +1,40 @@
+﻿### Message SFX
+@default_msg_soundeffect = "event:/SFX/UI/Notifications/Messages/sfx_ui_message_theme_neutral"
+@msg_neutral_soundeffect = "event:/SFX/UI/Notifications/Messages/sfx_ui_message_theme_neutral"
+@msg_good_soundeffect = "event:/SFX/UI/Notifications/Messages/sfx_ui_message_theme_positive"
+@msg_bad_soundeffect = "event:/SFX/UI/Notifications/Messages/sfx_ui_message_theme_negative"
+@msg_diarchy_update_soundeffect = "event:/DLC/EP2/SFX/Events/Regencies/ep2_evn_regencies_update"
+
+## NEW MESSAGE STYLES
+
+mz_event_money_good = {
+	icon = "money"
+	title = event_message_title
+	desc = event_message_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+mz_event_control_good = {
+	icon = "control"
+	title = event_message_title
+	desc = event_message_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}
+
+mz_event_control_bad = {
+	icon = "control"
+	title = event_message_title
+	desc = event_message_effect
+	style = bad
+	soundeffect = @msg_bad_soundeffect
+}
+
+mz_event_activity_good = {
+	icon = "activity"
+	title = event_message_title
+	desc = event_message_effect
+	style = good
+	soundeffect = @msg_good_soundeffect
+}

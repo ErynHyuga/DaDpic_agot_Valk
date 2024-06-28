@@ -1,0 +1,454 @@
+﻿## Hire consort decision -- for non-AI rulers in same-sex marriages to get consorts
+mz_hire_consort_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_recruitment.dds"
+	major = yes
+
+	desc = mz_hire_consort_decision_desc
+	selection_tooltip = mz_hire_consort_decision_tooltip
+
+	ai_check_interval = 12
+
+	is_shown = {
+		is_ruler = yes
+		is_married = yes
+		NOT = { employs_court_position = mz_court_consort_court_position }
+		any_consort = {
+			count = all
+			sex_same_as = root
+		}
+		OR = {
+			allowed_more_spouses = yes
+			allowed_more_concubines = yes
+		}
+		#trigger_if = {
+		#	limit = { is_ai = no }
+		#	any_consort = {
+		#		count = all
+		#		sex_same_as = root
+		#	}
+		#}
+	}
+
+	cooldown = { days = 365 }
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+	}
+
+	effect = {
+		if = {
+			limit = { is_ai = no }
+			trigger_event = { id = mz_court_consort.1001 }
+		}
+		else = { 
+			trigger_event = { id = mz_court_consort.1100 }
+		}
+		custom_tooltip = mz_hire_consort_decision_effect_tooltip
+	}
+	
+	ai_potential = {
+		is_landed = yes
+		allowed_to_marry_same_sex_trigger = yes
+		#mz_recommends_more_children_decision_trigger = yes
+		NOR = { 
+			employs_court_position = mz_court_consort_court_position
+			any_court_position_holder = { type = mz_court_consort_court_position }
+		}
+	}
+
+	ai_will_do = { 
+		base = 100
+	}
+}
+
+## Conceive Child major decision -- if we have few children
+mz_conceive_child_major_decision = {
+	picture = "gfx/interface/illustrations/decisions/mz_decision_childbirth.dds"
+	major = yes
+
+	desc = mz_conceive_child_decision_desc
+	selection_tooltip = mz_conceive_child_decision_tooltip
+
+	is_shown = {
+		employs_court_position = mz_court_consort_court_position
+		any_court_position_holder = {
+			type = mz_court_consort_court_position
+			NOT = { has_trait = pregnant }
+		}
+		mz_recommends_more_children_decision_trigger = yes
+		exists = location
+	}
+
+	cooldown = { days = 300 }
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		custom_description = {
+			text = mz_fertility_trigger
+			fertility > 0
+		}
+		NOT = { has_trait = pregnant }
+		custom_description = {
+			text = mz_same_location_as_consort
+			any_court_position_holder = {
+				type = mz_court_consort_court_position
+				NOT = { has_trait = pregnant }
+				exists = location
+				location = prev.location
+			}
+		}
+		NOR = { 
+			has_character_modifier = rejected_from_marriage_bed_modifier 
+			court_position:mz_court_consort_court_position = { has_character_modifier = rejected_from_marriage_bed_modifier }
+		}
+	}
+
+	effect = {
+		trigger_event = { id = mz_court_consort.2001 }
+		custom_tooltip = mz_conceive_child_decision_effect_tooltip
+		if = {
+			limit = {
+				any_court_position_holder = {
+					type = mz_court_consort_court_position
+					is_close_or_extended_family_of = root
+					NOT = { has_trait = pure_blooded }
+				}
+			}
+			custom_tooltip = mz_conceive_child_decision_effect_inbred_warning
+		}
+	}
+
+	ai_check_interval = 12
+	ai_potential = {
+		is_landed = yes
+		is_available_ai_adult = yes
+		allowed_to_marry_same_sex_trigger = yes
+		employs_court_position = mz_court_consort_court_position
+		any_court_position_holder = {
+			type = mz_court_consort_court_position
+			is_available_ai_adult = yes
+			NOT = { has_trait = pregnant }
+		}
+		NOT = { has_trait = pregnant }
+		mz_recommends_more_children_decision_trigger = yes
+	}
+	ai_will_do = { 
+		base = 100 # AI should do this if it's availible
+		modifier = {
+			factor = 0.5
+			any_child = { count >= 5 } # Slows the rate if it's becoming too excessive
+		}
+	}
+}
+
+## A quick-fix decision to try and get family to return if they wander off
+mz_call_family_back_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+
+	desc = mz_call_family_back_decision_desc
+	selection_tooltip = mz_call_family_back_decision_tooltip
+
+	is_shown = {
+		OR = {
+			AND = {
+				OR = {
+					has_realm_law = female_only_law
+					has_realm_law = female_preference_law
+					has_realm_law = equal_law
+				}
+				any_child = {
+					mz_can_return_to_court = yes
+					is_female = yes
+				}
+			}
+			AND = {
+				OR = {
+					has_realm_law = male_only_law
+					has_realm_law = male_preference_law
+					has_realm_law = equal_law
+				}
+				any_child = {
+					mz_can_return_to_court = yes
+					is_male = yes
+				}
+			}
+			AND = {
+				any_child = {
+					is_courtier_of = root
+					any_child = { mz_can_return_to_court = yes }
+				}
+			}
+		}
+	}
+
+	cooldown = { days = 365 }
+
+	is_valid_showing_failures_only = {
+		NOT = { has_trait = incapable }
+		is_adult = yes
+		is_imprisoned = no
+	}
+
+	effect = {
+		if = {
+			limit = {
+				OR = {
+					has_realm_law = female_only_law
+					has_realm_law = female_preference_law
+					has_realm_law = equal_law
+				}
+			}
+			every_child = {
+				limit = {
+					mz_can_return_to_court = yes
+					is_female = yes
+				}
+				save_temporary_scope_as = mz_this
+				root = { add_courtier = scope:mz_this }
+				every_child = {
+					limit = { mz_can_return_to_court = yes }
+					save_temporary_scope_as = mz_this
+					root = { add_courtier = scope:mz_this }
+					every_spouse = {
+						limit = { mz_can_return_to_court = yes }
+						save_temporary_scope_as = mz_this
+						root = { add_courtier = scope:mz_this }		
+					}			
+				}
+				every_spouse = {
+					limit = { mz_can_return_to_court = yes }
+					save_temporary_scope_as = mz_this
+					root = { add_courtier = scope:mz_this }		
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_realm_law = male_only_law
+					has_realm_law = male_preference_law
+					has_realm_law = equal_law
+				}
+			}
+			every_child = {
+				limit = {
+					mz_can_return_to_court = yes
+					is_male = yes
+				}
+				save_temporary_scope_as = mz_this
+				root = { add_courtier = scope:mz_this }
+				every_spouse = {
+					limit = { mz_can_return_to_court = yes }
+					save_temporary_scope_as = mz_this
+					root = { add_courtier = scope:mz_this }		
+				}
+				every_child = {
+					limit = { mz_can_return_to_court = yes }
+					save_temporary_scope_as = mz_this
+					root = { add_courtier = scope:mz_this }
+					every_spouse = {
+						limit = { mz_can_return_to_court = yes }
+						save_temporary_scope_as = mz_this
+						root = { add_courtier = scope:mz_this }		
+					}		
+				}
+			}
+		}
+		every_child = {
+			limit = { is_courtier_of = root }
+			every_spouse = {
+				limit = { mz_can_return_to_court = yes }
+				save_temporary_scope_as = mz_this
+				root = { add_courtier = scope:mz_this }		
+			}
+			every_child = {
+				limit = { mz_can_return_to_court = yes }
+				save_temporary_scope_as = mz_this
+				root = { add_courtier = scope:mz_this }
+				every_spouse = {
+					limit = { mz_can_return_to_court = yes }
+					save_temporary_scope_as = mz_this
+					root = { add_courtier = scope:mz_this }		
+				}	
+			}
+		}
+	}
+
+	ai_check_interval = 0
+	ai_will_do = { base = 0 }	
+}
+
+## Adopt Child
+mz_adopt_child_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+
+	is_shown = {
+		# Basic decisions
+		exists = dynasty
+		OR = {
+			# Cultures that default with this tradition should still be able to adopt
+			culture = { has_cultural_parameter = allows_adoption }
+			NOT = { has_game_rule = no_adoption }
+		}
+		is_adult = yes
+		OR = {
+			# Game rule as an overriding factor
+			has_game_rule = adoption_always_allowed
+			# You have no kids and your fertility is low
+			AND = {
+				any_child = {
+					count < 1
+				}
+				fertility <= low_fertility
+			}
+			# You are married to a same-sex partner
+			AND = {
+				is_married = yes
+				# Opposite sex consort with some fertility is not valid for this
+				NOT = {
+					OR = {
+						AND = {
+							any_consort = { 
+								is_female = yes 
+								fertility > low_fertility
+							}
+							is_male = yes
+						}
+						AND = {
+							any_consort = { 
+								is_male = yes 
+								fertility > low_fertility
+							}
+							is_female = yes
+						}
+					}
+				}
+			}
+			# You are unmarried and uninterested in having biological children
+			AND = {
+				is_married = no
+				OR = {
+					has_sexuality = asexual
+					has_sexuality = homosexual
+				}
+			}
+			# You have a cultrad that lets you adopt
+			culture = { has_cultural_parameter = allows_adoption }
+		}
+		OR = {
+			# You are unmarried
+			is_married = no
+			# You are the dominant partner in at least one of your marriages
+			AND = {
+				is_female = yes
+				matrilinear_marriage = yes
+			}
+			AND = {
+				is_male = yes
+				matrilinear_marriage = no
+			}
+			# Your marriage is same-sex
+			trigger_if = { # If we're in a polygamous marriage...
+				limit = { exists = primary_spouse }
+				primary_spouse = { sex_same_as = root }
+			}
+			trigger_else = { # ...or otherwise.
+				any_spouse = { sex_same_as = root }
+			}
+		}
+	}
+
+	cooldown = { days = 720 }
+
+	is_valid = { # Child gender check
+		trigger_if = {
+			limit = {
+				OR = {
+					has_realm_law = male_preference_law
+					has_realm_law = male_only_law
+				}	
+			}
+			custom_description = {
+				text = mz_fewer_than_two_sons_trigger
+				any_child = {
+					count < 2
+					is_male = yes
+				}
+			}	
+		}
+		trigger_else_if = {
+			limit = {
+				OR = {
+					has_realm_law = female_preference_law
+					has_realm_law = female_only_law
+				}	
+			}
+			custom_description = {
+				text = mz_fewer_than_two_daughters_trigger
+				any_child = {
+					count < 2
+					is_female = yes
+				}
+			}	
+		}
+		trigger_else = {
+			custom_description = {
+				text = mz_fewer_than_two_children_trigger
+				any_child = { count < 2 }
+			}		
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_capable_adult = yes
+		is_imprisoned = no
+	}
+
+	effect = {
+		custom_tooltip = mz_adopt_child_decision_tt
+		trigger_event = mz_adopt_child.0001
+	}	
+
+	ai_check_interval = 60
+	ai_potential = {
+		is_landed = yes
+		is_available_ai_adult = yes
+		trigger_if = {
+			limit = {
+				OR = {
+					has_realm_law = male_preference_law
+					has_realm_law = male_only_law
+				}
+				any_child = {
+					count < 2
+					is_male = yes
+				}
+			}
+		}
+		trigger_else_if = {
+			limit = {
+				OR = {
+					has_realm_law = female_preference_law
+					has_realm_law = female_only_law
+				}	
+			}
+			any_child = {
+				count < 2
+				is_female = yes
+			}
+		}
+		trigger_else = {
+			any_child = { count < 2 }	
+		}
+		OR = {
+			any_consort = { 
+				count = all
+				sex_same_as = prev
+			}
+			fertility <= low_fertility
+		}
+	}
+	ai_will_do = { base = 100 }
+}

@@ -1,0 +1,29 @@
+﻿mz_lovers_pox_treatment_decision = { # Attempt to treat lover's pox
+	picture = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	major = yes
+	cooldown = { days = 1095 }
+
+	is_shown = {
+		is_ai = no
+		OR = {
+			has_trait = lovers_pox 
+			has_trait = early_great_pox
+		}
+	}
+
+	is_valid = {
+		custom_description = {
+			text = mz_lovers_pox_treatment_decision_requirements
+			court_physician_available_when_traveling_trigger = yes
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_adult = yes
+	}
+
+	effect = { trigger_event = mz_health.2001 }
+	
+	ai_check_interval = 0 # Never, ai handles this through on_action
+}

@@ -1,0 +1,461 @@
+﻿
+### Alliance Progression decisions: Contact -> Negotiations -> Settlements -> Integration -> Alliance
+mz_amazon_contact_decision = {
+	picture = "gfx/interface/illustrations/decisions/mz_decision_recruit_amazon.dds"
+	sort_order = 75
+	major = yes
+
+	ai_check_interval = 120
+	ai_potential = {
+		is_landed = yes
+		exists = dynasty
+		is_dynast = yes
+		is_female = yes
+	}
+	ai_will_do = {
+		base = 0
+		modifier = {
+			add = ai_boldness
+		}
+		modifier = {
+			add = 50
+			has_trait = ambitious
+		}
+		modifier = {
+			add = 100
+			culture = {
+				OR = {
+					has_cultural_tradition = tradition_chivalry
+					has_cultural_tradition = tradition_warrior_culture
+					has_cultural_tradition = tradition_martial_admiration
+					has_cultural_tradition = tradition_chanson_de_geste
+				}
+			}
+		}
+		modifier = {
+			has_trait_rank = {
+				trait = education_martial
+				rank >= 2
+			}
+			add = 50
+		}
+		modifier = {
+			add = 200
+			has_focus_or_focus_trait_trigger = { FOCUS = martial_chivalry_focus }
+		}
+	}
+	
+	cooldown = { years = 5 } # Prevents this from being spammed
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					any_courtier = {
+						count > 1
+						mz_amazon_character_trigger = yes
+					}
+				}
+				desc = mz_amazon_contact_decision_many_desc 
+			}
+			desc = mz_amazon_contact_decision_desc
+		}
+	}
+
+	is_shown = {
+		exists = dynasty
+		is_dynast = yes
+		has_character_flag = mz_amazon_contact_potential
+		any_courtier = {
+			mz_amazon_character_trigger = yes
+		}
+		OR = {
+			has_character_flag = mz_amazon_contact_potential
+			has_character_flag = mz_amazon_contact_weak
+			has_character_flag = mz_amazon_contact_strong
+		}
+		culture:mz_amazonian = { has_cultural_tradition = tradition_diasporic }
+	}	
+
+	is_valid = {
+		custom_tooltip = {
+			text = mz_amazon_contact_decision_requirement_1
+			OR = {
+				AND = {
+					any_courtier = {
+						is_knight = yes
+						is_available = yes
+						is_imprisoned = no
+						mz_amazon_character_trigger = yes
+						OR = {
+							has_relation_best_friend = root
+							has_relation_friend = root
+							has_relation_lover = root
+							has_relation_soulmate = root
+						}	
+					}
+					has_character_flag = mz_amazon_contact_weak
+				}
+				AND = {
+					any_courtier = {
+						is_knight = yes
+						is_available = yes
+						is_imprisoned = no
+						mz_amazon_character_trigger = yes	
+					}
+					has_character_flag = mz_amazon_contact_strong
+				}
+			}
+		}
+		custom_tooltip = {
+			text = mz_amazon_contact_decision_requirement_2
+			any_courtier = {
+				is_knight = yes
+				is_available = yes
+				is_imprisoned = no
+				mz_amazon_character_trigger = yes	
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_female = yes
+	}
+
+	#cost = { }
+
+	effect = {
+		show_as_tooltip = {
+			dynasty = {
+				add_dynasty_modifier = mz_amazon_alliance_rank_1
+			}
+		}
+		trigger_event = mz_amazon_alliance.2001
+		hidden_effect = { 
+			dynasty = { 
+				set_variable = {
+					name = mz_amazon_alliance_rankup_blocker
+					value = yes
+					years = 5
+				}
+			}
+		}
+	}
+}
+
+mz_amazon_negotiations_decision = {
+	picture = "gfx/interface/illustrations/decisions/mz_decision_recruit_amazon.dds"
+	sort_order = 75
+	major = yes
+
+	ai_check_interval = 240
+	ai_potential = {
+		is_landed = yes
+		exists = dynasty
+		is_dynast = yes
+		is_female = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	
+	desc = mz_amazon_negotiations_decision_desc
+
+	cooldown = { years = 10 }
+
+	is_shown = {
+		exists = dynasty
+		is_dynast = yes
+		dynasty = {
+			has_variable = mz_amazon_favor
+			has_dynasty_modifier = mz_amazon_alliance_rank_1
+		}
+	}	
+
+	is_valid = {
+		custom_tooltip = {
+			text = mz_amazon_negotiations_decision_requirements_1
+			dynasty = { has_variable = mz_amazon_favor }
+			dynasty = {
+				var:mz_amazon_favor >= 200
+			}
+		}
+		custom_tooltip = {
+			text = mz_amazon_negotiations_decision_requirements_2
+			any_courtier = {
+				is_available = yes
+				is_imprisoned = no
+				mz_amazon_character_trigger = yes
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_female = yes
+		custom_description = { # Prevented from ranking up again for 5 years
+			text = mz_amazon_alliance_cooldown
+			dynasty ?= {
+				NOT = { has_variable = mz_amazon_alliance_rankup_blocker }
+			}
+		}
+	}
+
+	#cost = { }
+
+	effect = {
+		show_as_tooltip = {
+			dynasty = {
+				add_dynasty_modifier = mz_amazon_alliance_rank_2
+			}
+		}
+		trigger_event = mz_amazon_alliance.2101
+		hidden_effect = { 
+			dynasty = { 
+				set_variable = {
+					name = mz_amazon_alliance_rankup_blocker
+					value = yes
+					years = 5
+				}
+			}
+		}
+	}
+}
+
+mz_amazon_settlements_decision = {
+	picture = "gfx/interface/illustrations/decisions/mz_decision_recruit_amazon.dds"
+	sort_order = 75
+	major = yes
+
+	ai_check_interval = 240
+	ai_potential = {
+		is_landed = yes
+		exists = dynasty
+		is_dynast = yes
+		is_female = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	
+	desc = mz_amazon_settlements_decision_desc
+
+	cooldown = { years = 10 }
+
+	is_shown = {
+		exists = dynasty
+		is_dynast = yes
+		dynasty = {
+			has_variable = mz_amazon_favor
+			has_dynasty_modifier = mz_amazon_alliance_rank_2
+		}
+	}	
+
+	is_valid = {
+		custom_tooltip = {
+			text = mz_amazon_settlements_decision_requirements
+			dynasty = { has_variable = mz_amazon_favor }
+			dynasty = {
+				var:mz_amazon_favor >= 1000
+			}
+		}
+		custom_tooltip = {
+			text = mz_amazon_negotiations_decision_requirements_2
+			any_courtier = {
+				is_available = yes
+				is_imprisoned = no
+				mz_amazon_character_trigger = yes
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_female = yes
+		custom_description = { # Prevented from ranking up again for 5 years
+			text = mz_amazon_alliance_cooldown
+			dynasty ?= {
+				NOT = { has_variable = mz_amazon_alliance_rankup_blocker }
+			}
+		}		
+	}
+
+	#cost = { }
+
+	effect = {
+		show_as_tooltip = {
+			dynasty = {
+				add_dynasty_modifier = mz_amazon_alliance_rank_3
+			}
+		}
+		trigger_event = mz_amazon_alliance.2201
+		hidden_effect = { 
+			dynasty = { 
+				set_variable = {
+					name = mz_amazon_alliance_rankup_blocker
+					value = yes
+					years = 5
+				}
+			}
+		}
+	}
+}
+
+mz_amazon_integration_decision = {
+	picture = "gfx/interface/illustrations/decisions/mz_decision_recruit_amazon.dds"
+	sort_order = 75
+	major = yes
+
+	ai_check_interval = 240
+	ai_potential = {
+		is_landed = yes
+		exists = dynasty
+		is_dynast = yes
+		is_female = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	
+	desc = mz_amazon_integration_decision_desc
+
+	cooldown = { years = 10 }
+
+	is_shown = {
+		exists = dynasty
+		is_dynast = yes
+		dynasty = {
+			has_variable = mz_amazon_favor
+			has_dynasty_modifier = mz_amazon_alliance_rank_3
+		}
+	}	
+
+	is_valid = {
+		custom_tooltip = {
+			text = mz_amazon_integration_decision_requirements
+			dynasty = { has_variable = mz_amazon_favor }
+			dynasty = {
+				var:mz_amazon_favor >= 3000
+			}
+		}
+		custom_tooltip = {
+			text = mz_amazon_negotiations_decision_requirements_2
+			any_courtier = {
+				is_available = yes
+				is_imprisoned = no
+				mz_amazon_character_trigger = yes
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_female = yes
+		custom_description = { # Prevented from ranking up again for 5 years
+			text = mz_amazon_alliance_cooldown
+			dynasty ?= {
+				NOT = { has_variable = mz_amazon_alliance_rankup_blocker }
+			}
+		}		
+	}
+
+	#cost = { }
+
+	effect = {
+		show_as_tooltip = {
+			dynasty = {
+				add_dynasty_modifier = mz_amazon_alliance_rank_4
+			}
+		}
+		trigger_event = mz_amazon_alliance.2301
+		hidden_effect = { 
+			dynasty = { 
+				set_variable = {
+					name = mz_amazon_alliance_rankup_blocker
+					value = yes
+					years = 5
+				}
+			}
+		}
+	}
+}
+
+mz_amazon_alliance_decision = {
+	picture = "gfx/interface/illustrations/decisions/mz_decision_recruit_amazon.dds"
+	sort_order = 75
+	major = yes
+
+	ai_check_interval = 240
+	ai_potential = {
+		is_landed = yes
+		exists = dynasty
+		is_dynast = yes
+		is_female = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	
+	desc = mz_amazon_alliance_decision_desc
+
+	cooldown = { years = 10 }
+
+	is_shown = {
+		exists = dynasty
+		is_dynast = yes
+		dynasty = {
+			has_variable = mz_amazon_favor
+			has_dynasty_modifier = mz_amazon_alliance_rank_4
+		}
+	}	
+
+	is_valid = {
+		custom_tooltip = {
+			text = mz_amazon_integration_decision_requirements
+			dynasty = { has_variable = mz_amazon_favor }
+			dynasty = {
+				var:mz_amazon_favor >= 6000
+			}
+		}
+		custom_tooltip = {
+			text = mz_amazon_negotiations_decision_requirements_2
+			any_courtier = {
+				is_available = yes
+				is_imprisoned = no
+				mz_amazon_character_trigger = yes
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_female = yes
+		custom_description = { # Prevented from ranking up again for 5 years
+			text = mz_amazon_alliance_cooldown
+			dynasty ?= {
+				NOT = { has_variable = mz_amazon_alliance_rankup_blocker }
+			}
+		}		
+	}
+
+	#cost = { }
+
+	effect = {
+		show_as_tooltip = {
+			dynasty = {
+				add_dynasty_modifier = mz_amazon_alliance_rank_5
+			}
+		}
+		trigger_event = mz_amazon_alliance.2401
+		hidden_effect = { 
+			dynasty = { 
+				set_variable = {
+					name = mz_amazon_alliance_rankup_blocker
+					value = yes
+					years = 5
+				}
+			}
+		}
+	}
+}

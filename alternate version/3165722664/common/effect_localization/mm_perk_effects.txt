@@ -1,0 +1,29 @@
+﻿mz_matriarchy_legacy_1_effect = {
+	global = DAUGHTERS_AND_MOTHERS_EFFECTS
+	first = DAUGHTERS_AND_MOTHERS_EFFECTS
+	third = DAUGHTERS_AND_MOTHERS_EFFECTS
+}
+
+mz_matriarchy_legacy_2_effect = {
+	global = PRESTIGE_PIETY_FOR_FEMALE_DYNASTY_MEMBERS
+	first = PRESTIGE_PIETY_FOR_FEMALE_DYNASTY_MEMBERS
+	third = PRESTIGE_PIETY_FOR_FEMALE_DYNASTY_MEMBERS
+}
+
+mz_matriarchy_legacy_3_effect = {
+	global = HEARTLAND_EFFECTS
+	first = HEARTLAND_EFFECTS
+	third = HEARTLAND_EFFECTS
+}
+
+mz_matriarchy_legacy_4_effect ={
+	global = AMAZONIAN_TRADITIONS
+	first = AMAZONIAN_TRADITIONS
+	third = AMAZONIAN_TRADITIONS
+}
+
+mz_matriarchy_legacy_5_effect ={
+	global = GYNARCHY_EFFECTS
+	first = GYNARCHY_EFFECTS
+	third = GYNARCHY_EFFECTS
+}

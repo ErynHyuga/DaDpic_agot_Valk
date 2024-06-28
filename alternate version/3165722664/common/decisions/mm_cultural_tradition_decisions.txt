@@ -1,0 +1,627 @@
+﻿mz_recruit_amazon_warrior_decision = {
+	picture = "gfx/interface/illustrations/decisions/mz_decision_recruit_amazon.dds"
+	sort_order = 75
+
+	ai_check_interval = 60
+
+	cooldown = { years = 5 }
+	
+	desc = {
+		first_valid = { 
+			triggered_desc = {
+				trigger = { mz_has_amazon_contact = yes }
+				desc = mz_recruit_amazon_warrior_dynasty_decision_desc 
+			}
+			triggered_desc = {
+				trigger = {
+					culture = { has_cultural_parameter = mz_recruit_amazons_enabled }
+				}
+				desc = mz_recruit_amazon_warrior_decision_desc 
+			}
+			desc = mz_recruit_amazon_warrior_dynasty_decision_desc
+		}
+	}
+
+	is_shown = {
+		OR = {
+			culture = { has_cultural_parameter = mz_recruit_amazons_enabled }
+			mz_has_amazon_contact = yes
+		}
+		highest_held_title_tier >= tier_county
+	}
+
+	widget = {
+		#gui = "mz_decision_view_widget_recruit_amazon"
+		#gui = "decision_view_widget_generic_multichoice_with_effects"
+		gui = "decision_view_widget_option_list_generic"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "MZ_RECRUIT_AMAZON_SELECT_WARRIOR_TYPE"
+	
+		### Which type of Amazon?
+		item = { # Forest Fighter
+			value = mz_recruit_amazon_forest_fighter
+			is_valid = {
+				always = yes # Right now this option is always available.
+			}
+			current_description = mz_recruit_amazon_forest_fighter_desc
+			localization = mz_recruit_amazon_option_forest_fighter
+			icon = "gfx/interface/icons/traits/forest_fighter.dds"
+			ai_chance = { 
+				value = 0
+				if = {
+					limit = { 
+						number_maa_regiments_of_base_type = {
+							type = archers
+							value >= 2
+						}
+					}
+					add = 50
+				}
+				if = {
+					limit = {
+						any_sub_realm_barony = {
+							OR = {
+								title_province = { terrain = forest }
+								title_province = { terrain = taiga }
+							}
+						}
+					}
+					add = 50
+				}
+			}
+		}	
+		item = { # Rough Terrain Expert
+			value = mz_recruit_amazon_rough_terrain_expert
+			is_valid = {
+				always = yes # Right now this option is always available.
+			}
+			current_description = mz_recruit_amazon_rough_terrain_expert_desc
+			localization = mz_recruit_amazon_option_rough_terrain_expert
+			icon = "gfx/interface/icons/traits/rough_terrain_expert.dds"
+			ai_chance = { 
+				value = 0
+				if = {
+					limit = { 
+						number_maa_regiments_of_base_type = {
+							type = pikemen
+							value >= 2
+						}
+					}
+					add = 50
+				}
+				if = {
+					limit = {
+						any_sub_realm_barony = {
+							OR = {
+								title_province = { terrain = hills }
+								title_province = { terrain = mountains }
+								title_province = { terrain = wetlands }
+							}
+						}
+					}
+					add = 50
+				}
+			}
+		}
+		item = { # Desert Warrior
+			value = mz_recruit_amazon_desert_warrior
+			is_shown = {
+				culture = { has_cultural_parameter = desert_warrior_trait_more_common }
+			}
+			current_description = mz_recruit_amazon_desert_warrior_desc
+			localization = mz_recruit_amazon_option_desert_warrior
+			icon = "gfx/interface/icons/traits/desert_warrior.dds"
+			ai_chance = { 
+				value = 0
+				if = {
+					limit = {
+						any_sub_realm_barony = {
+							OR = {
+								title_province = { terrain = mountains }
+								title_province = { terrain = desert_mountains }
+							}
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		item = { # Jungle Stalker
+			value = mz_recruit_amazon_jungle_stalker
+			is_valid = {
+				always = yes # Right now this option is always available.
+			}
+			current_description = mz_recruit_amazon_jungle_stalker_desc
+			localization = mz_recruit_amazon_option_jungle_stalker
+			icon = "gfx/interface/icons/traits/jungle_stalker.dds"
+			ai_chance = { 
+				value = 0
+				if = {
+					limit = { 
+						number_maa_regiments_of_base_type = {
+							type = skirmishers
+							value >= 2
+						}
+					}
+					add = 75
+				}
+				if = {
+					limit = {
+						any_sub_realm_barony = {
+							title_province = { terrain = jungle }
+						}
+					}
+					add = 25
+				}
+			}
+		}		
+		item = { # Aggressive Attacker
+			value = mz_recruit_amazon_aggressive_attacker
+			is_valid = {
+				mz_has_amazon_rank_4 = yes # Alliance rank 4 required
+			}
+			current_description = mz_recruit_amazon_aggressive_attacker_desc
+			localization = mz_recruit_amazon_option_aggressive_attacker
+			icon = "gfx/interface/icons/traits/aggressive_attacker.dds"
+			ai_chance = { 
+				value = 0
+				if = {
+					limit = { 
+						number_maa_regiments_of_base_type = {
+							type = heavy_cavalry
+							value >= 2
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		item = { # Flexible Leader
+			value = mz_recruit_amazon_flexible_leader
+			is_valid = {
+				always = yes # Right now this option is always available.
+			}
+			current_description = mz_recruit_amazon_flexible_leader_desc
+			localization = mz_recruit_amazon_option_flexible_leader
+			icon = "gfx/interface/icons/traits/flexible_leader.dds"
+			ai_chance = { 
+				value = 0
+				if = {
+					limit = { 
+						number_maa_regiments_of_base_type = {
+							type = archer_cavalry
+							value >= 2
+						}
+					}
+					add = 100
+				}
+			}
+		}
+		item = { # Lifestyle Hunter
+			value = mz_recruit_amazon_hunter
+			is_valid = {
+				NOT = {
+					culture = { has_cultural_parameter = cannot_hunt } # Not for vegetarian cultures.
+				}
+			}
+			current_description = mz_recruit_amazon_hunter_desc
+			localization = mz_recruit_amazon_option_hunter
+			icon = "gfx/interface/icons/traits/hunter_base.dds"
+			ai_chance = { 
+				value = 20
+				if = {
+					limit = { has_trait = lifestyle_hunter }
+					add = 30
+				} 
+			}
+		}
+		item = { # Reckless/Brave
+			value = mz_recruit_amazon_reckless
+			is_valid = {
+				always = yes # Right now this option is always available.
+			}
+			current_description = mz_recruit_amazon_reckless_desc
+			localization = mz_recruit_amazon_option_reckless
+			icon = "gfx/interface/icons/traits/reckless.dds"
+			ai_chance = { value = 20 }
+		}
+		item = { # Unyielding Defender/Loyal
+			value = mz_recruit_amazon_unyielding_defender
+			is_valid = {
+				always = yes # Right now this option is always available.
+			}
+			current_description = mz_recruit_amazon_unyielding_defender_desc
+			localization = mz_recruit_amazon_option_unyielding_defender
+			icon = "gfx/interface/icons/traits/unyielding_defender.dds"
+			ai_chance = { value = 20 }
+		}									
+	}	
+
+	effect = {
+		custom_tooltip = mz_recruit_amazon_warrior_decision.tt
+		hidden_effect = {
+			if = {
+				limit = { mz_has_amazon_contact = yes }
+				dynasty = {
+					mz_change_amazon_favor_effect = { FAVOR = 10 }
+				}
+			}
+			if = {
+				limit = {
+					any_pool_character = {
+						province = root.capital_province
+						has_trait = mz_amazonian_warrior
+						martial >= decent_skill_rating
+						prowess >= decent_skill_rating
+						culture = culture:mz_amazonian # Only recruit actual Amazons
+						opinion = { # Just to make sure you don't pull in rivals or similar
+							value >= -30
+							target = root
+						}
+					}
+				}
+				random_pool_character = {
+					province = root.capital_province
+					limit = {
+						has_trait = mz_amazonian_warrior
+						martial >= decent_skill_rating
+						prowess >= decent_skill_rating
+						culture = culture:mz_amazonian # Only recruit actual Amazons
+						opinion = { # Just to make sure you don't pull in rivals or similar
+							value >= -30
+							target = root
+						}
+					}
+					save_scope_as = mz_amazon_warrior
+				}
+				scope:mz_amazon_warrior = {
+					if = {
+						limit = { martial < very_high_skill_rating }
+						add_martial_skill = 5
+					}
+					if = {
+						limit = { prowess < very_high_skill_rating }
+						add_prowess_skill = 5
+					}
+				}
+			}
+			else = {
+				create_character = {
+					template = mz_amazon_woman
+					save_scope_as = mz_amazon_warrior
+					employer = root
+				}
+			}
+			if = {
+				limit = { exists = scope:mz_amazon_warrior }
+				scope:mz_amazon_warrior = {
+					force_character_skill_recalculation = yes
+					add_character_flag = {
+						flag = blocked_from_leaving
+						years = 25
+					}
+					if = {
+						limit = {
+							scope:mz_recruit_amazon_forest_fighter = yes
+							NOT = { has_trait = forest_fighter }
+						}
+						add_trait = forest_fighter
+						if = {
+							limit = { has_trait = tourney_participant }
+							add_trait_xp = {
+								trait = tourney_participant
+								track = bow
+								value = {
+									integer_range = {
+										min = 35
+										max = 80
+									}
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							scope:mz_recruit_amazon_rough_terrain_expert = yes
+							NOT = { has_trait = rough_terrain_expert }
+						}
+						add_trait = rough_terrain_expert
+						if = {
+							limit = { has_trait = tourney_participant }
+							add_trait_xp = {
+								trait = tourney_participant
+								track = foot
+								value = {
+									integer_range = {
+										min = 35
+										max = 80
+									}
+								}
+							}
+						}						
+					}
+					if = {
+						limit = {
+							scope:mz_recruit_amazon_desert_warrior = yes
+							NOT = { has_trait = desert_warrior }
+						}
+						add_trait = desert_warrior
+						if = {
+							limit = { has_trait = tourney_participant }
+							add_trait_xp = {
+								trait = tourney_participant
+								track = foot
+								value = {
+									integer_range = {
+										min = 35
+										max = 80
+									}
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							scope:mz_recruit_amazon_jungle_stalker = yes
+							NOT = { has_trait = jungle_stalker }
+						}
+						add_trait = jungle_stalker
+						if = {
+							limit = { has_trait = tourney_participant }
+							add_trait_xp = {
+								trait = tourney_participant
+								track = wit
+								value = {
+									integer_range = {
+										min = 35
+										max = 80
+									}
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							scope:mz_recruit_amazon_aggressive_attacker = yes
+							NOT = { has_trait = aggressive_attacker }
+						}
+						add_trait = aggressive_attacker
+						if = {
+							limit = { has_trait = tourney_participant }
+							add_trait_xp = {
+								trait = tourney_participant
+								track = horse
+								value = {
+									integer_range = {
+										min = 35
+										max = 80
+									}
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							scope:mz_recruit_amazon_flexible_leader = yes
+							NOT = { has_trait = flexible_leader }
+						}
+						add_trait = flexible_leader
+						if = {
+							limit = { has_trait = tourney_participant }
+							add_trait_xp = {
+								trait = tourney_participant
+								track = horse
+								value = {
+									integer_range = {
+										min = 35
+										max = 80
+									}
+								}
+							}
+							add_trait_xp = {
+								trait = tourney_participant
+								track = bow
+								value = {
+									integer_range = {
+										min = 35
+										max = 80
+									}
+								}
+							}							
+						}						
+					}
+					if = {
+						limit = {
+							scope:mz_recruit_amazon_hunter = yes
+							NOT = { has_trait = lifestyle_hunter }
+						}
+						add_trait = lifestyle_hunter
+						add_trait_xp = {
+							trait = lifestyle_hunter
+							track = hunter
+							value = {
+								integer_range = {
+									min = 35
+									max = 80
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							scope:mz_recruit_amazon_reckless = yes
+							NOR = { 
+								has_trait = reckless 
+								has_trait = brave
+							}
+						}
+						random = {
+							chance = 20
+							if = {
+								limit = { number_of_personality_traits < personality_trait_limit }
+								add_trait = brave 
+							}
+						}
+						if = {
+							limit = { 
+								NOT = { has_trait = brave }
+							}
+							add_trait = reckless
+						}
+					}
+					if = {
+						limit = {
+							scope:mz_recruit_amazon_unyielding_defender = yes
+							NOT = { has_trait = unyielding_defender }
+						}
+						add_trait = unyielding_defender
+						if = {
+							limit = { 
+								NOT = { has_trait = loyal }
+							}
+							random = {
+								chance = 50	
+								add_trait = loyal
+							}
+						}
+						if = {
+							limit = { has_trait = tourney_participant }
+							add_trait_xp = {
+								trait = tourney_participant
+								track = foot
+								value = {
+									integer_range = {
+										min = 35
+										max = 80
+									}
+								}
+							}
+						}
+					}																			
+				}
+				if = {
+					limit = {
+						scope:mz_amazon_warrior = {
+							NOT = {	is_courtier_of = root }
+						}
+					}
+					add_courtier = scope:mz_amazon_warrior
+				}
+				send_interface_message = {
+					title = mz_amazon_warrior_recruited.t
+					type = event_prowess_good
+					custom_tooltip = mz_amazon_warrior_recruited_desc
+					left_icon = scope:mz_amazon_warrior
+				}
+			}
+		}
+	}
+
+	cost = {
+		gold = { 
+			value = minor_gold_value
+			if = {
+				limit = {
+					house ?= { has_house_modifier = mz_amazon_ruler_house_modifier }
+				}
+				multiply = 0
+			}
+		}
+		prestige = { value = medium_prestige_value }
+	}
+
+	ai_potential = {
+		OR = {
+			culture = {
+				has_cultural_parameter = mz_recruit_amazons_enabled
+			}
+			AND = {
+				exists = dynasty
+				dynasty = {
+					has_dynasty_perk = mz_matriarchy_legacy_4
+				}
+			}
+		}
+		highest_held_title_tier >= tier_county
+	}
+
+	ai_will_do = {
+		base = 100
+
+		modifier = {
+			factor = 0
+			any_courtier = { has_trait = mz_amazonian_warrior }
+		}
+	}
+}
+
+mz_settle_amazon_enclaves_decision = {
+	picture = "gfx/interface/illustrations/decisions/mz_decision_recruit_amazon.dds"
+	sort_order = 75
+	major = yes
+	
+	ai_check_interval = 0
+	ai_potential = {
+		is_landed = yes
+		is_female = yes
+	}
+	ai_will_do = {
+		base = 0
+	}
+	
+	cooldown = { days = 3650 }
+
+	is_shown = {
+		exists = dynasty
+		is_landed = yes
+		culture.culture_head = root
+		NOR = {
+			culture = { has_cultural_era_or_later = culture_era_late_medieval } # Not in late medieval period
+			culture = { has_cultural_parameter = mz_recruit_amazons_enabled } # None of the relevant traditions
+			culture = { has_cultural_parameter = cannot_hunt } # Vegetarians and Amazons are incompatible
+			culture = { has_cultural_parameter = reduced_cost_for_conversion_to_pacifist_faith } # Pacifists and Amazons are not compatible
+		}
+		mz_has_amazon_rank_3 = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_at_peace_adult_lenient = yes
+		is_female = yes
+	}	
+
+	cost = { 
+		prestige = {
+			value = tradition_base_cost
+			if = {
+				limit = {
+					NOR = {
+						culture = { has_cultural_pillar = ethos_bellicose }
+						culture = { has_cultural_pillar = ethos_stoic }
+						culture = { has_cultural_pillar = ethos_communal }
+					}
+				}
+				add = { value = tradition_incompatible_ethos_penalty }
+			}
+			if = {
+				limit = { 
+					NOT = {
+						dynasty ?= { has_dynasty_modifier = mz_matriarchy_modifier }
+					}
+				}
+				add = { value = tradition_unfulfilled_criteria_penalty }
+			}
+		}
+	}
+
+	effect = {
+		culture = { add_culture_tradition = mz_tradition_amazonian_enclaves }
+		every_sub_realm_county = {
+			custom = mz_every_county_of_culture
+			limit = { culture = root.culture }
+			add_county_modifier = {
+				modifier = mz_amazon_enclave_county_modifier
+				years = 10
+			}
+		}
+	}	
+}

@@ -1,9 +1,0 @@
-﻿l_english:
-	mz_scheme_so_ongoing_good_t:0 "Straigthen Out Scheme Progressing"
-	mz_scheme_so_ongoing_good_tt:0 "[target.GetShortUIName] was receptive to your efforts."
-	mz_scheme_so_ongoing_bad_t:0 "Straigthen Out Scheme Hindered"
-	mz_scheme_so_ongoing_bad_tt:0 "[target.GetShortUIName] is being uncooperative."
-	mz_scheme_so_success_t:0 "Straighten Out Scheme Success"
-	mz_scheme_so_success_continues:0 "Straighten Out Scheme Continues"
-	mz_scheme_so_failure_t:0 "Straighten Out Scheme Failure"
-	mz_scheme_so_stress_gain:0 "Straighten Out: Stress Gain"

@@ -1,4 +1,0 @@
-﻿l_english:
-  mz_lesorgy_lover_relation_default:0 "[CHARACTER.GetShortUIName|U] and [TARGET_CHARACTER.GetShortUIName] made love at [TARGET_CHARACTER_2.GetShortUINamePossessive] debauch in [PROVINCE.GetName]."
-  mz_bonded_at_lesbian_orgy:0 "[CHARACTER.GetShortUIName|U] and [TARGET_CHARACTER.GetShortUIName] (platonically) bonded at [TARGET_CHARACTER_2.GetShortUINamePossessive] debauch in [PROVINCE.GetName]."
-  mz_convert_lover_relation:0 "[TARGET_CHARACTER.GetShortUIName|U] fell in love with [CHARACTER.GetShortUIName] upon discovering [TARGET_CHARACTER.GetHerHis] latent attraction to women."

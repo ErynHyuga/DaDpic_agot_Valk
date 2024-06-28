@@ -1,0 +1,1523 @@
+﻿namespace = mz_court_eunuch
+
+### 0001-0999 Maintainence events
+mz_court_eunuch.0001 = { # Possibly improve eunuch skills. Otherwise null event roll.
+	hidden = yes
+
+	trigger = { exists = scope:mz_court_eunuch }
+
+	weight_multiplier = { # More court eunuchs reduce the odds for a null event roll.
+		base = 1
+		modifier = {
+			exists = court_position:chief_eunuch_court_position
+			add = { 
+				value = 0
+				every_court_position_holder = {
+					limit = { 
+						NOT = { has_court_position = chief_eunuch_court_position }
+						mz_is_court_eunuch_trigger = yes 
+					}
+					add = -0.1
+				}
+				min = -0.5
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { exists = court_position:chief_eunuch_court_position }
+			random = { # Improve chief eunuch? Better chance with more eunuchs at court.
+				chance = 20
+				modifier = {
+					always = yes
+					add = {
+						value = 0
+						every_court_position_holder = {
+							limit = { 
+								NOT = { has_court_position = chief_eunuch_court_position }
+								mz_is_court_eunuch_trigger = yes
+							}
+							add = 10
+						}
+						max = 30		
+					}
+				}
+				modifier = {
+					always = yes
+					add = { 
+						value = court_position:chief_eunuch_court_position.aptitude:chief_eunuch_court_position
+						multiply = 5
+						max = 25
+					}
+				}
+				court_position:chief_eunuch_court_position = {
+					random_list = {
+						1 = { 
+							trigger = { diplomacy < high_skill_rating }
+							add_diplomacy_skill = 1 
+						}
+						1 = { 
+							trigger = { stewardship < high_skill_rating }
+							add_stewardship_skill = 1 
+						}
+						1 = { 
+							trigger = { intrigue < high_skill_rating }
+							add_intrigue_skill = 1 
+						}
+						1 = { 
+							trigger = { learning < high_skill_rating }
+							add_learning_skill = 1 
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+mz_court_eunuch.0101 = { # Offer Eunuch (letter) root is scope:recipient
+	type = letter_event
+	opening = {
+		desc = mz_court_eunuch.0101.open
+	}
+	desc = mz_court_eunuch.0101.desc
+	sender = scope:actor
+
+	immediate = {
+		if = {
+			limit = { scope:hook = yes }
+			use_hook = scope:recipient
+		}
+		# First we search for an empty court position to fill.
+		if = { # Chief Eunuch
+			limit = {
+				can_employ_court_position_type = chief_eunuch_court_position
+				scope:secondary_actor = { can_be_employed_as = chief_eunuch_court_position }
+				any_court_position_holder = {
+					count < 1
+					type = chief_eunuch_court_position
+				}			
+			}
+			save_scope_value_as = {
+				name = mz_target_empty_court_position
+				value = flag:chief_eunuch_court_position
+			}
+		}
+		else_if = { # Chief qadi.
+			limit = {
+				can_employ_court_position_type = chief_qadi_court_position
+				scope:secondary_actor = { can_be_employed_as = chief_qadi_court_position }
+				any_court_position_holder = {
+					count < 1
+					type = chief_qadi_court_position
+				}			
+			}
+			save_scope_value_as = {
+				name = mz_target_empty_court_position
+				value = flag:chief_qadi_court_position
+			}
+		}
+		else_if = { # Cultural emissary
+			limit = {
+				can_employ_court_position_type = cultural_emissary_court_position
+				scope:secondary_actor = { can_be_employed_as = cultural_emissary_court_position }
+				any_court_position_holder = {
+					count < 1
+					type = cultural_emissary_court_position
+				}			
+			}
+			save_scope_value_as = {
+				name = mz_target_empty_court_position
+				value = flag:cultural_emissary_court_position
+			}			
+		}
+		else_if = { # Court gardener
+			limit = {
+				can_employ_court_position_type = court_gardener_court_position
+				scope:secondary_actor = { can_be_employed_as = court_gardener_court_position }
+				any_court_position_holder = {
+					count < 1
+					type = court_gardener_court_position
+				}			
+			}
+			save_scope_value_as = {
+				name = mz_target_empty_court_position
+				value = flag:court_gardener_court_position
+			}			
+		}
+		else_if = { # Court poet
+			limit = {
+				can_employ_court_position_type = court_poet_court_position
+				scope:secondary_actor = { can_be_employed_as = court_poet_court_position }
+				any_court_position_holder = {
+					count < 1
+					type = court_poet_court_position
+				}			
+			}
+			save_scope_value_as = {
+				name = mz_target_empty_court_position
+				value = flag:court_poet_court_position
+			}			
+		}
+		else_if = { # Keeper of swans
+			limit = {
+				can_employ_court_position_type = keeper_of_swans_court_position
+				scope:secondary_actor = { can_be_employed_as = keeper_of_swans_court_position }
+				any_court_position_holder = {
+					count < 1
+					type = keeper_of_swans_court_position
+				}			
+			}
+			save_scope_value_as = {
+				name = mz_target_empty_court_position
+				value = flag:keeper_of_swans_court_position
+			}			
+		}
+		else_if = { # Caravan Master
+			limit = {
+				can_employ_court_position_type = travel_leader_court_position
+				scope:secondary_actor = { can_be_employed_as = travel_leader_court_position }
+				any_court_position_holder = {
+					count < 1
+					type = travel_leader_court_position
+				}			
+			}
+			save_scope_value_as = {
+				name = mz_target_empty_court_position
+				value = flag:travel_leader_court_position
+			}			
+		}		
+		else_if = { # Court Tutor
+			limit = {
+				can_employ_court_position_type = court_tutor_court_position
+				scope:secondary_actor = { can_be_employed_as = court_tutor_court_position }
+				any_court_position_holder = {
+					count < 1
+					type = court_tutor_court_position
+				}			
+			}
+			save_scope_value_as = {
+				name = mz_target_empty_court_position
+				value = flag:court_tutor_court_position
+			}			
+		}
+		else_if = { # High almoner
+			limit = {
+				can_employ_court_position_type = high_almoner_court_position
+				scope:secondary_actor = { can_be_employed_as = high_almoner_court_position }
+				any_court_position_holder = {
+					count < 1
+					type = high_almoner_court_position
+				}			
+			}
+			save_scope_value_as = {
+				name = mz_target_empty_court_position
+				value = flag:high_almoner_court_position
+			}			
+		}
+		else_if = { # Court musician
+			limit = {
+				can_employ_court_position_type = court_musician_court_position
+				scope:secondary_actor = { can_be_employed_as = court_musician_court_position }
+				any_court_position_holder = {
+					count < 1
+					type = court_musician_court_position
+				}			
+			}
+			save_scope_value_as = {
+				name = mz_target_empty_court_position
+				value = flag:court_musician_court_position
+			}			
+		}
+		else_if = { # Antiquarian
+			limit = {
+				can_employ_court_position_type = antiquarian_court_position
+				scope:secondary_actor = { can_be_employed_as = antiquarian_court_position }
+				any_court_position_holder = {
+					count < 1
+					type = antiquarian_court_position
+				}			
+			}
+			save_scope_value_as = {
+				name = mz_target_empty_court_position
+				value = flag:antiquarian_court_position
+			}			
+		}				
+		else_if = { # Court physician
+			limit = {
+				can_employ_court_position_type = court_physician_court_position
+				scope:secondary_actor = { can_be_employed_as = court_physician_court_position }
+				any_court_position_holder = {
+					count < 1
+					type = court_physician_court_position
+				}			
+			}
+			save_scope_value_as = {
+				name = mz_target_empty_court_position
+				value = flag:court_physician_court_position
+			}			
+		}
+		else_if = { # Seneschal
+			limit = {
+				can_employ_court_position_type = seneschal_court_position
+				scope:secondary_actor = { can_be_employed_as = seneschal_court_position }
+				any_court_position_holder = {
+					count < 1
+					type = seneschal_court_position
+				}			
+			}
+			save_scope_value_as = {
+				name = mz_target_empty_court_position
+				value = flag:seneschal_court_position
+			}			
+		}		
+		# Next we look for a filled court position where the offered eunuch is more qualified.
+		if = {
+			limit = {
+				can_employ_court_position_type = chief_eunuch_court_position
+				scope:secondary_actor = { can_be_employed_as = chief_eunuch_court_position }
+				any_court_position_holder = {
+					count > 0
+					type = chief_eunuch_court_position
+					this.aptitude:chief_eunuch_court_position < scope:secondary_actor.aptitude:chief_eunuch_court_position
+				}	
+			}
+			save_scope_value_as = {
+				name = mz_target_filled_court_position
+				value = flag:chief_eunuch_court_position
+			}	
+		}
+		else_if = { # Chief qadi
+			limit = {
+				can_employ_court_position_type = chief_qadi_court_position
+				scope:secondary_actor = { can_be_employed_as = chief_qadi_court_position }
+				any_court_position_holder = {
+					count > 0
+					type = chief_qadi_court_position
+					this.aptitude:chief_qadi_court_position < scope:secondary_actor.aptitude:chief_qadi_court_position
+				}	
+			}
+			save_scope_value_as = {
+				name = mz_target_filled_court_position
+				value = flag:chief_qadi_court_position
+			}					
+		}
+		else_if = { # Cultural emissary
+			limit = {
+				can_employ_court_position_type = cultural_emissary_court_position
+				scope:secondary_actor = { can_be_employed_as = cultural_emissary_court_position }
+				any_court_position_holder = {
+					count > 0
+					type = cultural_emissary_court_position
+					this.aptitude:cultural_emissary_court_position < scope:secondary_actor.aptitude:cultural_emissary_court_position
+				}	
+			}
+			save_scope_value_as = {
+				name = mz_target_filled_court_position
+				value = flag:cultural_emissary_court_position
+			}			
+		}
+		else_if = { # Court gardener
+			limit = {
+				can_employ_court_position_type = court_gardener_court_position
+				scope:secondary_actor = { can_be_employed_as = court_gardener_court_position }
+				any_court_position_holder = {
+					count > 0
+					type = court_gardener_court_position
+					this.aptitude:court_gardener_court_position < scope:secondary_actor.aptitude:court_gardener_court_position
+				}	
+			}
+			save_scope_value_as = {
+				name = mz_target_filled_court_position
+				value = flag:court_gardener_court_position
+			}			
+		}
+		else_if = { # Court poet
+			limit = {
+				can_employ_court_position_type = court_poet_court_position
+				scope:secondary_actor = { can_be_employed_as = court_poet_court_position }
+				any_court_position_holder = {
+					count > 0
+					type = court_poet_court_position
+					this.aptitude:court_poet_court_position < scope:secondary_actor.aptitude:court_poet_court_position
+				}	
+			}
+			save_scope_value_as = {
+				name = mz_target_filled_court_position
+				value = flag:court_poet_court_position
+			}			
+		}
+		else_if = { # Keeper of swans
+			limit = {
+				can_employ_court_position_type = keeper_of_swans_court_position
+				scope:secondary_actor = { can_be_employed_as = keeper_of_swans_court_position }
+				any_court_position_holder = {
+					count > 0
+					type = keeper_of_swans_court_position
+					this.aptitude:keeper_of_swans_court_position < scope:secondary_actor.aptitude:keeper_of_swans_court_position
+				}	
+			}
+			save_scope_value_as = {
+				name = mz_target_filled_court_position
+				value = flag:keeper_of_swans_court_position
+			}			
+		}
+		else_if = { # Caravan Master
+			limit = {
+				can_employ_court_position_type = travel_leader_court_position
+				scope:secondary_actor = { can_be_employed_as = travel_leader_court_position }
+				any_court_position_holder = {
+					count > 0
+					type = travel_leader_court_position
+					this.aptitude:travel_leader_court_position < scope:secondary_actor.aptitude:travel_leader_court_position
+				}	
+			}
+			save_scope_value_as = {
+				name = mz_target_filled_court_position
+				value = flag:travel_leader_court_position
+			}			
+		}		
+		else_if = { # Seneschal
+			limit = {
+				can_employ_court_position_type = seneschal_court_position
+				scope:secondary_actor = { can_be_employed_as = seneschal_court_position }
+				any_court_position_holder = {
+					count > 0
+					type = seneschal_court_position
+					this.aptitude:seneschal_court_position < scope:secondary_actor.aptitude:seneschal_court_position
+				}	
+			}
+			save_scope_value_as = {
+				name = mz_target_filled_court_position
+				value = flag:seneschal_court_position
+			}			
+		}
+		else_if = { # Court tutor
+			limit = {
+				can_employ_court_position_type = court_tutor_court_position
+				scope:secondary_actor = { can_be_employed_as = court_tutor_court_position }
+				any_court_position_holder = {
+					count > 0
+					type = court_tutor_court_position
+					this.aptitude:court_tutor_court_position < scope:secondary_actor.aptitude:court_tutor_court_position
+				}	
+			}
+			save_scope_value_as = {
+				name = mz_target_filled_court_position
+				value = flag:court_tutor_court_position
+			}			
+		}
+		else_if = { # High almoner
+			limit = {
+				can_employ_court_position_type = high_almoner_court_position
+				scope:secondary_actor = { can_be_employed_as = high_almoner_court_position }
+				any_court_position_holder = {
+					count > 0
+					type = high_almoner_court_position
+					this.aptitude:high_almoner_court_position < scope:secondary_actor.aptitude:high_almoner_court_position
+				}	
+			}
+			save_scope_value_as = {
+				name = mz_target_filled_court_position
+				value = flag:high_almoner_court_position
+			}			
+		}
+		else_if = { # Court musician
+			limit = {
+				can_employ_court_position_type = court_musician_court_position
+				scope:secondary_actor = { can_be_employed_as = court_musician_court_position }
+				any_court_position_holder = {
+					count > 0
+					type = court_musician_court_position
+					this.aptitude:court_musician_court_position < scope:secondary_actor.aptitude:court_musician_court_position
+				}	
+			}
+			save_scope_value_as = {
+				name = mz_target_filled_court_position
+				value = flag:court_musician_court_position
+			}			
+		}
+		else_if = { # Anqiquarian
+			limit = {
+				can_employ_court_position_type = antiquarian_court_position
+				scope:secondary_actor = { can_be_employed_as = antiquarian_court_position }
+				any_court_position_holder = {
+					count > 0
+					type = antiquarian_court_position
+					this.aptitude:antiquarian_court_position < scope:secondary_actor.aptitude:antiquarian_court_position
+				}	
+			}
+			save_scope_value_as = {
+				name = mz_target_filled_court_position
+				value = flag:antiquarian_court_position
+			}			
+		}
+		else_if = {
+			limit = {
+				can_employ_court_position_type = court_physician_court_position
+				scope:secondary_actor = { can_be_employed_as = court_physician_court_position }
+				any_court_position_holder = {
+					count > 0
+					type = court_physician_court_position
+					this.aptitude:court_physician_court_position < scope:secondary_actor.aptitude:court_physician_court_position
+				}	
+			}
+			save_scope_value_as = {
+				name = mz_target_filled_court_position
+				value = flag:court_physician_court_position
+			}			
+		}
+	}
+
+	option = {
+		name = mz_court_eunuch.0101.b # Appoint to empty court position.
+		trigger = { exists = scope:mz_target_empty_court_position }
+		if = {
+			limit = { 
+				scope:secondary_actor = { 
+					NOT = { has_trait = eunuch }
+				}
+			}
+			scope:secondary_actor = {
+				add_trait = eunuch 
+				add_character_modifier = {
+					modifier = recently_castrated
+					years = 1
+				}
+			}
+		}
+		hidden_effect = { 
+			scope:actor = { remove_courtier_or_guest = scope:secondary_actor }
+			if = {
+				limit = {
+					NOT = { 
+						scope:secondary_actor = { is_in_the_same_court_as_or_guest = scope:recipient }
+					}
+				}
+				scope:secondary_actor = { move_to_pool_at = scope:recipient.capital_province }
+			}
+			add_courtier = scope:secondary_actor 
+		}
+		if = {
+			limit = { scope:mz_target_empty_court_position = flag:chief_eunuch_court_position }
+			appoint_court_position = {
+				recipient = scope:secondary_actor
+				court_position = chief_eunuch_court_position
+			}			
+		}
+		else_if = {
+			limit = { scope:mz_target_empty_court_position = flag:chief_qadi_court_position }
+			appoint_court_position = {
+				recipient = scope:secondary_actor
+				court_position = chief_qadi_court_position
+			}			
+		}
+		else_if = {
+			limit = { scope:mz_target_empty_court_position = flag:cultural_emissary_court_position }
+			appoint_court_position = {
+				recipient = scope:secondary_actor
+				court_position = cultural_emissary_court_position
+			}
+		}
+		else_if = {
+			limit = { scope:mz_target_empty_court_position = flag:court_gardener_court_position }
+			appoint_court_position = {
+				recipient = scope:secondary_actor
+				court_position = court_gardener_court_position
+			}
+		}
+		else_if = {
+			limit = { scope:mz_target_empty_court_position = flag:court_poet_court_position }
+			appoint_court_position = {
+				recipient = scope:secondary_actor
+				court_position = court_poet_court_position
+			}
+		}
+		else_if = {
+			limit = { scope:mz_target_empty_court_position = flag:keeper_of_swans_court_position }
+			appoint_court_position = {
+				recipient = scope:secondary_actor
+				court_position = keeper_of_swans_court_position
+			}
+		}
+		else_if = {
+			limit = { scope:mz_target_empty_court_position = flag:travel_leader_court_position }
+			appoint_court_position = {
+				recipient = scope:secondary_actor
+				court_position = travel_leader_court_position
+			}
+		}		
+		else_if = {
+			limit = { scope:mz_target_empty_court_position = flag:court_tutor_court_position }
+			appoint_court_position = {
+				recipient = scope:secondary_actor
+				court_position = court_tutor_court_position
+			}
+		}
+		else_if = {
+			limit = { scope:mz_target_empty_court_position = flag:high_almoner_court_position }
+			appoint_court_position = {
+				recipient = scope:secondary_actor
+				court_position = high_almoner_court_position
+			}
+		}
+		else_if = {
+			limit = { scope:mz_target_empty_court_position = flag:court_musician_court_position }
+			appoint_court_position = {
+				recipient = scope:secondary_actor
+				court_position = court_musician_court_position
+			}
+		}
+		else_if = {
+			limit = { scope:mz_target_empty_court_position = flag:antiquarian_court_position }
+			appoint_court_position = {
+				recipient = scope:secondary_actor
+				court_position = antiquarian_court_position
+			}
+		}
+		else_if = {
+			limit = { scope:mz_target_empty_court_position = flag:court_physician_court_position }
+			appoint_court_position = {
+				recipient = scope:secondary_actor
+				court_position = court_physician_court_position
+			}
+		}
+		else_if = {
+			limit = { scope:mz_target_empty_court_position = flag:seneschal_court_position }
+			appoint_court_position = {
+				recipient = scope:secondary_actor
+				court_position = seneschal_court_position
+			}
+		}		
+		scope:actor = {
+			trigger_event = {
+				id = mz_court_eunuch.0102
+				days = { 5 8 }
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+
+	option = {
+		name = mz_court_eunuch.0101.c # Replace a court position holder.
+		trigger = { exists = scope:mz_target_filled_court_position }
+		if = {
+			limit = { 
+				scope:secondary_actor = { 
+					NOT = { has_trait = eunuch }
+				}
+			}
+			scope:secondary_actor = {
+				add_trait = eunuch 
+				add_character_modifier = {
+					modifier = recently_castrated
+					years = 1
+				}
+			}
+		}
+		hidden_effect = { 
+			scope:secondary_actor = { move_to_pool_at = scope:recipient.capital_province }
+			add_courtier = scope:secondary_actor 
+		}
+		if = {
+			limit = { scope:mz_target_filled_court_position = flag:chief_eunuch_court_position }
+			replace_court_position = {
+				holder = court_position:chief_eunuch_court_position
+				recipient = scope:secondary_actor
+				court_position = chief_eunuch_court_position
+			}
+		}
+		else_if = {
+			limit = { scope:mz_target_filled_court_position = flag:chief_qadi_court_position }
+			replace_court_position = {
+				holder = court_position:chief_qadi_court_position
+				recipient = scope:secondary_actor
+				court_position = chief_qadi_court_position
+			}
+		}
+		else_if = {
+			limit = { scope:mz_target_filled_court_position = flag:court_gardener_court_position }
+			replace_court_position = {
+				holder = court_position:court_gardener_court_position
+				recipient = scope:secondary_actor
+				court_position = court_gardener_court_position
+			}			
+		}
+		else_if = {
+			limit = { scope:mz_target_filled_court_position = flag:court_gardener_court_position }
+			replace_court_position = {
+				holder = court_position:court_gardener_court_position
+				recipient = scope:secondary_actor
+				court_position = court_gardener_court_position
+			}			
+		}
+		else_if = {
+			limit = { scope:mz_target_filled_court_position = flag:court_poet_court_position }
+			replace_court_position = {
+				holder = court_position:court_poet_court_position
+				recipient = scope:secondary_actor
+				court_position = court_poet_court_position
+			}			
+		}
+		else_if = {
+			limit = { scope:mz_target_filled_court_position = flag:keeper_of_swans_court_position }
+			replace_court_position = {
+				holder = court_position:keeper_of_swans_court_position
+				recipient = scope:secondary_actor
+				court_position = keeper_of_swans_court_position
+			}			
+		}
+		else_if = {
+			limit = { scope:mz_target_filled_court_position = flag:travel_leader_court_position }
+			replace_court_position = {
+				holder = court_position:travel_leader_court_position
+				recipient = scope:secondary_actor
+				court_position = travel_leader_court_position
+			}			
+		}		
+		else_if = {
+			limit = { scope:mz_target_filled_court_position = flag:seneschal_court_position }
+			replace_court_position = {
+				holder = court_position:seneschal_court_position
+				recipient = scope:secondary_actor
+				court_position = seneschal_court_position
+			}			
+		}
+		else_if = {
+			limit = { scope:mz_target_filled_court_position = flag:court_tutor_court_position }
+			replace_court_position = {
+				holder = court_position:court_tutor_court_position
+				recipient = scope:secondary_actor
+				court_position = court_tutor_court_position
+			}			
+		}
+		else_if = {
+			limit = { scope:mz_target_filled_court_position = flag:high_almoner_court_position }
+			replace_court_position = {
+				holder = court_position:high_almoner_court_position
+				recipient = scope:secondary_actor
+				court_position = high_almoner_court_position
+			}			
+		}
+		else_if = {
+			limit = { scope:mz_target_filled_court_position = flag:court_musician_court_position }
+			replace_court_position = {
+				holder = court_position:court_musician_court_position
+				recipient = scope:secondary_actor
+				court_position = court_musician_court_position
+			}			
+		}
+		else_if = {
+			limit = { scope:mz_target_filled_court_position = flag:antiquarian_court_position }
+			replace_court_position = {
+				holder = court_position:antiquarian_court_position
+				recipient = scope:secondary_actor
+				court_position = antiquarian_court_position
+			}			
+		}
+		else_if = {
+			limit = { scope:mz_target_filled_court_position = flag:court_physician_court_position }
+			replace_court_position = {
+				holder = court_position:court_physician_court_position
+				recipient = scope:secondary_actor
+				court_position = court_physician_court_position
+			}			
+		}
+		scope:actor = {
+			trigger_event = {
+				id = mz_court_eunuch.0102
+				days = { 5 8 }
+			}
+		}
+		ai_chance = { 
+			base = 0 
+			modifier = {
+				NOT = { exists = scope:mz_target_empty_court_position }
+				add = 20
+			}
+		}
+	}
+
+	option = {
+		name = mz_court_eunuch.0101.d # Refuse.
+		trigger = { 
+			NOT = { scope:hook = yes } # You can't refuse if a hook was used.
+		}
+		reverse_add_opinion = {
+			target = scope:actor
+			modifier = refusal_opinion
+			opinion = -25
+		}
+		scope:actor = {
+			trigger_event = {
+				id = mz_court_eunuch.0103
+				days = { 5 8 }
+			}
+		}
+		ai_chance = { base = 10 }
+	}
+}
+
+mz_court_eunuch.0102 = { # Accepted
+	type = letter_event
+	opening = {
+		desc = mz_court_eunuch.0102.open
+	}
+	desc = mz_court_eunuch.0102.desc
+	sender = scope:recipient
+	
+	immediate = {
+		if = {
+			limit = { 
+				scope:secondary_actor = { has_court_position = chief_eunuch_court_position }
+			}
+			show_as_tooltip = {
+				scope:recipient = {
+					appoint_court_position = {
+						recipient = scope:secondary_actor
+						court_position = chief_eunuch_court_position
+					}
+				}
+				scope:secondary_actor = {
+					add_trait_force_tooltip = eunuch 
+					add_character_modifier = {
+						modifier = recently_castrated
+						years = 1
+					}
+				}
+			}
+		}
+		else = { 
+			custom_tooltip = mz_court_eunuch.0102.effect_desc 
+			show_as_tooltip = {
+				scope:secondary_actor = {
+					add_trait_force_tooltip = eunuch 
+					add_character_modifier = {
+						modifier = recently_castrated
+						years = 1
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = mz_court_eunuch.0102.a
+	}
+}
+
+mz_court_eunuch.0103 = { # Refused
+	type = letter_event
+	opening = {
+		desc = mz_court_eunuch.0102.open
+	}
+	desc = mz_court_eunuch.0103.desc
+	sender = scope:recipient
+	
+	immediate = { custom_tooltip = mz_court_eunuch.0103.effect_desc }
+
+	option = { name = mz_court_eunuch.0103.a }
+}
+
+### 1001-1999 Diplomacy-weighted events
+mz_court_eunuch.1001 = { # Gain prestige
+	hidden = yes
+
+	trigger = { 
+		exists = scope:mz_court_eunuch
+		scope:mz_court_eunuch = { is_physically_able = yes }
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			scope:mz_court_eunuch.diplomacy >= decent_skill_rating
+			factor = 1.5
+		}
+		modifier = {
+			scope:mz_court_eunuch.diplomacy < mediocre_skill_rating
+			factor = 0.5		
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = mz_had_eunuch_event_recently
+			days = 300 # Prevent eunuch events from firing too frequently
+		}
+		random_list = {
+			3 = {
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position >= 4
+					add = { 
+						value = scope:mz_court_eunuch.aptitude:chief_eunuch_court_position
+						subtract = 3
+						multiply = -1
+					}
+				}
+				modifier = {
+					NOT = { scope:mz_court_eunuch = { has_court_position = chief_eunuch_court_position } }
+					add = 2
+				}
+				send_interface_message = {
+					type = event_diplomacy_good
+					title = mz_court_eunuch.1001.t
+					left_icon = scope:mz_court_eunuch
+					custom_tooltip = mz_court_eunuch.1001.tt
+					add_prestige = medium_prestige_value
+				}
+			}
+			1 = {
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position >= 2
+					add = { 
+						value = scope:mz_court_eunuch.aptitude:chief_eunuch_court_position 
+						subtract = 1
+					}
+				}
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position < 2
+					factor = 0
+				}
+				send_interface_message = {
+					type = event_diplomacy_good
+					title = mz_court_eunuch.1001.t
+					left_icon = scope:mz_court_eunuch
+					custom_tooltip = mz_court_eunuch.1001.tt
+					add_prestige = major_prestige_value
+				}
+			}
+		}
+	}
+}
+
+mz_court_eunuch.1101 = { # Gain vassal/liege opinion
+	hidden = yes
+
+	trigger = { 
+		exists = scope:mz_court_eunuch
+		scope:mz_court_eunuch = { is_physically_able = yes }
+		OR = {
+			any_vassal = { count > 0 }
+			AND = { 
+				exists = liege
+				NOT = { liege = root }
+			}
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			scope:mz_court_eunuch.diplomacy >= decent_skill_rating
+			factor = 1.5
+		}
+		modifier = {
+			scope:mz_court_eunuch.diplomacy < mediocre_skill_rating
+			factor = 0.5		
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = mz_had_eunuch_event_recently
+			days = 300 # Prevent eunuch events from firing too frequently
+		}
+		random_list = {
+			3 = {
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position >= 4
+					add = { 
+						value = scope:mz_court_eunuch.aptitude:chief_eunuch_court_position
+						subtract = 3
+						multiply = -1
+					}
+				}
+				modifier = {
+					NOT = { scope:mz_court_eunuch = { has_court_position = chief_eunuch_court_position } }
+					add = 2
+				}
+				send_interface_message = {
+					type = event_diplomacy_good
+					title = mz_court_eunuch.1101.t
+					left_icon = scope:mz_court_eunuch
+					custom_tooltip = mz_court_eunuch.1101.tt
+					every_vassal = {
+						custom = mz_all_direct_vassals
+						add_opinion = {
+							modifier = mz_eunuch_diplomacy_opinion
+							target = root
+							opinion = 10
+						}
+					}
+					if = {
+						limit = { 
+							exists = liege 
+							NOT = { liege = root }
+						}
+						liege = { 
+							add_opinion = {
+								modifier = mz_eunuch_diplomacy_opinion
+								target = root
+								opinion = 10
+							}							
+						}
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position >= 2
+					add = { 
+						value = scope:mz_court_eunuch.aptitude:chief_eunuch_court_position 
+						subtract = 1
+					}
+				}
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position < 2
+					factor = 0
+				}
+				send_interface_message = {
+					type = event_diplomacy_good
+					title = mz_court_eunuch.1101.t
+					left_icon = scope:mz_court_eunuch
+					custom_tooltip = mz_court_eunuch.1101.tt
+					every_vassal = {
+						custom = mz_all_direct_vassals
+						add_opinion = {
+							modifier = mz_eunuch_diplomacy_opinion
+							target = root
+							opinion = 30
+						}
+					}
+					if = {
+						limit = { 
+							exists = liege 
+							NOT = { liege = root }
+						}
+						liege = { 
+							add_opinion = {
+								modifier = mz_eunuch_diplomacy_opinion
+								target = root
+								opinion = 30
+							}							
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+### 2001-2999 Stewardship-weighted events
+mz_court_eunuch.2001 = { # Gain gold
+	hidden = yes
+
+	trigger = { 
+		exists = scope:mz_court_eunuch
+		scope:mz_court_eunuch = { is_physically_able = yes }
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			scope:mz_court_eunuch.stewardship >= decent_skill_rating
+			factor = 1.5
+		}
+		modifier = {
+			scope:mz_court_eunuch.stewardship < mediocre_skill_rating
+			factor = 0.5		
+		}
+		modifier = {
+			gold < 0
+			factor = 2
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = mz_had_eunuch_event_recently
+			days = 300 # Prevent eunuch events from firing too frequently
+		}
+		random_list = {
+			3 = {
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position >= 4
+					add = { 
+						value = scope:mz_court_eunuch.aptitude:chief_eunuch_court_position
+						subtract = 3
+						multiply = -1
+					}
+				}
+				modifier = {
+					NOT = { scope:mz_court_eunuch = { has_court_position = chief_eunuch_court_position } }
+					add = 2
+				}
+				send_interface_message = {
+					type = event_stewardship_good
+					title = mz_court_eunuch.2001.t
+					left_icon = scope:mz_court_eunuch
+					custom_tooltip = mz_court_eunuch.2001.tt
+					add_gold = minor_gold_value
+					if = {
+						limit = { debt_level >= 1 }
+						add_gold = {
+							value = minor_gold_value
+							multiply = debt_level
+						}
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position >= 2
+					add = { 
+						value = scope:mz_court_eunuch.aptitude:chief_eunuch_court_position 
+						subtract = 1
+					}
+				}
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position < 2
+					factor = 0
+				}
+				send_interface_message = {
+					type = event_stewardship_good
+					title = mz_court_eunuch.2001.t
+					left_icon = scope:mz_court_eunuch
+					custom_tooltip = mz_court_eunuch.2001.tt
+					add_gold = major_gold_value
+					if = {
+						limit = { debt_level >= 1 }
+						add_gold = {
+							value = minor_gold_value
+							multiply = debt_level
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+mz_court_eunuch.2101 = { # Gain development
+	hidden = yes
+
+	trigger = { 
+		exists = scope:mz_court_eunuch
+		scope:mz_court_eunuch = { is_physically_able = yes }
+		exists = capital_province
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			scope:mz_court_eunuch.stewardship >= decent_skill_rating
+			factor = 1.5
+		}
+		modifier = {
+			scope:mz_court_eunuch.stewardship < mediocre_skill_rating
+			factor = 0.5		
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = mz_had_eunuch_event_recently
+			days = 300 # Prevent eunuch events from firing too frequently
+		}
+		random_list = {
+			3 = {
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position >= 4
+					add = { 
+						value = scope:mz_court_eunuch.aptitude:chief_eunuch_court_position
+						subtract = 3
+						multiply = -1
+					}
+				}
+				modifier = {
+					NOT = { scope:mz_court_eunuch = { has_court_position = chief_eunuch_court_position } }
+					add = 2
+				}
+				send_interface_message = {
+					type = event_stewardship_good
+					title = mz_court_eunuch.2101.t
+					left_icon = scope:mz_court_eunuch
+					custom_tooltip = mz_court_eunuch.2101.tt
+					capital_province = {
+						county = { change_development_progress_with_overflow = 30 }
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position >= 2
+					add = { 
+						value = scope:mz_court_eunuch.aptitude:chief_eunuch_court_position 
+						subtract = 1
+					}
+				}
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position < 2
+					factor = 0
+				}
+				send_interface_message = {
+					type = event_stewardship_good
+					title = mz_court_eunuch.2101.t
+					left_icon = scope:mz_court_eunuch
+					custom_tooltip = mz_court_eunuch.2101.tt
+					capital_province = {
+						county = { change_development_progress_with_overflow = 15 }
+					}
+				}
+			}
+		}
+	}
+}
+
+### 3001-3999 Intrigue-weighted events
+mz_court_eunuch.3001 = { # Gain scheme resistance
+	hidden = yes
+
+	trigger = { 
+		exists = scope:mz_court_eunuch
+		scope:mz_court_eunuch = { is_physically_able = yes }
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			scope:mz_court_eunuch.intrigue >= decent_skill_rating
+			factor = 1.5
+		}
+		modifier = {
+			scope:mz_court_eunuch.intrigue < mediocre_skill_rating
+			factor = 0.5		
+		}
+		modifier = {
+			has_character_modifier = mz_eunuch_scheme_resistance_modifier
+			factor = 0.1
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = mz_had_eunuch_event_recently
+			days = 300 # Prevent eunuch events from firing too frequently
+		}
+		random_list = {
+			3 = {
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position >= 4
+					add = { 
+						value = scope:mz_court_eunuch.aptitude:chief_eunuch_court_position
+						subtract = 3
+						multiply = -1
+					}
+				}
+				modifier = {
+					NOT = { scope:mz_court_eunuch = { has_court_position = chief_eunuch_court_position } }
+					add = 2
+				}
+				send_interface_message = {
+					type = event_intrigue_good
+					title = mz_court_eunuch.3001.t
+					left_icon = scope:mz_court_eunuch
+					custom_tooltip = mz_court_eunuch.3001.tt
+					set_local_variable = {
+						name = mz_eunuch_modifier_stacks
+						value = 1
+					}
+					while = { 
+						limit = { local_var:mz_eunuch_modifier_stacks <= scope:mz_court_eunuch.aptitude:chief_eunuch_court_position }
+						add_character_modifier = {
+							modifier = mz_eunuch_scheme_resistance_modifier
+							years = 5
+						}
+						change_local_variable = {
+							name = mz_eunuch_modifier_stacks
+							add = 1
+						}
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position >= 2
+					add = { 
+						value = scope:mz_court_eunuch.aptitude:chief_eunuch_court_position 
+						subtract = 1
+					}
+				}
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position < 2
+					factor = 0
+				}
+				send_interface_message = {
+					type = event_intrigue_good
+					title = mz_court_eunuch.3001.t
+					left_icon = scope:mz_court_eunuch
+					custom_tooltip = mz_court_eunuch.3001.tt
+					set_local_variable = {
+						name = mz_eunuch_modifier_stacks
+						value = 1
+					}
+					while = { 
+						limit = { local_var:mz_eunuch_modifier_stacks <= scope:mz_court_eunuch.aptitude:chief_eunuch_court_position }
+						add_character_modifier = {
+							modifier = mz_eunuch_scheme_resistance_modifier
+							years = 3
+						}
+						change_local_variable = {
+							name = mz_eunuch_modifier_stacks
+							add = 1
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+mz_court_eunuch.3101 = { # Gain scheme progress
+	hidden = yes
+
+	trigger = { 
+		exists = scope:mz_court_eunuch
+		scope:mz_court_eunuch = { is_physically_able = yes }
+		any_scheme = { scheme_progress < 8 }
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			scope:mz_court_eunuch.intrigue >= decent_skill_rating
+			factor = 1.5
+		}
+		modifier = {
+			scope:mz_court_eunuch.intrigue < mediocre_skill_rating
+			factor = 0.5		
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = mz_had_eunuch_event_recently
+			days = 300 # Prevent eunuch events from firing too frequently
+		}
+		random_list = {
+			3 = {
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position >= 4
+					add = { 
+						value = scope:mz_court_eunuch.aptitude:chief_eunuch_court_position
+						subtract = 3
+						multiply = -1
+					}
+				}
+				modifier = {
+					NOT = { scope:mz_court_eunuch = { has_court_position = chief_eunuch_court_position } }
+					add = 2
+				}
+				send_interface_message = {
+					type = event_intrigue_good
+					title = mz_court_eunuch.3101.t
+					left_icon = scope:mz_court_eunuch
+					custom_tooltip = mz_court_eunuch.3101.tt
+					every_scheme = {
+						limit = { scheme_progress < 8 }
+						add_scheme_progress = 2
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position >= 2
+					add = { 
+						value = scope:mz_court_eunuch.aptitude:chief_eunuch_court_position 
+						subtract = 1
+					}
+				}
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position < 2
+					factor = 0
+				}
+				send_interface_message = {
+					type = event_intrigue_good
+					title = mz_court_eunuch.3101.t
+					left_icon = scope:mz_court_eunuch
+					custom_tooltip = mz_court_eunuch.3101.tt
+					every_scheme = {
+						limit = { scheme_progress < 8 }
+						add_scheme_progress = 1
+					}
+				}
+			}
+		}
+	}
+}
+
+### 4001-3999 Learning-weighted events
+mz_court_eunuch.4001 = { # Gain piety
+	hidden = yes
+
+	trigger = { 
+		exists = scope:mz_court_eunuch
+		scope:mz_court_eunuch = { is_physically_able = yes }
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			scope:mz_court_eunuch.learning >= decent_skill_rating
+			factor = 1.5
+		}
+		modifier = {
+			scope:mz_court_eunuch.learning < mediocre_skill_rating
+			factor = 0.5		
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = mz_had_eunuch_event_recently
+			days = 300 # Prevent eunuch events from firing too frequently
+		}
+		random_list = {
+			3 = {
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position >= 4
+					add = { 
+						value = scope:mz_court_eunuch.aptitude:chief_eunuch_court_position
+						subtract = 3
+						multiply = -1
+					}
+				}
+				modifier = {
+					NOT = { scope:mz_court_eunuch = { has_court_position = chief_eunuch_court_position } }
+					add = 2
+				}
+				send_interface_message = {
+					type = event_learning_good
+					title = mz_court_eunuch.4001.t
+					left_icon = scope:mz_court_eunuch
+					custom_tooltip = mz_court_eunuch.4001.tt
+					add_piety = minor_piety_value
+				}
+			}
+			1 = {
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position >= 2
+					add = { 
+						value = scope:mz_court_eunuch.aptitude:chief_eunuch_court_position 
+						subtract = 1
+					}
+				}
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position < 2
+					factor = 0
+				}
+				send_interface_message = {
+					type = event_learning_good
+					title = mz_court_eunuch.4001.t
+					left_icon = scope:mz_court_eunuch
+					custom_tooltip = mz_court_eunuch.4001.tt
+					add_piety = major_piety_value
+				}
+			}
+		}
+	}
+}
+
+mz_court_eunuch.4101 = { # Educate court children
+	hidden = yes
+
+	trigger = { 
+		exists = scope:mz_court_eunuch
+		scope:mz_court_eunuch = { is_physically_able = yes }
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			scope:mz_court_eunuch.learning >= decent_skill_rating
+			factor = 1.5
+		}
+		modifier = {
+			scope:mz_court_eunuch.learning < mediocre_skill_rating
+			factor = 0.5		
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = mz_had_eunuch_event_recently
+			days = 300 # Prevent eunuch events from firing too frequently
+		}
+		random_list = {
+			3 = {
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position >= 4
+					add = { 
+						value = scope:mz_court_eunuch.aptitude:chief_eunuch_court_position
+						subtract = 3
+						multiply = -1
+					}
+				}
+				modifier = {
+					NOT = { scope:mz_court_eunuch = { has_court_position = chief_eunuch_court_position } }
+					add = 2
+				}
+				send_interface_message = {
+					type = event_learning_good
+					title = mz_court_eunuch.4101.t
+					left_icon = scope:mz_court_eunuch
+					custom_tooltip = mz_court_eunuch.4101.tt
+					every_courtier_or_guest = {
+						limit = { is_adult = no }
+						custom = mz_every_child_at_court
+						custom_description = {
+							text = mz_eunuch_educates_children
+							education_point_acquisition_effect = yes
+							education_point_acquisition_effect = yes
+						}
+					}
+				}
+			}
+			1 = {
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position >= 2
+					add = { 
+						value = scope:mz_court_eunuch.aptitude:chief_eunuch_court_position 
+						subtract = 1
+					}
+				}
+				modifier = {
+					scope:mz_court_eunuch.aptitude:chief_eunuch_court_position < 2
+					factor = 0
+				}
+				send_interface_message = {
+					type = event_learning_good
+					title = mz_court_eunuch.4101.t
+					left_icon = scope:mz_court_eunuch
+					custom_tooltip = mz_court_eunuch.4101.tt
+					every_courtier_or_guest = {
+						limit = { is_adult = no }
+						custom = mz_every_child_at_court
+						custom_description = {
+							text = mz_eunuch_educates_children
+							education_point_acquisition_effect = yes
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Null
+mz_court_eunuch.0501 = {
+	hidden = yes
+	orphan = yes
+}

@@ -1,0 +1,295 @@
+﻿namespace = mz_lesorgy
+# Events used in the Sapphic Debauche for setup and maintenance.
+
+#################
+# MAINTENANCE EVENTS
+# 0000 - 0999
+#################
+
+#mz_lesorgy.0001 deprecated
+
+mz_lesorgy.0002 = { #Nobody showed up!
+	type = character_event
+	title = mz_lesorgy.0002.t
+	desc = mz_lesorgy.0002.desc
+	theme = mz_lesorgy_activity
+	left_portrait = scope:activity.activity_host
+	override_background = { reference = throne_room }
+
+	option = {
+		name = mz_lesorgy.0002.a
+		stress_impact = {
+			base = minor_stress_impact_gain
+			lustful = minor_stress_impact_gain
+			rakish = minor_stress_impact_gain
+			gregarious = minor_stress_impact_gain
+		}
+	}
+}
+
+mz_lesorgy.0005 = { #Sex event (hidden event where characters sleep with each other behind the scenes, represents random hookups and partner swapping, etc)
+	hidden = yes
+	type = activity_event
+
+	trigger = { 
+		exists = scope:activity 
+		mz_lesorgy_has_serious_illness_trigger = no
+		is_alive = yes
+		is_imprisoned = no
+	}
+
+	immediate = {
+		scope:activity = {
+			random = { # Every time this event pulses, there's a random chance root has sex with someone else at the orgy -- weights based on opinion
+				chance = 50
+				random_attending_character = {
+					limit = { 
+						mz_lesorgy_participant_trigger = yes
+						NOT = {
+							has_opinion_modifier = {
+								target = root
+								modifier = mz_had_sex_at_orgy_opinion
+							}
+						}
+					}
+					weight = {
+						base = 1
+						opinion_modifier = {
+							who = this
+							opinion_target = root
+							multiplier = 0.1
+						}
+						modifier = {
+							root.intent_target ?= this # Weigh this down so they don't get the modifier early and become less likely to be selected for activity events.
+							factor = 0.1 # If the activity is small enough they may still get selected, but in that case this shouldn't matter as much.
+						}
+					}
+					save_scope_as = mz_sex_partner
+				}
+				if = { 
+					limit = { exists = scope:mz_sex_partner }
+					root = { 
+						mz_lesorgy_had_sex_effect = { CHARACTER = scope:mz_sex_partner }
+						if = {
+							limit = { has_sexuality = heterosexual }
+							mz_convert_change_sexual_orientation_effects = { CHARACTER = root }
+						}
+					}
+				}			
+				random = { #If the first event triggers, random chance to sleep with someone else -- do not sleep with the same person twice
+					chance = 50
+					random_attending_character = {
+						limit = { 
+							mz_lesorgy_participant_trigger = yes
+							NOR = {
+								has_opinion_modifier = {
+									target = root
+									modifier = mz_had_sex_at_orgy_opinion
+								}
+							}
+						}
+						weight = {
+							base = 1
+							opinion_modifier = {
+								who = this
+								opinion_target = root
+								multiplier = 0.1
+							}
+							modifier = {
+								root.intent_target ?= this # Weigh this down so they don't get the modifier early and become less likely to be selected for activity events.
+								factor = 0.1 # If the activity is small enough they may still get selected, but in that case this shouldn't matter as much.
+							}
+						}
+						save_scope_as = mz_second_sex_partner
+					}
+					if = { 
+						limit = { exists = scope:mz_second_sex_partner }
+						root = { 
+							mz_lesorgy_had_sex_effect = { CHARACTER = scope:mz_second_sex_partner } 
+						}
+					}		
+				}
+			}
+		}
+	}
+}
+
+mz_lesorgy.0010 = { #Double booked!
+	type = letter_event
+	opening = {
+		desc = mz_lesorgy.0010.opening
+	}
+	desc = mz_lesorgy.0010.desc
+	sender = scope:activity.activity_host
+
+	immediate = {
+		var:booked_for_a_party = {
+			save_scope_as = other_host
+		}
+		decline_activity_invite = scope:activity
+		scope:activity.activity_host = {
+			add_opinion = {
+				target = root
+				modifier = insult_opinion
+				opinion = -10
+			}
+		}
+	}
+
+	option = {
+		name = mz_lesorgy.0010.a	
+	}
+}
+
+mz_lesorgy.0050 = { # Gain Debauchess trait or not
+	type = activity_event
+	title = mz_lesorgy.0050.t
+	desc = mz_lesorgy.0050.desc
+	theme = mz_lesorgy_activity
+	right_portrait = {
+		character = root
+		animation = flirtation
+	}
+	cooldown = { years = 15 }
+
+	option = { # Yes
+		name = mz_lesorgy.0050.a
+		add_trait = mz_lifestyle_lesorgy
+		if = {
+			limit = {
+				culture = { has_cultural_parameter = reveler_traits_more_valued }
+			}
+			add_prestige = miniscule_prestige_gain
+		}
+		stress_impact = {
+			chaste = medium_stress_impact_gain
+			shy = minor_stress_impact_gain
+			reclusive = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				culture = { has_cultural_parameter = reveler_traits_more_valued }
+				factor = 2
+			}
+			modifier = {
+				has_trait = lustful
+				add = 15
+			}
+			modifier = {
+				has_trait = rakish
+				add = 15
+			}
+			modifier = {
+				ai_zeal > low_negative_ai_value
+				faith = { trait_is_virtue = lustful }
+				factor = 2
+			}
+			ai_value_modifier = {
+				ai_energy = 0.5
+				ai_boldness = 0.5
+				ai_sociability = 0.5
+			}
+		}
+	}
+
+	option = { # No
+		name = mz_lesorgy.0050.b
+		stress_impact = {
+			gregarious = minor_stress_impact_gain
+			rakish = medium_stress_impact_gain
+			drunkard = medium_stress_impact_gain
+			lustful = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 25
+			modifier = {
+				NOT = { 
+					faith = { trait_is_virtue = lustful }
+				}
+				is_clergy = yes
+				factor = 2
+			}
+			modifier = {
+				faith = { trait_is_virtue = chaste }
+				factor = 2
+			}
+			modifier = {
+				has_trait = seducer
+				factor = 0
+			}
+			ai_value_modifier = {
+				ai_energy = -0.5
+				ai_boldness = -0.5
+				ai_sociability = -0.5
+			}
+		}
+	}
+}
+
+mz_lesorgy.0051 = { #Guest event: host died
+	type = character_event
+	title = mz_lesorgy.0051.t
+	desc = mz_lesorgy.0051.desc
+	theme = mz_lesorgy_activity
+	override_icon = {
+		reference = "gfx/interface/icons/event_types/type_illness.dds"
+	}
+	left_portrait = {
+		character = scope:host
+	}
+	override_background = { reference = corridor_day }
+
+	trigger = {
+		NOT = { root = scope:host }
+	}
+	
+	option = {
+		name = mz_lesorgy.0051.a
+		flavor = mz_lesorgy.0051.a.tt
+	}
+}
+
+mz_lesorgy.0052 = { #Host event: host imprisoned
+	type = character_event
+	title = mz_lesorgy.0051.t
+	desc = mz_lesorgy.0052.desc
+	theme = mz_lesorgy_activity
+	override_icon = {
+		reference = "gfx/interface/icons/event_types/type_prison.dds"
+	}
+	left_portrait = {
+		character = scope:host
+		animation = prison_dungeon
+	}
+	override_background = { reference = corridor_day }
+
+	trigger = { root = scope:host }
+	
+	option = {
+		name = mz_lesorgy.0052.a
+	}
+}
+
+mz_lesorgy.0053 = { #Guest event: host imprisoned
+	type = character_event
+	title = mz_lesorgy.0051.t
+	desc = mz_lesorgy.0053.desc
+	theme = mz_lesorgy_activity
+	override_icon = {
+		reference = "gfx/interface/icons/event_types/type_prison.dds"
+	}
+	left_portrait = {
+		character = scope:host
+		animation = prison_dungeon
+	}
+	override_background = { reference = corridor_day }
+
+	trigger = {
+		NOT = { root = scope:host }
+	}
+	
+	option = {
+		name = mz_lesorgy.0052.a
+	}
+}

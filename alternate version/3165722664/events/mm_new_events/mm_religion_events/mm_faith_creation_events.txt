@@ -1,0 +1,145 @@
+﻿namespace = mz_lesbian_revelation
+namespace = mz_doctrine_addition
+
+mz_lesbian_revelation.0001 = {
+	type = character_event
+	title = mz_lesbian_revelation.0001.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = scope:mz_had_lesbian_sex_with
+				}
+				desc = mz_lesbian_revelation.0001.desc.specific
+			}
+			desc = mz_lesbian_revelation.0001.desc.generic # Fallback if we couldn't find the partner.		
+		}
+		desc = mz_lesbian_revelation.0001.desc
+	}
+
+	right_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	theme = faith
+	override_background = {
+		reference = bedchamber
+	}
+	
+	trigger = { is_ai = no }
+
+	immediate = {
+		if = { # Try to find a memory first, then lover. If niether is found we just put a fallback description.
+			limit = {
+				any_memory = {
+					has_memory_type = had_sex
+					any_memory_participant = { 
+						NOT = { this = root }
+						is_female = yes
+					}			
+				}
+			}
+			random_memory = {
+				limit = {
+					has_memory_type = had_sex
+					any_memory_participant = { 
+						NOT = { this = root }
+						is_female = yes
+					}
+				}
+				random_memory_participant = {
+					limit = {
+						NOT = { this = root }
+						is_female = yes
+					}
+					save_scope_as = mz_had_lesbian_sex_with
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				any_relation = {
+					type = lover
+					is_female = yes
+				}
+			}
+			random_relation = {
+				type = lover
+				limit = { is_female = yes }
+				save_scope_as = mz_had_lesbian_sex_with
+			}
+		}
+		play_music_cue = mx_cue_seduction
+		add_character_flag = mz_lesbian_revelation_triggered
+	}
+	
+	option = {
+		name = mz_lesbian_revelation.0001.a
+		custom_tooltip = mz_lesbian_revelation_tt
+		hidden_effect = {
+			faith = {
+				set_variable = {
+					name = mz_lesbian_revelation_variable
+					value = root # Save the characrer that had the relevation.
+					years = 100 # 100 years should be good enough. This ensures it cleans up after a while if somthing goes wrong.
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = mz_lesbian_revelation.0001.b
+		# Nothing happens if you turn this down, but you can never get this event on this character again.
+	}
+}
+
+mz_doctrine_addition.0001 = {
+	type = character_event
+	title = mz_doctrine_addition.0001.t
+	desc = mz_doctrine_addition.0001.desc
+
+	right_portrait = {
+		character = root
+		animation = personality_zealous
+	}
+	theme = faith
+	
+	trigger = {
+		is_ai = no
+		faith.religion = religion:mz_heraionism_religion
+		OR = {
+			faith = { has_doctrine = tenet_human_sacrifice }
+			faith = { has_doctrine = tenet_gruesome_festivals }
+		}
+	}
+
+	#immediate = { }
+	
+	option = {
+		name = mz_doctrine_addition.0001.a
+		if = {
+			limit = { 
+				faith = { has_doctrine = tenet_human_sacrifice }
+			}
+			faith = { 
+				remove_doctrine = tenet_human_sacrifice
+				add_doctrine = tenet_sacrificial_ceremonies 
+			}
+		}
+		else_if = {
+			limit = { 
+				faith = { has_doctrine = tenet_gruesome_festivals }
+			}
+			faith = { 
+				remove_doctrine = tenet_gruesome_festivals
+				add_doctrine = tenet_sacrificial_ceremonies 
+			}
+		}
+	}
+	
+	option = {
+		name = mz_doctrine_addition.0001.b
+		custom_tooltip = mz_doctrine_addition.0001.b_tt
+		# Nothing happens.
+	}	
+}

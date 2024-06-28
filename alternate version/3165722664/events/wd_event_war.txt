@@ -1,0 +1,40 @@
+﻿namespace = wd_event_war
+
+# Maintaince Events
+wd_event_war.9000 = {	# Remove wd_county_modifier_xx of all war participants after end of war if they are not involved in another war
+	hidden = yes
+
+	immediate = {
+		every_county = {
+			every_in_list = {
+				list = wd_remove_debuffs_county_list
+			}
+			limit = {
+				county_controller = {
+					is_at_war = no
+				} 
+			}
+			remove_county_modifier = wd_modifier	
+			remove_county_modifier = wd_modifier_01
+			remove_county_modifier = wd_modifier_02	
+			remove_county_modifier = wd_modifier_03	
+			remove_county_modifier = wd_modifier_04
+			remove_county_modifier = wd_modifier_ai	
+			remove_county_modifier = wd_modifier_01_ai
+			remove_county_modifier = wd_modifier_02_ai
+			remove_county_modifier = wd_modifier_03_ai
+			remove_county_modifier = wd_modifier_04_ai	
+			if = {
+				limit = {
+					county_controller = {
+						has_character_flag = wd_modifier_flag
+					}
+				}
+				county_controller = {
+					remove_character_flag = wd_modifier_flag
+				}
+			}
+		}
+	}
+}
+

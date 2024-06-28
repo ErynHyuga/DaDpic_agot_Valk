@@ -1,0 +1,306 @@
+﻿namespace = mz_seduce_outcome
+#Target: Close family hard reject choice
+#by Linnéa Thimrén
+mz_seduce_outcome.8101 = {
+	type = character_event
+	title = seduce_outcome.8101.t
+	desc = {
+		desc = seduce_outcome.8101.desc
+		first_valid = {
+			#It's love!
+			triggered_desc = {
+				trigger = {
+					OR = {
+						has_relation_potential_lover = scope:owner
+						AND = {
+							accepts_incest_with_trigger = { CHARACTER = scope:owner }
+							opinion = {
+								target = scope:owner
+								value >= 50
+							}
+						}
+					}
+				}
+				desc = seduce_outcome.8101.desc_positive
+			}
+			#I hate them / it's forbidden!
+			triggered_desc = {
+				trigger = {
+					OR = {
+						opinion = {
+							target = scope:owner
+							value < 0
+						}
+						has_relation_rival = scope:owner
+						AND = {
+							relation_with_character_is_incestuous_in_my_or_lieges_faith_trigger = { CHARACTER = scope:owner }
+							has_negative_attitude_towards_trait_trigger = { TRAIT = incestuous GENDER_CHARACTER = scope:owner }
+						}
+					}
+				}
+				desc = seduce_outcome.8101.desc_negative
+			}
+			#Neutral
+			desc = seduce_outcome.8101.desc_neutral
+		}
+	}
+	
+	theme = seduce_scheme
+	left_portrait = scope:owner
+
+	trigger = {
+		exists = scope:scheme
+	}
+
+	immediate = {
+		debug_log = "Event replacement successful"
+		hidden_effect = {
+			#For clearer and more controllable ai outcomes, we determine the outcome here:
+
+			#HARD REJECT OR NOT?
+			if = { # Guaranteed rejection
+				limit = { guaranteed_under_20_incest_rejection_trigger = { TARGET = scope:target SEDUCER = scope:owner } }
+				save_scope_value_as = {
+					name = incest_outcome
+					value = flag:reject
+				}
+			}
+			else_if = { #Guaranteed acceptance (as long as guaranteed_under_20_incest_rejection_trigger is false)
+				limit = { scope:owner = { has_perk = subtle_desire_perk } }
+				save_scope_value_as = {
+					name = incest_outcome
+					value = flag:accept
+				}
+			}
+			else_if = { # No hard rejection if target is female and target follows lesbian faith and incest is allowed (still has family penalty, can still reject at the end)
+				limit = { 
+					scope:owner = { is_female = yes }
+					mz_lesbian_faith_devotee = yes
+					faith = { has_doctrine_parameter = consanguinity_unrestricted_incest }
+				}
+				debug_log = "Trigger successful"
+				save_scope_value_as = {
+					name = incest_outcome
+					value = flag:accept
+				}
+			}
+			else = { #Randomization
+				random = {
+					chance = 100
+					incest_acceptance_modifier = { #A factor between 1 and 0
+						TARGET = scope:target
+						SEDUCER = scope:owner
+					}
+					save_scope_value_as = {
+						name = incest_outcome
+						value = flag:accept
+					}					
+				}	
+				if = {
+					limit = { NOT = { exists = scope:incest_outcome } }
+					save_scope_value_as = {
+						name = incest_outcome
+						value = flag:reject
+					}
+				}
+			}
+
+			#SPECIFY REJECTION TYPE
+			if = {
+				limit = {
+					exists = scope:incest_outcome
+					scope:incest_outcome = flag:reject
+				}
+
+				#What kind of reject?
+				random_list = {
+					30 = { #Reveal
+						opinion_modifier = {
+							who = scope:target
+							opinion_target = scope:owner
+							multiplier = -0.25
+						}
+						ai_value_modifier = {
+							ai_boldness = 0.5
+							ai_compassion = -0.5
+							ai_vengefulness = 0.5
+						}
+						ai_boldness_target_modifier = { VALUE = 100 }
+						ai_vengefulness_target_modifier = { VALUE = 100 }
+						min = 1 # To ensure 'incest_outcome' is never left unset.
+
+						save_scope_value_as = {
+							name = incest_outcome
+							value = flag:reject_reveal
+						}
+					}
+					70 = { #Silent reject
+						opinion_modifier = {
+							who = scope:target
+							opinion_target = scope:owner
+							multiplier = 0.25
+						}
+						modifier = { #Less harsh on child
+							is_parent_of = scope:owner
+							add = 30
+						}
+						modifier = { #Less harsh if you stand to inherit
+							is_heir_of = scope:owner
+							add = 30
+						}
+						ai_value_modifier = {
+							ai_boldness = -0.5
+							ai_compassion = 0.5
+							ai_vengefulness = -0.5
+						}
+						ai_greed_target_modifier = { VALUE = 75 }
+						min = 1 # To ensure 'incest_outcome' is never left unset.
+
+						save_scope_value_as = {
+							name = incest_outcome
+							value = flag:reject_no_reveal
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = { #Leave me be!!
+		name = seduce_outcome.8101.a
+		
+		reverse_add_opinion = {
+			target = scope:owner
+			modifier = refusal_opinion
+			opinion = -20
+		}
+
+		seduction_block_character_effect = { CHARACTER = scope:owner }
+
+		scope:owner = {
+			trigger_event = seduce_outcome.8102
+		}
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				scope:incest_outcome = flag:reject_no_reveal
+			}
+		}
+	}
+
+	option = { #I will tell everyone about this!
+		name = seduce_outcome.8101.c
+
+		reverse_add_opinion = {
+			target = scope:owner
+			modifier = angry_opinion
+			opinion = -35
+		}
+
+		seduction_block_character_effect = { CHARACTER = scope:owner }
+
+		#Reveals incest (and sodomy/adultery)
+		show_as_tooltip = {
+			scope:owner = {
+				seduce_outcome_publicised_attempted_crimes_or_nothing_effect = {
+					TARGET = scope:target
+					OWNER = scope:owner
+				}
+			}
+		}
+
+		scope:owner = {
+			trigger_event = seduce_outcome.8103
+		}
+
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				scope:incest_outcome = flag:reject_reveal
+			}
+		}
+	}
+
+	option = { #Sin be damned, lets go!
+		name = seduce_outcome.8101.b
+		custom_tooltip = seduce_outcome.8101.b.tt
+
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				scope:incest_outcome = flag:accept
+			}
+		}
+	}
+}
+
+# New Event: Self Convert for Owner
+mz_seduce_outcome.9001 = {
+	type = character_event
+	title = mz_seduce_outcome.9001.t
+	desc =  mz_seduce_outcome.9001.desc
+
+	theme = seduce_scheme
+	right_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	override_background = { reference = bedchamber }
+
+	trigger = { 
+		is_ai = no
+		is_female = yes
+		OR = {
+			has_sexuality = heterosexual
+			has_sexuality = asexual
+		}
+		exists = scope:target
+	 }
+
+	immediate = {
+		add_character_flag = {
+			flag = mz_had_event_seduce_outcome_9001
+			years = 20
+		}
+		show_as_tooltip = {
+			had_sex_with_effect = {
+				CHARACTER = scope:target
+				PREGNANCY_CHANCE = 0
+			}
+		}
+	}
+
+	option = { # No effect.
+		name = mz_seduce_outcome.9001.a
+	}
+
+	option = {
+		name = mz_seduce_outcome.9001.b
+		set_sexuality = bisexual
+	}
+
+	option = {
+		name = mz_seduce_outcome.9001.c
+		set_sexuality = homosexual
+		every_relation = { #If becomes lesbian, break up with all male lovers
+			type = lover
+			limit = { is_male = yes }
+			lover_breakup_effect = {
+				BREAKER = prev
+				LOVER = this
+			}
+		}
+		every_relation = { #If becomes lesbian, break up with all male lovers
+			type = soulmate
+			limit = { is_male = yes }
+			lover_breakup_effect = {
+				BREAKER = prev
+				LOVER = this
+			}
+		}
+	}
+}

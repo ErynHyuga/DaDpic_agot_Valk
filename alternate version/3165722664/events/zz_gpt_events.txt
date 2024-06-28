@@ -1,0 +1,2315 @@
+﻿namespace = murden_gravitas_events
+
+
+##########################################
+
+murden_gravitas_events.0009 = { #edicts
+	type = character_event
+	title = murden_gravitas_events.0009.title
+	desc = murden_gravitas_events.0009.desc
+	
+	theme = stewardship_wealth_focus
+	
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+
+	trigger = { 
+		exists = capital_province 
+	}
+	
+	option = {
+		name = murden_gravitas_events.0009.a.1
+		
+		trigger = {
+			OR ={ 
+				stewardship >= 16
+				intrigue >= 16
+			}
+		}
+		
+		stewardship_buff_4_1 = true
+
+		stress_impact = {
+			temperate = -8
+			just = -8
+			greedy = -8
+			stubborn = -8
+			patient = -8
+			fickle = 8
+			gluttonous = 8
+			arbitrary = 8
+			arrogant = 8
+			impatient = 8
+			cynical = -8
+			sadistic = -8
+			callous = -8
+			vengeful = -8
+			lustful = -8
+			trusting = 8
+			compassionate = 8
+			trusting = 8
+			honest = 8
+			zealous = 8
+		}
+	}
+	option = {
+		name = murden_gravitas_events.0009.a.2
+		
+		trigger = {
+			OR ={ 
+				stewardship >= 16
+				intrigue >= 16
+			}
+		}
+		
+		stewardship_buff_4_2 = true
+
+		stress_impact = {
+			temperate = -8
+			just = -8
+			greedy = -8
+			stubborn = -8
+			patient = -8
+			fickle = 8
+			gluttonous = 8
+			arbitrary = 8
+			arrogant = 8
+			impatient = 8
+			cynical = -8
+			sadistic = -8
+			callous = -8
+			vengeful = -8
+			lustful = -8
+			trusting = 8
+			compassionate = 8
+			trusting = 8
+			honest = 8
+			zealous = 8
+		}
+	}
+	option = {
+		name = murden_gravitas_events.0009.a.3
+		
+		trigger = {
+			OR ={ 
+				stewardship >= 16
+				intrigue >= 16
+			}
+		}
+		
+		stewardship_buff_4_3 = true
+
+		stress_impact = {
+			temperate = -8
+			just = -8
+			greedy = -8
+			stubborn = -8
+			patient = -8
+			fickle = 8
+			gluttonous = 8
+			arbitrary = 8
+			arrogant = 8
+			impatient = 8
+			cynical = -8
+			sadistic = -8
+			callous = -8
+			vengeful = -8
+			lustful = -8
+			trusting = 8
+			compassionate = 8
+			trusting = 8
+			honest = 8
+			zealous = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0009.b.1
+		
+		trigger = {
+			OR ={ 
+				diplomacy >= 16
+				learning >= 16
+			}
+		}
+		
+		diplomacy_buff_4_1 = true
+
+		stress_impact = {
+			forgiving = -8
+			gregarious = -8
+			honest = -8
+			trusting = -8
+			compassionate = -8
+			vengeful = 8
+			greedy = 8
+			deceitful = 8
+			callous = 8
+			zealous = -8
+			patient = -8
+			calm = -8
+			chaste = -8
+			content = 8
+			impatient = 8
+			lustful = 8
+			gluttonous = 8
+			brave = 8
+		}
+	}
+	option = {
+		name = murden_gravitas_events.0009.b.2
+		
+		trigger = {
+			OR ={ 
+				diplomacy >= 16
+				learning >= 16
+			}
+		}
+		
+		diplomacy_buff_4_2 = true
+
+		stress_impact = {
+			forgiving = -8
+			gregarious = -8
+			honest = -8
+			trusting = -8
+			compassionate = -8
+			vengeful = 8
+			greedy = 8
+			deceitful = 8
+			callous = 8
+			zealous = -8
+			patient = -8
+			calm = -8
+			chaste = -8
+			content = 8
+			impatient = 8
+			lustful = 8
+			gluttonous = 8
+			brave = 8
+		}
+	}
+	option = {
+		name = murden_gravitas_events.0009.b.3
+		
+		trigger = {
+			OR ={ 
+				diplomacy >= 16
+				learning >= 16
+			}
+		}
+		
+		diplomacy_buff_4_3 = true
+
+		stress_impact = {
+			forgiving = -8
+			gregarious = -8
+			honest = -8
+			trusting = -8
+			compassionate = -8
+			vengeful = 8
+			greedy = 8
+			deceitful = 8
+			callous = 8
+			zealous = -8
+			patient = -8
+			calm = -8
+			chaste = -8
+			content = 8
+			impatient = 8
+			lustful = 8
+			gluttonous = 8
+			brave = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0009.c.1
+		
+		trigger = {
+			OR ={ 
+				martial >= 16
+				prowess >= 16
+			}
+		}
+		
+		martial_buff_4_1 = true
+
+		stress_impact = {
+			vengeful = -8
+			arrogant = -12
+			ambitious = -8
+			brave = -12
+			paranoid = -8
+			craven = 12
+			shy = 8
+			generous = 8
+			content = 8
+			humble = 12
+			zealous = -8
+			wrathful = -8
+			sadistic = -8
+			calm = 8
+			compassionate = 8
+			fickle = 8
+		}
+	}
+	option = {
+		name = murden_gravitas_events.0009.c.2
+		
+		trigger = {
+			OR ={ 
+				martial >= 16
+				prowess >= 16
+			}
+		}
+		
+		martial_buff_4_2 = true
+
+		stress_impact = {
+			vengeful = -8
+			arrogant = -12
+			ambitious = -8
+			brave = -12
+			paranoid = -8
+			craven = 12
+			shy = 8
+			generous = 8
+			content = 8
+			humble = 12
+			zealous = -8
+			wrathful = -8
+			sadistic = -8
+			calm = 8
+			compassionate = 8
+			fickle = 8
+		}
+	}
+	option = {
+		name = murden_gravitas_events.0009.c.3
+		
+		trigger = {
+			OR ={ 
+				martial >= 16
+				prowess >= 16
+			}
+		}
+		
+		martial_buff_4_3 = true
+
+		stress_impact = {
+			vengeful = -8
+			arrogant = -12
+			ambitious = -8
+			brave = -12
+			paranoid = -8
+			craven = 12
+			shy = 8
+			generous = 8
+			content = 8
+			humble = 12
+			zealous = -8
+			wrathful = -8
+			sadistic = -8
+			calm = 8
+			compassionate = 8
+			fickle = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.m	
+
+		ai_chance = { base = 0 }
+	}
+}
+
+murden_gravitas_events.0003 = {
+	type = character_event
+	title = murden_gravitas_events.0003.title
+	desc = murden_gravitas_events.0003.desc
+	
+	theme = stewardship_wealth_focus
+	
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+
+	trigger = { 
+		exists = capital_province 
+	}
+
+	# use prestige to obtain money
+	
+	
+	option = {
+		name = murden_gravitas_events.0001.n
+		
+		trigger = {
+			diplomacy >= 12
+		}
+		
+		diplomacy_buff = true
+
+		stress_impact = {
+			forgiving = -8
+			gregarious = -8
+			honest = -8
+			trusting = -8
+			compassionate = -8
+			vengeful = 8
+			greedy = 8
+			shy = 8
+			deceitful = 8
+			callous = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.o
+		
+		trigger = {
+			stewardship >= 12
+		}
+		
+		stewardship_buff = true
+
+		stress_impact = {
+			temperate = -8
+			just = -8
+			greedy = -8
+			stubborn = -8
+			patient = -8
+			fickle = 8
+			gluttonous = 8
+			arbitrary = 8
+			arrogant = 8
+			impatient = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.p
+		
+		trigger = {
+			martial >= 12
+		}
+		
+		martial_buff = true
+
+		stress_impact = {
+			brave = -8
+			zealous = -8
+			wrathful = -8
+			sadistic = -8
+			arrogant = -8
+			craven = 8
+			calm = 8
+			compassionate = 8
+			humble = 8
+			fickle = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.q
+		
+		trigger = {
+			intrigue >= 12
+		}
+		
+		intrigue_buff = true
+
+		stress_impact = {
+			cynical = -8
+			sadistic = -8
+			callous = -8
+			vengeful = -8
+			lustful = -8
+			trusting = 8
+			compassionate = 8
+			trusting = 8
+			honest = 8
+			zealous = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.r
+		
+		trigger = {
+			learning >= 12
+		}
+		
+		learning_buff = true
+
+		stress_impact = {
+			zealous = -8
+			patient = -8
+			shy = -8
+			calm = -8
+			chaste = -8
+			content = 8
+			impatient = 8
+			lustful = 8
+			gluttonous = 8
+			brave = 8
+		}
+	}
+
+
+	option = {
+		name = murden_gravitas_events.0001.s
+		
+		trigger = {
+			prowess >= 12
+		}
+		
+		prowess_buff = true
+
+		stress_impact = {
+			vengeful = -8
+			arrogant = -8
+			ambitious = -8
+			brave = -8
+			paranoid = -8
+			craven = 8
+			shy = 8
+			generous = 8
+			content = 8
+			humble = 8
+		}
+	}
+
+
+	option = {
+		name = murden_gravitas_events.0001.m	
+		ai_chance = { base = 0 }
+	}
+}
+
+##########################################
+
+murden_gravitas_events.0004 = {
+	type = character_event
+	title = murden_gravitas_events.0004.title
+	desc = murden_gravitas_events.0004.desc
+	
+	theme = stewardship_wealth_focus
+	
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+
+	trigger = { 
+		exists = capital_province 
+	}
+	
+	
+	option = {
+		name = murden_gravitas_events.0001.t
+		
+		trigger = {
+			diplomacy >= 8
+		}
+		
+		diplomacy_buff2 = true
+
+		stress_impact = {
+			forgiving = -8
+			gregarious = -8
+			honest = -8
+			trusting = -8
+			compassionate = -8
+			vengeful = 8
+			greedy = 8
+			shy = 8
+			deceitful = 8
+			callous = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.u
+		
+		trigger = {
+			stewardship >= 8
+		}
+		
+		stewardship_buff2 = true
+
+		stress_impact = {
+			temperate = -8
+			just = -8
+			greedy = -8
+			stubborn = -8
+			patient = -8
+			fickle = 8
+			gluttonous = 8
+			arbitrary = 8
+			arrogant = 8
+			impatient = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.v
+		
+		trigger = {
+			martial >= 8
+		}
+		
+		martial_buff2 = true
+
+		stress_impact = {
+			brave = -8
+			zealous = -8
+			wrathful = -8
+			sadistic = -8
+			arrogant = -8
+			craven = 8
+			calm = 8
+			compassionate = 8
+			humble = 8
+			fickle = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.w
+		
+		trigger = {
+			intrigue >= 8
+		}
+		
+		intrigue_buff2 = true
+
+		stress_impact = {
+			cynical = -8
+			sadistic = -8
+			callous = -8
+			vengeful = -8
+			lustful = -8
+			trusting = 8
+			compassionate = 8
+			trusting = 8
+			honest = 8
+			zealous = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.x
+		
+		trigger = {
+			learning >= 8
+		}
+		
+		learning_buff2 = true
+
+		stress_impact = {
+			zealous = -8
+			patient = -8
+			shy = -8
+			calm = -8
+			chaste = -8
+			content = 8
+			impatient = 8
+			lustful = 8
+			gluttonous = 8
+			brave = 8
+		}
+	}
+
+
+	option = {
+		name = murden_gravitas_events.0001.y
+		
+		trigger = {
+			prowess >= 8
+		}
+		
+		prowess_buff2 = true
+
+		stress_impact = {
+			vengeful = -8
+			arrogant = -8
+			ambitious = -8
+			brave = -8
+			paranoid = -8
+			craven = 8
+			shy = 8
+			generous = 8
+			content = 8
+			humble = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.m	
+		ai_chance = { base = 0 }
+	}
+}
+
+murden_gravitas_events.0005 = {
+	type = character_event
+	title = murden_gravitas_events.0005.title
+	desc = murden_gravitas_events.0005.desc
+	
+	theme = stewardship_wealth_focus
+	
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+
+	trigger = { 
+		exists = capital_province 
+	}
+	
+	
+	option = {
+		name = murden_gravitas_events.0001.z1
+		
+		trigger = {
+			diplomacy >= 4
+		}
+		
+		diplomacy_buff3 = true
+
+		stress_impact = {
+			forgiving = -8
+			gregarious = -8
+			honest = -8
+			trusting = -8
+			compassionate = -8
+			vengeful = 8
+			greedy = 8
+			shy = 8
+			deceitful = 8
+			callous = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.z2
+		
+		trigger = {
+			stewardship >= 4
+		}
+		
+		stewardship_buff3 = true
+
+		stress_impact = {
+			temperate = -8
+			just = -8
+			greedy = -8
+			stubborn = -8
+			patient = -8
+			fickle = 8
+			gluttonous = 8
+			arbitrary = 8
+			arrogant = 8
+			impatient = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.z3
+		
+		trigger = {
+			martial >= 4
+		}
+		
+		martial_buff3 = true
+
+		stress_impact = {
+			brave = -8
+			zealous = -8
+			wrathful = -8
+			sadistic = -8
+			arrogant = -8
+			craven = 8
+			calm = 8
+			compassionate = 8
+			humble = 8
+			fickle = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.z4
+		
+		trigger = {
+			intrigue >= 4
+		}
+		
+		intrigue_buff3 = true
+
+		stress_impact = {
+			cynical = -8
+			sadistic = -8
+			callous = -8
+			vengeful = -8
+			lustful = -8
+			trusting = 8
+			compassionate = 8
+			trusting = 8
+			honest = 8
+			zealous = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.z5
+		
+		trigger = {
+			learning >= 4
+		}
+		
+		learning_buff3 = true
+
+		stress_impact = {
+			zealous = -8
+			patient = -8
+			shy = -8
+			calm = -8
+			chaste = -8
+			content = 8
+			impatient = 8
+			lustful = 8
+			gluttonous = 8
+			brave = 8
+		}
+	}
+
+
+	option = {
+		name = murden_gravitas_events.0001.z6
+		
+		trigger = {
+			prowess >= 4
+		}
+		
+		prowess_buff3 = true
+
+		stress_impact = {
+			vengeful = -8
+			arrogant = -8
+			ambitious = -8
+			brave = -8
+			paranoid = -8
+			craven = 8
+			shy = 8
+			generous = 8
+			content = 8
+			humble = 8
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.m
+		ai_chance = { base = 0 }
+	}
+}
+
+##########################################
+
+murden_gravitas_events.0028 = { #expeditions
+	type = character_event
+	title = murden_gravitas_events.0028.title
+	desc = murden_gravitas_events.0028.desc
+	
+	theme = diplomacy_foreign_affairs_focus
+	
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	
+	option = {
+		trigger = { NOT = { has_character_flag = diplomacy_expedition } NOT = { has_character_flag = any_expedition } diplomacy >= 8 }
+		name = murden_gravitas_events.0028.a
+		show_as_tooltip = { custom_tooltip = { text = diplomacy_expedition_tip } }
+		add_character_flag = { flag = diplomacy_expedition years = 5 }
+		add_character_flag = { flag = any_expedition }
+		stress_impact = {
+			greedy = 25
+			arbitrary = 25
+			lazy = 25
+		}
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_start_expedition_t
+				desc = gpt_start_expedition_d
+				show_as_tooltip = { custom_tooltip = { text = start_expedition_tip_1 } custom_tooltip = { text = start_expedition_tip_2 } }
+			}
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = stewardship_expedition } NOT = { has_character_flag = any_expedition } stewardship >= 8 }
+		name = murden_gravitas_events.0028.b
+		show_as_tooltip = { custom_tooltip = { text = stewardship_expedition_tip } }
+		add_character_flag = { flag = stewardship_expedition years = 5 }
+		add_character_flag = { flag = any_expedition }
+		stress_impact = {
+			greedy = 25
+			arbitrary = 25
+			lazy = 25
+		}
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_start_expedition_t
+				desc = gpt_start_expedition_d
+				show_as_tooltip = { custom_tooltip = { text = start_expedition_tip_1 } custom_tooltip = { text = start_expedition_tip_2 } }
+			}
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = martial_expedition } NOT = { has_character_flag = any_expedition } martial >= 8 }
+		name = murden_gravitas_events.0028.c
+		show_as_tooltip = { custom_tooltip = { text = martial_expedition_tip } }
+		add_character_flag = { flag = martial_expedition years = 5 }
+		add_character_flag = { flag = any_expedition}
+		stress_impact = {
+			greedy = 25
+			arbitrary = 25
+			lazy = 25
+		}
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_start_expedition_t
+				desc = gpt_start_expedition_d
+				show_as_tooltip = { custom_tooltip = { text = start_expedition_tip_1 } custom_tooltip = { text = start_expedition_tip_2 } }
+			}
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = intrigue_expedition } NOT = { has_character_flag = any_expedition } intrigue >= 8 }
+		name = murden_gravitas_events.0028.d
+		show_as_tooltip = { custom_tooltip = { text = intrigue_expedition_tip } }
+		add_character_flag = { flag = intrigue_expedition years = 5 }
+		add_character_flag = { flag = any_expedition }
+		stress_impact = {
+			greedy = 25
+			arbitrary = 25
+			lazy = 25
+		}
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_start_expedition_t
+				desc = gpt_start_expedition_d
+				show_as_tooltip = { custom_tooltip = { text = start_expedition_tip_1 } custom_tooltip = { text = start_expedition_tip_2 } }
+			}
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = learning_expedition } NOT = { has_character_flag = any_expedition } learning >= 8 }
+		name = murden_gravitas_events.0028.e
+		show_as_tooltip = { custom_tooltip = { text = learning_expedition_tip } }
+		add_character_flag = { flag = learning_expedition years = 5 }
+		add_character_flag = { flag = any_expedition }
+		stress_impact = {
+			greedy = 25
+			arbitrary = 25
+			lazy = 25
+		}
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_start_expedition_t
+				desc = gpt_start_expedition_d
+				show_as_tooltip = { custom_tooltip = { text = start_expedition_tip_1 } custom_tooltip = { text = start_expedition_tip_2 } }
+			}
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = prowess_expedition } NOT = { has_character_flag = any_expedition } prowess >= 12 }
+		name = murden_gravitas_events.0028.f
+		show_as_tooltip = { custom_tooltip = { text = prowess_expedition_tip } }
+		add_character_flag = { flag = prowess_expedition years = 5 }
+		add_character_flag = { flag = any_expedition }
+		stress_impact = {
+			greedy = 25
+			arbitrary = 25
+			lazy = 25
+		}
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_start_expedition_t
+				desc = gpt_start_expedition_d
+				show_as_tooltip = { custom_tooltip = { text = start_expedition_tip_1 } custom_tooltip = { text = start_expedition_tip_2 } }
+			}
+		}
+	}
+
+ 	option = {
+		trigger = {
+			has_character_flag = any_expedition
+		}
+		name = murden_gravitas_events.0028.x
+		show_as_tooltip = { custom_tooltip = { text = end_expedition_tip_0 } }
+		remove_character_flag = any_expedition
+		if = { limit = { has_character_flag = diplomacy_expedition } remove_character_flag = diplomacy_expedition }
+		if = { limit = { has_character_flag = stewardship_expedition } remove_character_flag = stewardship_expedition }
+		if = { limit = { has_character_flag = martial_expedition } remove_character_flag = martial_expedition }
+		if = { limit = { has_character_flag = intrigue_expedition } remove_character_flag = intrigue_expedition }
+		if = { limit = { has_character_flag = learning_expedition } remove_character_flag = learning_expedition }
+		if = { limit = { has_character_flag = prowess_expedition } remove_character_flag = prowess_expedition }
+ 		add_stress = 25
+ 		stress_impact = {
+ 			patient = 25
+ 		}
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_end_expedition_t
+				desc = gpt_end_expedition_d
+				show_as_tooltip = { custom_tooltip = { text = end_expedition_tip_1 } custom_tooltip = { text = end_expedition_tip_2 } }
+			}
+		}
+ 	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = any_expedition } }
+		name = murden_gravitas_events.0028.z
+		if = { limit = { highest_held_title_tier = 3 } add_gold = 50 add_prestige_no_experience = 150 show_as_tooltip = { add_prestige = 150 } }
+		if = { limit = { highest_held_title_tier = 4 } add_gold = 100 add_prestige_no_experience = 250 show_as_tooltip = { add_prestige = 250 } }
+		if = { limit = { highest_held_title_tier = 5 } add_gold = 150 add_prestige_no_experience = 350 show_as_tooltip = { add_prestige = 350 } }
+		ai_chance = { base = 0 }
+	}
+
+	option = {
+		trigger = { has_character_flag = any_expedition }
+		name = murden_gravitas_events.0028.z
+		ai_chance = { base = 0 }
+	}
+}
+
+##########################################
+
+murden_gravitas_events.0031 = {
+	type = character_event
+	title = murden_gravitas_events.0032.title
+	desc = murden_gravitas_events.0032.desc
+	
+	theme = intrigue_intimidation_focus
+	
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	
+	option = {
+		trigger = { NOT = { has_character_flag = tyranny_gold_tribal } }
+		name = murden_gravitas_events.0032.a
+		show_as_tooltip = { custom_tooltip = { text = tyranny_gold_tip } }
+		add_character_flag = { flag = tyranny_gold_tribal years = 5 }
+		add_stress = 25
+		stress_impact = {
+			greedy = -25
+			content = 25
+			impatient = 25
+			honest = 25
+			temperate = 25
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = tyranny_prestige_tribal } }
+		name = murden_gravitas_events.0032.b
+		show_as_tooltip = { custom_tooltip = { text = tyranny_prestige_tip } }
+		add_character_flag = { flag = tyranny_prestige_tribal years = 5 }
+		add_stress = 25
+		stress_impact = {
+			arrogant = -25
+			zealous = 25
+			impatient = 25
+			shy = 25
+			craven = 25
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = tyranny_army_tribal } }
+		name = murden_gravitas_events.0032.c
+		show_as_tooltip = { custom_tooltip = { text = tyranny_army_tip } }
+		add_character_flag = { flag = tyranny_army_tribal years = 5 }
+		add_stress = 25
+		stress_impact = {
+			ambitious = -25
+			impatient = 25
+			lazy = 25
+			shy = 25
+			brave = 25
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = tyranny_dread_tribal } }
+		name = murden_gravitas_events.0032.d
+		show_as_tooltip = { custom_tooltip = { text = tyranny_dread_tip } }
+		add_character_flag = { flag = tyranny_dread_tribal years = 5 }
+		add_stress = 25
+		stress_impact = {
+			sadistic = -25
+			lazy = 25
+			forgiving = 25
+			shy = 25
+			craven = 25
+			calm = 25
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0032.x
+		show_as_tooltip = { custom_tooltip = { text = stop_tyranny_tip } }
+		remove_character_flag = tyranny_gold_tribal
+		remove_character_flag = tyranny_prestige_tribal
+		remove_character_flag = tyranny_army_tribal
+		remove_character_flag = tyranny_dread_tribal
+		add_stress = 30
+		stress_impact = {
+			patient = 30
+		}
+		ai_chance = { base = 0 }
+	}
+
+	option = {
+		name = murden_gravitas_events.0032.z
+		ai_chance = { base = 0 }
+	}
+}
+
+murden_gravitas_events.0032 = {
+	type = character_event
+	title = murden_gravitas_events.0032.title
+	desc = murden_gravitas_events.0032.desc
+	
+	theme = intrigue_intimidation_focus
+	
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	
+	option = {
+		trigger = { NOT = { has_character_flag = tyranny_gold } }
+		name = murden_gravitas_events.0032.a
+		show_as_tooltip = { custom_tooltip = { text = tyranny_gold_tip } }
+		add_character_flag = { flag = tyranny_gold years = 5 }
+		add_stress = 25
+		stress_impact = {
+			greedy = -25
+			content = 25
+			impatient = 25
+			honest = 25
+			temperate = 25
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = tyranny_prestige } }
+		name = murden_gravitas_events.0032.b
+		show_as_tooltip = { custom_tooltip = { text = tyranny_prestige_tip } }
+		add_character_flag = { flag = tyranny_prestige years = 5 }
+		add_stress = 25
+		stress_impact = {
+			arrogant = -25
+			zealous = 25
+			impatient = 25
+			shy = 25
+			craven = 25
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = tyranny_army } }
+		name = murden_gravitas_events.0032.c
+		show_as_tooltip = { custom_tooltip = { text = tyranny_army_tip } }
+		add_character_flag = { flag = tyranny_army years = 5 }
+		add_stress = 25
+		stress_impact = {
+			ambitious = -25
+			impatient = 25
+			lazy = 25
+			shy = 25
+			brave = 25
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = tyranny_dread } }
+		name = murden_gravitas_events.0032.d
+		show_as_tooltip = { custom_tooltip = { text = tyranny_dread_tip } }
+		add_character_flag = { flag = tyranny_dread years = 5 }
+		add_stress = 25
+		stress_impact = {
+			sadistic = -25
+			lazy = 25
+			forgiving = 25
+			shy = 25
+			craven = 25
+			calm = 25
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0032.x
+		show_as_tooltip = { custom_tooltip = { text = stop_tyranny_tip } }
+		remove_character_flag = tyranny_gold
+		remove_character_flag = tyranny_prestige
+		remove_character_flag = tyranny_army
+		remove_character_flag = tyranny_dread
+		add_stress = 30
+		stress_impact = {
+			patient = 30
+		}
+		ai_chance = { base = 0 }
+	}
+
+	option = {
+		name = murden_gravitas_events.0032.z
+		ai_chance = { base = 0 }
+	}
+}
+
+##########################################
+
+
+murden_gravitas_events.0030 = {
+	type = character_event
+	title = murden_gravitas_events.0030.title
+	desc = murden_gravitas_events.0030.desc
+	
+	theme = stewardship_wealth_focus
+	
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	
+	option = {
+		trigger = { NOT = { has_trait = gpt_absent } diplomacy >= 8 }
+		name = murden_gravitas_events.0030.a
+		show_as_tooltip = { custom_tooltip = { text = absent_event_dip_tip } }
+		add_character_flag = { flag = gpt_absent_frag_dip years = 5 }
+		add_trait = gpt_absent
+		hidden_effect = {
+			send_interface_message = {
+				type = event_report_neutral_with_text
+				title = gpt_absent_leaving_court_t
+				desc = gpt_absent_leaving_court_d
+			#	left_icon = root
+				show_as_tooltip = { custom_tooltip = { text = absent_leaving_tip } custom_tooltip = { text = absent_leaving_tip_2 } }
+			}
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_trait = gpt_absent } stewardship >= 8 }
+		name = murden_gravitas_events.0030.b
+		show_as_tooltip = { custom_tooltip = { text = absent_event_stw_tip } }
+		add_character_flag = { flag = gpt_absent_frag_stw years = 5 }
+		add_trait = gpt_absent
+		hidden_effect = {
+			send_interface_message = {
+				type = event_report_neutral_with_text
+				title = gpt_absent_leaving_court_t
+				desc = gpt_absent_leaving_court_d
+			#	left_icon = root
+				show_as_tooltip = { custom_tooltip = { text = absent_leaving_tip } custom_tooltip = { text = absent_leaving_tip_2 } }
+			}
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_trait = gpt_absent } martial >= 8 }
+		name = murden_gravitas_events.0030.c
+		show_as_tooltip = { custom_tooltip = { text = absent_event_mar_tip } }
+		add_character_flag = { flag = gpt_absent_frag_mar years = 5 }
+		add_trait = gpt_absent
+		hidden_effect = {
+			send_interface_message = {
+				type = event_report_neutral_with_text
+				title = gpt_absent_leaving_court_t
+				desc = gpt_absent_leaving_court_d
+			#	left_icon = root
+				show_as_tooltip = { custom_tooltip = { text = absent_leaving_tip } custom_tooltip = { text = absent_leaving_tip_2 } }
+			}
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_trait = gpt_absent } intrigue >= 8 }
+		name = murden_gravitas_events.0030.d
+		show_as_tooltip = { custom_tooltip = { text = absent_event_int_tip } }
+		add_character_flag = { flag = gpt_absent_frag_int years = 5 }
+		add_trait = gpt_absent
+		hidden_effect = {
+			send_interface_message = {
+				type = event_report_neutral_with_text
+				title = gpt_absent_leaving_court_t
+				desc = gpt_absent_leaving_court_d
+			#	left_icon = root
+				show_as_tooltip = { custom_tooltip = { text = absent_leaving_tip } custom_tooltip = { text = absent_leaving_tip_2 } }
+			}
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_trait = gpt_absent } learning >= 8 }
+		name = murden_gravitas_events.0030.e
+		show_as_tooltip = { custom_tooltip = { text = absent_event_ler_tip } }
+		add_character_flag = { flag = gpt_absent_frag_ler years = 5 }
+		add_trait = gpt_absent
+		hidden_effect = {
+			send_interface_message = {
+				type = event_report_neutral_with_text
+				title = gpt_absent_leaving_court_t
+				desc = gpt_absent_leaving_court_d
+			#	left_icon = root
+				show_as_tooltip = { custom_tooltip = { text = absent_leaving_tip } custom_tooltip = { text = absent_leaving_tip_2 } }
+			}
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_trait = gpt_absent } prowess >= 12 }
+		name = murden_gravitas_events.0030.f
+		show_as_tooltip = { custom_tooltip = { text = absent_event_pro_tip } }
+		add_character_flag = { flag = gpt_absent_frag_pro years = 5 }
+		add_trait = gpt_absent
+		hidden_effect = {
+			send_interface_message = {
+				type = event_report_neutral_with_text
+				title = gpt_absent_leaving_court_t
+				desc = gpt_absent_leaving_court_d
+			#	left_icon = root
+				show_as_tooltip = { custom_tooltip = { text = absent_leaving_tip } custom_tooltip = { text = absent_leaving_tip_2 } }
+			}
+		}
+	}
+
+ 	option = {
+		trigger = {
+			has_trait = gpt_absent
+			OR = {
+				has_character_flag = gpt_absent_frag_dip
+				has_character_flag = gpt_absent_frag_stw
+				has_character_flag = gpt_absent_frag_mar
+				has_character_flag = gpt_absent_frag_int
+				has_character_flag = gpt_absent_frag_ler
+				has_character_flag = gpt_absent_frag_pro
+			}
+		}
+		name = murden_gravitas_events.0030.x
+		show_as_tooltip = { custom_tooltip = { text = stop_absent_tip } }
+		if = { limit = { has_character_flag = gpt_absent_frag_dip } remove_character_flag = gpt_absent_frag_dip }
+		if = { limit = { has_character_flag = gpt_absent_frag_stw } remove_character_flag = gpt_absent_frag_stw }
+		if = { limit = { has_character_flag = gpt_absent_frag_mar } remove_character_flag = gpt_absent_frag_mar }
+		if = { limit = { has_character_flag = gpt_absent_frag_int } remove_character_flag = gpt_absent_frag_int }
+		if = { limit = { has_character_flag = gpt_absent_frag_ler } remove_character_flag = gpt_absent_frag_ler }
+		if = { limit = { has_character_flag = gpt_absent_frag_pro } remove_character_flag = gpt_absent_frag_pro }
+ 	 #	remove_trait = gpt_absent
+ 	 #	add_prestige = { value = monthly_character_income multiply = -10 }
+ 		add_stress = 25
+ 		stress_impact = {
+ 			patient = 25
+ 		}
+ 	}
+
+	option = {
+		trigger = { NOT = { has_trait = gpt_absent } }
+		name = murden_gravitas_events.0030.z
+		if = { limit = { highest_held_title_tier = 2 } add_gold = 50 add_prestige_no_experience = 150 show_as_tooltip = { add_prestige = 150 } }
+		if = { limit = { highest_held_title_tier = 3 } add_gold = 100 add_prestige_no_experience = 300 show_as_tooltip = { add_prestige = 300 } }
+		if = { limit = { highest_held_title_tier = 4 } add_gold = 150 add_prestige_no_experience = 450 show_as_tooltip = { add_prestige = 450 } }
+		if = { limit = { highest_held_title_tier = 5 } add_gold = 200 add_prestige_no_experience = 600 show_as_tooltip = { add_prestige = 600 } }
+		ai_chance = { base = 0 }
+	}
+
+	option = {
+		trigger = { has_trait = gpt_absent }
+		name = murden_gravitas_events.0030.z
+		ai_chance = { base = 0 }
+	}
+}
+
+##########################################
+
+murden_gravitas_events.0033 = {
+	type = character_event
+	title = murden_gravitas_events.0034.title
+	desc = murden_gravitas_events.0034.desc
+	
+	theme = stewardship_wealth_focus
+	
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	
+	option = {
+		trigger = { NOT = { has_character_flag = buying_prestige_tribal } }
+		name = murden_gravitas_events.0034.a
+		show_as_tooltip = { custom_tooltip = { text = buying_prestige_tip } }
+		add_character_flag = { flag = buying_prestige_tribal years = 5 }
+		add_stress = 25
+		stress_impact = {
+			greedy = 25
+			zealous = 25
+			impatient = 25
+			shy = 25
+			craven = 25
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = buying_piety_tribal } }
+		name = murden_gravitas_events.0034.b
+		show_as_tooltip = { custom_tooltip = { text = buying_piety_tip } }
+		add_character_flag = { flag = buying_piety_tribal years = 5 }
+		add_stress = 25
+		stress_impact = {
+			greedy = 25
+			sadistic = 25
+			arrogant = 25
+			callous = 25
+			impatient = 25
+			cynical = 25
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = buying_renown_tribal } }
+		name = murden_gravitas_events.0034.c
+		show_as_tooltip = { custom_tooltip = { text = buying_renown_tip } }
+		add_character_flag = { flag = buying_renown_tribal years = 5 }
+		add_stress = 25
+		stress_impact = {
+			greedy = 25
+			paranoid = 25
+			impatient = 25
+			just = 25
+			humble = 25
+			shy = 25
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = buying_dread_tribal } }
+		name = murden_gravitas_events.0034.d
+		show_as_tooltip = { custom_tooltip = { text = buying_dread_tip } }
+		add_character_flag = { flag = buying_dread_tribal years = 5 }
+		add_stress = 30
+		stress_impact = {
+			greedy = 30
+			just = 30
+			humble = 30
+			compassionate = 30
+			forgiving = 30
+			shy = 30
+			craven = 30
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0034.x
+		show_as_tooltip = { custom_tooltip = { text = stop_buying_tip } }
+		remove_character_flag = buying_prestige_tribal
+		remove_character_flag = buying_piety_tribal
+		remove_character_flag = buying_renown_tribal
+		remove_character_flag = buying_dread_tribal
+		add_stress = 30
+		stress_impact = {
+			patient = 30
+		}
+		ai_chance = { base = 0 }
+	}
+
+	option = {
+		name = murden_gravitas_events.0034.z
+		ai_chance = { base = 0 }
+	}
+}
+
+murden_gravitas_events.0034 = {
+	type = character_event
+	title = murden_gravitas_events.0034.title
+	desc = murden_gravitas_events.0034.desc
+	
+	theme = stewardship_wealth_focus
+	
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	
+	option = {
+		trigger = { NOT = { has_character_flag = buying_prestige } }
+		name = murden_gravitas_events.0034.a
+		show_as_tooltip = { custom_tooltip = { text = buying_prestige_tip } }
+		add_character_flag = { flag = buying_prestige years = 5 }
+		add_stress = 25
+		stress_impact = {
+			greedy = 25
+			zealous = 25
+			impatient = 25
+			shy = 25
+			craven = 25
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = buying_piety } }
+		name = murden_gravitas_events.0034.b
+		show_as_tooltip = { custom_tooltip = { text = buying_piety_tip } }
+		add_character_flag = { flag = buying_piety years = 5 }
+		add_stress = 25
+		stress_impact = {
+			greedy = 25
+			sadistic = 25
+			arrogant = 25
+			callous = 25
+			impatient = 25
+			cynical = 25
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = buying_renown } }
+		name = murden_gravitas_events.0034.c
+		show_as_tooltip = { custom_tooltip = { text = buying_renown_tip } }
+		add_character_flag = { flag = buying_renown years = 5 }
+		add_stress = 25
+		stress_impact = {
+			greedy = 25
+			paranoid = 25
+			impatient = 25
+			just = 25
+			humble = 25
+			shy = 25
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_flag = buying_dread } }
+		name = murden_gravitas_events.0034.d
+		show_as_tooltip = { custom_tooltip = { text = buying_dread_tip } }
+		add_character_flag = { flag = buying_dread years = 5 }
+		add_stress = 30
+		stress_impact = {
+			greedy = 30
+			just = 30
+			humble = 30
+			compassionate = 30
+			forgiving = 30
+			shy = 30
+			craven = 30
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0034.x
+		show_as_tooltip = { custom_tooltip = { text = stop_buying_tip } }
+		remove_character_flag = buying_prestige
+		remove_character_flag = buying_piety
+		remove_character_flag = buying_renown
+		remove_character_flag = buying_dread
+		add_stress = 30
+		stress_impact = {
+			patient = 30
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0034.z
+		ai_chance = { base = 0 }
+	}
+}
+
+##########################################
+
+
+murden_gravitas_events.0035 = {
+	type = character_event
+	title = murden_gravitas_events.0006.title
+	desc = murden_gravitas_events.0006.desc
+	
+	theme = stewardship_wealth_focus
+	
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+
+	trigger = {
+		always = no
+		dread >= 80
+	}
+	
+	
+	option = {
+		name = murden_gravitas_events.0001.dread.1
+		
+		trigger = {
+			OR = {
+				has_trait = lustful
+				has_trait = gregarious
+				has_trait = sadistic
+				has_trait = fickle
+			}
+		}
+		
+		dread_buff_lustful = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.2
+		
+		trigger = {
+			OR = {
+				has_trait = lustful
+				has_trait = greedy
+				has_trait = callous
+				has_trait = impatient
+			}
+		}
+		
+		dread_buff_greedy = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.3
+		
+		trigger = {
+			OR = {
+				has_trait = ambitious
+				has_trait = callous
+				has_trait = greedy
+				has_trait = arbitrary
+			}
+		}
+		
+		dread_buff_ambitious = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.4
+		
+		trigger = {
+			OR = {
+				has_trait = gluttonous
+				has_trait = impatient
+				has_trait = arrogant
+				has_trait = lazy
+			}
+		}
+		
+		dread_buff_gluttonous = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.5
+		
+		trigger = {
+			OR = {
+				has_trait = brave
+				has_trait = gregarious
+				has_trait = wrathful
+				has_trait = arbitrary
+			}
+		}
+		
+		dread_buff_arbitrary = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.6
+		
+		trigger = {
+			OR = {
+				has_trait = cynical
+				has_trait = callous
+				has_trait = vengeful
+				has_trait = stubborn
+			}
+		}
+		
+		dread_buff_cynical = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.7
+		
+		trigger = {
+			OR = {
+				has_trait = ambitious
+				has_trait = deceitful
+				has_trait = lazy
+				has_trait = arbitrary
+			}
+		}
+		
+		dread_buff_deceitful = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.8
+		
+		trigger = {
+			OR = {
+				has_trait = shy
+				has_trait = callous
+				has_trait = greedy
+				has_trait = lazy
+			}
+		}
+		
+		dread_buff_callous = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.9
+		
+		trigger = {
+			OR = {
+				has_trait = sadistic
+				has_trait = shy
+				has_trait = lazy
+				has_trait = impatient
+			}
+		}
+		
+		dread_buff_sadistic = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.10
+		
+		trigger = {
+			OR = {
+				has_trait = brave
+				has_trait = arrogant
+				has_trait = impatient
+				has_trait = wrathful
+			}
+		}
+		
+		dread_buff_arrogant = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.11
+		
+		trigger = {
+			OR = {
+				has_trait = vengeful
+				has_trait = wrathful
+				has_trait = diligent
+				has_trait = stubborn
+			}
+		}
+		
+		dread_buff_vengeful = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.12
+		
+		trigger = {
+			OR = {
+				has_trait = lazy
+				has_trait = shy
+				has_trait = craven
+				has_trait = fickle
+			}
+		}
+		
+		dread_buff_lazy = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.13
+		
+		trigger = {
+			OR = {
+				has_trait = diligent
+				has_trait = deceitful
+				has_trait = craven
+				has_trait = patient
+			}
+		}
+		
+		dread_buff_educate = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.14
+		
+		trigger = {
+			OR = {
+				has_trait = wrathful
+				has_trait = arrogant
+				has_trait = ambitious
+				has_trait = stubborn
+			}
+		}
+		
+		dread_buff_intimidate = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.16
+		
+		trigger = {
+			OR = {
+				has_trait = diligent
+				has_trait = ambitious
+				has_trait = shy
+				has_trait = vengeful
+			}
+		}
+		
+		dread_buff_centralize = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.15
+		
+		trigger = {
+			OR = {
+				has_trait = paranoid
+				has_trait = patient
+				has_trait = fickle
+				has_trait = arrogant
+			}
+		}
+		
+		dread_buff_absurd = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.17
+		
+		trigger = {
+			OR = {
+				has_trait = lazy
+				has_trait = arbitrary
+				has_trait = paranoid
+				has_trait = cynical
+			}
+		}
+		
+		dread_buff_madness = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.18
+		
+		trigger = {
+			OR = {
+				has_trait = greedy
+				has_trait = brave
+				has_trait = cynical
+				has_trait = patient
+			}
+		}
+		
+		dread_buff_steal = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.19
+		
+		trigger = {
+			OR = {
+				has_trait = arrogant
+				has_trait = impatient
+				has_trait = gregarious
+				has_trait = brave
+			}
+		}
+		
+		dread_buff_artisans = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.dread.20
+		
+		trigger = {
+			OR = {
+				has_trait = paranoid
+				has_trait = vengeful
+				has_trait = wrathful
+				has_trait = impatient
+			}
+		}
+		
+		dread_buff_murder = true
+	}
+
+	option = {
+		name = murden_gravitas_events.0001.m
+		ai_chance = { base = 0 }	
+	}
+}
+
+
+murden_gravitas_events.0007 = {
+	type = character_event
+	title = murden_gravitas_events.0007.title
+	desc = murden_gravitas_events.0007.desc
+	
+	theme = stewardship_wealth_focus
+	
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+
+	trigger = { 
+		always = no
+		dread >= 30
+	}
+
+	# use prestige to obtain money
+	
+	
+	option = {
+		name = murden_gravitas_events.00071
+		
+		trigger = {
+			diplomacy >= 16
+			NOT = { has_character_modifier = legacy_chancellor10_modifier_dread }
+		}
+		
+		diplomacy_buff_dread = true
+	}
+
+	option = {
+		name = murden_gravitas_events.00072
+		
+		trigger = {
+			stewardship >= 16
+			NOT = { has_character_modifier = legacy_steward10_modifier_dread }
+		}
+		
+		stewardship_buff_dread = true
+	}
+
+	option = {
+		name = murden_gravitas_events.00073
+		
+		trigger = {
+			martial >= 16
+			NOT = { has_character_modifier = legacy_marshal10_modifier_dread }
+		}
+		
+		martial_buff_dread = true
+	}
+
+	option = {
+		name = murden_gravitas_events.00074
+		
+		trigger = {
+			intrigue >= 16
+			NOT = { has_character_modifier = legacy_spymaster10_modifier_dread }
+		}
+		
+		intrigue_buff_dread = true
+	}
+
+	option = {
+		name = murden_gravitas_events.00075
+		
+		trigger = {
+			learning >= 16
+			NOT = { has_character_modifier = legacy_chaplain10_modifier_dread }
+		}
+		
+		learning_buff_dread = true
+	}
+
+
+	option = {
+		name = murden_gravitas_events.00076
+		
+		trigger = {
+			prowess >= 16
+			NOT = { has_character_modifier = legacy_prowess10_modifier_dread }
+		}
+		
+		prowess_buff_dread = true
+	}
+
+
+	option = {
+		name = murden_gravitas_events.0001.m
+		ai_chance = { base = 0 }
+	}
+}
+
+##########################################
+
+
+murden_gravitas_events.0040 = {
+	type = character_event
+	title = murden_gravitas_events.0040.title
+	desc = murden_gravitas_events.0040.desc
+	
+	theme = diplomacy_foreign_affairs_focus
+	
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+
+	option = {
+		trigger = { NOR = { has_character_modifier = gpt_trade_power } }
+		name = murden_gravitas_events.0040.b
+		show_as_tooltip = { custom_tooltip = { text = gpt_trade_power_tip } custom_tooltip = { text = gpt_knigts_assigned } }
+		add_character_modifier = { modifier = gpt_trade_power years = 10 }
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_trade_power_t
+				desc = gpt_trade_power_d
+				show_as_tooltip = { add_character_modifier = { modifier = gpt_trade_power years = 10 } }
+			}
+		}
+	}
+	
+	option = {
+		trigger = { NOR = { has_character_modifier = gpt_combat_piracy } }
+		name = murden_gravitas_events.0040.a
+		show_as_tooltip = { custom_tooltip = { text = gpt_combat_piracy_tip } custom_tooltip = { text = gpt_knigts_assigned } }
+		add_character_modifier = { modifier = gpt_combat_piracy years = 10 }
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_combat_piracy_t
+				desc = gpt_combat_piracy_d
+				show_as_tooltip = { add_character_modifier = { modifier = gpt_combat_piracy years = 10 } }
+			}
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_modifier = gpt_allow_slave_trading } diplomacy >= 16  }
+		name = murden_gravitas_events.0040.c
+		show_as_tooltip = { custom_tooltip = { text = gpt_allow_slave_trading_tip } custom_tooltip = { text = gpt_knigts_assigned } }
+		add_character_modifier = { modifier = gpt_allow_slave_trading years = 10 }
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_allow_slave_trading_t
+				desc = gpt_allow_slave_trading_d
+				show_as_tooltip = { add_character_modifier = { modifier = gpt_allow_slave_trading years = 10 } }
+			}
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_modifier = gpt_import_resources } stewardship >= 16  }
+		name = murden_gravitas_events.0040.d
+		show_as_tooltip = { custom_tooltip = { text = gpt_import_resources_tip } custom_tooltip = { text = gpt_knigts_assigned } }
+		add_character_modifier = { modifier = gpt_import_resources years = 10 }
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_import_resources_t
+				desc = gpt_import_resources_d
+				show_as_tooltip = { add_character_modifier = { modifier = gpt_import_resources years = 10 } }
+			}
+		}
+		stress_impact = {
+			greedy = 20
+			generous = -12
+			patient = -12
+			diligent = -12
+			lazy = 12
+			gluttonous 12
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_modifier = gpt_military_ships } martial >= 16  }
+		name = murden_gravitas_events.0040.e
+		show_as_tooltip = { custom_tooltip = { text = gpt_military_ships_tip } custom_tooltip = { text = gpt_knigts_assigned } }
+		add_character_modifier = { modifier = gpt_military_ships years = 10 }
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_military_ships_t
+				desc = gpt_military_ships_d
+				show_as_tooltip = { add_character_modifier = { modifier = gpt_military_ships years = 10 } }
+			}
+		}
+		stress_impact = {
+			ambitious = -12
+			humble = 20
+			content = 12
+			arrogant = -12
+			paranoid = -12
+			trusting = 12
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_modifier = gpt_market_speculation } intrigue >= 16  }
+		name = murden_gravitas_events.0040.f
+		show_as_tooltip = { custom_tooltip = { text = gpt_market_speculation_tip } custom_tooltip = { text = gpt_knigts_assigned } }
+		add_character_modifier = { modifier = gpt_market_speculation years = 10 }
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_market_speculation_t
+				desc = gpt_market_speculation_d
+				show_as_tooltip = { add_character_modifier = { modifier = gpt_market_speculation years = 10 } }
+			}
+		}
+		stress_impact = {
+			just = 12
+			honest = 12
+			impatient = 20
+			greedy = -12
+			arrogant = -12
+			deceitful = -12
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_modifier = gpt_allow_all_missionaries } learning >= 16  }
+		name = murden_gravitas_events.0040.g
+		show_as_tooltip = { custom_tooltip = { text = gpt_allow_all_missionaries_tip } custom_tooltip = { text = gpt_knigts_assigned } }
+		add_character_modifier = { modifier = gpt_allow_all_missionaries years = 10 }
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_allow_all_missionaries_t
+				desc = gpt_allow_all_missionaries_d
+				show_as_tooltip = { add_character_modifier = { modifier = gpt_allow_all_missionaries years = 10 } }
+			}
+		}
+		stress_impact = {
+			zealous = 20
+			sadistic = 12
+			wrathful = 12
+			cynical = -12
+			compassionate = -12
+			calm = -12
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_character_modifier = gpt_allow_privateers } prowess >= 16 }
+		name = murden_gravitas_events.0040.h
+		show_as_tooltip = { custom_tooltip = { text = gpt_allow_privateers_tip } custom_tooltip = { text = gpt_knigts_assigned } }
+		add_character_modifier = { modifier = gpt_allow_privateers years = 10 }
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_allow_privateers_t
+				desc = gpt_allow_privateers_d
+				show_as_tooltip = { add_character_modifier = { modifier = gpt_allow_privateers years = 10 } }
+			}
+		}
+		stress_impact = {
+			compassionate = 20
+			just = 12
+			craven = 12
+			brave = -12
+			arbitrary = -12
+			sadistic = -12
+		}
+	}
+
+	option = {
+		name = murden_gravitas_events.0040.z
+		if = { limit = { highest_held_title_tier = 2 } add_gold = 25 add_prestige_no_experience = 100 show_as_tooltip = { add_prestige = 100 } }
+		if = { limit = { highest_held_title_tier = 3 } add_gold = 50 add_prestige_no_experience = 150 show_as_tooltip = { add_prestige = 150 } }
+		if = { limit = { highest_held_title_tier = 4 } add_gold = 75 add_prestige_no_experience = 200 show_as_tooltip = { add_prestige = 200 } }
+		if = { limit = { highest_held_title_tier = 5 } add_gold = 100 add_prestige_no_experience = 250 show_as_tooltip = { add_prestige = 250 } }
+		ai_chance = { base = 0 }
+	}
+}
+
+##########################################
+
+@tyranny_1 = 6
+@tyranny_2 = 12
+@tyranny_3 = 18
+
+murden_gravitas_events.0041 = {
+	type = character_event
+	title = murden_gravitas_events.0041.title
+	desc = murden_gravitas_events.0041.desc
+	
+	theme = martial_strategy_focus
+	
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+	
+	option = {
+		name = murden_gravitas_events.0041.a
+		show_as_tooltip = { custom_tooltip = { text = gpt_low_war_tax_tip } }
+		add_character_modifier = { modifier = gpt_low_war_tax }
+		add_tyranny = @tyranny_1
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_low_war_tax_t
+				desc = gpt_low_war_tax_d
+				show_as_tooltip = { add_tyranny = @tyranny_1 add_character_modifier = { modifier = gpt_low_war_tax } }
+			}
+		}
+		stress_impact = {
+ 			paranoid = -6
+			arrogant = -6
+			ambitious = -6
+			greedy = -6
+			impatient = -6
+			craven = -6
+ 		}
+		stress_impact = {
+ 			brave = 10
+			calm = 10
+			just = 10
+			patient = 10
+			callous = 10
+			stubborn = 10
+ 		}
+		ai_chance = { 
+			base = 25
+			modifier = {
+				add = -25
+				has_trait = brave
+				has_trait = calm
+				has_trait = just
+				has_trait = patient
+				has_trait = content
+			}
+		}
+	}	
+
+	option = {
+		name = murden_gravitas_events.0041.b
+		show_as_tooltip = { custom_tooltip = { text = gpt_medium_war_tax_tip } }
+		add_character_modifier = { modifier = gpt_medium_war_tax }
+		add_tyranny = @tyranny_2
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_medium_war_tax_t
+				desc = gpt_medium_war_tax_d
+				show_as_tooltip = { add_tyranny = @tyranny_2 add_character_modifier = { modifier = gpt_medium_war_tax } }
+			}
+		}
+		stress_impact = {
+ 			paranoid = -12
+			arrogant = -12
+			ambitious = -12
+			greedy = -12
+			impatient = -12
+			craven = -12
+ 		}
+		stress_impact = {
+ 			brave = 20
+			calm = 20
+			just = 20
+			patient = 20
+			callous = 20
+			stubborn = 20
+ 		}
+		ai_chance = { 
+			base = 25 
+			modifier = {
+				add = 50
+				has_trait = paranoid
+				has_trait = arrogant
+				has_trait = ambitious
+				has_trait = greedy
+				has_trait = impatient
+			}
+			modifier = {
+				add = -25
+				has_trait = brave
+				has_trait = calm
+				has_trait = just
+				has_trait = patient
+				has_trait = content
+			}
+		}
+	}	
+
+	option = {
+		name = murden_gravitas_events.0041.c
+		show_as_tooltip = { custom_tooltip = { text = gpt_high_war_tax_tip } }
+		add_character_modifier = { modifier = gpt_high_war_tax }
+		add_tyranny = @tyranny_3
+		hidden_effect = {
+			send_interface_message = {
+				type = event_decision_start_end_with_text
+				title = gpt_high_war_tax_t
+				desc = gpt_high_war_tax_d
+				show_as_tooltip = { add_tyranny = @tyranny_3 add_character_modifier = { modifier = gpt_high_war_tax } }
+			}
+		}
+		stress_impact = {
+ 			paranoid = -18
+			arrogant = -18
+			ambitious = -18
+			greedy = -18
+			impatient = -18
+			craven = -18
+ 		}
+		stress_impact = {
+ 			brave = 30
+			calm = 30
+			just = 30
+			patient = 30
+			callous = 30
+			stubborn = 30
+ 		}
+		ai_chance = { 
+			base = 0
+			modifier = {
+				add = 1000
+				OR = {
+					has_trait = craven
+				}
+			}
+		}
+	}	
+
+	option = {
+		name = murden_gravitas_events.0041.z
+		if = { limit = { is_at_war_as_attacker = no highest_held_title_tier = 2 } add_piety_no_experience = 100 }
+		if = { limit = { is_at_war_as_attacker = no highest_held_title_tier = 3 } add_piety_no_experience = 150 }
+		if = { limit = { is_at_war_as_attacker = no highest_held_title_tier = 4 } add_piety_no_experience = 250 }
+		if = { limit = { is_at_war_as_attacker = no highest_held_title_tier = 5 } add_piety_no_experience = 350 }
+		if = { limit = { is_at_war_as_attacker = yes highest_held_title_tier = 2 } add_piety_no_experience = 200 }
+		if = { limit = { is_at_war_as_attacker = yes highest_held_title_tier = 3 } add_piety_no_experience = 300 }
+		if = { limit = { is_at_war_as_attacker = yes highest_held_title_tier = 4 } add_piety_no_experience = 500 }
+		if = { limit = { is_at_war_as_attacker = yes highest_held_title_tier = 5 } add_piety_no_experience = 700 }
+		ai_chance = { base = 0 }
+	}
+}

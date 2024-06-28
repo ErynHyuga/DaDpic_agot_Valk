@@ -1,0 +1,115 @@
+﻿namespace = mz_amazon_training_dynasty
+
+## Amazon Training Regimen
+mz_amazon_training_dynasty.0001 = {
+	type = character_event
+	title = mz_amazon_training_dynasty.0001.t
+	desc = mz_amazon_training_dynasty.0001.desc
+	theme = martial
+	override_background = { reference = courtyard }
+	left_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = {
+				any_equipped_character_artifact = {
+					artifact_slot_type = primary_armament
+					artifact_type = mace
+				}
+			}
+			animation = aggressive_mace
+		}
+		triggered_animation = {
+			trigger = {
+				any_equipped_character_artifact = {
+					artifact_slot_type = primary_armament
+					artifact_type = sword
+				}
+			}
+			animation = aggressive_sword
+		}
+		triggered_animation = {
+			trigger = {
+				any_equipped_character_artifact = {
+					artifact_slot_type = primary_armament
+					artifact_type = dagger
+				}
+			}
+			animation = aggressive_dagger
+		}
+		triggered_animation = {
+			trigger = {
+				any_equipped_character_artifact = {
+					artifact_slot_type = primary_armament
+					artifact_type = axe
+				}
+			}
+			animation = aggressive_axe
+		}
+		triggered_animation = {
+			trigger = {
+				any_equipped_character_artifact = {
+					artifact_slot_type = primary_armament
+					artifact_type = hammer
+				}
+			}
+			animation = aggressive_hammer
+		}
+		animation = aggressive_spear
+	}
+	right_portrait = {
+		character = scope:mz_amazon_trainer
+		animation = war_attacker
+	}
+
+	immediate = {
+		play_music_cue = mx_cue_sacredrite
+		scope:mz_training_ruler = {
+			add_character_flag = wear_armor
+		}
+		scope:mz_amazon_trainer = {
+			add_character_flag = wear_armor
+		}
+	}
+
+	option = { #get prowess
+		name = mz_amazon_training_dynasty.0001.a
+		mz_amazon_training_ruler_effect = yes
+		every_knight = {
+			custom = custom.every_knight
+			mz_amazon_training_knight_effect = yes
+		}
+	}
+	
+	after = {
+		hidden_effect = {
+			scope:mz_training_ruler = {
+				remove_character_flag = wear_armor
+				if = {
+					limit = { 
+						NOT = { has_trait = mz_amazonian_warrior }
+						is_female = yes
+					}
+					add_character_modifier = {
+						modifier = mz_aspiring_amazon_warrior
+						years = 10
+					}
+				}
+			}
+			scope:mz_amazon_trainer = {
+				remove_character_flag = wear_armor
+			}
+			every_knight = {
+				if = {
+					limit = { 
+						NOT = { has_trait = mz_amazonian_warrior }
+						is_female = yes
+					}
+					add_character_modifier = {
+						modifier = mz_aspiring_amazon_warrior
+						years = 10
+					}
+				}			
+			}
+		}
+	}
+}

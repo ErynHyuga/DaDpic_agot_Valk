@@ -1,0 +1,840 @@
+﻿namespace = qss_decisions
+
+
+qss_decisions.0007 = { # Summon Albino to Court
+	hidden = yes
+	immediate = {
+		create_character = {
+			location = root.capital_province
+			culture = root.location.culture
+			faith = root.location.faith	
+			save_scope_as = albino
+			template = qss_albino_character
+			dynasty = none
+		}
+		add_visiting_courtier = scope:albino
+		send_interface_message = {
+			type = event_generic_good_with_text
+			title = qss_decisions.0007.t
+			desc = qss_decisions.0007.desc
+			left_icon = scope:albino
+		}
+	}
+}
+
+
+qss_decisions.0009 = { # Present Débutante
+	hidden = yes
+	immediate = {
+		create_character = {
+			location = root.capital_province
+			culture = root.culture
+			faith = root.faith			
+			save_scope_as = debutante
+			template = qss_debutante_character
+		}
+		add_visiting_courtier = scope:debutante
+		send_interface_message = {
+			type = character_arrived
+			title = qss_decisions.0002.t
+			desc = qss_decisions.0002.desc
+			left_icon = scope:debutante
+		}
+	}
+}
+
+qss_decisions.0010 = { # newguests
+	hidden = yes
+	immediate = {
+		random_list = {
+			20 = {
+				create_character = {
+					location = root.capital_province	
+					save_scope_as = debutante
+					template = qss_debutante_character
+				}
+				add_visiting_courtier = scope:debutante
+				send_interface_message = {
+					type = character_arrived
+					title = qss_decisions.0002.t
+					desc = qss_decisions.0002.desc
+					left_icon = scope:debutante
+				}
+			}
+			10 = {
+				create_character = {
+					location = root.capital_province
+					save_scope_as = newguest
+					template = qss_prostitute
+				}
+				add_visiting_courtier = scope:newguest
+				send_interface_message = {
+					type = character_arrived
+					title = newguest.title
+					desc = newguest.0001.d
+					left_icon = scope:newguest
+				}
+			}
+			5 = {
+				create_character = {
+					location = root.capital_province
+					save_scope_as = newguest
+					template = qss_educated_deficient
+				}
+				add_visiting_courtier = scope:newguest
+				send_interface_message = {
+					type = character_arrived
+					title = newguest.title
+					desc = newguest.0002.d
+					left_icon = scope:newguest
+				}
+			}
+			5 = {
+				create_character = {
+					location = root.capital_province
+					save_scope_as = newguest
+					template = qss_wandering_monk
+				}
+				add_visiting_courtier = scope:newguest
+				send_interface_message = {
+					type = character_arrived
+					title = newguest.title
+					desc = newguest.0003.d
+					left_icon = scope:newguest
+				}
+			}
+			5 = {
+				create_character = {
+					location = root.capital_province
+					save_scope_as = newguest
+					template = qss_young_prodigy
+				}
+				add_visiting_courtier = scope:newguest
+				send_interface_message = {
+					type = character_arrived
+					title = newguest.title
+					desc = newguest.0004.d
+					left_icon = scope:newguest
+				}
+			}
+			5 = {
+				create_character = {
+					location = root.capital_province
+					save_scope_as = newguest
+					template = qss_strongman
+				}
+				add_visiting_courtier = scope:newguest
+				send_interface_message = {
+					type = character_arrived
+					title = newguest.title
+					desc = newguest.0005.d
+					left_icon = scope:newguest
+				}
+			}
+			5 = {
+				create_character = {
+					location = root.capital_province
+					save_scope_as = newguest
+					template = qss_witchwoman
+				}
+				add_visiting_courtier = scope:newguest
+				send_interface_message = {
+					type = character_arrived
+					title = newguest.title
+					desc = newguest.0006.d
+					left_icon = scope:newguest
+				}
+			}
+			5 = {
+				create_character = {
+					location = root.capital_province
+					save_scope_as = newguest
+					template = qss_criminal
+				}
+				add_visiting_courtier = scope:newguest
+				send_interface_message = {
+					type = character_arrived
+					title = newguest.title
+					desc = newguest.0007.d
+					left_icon = scope:newguest
+				}
+			}
+			5 = {
+				create_character = {
+					location = root.capital_province
+					save_scope_as = newguest
+					template = qss_warveteran
+				}
+				add_visiting_courtier = scope:newguest
+				send_interface_message = {
+					type = character_arrived
+					title = newguest.title
+					desc = newguest.0008.d
+					left_icon = scope:newguest
+				}
+			}
+			5 = {
+				create_character = {
+					location = root.capital_province
+					save_scope_as = newguest
+					template = qss_loyalist
+				}
+				add_visiting_courtier = scope:newguest
+				send_interface_message = {
+					type = character_arrived
+					title = newguest.title
+					desc = newguest.0009.d
+					left_icon = scope:newguest
+				}
+			}
+			5 = {
+				modifier = {
+					add = 25
+					primary_title = {
+						tier >= 4
+						has_title_law = gpt_democratic_succession_law
+					}
+				}
+				create_character = {
+					location = root.capital_province
+					save_scope_as = newguest
+					template = qss_revolutionary
+				}
+				add_visiting_courtier = scope:newguest
+				send_interface_message = {
+					type = character_arrived
+					title = newguest.title
+					desc = newguest.0010.d
+					left_icon = scope:newguest
+				}
+			}
+			5 = {
+				create_character = {
+					location = root.capital_province
+					save_scope_as = newguest
+					template = qss_adventurer
+				}
+				add_visiting_courtier = scope:newguest
+				send_interface_message = {
+					type = character_arrived
+					title = newguest.title
+					desc = newguest.0011.d
+					left_icon = scope:newguest
+				}
+			}
+			5 = {
+				create_character = {
+					location = root.capital_province
+					save_scope_as = newguest
+					template = qss_court_slave
+				}
+				add_visiting_courtier = scope:newguest
+				send_interface_message = {
+					type = character_arrived
+					title = newguest.title
+					desc = newguest.0012.d
+					left_icon = scope:newguest
+				}
+			}
+		 #	5 = {
+		 #		create_character = {
+		 #			location = root.capital_province
+		 #			save_scope_as = newguest
+		 #			template = qss_foreingner
+		 #		}
+		 #		add_visiting_courtier = scope:newguest
+		 #		send_interface_message = {
+		 #			type = character_arrived
+		 #			title = newguest.title
+		 #			desc = newguest.0013.d
+		 #			left_icon = scope:newguest
+		 #		}
+		 #	}
+			5 = {
+				create_character = {
+					location = root.capital_province
+					save_scope_as = newguest
+					template = qss_disgracednoble
+				}
+				add_visiting_courtier = scope:newguest
+				send_interface_message = {
+					type = character_arrived
+					title = newguest.title
+					desc = newguest.0014.d
+					left_icon = scope:newguest
+				}
+			}
+			5 = {
+				create_character = {
+					location = root.capital_province
+					save_scope_as = newguest
+					template = qss_traumatized
+				}
+				add_visiting_courtier = scope:newguest
+				send_interface_message = {
+					type = character_arrived
+					title = newguest.title
+					desc = newguest.0015.d
+					left_icon = scope:newguest
+				}
+			}
+			5 = {
+				create_character = {
+					location = root.capital_province
+					save_scope_as = newguest
+					template = qss_diseased
+				}
+				add_visiting_courtier = scope:newguest
+				send_interface_message = {
+					type = character_arrived
+					title = newguest.title
+					desc = newguest.0016.d
+					left_icon = scope:newguest
+				}
+			}
+		}
+	}
+}
+
+namespace = create_relationship
+
+create_relationship.0001 = {
+	type = character_event
+	title = create_relationship.0001.title
+	desc = create_relationship.0001.desc
+	
+	theme = stewardship_wealth_focus
+	
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+
+	trigger = { 
+		exists = capital_province
+	 #	exists = culture
+	 #	exists = faith
+	}
+	
+	option = {
+		name = create_relationship_event.0001
+		
+		trigger = {
+			has_trait = brave
+		}
+		
+		brave_character_create = true
+
+		ai_chance = { base = 30 }	
+	}
+
+	option = {
+		name = create_relationship_event.0002
+		
+		trigger = {
+			has_trait = craven
+		}
+		
+		craven_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0003
+		
+		trigger = {
+			has_trait = calm
+		}
+		
+		calm_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0004
+		
+		trigger = {
+			has_trait = wrathful
+		}
+		
+		wrathful_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0005
+		
+		trigger = {
+			has_trait = chaste
+		}
+		
+		chaste_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0006
+		
+		trigger = {
+			has_trait = lustful
+		}
+		
+		lustful_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0007
+		
+		trigger = {
+			has_trait = content
+		}
+		
+		content_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0008
+		
+		trigger = {
+			has_trait = ambitious
+		}
+		
+		ambitious_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0009
+		
+		trigger = {
+			has_trait = diligent
+		}
+		
+		diligent_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0010
+		
+		trigger = {
+			has_trait = lazy
+		}
+		
+		lazy_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0011
+		
+		trigger = {
+			has_trait = fickle
+		}
+		
+		fickle_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0012
+		
+		trigger = {
+			has_trait = stubborn
+		}
+		
+		stubborn_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0013
+		
+		trigger = {
+			has_trait = forgiving
+		}
+		
+		forgiving_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0014
+		
+		trigger = {
+			has_trait = vengeful
+		}
+		
+		vengeful_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0015
+		
+		trigger = {
+			has_trait = generous
+		}
+		
+		generous_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0016
+		
+		trigger = {
+			has_trait = greedy
+		}
+		
+		greedy_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0017
+		
+		trigger = {
+			has_trait = gregarious
+		}
+		
+		gregarious_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0018
+		
+		trigger = {
+			has_trait = shy
+		}
+		
+		shy_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0019
+		
+		trigger = {
+			has_trait = honest
+		}
+		
+		honest_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0020
+		
+		trigger = {
+			has_trait = deceitful
+		}
+		
+		deceitful_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0021
+		
+		trigger = {
+			has_trait = humble
+		}
+		
+		humble_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0022
+		
+		trigger = {
+			has_trait = arrogant
+		}
+		
+		arrogant_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0023
+		
+		trigger = {
+			has_trait = just
+		}
+		
+		just_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0024
+		
+		trigger = {
+			has_trait = arbitrary
+		}
+		
+		arbitrary_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+	
+	option = {
+		name = create_relationship_event.0025
+		
+		trigger = {
+			has_trait = patient
+		}
+		
+		patient_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0026
+		
+		trigger = {
+			has_trait = impatient
+		}
+		
+		impatient_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0027
+		
+		trigger = {
+			has_trait = temperate
+		}
+		
+		temperate_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0028
+		
+		trigger = {
+			has_trait = gluttonous
+		}
+		
+		gluttonous_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0029
+		
+		trigger = {
+			has_trait = trusting
+		}
+		
+		trusting_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0030
+		
+		trigger = {
+			has_trait = paranoid
+		}
+		
+		paranoid_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0031
+		
+		trigger = {
+			has_trait = zealous
+		}
+		
+		zealous_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0032
+		
+		trigger = {
+			has_trait = cynical
+		}
+		
+		cynical_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0033
+		
+		trigger = {
+			has_trait = compassionate
+		}
+		
+		compassionate_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0034
+		
+		trigger = {
+			has_trait = callous
+		}
+		
+		callous_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0035
+		
+		trigger = {
+			has_trait = sadistic
+		}
+		
+		sadistic_character_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+ 	option = {
+ 		name = create_relationship_event.0036
+ 
+ 		ai_chance = { base = 0 }
+ 	}
+}
+
+create_relationship.0002 = {
+	type = character_event
+	title = create_relationship.0001.title
+	desc = create_relationship.0001.desc
+	
+	theme = stewardship_wealth_focus
+	
+	left_portrait = {
+		character = root
+		animation = idle
+	}
+
+	trigger = { 
+		exists = capital_province
+	}
+	
+	option = {
+		name = create_relationship_event.0001
+		
+		trigger = {
+			gold >= 300
+			is_male = yes
+		}
+		
+	 #	child_slave_create = true
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0002
+		
+		trigger = {
+			gold >= 250
+		}
+		
+	 #	child_slave_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0003
+		
+		trigger = {
+			gold >= 200
+		}
+		
+	 #	child_slave_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0004
+		
+		trigger = {
+			gold >= 150
+		}
+		
+	 	exotic_slave_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0005
+		
+		trigger = {
+			gold >= 100
+		}
+		
+		virgin_slave_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		name = create_relationship_event.0006
+		
+		trigger = {
+			gold >= 50
+		}
+		
+		child_slave_create = true	
+
+		ai_chance = { base = 30 }
+	}
+
+ 	option = {
+ 		name = create_relationship_event.0036
+ 
+ 		ai_chance = { base = 0 }
+ 	}
+}
